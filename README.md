@@ -1,1 +1,1 @@
-# mppsc-mcq-hub
+# MPPSC MCQ Hub Portal
