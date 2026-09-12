@@ -1,10 +1,9 @@
-<!DOCTYPE html><html lang="hi"><meta charset="UTF-8"><title>Quiz</title>
-<link rel="stylesheet" href="style.css"><body><div class="box"><div id=q></div><div id=opts></div><button onclick="next()">Next</button></div>
-<script src="questions.js"></script><script>
-let i=0,ans=[];
-function load(){q.innerHTML="<h2>"+questions[i].q+"</h2>";opts.innerHTML="";
-questions[i].o.forEach((t,n)=>{opts.innerHTML+=`<label class="opt"><input type="radio" name="a" value="${n}" ${ans[i]==n?"checked":""}><span>${t}</span></label>`;});
-}
-function next(){let c=document.querySelector('input[name=a]:checked');if(!c)return;ans[i]=+c.value;
-if(i<questions.length-1){i++;load();}else{let s=0,r="<h2>Result</h2>";questions.forEach((x,k)=>{if(ans[k]==x.a)s++;r+=`<p><b>Q${k+1}:</b> ${x.q}<br>✔ ${x.o[x.a]}<br><i>${x.e}</i></p><hr>`});document.body.innerHTML=`<div class=box><h1>${localStorage.getItem("student")||"Student"}</h1><h2>Score ${s}/${questions.length}</h2>${r}</div>`;}}
-load();</script></body></html>
+<!DOCTYPE html><html lang='hi'><meta charset='UTF-8'><title>20 प्रश्न टेस्ट</title>
+<link rel='stylesheet' href='style.css'><body><div class='box'><h1>20 प्रश्न टेस्ट</h1><div id='quiz'></div>
+<button onclick='submitQuiz()'>टेस्ट जमा करें</button><div id='result'></div></div>
+<script src='questions.js'></script><script>
+const qDiv=document.getElementById('quiz');
+questions.forEach((q,i)=>{let h=`<div class="qbox"><h3>प्रश्न ${i+1}: ${q.q}</h3>`;
+q.o.forEach((o,j)=>{h+=`<label class="opt"><input type="radio" name="q${i}" value="${j}"><span>${o}</span></label>`});h+="</div>";qDiv.innerHTML+=h;});
+function submitQuiz(){let s=0,out="<h2>परिणाम</h2>";questions.forEach((q,i)=>{let c=document.querySelector(`input[name=q${i}]:checked`);let a=c?+c.value:-1;if(a===q.a)s++;out+=`<div class=qbox><b>Q${i+1}:</b> ${q.q}<br>✔ सही उत्तर: ${q.o[q.a]}<br><i>व्याख्या: ${q.e}</i></div>`});result.innerHTML=`<h2>${localStorage.getItem('student')||'Student'} - स्कोर: ${s}/20</h2>`+out;window.scrollTo(0,document.body.scrollHeight);}
+</script></body></html>

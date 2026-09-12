@@ -1,6 +1,7 @@
 body{margin:0;background:#051f4d;color:#fff;font-family:Arial}
-.box{max-width:700px;margin:40px auto;background:#17346d;padding:25px;border-radius:16px}
-input,button{width:100%;padding:14px;border-radius:10px;border:none;margin:10px 0}
-button{background:#f6c90e;font-weight:bold}
-.opt{display:flex;align-items:center;gap:12px;background:#23468c;padding:12px;border-radius:10px;margin:10px 0;cursor:pointer}
-.opt input[type=radio]{width:22px;height:22px;accent-color:#f6c90e}
+.box{max-width:900px;margin:20px auto;background:#17346d;padding:20px;border-radius:16px}
+input,button{padding:12px;border-radius:10px;border:none} #name{width:100%;margin:10px 0}
+button{width:100%;background:#f6c90e;font-weight:bold;margin-top:20px}
+.qbox{background:#102a5c;padding:15px;border-radius:12px;margin:18px 0}
+.opt{display:flex;align-items:center;gap:10px;background:#23468c;padding:10px;border-radius:8px;margin:8px 0;cursor:pointer}
+.opt input[type=radio]{width:20px;height:20px;accent-color:#f6c90e}

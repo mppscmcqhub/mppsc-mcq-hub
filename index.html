@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="hi"><meta charset="UTF-8"><title>MPPPSC MCQ Hub</title>
-<link rel="stylesheet" href="style.css"><body><div class="box"><h1>MPPPSC MCQ Hub</h1>
-<input id=name placeholder="अपना नाम लिखें"><button onclick="start()">टेस्ट शुरू करें</button></div>
-<script>function start(){localStorage.setItem("student",name.value);location="quiz.html";}</script></body></html>
+<!DOCTYPE html><html lang='hi'><meta charset='UTF-8'><title>MPPSC MCQ Hub</title>
+<link rel='stylesheet' href='style.css'><body><div class='box'><h1>MPPSC MCQ Hub</h1>
+<p>20 प्रश्न एक साथ</p><input id='name' placeholder='अपना नाम लिखें'><button onclick='go()'>टेस्ट शुरू करें</button></div>
+<script>function go(){localStorage.setItem('student',document.getElementById('name').value);location='quiz.html';}</script></body></html>
