@@ -1,114 +1,114 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MPPSC Unit-10 Test</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MPPSC Unit-10 Test</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <div class="container">
 
-    <div class="topbar">
-        <a href="index.html" class="back">← Home</a>
-        <span id="langBadge">Hindi + English</span>
-    </div>
+  <div class="topbar">
+    <a href="index.html" class="back">← Home</a>
+    <span id="langBadge">Hindi + English</span>
+  </div>
 
-    <h1>MPPSC Unit-10 टेस्ट (20 प्रश्न)</h1>
-    <p id="subtitle">20 प्रश्न • ऑनलाइन टेस्ट</p>
+  <h1>MPPSC Unit-10 टेस्ट (20 प्रश्न)</h1>
+  <p id="subtitle">20 प्रश्न • ऑनलाइन टेस्ट</p>
 
-    <div id="quiz"></div>
+  <div id="quiz"></div>
 
-    <button id="submitBtn" onclick="submitQuiz()">टेस्ट जमा करें / Submit Test</button>
+  <button id="submitBtn" onclick="submitQuiz()">
+    टेस्ट जमा करें / Submit Test
+  </button>
 
-    <div id="scoreBox"></div>
+  <div id="scoreBox"></div>
 
-    <button id="restartBtn" style="display:none;">फिर से टेस्ट करें</button>
+  <button id="restartBtn" style="display:none;">
+    फिर से टेस्ट करें / Restart Test
+  </button>
 
 </div>
 
 <script src="questions.js"></script>
 
 <script>
+const quiz = document.getElementById("quiz");
 
-const quiz=document.getElementById("quiz");
+// Questions दिखाओ
+questions.forEach((q, i) => {
 
-// प्रश्न दिखाओ
-questions.forEach((q,i)=>{
+  const box = document.createElement("div");
+  box.className = "qbox";
 
-    const box=document.createElement("div");
-    box.className="qbox";
+  box.innerHTML = `
+    <h3>प्रश्न ${i + 1}: ${q.q}</h3>
 
-    box.innerHTML=`
-        <h3>प्रश्न ${i+1}: ${q.q}</h3>
+    ${q.o.map((opt, j) => `
+      <label class="opt">
+        <input type="radio" name="q${i}" value="${j}">
+        <span>${opt}</span>
+      </label>
+    `).join("")}
 
-        ${q.o.map((opt,j)=>`
-            <label class="opt">
-                <input type="radio" name="q${i}" value="${j}">
-                <span>${opt}</span>
-            </label>
-        `).join("")}
+    <div class="result" style="display:none;"></div>
+  `;
 
-        <div class="result" style="display:none"></div>
-    `;
-
-    quiz.appendChild(box);
+  quiz.appendChild(box);
 });
 
 // Submit
 function submitQuiz(){
 
-    let score=0;
+  let score = 0;
 
-    document.querySelectorAll(".qbox").forEach((box,i)=>{
+  document.querySelectorAll(".qbox").forEach((box, i) => {
 
-        const q=questions[i];
-        const selected=box.querySelector(`input[name="q${i}"]:checked`);
-        const result=box.querySelector(".result");
+    const q = questions[i];
+    const selected = box.querySelector(`input[name="q${i}"]:checked`);
+    const result = box.querySelector(".result");
 
-        result.style.display="block";
-        result.className="result";
+    result.style.display = "block";
+    result.className = "result";
 
-        // अगर उत्तर नहीं दिया
-        if(selected===null){
+    // अगर उत्तर नहीं चुना
+    if(selected === null){
 
-            result.classList.add("skip");
-            result.innerHTML=`⚫ <b>अनुत्तरित / Not Answered</b><br>${q.e}`;
+      result.classList.add("skip");
+      result.innerHTML = `⚫ <b>अनुत्तरित / Not Answered</b><br>${q.e}`;
 
-            box.querySelectorAll("input").forEach(r=>r.disabled=true);
-            return;
-        }
+      box.querySelectorAll("input").forEach(r => r.disabled = true);
+      return;
+    }
 
-        const answer=Number(selected.value);
+    const answer = Number(selected.value);
 
-        if(answer===q.a){
+    if(answer === q.a){
 
-            score++;
+      score++;
+      result.classList.add("correct");
+      result.innerHTML = `✅ <b>सही / Correct</b><br>${q.e}`;
 
-            result.classList.add("correct");
-            result.innerHTML=`✅ <b>सही / Correct</b><br>${q.e}`;
+    }else{
 
-        }else{
+      result.classList.add("wrong");
+      result.innerHTML = `❌ <b>गलत / Wrong</b><br>${q.e}`;
+    }
 
-            result.classList.add("wrong");
-            result.innerHTML=`❌ <b>गलत / Wrong</b><br>${q.e}`;
-        }
+    box.querySelectorAll("input").forEach(r => r.disabled = true);
+  });
 
-        box.querySelectorAll("input").forEach(r=>r.disabled=true);
+  document.getElementById("scoreBox").innerHTML =
+    `<h2>🎯 स्कोर / Score: ${score}/${questions.length}</h2>`;
 
-    });
-
-    document.getElementById("scoreBox").innerHTML=
-        `<h2>🎯 स्कोर / Score: ${score}/${questions.length}</h2>`;
-
-    document.getElementById("submitBtn").style.display="none";
-    document.getElementById("restartBtn").style.display="inline-block";
+  document.getElementById("submitBtn").style.display = "none";
+  document.getElementById("restartBtn").style.display = "inline-block";
 }
 
 // Restart
-document.getElementById("restartBtn").onclick=()=>location.reload();
+document.getElementById("restartBtn").onclick = () => location.reload();
 
 </script>
 
