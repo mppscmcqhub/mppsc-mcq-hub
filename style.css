@@ -232,3 +232,31 @@ button:hover{
     width:100%;
   }
 }
+.result{
+  display:none;
+  margin-top:12px;
+  padding:12px;
+  border-radius:8px;
+  font-weight:600;
+}
+
+.correct{
+  display:block;
+  background:#e8f5e9;
+  border:1px solid #4caf50;
+  color:#1b5e20;
+}
+
+.wrong{
+  display:block;
+  background:#ffebee;
+  border:1px solid #f44336;
+  color:#b71c1c;
+}
+
+.skip{
+  display:block;
+  background:#fff8e1;
+  border:1px solid #fbc02d;
+  color:#8d6e00;
+}
