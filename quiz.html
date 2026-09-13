@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MPPSC Unit-10 Test</title>
-
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,20 +11,20 @@
 
 <div class="box">
 
-<h1>MPPSC Unit-10 टेस्ट (20 प्रश्न)</h1>
-<p>20 प्रश्न • ऑनलाइन टेस्ट</p>
+  <h1>MPPSC Unit-10 टेस्ट (20 प्रश्न)</h1>
+  <p>20 प्रश्न • ऑनलाइन टेस्ट</p>
 
-<div id="quiz"></div>
+  <div id="quiz"></div>
 
-<button id="submitBtn" onclick="submitQuiz()">
-टेस्ट जमा करें
-</button>
+  <button id="submitBtn" onclick="submitQuiz()">
+    टेस्ट जमा करें
+  </button>
 
-<div id="scoreBox"></div>
+  <div id="scoreBox"></div>
 
-<button id="restartBtn" onclick="location.reload()">
-फिर से टेस्ट दें
-</button>
+  <button id="restartBtn" onclick="location.reload()" style="display:none;">
+    फिर से टेस्ट दें
+  </button>
 
 </div>
 
@@ -37,113 +36,80 @@ const scoreBox = document.getElementById("scoreBox");
 const submitBtn = document.getElementById("submitBtn");
 const restartBtn = document.getElementById("restartBtn");
 
-function loadQuiz(){
+function loadQuiz() {
+  quiz.innerHTML = "";
 
-quiz.innerHTML="";
+  questions.forEach((q, i) => {
+    let html = `
+      <div class="qbox">
+        <h3>प्रश्न ${i + 1}: ${q.q}</h3>
+    `;
 
-questions.forEach((q,i)=>{
+    q.o.forEach((op, j) => {
+      html += `
+        <label class="opt" id="q${i}o${j}">
+          <input type="radio" name="q${i}" value="${j}">
+          <span>${op}</span>
+        </label>
+      `;
+    });
 
-let html=`
-<div class="qbox">
+    html += `
+        <div id="exp${i}" class="explanation" style="display:none;"></div>
+      </div>
+    `;
 
-<h3>प्रश्न ${i+1}: ${q.q}</h3>
-`;
-
-q.o.forEach((op,j)=>{
-
-html+=`
-<label class="opt" id="q${i}o${j}">
-<input type="radio"
-name="q${i}"
-value="${j}">
-<span>${op}</span>
-</label>
-`;
-
-});
-
-html+=`
-<div id="exp${i}" class="exp" style="display:none"></div>
-</div>
-`;
-
-quiz.innerHTML+=html;
-
-});
-
+    quiz.innerHTML += html;
+  });
 }
 
 loadQuiz();
 
-function submitQuiz(){
+function submitQuiz() {
+  let score = 0;
 
-let score=0;
+  questions.forEach((q, i) => {
+    const selected = document.querySelector(`input[name="q${i}"]:checked`);
+    let user = selected ? Number(selected.value) : -1;
 
-questions.forEach((q,i)=>{
+    q.o.forEach((_, j) => {
+      document.getElementById(`q${i}o${j}`).classList.remove("correct", "wrong");
+    });
 
-let selected=document.querySelector(`input[name="q${i}"]:checked`);
+    document.getElementById(`q${i}o${q.a}`).classList.add("correct");
 
-let user=-1;
+    if (user !== -1 && user !== q.a) {
+      document.getElementById(`q${i}o${user}`).classList.add("wrong");
+    }
 
-if(selected) user=parseInt(selected.value);
+    if (user === q.a) score++;
 
-q.o.forEach((_,j)=>{
+    const exp = document.getElementById(`exp${i}`);
+    exp.style.display = "block";
+    exp.innerHTML = `
+      <b>सही उत्तर:</b> ${q.o[q.a]}<br><br>
+      <b>व्याख्या:</b> ${q.e}
+    `;
 
-const label=document.getElementById(`q${i}o${j}`);
+    document.querySelectorAll(`input[name="q${i}"]`).forEach(r => r.disabled = true);
+  });
 
-label.classList.remove("correct","wrong");
+  scoreBox.innerHTML = `
+    <div class="result">
+      <h2>टेस्ट पूरा हुआ</h2>
+      <h3>आपका स्कोर</h3>
+      <h1>${score}/${questions.length}</h1>
+      <p>प्रतिशत: ${Math.round(score / questions.length * 100)}%</p>
+    </div>
+  `;
 
-});
+  submitBtn.style.display = "none";
+  restartBtn.style.display = "block";
 
-const correctLabel=document.getElementById(`q${i}o${q.a}`);
-
-correctLabel.classList.add("correct");
-
-if(user!==-1 && user!==q.a){
-
-const wrongLabel=document.getElementById(`q${i}o${user}`);
-wrongLabel.classList.add("wrong");
-
-}
-
-if(user===q.a) score++;
-
-const exp=document.getElementById(`exp${i}`);
-
-exp.style.display="block";
-exp.className="explanation";
-
-exp.innerHTML=`
-<b>सही उत्तर:</b> ${q.o[q.a]}<br><br>
-<b>व्याख्या:</b> ${q.e}
-`;
-
-document.querySelectorAll(`input[name="q${i}"]`).forEach(r=>r.disabled=true);
-
-});
-
-scoreBox.innerHTML=`
-<div class="result">
-
-<h2>टेस्ट पूरा हुआ</h2>
-
-<h3>आपका स्कोर</h3>
-
-<h1>${score}/${questions.length}</h1>
-
-<p>${Math.round(score/questions.length*100)}%</p>
-
-</div>
-`;
-
-submitBtn.style.display="none";
-restartBtn.style.display="block";
-
-window.scrollTo({
-top:document.body.scrollHeight,
-behavior:"smooth"
-});
-
+  window.scrollTo({
+    top: document.body.scrollHeight,
+    behavior: "smooth"
+  });
 }
 </script>
 
