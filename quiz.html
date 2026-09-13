@@ -32,7 +32,6 @@
 <script src="questions.js"></script>
 
 <script>
-// Quiz Container
 const quiz = document.getElementById("quiz");
 
 // Questions दिखाओ
@@ -42,9 +41,9 @@ questions.forEach((q, i) => {
   box.className = "qbox";
 
   box.innerHTML = `
-    <h3>प्रश्न ${i + 1}: ${q.q}</h3>
+    <h3>प्रश्न ${i+1}: ${q.q}</h3>
 
-    ${q.o.map((opt, j) => `
+    ${q.o.map((opt,j)=>`
       <label class="opt">
         <input type="radio" name="q${i}" value="${j}">
         <span>${opt}</span>
@@ -58,65 +57,68 @@ questions.forEach((q, i) => {
 });
 
 
-// Submit Quiz
+// Submit
 function submitQuiz(){
 
   let score = 0;
 
-  document.querySelectorAll(".qbox").forEach((box, i)=>{
+  document.querySelectorAll(".qbox").forEach((box,i)=>{
 
     const q = questions[i];
+
     const selected = box.querySelector(`input[name="q${i}"]:checked`);
+
     const result = box.querySelector(".result");
 
     result.style.display="block";
     result.className="result";
 
-    // कोई विकल्प नहीं चुना
-    if(!selected){
+    // कोई उत्तर नहीं चुना
+    if(selected===null){
 
       result.classList.add("skip");
-      result.innerHTML="⏺ <b>अनुत्तरित / Not Answered</b>";
+
+      result.innerHTML=
+      `⚫ <b>अनुत्तरित / Not Answered</b><br>${q.e}`;
+
+      box.querySelectorAll("input").forEach(r=>r.disabled=true);
 
       return;
     }
 
-    const answer = Number(selected.value);
+    const answer=Number(selected.value);
 
     if(answer===q.a){
 
       score++;
 
       result.classList.add("correct");
-      result.innerHTML=`✅ <b>सही / Correct</b><br>${q.e}`;
+
+      result.innerHTML=
+      `✅ <b>सही / Correct</b><br>${q.e}`;
 
     }else{
 
       result.classList.add("wrong");
-      result.innerHTML=`❌ <b>गलत / Wrong</b><br>${q.e}`;
 
+      result.innerHTML=
+      `❌ <b>गलत / Wrong</b><br>${q.e}`;
     }
 
-    // विकल्प लॉक
     box.querySelectorAll("input").forEach(r=>r.disabled=true);
 
   });
 
-  document.getElementById("scoreBox").innerHTML=`
-    <h2>🎯 स्कोर / Score: ${score}/${questions.length}</h2>
-  `;
+  document.getElementById("scoreBox").innerHTML=
+  `<h2>🎯 स्कोर / Score: ${score}/${questions.length}</h2>`;
 
   document.getElementById("submitBtn").style.display="none";
-  document.getElementById("restartBtn").style.display="inline-block";
 
+  document.getElementById("restartBtn").style.display="inline-block";
 }
 
-
 // Restart
-document.getElementById("restartBtn").onclick=function(){
-  location.reload();
-};
-
+document.getElementById("restartBtn").onclick=()=>location.reload();
 </script>
 
 </body>
