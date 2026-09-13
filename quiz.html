@@ -1,34 +1,151 @@
-/* Book Style Compact */
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MPPSC Unit-10 Test</title>
 
-.qbox{
-  padding:12px !important;
-  margin:12px 0 !important;
-  border:1px solid #ddd;
-  border-radius:8px;
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>MPPSC Unit-10 टेस्ट (20 प्रश्न)</h1>
+<p>20 प्रश्न • ऑनलाइन टेस्ट</p>
+
+<div id="quiz"></div>
+
+<button id="submitBtn" onclick="submitQuiz()">
+टेस्ट जमा करें
+</button>
+
+<div id="scoreBox"></div>
+
+<button id="restartBtn" onclick="location.reload()">
+फिर से टेस्ट दें
+</button>
+
+</div>
+
+<script src="questions.js"></script>
+
+<script>
+const quiz = document.getElementById("quiz");
+const scoreBox = document.getElementById("scoreBox");
+const submitBtn = document.getElementById("submitBtn");
+const restartBtn = document.getElementById("restartBtn");
+
+function loadQuiz(){
+
+quiz.innerHTML="";
+
+questions.forEach((q,i)=>{
+
+let html=`
+<div class="qbox">
+
+<h3>प्रश्न ${i+1}: ${q.q}</h3>
+`;
+
+q.o.forEach((op,j)=>{
+
+html+=`
+<label class="opt" id="q${i}o${j}">
+<input type="radio"
+name="q${i}"
+value="${j}">
+<span>${op}</span>
+</label>
+`;
+
+});
+
+html+=`
+<div id="exp${i}" class="exp" style="display:none"></div>
+</div>
+`;
+
+quiz.innerHTML+=html;
+
+});
+
 }
 
-.qbox h3{
-  font-size:15px !important;
-  font-weight:700;
-  line-height:1.4;
-  margin-bottom:8px;
+loadQuiz();
+
+function submitQuiz(){
+
+let score=0;
+
+questions.forEach((q,i)=>{
+
+let selected=document.querySelector(`input[name="q${i}"]:checked`);
+
+let user=-1;
+
+if(selected) user=parseInt(selected.value);
+
+q.o.forEach((_,j)=>{
+
+const label=document.getElementById(`q${i}o${j}`);
+
+label.classList.remove("correct","wrong");
+
+});
+
+const correctLabel=document.getElementById(`q${i}o${q.a}`);
+
+correctLabel.classList.add("correct");
+
+if(user!==-1 && user!==q.a){
+
+const wrongLabel=document.getElementById(`q${i}o${user}`);
+wrongLabel.classList.add("wrong");
+
 }
 
-.opt{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  padding:8px 10px !important;
-  margin:5px 0 !important;
-  border:1px solid #ddd;
-  border-radius:6px;
-}
+if(user===q.a) score++;
 
-.opt span{
-  font-size:13px !important;
-}
+const exp=document.getElementById(`exp${i}`);
 
-.opt input{
-  width:15px !important;
-  height:15px !important;
+exp.style.display="block";
+exp.className="explanation";
+
+exp.innerHTML=`
+<b>सही उत्तर:</b> ${q.o[q.a]}<br><br>
+<b>व्याख्या:</b> ${q.e}
+`;
+
+document.querySelectorAll(`input[name="q${i}"]`).forEach(r=>r.disabled=true);
+
+});
+
+scoreBox.innerHTML=`
+<div class="result">
+
+<h2>टेस्ट पूरा हुआ</h2>
+
+<h3>आपका स्कोर</h3>
+
+<h1>${score}/${questions.length}</h1>
+
+<p>${Math.round(score/questions.length*100)}%</p>
+
+</div>
+`;
+
+submitBtn.style.display="none";
+restartBtn.style.display="block";
+
+window.scrollTo({
+top:document.body.scrollHeight,
+behavior:"smooth"
+});
+
 }
+</script>
+
+</body>
+</html>
