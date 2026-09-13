@@ -3,44 +3,47 @@
 <script>
 const quiz = document.getElementById("quiz");
 
-// Questions दिखाना
+// Questions दिखाओ
 questions.forEach((q, i) => {
   const box = document.createElement("div");
   box.className = "qbox";
 
   box.innerHTML = `
     <h3>प्रश्न ${i + 1}: ${q.q}</h3>
+
     ${q.o.map((opt, j) => `
       <label class="opt">
         <input type="radio" name="q${i}" value="${j}">
         <span>${opt}</span>
       </label>
     `).join("")}
-    <div class="result"></div>
+
+    <div class="result" style="display:none;"></div>
   `;
 
   quiz.appendChild(box);
 });
 
-// Quiz Submit
+// Submit
 function submitQuiz() {
   let score = 0;
 
   document.querySelectorAll(".qbox").forEach((box, i) => {
     const q = questions[i];
-    const selected = box.querySelector("input[type=radio]:checked");
+    const selected = box.querySelector(`input[name="q${i}"]:checked`);
     const result = box.querySelector(".result");
 
+    result.style.display = "block";
     result.className = "result";
 
     // अगर कुछ भी Select नहीं किया
-    if (!selected) {
+    if (selected === null) {
       result.classList.add("skip");
       result.innerHTML = "⏺ <b>अनुत्तरित / Not Answered</b>";
       return;
     }
 
-    const answer = Number(selected.value);
+    const answer = parseInt(selected.value);
 
     if (answer === q.a) {
       score++;
@@ -51,20 +54,17 @@ function submitQuiz() {
       result.innerHTML = `❌ <b>गलत / Wrong</b><br>${q.e}`;
     }
 
-    // दोबारा बदल न सके
-    box.querySelectorAll("input").forEach(inp => inp.disabled = true);
+    // Submit के बाद विकल्प लॉक
+    box.querySelectorAll("input").forEach(r => r.disabled = true);
   });
 
-  document.getElementById("scoreBox").innerHTML = `
-    <h2>🎯 स्कोर / Score: ${score}/${questions.length}</h2>
-  `;
+  document.getElementById("scoreBox").innerHTML =
+    `<h2>🎯 स्कोर / Score: ${score}/${questions.length}</h2>`;
 
   document.getElementById("submitBtn").style.display = "none";
   document.getElementById("restartBtn").style.display = "inline-block";
 }
 
 // Restart
-document.getElementById("restartBtn").onclick = function () {
-  location.reload();
-};
+document.getElementById("restartBtn").onclick = () => location.reload();
 </script>
