@@ -1,167 +1,29 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:"Noto Sans Devanagari", Arial, sans-serif;
+/* Question Card */
+.qbox{
+  padding:18px;
+  margin:18px 0;
 }
 
-body{
-  background:#ffffff;
-  color:#222;
-  line-height:1.8;
-}
-
-.box{
-  max-width:900px;
-  margin:30px auto;
-  background:#fff;
-  border:1px solid #ddd;
-  border-radius:10px;
-  padding:30px;
-}
-
-h1{
-  color:#000;
-  font-size:34px;
-  margin-bottom:10px;
-}
-
-h2,h3{
-  color:#111;
+/* Question Text */
+.qbox h3{
+  font-size:18px;   /* पहले 24px था */
+  font-weight:700;
   margin-bottom:12px;
 }
 
-p{
-  color:#555;
-  margin-bottom:20px;
-}
-
-button{
-  width:100%;
-  padding:14px;
-  background:#111827;
-  color:#fff;
-  border:none;
-  border-radius:8px;
-  font-size:18px;
-  cursor:pointer;
-  transition:.3s;
-}
-
-button:hover{
-  background:#000;
-}
-
-input{
-  width:100%;
-  padding:12px;
-  border:1px solid #bbb;
-  border-radius:8px;
-  margin-bottom:15px;
-  font-size:16px;
-}
-
-/* Quiz Card */
-
-.qbox{
-  background:#fff;
-  border:1px solid #ddd;
-  border-radius:10px;
-  padding:20px;
-  margin:22px 0;
-}
-
-.qbox h3{
-  font-size:24px;
-  color:#111;
-  margin-bottom:15px;
-}
-
-/* Options */
-
+/* Option Box */
 .opt{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  border:1px solid #ddd;
-  border-radius:8px;
-  padding:14px;
-  margin:10px 0;
-  cursor:pointer;
-  background:#fff;
-  transition:.2s;
+  padding:10px 12px;
+  margin:8px 0;
 }
 
-.opt:hover{
-  background:#f8f8f8;
+/* Option Text */
+.opt span{
+  font-size:16px;   /* पहले बड़ा था */
 }
 
+/* Radio Button */
 .opt input{
-  width:20px;
-  height:20px;
-  margin:0;
-}
-
-/* Correct / Wrong */
-
-.correct{
-  background:#e8f8ec !important;
-  border:2px solid #22c55e !important;
-}
-
-.wrong{
-  background:#fdecec !important;
-  border:2px solid #ef4444 !important;
-}
-
-/* Explanation */
-
-.exp{
-  display:block;
-}
-
-.explanation{
-  background:#fff8dc;
-  border-left:5px solid #f1c40f;
-  padding:12px;
-  margin-top:12px;
-  border-radius:8px;
-  color:#333;
-}
-
-/* Result */
-
-.result{
-  background:#f8fafc;
-  border:2px solid #111827;
-  border-radius:12px;
-  padding:22px;
-  text-align:center;
-  margin-top:30px;
-}
-
-.result h2{
-  color:#111827;
-}
-
-#restartBtn{
-  display:none;
-  margin-top:18px;
-}
-
-@media(max-width:768px){
-
-  .box{
-    margin:12px;
-    padding:20px;
-  }
-
-  h1{
-    font-size:28px;
-  }
-
-  .qbox h3{
-    font-size:20px;
-  }
-
+  width:18px;
+  height:18px;
 }
