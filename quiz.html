@@ -1,38 +1,123 @@
-function submitQuiz() {
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MPPSC Unit-10 Test</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <div class="topbar">
+    <a href="index.html" class="back">← Home</a>
+    <span id="langBadge">Hindi + English</span>
+  </div>
+
+  <h1>MPPSC Unit-10 टेस्ट (20 प्रश्न)</h1>
+  <p id="subtitle">20 प्रश्न • ऑनलाइन टेस्ट</p>
+
+  <div id="quiz"></div>
+
+  <button id="submitBtn" onclick="submitQuiz()">टेस्ट जमा करें</button>
+
+  <div id="scoreBox"></div>
+
+  <button id="restartBtn" style="display:none;">फिर से टेस्ट करें</button>
+
+</div>
+
+<script src="questions.js"></script>
+
+<script>
+// Quiz Container
+const quiz = document.getElementById("quiz");
+
+// Questions दिखाओ
+questions.forEach((q, i) => {
+
+  const box = document.createElement("div");
+  box.className = "qbox";
+
+  box.innerHTML = `
+    <h3>प्रश्न ${i + 1}: ${q.q}</h3>
+
+    ${q.o.map((opt, j) => `
+      <label class="opt">
+        <input type="radio" name="q${i}" value="${j}">
+        <span>${opt}</span>
+      </label>
+    `).join("")}
+
+    <div class="result"></div>
+  `;
+
+  quiz.appendChild(box);
+});
+
+
+// Submit Quiz
+function submitQuiz(){
+
   let score = 0;
 
-  document.querySelectorAll(".qbox").forEach((box, i) => {
+  document.querySelectorAll(".qbox").forEach((box, i)=>{
+
     const q = questions[i];
     const selected = box.querySelector(`input[name="q${i}"]:checked`);
     const result = box.querySelector(".result");
 
-    result.style.display = "block";
-    result.className = "result";
+    result.style.display="block";
+    result.className="result";
 
-    // कुछ भी Select नहीं किया
-    if (selected === null) {
+    // कोई विकल्प नहीं चुना
+    if(!selected){
+
       result.classList.add("skip");
-      result.innerHTML = "⏺ <b>अनुत्तरित / Not Answered</b>";
+      result.innerHTML="⏺ <b>अनुत्तरित / Not Answered</b>";
+
       return;
     }
 
     const answer = Number(selected.value);
 
-    if (answer === q.a) {
+    if(answer===q.a){
+
       score++;
+
       result.classList.add("correct");
-      result.innerHTML = `✅ <b>सही / Correct</b><br>${q.e}`;
-    } else {
+      result.innerHTML=`✅ <b>सही / Correct</b><br>${q.e}`;
+
+    }else{
+
       result.classList.add("wrong");
-      result.innerHTML = `❌ <b>गलत / Wrong</b><br>${q.e}`;
+      result.innerHTML=`❌ <b>गलत / Wrong</b><br>${q.e}`;
+
     }
 
-    box.querySelectorAll("input").forEach(r => r.disabled = true);
+    // विकल्प लॉक
+    box.querySelectorAll("input").forEach(r=>r.disabled=true);
+
   });
 
-  document.getElementById("scoreBox").innerHTML =
-    `<h2>🎯 स्कोर / Score: ${score}/${questions.length}</h2>`;
+  document.getElementById("scoreBox").innerHTML=`
+    <h2>🎯 स्कोर / Score: ${score}/${questions.length}</h2>
+  `;
 
-  document.getElementById("submitBtn").style.display = "none";
-  document.getElementById("restartBtn").style.display = "inline-block";
+  document.getElementById("submitBtn").style.display="none";
+  document.getElementById("restartBtn").style.display="inline-block";
+
 }
+
+
+// Restart
+document.getElementById("restartBtn").onclick=function(){
+  location.reload();
+};
+
+</script>
+
+</body>
+</html>
