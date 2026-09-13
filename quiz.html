@@ -2,100 +2,27 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MPPSC Quiz</title>
 
 <style>
-body{
-font-family:Arial,sans-serif;
-background:#f3f3f3;
-margin:0;
-}
-.container{
-max-width:900px;
-margin:auto;
-padding:20px;
-}
-.top{
-background:#082a73;
-color:white;
-padding:20px;
-border-radius:12px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-}
-#timer{
-font-size:22px;
-font-weight:bold;
-background:white;
-color:#082a73;
-padding:8px 14px;
-border-radius:8px;
-}
-.qbox{
-background:white;
-margin:18px 0;
-padding:18px;
-border-radius:12px;
-box-shadow:0 2px 8px rgba(0,0,0,.12);
-}
-.qbox h3{
-margin-top:0;
-}
-.opt{
-display:block;
-padding:12px;
-margin:8px 0;
-border:1px solid #ccc;
-border-radius:8px;
-cursor:pointer;
-}
-.opt input{
-margin-right:8px;
-}
-.correct{
-background:#dff5df;
-border-color:green;
-}
-.wrong{
-background:#ffdede;
-border-color:red;
-}
-.exp{
-margin-top:10px;
-font-size:15px;
-display:none;
-}
-button{
-background:#082a73;
-color:white;
-padding:14px 20px;
-border:none;
-border-radius:10px;
-font-size:17px;
-cursor:pointer;
-}
-button:hover{
-background:#0d3ea6;
-}
-#scoreBox{
-background:white;
-padding:20px;
-border-radius:12px;
-margin-top:20px;
-display:none;
-}
-textarea{
-width:100%;
-padding:12px;
-border-radius:8px;
-margin-top:8px;
-}
+body{font-family:Arial;background:#f3f3f3;margin:0}
+.container{max-width:900px;margin:auto;padding:20px}
+.top{background:#082a73;color:#fff;padding:20px;border-radius:12px;
+display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+#timer{background:#fff;color:#082a73;padding:8px 14px;border-radius:8px;font-weight:bold}
+.q{background:#fff;margin:16px 0;padding:16px;border-radius:12px;
+box-shadow:0 2px 6px rgba(0,0,0,.12)}
+label{display:block;border:1px solid #ddd;border-radius:8px;padding:10px;margin:8px 0;cursor:pointer}
+.correct{background:#d4edda;border-color:#28a745}
+.wrong{background:#f8d7da;border-color:#dc3545}
+.exp{display:none;background:#eef7ff;padding:10px;border-left:4px solid #0b5ed7;border-radius:8px;margin-top:8px}
+button{background:#082a73;color:#fff;border:none;padding:12px 18px;border-radius:8px;font-weight:bold;cursor:pointer}
+#result{display:none;background:#fff;padding:20px;border-radius:12px;margin-top:20px}
+textarea{width:100%;padding:10px;border-radius:8px}
 </style>
-</head>
 
+</head>
 <body>
 
 <div class="container">
@@ -103,19 +30,17 @@ margin-top:8px;
 <div class="top">
 <div>
 <h2>MPPSC MCQ Hub</h2>
-<div id="testName"></div>
-<div id="studentName"></div>
+<div id="info"></div>
 </div>
 <div id="timer">10:00</div>
 </div>
 
 <div id="quiz"></div>
 
-<button id="submitBtn" onclick="submitQuiz()">टेस्ट जमा करें</button>
+<button onclick="submitQuiz()">टेस्ट जमा करें</button>
 
-<div id="scoreBox">
-<h2 id="scoreText"></h2>
-
+<div id="result">
+<h2 id="score"></h2>
 <h3>Student Comment</h3>
 <textarea placeholder="अपनी राय लिखें..."></textarea>
 </div>
@@ -124,61 +49,72 @@ margin-top:8px;
 
 <script>
 
-const letters=["A","B","C","D"];
+const test = Number(new URLSearchParams(location.search).get("test")||1);
 
-const test=new URLSearchParams(location.search).get("test")||1;
+const unit = Math.ceil(test/20);
 
-document.getElementById("testName").innerHTML="टेस्ट "+test;
-document.getElementById("studentName").innerHTML="विद्यार्थी: "+(localStorage.getItem("student")||"");
+document.getElementById("info").innerHTML=`टेस्ट ${test}<br>यूनिट ${unit}`;
 
-const script=document.createElement("script");
-script.src="questions"+test+".js";
+let sec=600;
 
-script.onload=loadQuiz;
+setInterval(()=>{
+if(sec>0){
+sec--;
+let m=String(Math.floor(sec/60)).padStart(2,"0");
+let s=String(sec%60).padStart(2,"0");
+timer.innerHTML=`${m}:${s}`;
+}
+},1000);
 
-script.onerror=()=>{
-document.getElementById("quiz").innerHTML="<h2>❌ इस टेस्ट के प्रश्न नहीं मिले।</h2>";
-};
+const file="questions"+unit+".js";
 
-document.body.appendChild(script);
+const sc=document.createElement("script");
+
+sc.src=file;
+
+sc.onload=loadQuiz;
+
+sc.onerror=()=>quiz.innerHTML="<h3>❌ "+file+" नहीं मिला।</h3>";
+
+document.body.appendChild(sc);
 
 function loadQuiz(){
 
-const quiz=document.getElementById("quiz");
+const start=(test-1)%20;
+
+const data=(window.questions||[]).slice(start,start+20);
+
 quiz.innerHTML="";
 
-if(typeof questions==="undefined"){
-quiz.innerHTML="<h2>❌ प्रश्न लोड नहीं हुए।</h2>";
-return;
-}
+data.forEach((q,i)=>{
 
-questions.forEach((q,i)=>{
+quiz.innerHTML+=`
 
-let html=`
-<div class="qbox" id="box${i}">
+<div class="q">
+
 <h3>प्रश्न ${i+1}: ${q.q}</h3>
-`;
 
-q.o.forEach((o,j)=>{
+${q.o.map((o,j)=>`
 
-html+=`
-<label class="opt" id="q${i}o${j}">
+<label id="l${i}${j}">
+
 <input type="radio" name="q${i}" value="${j}">
-<b>${letters[j]}.</b> ${o}
+
+${String.fromCharCode(65+j)}. ${o}
+
 </label>
-`;
 
-});
+`).join("")}
 
-html+=`
-<div class="exp" id="e${i}">
-<b>सही उत्तर:</b> ${letters[q.a]} - ${q.o[q.a]}<br>
-<b>व्याख्या:</b> ${q.exp}
+<div id="e${i}" class="exp">
+
+<b>व्याख्या:</b> ${q.exp||""}
+
 </div>
-</div>
-`;
 
-quiz.innerHTML+=html;
+</div>
+
+`;
 
 });
 
@@ -186,63 +122,41 @@ quiz.innerHTML+=html;
 
 function submitQuiz(){
 
+const start=(test-1)%20;
+
+const data=(window.questions||[]).slice(start,start+20);
+
 let score=0;
 
-questions.forEach((q,i)=>{
+data.forEach((q,i)=>{
 
 const sel=document.querySelector(`input[name=q${i}]:checked`);
 
 document.getElementById("e"+i).style.display="block";
 
-document.getElementById("q"+i+"o"+q.a).classList.add("correct");
+q.o.forEach((o,j)=>{
+
+if(j===q.a) document.getElementById(`l${i}${j}`).classList.add("correct");
+
+});
 
 if(sel){
 
-if(Number(sel.value)===q.a){
+if(Number(sel.value)===q.a) score++;
 
-score++;
-
-}else{
-
-document.getElementById("q"+i+"o"+sel.value).classList.add("wrong");
-
-}
+else document.getElementById(`l${i}${sel.value}`).classList.add("wrong");
 
 }
 
 });
 
-document.getElementById("scoreBox").style.display="block";
-document.getElementById("scoreText").innerHTML=`आपका स्कोर: ${score}/${questions.length}`;
+document.getElementById("result").style.display="block";
 
-window.scrollTo(0,document.body.scrollHeight);
+document.getElementById("score").innerHTML=`आपका स्कोर: ${score}/20`;
 
-document.getElementById("submitBtn").disabled=true;
-
-}
-
-let time=600;
-
-const timer=document.getElementById("timer");
-
-const t=setInterval(()=>{
-
-let m=Math.floor(time/60);
-let s=time%60;
-
-timer.innerHTML=`${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
-
-time--;
-
-if(time<0){
-
-clearInterval(t);
-
-submitQuiz();
+window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
 
 }
-
-},1000);
 
 </script>
 
