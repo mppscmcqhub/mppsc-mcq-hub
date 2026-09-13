@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MPPSC Unit-10 Test</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MPPSC Unit-10 Test</title>
+<link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
@@ -20,30 +20,36 @@
 
   <div id="quiz"></div>
 
-  <button id="submitBtn" onclick="submitQuiz()">टेस्ट जमा करें / Submit Test</button>
+  <button id="submitBtn" onclick="submitQuiz()">
+    टेस्ट जमा करें / Submit Test
+  </button>
 
   <div id="scoreBox"></div>
 
-  <button id="restartBtn" style="display:none;">फिर से टेस्ट करें / Restart Test</button>
+  <button id="restartBtn" style="display:none;">
+    फिर से टेस्ट करें / Restart Test
+  </button>
 
 </div>
 
-<script src="questions.js"></script>
+<script src="questions.js?v=3"></script>
 
 <script>
-const quiz=document.getElementById("quiz");
+const quiz = document.getElementById("quiz");
 
-questions.forEach((q,i)=>{
-  const box=document.createElement("div");
-  box.className="qbox";
+// प्रश्न दिखाएँ
+questions.forEach((q, i) => {
 
-  box.innerHTML=`
+  const box = document.createElement("div");
+  box.className = "qbox";
+
+  box.innerHTML = `
     <h3>प्रश्न ${i+1}: ${q.q}</h3>
 
     ${q.o.map((opt,j)=>`
       <label class="opt">
         <input type="radio" name="q${i}" value="${j}">
-        <span>${opt}</span>
+        <span><b>${["A","B","C","D"][j]}.</b> ${opt}</span>
       </label>
     `).join("")}
 
@@ -55,46 +61,46 @@ questions.forEach((q,i)=>{
 
 function submitQuiz(){
 
-  let score=0;
+  let score = 0;
 
   document.querySelectorAll(".qbox").forEach((box,i)=>{
 
-    const q=questions[i];
-    const selected=box.querySelector(`input[name="q${i}"]:checked`);
-    const result=box.querySelector(".result");
+    const q = questions[i];
+    const selected = box.querySelector(`input[name="q${i}"]:checked`);
+    const result = box.querySelector(".result");
 
-    result.style.display="block";
-    result.className="result";
+    result.style.display = "block";
+    result.className = "result";
 
     if(selected===null){
 
       result.classList.add("skip");
-      result.innerHTML=`⚫ <b>अनुत्तरित / Not Answered</b><br><br>${q.e}`;
+      result.innerHTML = `⚫ <b>अनुत्तरित / Not Answered</b><br><br>${q.e}`;
 
       box.querySelectorAll("input").forEach(r=>r.disabled=true);
       return;
     }
 
-    const answer=Number(selected.value);
+    const answer = Number(selected.value);
 
     if(answer===q.a){
 
       score++;
 
       result.classList.add("correct");
-      result.innerHTML=`✅ <b>सही / Correct</b><br><br>${q.e}`;
+      result.innerHTML = `✅ <b>सही / Correct</b><br><br>${q.e}`;
 
     }else{
 
       result.classList.add("wrong");
-      result.innerHTML=`❌ <b>गलत / Wrong</b><br><br>${q.e}`;
+      result.innerHTML = `❌ <b>गलत / Wrong</b><br><br>${q.e}`;
     }
 
     box.querySelectorAll("input").forEach(r=>r.disabled=true);
 
   });
 
-  document.getElementById("scoreBox").innerHTML=
+  document.getElementById("scoreBox").innerHTML =
     `<h2>🎯 स्कोर / Score: ${score}/${questions.length}</h2>`;
 
   document.getElementById("submitBtn").style.display="none";
