@@ -1,34 +1,20 @@
-const SUPABASE_URL = "YOUR_SUPABASE_URL";
-const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
-
-async function loadQuestions() {
-  const { createClient } = supabase;
-  const client = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-  const { data, error } = await client
-    .from("questions")
-    .select("*")
-    .order("id");
-
-  if (error) {
-    console.error(error);
-    alert("Questions load नहीं हुए");
-    return [];
+const questions = [
+  {
+    q: "भारत की राजधानी क्या है?",
+    o: ["मुंबई", "दिल्ली", "भोपाल", "लखनऊ"],
+    a: 1,
+    e: "दिल्ली भारत की राजधानी है।"
+  },
+  {
+    q: "मध्य प्रदेश की राजधानी क्या है?",
+    o: ["इंदौर", "ग्वालियर", "भोपाल", "जबलपुर"],
+    a: 2,
+    e: "भोपाल मध्य प्रदेश की राजधानी है।"
+  },
+  {
+    q: "ताजमहल कहाँ स्थित है?",
+    o: ["दिल्ली", "आगरा", "जयपुर", "भोपाल"],
+    a: 1,
+    e: "ताजमहल आगरा में स्थित है।"
   }
-
-  return data.map(q => ({
-    q: q.question,
-    o: [q.option1, q.option2, q.option3, q.option4],
-    a: q.answer - 1,
-    e: q.explanation || ""
-  }));
-}
-
-let questions = [];
-
-(async () => {
-  questions = await loadQuestions();
-  if (typeof startQuiz === "function") {
-    startQuiz();
-  }
-})();
+];
