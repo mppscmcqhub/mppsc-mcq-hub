@@ -3,149 +3,122 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MPPSC MCQ Hub</title>
-
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:"Noto Sans Devanagari",Arial,sans-serif;
-}
-
-body{
-  background:#f5f5f5;
-}
-
-.container{
-  max-width:900px;
-  margin:40px auto;
-  background:#fff;
-  border:1px solid #ddd;
-  border-radius:12px;
-  padding:35px;
-  box-shadow:0 2px 10px rgba(0,0,0,.08);
-}
-
-h1{
-  font-size:42px;
-  color:#111827;
-  margin-bottom:10px;
-}
-
-.sub{
-  font-size:22px;
-  color:#555;
-  margin-bottom:30px;
-}
-
-.lang-title{
-  text-align:center;
-  font-size:24px;
-  font-weight:700;
-  margin-bottom:25px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:20px;
-}
-
-.card{
-  text-decoration:none;
-  color:#111;
-  border:1px solid #ddd;
-  border-radius:14px;
-  padding:30px 20px;
-  text-align:center;
-  transition:.25s;
-  background:#fff;
-}
-
-.card:hover{
-  transform:translateY(-4px);
-  border-color:#0f2b66;
-  box-shadow:0 8px 20px rgba(15,43,102,.12);
-}
-
-.icon{
-  font-size:46px;
-  margin-bottom:15px;
-}
-
-.card h2{
-  font-size:24px;
-  margin-bottom:8px;
-}
-
-.card p{
-  color:#666;
-  font-size:16px;
-}
-
-.footer{
-  text-align:center;
-  margin-top:35px;
-  color:#777;
-  font-size:14px;
-}
-
-@media(max-width:600px){
-  .container{
-    margin:15px;
-    padding:22px;
-  }
-
-  h1{
-    font-size:30px;
-  }
-
-  .sub{
-    font-size:18px;
-  }
-
-  .lang-title{
-    font-size:20px;
-  }
-
-  .card{
-    padding:22px 16px;
-  }
-}
-</style>
-
+<title>MPPSC MCQ Test</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
 
-<h1>MPPSC MCQ Hub</h1>
-<p class="sub">20 Questions Online Test</p>
+<div class="topbar">
+<a href="index.html" class="back">← Home</a>
+<span id="langBadge">Hindi</span>
+</div>
 
-<div class="lang-title">अपनी भाषा चुनें / Choose Your Language</div>
+<h1 id="title">MPPSC Unit-10 टेस्ट</h1>
+<p id="subtitle">20 प्रश्न ऑनलाइन टेस्ट</p>
 
-<div class="grid">
+<div id="quiz"></div>
 
-<a href="quiz.html?lang=hi" class="card">
-<div class="icon">🇮🇳</div>
-<h2>Hindi Student</h2>
-<p>20 प्रश्न ऑनलाइन टेस्ट</p>
-</a>
+<button id="submitBtn" onclick="submitQuiz()">टेस्ट जमा करें</button>
 
-<a href="quiz.html?lang=en" class="card">
-<div class="icon">🇬🇧</div>
-<h2>English Student</h2>
-<p>20 Questions Online Test</p>
-</a>
+<div id="scoreBox"></div>
+
+<button id="restartBtn" onclick="location.reload()" style="display:none">
+फिर से टेस्ट करें
+</button>
 
 </div>
 
-<div class="footer">
-MPPSC Practice Test • Free MCQ Hub
-</div>
+<script src="questions.js"></script>
 
-</div>
+<script>
+const params=new URLSearchParams(location.search);
+const lang=params.get("lang")==="en"?"en":"hi";
+
+document.documentElement.lang=lang;
+
+if(lang==="en"){
+document.getElementById("title").innerText="MPPSC Unit-10 Test";
+document.getElementById("subtitle").innerText="20 Questions Online Test";
+document.getElementById("submitBtn").innerText="Submit Test";
+document.getElementById("restartBtn").innerText="Restart Test";
+document.getElementById("langBadge").innerText="English";
+}else{
+document.getElementById("langBadge").innerText="Hindi";
+}
+
+const quiz=document.getElementById("quiz");
+
+questions.forEach((q,i)=>{
+const box=document.createElement("div");
+box.className="qbox";
+
+const question=lang==="en"?q.qEn:q.qHi;
+const options=lang==="en"?q.oEn:q.oHi;
+
+let html=`<h3>Q${i+1}. ${question}</h3>`;
+
+options.forEach((o,j)=>{
+html+=`
+<label class="opt" id="q${i}o${j}">
+<input type="radio" name="q${i}" value="${j}">
+<span>${o}</span>
+</label>`;
+});
+
+html+=`<div id="e${i}" class="exp"></div>`;
+
+box.innerHTML=html;
+quiz.appendChild(box);
+});
+
+function submitQuiz(){
+
+let score=0;
+
+questions.forEach((q,i)=>{
+
+const sel=document.querySelector(`input[name=q${i}]:checked`);
+const user=sel?Number(sel.value):-1;
+
+const options=lang==="en"?q.oEn:q.oHi;
+const explain=lang==="en"?q.eEn:q.eHi;
+
+options.forEach((_,j)=>{
+
+const label=document.getElementById(`q${i}o${j}`);
+
+label.classList.remove("correct","wrong");
+
+if(j===q.a) label.classList.add("correct");
+
+if(j===user && user!==q.a) label.classList.add("wrong");
+
+label.querySelector("input").disabled=true;
+
+});
+
+if(user===q.a) score++;
+
+document.getElementById(`e${i}`).innerHTML=
+`<b>${lang==="en"?"Correct Answer":"सही उत्तर"}:</b> ${options[q.a]}<br>
+<b>${lang==="en"?"Explanation":"व्याख्या"}:</b> ${explain}`;
+
+});
+
+document.getElementById("scoreBox").innerHTML=`
+<div class="result">
+<h2>${lang==="en"?"Your Score":"आपका स्कोर"}</h2>
+<h1>${score}/${questions.length}</h1>
+</div>`;
+
+document.getElementById("submitBtn").style.display="none";
+document.getElementById("restartBtn").style.display="inline-block";
+
+window.scrollTo({top:0,behavior:"smooth"});
+}
+</script>
 
 </body>
 </html>
