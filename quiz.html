@@ -94,8 +94,8 @@ border-radius:8px;
 margin-top:8px;
 }
 </style>
-
 </head>
+
 <body>
 
 <div class="container">
@@ -129,38 +129,35 @@ const letters=["A","B","C","D"];
 const test=new URLSearchParams(location.search).get("test")||1;
 
 document.getElementById("testName").innerHTML="टेस्ट "+test;
-
 document.getElementById("studentName").innerHTML="विद्यार्थी: "+(localStorage.getItem("student")||"");
 
-const s=document.createElement("script");
+const script=document.createElement("script");
+script.src="questions"+test+".js";
 
-s.src="questions"+test+".js";
+script.onload=loadQuiz;
 
-s.onload=loadQuiz;
-
-s.onerror=()=>{
-
-document.getElementById("quiz").innerHTML="<h2>इस टेस्ट के प्रश्न नहीं मिले।</h2>";
-
+script.onerror=()=>{
+document.getElementById("quiz").innerHTML="<h2>❌ इस टेस्ट के प्रश्न नहीं मिले।</h2>";
 };
 
-document.body.appendChild(s);
-
-let questions=[];
+document.body.appendChild(script);
 
 function loadQuiz(){
 
-if(typeof window.questions!=="undefined")
-questions=window.questions;
-
 const quiz=document.getElementById("quiz");
-
 quiz.innerHTML="";
+
+if(typeof questions==="undefined"){
+quiz.innerHTML="<h2>❌ प्रश्न लोड नहीं हुए।</h2>";
+return;
+}
 
 questions.forEach((q,i)=>{
 
-let html=`<div class="qbox" id="box${i}">
-<h3>प्रश्न ${i+1}: ${q.q}</h3>`;
+let html=`
+<div class="qbox" id="box${i}">
+<h3>प्रश्न ${i+1}: ${q.q}</h3>
+`;
 
 q.o.forEach((o,j)=>{
 
@@ -178,7 +175,8 @@ html+=`
 <b>सही उत्तर:</b> ${letters[q.a]} - ${q.o[q.a]}<br>
 <b>व्याख्या:</b> ${q.exp}
 </div>
-</div>`;
+</div>
+`;
 
 quiz.innerHTML+=html;
 
@@ -215,7 +213,6 @@ document.getElementById("q"+i+"o"+sel.value).classList.add("wrong");
 });
 
 document.getElementById("scoreBox").style.display="block";
-
 document.getElementById("scoreText").innerHTML=`आपका स्कोर: ${score}/${questions.length}`;
 
 window.scrollTo(0,document.body.scrollHeight);
@@ -231,7 +228,6 @@ const timer=document.getElementById("timer");
 const t=setInterval(()=>{
 
 let m=Math.floor(time/60);
-
 let s=time%60;
 
 timer.innerHTML=`${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
