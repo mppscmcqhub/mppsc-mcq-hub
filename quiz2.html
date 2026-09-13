@@ -1,78 +1,8 @@
-<!doctype html>
-<html lang="hi">
-<meta charset="UTF-8">
-<title>MPPSC Test 2</title>
-<link rel="stylesheet" href="style.css">
-<body>
-
-<div class="box">
-<h1>20 प्रश्न टेस्ट – 2</h1>
-
-<div id="quiz"></div>
-
-<button id="submitBtn" onclick="submitQuiz()">टेस्ट जमा करें</button>
-
-<div id="scoreBox"></div>
-</div>
-
-<script src="questions2.js"></script>
-
-<script>
-const quiz=document.getElementById('quiz');
-
-questions.forEach((q,i)=>{
-let h=`<div class="qbox">
-<h3>प्रश्न ${i+1}: ${q.q}</h3>`;
+const letters=["A","B","C","D"];
 
 q.o.forEach((o,j)=>{
 h+=`<label class="opt" id="q${i}o${j}">
 <input type="radio" name="q${i}" value="${j}">
-<span>${o}</span></label>`;
+<span><b>${letters[j]}.</b> ${o}</span>
+</label>`;
 });
-
-h+=`<div class="exp" id="e${i}"></div></div>`;
-quiz.innerHTML+=h;
-});
-
-function submitQuiz(){
-
-let score=0;
-
-questions.forEach((q,i)=>{
-
-let sel=document.querySelector(`input[name=q${i}]:checked`);
-let user=sel?+sel.value:-1;
-
-q.o.forEach((_,j)=>{
-
-const lab=document.getElementById(`q${i}o${j}`);
-
-lab.classList.remove("correct","wrong");
-
-if(j===q.a) lab.classList.add("correct");
-
-if(j===user&&user!==q.a) lab.classList.add("wrong");
-
-lab.querySelector("input").disabled=true;
-});
-
-if(user===q.a) score++;
-
-document.getElementById(`e${i}`).innerHTML=
-`<b>सही उत्तर:</b> ${q.o[q.a]}<br><b>व्याख्या:</b> ${q.e}`;
-
-});
-
-document.getElementById("submitBtn").style.display="none";
-
-document.getElementById("scoreBox").innerHTML=
-`<div class="result">
-<h2>${localStorage.getItem("student")||"Student"}</h2>
-<h1>स्कोर: ${score}/20</h1></div>`;
-
-window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
-}
-</script>
-
-</body>
-</html>
