@@ -1,4 +1,4 @@
-const questions = [
+window.questions1 = [
 
 {
 q:"मध्य प्रदेश की राजधानी क्या है?",
