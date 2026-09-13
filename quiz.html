@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MPPSC Unit-10 Test</title>
+
 <link rel="stylesheet" href="style.css">
 
 <style>
@@ -33,64 +34,56 @@
     background:#0f2b66;
     color:white;
     border:none;
-    padding:12px 22px;
+    padding:12px 20px;
     border-radius:8px;
     cursor:pointer;
-    font-size:16px;
+    font-size:15px;
 }
 
 .feedback-box button:hover{
-    background:#173b8a;
-}
-
-#commentMsg{
-    margin-top:10px;
-    color:green;
-    font-weight:bold;
+    background:#183c88;
 }
 </style>
 
 </head>
+
 <body>
 
 <div class="container">
 
-    <div class="topbar">
-        <a href="index.html" class="back">← Home</a>
-    </div>
+<div class="topbar">
+<a href="index.html" class="back">← Home</a>
+<span id="langBadge">Hindi</span>
+</div>
 
-    <h1>MPPSC Unit-10 टेस्ट (20 प्रश्न)</h1>
-    <p>20 प्रश्न • ऑनलाइन टेस्ट</p>
+<h1 id="title">MPPSC Unit-10 टेस्ट (20 प्रश्न)</h1>
+<p id="subtitle">20 प्रश्न • ऑनलाइन टेस्ट</p>
 
-    <div id="quiz"></div>
+<div id="quiz"></div>
 
-    <button id="submitBtn" onclick="submitQuiz()">
-        टेस्ट जमा करें
-    </button>
+<button id="submitBtn" onclick="submitQuiz()">टेस्ट जमा करें</button>
 
-    <div id="scoreBox"></div>
+<div id="scoreBox"></div>
 
-    <button id="restartBtn" onclick="location.reload()" style="display:none;">
-        फिर से टेस्ट करें
-    </button>
+<button id="restartBtn" onclick="location.reload()" style="display:none;">
+फिर से टेस्ट करें
+</button>
 
-    <!-- Student Comment -->
-    <div class="feedback-box">
-        <h3>Student Comment / छात्र की राय</h3>
+<!-- Student Feedback -->
+<div class="feedback-box">
 
-        <input type="text" id="studentName"
-               placeholder="अपना नाम लिखें">
+<h3>🎓 Student Feedback / छात्र प्रतिक्रिया</h3>
 
-        <textarea id="studentComment"
-                  rows="4"
-                  placeholder="अपना कमेंट लिखें..."></textarea>
+<input type="text" id="studentName" placeholder="अपना नाम लिखें">
 
-        <button onclick="submitComment()">
-            Comment Submit करें
-        </button>
+<textarea id="studentComment" rows="4"
+placeholder="अपनी राय या सुझाव लिखें..."></textarea>
 
-        <p id="commentMsg"></p>
-    </div>
+<button onclick="sendFeedback()">Feedback भेजें</button>
+
+<p id="feedbackMsg"></p>
+
+</div>
 
 </div>
 
@@ -102,28 +95,21 @@ const quiz=document.getElementById("quiz");
 
 questions.forEach((q,i)=>{
 
-let html=`
-<div class="qbox">
+const box=document.createElement("div");
+box.className="qbox";
+
+box.innerHTML=`
 <h3>प्रश्न ${i+1}: ${q.q}</h3>
-`;
-
-q.o.forEach((o,j)=>{
-
-html+=`
-<label class="opt" id="q${i}o${j}">
+${q.o.map((opt,j)=>`
+<label class="opt">
 <input type="radio" name="q${i}" value="${j}">
-<span>${o}</span>
+<span>${opt}</span>
 </label>
+`).join("")}
+<div class="result" id="r${i}" style="display:none"></div>
 `;
 
-});
-
-html+=`
-<div id="e${i}" class="exp"></div>
-</div>
-`;
-
-quiz.innerHTML+=html;
+quiz.appendChild(box);
 
 });
 
@@ -133,71 +119,52 @@ let score=0;
 
 questions.forEach((q,i)=>{
 
-const sel=document.querySelector(`input[name="q${i}"]:checked`);
-const user=sel?Number(sel.value):-1;
+const selected=document.querySelector(`input[name=q${i}]:checked`);
+const res=document.getElementById(`r${i}`);
 
-q.o.forEach((_,j)=>{
+if(selected && Number(selected.value)===q.a){
 
-const label=document.getElementById(`q${i}o${j}`);
+score++;
+res.innerHTML=`✅ सही<br>${q.e}`;
+res.style.background="#e8f8ec";
+res.style.borderLeft="4px solid green";
 
-label.classList.remove("correct","wrong");
+}else{
 
-if(j===q.a) label.classList.add("correct");
+res.innerHTML=`❌ गलत<br>${q.e}`;
+res.style.background="#fdeaea";
+res.style.borderLeft="4px solid red";
 
-if(j===user && user!==q.a)
-label.classList.add("wrong");
+}
 
-label.querySelector("input").disabled=true;
-
-});
-
-if(user===q.a) score++;
-
-document.getElementById(`e${i}`).innerHTML=`
-<b>सही उत्तर:</b> ${q.o[q.a]}<br>
-<b>व्याख्या:</b> ${q.e}
-`;
+res.style.display="block";
 
 });
 
-document.getElementById("scoreBox").innerHTML=`
-<div class="result">
-<h2>आपका स्कोर</h2>
-<h1>${score}/${questions.length}</h1>
-</div>
-`;
+document.getElementById("scoreBox").innerHTML=
+`<h2>आपका स्कोर: ${score}/${questions.length}</h2>`;
 
 document.getElementById("submitBtn").style.display="none";
 document.getElementById("restartBtn").style.display="inline-block";
 
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
+window.scrollTo({top:0,behavior:"smooth"});
 
 }
 
-function submitComment(){
+function sendFeedback(){
 
 const name=document.getElementById("studentName").value.trim();
 const comment=document.getElementById("studentComment").value.trim();
 
-if(name===""||comment===""){
+if(name==="" || comment===""){
 
-document.getElementById("commentMsg").innerHTML=
-"⚠️ नाम और कमेंट दोनों भरें।";
-
+alert("कृपया नाम और कमेंट दोनों भरें।");
 return;
 
 }
 
-document.getElementById("commentMsg").innerHTML=
-`✅ धन्यवाद ${name}! आपका कमेंट दर्ज हो गया।`;
-
-console.log({
-name:name,
-comment:comment
-});
+document.getElementById("feedbackMsg").innerHTML=
+"✅ धन्यवाद! आपका Feedback प्राप्त हो गया।";
 
 document.getElementById("studentName").value="";
 document.getElementById("studentComment").value="";
