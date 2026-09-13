@@ -3,47 +3,86 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MPPSC Quiz</title>
+<title>MPPSC MCQ Hub</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,sans-serif;background:#f3f3f3}
-.container{max-width:900px;margin:auto;padding:20px}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+font-family:Arial,sans-serif;
+background:#f3f3f3;
+}
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
+}
 .top{
-background:#082a73;color:#fff;padding:20px;border-radius:15px;
-display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap
+background:#082a73;
+color:white;
+padding:20px;
+border-radius:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
 }
 #timer{
-background:#fff;color:#082a73;padding:10px 15px;border-radius:10px;
-font-size:24px;font-weight:bold
+background:white;
+color:#082a73;
+padding:10px 16px;
+border-radius:10px;
+font-size:24px;
+font-weight:bold;
 }
 .card{
-background:#fff;margin:20px 0;padding:20px;border-radius:15px;
-box-shadow:0 2px 8px rgba(0,0,0,.12)
+background:white;
+margin:20px 0;
+padding:18px;
+border-radius:15px;
+box-shadow:0 2px 8px rgba(0,0,0,.12);
 }
-.q{font-size:20px;font-weight:bold;margin-bottom:15px}
-label{
-display:block;border:1px solid #ddd;border-radius:10px;
-padding:12px;margin:10px 0;cursor:pointer
+.question{
+font-size:22px;
+font-weight:bold;
+margin-bottom:15px;
 }
-label:hover{background:#f7f7f7}
-.correct{background:#d4edda;border-color:#28a745}
-.wrong{background:#f8d7da;border-color:#dc3545}
-.exp{
-display:none;margin-top:10px;padding:10px;
-background:#eef6ff;border-left:4px solid #0d6efd;border-radius:6px
+.option{
+display:block;
+padding:12px;
+margin:10px 0;
+border:1px solid #ddd;
+border-radius:10px;
+cursor:pointer;
 }
+.option:hover{background:#f2f2f2;}
 button{
-background:#082a73;color:#fff;border:none;padding:12px 25px;
-border-radius:10px;font-size:18px;cursor:pointer
+background:#082a73;
+color:white;
+border:none;
+padding:12px 25px;
+border-radius:10px;
+cursor:pointer;
+font-size:18px;
 }
-button:hover{background:#0a3aa0}
-#result{display:none}
+button:hover{background:#0b3aa5;}
+.correct{background:#d4edda;border-color:green;}
+.wrong{background:#f8d7da;border-color:red;}
+#result{
+background:white;
+padding:20px;
+border-radius:15px;
+margin-top:20px;
+display:none;
+}
 textarea{
-width:100%;padding:12px;border-radius:8px;border:1px solid #bbb
+width:100%;
+padding:10px;
+border-radius:8px;
+margin-top:10px;
 }
 </style>
 </head>
+
 <body>
 
 <div class="container">
@@ -51,49 +90,47 @@ width:100%;padding:12px;border-radius:8px;border:1px solid #bbb
 <div class="top">
 <div>
 <h1>MPPSC MCQ Hub</h1>
-<div id="testInfo"></div>
-<div id="unitInfo"></div>
+<h2>टेस्ट <span id="testNo"></span></h2>
+<h3>यूनिट <span id="unitNo"></span></h3>
 </div>
+
 <div id="timer">10:00</div>
 </div>
 
-<div id="quiz"></div>
+<form id="quiz"></form>
 
 <button onclick="submitQuiz()">टेस्ट जमा करें</button>
 
-<div id="result" class="card">
+<div id="result">
 <h2>आपका स्कोर: <span id="score"></span></h2>
 
-<h3 style="margin-top:20px">Student Comment</h3>
+<div id="answers"></div>
+
+<h3 style="margin-top:20px;">Student Comment</h3>
 <textarea placeholder="अपनी राय लिखें..."></textarea>
 </div>
 
 </div>
 
 <script>
-const params=new URLSearchParams(location.search);
-const test=Number(params.get("test"))||1;
+const test=Number(new URLSearchParams(location.search).get("test"))||1;
 const unit=Math.ceil(test/20);
 
-document.getElementById("testInfo").innerHTML="टेस्ट "+test;
-document.getElementById("unitInfo").innerHTML="यूनिट "+unit;
+document.getElementById("testNo").textContent=test;
+document.getElementById("unitNo").textContent=unit;
 
 let questions=[];
 
 const script=document.createElement("script");
-script.src="questions"+unit+".js?v="+Date.now();
+script.src=`questions${test}.js`;
 
 script.onload=function(){
 
-questions=window["questions"+unit];
-
-if(!questions && unit===1){
-questions=window.questions1;
-}
+questions=window[`questions${test}`];
 
 if(!questions||questions.length===0){
 document.getElementById("quiz").innerHTML=
-'<div class="card"><h2>यूनिट '+unit+' के प्रश्न नहीं मिले।</h2></div>';
+`<div class="card"><h2>Test ${test} के प्रश्न नहीं मिले।</h2></div>`;
 return;
 }
 
@@ -101,93 +138,127 @@ showQuestions();
 };
 
 script.onerror=function(){
+
 document.getElementById("quiz").innerHTML=
-'<div class="card"><h2>questions'+unit+'.js लोड नहीं हुई।</h2></div>';
+`<div class="card"><h2>questions${test}.js नहीं मिली।</h2></div>`;
+
 };
 
 document.body.appendChild(script);
 
 function showQuestions(){
 
-let html="";
+const quiz=document.getElementById("quiz");
 
-questions.slice(0,20).forEach((q,i)=>{
+quiz.innerHTML="";
 
-html+=`
+questions.forEach((q,i)=>{
+
+quiz.innerHTML+=`
+
 <div class="card">
-<div class="q">प्रश्न ${i+1}: ${q.q}</div>
 
-${q.o.map((opt,j)=>`
-<label id="l${i}${j}">
-<input type="radio" name="q${i}" value="${j}">
- <b>${String.fromCharCode(65+j)}.</b> ${opt}
+<div class="question">
+प्रश्न ${i+1}: ${q.q}
+</div>
+
+<label class="option">
+<input type="radio" name="q${i}" value="0">
+<strong>A.</strong> ${q.o[0]}
 </label>
-`).join("")}
 
-<div class="exp" id="exp${i}">
-<b>व्याख्या:</b> ${q.exp}
+<label class="option">
+<input type="radio" name="q${i}" value="1">
+<strong>B.</strong> ${q.o[1]}
+</label>
+
+<label class="option">
+<input type="radio" name="q${i}" value="2">
+<strong>C.</strong> ${q.o[2]}
+</label>
+
+<label class="option">
+<input type="radio" name="q${i}" value="3">
+<strong>D.</strong> ${q.o[3]}
+</label>
+
 </div>
-</div>
+
 `;
 
 });
 
-document.getElementById("quiz").innerHTML=html;
 }
-
-let time=600;
-const timer=setInterval(()=>{
-time--;
-let m=Math.floor(time/60);
-let s=time%60;
-document.getElementById("timer").innerHTML=
-String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
-if(time<=0){
-clearInterval(timer);
-submitQuiz();
-}
-},1000);
 
 function submitQuiz(){
 
-clearInterval(timer);
-
 let score=0;
+let html="";
 
-questions.slice(0,20).forEach((q,i)=>{
+questions.forEach((q,i)=>{
 
-let selected=document.querySelector('input[name="q'+i+'"]:checked');
+const selected=document.querySelector(`input[name=q${i}]:checked`);
 
-for(let j=0;j<4;j++){
+const value=selected?Number(selected.value):-1;
 
-let label=document.getElementById("l"+i+j);
-label.classList.remove("correct","wrong");
+if(value===q.a)score++;
 
-if(j===q.a){
-label.classList.add("correct");
-}
+html+=`
 
-}
+<div class="card">
 
-if(selected){
+<h3>प्रश्न ${i+1}</h3>
 
-if(Number(selected.value)===q.a){
-score++;
-}else{
-document.getElementById("l"+i+selected.value).classList.add("wrong");
-}
+<p>${q.q}</p>
 
-}
+<p style="color:green;">
+✔ सही उत्तर: ${["A","B","C","D"][q.a]} - ${q.o[q.a]}
+</p>
 
-document.getElementById("exp"+i).style.display="block";
+${value!==-1&&value!==q.a?
+`<p style="color:red;">✘ आपका उत्तर: ${["A","B","C","D"][value]} - ${q.o[value]}</p>`:""}
+
+<p><b>व्याख्या:</b> ${q.exp}</p>
+
+</div>
+
+`;
 
 });
 
-document.getElementById("result").style.display="block";
-document.getElementById("score").innerHTML=score+"/20";
+document.getElementById("score").textContent=`${score}/${questions.length}`;
 
-window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
+document.getElementById("answers").innerHTML=html;
+
+document.getElementById("result").style.display="block";
+
+window.scrollTo({
+top:document.body.scrollHeight,
+behavior:"smooth"
+});
+
 }
+
+// Timer
+let time=600;
+
+setInterval(()=>{
+
+if(time<=0){
+submitQuiz();
+return;
+}
+
+time--;
+
+let m=Math.floor(time/60);
+let s=time%60;
+
+document.getElementById("timer").textContent=
+`${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
+
+},1000);
+
 </script>
 
 </body>
