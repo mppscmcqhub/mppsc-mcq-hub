@@ -1,4 +1,4 @@
-test2:[
+const questions = [
 
 {
 question:"प्रश्न 1: उत्तर वैदिक काल में 'निष्क' शब्द का प्रयोग मुख्यतः किस अर्थ में हुआ? / In the Later Vedic Period, the term 'Nishka' mainly referred to?",
