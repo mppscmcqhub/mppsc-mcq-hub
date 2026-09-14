@@ -7,11 +7,7 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{
-font-family:Arial,sans-serif;
-background:#eaf2fc;
-color:#072c6c;
-}
+body{font-family:Arial,sans-serif;background:#eaf2fc;color:#072c6c}
 header{
 background:#083b8a;
 color:#fff;
@@ -20,11 +16,7 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 }
-.logo{
-display:flex;
-align-items:center;
-gap:12px;
-}
+.logo{display:flex;align-items:center;gap:12px}
 .logo img{
 width:48px;
 height:48px;
@@ -32,24 +24,15 @@ border-radius:50%;
 object-fit:cover;
 border:2px solid #fff;
 }
-.logo h1{
-font-size:22px;
-}
-.logo span{
-color:#ffbf00;
-}
-.logo small{
-display:block;
-font-size:11px;
-color:#d7e7ff;
-}
+.logo h1{font-size:22px}
+.logo span{color:#ffbf00}
+.logo small{display:block;font-size:11px;color:#d7e7ff}
 nav a{
 color:white;
 text-decoration:none;
 margin-left:20px;
 font-size:14px;
 }
-
 .hero{
 margin:16px;
 background:#eef6ff;
@@ -59,7 +42,6 @@ display:grid;
 grid-template-columns:1.1fr 1fr;
 gap:25px;
 }
-
 .left img{
 width:95px;
 height:95px;
@@ -67,13 +49,9 @@ border-radius:50%;
 object-fit:cover;
 box-shadow:0 5px 18px rgba(0,0,0,.2);
 }
-.left h2{
-font-size:30px;
-margin:10px 0;
-}
-.left h2 span{color:#ffbf00;}
+.left h2{font-size:30px;margin:10px 0}
+.left h2 span{color:#ffbf00}
 .left p{margin:3px 0}
-
 .right input{
 width:100%;
 padding:12px;
@@ -81,10 +59,7 @@ margin-bottom:10px;
 border-radius:10px;
 border:1px solid #cbd5e1;
 }
-.right .row{
-display:flex;
-gap:10px;
-}
+.right .row{display:flex;gap:10px}
 .btn{
 background:#0b63ff;
 color:white;
@@ -95,7 +70,6 @@ cursor:pointer;
 font-weight:bold;
 }
 .btn:hover{background:#0046c7}
-
 .features{
 display:grid;
 grid-template-columns:repeat(2,1fr);
@@ -108,21 +82,13 @@ padding:14px;
 border-radius:12px;
 text-align:center;
 }
-
-.section{
-margin:16px;
-}
-.section h3{
-margin-bottom:12px;
-font-size:30px;
-}
-
+.section{margin:16px}
+.section h3{margin-bottom:12px;font-size:30px}
 .units{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
 gap:16px;
 }
-
 .card{
 background:white;
 border-radius:18px;
@@ -130,7 +96,6 @@ padding:18px;
 text-align:center;
 box-shadow:0 5px 15px rgba(0,0,0,.08);
 }
-
 .circle{
 width:62px;
 height:62px;
@@ -143,9 +108,7 @@ font-size:30px;
 color:white;
 margin-bottom:10px;
 }
-
 .card p{font-size:13px;margin:5px 0}
-
 .latest{
 margin:16px;
 background:white;
@@ -157,7 +120,6 @@ justify-content:space-between;
 align-items:center;
 flex-wrap:wrap;
 }
-
 .bottom{
 margin:16px;
 display:grid;
@@ -170,7 +132,6 @@ padding:18px;
 border-radius:16px;
 box-shadow:0 5px 12px rgba(0,0,0,.05);
 }
-
 footer{
 background:#083b8a;
 color:white;
@@ -179,7 +140,6 @@ text-align:center;
 margin-top:18px;
 font-size:14px;
 }
-
 @media(max-width:768px){
 .hero{grid-template-columns:1fr}
 header{flex-direction:column;gap:10px}
@@ -191,7 +151,7 @@ nav{display:flex;flex-wrap:wrap;justify-content:center}
 
 <header>
 <div class="logo">
-<img src="mppsc-logo.jpg" alt="logo">
+<img src="mppsc-logo.jpg" alt="MPPSC Logo">
 <div>
 <h1>MPPSC MCQ Hub <span>V14</span></h1>
 <small>Your Success • Our Mission</small>
@@ -210,8 +170,7 @@ nav{display:flex;flex-wrap:wrap;justify-content:center}
 <section class="hero">
 
 <div class="left">
-<img src="mppsc-logo.jpg" alt="logo">
-
+<img src="mppsc-logo.jpg" alt="Logo">
 <h2>MPPSC MCQ Hub <span>V14</span></h2>
 
 <p><b>Madhya Pradesh Public Service Commission</b></p>
@@ -246,25 +205,85 @@ nav{display:flex;flex-wrap:wrap;justify-content:center}
 
 <div class="units">
 
-<div class="card"><div class="circle" style="background:#0b63ff">📖</div><h4>Unit 1</h4><p>इतिहास</p><p>20 Questions</p><button class="btn" onclick="location.href='quiz.html?unit=1&test=1'">Start Test</button></div>
+<div class="card">
+<div class="circle" style="background:#0b63ff">📖</div>
+<h4>Unit 1</h4>
+<p>इतिहास</p>
+<p>20 Tests</p>
+<button class="btn" onclick="location.href='unit1.html'">Open Unit</button>
+</div>
 
-<div class="card"><div class="circle" style="background:#149c42">🏛</div><h4>Unit 2</h4><p>राजव्यवस्था</p><p>20 Questions</p><button class="btn">Start Test</button></div>
+<div class="card">
+<div class="circle" style="background:#149c42">🏛</div>
+<h4>Unit 2</h4>
+<p>राजव्यवस्था</p>
+<p>20 Tests</p>
+<button class="btn" onclick="location.href='unit2.html'">Open Unit</button>
+</div>
 
-<div class="card"><div class="circle" style="background:#6d31e6">🌍</div><h4>Unit 3</h4><p>भूगोल</p><p>20 Questions</p><button class="btn">Start Test</button></div>
+<div class="card">
+<div class="circle" style="background:#6d31e6">🌍</div>
+<h4>Unit 3</h4>
+<p>भूगोल</p>
+<p>20 Tests</p>
+<button class="btn" onclick="location.href='unit3.html'">Open Unit</button>
+</div>
 
-<div class="card"><div class="circle" style="background:#ff7a00">👤</div><h4>Unit 4</h4><p>अर्थशास्त्र</p><p>20 Questions</p><button class="btn">Start Test</button></div>
+<div class="card">
+<div class="circle" style="background:#ff7a00">💰</div>
+<h4>Unit 4</h4>
+<p>अर्थशास्त्र</p>
+<p>20 Tests</p>
+<button class="btn" onclick="location.href='unit4.html'">Open Unit</button>
+</div>
 
-<div class="card"><div class="circle" style="background:#08a9c8">🧪</div><h4>Unit 5</h4><p>विज्ञान</p><p>20 Questions</p><button class="btn">Start Test</button></div>
+<div class="card">
+<div class="circle" style="background:#08a9c8">🧪</div>
+<h4>Unit 5</h4>
+<p>विज्ञान</p>
+<p>20 Tests</p>
+<button class="btn" onclick="location.href='unit5.html'">Open Unit</button>
+</div>
 
-<div class="card"><div class="circle" style="background:#e63888">🍃</div><h4>Unit 6</h4><p>पर्यावरण</p><p>20 Questions</p><button class="btn">Start Test</button></div>
+<div class="card">
+<div class="circle" style="background:#e63888">🍃</div>
+<h4>Unit 6</h4>
+<p>पर्यावरण</p>
+<p>20 Tests</p>
+<button class="btn" onclick="location.href='unit6.html'">Open Unit</button>
+</div>
 
-<div class="card"><div class="circle" style="background:#275ee8">👥</div><h4>Unit 7</h4><p>करेंट अफेयर्स</p><p>20 Questions</p><button class="btn">Start Test</button></div>
+<div class="card">
+<div class="circle" style="background:#275ee8">📰</div>
+<h4>Unit 7</h4>
+<p>करेंट अफेयर्स</p>
+<p>20 Tests</p>
+<button class="btn" onclick="location.href='unit7.html'">Open Unit</button>
+</div>
 
-<div class="card"><div class="circle" style="background:#d9a300">💡</div><h4>Unit 8</h4><p>सामान्य विज्ञान</p><p>20 Questions</p><button class="btn">Start Test</button></div>
+<div class="card">
+<div class="circle" style="background:#d9a300">💡</div>
+<h4>Unit 8</h4>
+<p>सामान्य विज्ञान</p>
+<p>20 Tests</p>
+<button class="btn" onclick="location.href='unit8.html'">Open Unit</button>
+</div>
 
-<div class="card"><div class="circle" style="background:#0f8b8d">📄</div><h4>Unit 9</h4><p>म.प्र. विशेष</p><p>20 Questions</p><button class="btn">Start Test</button></div>
+<div class="card">
+<div class="circle" style="background:#0f8b8d">📄</div>
+<h4>Unit 9</h4>
+<p>म.प्र. विशेष</p>
+<p>20 Tests</p>
+<button class="btn" onclick="location.href='unit9.html'">Open Unit</button>
+</div>
 
-<div class="card"><div class="circle" style="background:#7c2be2">📚</div><h4>Unit 10</h4><p>समय अभ्यास</p><p>20 Questions</p><button class="btn">Start Test</button></div>
+<div class="card">
+<div class="circle" style="background:#7c2be2">📚</div>
+<h4>Unit 10</h4>
+<p>समय अभ्यास</p>
+<p>20 Tests</p>
+<button class="btn" onclick="location.href='unit10.html'">Open Unit</button>
+</div>
 
 </div>
 </section>
