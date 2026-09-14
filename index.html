@@ -1,1 +1,141 @@
-<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MPPSC MCQ Hub V7</title><link rel="stylesheet" href="style.css"></head><body><h1>📚 MPPSC MCQ Hub V7</h1><div id="home"></div><div id="test" class="hide"><button onclick="goHome()">⬅ Home</button><h2 id="title"></h2><form id="quiz"></form><button onclick="submitTest()">Submit</button><div id="result"></div></div><script src="script.js"></script></body></html>
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MPPSC MCQ Hub V8</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#eef5ff;color:#0b2d6b}
+nav{position:sticky;top:0;background:#082c67;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:30px;font-weight:bold}.logo span{color:#ffc107}
+nav a{color:#fff;text-decoration:none;margin-left:18px}
+.hero{margin:20px;background:linear-gradient(135deg,#e9f3ff,#fff);border-radius:24px;padding:30px;display:grid;grid-template-columns:1.3fr 1fr;gap:20px}
+.hero h1{font-size:48px}.hero h1 span{color:#f5b400}
+.search{display:flex;gap:10px;flex-wrap:wrap}
+.search input{padding:14px;border:1px solid #ccd;border-radius:12px;flex:1;min-width:160px}
+.search button{padding:14px 22px;background:#0b63ff;color:#fff;border:none;border-radius:12px}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:15px}
+.stat{background:#fff;padding:14px;border-radius:12px;text-align:center}
+.section{padding:0 20px 20px}
+.section h2{font-size:34px;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.card{background:#fff;border-radius:20px;padding:20px;box-shadow:0 8px 18px rgba(0,0,0,.08);text-align:center}
+.icon{width:70px;height:70px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:34px;color:#fff}
+.card button,.latest button,.submit{width:100%;padding:14px;background:#0b63ff;color:#fff;border:none;border-radius:12px;font-size:17px;cursor:pointer}
+.latest{margin:20px;background:#fff;border:2px solid #ffc107;border-radius:20px;padding:20px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+#quizPage{display:none;padding:20px}
+.quizBox{background:#fff;border-radius:20px;padding:22px}
+.question{border:1px solid #e5e7eb;border-radius:12px;padding:14px;margin:14px 0}
+.question label{display:block;padding:6px 0}
+.result{margin-top:20px}
+.correct{color:green}.wrong{color:red}
+footer{background:#082c67;color:#fff;text-align:center;padding:18px;margin-top:30px}
+@media(max-width:800px){.hero{grid-template-columns:1fr}.hero h1{font-size:36px}}
+</style>
+</head>
+<body>
+<nav>
+<div class="logo">📚 MPPSC MCQ Hub <span>V8</span></div>
+<div><a href="#">Home</a><a href="#">Tests</a><a href="#">Results</a><a href="#">About</a></div>
+</nav>
+
+<div id="homePage">
+<section class="hero">
+<div>
+<h1>MPPSC MCQ Hub <span>V8</span></h1>
+<p>मध्य प्रदेश लोक सेवा आयोग MCQ Practice Platform</p>
+<p>20 Questions • Hindi + English • Explanation</p>
+</div>
+<div>
+<div class="search">
+<input placeholder="Enter Test No.">
+<input placeholder="Your Name">
+<button>Search</button>
+</div>
+<div class="stats">
+<div class="stat">20 Questions</div>
+<div class="stat">Instant Result</div>
+<div class="stat">Hindi + English</div>
+<div class="stat">100% Free</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<h2>📘 Select Unit / इकाई चुनें</h2>
+<div class="grid" id="unitGrid"></div>
+</section>
+
+<div class="latest">
+<div>
+<h2>⭐ Latest Test 201</h2>
+<p>नया अलग 20 प्रश्न वाला टेस्ट</p>
+</div>
+<button onclick="openTest(201)">Start Test 201</button>
+</div>
+</div>
+
+<div id="quizPage">
+<button onclick="goHome()" style="margin-bottom:14px">⬅ Home</button>
+<div class="quizBox">
+<h2 id="quizTitle"></h2>
+<form id="quizForm"></form>
+<button type="button" class="submit" onclick="submitTest()">Submit Test</button>
+<div id="result" class="result"></div>
+</div>
+</div>
+
+<footer>© 2026 MPPSC MCQ Hub V8</footer>
+
+<script>
+const colors=["#1e88e5","#16a34a","#7c3aed","#f97316","#06b6d4","#ec4899","#2563eb","#eab308","#0d9488","#6d28d9"];
+const unitGrid=document.getElementById("unitGrid");
+for(let i=1;i<=10;i++){
+ unitGrid.innerHTML+=`
+ <div class="card">
+   <div class="icon" style="background:${colors[i-1]}">📘</div>
+   <h3>Unit ${i}</h3>
+   <p>20 Questions</p>
+   <button onclick="openTest(${i})">Start Test</button>
+ </div>`;
+}
+function openTest(n){
+ homePage.style.display="none";
+ quizPage.style.display="block";
+ quizTitle.innerText="Unit "+n+" • 20 Questions";
+ const form=document.getElementById("quizForm");
+ form.innerHTML="";
+ for(let i=1;i<=20;i++){
+   form.innerHTML+=`
+   <div class="question">
+    <b>Q${i}. Sample MPPSC Question ${i}?</b>
+    <label><input type="radio" name="q${i}" value="A"> A</label>
+    <label><input type="radio" name="q${i}" value="B"> B</label>
+    <label><input type="radio" name="q${i}" value="C"> C</label>
+    <label><input type="radio" name="q${i}" value="D"> D</label>
+   </div>`;
+ }
+ result.innerHTML="";
+}
+function submitTest(){
+ let score=0,html=`<h2>🎉 Score: `;
+ for(let i=1;i<=20;i++){
+   const a=document.querySelector(`input[name=q${i}]:checked`);
+   if(a && a.value==="A") score++;
+ }
+ html+=`${score}/20</h2>`;
+ for(let i=1;i<=20;i++){
+   const a=document.querySelector(`input[name=q${i}]:checked`);
+   html+=`<p class="${a&&a.value==="A"?"correct":"wrong"}">Q${i}: सही उत्तर A — Example Explanation</p>`;
+ }
+ result.innerHTML=html;
+}
+function goHome(){
+ quizPage.style.display="none";
+ homePage.style.display="block";
+}
+</script>
+</body>
+</html>
