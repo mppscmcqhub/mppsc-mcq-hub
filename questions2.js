@@ -1,247 +1,143 @@
-const questionBank = {
-
-test1:[
+test2:[
 
 {
-question:"प्रश्न 1: उत्तर वैदिक काल में 'निष्क' शब्द का प्रयोग मुख्यतः किस अर्थ में हुआ है? / In the Later Vedic Period, the term 'Nishka' was mainly used as?",
-options:[
-"A. भूमि कर / Land Tax",
-"B. स्वर्ण आभूषण या मुद्रा / Gold Ornament or Currency",
-"C. सैनिक पद / Military Rank",
-"D. कृषि उपकरण / Agricultural Tool"
-],
+question:"प्रश्न 1: उत्तर वैदिक काल में 'निष्क' शब्द का प्रयोग मुख्यतः किस अर्थ में हुआ? / In the Later Vedic Period, the term 'Nishka' mainly referred to?",
+options:["A. भूमि कर / Land Tax","B. स्वर्ण आभूषण या मुद्रा / Gold Ornament or Currency","C. सैनिक पद / Military Rank","D. कृषि उपकरण / Agricultural Tool"],
 answer:1,
-explanation:"हिंदी: निष्क प्रारंभ में स्वर्ण आभूषण था और बाद में विनिमय के माध्यम के रूप में प्रयुक्त हुआ। English: Nishka was initially a gold ornament and later became a medium of exchange."
+explanation:"हिंदी: निष्क प्रारंभ में स्वर्ण आभूषण था, बाद में विनिमय के माध्यम के रूप में प्रयुक्त हुआ। English: Nishka was initially a gold ornament and later became a medium of exchange."
 },
 
 {
-question:"प्रश्न 2: 'सभा' और 'समिति' के संबंध में सही कथन चुनिए। / Choose the correct statement regarding Sabha and Samiti.",
-options:[
-"A. दोनों केवल धार्मिक संस्थाएँ थीं / Both were only religious institutions",
-"B. सभा विशिष्ट लोगों की संस्था थी जबकि समिति व्यापक जनसभा थी / Sabha was an elite body while Samiti was a broader assembly",
-"C. समिति केवल महिलाओं की संस्था थी / Samiti was only for women",
-"D. सभा का उल्लेख केवल उत्तर वैदिक काल में मिलता है / Sabha is mentioned only in the Later Vedic Period"
-],
+question:"प्रश्न 2: सभा और समिति के संबंध में सही कथन चुनिए। / Choose the correct statement regarding Sabha and Samiti.",
+options:["A. दोनों केवल धार्मिक संस्थाएँ थीं","B. सभा विशिष्ट लोगों की संस्था थी जबकि समिति व्यापक जनसभा थी","C. समिति केवल महिलाओं की संस्था थी","D. सभा का उल्लेख केवल उत्तर वैदिक काल में मिलता है"],
 answer:1,
-explanation:"हिंदी: सभा विशिष्ट लोगों की संस्था थी जबकि समिति व्यापक जनसभा थी। English: Sabha represented elite members while Samiti represented the wider community."
+explanation:"सभा विशिष्ट लोगों की संस्था थी जबकि समिति व्यापक जनसमुदाय का प्रतिनिधित्व करती थी। English: Sabha represented elite members while Samiti represented the wider community."
 },
 
 {
-question:"प्रश्न 3: महावीर का जन्म कहाँ हुआ था? / Where was Mahavira born?",
-options:[
-"A. कुंडग्राम / Kundagrama",
-"B. राजगृह / Rajagriha",
-"C. श्रावस्ती / Shravasti",
-"D. पाटलिपुत्र / Pataliputra"
-],
+question:"प्रश्न 3: 'ऋत' की अवधारणा किस वेद में सर्वाधिक विकसित रूप में मिलती है? / The concept of 'Rita' is most prominently developed in which Veda?",
+options:["A. सामवेद","B. यजुर्वेद","C. ऋग्वेद","D. अथर्ववेद"],
+answer:2,
+explanation:"ऋग्वेद में ऋत को सार्वभौमिक व्यवस्था का सिद्धांत माना गया है। English: Rigveda presents Rita as the principle of cosmic order."
+},
+
+{
+question:"प्रश्न 4: 'पंचमहायज्ञ' की अवधारणा मुख्यतः किससे संबंधित है? / Panch Mahayajna is mainly associated with?",
+options:["A. बौद्ध धर्म","B. गृहस्थ आश्रम","C. जैन धर्म","D. संन्यास आश्रम"],
+answer:1,
+explanation:"गृहस्थ आश्रम में पंचमहायज्ञ दैनिक कर्तव्य माने गए। English: Panch Mahayajna were prescribed as daily duties of the householder."
+},
+
+{
+question:"प्रश्न 5: 'ऐतरेय ब्राह्मण' किस वेद से संबंधित है? / Aitareya Brahmana belongs to which Veda?",
+options:["A. ऋग्वेद","B. सामवेद","C. यजुर्वेद","D. अथर्ववेद"],
 answer:0,
-explanation:"हिंदी: महावीर का जन्म वैशाली के निकट कुंडग्राम में हुआ था। English: Mahavira was born at Kundagrama near Vaishali."
+explanation:"ऐतरेय ब्राह्मण ऋग्वेद का ब्राह्मण ग्रंथ है। English: Aitareya Brahmana belongs to the Rigveda."
 },
 
 {
-question:"प्रश्न 4: प्रथम बौद्ध संगीति कहाँ आयोजित हुई थी? / Where was the First Buddhist Council held?",
-options:[
-"A. वैशाली / Vaishali",
-"B. राजगृह / Rajagriha",
-"C. पाटलिपुत्र / Pataliputra",
-"D. कुशीनगर / Kushinagar"
-],
-answer:1,
-explanation:"हिंदी: प्रथम बौद्ध संगीति राजगृह की सप्तपर्णी गुफा में हुई थी। English: The First Buddhist Council was held at Rajagriha."
+question:"प्रश्न 6: पुरुष सूक्त का उल्लेख किस मंडल में मिलता है? / Purusha Sukta is found in which Mandala of the Rigveda?",
+options:["A. 2","B. 5","C. 8","D. 10"],
+answer:3,
+explanation:"पुरुष सूक्त ऋग्वेद के 10वें मंडल में है। English: Purusha Sukta is found in Mandala 10."
 },
 
 {
-question:"प्रश्न 5: अजातशत्रु किस महाजनपद का शासक था? / Ajatashatru ruled which Mahajanapada?",
-options:[
-"A. अवन्ती / Avanti",
-"B. कोसल / Kosala",
-"C. मगध / Magadha",
-"D. वत्स / Vatsa"
-],
+question:"प्रश्न 7: गायत्री मंत्र किस देवता को समर्पित है? / Gayatri Mantra is dedicated to which deity?",
+options:["A. अग्नि","B. इंद्र","C. सवितृ","D. वरुण"],
 answer:2,
-explanation:"हिंदी: अजातशत्रु मगध का शक्तिशाली शासक था। English: Ajatashatru was the ruler of Magadha."
+explanation:"गायत्री मंत्र सवितृ देवता को समर्पित है। English: It is dedicated to Savitr."
 },
 
 {
-question:"प्रश्न 6: अर्थशास्त्र के अनुसार 'अमात्य' का मुख्य कार्य क्या था? / According to Arthashastra, what was the role of Amatya?",
-options:[
-"A. कर संग्रह / Tax Collection",
-"B. मंत्री एवं प्रशासनिक अधिकारी / Minister and Administrator",
-"C. सेनापति / Commander",
-"D. राजपुरोहित / Royal Priest"
-],
+question:"प्रश्न 8: वैदिक काल में 'विदथ' क्या था? / What was Vidatha in the Vedic Period?",
+options:["A. कर","B. जनसभा","C. यज्ञ संस्था","D. न्यायालय"],
 answer:1,
-explanation:"हिंदी: अमात्य उच्च प्रशासनिक अधिकारी होते थे। English: Amatyas served as senior administrative officers."
+explanation:"विदथ सामाजिक एवं राजनीतिक सभा थी। English: Vidatha was a socio-political assembly."
 },
 
 {
-question:"प्रश्न 7: मेगस्थनीज़ ने किस नगर का विस्तृत वर्णन किया? / Which city was described by Megasthenes?",
-options:[
-"A. उज्जैन / Ujjain",
-"B. तक्षशिला / Taxila",
-"C. पाटलिपुत्र / Pataliputra",
-"D. वाराणसी / Varanasi"
-],
+question:"प्रश्न 9: चार आश्रम व्यवस्था का पूर्ण विकास किस काल में हुआ? / The four Ashrama system fully developed in which period?",
+options:["A. ऋग्वैदिक","B. उत्तर वैदिक","C. मौर्य","D. गुप्त"],
+answer:1,
+explanation:"उत्तर वैदिक काल में आश्रम व्यवस्था विकसित हुई। English: It matured in the Later Vedic Period."
+},
+
+{
+question:"प्रश्न 10: 'शतपथ ब्राह्मण' किस वेद से संबंधित है? / Shatapatha Brahmana belongs to which Veda?",
+options:["A. ऋग्वेद","B. सामवेद","C. शुक्ल यजुर्वेद","D. अथर्ववेद"],
 answer:2,
-explanation:"हिंदी: 'इंडिका' में पाटलिपुत्र का विस्तृत वर्णन है। English: Megasthenes described Pataliputra in Indica."
+explanation:"शतपथ ब्राह्मण शुक्ल यजुर्वेद का ग्रंथ है। English: It belongs to the Shukla Yajurveda."
 },
 
 {
-question:"प्रश्न 8: मौर्यकालीन 'धम्म महामात्र' का उद्देश्य क्या था? / What was the purpose of Dhamma Mahamatras?",
-options:[
-"A. सैनिक भर्ती / Military Recruitment",
-"B. नैतिक नीति का प्रचार / Promotion of Moral Policy",
-"C. कर वसूली / Tax Collection",
-"D. विदेश नीति / Foreign Affairs"
-],
+question:"प्रश्न 11: 'गोत्र' व्यवस्था का प्रमुख उद्देश्य क्या था? / What was the primary purpose of the Gotra system?",
+options:["A. कर संग्रह","B. विवाह नियंत्रण","C. सैन्य संगठन","D. व्यापार"],
 answer:1,
-explanation:"हिंदी: अशोक ने धम्म प्रचार हेतु धम्म महामात्र नियुक्त किए। English: Ashoka appointed them to spread Dhamma."
+explanation:"सगोत्र विवाह रोकना इसका उद्देश्य था। English: It prevented marriage within the same lineage."
 },
 
 {
-question:"प्रश्न 9: सांची स्तूप के तोरण किस कला शैली के उदाहरण हैं? / Sanchi gateways belong to which art style?",
-options:[
-"A. गांधार / Gandhara",
-"B. मथुरा / Mathura",
-"C. शुंग कला / Shunga Art",
-"D. अमरावती / Amaravati"
-],
+question:"प्रश्न 12: उत्तर वैदिक काल में मुख्य धातु कौन-सी थी? / Which metal became prominent in the Later Vedic Period?",
+options:["A. तांबा","B. कांसा","C. लोहा","D. चाँदी"],
 answer:2,
-explanation:"हिंदी: सांची के तोरण शुंगकालीन कला के श्रेष्ठ उदाहरण हैं। English: The gateways belong to Shunga art."
+explanation:"लौह उपयोग बढ़ने से कृषि का विस्तार हुआ। English: Iron expanded agriculture."
 },
 
 {
-question:"प्रश्न 10: सातवाहन शासकों ने प्रशासन में किस भाषा का प्रयोग किया? / Which language was mainly used by Satavahanas?",
-options:[
-"A. संस्कृत / Sanskrit",
-"B. प्राकृत / Prakrit",
-"C. पाली / Pali",
-"D. तमिल / Tamil"
-],
+question:"प्रश्न 13: कठोपनिषद में प्रमुख संवाद किनके बीच है? / Katha Upanishad contains a dialogue between?",
+options:["A. याज्ञवल्क्य-गार्गी","B. नचिकेता-यम","C. जनक-याज्ञवल्क्य","D. श्वेतकेतु-उद्दालक"],
 answer:1,
-explanation:"हिंदी: सातवाहन अभिलेख प्राकृत भाषा में मिलते हैं। English: Satavahana inscriptions are mainly in Prakrit."
+explanation:"कठोपनिषद नचिकेता और यम के संवाद पर आधारित है। English: It is based on the dialogue between Nachiketa and Yama."
 },
 
 {
-question:"प्रश्न 11: नासिक प्रशस्ति किस शासक से संबंधित है? / Nasik Prashasti is associated with which ruler?",
-options:[
-"A. गौतमीपुत्र सातकर्णि / Gautamiputra Satakarni",
-"B. पुलकेशिन द्वितीय / Pulakeshin II",
-"C. अशोक / Ashoka",
-"D. हर्ष / Harsha"
-],
+question:"प्रश्न 14: याज्ञवल्क्य का संबंध किस उपनिषद से है? / Yajnavalkya is associated with which Upanishad?",
+options:["A. ईश","B. बृहदारण्यक","C. कठ","D. मुण्डक"],
+answer:1,
+explanation:"बृहदारण्यक उपनिषद में याज्ञवल्क्य के संवाद प्रसिद्ध हैं। English: He is prominently featured in Brihadaranyaka Upanishad."
+},
+
+{
+question:"प्रश्न 15: 'राजसूय यज्ञ' का उद्देश्य क्या था? / What was the purpose of Rajasuya Yajna?",
+options:["A. विवाह","B. राज्याभिषेक","C. कृषि","D. व्यापार"],
+answer:1,
+explanation:"यह राजा के सार्वभौम अधिकार का प्रतीक था। English: It symbolized royal consecration."
+},
+
+{
+question:"प्रश्न 16: अश्वमेध यज्ञ का राजनीतिक महत्व क्या था? / What was the political significance of Ashvamedha?",
+options:["A. कर वृद्धि","B. सार्वभौम सत्ता","C. धार्मिक सुधार","D. व्यापार"],
+answer:1,
+explanation:"यह सम्राट की सर्वोच्च सत्ता दर्शाता था। English: It asserted imperial sovereignty."
+},
+
+{
+question:"प्रश्न 17: 'बली' शब्द का उत्तर वैदिक अर्थ क्या था? / What did Bali mean in the Later Vedic Period?",
+options:["A. कर","B. सेना","C. व्यापार","D. न्याय"],
 answer:0,
-explanation:"हिंदी: यह गौतमीपुत्र सातकर्णि से संबंधित है। English: It praises Gautamiputra Satakarni."
+explanation:"बली कर या उपहार के रूप में लिया जाता था। English: Bali meant tribute or tax."
 },
 
 {
-question:"प्रश्न 12: नवरत्न किस शासक के दरबार से जुड़े हैं? / Navaratnas are traditionally linked with whose court?",
-options:[
-"A. समुद्रगुप्त / Samudragupta",
-"B. चंद्रगुप्त द्वितीय / Chandragupta II",
-"C. कुमारगुप्त / Kumaragupta",
-"D. स्कंदगुप्त / Skandagupta"
-],
+question:"प्रश्न 18: 'अथर्ववेद' का प्रमुख विषय क्या था? / Atharvaveda mainly deals with?",
+options:["A. युद्ध","B. चिकित्सा एवं मंत्र","C. संगीत","D. कृषि"],
 answer:1,
-explanation:"हिंदी: परंपरा के अनुसार नवरत्न चंद्रगुप्त द्वितीय के दरबार से जुड़े हैं। English: Tradition associates them with Chandragupta II."
+explanation:"अथर्ववेद में चिकित्सा, जादू-टोना और मंत्र मिलते हैं। English: It contains hymns related to healing and rituals."
 },
 
 {
-question:"प्रश्न 13: देवगढ़ का दशावतार मंदिर किस शैली का उदाहरण है? / Dashavatara Temple belongs to which style?",
-options:[
-"A. द्रविड़ / Dravida",
-"B. नागर / Nagara",
-"C. वेसर / Vesara",
-"D. गांधार / Gandhara"
-],
+question:"प्रश्न 19: 'समिति' का अध्यक्ष किसे माना जाता था? / Who presided over the Samiti?",
+options:["A. पुरोहित","B. राजा","C. ग्रामणी","D. सेनानी"],
 answer:1,
-explanation:"हिंदी: यह प्रारंभिक नागर शैली का उत्कृष्ट उदाहरण है। English: It is an important early Nagara temple."
+explanation:"राजा समिति में प्रमुख भूमिका निभाता था। English: The king presided over the Samiti."
 },
 
 {
-question:"प्रश्न 14: प्रयाग प्रशस्ति में समुद्रगुप्त को किस उपाधि से संबोधित किया गया? / Samudragupta was called what in Prayag Prashasti?",
-options:[
-"A. धर्मराज / Dharmaraja",
-"B. कविराज / Kaviraja",
-"C. चक्रवर्ती / Chakravarti",
-"D. राजाधिराज / Rajadhiraja"
-],
-answer:1,
-explanation:"हिंदी: हरिषेण ने समुद्रगुप्त को कविराज कहा। English: Harishena praised Samudragupta as Kaviraja."
-},
-
-{
-question:"प्रश्न 15: फाह्यान भारत किस शासक के समय आया था? / Fa-Hien visited India during whose reign?",
-options:[
-"A. अशोक / Ashoka",
-"B. हर्ष / Harsha",
-"C. चंद्रगुप्त द्वितीय / Chandragupta II",
-"D. कनिष्क / Kanishka"
-],
-answer:2,
-explanation:"हिंदी: फाह्यान चंद्रगुप्त द्वितीय के समय भारत आया। English: Fa-Hien visited India during Chandragupta II's reign."
-},
-
-{
-question:"प्रश्न 16: गुप्त-वाकाटक संबंध किस माध्यम से मजबूत हुए? / Gupta-Vakataka relations strengthened through?",
-options:[
-"A. युद्ध / War",
-"B. व्यापार / Trade",
-"C. वैवाहिक संबंध / Marriage Alliance",
-"D. धार्मिक संधि / Religious Treaty"
-],
-answer:2,
-explanation:"हिंदी: प्रभावती गुप्ता के विवाह से संबंध मजबूत हुए। English: Marriage strengthened Gupta-Vakataka relations."
-},
-
-{
-question:"प्रश्न 17: भीमबेटका के शैलचित्र किस काल के हैं? / Bhimbetka rock paintings belong to which period?",
-options:[
-"A. प्रागैतिहासिक एवं मध्यपाषाण / Prehistoric and Mesolithic",
-"B. मौर्यकाल / Mauryan",
-"C. गुप्तकाल / Gupta",
-"D. मुगलकाल / Mughal"
-],
+question:"प्रश्न 20: निम्न में से कौन-सा उपनिषद सामवेद से संबंधित है? / Which Upanishad belongs to the Samaveda?",
+options:["A. छांदोग्य","B. कठ","C. मुण्डक","D. ईश"],
 answer:0,
-explanation:"हिंदी: भीमबेटका प्रागैतिहासिक शैलचित्रों के लिए प्रसिद्ध है। English: Bhimbetka is renowned for prehistoric and Mesolithic paintings."
-},
-
-{
-question:"प्रश्न 18: उदयगिरि गुफाएँ किस गुप्त शासक से संबंधित हैं? / Udayagiri Caves are associated with which Gupta ruler?",
-options:[
-"A. समुद्रगुप्त / Samudragupta",
-"B. चंद्रगुप्त द्वितीय / Chandragupta II",
-"C. स्कंदगुप्त / Skandagupta",
-"D. कुमारगुप्त / Kumaragupta"
-],
-answer:1,
-explanation:"हिंदी: उदयगिरि गुफाओं का संबंध चंद्रगुप्त द्वितीय से माना जाता है। English: They are linked to Chandragupta II."
-},
-
-{
-question:"प्रश्न 19: नालंदा विश्वविद्यालय के विकास में किस गुप्त शासक का योगदान माना जाता है? / Which Gupta ruler is linked with Nalanda's development?",
-options:[
-"A. समुद्रगुप्त / Samudragupta",
-"B. कुमारगुप्त प्रथम / Kumaragupta I",
-"C. स्कंदगुप्त / Skandagupta",
-"D. चंद्रगुप्त प्रथम / Chandragupta I"
-],
-answer:1,
-explanation:"हिंदी: कुमारगुप्त प्रथम को नालंदा संरक्षण का श्रेय दिया जाता है। English: Kumaragupta I is traditionally credited with supporting Nalanda."
-},
-
-{
-question:"प्रश्न 20: मध्य प्रदेश का कौन-सा स्थल UNESCO विश्व धरोहर है और बौद्ध विरासत का प्रमुख केंद्र है? / Which MP site is a UNESCO World Heritage Buddhist site?",
-options:[
-"A. मांडू / Mandu",
-"B. ओरछा / Orchha",
-"C. सांची / Sanchi",
-"D. खजुराहो / Khajuraho"
-],
-answer:2,
-explanation:"हिंदी: सांची मध्य प्रदेश की प्रमुख बौद्ध धरोहर है। English: Sanchi is one of India's most important Buddhist heritage sites."
+explanation:"छांदोग्य उपनिषद सामवेद से संबंधित है। English: Chandogya Upanishad belongs to the Samaveda."
 }
 
 ]
-
-};
