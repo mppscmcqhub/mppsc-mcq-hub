@@ -1,4 +1,4 @@
-const questions = [
+window.questions = [
 
 {
 question:"1. सिंधु घाटी सभ्यता के संदर्भ में 'ग्रेट बाथ' का सबसे महत्वपूर्ण प्रमाण कहाँ से मिला? / In the context of Indus Valley Civilization, the most important evidence of the 'Great Bath' was found at?",
