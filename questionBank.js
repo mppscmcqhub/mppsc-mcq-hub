@@ -3405,12 +3405,1452 @@ explanation:"वानप्रस्थ जीवन के उत्तरा�
 }
 
 ],
-test15:[],
-test16:[],
-test17:[],
-test18:[],
-test19:[],
-test20:[]
+test15:[
+{
+question:"प्रश्न 1: सिंधु घाटी सभ्यता के किस स्थल से जल प्रबंधन की उन्नत व्यवस्था के प्रमाण मिले हैं? / Which Indus Valley site provides evidence of advanced water management system?",
+options:[
+"A. लोथल / Lothal",
+"B. धोलावीरा / Dholavira",
+"C. कालीबंगा / Kalibangan",
+"D. राखीगढ़ी / Rakhigarhi"
+],
+answer:1,
+explanation:"धोलावीरा में विशाल जलाशय, बांध और जल संचयन प्रणाली मिली है। / Dholavira had advanced reservoirs and water conservation system."
+},
+
+{
+question:"प्रश्न 2: हड़प्पा सभ्यता में 'पशुपति मुहर' किससे संबंधित मानी जाती है? / The 'Pashupati Seal' of Harappan Civilization is associated with?",
+options:[
+"A. विष्णु / Vishnu",
+"B. शिव के प्रारंभिक रूप / Early form of Shiva",
+"C. इंद्र / Indra",
+"D. सूर्य / Sun"
+],
+answer:1,
+explanation:"पशुपति मुहर को प्रोटो-शिव अवधारणा से जोड़ा जाता है। / It is linked with Proto-Shiva concept."
+},
+
+{
+question:"प्रश्न 3: ऋग्वेद में सबसे अधिक वर्णित देवता कौन हैं? / Which deity is most frequently mentioned in Rigveda?",
+options:[
+"A. वरुण / Varuna",
+"B. अग्नि / Agni",
+"C. इंद्र / Indra",
+"D. सोम / Soma"
+],
+answer:2,
+explanation:"ऋग्वेद में इंद्र का सर्वाधिक उल्लेख मिलता है। / Indra is the most frequently mentioned deity in Rigveda."
+},
+
+{
+question:"प्रश्न 4: वैदिक साहित्य में 'सभा' और 'समिति' किससे संबंधित थीं? / In Vedic literature, Sabha and Samiti were related to?",
+options:[
+"A. धार्मिक अनुष्ठान / Religious rituals",
+"B. राजनीतिक संस्थाएं / Political institutions",
+"C. व्यापारिक संगठन / Trade organizations",
+"D. सैन्य दल / Military groups"
+],
+answer:1,
+explanation:"सभा और समिति प्रारंभिक वैदिक राजनीतिक संस्थाएं थीं। / They were early Vedic political institutions."
+},
+
+{
+question:"प्रश्न 5: Painted Grey Ware संस्कृति का संबंध मुख्यतः किस काल से है? / Painted Grey Ware culture is mainly associated with which period?",
+options:[
+"A. हड़प्पा काल / Harappan period",
+"B. उत्तर वैदिक काल / Later Vedic period",
+"C. मौर्य काल / Mauryan period",
+"D. गुप्त काल / Gupta period"
+],
+answer:1,
+explanation:"PGW संस्कृति उत्तर वैदिक काल से संबंधित मानी जाती है।"
+},
+
+{
+question:"प्रश्न 6: 'अष्टाध्यायी' के रचयिता कौन थे? / Who composed Ashtadhyayi?",
+options:[
+"A. पतंजलि / Patanjali",
+"B. पाणिनि / Panini",
+"C. कात्यायन / Katyayana",
+"D. वराहमिहिर / Varahamihira"
+],
+answer:1,
+explanation:"पाणिनि ने संस्कृत व्याकरण की प्रसिद्ध पुस्तक अष्टाध्यायी लिखी।"
+},
+
+{
+question:"प्रश्न 7: बौद्ध धर्म के त्रिरत्न में कौन शामिल नहीं है? / Which is not included in Buddhist Triratna?",
+options:[
+"A. बुद्ध / Buddha",
+"B. धम्म / Dhamma",
+"C. संघ / Sangha",
+"D. कर्म / Karma"
+],
+answer:3,
+explanation:"त्रिरत्न हैं बुद्ध, धम्म और संघ।"
+},
+
+{
+question:"प्रश्न 8: जैन धर्म के 24वें तीर्थंकर कौन थे? / Who was the 24th Tirthankara of Jainism?",
+options:[
+"A. पार्श्वनाथ / Parshvanatha",
+"B. ऋषभनाथ / Rishabhanatha",
+"C. महावीर / Mahavira",
+"D. नेमिनाथ / Neminatha"
+],
+answer:2,
+explanation:"महावीर जैन धर्म के 24वें तीर्थंकर थे।"
+},
+
+{
+question:"प्रश्न 9: अशोक के अधिकांश अभिलेख किस भाषा में हैं? / Most Ashokan inscriptions were written in which language?",
+options:[
+"A. संस्कृत / Sanskrit",
+"B. प्राकृत / Prakrit",
+"C. तमिल / Tamil",
+"D. पालि / Pali"
+],
+answer:1,
+explanation:"अशोक के अभिलेख मुख्यतः प्राकृत भाषा में हैं।"
+},
+
+{
+question:"प्रश्न 10: मेगस्थनीज किस शासक के दरबार में आया था? / Megasthenes visited the court of?",
+options:[
+"A. अशोक / Ashoka",
+"B. चंद्रगुप्त मौर्य / Chandragupta Maurya",
+"C. बिंदुसार / Bindusara",
+"D. समुद्रगुप्त / Samudragupta"
+],
+answer:1,
+explanation:"मेगस्थनीज सेल्यूकस का राजदूत था जो चंद्रगुप्त मौर्य के दरबार आया।"
+},
+
+{
+question:"प्रश्न 11: 'इंडिका' पुस्तक किसने लिखी? / Who wrote Indica?",
+options:[
+"A. फाह्यान / Fa-Hien",
+"B. ह्वेनसांग / Hiuen Tsang",
+"C. मेगस्थनीज / Megasthenes",
+"D. प्लिनी / Pliny"
+],
+answer:2,
+explanation:"मेगस्थनीज ने इंडिका लिखी।"
+},
+
+{
+question:"प्रश्न 12: गुप्त काल को किस नाम से जाना जाता है? / Gupta period is known as?",
+options:[
+"A. लौह युग / Iron Age",
+"B. स्वर्ण युग / Golden Age",
+"C. अंधकार युग / Dark Age",
+"D. वैदिक युग / Vedic Age"
+],
+answer:1,
+explanation:"गुप्त काल कला, विज्ञान और साहित्य के विकास के कारण स्वर्ण युग कहलाता है।"
+},
+
+{
+question:"प्रश्न 13: नालंदा विश्वविद्यालय की स्थापना किसने की? / Who founded Nalanda University?",
+options:[
+"A. कुमारगुप्त प्रथम / Kumaragupta I",
+"B. अशोक / Ashoka",
+"C. हर्ष / Harsha",
+"D. समुद्रगुप्त / Samudragupta"
+],
+answer:0,
+explanation:"नालंदा विश्वविद्यालय की स्थापना कुमारगुप्त प्रथम ने की।"
+},
+
+{
+question:"प्रश्न 14: संगम साहित्य किस भाषा में लिखा गया? / Sangam literature was written in which language?",
+options:[
+"A. संस्कृत / Sanskrit",
+"B. तमिल / Tamil",
+"C. पालि / Pali",
+"D. प्राकृत / Prakrit"
+],
+answer:1,
+explanation:"संगम साहित्य तमिल भाषा में रचित है।"
+},
+
+{
+question:"प्रश्न 15: एलोरा की गुफाओं का कैलाश मंदिर किस वंश से संबंधित है? / Kailash Temple of Ellora belongs to which dynasty?",
+options:[
+"A. चालुक्य / Chalukya",
+"B. राष्ट्रकूट / Rashtrakuta",
+"C. पल्लव / Pallava",
+"D. चोल / Chola"
+],
+answer:1,
+explanation:"कैलाश मंदिर का निर्माण राष्ट्रकूट राजा कृष्ण प्रथम ने कराया।"
+},
+
+{
+question:"प्रश्न 16: 'प्रयाग प्रशस्ति' किस शासक की उपलब्धियों का वर्णन करती है? / Prayag Prashasti describes achievements of?",
+options:[
+"A. चंद्रगुप्त मौर्य",
+"B. समुद्रगुप्त",
+"C. अशोक",
+"D. हर्ष"
+],
+answer:1,
+explanation:"प्रयाग प्रशस्ति समुद्रगुप्त की उपलब्धियों का वर्णन करती है।"
+},
+
+{
+question:"प्रश्न 17: हर्षचरित के लेखक कौन थे? / Who wrote Harshacharita?",
+options:[
+"A. बाणभट्ट / Banabhatta",
+"B. कालिदास / Kalidasa",
+"C. भवभूति / Bhavabhuti",
+"D. दंडी / Dandin"
+],
+answer:0,
+explanation:"बाणभट्ट ने हर्षचरित लिखा।"
+},
+
+{
+question:"प्रश्न 18: चोल प्रशासन की प्रमुख विशेषता क्या थी? / Main feature of Chola administration was?",
+options:[
+"A. स्थानीय स्वशासन / Local self government",
+"B. केंद्रीकरण / Centralization",
+"C. सामंतवाद / Feudalism",
+"D. सैन्य शासन / Military rule"
+],
+answer:0,
+explanation:"चोलों में ग्राम प्रशासन अत्यधिक विकसित था।"
+},
+
+{
+question:"प्रश्न 19: विक्रमशिला विश्वविद्यालय की स्थापना किसने की? / Who founded Vikramshila University?",
+options:[
+"A. धर्मपाल / Dharmapala",
+"B. गोपाल / Gopala",
+"C. देवपाल / Devapala",
+"D. हर्ष / Harsha"
+],
+answer:0,
+explanation:"पाल वंश के राजा धर्मपाल ने विक्रमशिला विश्वविद्यालय स्थापित किया।"
+},
+
+{
+question:"प्रश्न 20: भारतीय इतिहास में 'द्वितीय नगरीकरण' किस काल से संबंधित है? / Second urbanization in Indian history is associated with?",
+options:[
+"A. हड़प्पा काल / Harappan period",
+"B. 6वीं शताब्दी ईसा पूर्व / 6th century BCE",
+"C. गुप्त काल / Gupta period",
+"D. मध्यकाल / Medieval period"
+],
+answer:1,
+explanation:"6वीं शताब्दी ईसा पूर्व में गंगा घाटी में द्वितीय नगरीकरण हुआ।"
+}
+],
+test16:[
+{
+question:"प्रश्न 1: सिंधु सभ्यता के किस स्थल से अग्निकुंड (Fire Altars) के प्रमाण मिले हैं? / Which Indus Valley site provides evidence of Fire Altars?",
+options:[
+"A. मोहनजोदड़ो / Mohenjodaro",
+"B. कालीबंगा / Kalibangan",
+"C. हड़प्पा / Harappa",
+"D. लोथल / Lothal"
+],
+answer:1,
+explanation:"कालीबंगा से अग्निकुंड के प्रमाण मिले हैं। / Fire altars were found at Kalibangan."
+},
+
+{
+question:"प्रश्न 2: हड़प्पा सभ्यता में 'ग्रेट बाथ' किस स्थल पर मिला है? / The Great Bath of Harappan Civilization was found at?",
+options:[
+"A. धोलावीरा / Dholavira",
+"B. लोथल / Lothal",
+"C. मोहनजोदड़ो / Mohenjodaro",
+"D. राखीगढ़ी / Rakhigarhi"
+],
+answer:2,
+explanation:"ग्रेट बाथ मोहनजोदड़ो की प्रमुख संरचना है।"
+},
+
+{
+question:"प्रश्न 3: ऋग्वैदिक समाज की सबसे छोटी इकाई क्या थी? / Smallest unit of Rigvedic society was?",
+options:[
+"A. जन / Jana",
+"B. विश / Vish",
+"C. कुल / Kula",
+"D. राष्ट्र / Rashtra"
+],
+answer:2,
+explanation:"कुल ऋग्वैदिक समाज की मूल इकाई थी।"
+},
+
+{
+question:"प्रश्न 4: 'नासदीय सूक्त' किस वेद में मिलता है? / Nasadiya Sukta is found in which Veda?",
+options:[
+"A. सामवेद / Samaveda",
+"B. अथर्ववेद / Atharvaveda",
+"C. ऋग्वेद / Rigveda",
+"D. यजुर्वेद / Yajurveda"
+],
+answer:2,
+explanation:"नासदीय सूक्त ऋग्वेद के दसवें मंडल में है।"
+},
+
+{
+question:"प्रश्न 5: उपनिषदों का मुख्य विषय क्या है? / Main subject of Upanishads is?",
+options:[
+"A. युद्ध कला / Warfare",
+"B. दर्शन और ब्रह्म ज्ञान / Philosophy and Brahma knowledge",
+"C. कृषि / Agriculture",
+"D. व्यापार / Trade"
+],
+answer:1,
+explanation:"उपनिषद आध्यात्मिक ज्ञान और दर्शन पर आधारित हैं।"
+},
+
+{
+question:"प्रश्न 6: महाजनपदों की संख्या कितनी थी? / Number of Mahajanapadas was?",
+options:[
+"A. 12",
+"B. 16",
+"C. 18",
+"D. 20"
+],
+answer:1,
+explanation:"बौद्ध ग्रंथों में 16 महाजनपदों का वर्णन है।"
+},
+
+{
+question:"प्रश्न 7: मगध साम्राज्य के उत्कर्ष का प्रमुख कारण क्या था? / Main reason for rise of Magadha?",
+options:[
+"A. लौह संसाधन / Iron resources",
+"B. समुद्री व्यापार / Sea trade",
+"C. विदेशी सहायता / Foreign help",
+"D. रेगिस्तानी क्षेत्र / Desert area"
+],
+answer:0,
+explanation:"मगध के पास लौह संसाधन और उपजाऊ भूमि थी।"
+},
+
+{
+question:"प्रश्न 8: प्रथम बौद्ध संगीति कहाँ आयोजित हुई थी? / First Buddhist Council was held at?",
+options:[
+"A. वैशाली / Vaishali",
+"B. राजगृह / Rajgir",
+"C. पाटलिपुत्र / Pataliputra",
+"D. कश्मीर / Kashmir"
+],
+answer:1,
+explanation:"प्रथम बौद्ध संगीति राजगृह में हुई।"
+},
+
+{
+question:"प्रश्न 9: द्वितीय बौद्ध संगीति किसके शासनकाल में हुई? / Second Buddhist Council held during reign of?",
+options:[
+"A. अशोक",
+"B. कालाशोक",
+"C. कनिष्क",
+"D. बिंबिसार"
+],
+answer:1,
+explanation:"द्वितीय बौद्ध संगीति कालाशोक के समय हुई।"
+},
+
+{
+question:"प्रश्न 10: मौर्य साम्राज्य की राजधानी क्या थी? / Capital of Mauryan Empire was?",
+options:[
+"A. उज्जैन",
+"B. तक्षशिला",
+"C. पाटलिपुत्र",
+"D. वैशाली"
+],
+answer:2,
+explanation:"मौर्य साम्राज्य की राजधानी पाटलिपुत्र थी।"
+},
+
+{
+question:"प्रश्न 11: अर्थशास्त्र के लेखक कौन थे? / Author of Arthashastra?",
+options:[
+"A. कौटिल्य / Kautilya",
+"B. अश्वघोष",
+"C. पतंजलि",
+"D. कालिदास"
+],
+answer:0,
+explanation:"अर्थशास्त्र कौटिल्य द्वारा लिखा गया।"
+},
+
+{
+question:"प्रश्न 12: अशोक ने कलिंग युद्ध के बाद कौन-सा धर्म अपनाया? / After Kalinga war Ashoka adopted?",
+options:[
+"A. जैन धर्म",
+"B. बौद्ध धर्म",
+"C. हिंदू धर्म",
+"D. आजीवक"
+],
+answer:1,
+explanation:"कलिंग युद्ध के बाद अशोक बौद्ध धर्म से प्रभावित हुए।"
+},
+
+{
+question:"प्रश्न 13: कुषाण शासक कनिष्क किस धर्म के संरक्षण के लिए प्रसिद्ध है? / Kanishka is famous for patronage of?",
+options:[
+"A. बौद्ध धर्म",
+"B. जैन धर्म",
+"C. शैव धर्म",
+"D. वैष्णव धर्म"
+],
+answer:0,
+explanation:"कनिष्क महायान बौद्ध धर्म का संरक्षक था।"
+},
+
+{
+question:"प्रश्न 14: गांधार कला शैली पर किसका प्रभाव था? / Gandhara art was influenced by?",
+options:[
+"A. यूनानी कला / Greek art",
+"B. चीनी कला",
+"C. मिस्री कला",
+"D. फारसी कला"
+],
+answer:0,
+explanation:"गांधार कला में यूनानी प्रभाव स्पष्ट है।"
+},
+
+{
+question:"प्रश्न 15: सातवाहन वंश की राजधानी क्या थी? / Capital of Satavahana dynasty?",
+options:[
+"A. प्रतिष्ठान / Pratishthana",
+"B. पाटलिपुत्र",
+"C. कन्नौज",
+"D. उज्जैन"
+],
+answer:0,
+explanation:"सातवाहनों की राजधानी प्रतिष्ठान थी।"
+},
+
+{
+question:"प्रश्न 16: संगम युग के तीन प्रमुख राजवंश कौन थे? / Three major dynasties of Sangam age?",
+options:[
+"A. चोल, चेर, पांड्य",
+"B. मौर्य, गुप्त, कुषाण",
+"C. पाल, प्रतिहार, राष्ट्रकूट",
+"D. चालुक्य, पल्लव, चंदेल"
+],
+answer:0,
+explanation:"संगम काल में चोल, चेर और पांड्य प्रमुख थे।"
+},
+
+{
+question:"प्रश्न 17: अजंता की गुफाएँ मुख्यतः किस धर्म से संबंधित हैं? / Ajanta caves mainly belong to?",
+options:[
+"A. जैन",
+"B. बौद्ध",
+"C. हिंदू",
+"D. सिख"
+],
+answer:1,
+explanation:"अजंता गुफाएँ बौद्ध कला के लिए प्रसिद्ध हैं।"
+},
+
+{
+question:"प्रश्न 18: एलिफेंटा गुफाएँ किस देवता को समर्पित हैं? / Elephanta caves dedicated to?",
+options:[
+"A. विष्णु",
+"B. शिव",
+"C. बुद्ध",
+"D. सूर्य"
+],
+answer:1,
+explanation:"एलिफेंटा गुफाएँ शिव को समर्पित हैं।"
+},
+
+{
+question:"प्रश्न 19: ह्वेनसांग भारत किस शासक के समय आया था? / Hiuen Tsang visited India during reign of?",
+options:[
+"A. अशोक",
+"B. हर्षवर्धन",
+"C. चंद्रगुप्त मौर्य",
+"D. समुद्रगुप्त"
+],
+answer:1,
+explanation:"ह्वेनसांग हर्षवर्धन के समय भारत आया था।"
+},
+
+{
+question:"प्रश्न 20: भारतीय इतिहास में 'प्राचीन भारत का नेपोलियन' किसे कहा जाता है? / Who is called Napoleon of Ancient India?",
+options:[
+"A. अशोक",
+"B. समुद्रगुप्त",
+"C. चंद्रगुप्त मौर्य",
+"D. कनिष्क"
+],
+answer:1,
+explanation:"समुद्रगुप्त को उसकी विजयों के कारण भारत का नेपोलियन कहा जाता है।"
+}
+],
+test17:[
+{
+question:"प्रश्न 1: सिंधु सभ्यता के किस स्थल से घोड़े के अवशेष मिलने का दावा किया गया है? / From which Indus site remains of horse have been claimed?",
+options:[
+"A. सुरकोटदा / Surkotada",
+"B. मोहनजोदड़ो / Mohenjodaro",
+"C. लोथल / Lothal",
+"D. हड़प्पा / Harappa"
+],
+answer:0,
+explanation:"सुरकोटदा से घोड़े के अवशेष मिलने का दावा किया गया है। / Horse remains are claimed from Surkotada."
+},
+
+{
+question:"प्रश्न 2: हड़प्पा सभ्यता की लिपि के बारे में कौन-सा कथन सही है? / Which statement is correct about Harappan script?",
+options:[
+"A. यह पूरी तरह पढ़ ली गई है / Fully deciphered",
+"B. यह चित्रात्मक एवं अपठित है / Pictographic and undeciphered",
+"C. यह संस्कृत में थी / Written in Sanskrit",
+"D. यह ब्राह्मी लिपि थी / It was Brahmi"
+],
+answer:1,
+explanation:"हड़प्पा लिपि अभी तक पढ़ी नहीं जा सकी है।"
+},
+
+{
+question:"प्रश्न 3: ऋग्वेद में 'दशराज्ञ युद्ध' किस नदी के किनारे हुआ था? / Battle of Ten Kings occurred on which river?",
+options:[
+"A. गंगा / Ganga",
+"B. परुष्णी (रावी) / Parushni (Ravi)",
+"C. सरस्वती / Saraswati",
+"D. सिंधु / Indus"
+],
+answer:1,
+explanation:"दशराज्ञ युद्ध परुष्णी नदी के तट पर हुआ था।"
+},
+
+{
+question:"प्रश्न 4: वैदिक काल में 'राजसूय यज्ञ' किस उद्देश्य से किया जाता था? / Rajasuya Yajna was performed for?",
+options:[
+"A. कृषि विकास",
+"B. राजा की सर्वोच्चता स्थापित करना",
+"C. वर्षा प्राप्त करना",
+"D. व्यापार बढ़ाना"
+],
+answer:1,
+explanation:"राजसूय यज्ञ राजा की प्रभुता स्थापित करने के लिए होता था।"
+},
+
+{
+question:"प्रश्न 5: 'चार आर्य सत्य' किस धर्म से संबंधित हैं? / Four Noble Truths belong to?",
+options:[
+"A. जैन धर्म",
+"B. बौद्ध धर्म",
+"C. हिंदू धर्म",
+"D. आजीवक"
+],
+answer:1,
+explanation:"चार आर्य सत्य बुद्ध के उपदेशों का आधार हैं।"
+},
+
+{
+question:"प्रश्न 6: बुद्ध को ज्ञान की प्राप्ति कहाँ हुई थी? / Buddha attained enlightenment at?",
+options:[
+"A. सारनाथ",
+"B. बोधगया",
+"C. कुशीनगर",
+"D. राजगृह"
+],
+answer:1,
+explanation:"बुद्ध को बोधगया में ज्ञान प्राप्त हुआ।"
+},
+
+{
+question:"प्रश्न 7: जैन धर्म का प्रथम तीर्थंकर कौन था? / First Tirthankara of Jainism?",
+options:[
+"A. महावीर",
+"B. पार्श्वनाथ",
+"C. ऋषभनाथ",
+"D. नेमिनाथ"
+],
+answer:2,
+explanation:"ऋषभनाथ जैन धर्म के प्रथम तीर्थंकर माने जाते हैं।"
+},
+
+{
+question:"प्रश्न 8: नंद वंश का संस्थापक कौन था? / Founder of Nanda dynasty?",
+options:[
+"A. धनानंद",
+"B. महापद्म नंद",
+"C. बिंबिसार",
+"D. अजातशत्रु"
+],
+answer:1,
+explanation:"महापद्म नंद ने नंद वंश की स्थापना की।"
+},
+
+{
+question:"प्रश्न 9: चंद्रगुप्त मौर्य के गुरु कौन थे? / Teacher of Chandragupta Maurya?",
+options:[
+"A. पतंजलि",
+"B. कौटिल्य",
+"C. मेगस्थनीज",
+"D. अश्वघोष"
+],
+answer:1,
+explanation:"कौटिल्य चंद्रगुप्त मौर्य के मार्गदर्शक थे।"
+},
+
+{
+question:"प्रश्न 10: अशोक के शिलालेखों को पढ़ने में सफलता किसे मिली? / Who deciphered Ashokan inscriptions?",
+options:[
+"A. जेम्स प्रिंसेप",
+"B. मैक्समूलर",
+"C. कनिंघम",
+"D. जॉन मार्शल"
+],
+answer:0,
+explanation:"जेम्स प्रिंसेप ने ब्राह्मी लिपि को पढ़ा।"
+},
+
+{
+question:"प्रश्न 11: मौर्य प्रशासन में 'समाहर्ता' का कार्य क्या था? / Function of Samaharta in Mauryan administration?",
+options:[
+"A. सेना संचालन",
+"B. राजस्व संग्रह",
+"C. न्याय व्यवस्था",
+"D. विदेश नीति"
+],
+answer:1,
+explanation:"समाहर्ता राजस्व विभाग का प्रमुख अधिकारी था।"
+},
+
+{
+question:"प्रश्न 12: कनिष्क के समय कौन-सी बौद्ध संगीति हुई? / Buddhist Council during Kanishka's reign?",
+options:[
+"A. प्रथम",
+"B. द्वितीय",
+"C. तृतीय",
+"D. चतुर्थ"
+],
+answer:3,
+explanation:"चौथी बौद्ध संगीति कनिष्क के समय हुई।"
+},
+
+{
+question:"प्रश्न 13: गुप्त काल में स्वर्ण मुद्राओं को क्या कहा जाता था? / Gupta gold coins were called?",
+options:[
+"A. दीनार",
+"B. पण",
+"C. निष्क",
+"D. कार्षापण"
+],
+answer:0,
+explanation:"गुप्त शासकों की स्वर्ण मुद्राएं दीनार कहलाती थीं।"
+},
+
+{
+question:"प्रश्न 14: कालिदास की प्रसिद्ध रचना कौन-सी है? / Famous work of Kalidasa?",
+options:[
+"A. अर्थशास्त्र",
+"B. अभिज्ञान शाकुंतलम्",
+"C. राजतरंगिणी",
+"D. मुद्राराक्षस"
+],
+answer:1,
+explanation:"अभिज्ञान शाकुंतलम् कालिदास की प्रसिद्ध रचना है।"
+},
+
+{
+question:"प्रश्न 15: हर्षवर्धन की राजधानी कहाँ थी? / Capital of Harshavardhana?",
+options:[
+"A. कन्नौज",
+"B. पाटलिपुत्र",
+"C. उज्जैन",
+"D. तक्षशिला"
+],
+answer:0,
+explanation:"हर्ष की राजधानी कन्नौज थी।"
+},
+
+{
+question:"प्रश्न 16: पाल वंश मुख्य रूप से किस धर्म का संरक्षक था? / Pala dynasty mainly patronized?",
+options:[
+"A. बौद्ध धर्म",
+"B. जैन धर्म",
+"C. शैव धर्म",
+"D. वैष्णव धर्म"
+],
+answer:0,
+explanation:"पाल शासक बौद्ध धर्म के प्रमुख संरक्षक थे।"
+},
+
+{
+question:"प्रश्न 17: राष्ट्रकूटों द्वारा निर्मित कैलाश मंदिर कहाँ स्थित है? / Kailash Temple built by Rashtrakutas located at?",
+options:[
+"A. एलोरा",
+"B. अजंता",
+"C. महाबलीपुरम",
+"D. बादामी"
+],
+answer:0,
+explanation:"एलोरा का कैलाश मंदिर राष्ट्रकूटों की प्रसिद्ध कृति है।"
+},
+
+{
+question:"प्रश्न 18: चोल प्रशासन में 'उर' क्या था? / In Chola administration 'Ur' was?",
+options:[
+"A. सैनिक दल",
+"B. सामान्य ग्राम सभा",
+"C. कर विभाग",
+"D. राजमहल"
+],
+answer:1,
+explanation:"उर सामान्य गांवों की सभा थी।"
+},
+
+{
+question:"प्रश्न 19: 'राजतरंगिणी' के लेखक कौन थे? / Author of Rajatarangini?",
+options:[
+"A. कल्हण",
+"B. बाणभट्ट",
+"C. दंडी",
+"D. भवभूति"
+],
+answer:0,
+explanation:"कल्हण ने राजतरंगिणी लिखी।"
+},
+
+{
+question:"प्रश्न 20: प्राचीन भारत में शिक्षा का प्रमुख केंद्र तक्षशिला किस क्षेत्र में स्थित था? / Taxila was located in which region?",
+options:[
+"A. गांधार",
+"B. मगध",
+"C. अवंति",
+"D. कलिंग"
+],
+answer:0,
+explanation:"तक्षशिला गांधार क्षेत्र का प्रसिद्ध शिक्षा केंद्र था।"
+}
+],
+test18:[
+{
+question:"प्रश्न 1: निम्नलिखित में से कौन-सा स्थल सिंधु सभ्यता का सबसे बड़ा ज्ञात स्थल है? / Which is the largest known site of Indus Civilization?",
+options:[
+"A. मोहनजोदड़ो / Mohenjodaro",
+"B. राखीगढ़ी / Rakhigarhi",
+"C. हड़प्पा / Harappa",
+"D. लोथल / Lothal"
+],
+answer:1,
+explanation:"राखीगढ़ी हरियाणा में स्थित सिंधु सभ्यता का सबसे बड़ा ज्ञात स्थल है।"
+},
+
+{
+question:"प्रश्न 2: निम्नलिखित कथनों पर विचार करें / Consider the following statements:",
+options:[
+"A. लोथल गुजरात में स्थित है / Lothal is in Gujarat",
+"B. यहां गोदीवाड़ा (Dockyard) मिला है / Dockyard was found here",
+"C. यह व्यापारिक केंद्र था / It was a trade centre",
+"D. उपरोक्त सभी / All of the above"
+],
+answer:3,
+explanation:"लोथल गुजरात का प्रमुख व्यापारिक एवं बंदरगाह स्थल था।"
+},
+
+{
+question:"प्रश्न 3: ऋग्वेद के अनुसार 'पुरंदर' किस देवता का उपनाम था? / Purandara was the title of which deity?",
+options:[
+"A. अग्नि / Agni",
+"B. इंद्र / Indra",
+"C. वरुण / Varuna",
+"D. सोम / Soma"
+],
+answer:1,
+explanation:"इंद्र को पुरंदर अर्थात किलों को नष्ट करने वाला कहा गया।"
+},
+
+{
+question:"प्रश्न 4: उत्तर वैदिक काल में 'लोहे' के लिए कौन-सा शब्द प्रयुक्त हुआ? / Which term was used for iron in Later Vedic period?",
+options:[
+"A. अयस / Ayas",
+"B. कृष्ण अयस / Krishna Ayas",
+"C. हिरण्य / Hiranya",
+"D. ताम्र / Tamra"
+],
+answer:1,
+explanation:"उत्तर वैदिक काल में लोहे को कृष्ण अयस कहा गया।"
+},
+
+{
+question:"प्रश्न 5: निम्न में से कौन-सा बौद्ध धर्म के अष्टांगिक मार्ग का भाग नहीं है? / Which is not part of Eightfold Path?",
+options:[
+"A. सम्यक दृष्टि / Right View",
+"B. सम्यक वाणी / Right Speech",
+"C. सम्यक यज्ञ / Right Sacrifice",
+"D. सम्यक कर्म / Right Action"
+],
+answer:2,
+explanation:"अष्टांगिक मार्ग में यज्ञ शामिल नहीं है।"
+},
+
+{
+question:"प्रश्न 6: महावीर का जन्म किस गणराज्य में हुआ था? / Mahavira was born in which republic?",
+options:[
+"A. शाक्य",
+"B. ज्ञात्रिक",
+"C. मल्ल",
+"D. लिच्छवि"
+],
+answer:1,
+explanation:"महावीर ज्ञात्रिक कुल से संबंधित थे।"
+},
+
+{
+question:"प्रश्न 7: निम्न में से कौन-सा मौर्यकालीन प्रशासनिक अधिकारी नहीं था? / Which was not a Mauryan official?",
+options:[
+"A. समाहर्ता",
+"B. सन्निधाता",
+"C. गोप",
+"D. महासेनापति"
+],
+answer:3,
+explanation:"महासेनापति शब्द मौर्य प्रशासन की प्रमुख सूची में नहीं आता।"
+},
+
+{
+question:"प्रश्न 8: अशोक के अभिलेखों में 'धम्म' का मुख्य उद्देश्य क्या था? / Main objective of Ashoka's Dhamma?",
+options:[
+"A. साम्राज्य विस्तार",
+"B. नैतिक जीवन और सहिष्णुता",
+"C. युद्ध नीति",
+"D. कर वृद्धि"
+],
+answer:1,
+explanation:"अशोक का धम्म नैतिक आचरण और सहिष्णुता पर आधारित था।"
+},
+
+{
+question:"प्रश्न 9: मेगस्थनीज की पुस्तक 'इंडिका' से किसकी जानकारी मिलती है? / Indica provides information about?",
+options:[
+"A. मौर्य प्रशासन",
+"B. गुप्त कला",
+"C. वैदिक समाज",
+"D. चोल प्रशासन"
+],
+answer:0,
+explanation:"इंडिका से मौर्यकालीन समाज और प्रशासन की जानकारी मिलती है।"
+},
+
+{
+question:"प्रश्न 10: 'सांची स्तूप' का निर्माण प्रारंभ किसने कराया? / Sanchi Stupa was initially built by?",
+options:[
+"A. कनिष्क",
+"B. अशोक",
+"C. समुद्रगुप्त",
+"D. हर्ष"
+],
+answer:1,
+explanation:"सांची स्तूप का प्रारंभिक निर्माण अशोक ने कराया।"
+},
+
+{
+question:"प्रश्न 11: गांधार कला में मुख्य रूप से किस पत्थर का प्रयोग हुआ? / Stone mainly used in Gandhara art?",
+options:[
+"A. संगमरमर",
+"B. नीला पत्थर",
+"C. धूसर शिस्ट",
+"D. लाल बलुआ पत्थर"
+],
+answer:2,
+explanation:"गांधार कला में धूसर शिस्ट पत्थर का प्रयोग हुआ।"
+},
+
+{
+question:"प्रश्न 12: गुप्तकालीन प्रशासन में 'उपरिक' कौन था? / Uparika in Gupta administration was?",
+options:[
+"A. प्रांतीय अधिकारी",
+"B. सैनिक अधिकारी",
+"C. न्यायाधीश",
+"D. ग्राम प्रमुख"
+],
+answer:0,
+explanation:"उपरिक प्रांत का प्रशासक होता था।"
+},
+
+{
+question:"प्रश्न 13: प्रयाग प्रशस्ति की रचना किसने की? / Who composed Prayag Prashasti?",
+options:[
+"A. हरिषेण",
+"B. कालिदास",
+"C. बाणभट्ट",
+"D. रविकीर्ति"
+],
+answer:0,
+explanation:"हरिषेण ने समुद्रगुप्त की प्रयाग प्रशस्ति लिखी।"
+},
+
+{
+question:"प्रश्न 14: नालंदा विश्वविद्यालय किस विषय के अध्ययन के लिए प्रसिद्ध था? / Nalanda was famous for study of?",
+options:[
+"A. केवल युद्ध कला",
+"B. बौद्ध दर्शन एवं अनेक विषय",
+"C. केवल व्यापार",
+"D. केवल चिकित्सा"
+],
+answer:1,
+explanation:"नालंदा उच्च शिक्षा का प्रमुख केंद्र था।"
+},
+
+{
+question:"प्रश्न 15: हर्षवर्धन के दरबार का प्रसिद्ध कवि कौन था? / Famous poet in Harsha's court?",
+options:[
+"A. बाणभट्ट",
+"B. भवभूति",
+"C. दंडी",
+"D. अश्वघोष"
+],
+answer:0,
+explanation:"बाणभट्ट हर्ष के दरबारी कवि थे।"
+},
+
+{
+question:"प्रश्न 16: पल्लवों की राजधानी क्या थी? / Capital of Pallavas?",
+options:[
+"A. कांची",
+"B. मदुरै",
+"C. तंजौर",
+"D. बादामी"
+],
+answer:0,
+explanation:"पल्लवों की राजधानी कांची थी।"
+},
+
+{
+question:"प्रश्न 17: 'मंदिर स्थापत्य की द्रविड़ शैली' का विकास मुख्यतः किस क्षेत्र में हुआ? / Dravidian temple style developed mainly in?",
+options:[
+"A. उत्तर भारत",
+"B. दक्षिण भारत",
+"C. पश्चिम भारत",
+"D. पूर्वी भारत"
+],
+answer:1,
+explanation:"द्रविड़ शैली दक्षिण भारत में विकसित हुई।"
+},
+
+{
+question:"प्रश्न 18: एलोरा का कैलाश मंदिर किस प्रकार की वास्तुकला का उदाहरण है? / Kailash Temple at Ellora is example of?",
+options:[
+"A. शैलकृत वास्तुकला / Rock-cut architecture",
+"B. लकड़ी वास्तुकला",
+"C. स्तूप वास्तुकला",
+"D. इस्लामी वास्तुकला"
+],
+answer:0,
+explanation:"कैलाश मंदिर चट्टान काटकर बनाया गया है।"
+},
+
+{
+question:"प्रश्न 19: 'उत्तरमेरूर अभिलेख' किससे संबंधित हैं? / Uttaramerur inscription relates to?",
+options:[
+"A. चोल स्थानीय प्रशासन",
+"B. मौर्य सेना",
+"C. गुप्त व्यापार",
+"D. बौद्ध संघ"
+],
+answer:0,
+explanation:"उत्तरमेरूर अभिलेख चोलों की स्थानीय स्वशासन व्यवस्था बताते हैं।"
+},
+
+{
+question:"प्रश्न 20: प्राचीन भारत में 'स्वर्ण युग' किस काल को कहा जाता है? / Golden Age of ancient India refers to?",
+options:[
+"A. मौर्य काल",
+"B. गुप्त काल",
+"C. कुषाण काल",
+"D. सातवाहन काल"
+],
+answer:1,
+explanation:"गुप्त काल को कला, विज्ञान और साहित्य की उन्नति के कारण स्वर्ण युग कहा जाता है।"
+}
+],
+test19:[
+{
+question:"प्रश्न 1: सिंधु सभ्यता का कौन-सा स्थल समुद्री व्यापार का प्रमुख केंद्र था? / Which Harappan site was a major centre of maritime trade?",
+options:[
+"A. कालीबंगा / Kalibangan",
+"B. लोथल / Lothal",
+"C. बनावली / Banawali",
+"D. राखीगढ़ी / Rakhigarhi"
+],
+answer:1,
+explanation:"लोथल गुजरात में स्थित था और यहां प्राचीन गोदीवाड़ा (Dockyard) मिला है।"
+},
+
+{
+question:"प्रश्न 2: हड़प्पा सभ्यता में 'मोहनजोदड़ो' शब्द का अर्थ क्या है? / Meaning of Mohenjodaro?",
+options:[
+"A. मृतकों का टीला / Mound of Dead",
+"B. देवताओं का नगर / City of Gods",
+"C. व्यापारिक नगर / Trade City",
+"D. जल नगर / Water City"
+],
+answer:0,
+explanation:"मोहनजोदड़ो का अर्थ 'मृतकों का टीला' है।"
+},
+
+{
+question:"प्रश्न 3: ऋग्वेद में वर्णित 'सप्त सिंधु' क्षेत्र में कौन-सी नदी शामिल नहीं थी? / Which river was not part of Sapta Sindhu?",
+options:[
+"A. सिंधु / Indus",
+"B. सरस्वती / Saraswati",
+"C. गंगा / Ganga",
+"D. वितस्ता / Jhelum"
+],
+answer:2,
+explanation:"सप्त सिंधु क्षेत्र में गंगा प्रमुख रूप से शामिल नहीं थी।"
+},
+
+{
+question:"प्रश्न 4: वैदिक काल में 'विदथ' क्या था? / What was Vidatha in Vedic period?",
+options:[
+"A. राजनीतिक एवं सामाजिक संस्था",
+"B. कर व्यवस्था",
+"C. धार्मिक ग्रंथ",
+"D. युद्ध हथियार"
+],
+answer:0,
+explanation:"विदथ एक प्राचीन वैदिक सभा थी।"
+},
+
+{
+question:"प्रश्न 5: बौद्ध धर्म में 'मध्यम मार्ग' का अर्थ क्या है? / Meaning of Middle Path in Buddhism?",
+options:[
+"A. कठोर तपस्या",
+"B. भोग-विलास",
+"C. दोनों अतियों से बचना",
+"D. युद्ध नीति"
+],
+answer:2,
+explanation:"बुद्ध ने कठोर तपस्या और अत्यधिक भोग दोनों से बचने को कहा।"
+},
+
+{
+question:"प्रश्न 6: प्रथम जैन संगीति कहाँ आयोजित हुई थी? / First Jain Council held at?",
+options:[
+"A. पाटलिपुत्र",
+"B. वैशाली",
+"C. राजगृह",
+"D. उज्जैन"
+],
+answer:0,
+explanation:"प्रथम जैन संगीति पाटलिपुत्र में हुई थी।"
+},
+
+{
+question:"प्रश्न 7: अजातशत्रु किस वंश का शासक था? / Ajatashatru belonged to which dynasty?",
+options:[
+"A. नंद",
+"B. हर्यक",
+"C. मौर्य",
+"D. शिशुनाग"
+],
+answer:1,
+explanation:"अजातशत्रु हर्यक वंश का शासक था।"
+},
+
+{
+question:"प्रश्न 8: सिकंदर का भारत आक्रमण किस वर्ष हुआ था? / Alexander invaded India in?",
+options:[
+"A. 326 ई.पू.",
+"B. 261 ई.पू.",
+"C. 185 ई.पू.",
+"D. 78 ई."
+],
+answer:0,
+explanation:"सिकंदर ने 326 ईसा पूर्व भारत पर आक्रमण किया।"
+},
+
+{
+question:"प्रश्न 9: मौर्य साम्राज्य में 'धर्म महामात्र' किसने नियुक्त किए? / Who appointed Dhamma Mahamatras?",
+options:[
+"A. चंद्रगुप्त मौर्य",
+"B. बिंदुसार",
+"C. अशोक",
+"D. दशरथ"
+],
+answer:2,
+explanation:"अशोक ने धम्म प्रचार के लिए धर्म महामात्र नियुक्त किए।"
+},
+
+{
+question:"प्रश्न 10: अशोक का कौन-सा शिलालेख कलिंग युद्ध का वर्णन करता है? / Which edict describes Kalinga war?",
+options:[
+"A. प्रथम शिलालेख",
+"B. तेरहवां शिलालेख",
+"C. सातवां शिलालेख",
+"D. स्तंभ लेख"
+],
+answer:1,
+explanation:"तेरहवें शिलालेख में कलिंग युद्ध का वर्णन है।"
+},
+
+{
+question:"प्रश्न 11: 'मिलिंदपन्हो' किससे संबंधित है? / Milindapanho is related to?",
+options:[
+"A. अशोक",
+"B. मेनांडर और नागसेन संवाद",
+"C. समुद्रगुप्त",
+"D. कनिष्क"
+],
+answer:1,
+explanation:"मिलिंदपन्हो में राजा मेनांडर और नागसेन का संवाद है।"
+},
+
+{
+question:"प्रश्न 12: कुषाण काल में भारत में किस कला शैली का विकास हुआ? / Which art style developed during Kushana period?",
+options:[
+"A. गांधार और मथुरा",
+"B. द्रविड़",
+"C. नागर",
+"D. वेसर"
+],
+answer:0,
+explanation:"कुषाण काल में गांधार और मथुरा कला का विकास हुआ।"
+},
+
+{
+question:"प्रश्न 13: गुप्तकाल में आर्यभट्ट ने कौन-सा ग्रंथ लिखा? / Aryabhata wrote?",
+options:[
+"A. आर्यभटीय",
+"B. बृहत्संहिता",
+"C. चरक संहिता",
+"D. अर्थशास्त्र"
+],
+answer:0,
+explanation:"आर्यभट्ट ने आर्यभटीय की रचना की।"
+},
+
+{
+question:"प्रश्न 14: गुप्तकालीन प्रसिद्ध लौह स्तंभ कहाँ स्थित है? / Gupta period Iron Pillar located at?",
+options:[
+"A. दिल्ली",
+"B. उज्जैन",
+"C. पाटलिपुत्र",
+"D. नालंदा"
+],
+answer:0,
+explanation:"दिल्ली का लौह स्तंभ गुप्तकाल से संबंधित है।"
+},
+
+{
+question:"प्रश्न 15: 'दशावतार मंदिर' किस स्थान पर स्थित है? / Dashavatara Temple located at?",
+options:[
+"A. देवगढ़",
+"B. कांची",
+"C. एलोरा",
+"D. सांची"
+],
+answer:0,
+explanation:"दशावतार मंदिर देवगढ़ (उत्तर प्रदेश) में स्थित है।"
+},
+
+{
+question:"प्रश्न 16: चालुक्य वंश की राजधानी क्या थी? / Capital of Chalukyas?",
+options:[
+"A. बादामी",
+"B. कांची",
+"C. तंजौर",
+"D. मदुरै"
+],
+answer:0,
+explanation:"प्रारंभिक चालुक्यों की राजधानी बादामी थी।"
+},
+
+{
+question:"प्रश्न 17: पल्लव स्थापत्य का प्रमुख केंद्र कौन-सा था? / Main centre of Pallava architecture?",
+options:[
+"A. महाबलीपुरम",
+"B. अजंता",
+"C. एलोरा",
+"D. अमरावती"
+],
+answer:0,
+explanation:"महाबलीपुरम पल्लव स्थापत्य का प्रमुख केंद्र था।"
+},
+
+{
+question:"प्रश्न 18: 'किताब-उल-हिंद' किस विदेशी यात्री की रचना है? / Kitab-ul-Hind written by?",
+options:[
+"A. अलबरूनी",
+"B. इब्नबतूता",
+"C. फाह्यान",
+"D. ह्वेनसांग"
+],
+answer:0,
+explanation:"अलबरूनी ने किताब-उल-हिंद लिखी।"
+},
+
+{
+question:"प्रश्न 19: प्राचीन भारत में 'नागर शैली' मुख्यतः किस क्षेत्र में विकसित हुई? / Nagara style developed mainly in?",
+options:[
+"A. उत्तर भारत",
+"B. दक्षिण भारत",
+"C. श्रीलंका",
+"D. तिब्बत"
+],
+answer:0,
+explanation:"नागर शैली उत्तर भारत की मंदिर स्थापत्य शैली है।"
+},
+
+{
+question:"प्रश्न 20: भारतीय इतिहास में 'सांस्कृतिक समन्वय' का उत्कृष्ट उदाहरण कौन-सा काल है? / Best example of cultural synthesis?",
+options:[
+"A. कुषाण काल",
+"B. केवल वैदिक काल",
+"C. केवल मौर्य काल",
+"D. केवल मध्यकाल"
+],
+answer:0,
+explanation:"कुषाण काल में भारतीय, यूनानी और मध्य एशियाई संस्कृतियों का समन्वय हुआ।"
+}
+],
+test20:[
+{
+question:"प्रश्न 1: निम्नलिखित कथनों पर विचार करें / Consider the following statements about Indus Civilization:",
+options:[
+"A. धोलावीरा गुजरात में स्थित है / Dholavira is in Gujarat",
+"B. यहां जल प्रबंधन की उन्नत व्यवस्था थी / Advanced water management existed here",
+"C. यहां से विशाल जलाशय मिले हैं / Large reservoirs were found here",
+"D. उपरोक्त सभी / All of the above"
+],
+answer:3,
+explanation:"धोलावीरा सिंधु सभ्यता का प्रमुख जल प्रबंधन केंद्र था।"
+},
+
+{
+question:"प्रश्न 2: निम्नलिखित में से कौन-सा युग्म सही सुमेलित है? / Which pair is correctly matched?",
+options:[
+"A. लोथल - डॉकयार्ड / Lothal - Dockyard",
+"B. कालीबंगा - बंदरगाह / Kalibangan - Port",
+"C. मोहनजोदड़ो - अश्वमेध यज्ञ / Mohenjodaro - Ashvamedha",
+"D. हड़प्पा - गुफा मंदिर / Harappa - Cave Temple"
+],
+answer:0,
+explanation:"लोथल में प्राचीन डॉकयार्ड के प्रमाण मिले हैं।"
+},
+
+{
+question:"प्रश्न 3: वैदिक साहित्य के संबंध में कौन-सा कथन सही है? / Which statement is correct about Vedic literature?",
+options:[
+"A. सामवेद संगीत से संबंधित है / Samaveda is related to music",
+"B. अथर्ववेद चिकित्सा और जादुई मंत्रों से संबंधित है / Atharvaveda relates to medicine and charms",
+"C. यजुर्वेद यज्ञ विधि से संबंधित है / Yajurveda relates to rituals",
+"D. सभी सही / All are correct"
+],
+answer:3,
+explanation:"चारों वेदों की अपनी विशेषताएं हैं।"
+},
+
+{
+question:"प्रश्न 4: निम्नलिखित में से कौन-सा महाजनपद सबसे शक्तिशाली बना? / Which Mahajanapada became most powerful?",
+options:[
+"A. वत्स / Vatsa",
+"B. अवंति / Avanti",
+"C. मगध / Magadha",
+"D. कोशल / Kosala"
+],
+answer:2,
+explanation:"मगध अपनी भौगोलिक और आर्थिक स्थिति के कारण शक्तिशाली बना।"
+},
+
+{
+question:"प्रश्न 5: बौद्ध धर्म के संबंध में सही कथन चुनिए / Choose correct statement about Buddhism:",
+options:[
+"A. बुद्ध का जन्म लुंबिनी में हुआ",
+"B. ज्ञान बोधगया में मिला",
+"C. प्रथम उपदेश सारनाथ में दिया",
+"D. सभी सही"
+],
+answer:3,
+explanation:"बुद्ध के जीवन की ये तीनों प्रमुख घटनाएं हैं।"
+},
+
+{
+question:"प्रश्न 6: जैन धर्म के पंच महाव्रतों में कौन शामिल नहीं है? / Which is not among Jain five vows?",
+options:[
+"A. अहिंसा / Non-violence",
+"B. सत्य / Truth",
+"C. यज्ञ / Sacrifice",
+"D. अपरिग्रह / Non-possession"
+],
+answer:2,
+explanation:"यज्ञ जैन पंच महाव्रत का भाग नहीं है।"
+},
+
+{
+question:"प्रश्न 7: निम्नलिखित में से कौन-सा मौर्यकालीन ग्रंथ है? / Which is Mauryan period text?",
+options:[
+"A. अर्थशास्त्र / Arthashastra",
+"B. राजतरंगिणी / Rajatarangini",
+"C. अभिज्ञान शाकुंतलम्",
+"D. हर्षचरित"
+],
+answer:0,
+explanation:"अर्थशास्त्र कौटिल्य द्वारा रचित मौर्यकालीन ग्रंथ है।"
+},
+
+{
+question:"प्रश्न 8: अशोक के धम्म के बारे में कौन-सा कथन सही है? / Correct statement about Ashoka's Dhamma:",
+options:[
+"A. यह नैतिक आचरण पर आधारित था",
+"B. इसमें सभी धर्मों का सम्मान था",
+"C. इसमें अहिंसा पर बल था",
+"D. सभी सही"
+],
+answer:3,
+explanation:"अशोक का धम्म नैतिकता और सहिष्णुता पर आधारित था।"
+},
+
+{
+question:"प्रश्न 9: निम्नलिखित में सही मिलान चुनिए / Choose correct match:",
+options:[
+"A. कनिष्क - चतुर्थ बौद्ध संगीति",
+"B. अशोक - तृतीय बौद्ध संगीति",
+"C. अजातशत्रु - प्रथम बौद्ध संगीति",
+"D. सभी सही"
+],
+answer:3,
+explanation:"तीनों शासकों का संबंध संबंधित बौद्ध संगतियों से है।"
+},
+
+{
+question:"प्रश्न 10: गुप्त काल की उपलब्धियों के संबंध में कौन-सा सही है? / Correct about Gupta period:",
+options:[
+"A. विज्ञान की प्रगति",
+"B. साहित्य का विकास",
+"C. कला एवं स्थापत्य का विकास",
+"D. सभी सही"
+],
+answer:3,
+explanation:"गुप्त काल कला, विज्ञान और साहित्य के उत्कर्ष के लिए प्रसिद्ध है।"
+},
+
+{
+question:"प्रश्न 11: आर्यभट्ट किस क्षेत्र से संबंधित थे? / Aryabhata belonged to?",
+options:[
+"A. गणित एवं खगोल विज्ञान",
+"B. चिकित्सा",
+"C. वास्तुकला",
+"D. राजनीति"
+],
+answer:0,
+explanation:"आर्यभट्ट महान गणितज्ञ और खगोलशास्त्री थे।"
+},
+
+{
+question:"प्रश्न 12: निम्नलिखित में कौन-सा सही युग्म है? / Correct pair:",
+options:[
+"A. कालिदास - साहित्य",
+"B. चरक - चिकित्सा",
+"C. वराहमिहिर - खगोल विज्ञान",
+"D. सभी सही"
+],
+answer:3,
+explanation:"तीनों विद्वान अपने-अपने क्षेत्रों में प्रसिद्ध थे।"
+},
+
+{
+question:"प्रश्न 13: संगम साहित्य के संबंध में कौन-सा सही है? / Correct about Sangam literature:",
+options:[
+"A. तमिल भाषा में रचित",
+"B. दक्षिण भारत से संबंधित",
+"C. चोल-चेर-पांड्य का वर्णन",
+"D. सभी सही"
+],
+answer:3,
+explanation:"संगम साहित्य प्राचीन तमिल समाज की जानकारी देता है।"
+},
+
+{
+question:"प्रश्न 14: चोल प्रशासन की प्रमुख विशेषता क्या थी? / Main feature of Chola administration:",
+options:[
+"A. स्थानीय स्वशासन",
+"B. ग्राम सभाएं",
+"C. विकसित प्रशासन",
+"D. सभी सही"
+],
+answer:3,
+explanation:"चोलों की स्थानीय प्रशासन व्यवस्था बहुत विकसित थी।"
+},
+
+{
+question:"प्रश्न 15: निम्न में से कौन-सा मंदिर स्थापत्य से संबंधित है? / Related to temple architecture:",
+options:[
+"A. नागर शैली",
+"B. द्रविड़ शैली",
+"C. वेसर शैली",
+"D. सभी सही"
+],
+answer:3,
+explanation:"भारत में तीन प्रमुख मंदिर स्थापत्य शैलियां हैं।"
+},
+
+{
+question:"प्रश्न 16: अजंता और एलोरा गुफाएं किस राज्य में स्थित हैं? / Ajanta and Ellora caves located in?",
+options:[
+"A. महाराष्ट्र / Maharashtra",
+"B. गुजरात",
+"C. मध्य प्रदेश",
+"D. राजस्थान"
+],
+answer:0,
+explanation:"अजंता और एलोरा महाराष्ट्र में स्थित हैं।"
+},
+
+{
+question:"प्रश्न 17: नालंदा विश्वविद्यालय किस काल में प्रसिद्ध हुआ? / Nalanda flourished during?",
+options:[
+"A. गुप्त एवं पाल काल",
+"B. मौर्य काल",
+"C. सिंधु काल",
+"D. वैदिक काल"
+],
+answer:0,
+explanation:"नालंदा गुप्त और पाल काल में प्रसिद्ध शिक्षा केंद्र था।"
+},
+
+{
+question:"प्रश्न 18: निम्नलिखित में कौन विदेशी यात्री है? / Who was a foreign traveller?",
+options:[
+"A. फाह्यान",
+"B. ह्वेनसांग",
+"C. मेगस्थनीज",
+"D. सभी सही"
+],
+answer:3,
+explanation:"तीनों विदेशी यात्रियों ने भारत का वर्णन किया।"
+},
+
+{
+question:"प्रश्न 19: प्राचीन भारत में शिक्षा के प्रमुख केंद्र कौन-से थे? / Ancient education centres were:",
+options:[
+"A. तक्षशिला",
+"B. नालंदा",
+"C. विक्रमशिला",
+"D. सभी सही"
+],
+answer:3,
+explanation:"ये सभी प्राचीन भारत के प्रसिद्ध शिक्षा केंद्र थे।"
+},
+
+{
+question:"प्रश्न 20: MPPSC के दृष्टिकोण से प्राचीन भारत का सबसे महत्वपूर्ण अध्ययन क्षेत्र क्या है? / Most important area for Ancient India in MPPSC:",
+options:[
+"A. संस्कृति एवं सभ्यता",
+"B. कला एवं स्थापत्य",
+"C. धर्म एवं दर्शन",
+"D. सभी सही"
+],
+answer:3,
+explanation:"MPPSC में प्राचीन भारत से सभी क्षेत्रों से प्रश्न पूछे जाते हैं।"
+}
+],
 
 },
 
