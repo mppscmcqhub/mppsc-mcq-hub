@@ -3,188 +3,143 @@ const questionBank = {
 test1: [
 
 {
-question:"हड़प्पा सभ्यता के संदर्भ में निम्न कथनों पर विचार कीजिए। (1) राखीगढ़ी सबसे बड़े स्थलों में से एक है। (2) धोलावीरा में उन्नत जल प्रबंधन प्रणाली थी। (3) लोथल केवल धार्मिक केंद्र था। सही विकल्प चुनिए. | Consider the following statements regarding the Harappan Civilization. (1) Rakhigarhi is one of the largest sites. (2) Dholavira had an advanced water management system. (3) Lothal was only a religious centre.",
-options:[
-"केवल 1 और 2 | 1 and 2 only",
-"केवल 2 और 3 | 2 and 3 only",
-"केवल 1 और 3 | 1 and 3 only",
-"1,2 और 3"
-],
+question:"हड़प्पा सभ्यता का सबसे बड़ा नगर कौन-सा माना जाता है? / Which is considered the largest Harappan city?",
+options:["मोहनजोदड़ो","हड़प्पा","धोलावीरा","लोथल"],
+answer:2,
+explanation:"धोलावीरा सबसे बड़े हड़प्पा स्थलों में से एक माना जाता है।"
+},
+
+{
+question:"लोथल किसलिए प्रसिद्ध है? / Lothal is famous for?",
+options:["Dockyard","किला","मंदिर","स्तूप"],
 answer:0,
-explanation:"राखीगढ़ी सबसे बड़े स्थलों में है और धोलावीरा अपनी जल संरक्षण प्रणाली के लिए प्रसिद्ध है। लोथल व्यापारिक बंदरगाह था, केवल धार्मिक केंद्र नहीं।"
+explanation:"लोथल विश्व के प्राचीनतम Dockyard के लिए प्रसिद्ध है।"
 },
 
 {
-question:"बौद्ध धर्म के प्रारंभिक प्रसार में सबसे महत्वपूर्ण शासक कौन था? | Who played the most significant role in the early spread of Buddhism?",
-options:[
-"चंद्रगुप्त मौर्य | Chandragupta Maurya",
-"अशोक | Ashoka",
-"समुद्रगुप्त | Samudragupta",
-"कनिष्क | Kanishka"
-],
+question:"ऋग्वेद में सबसे अधिक किस नदी का उल्लेख मिलता है? / Which river is mentioned most in Rigveda?",
+options:["गंगा","सरस्वती","यमुना","सिंधु"],
 answer:1,
-explanation:"कलिंग युद्ध के बाद सम्राट अशोक ने धम्म नीति अपनाई और अनेक देशों में बौद्ध धर्म का प्रचार कराया।"
+explanation:"ऋग्वेद में सरस्वती का सर्वाधिक उल्लेख मिलता है।"
 },
 
 {
-question:"निम्न युग्मों में कौन-सा गलत है? | Which pair is incorrect?",
-options:[
-"लोथल – Dockyard",
-"मोहनजोदड़ो – Great Bath",
-"धोलावीरा – Water Reservoir",
-"बनवाली – Horse Seal"
-],
-answer:3,
-explanation:"बनवाली से घोड़े की प्रमाणित मुहर नहीं मिली है।"
-},
-
-{
-question:"ऋग्वेद में सर्वाधिक उल्लिखित नदी कौन-सी है? | Which river is mentioned most frequently in the Rigveda?",
-options:["सिंधु","सरस्वती","गंगा","यमुना"],
-answer:1,
-explanation:"ऋग्वेद में सरस्वती नदी का सबसे अधिक उल्लेख मिलता है।"
-},
-
-{
-question:"महाजनपदों की संख्या कितनी थी? | How many Mahajanapadas were there?",
+question:"महाजनपदों की संख्या कितनी थी? / Number of Mahajanapadas?",
 options:["12","14","16","18"],
 answer:2,
-explanation:"बौद्ध ग्रंथ अंगुत्तर निकाय में 16 महाजनपदों का उल्लेख मिलता है।"
+explanation:"अंगुत्तर निकाय में 16 महाजनपदों का उल्लेख है।"
 },
 
 {
-question:"मौर्य प्रशासन में ‘समाहर्ता’ का मुख्य कार्य क्या था? | What was the primary duty of Samaharta in Mauryan administration?",
-options:[
-"न्याय व्यवस्था",
-"राजस्व संग्रह",
-"सैन्य संचालन",
-"विदेश नीति"
-],
+question:"सम्राट अशोक ने किस युद्ध के बाद बौद्ध धर्म अपनाया? / After which war did Ashoka embrace Buddhism?",
+options:["पानीपत","कलिंग","तराइन","हाइडस्पीज़"],
 answer:1,
-explanation:"समाहर्ता राज्य का मुख्य राजस्व अधिकारी था।"
+explanation:"कलिंग युद्ध के बाद अशोक ने धम्म नीति अपनाई।"
 },
 
 {
-question:"अर्थशास्त्र के लेखक कौन हैं? | Who wrote Arthashastra?",
-options:[
-"पतंजलि",
-"कालिदास",
-"कौटिल्य",
-"पाणिनि"
-],
+question:"अर्थशास्त्र के लेखक कौन हैं? / Author of Arthashastra?",
+options:["कालिदास","पाणिनि","कौटिल्य","पतंजलि"],
 answer:2,
-explanation:"अर्थशास्त्र कौटिल्य (चाणक्य) द्वारा रचित माना जाता है।"
+explanation:"कौटिल्य (चाणक्य) अर्थशास्त्र के लेखक हैं।"
 },
 
 {
-question:"गुप्तकाल को भारत का स्वर्ण युग क्यों कहा जाता है? | Why is the Gupta Period called the Golden Age of India?",
-options:[
-"केवल सैन्य शक्ति",
-"विज्ञान, साहित्य और कला की उन्नति",
-"केवल व्यापार",
-"केवल कृषि"
-],
-answer:1,
-explanation:"गुप्तकाल में विज्ञान, साहित्य, गणित और कला का असाधारण विकास हुआ।"
-},
-
-{
-question:"आर्यभट्ट का प्रमुख ग्रंथ कौन-सा है? | Which is the famous work of Aryabhata?",
-options:[
-"सिद्धांत शिरोमणि",
-"आर्यभटीय",
-"ब्रह्मस्फुट सिद्धांत",
-"लीलावती"
-],
-answer:1,
-explanation:"आर्यभट्ट ने 'आर्यभटीय' की रचना की।"
-},
-
-{
-question:"अजन्ता की गुफाएँ मुख्यतः किस धर्म से संबंधित हैं? | Ajanta Caves are mainly associated with which religion?",
-options:["हिन्दू","जैन","बौद्ध","सिख"],
+question:"मेगस्थनीज़ किस शासक के दरबार में आया था? / Megasthenes visited whose court?",
+options:["अशोक","बिंदुसार","चंद्रगुप्त मौर्य","समुद्रगुप्त"],
 answer:2,
-explanation:"अजन्ता की गुफाएँ बौद्ध चित्रकला और विहारों के लिए प्रसिद्ध हैं।"
+explanation:"मेगस्थनीज़ चंद्रगुप्त मौर्य के दरबार में आया था।"
 },
 
 {
-question:"सांची स्तूप किस सम्राट से संबंधित है? | Sanchi Stupa is associated with which emperor?",
-options:["अशोक","बिंदुसार","हर्ष","समुद्रगुप्त"],
-answer:0,
-explanation:"सांची स्तूप का निर्माण अशोक ने कराया था।"
+question:"गुप्तकाल को क्या कहा जाता है? / Gupta Age is called?",
+options:["लौह युग","स्वर्ण युग","ताम्र युग","वैदिक युग"],
+answer:1,
+explanation:"गुप्तकाल को भारत का स्वर्ण युग कहा जाता है।"
 },
 
 {
-question:"गुप्तकालीन प्रसिद्ध कवि कौन थे? | Who was the famous poet of the Gupta Age?",
-options:["कालिदास","भास","तुलसीदास","बाणभट्ट"],
-answer:0,
-explanation:"कालिदास गुप्तकाल के महान कवि माने जाते हैं।"
+question:"आर्यभट्ट का प्रसिद्ध ग्रंथ? / Aryabhata's famous work?",
+options:["लीलावती","आर्यभटीय","अर्थशास्त्र","सिद्धांत शिरोमणि"],
+answer:1,
+explanation:"आर्यभटीय उनका प्रमुख ग्रंथ है।"
 },
 
 {
-question:"विक्रमशिला विश्वविद्यालय की स्थापना किसने की? | Who founded Vikramashila University?",
-options:[
-"धर्मपाल",
-"गोपाल",
-"देवपाल",
-"महिपाल"
-],
-answer:0,
-explanation:"पाल वंश के धर्मपाल ने विक्रमशिला विश्वविद्यालय की स्थापना की।"
+question:"सांची स्तूप कहाँ स्थित है? / Sanchi Stupa is located in?",
+options:["बिहार","राजस्थान","मध्य प्रदेश","उत्तर प्रदेश"],
+answer:2,
+explanation:"सांची मध्य प्रदेश में स्थित है।"
 },
 
 {
-question:"हर्षवर्धन की राजधानी कहाँ थी? | What was the capital of Harshavardhana?",
-options:["कन्नौज","पाटलिपुत्र","उज्जैन","वाराणसी"],
-answer:0,
-explanation:"हर्ष की राजधानी कन्नौज थी।"
+question:"अजन्ता गुफाएँ किस धर्म से संबंधित हैं? / Ajanta Caves belong mainly to?",
+options:["हिन्दू","बौद्ध","जैन","सिख"],
+answer:1,
+explanation:"अजन्ता बौद्ध चित्रकला के लिए प्रसिद्ध है।"
 },
 
 {
-question:"चीनी यात्री ह्वेनसांग किस शासक के समय भारत आया? | Hiuen Tsang visited India during whose reign?",
+question:"ह्वेनसांग किस शासक के समय भारत आया? / Hiuen Tsang visited during whose reign?",
 options:["अशोक","हर्ष","समुद्रगुप्त","चंद्रगुप्त द्वितीय"],
 answer:1,
-explanation:"ह्वेनसांग हर्षवर्धन के समय भारत आया था।"
+explanation:"ह्वेनसांग हर्षवर्धन के समय आया था।"
 },
 
 {
-question:"गुप्तकाल में सोने के सिक्कों को क्या कहा जाता था? | What were the gold coins of the Gupta period called?",
-options:["पण","दीनार","रूपक","निष्क"],
-answer:1,
-explanation:"गुप्तकालीन स्वर्ण मुद्राओं को दीनार कहा जाता था।"
-},
-
-{
-question:"नालंदा विश्वविद्यालय किस राज्य में स्थित है? | Nalanda University is located in which state?",
+question:"नालंदा विश्वविद्यालय किस राज्य में है? / Nalanda is in?",
 options:["उत्तर प्रदेश","बिहार","मध्य प्रदेश","राजस्थान"],
 answer:1,
-explanation:"नालंदा वर्तमान बिहार में स्थित है।"
+explanation:"नालंदा बिहार में स्थित है।"
 },
 
 {
-question:"सातवाहन वंश की राजधानी कौन-सी थी? | What was the capital of the Satavahana dynasty?",
-options:["प्रतिष्ठान","उज्जैन","पाटलिपुत्र","मथुरा"],
-answer:0,
-explanation:"सातवाहन वंश की राजधानी प्रतिष्ठान (पैठन) थी।"
-},
-
-{
-question:"प्रयाग प्रशस्ति किसने लिखी? | Who wrote Prayag Prashasti?",
-options:["कालिदास","हरिषेण","बाणभट्ट","विशाखदत्त"],
+question:"भीमबेटका किसलिए प्रसिद्ध है? / Bhimbetka is famous for?",
+options:["मंदिर","शैलचित्र","किला","सिक्के"],
 answer:1,
-explanation:"हरिषेण ने समुद्रगुप्त की प्रयाग प्रशस्ति लिखी थी।"
+explanation:"भीमबेटका प्रागैतिहासिक शैलचित्रों के लिए प्रसिद्ध है।"
 },
 
 {
-question:"मध्य प्रदेश का भीमबेटका किस कारण प्रसिद्ध है? | Bhimbetka in Madhya Pradesh is famous for?",
-options:[
-"बौद्ध स्तूप",
-"शैलचित्र (Rock Paintings)",
-"जैन मंदिर",
-"गुप्तकालीन सिक्के"
-],
+question:"उदयगिरि गुफाएँ किस राज्य में हैं? / Udayagiri Caves are in?",
+options:["बिहार","मध्य प्रदेश","गुजरात","ओडिशा"],
 answer:1,
-explanation:"भीमबेटका विश्व प्रसिद्ध प्रागैतिहासिक शैलचित्रों के लिए जाना जाता है और MPPSC में महत्वपूर्ण विषय है।"
+explanation:"उदयगिरि गुफाएँ मध्य प्रदेश में हैं।"
+},
+
+{
+question:"समुद्रगुप्त की प्रशस्ति किसने लिखी? / Who wrote Samudragupta's Prayag Prashasti?",
+options:["कालिदास","हरिषेण","बाणभट्ट","पाणिनि"],
+answer:1,
+explanation:"हरिषेण ने प्रयाग प्रशस्ति लिखी।"
+},
+
+{
+question:"गुप्तकालीन स्वर्ण सिक्के क्या कहलाते थे? / Gupta gold coins were called?",
+options:["पण","दीनार","निष्क","रूपक"],
+answer:1,
+explanation:"गुप्तकालीन स्वर्ण मुद्राएँ दीनार कहलाती थीं।"
+},
+
+{
+question:"महावीर कितनेवें तीर्थंकर थे? / Mahavira was the ____ Tirthankara.",
+options:["22वें","23वें","24वें","25वें"],
+answer:2,
+explanation:"महावीर 24वें तीर्थंकर थे।"
+},
+
+{
+question:"प्रथम बौद्ध संगीति कहाँ हुई? / First Buddhist Council was held at?",
+options:["वैशाली","राजगृह","पाटलिपुत्र","कुशीनगर"],
+answer:1,
+explanation:"प्रथम बौद्ध संगीति राजगृह में हुई।"
+},
+
+{
+question:"राखीगढ़ी किस सभ्यता का प्रमुख स्थल है? / Rakhigarhi belongs to which civilization?",
+options:["वैदिक","सिंधु घाटी","गुप्त","मौर्य"],
+answer:1,
+explanation:"राखीगढ़ी सिंधु घाटी सभ्यता का प्रमुख स्थल है।"
 }
 
 ]
