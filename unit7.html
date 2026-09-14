@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 1 - MPPSC MCQ Hub</title>
+<style>
+body{font-family:Arial;background:#eef5ff;margin:0}
+header{background:#083b8a;color:#fff;padding:15px;display:flex;align-items:center;gap:10px}
+header img{width:50px;height:50px;border-radius:50%}
+.container{max-width:1100px;margin:auto;padding:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:15px}
+.card{background:#fff;padding:18px;border-radius:15px;text-align:center;box-shadow:0 5px 12px rgba(0,0,0,.08)}
+.btn{display:inline-block;margin-top:10px;padding:10px 18px;background:#0b63ff;color:#fff;text-decoration:none;border-radius:10px;font-weight:bold}
+</style>
+</head>
+<body>
+
+<header>
+<img src="mppsc-logo.jpg">
+<div>
+<h2>MPPSC MCQ Hub V14</h2>
+<small>Unit 1 - इतिहास</small>
+</div>
+</header>
+
+<div class="container">
+<h2>Unit 1 - 20 Tests</h2>
+
+<div class="grid">
+<script>
+for(let i=1;i<=20;i++){
+document.write(`
+<div class="card">
+<h3>Test ${i}</h3>
+<p>20 Questions</p>
+<a class="btn" href="quiz.html?unit=1&test=${i}">Start Test</a>
+</div>`);
+}
+</script>
+</div>
+
+</div>
+
+</body>
+</html>
