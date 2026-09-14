@@ -216,33 +216,25 @@ box.classList.add("correct");
 
 if(selected){
 
-
 if(selected.value==q.answer)
 {
-
 score++;
-
 }
 
 else
 {
-
-let wrongIndex=
+let wrongIndex =
 selected.value.charCodeAt(0)-65;
-
 
 document.getElementById(
 "q"+i+"o"+wrongIndex
 ).classList.add("wrong");
-
+}
 
 }
 
-
-
-document.getElementById("exp"+i).innerHTML=
-
-"Explanation : "+q.explanation;
+document.getElementById("exp"+i).innerHTML =
+"Explanation : " + q.explanation;
 
 
 
