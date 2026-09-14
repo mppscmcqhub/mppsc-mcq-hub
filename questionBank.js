@@ -1,34 +1,32 @@
-window.questionBank = {
-  unit1: {
-    test1: [],
-    test2: [],
-    test3: [],
-    test4: [],
-    test5: [],
-    test6: [],
-    test7: [],
-    test8: [],
-    test9: [],
-    test10: [],
-    test11: [],
-    test12: [],
-    test13: [],
-    test14: [],
-    test15: [],
-    test16: [],
-    test17: [],
-    test18: [],
-    test19: [],
-    test20: []
-  },
+window.questionBank = {};
 
-  unit2: {},
-  unit3: {},
-  unit4: {},
-  unit5: {},
-  unit6: {},
-  unit7: {},
-  unit8: {},
-  unit9: {},
-  unit10: {}
-};
+// 10 Units × 20 Tests × 20 Questions = 200 Tests
+for (let unit = 1; unit <= 10; unit++) {
+
+    window.questionBank["unit" + unit] = {};
+
+    for (let test = 1; test <= 20; test++) {
+
+        let questions = [];
+
+        for (let q = 1; q <= 20; q++) {
+
+            questions.push({
+                question: `Unit ${unit} - Test ${test} - प्रश्न ${q} / Question ${q}`,
+                options: [
+                    "A. विकल्प 1 / Option 1",
+                    "B. विकल्प 2 / Option 2",
+                    "C. विकल्प 3 / Option 3",
+                    "D. विकल्प 4 / Option 4"
+                ],
+                answer: Math.floor(Math.random() * 4),
+                explanation: `यह Unit ${unit}, Test ${test}, प्रश्न ${q} की व्याख्या है।`
+            });
+
+        }
+
+        window.questionBank["unit" + unit]["test" + test] = questions;
+
+    }
+
+}
