@@ -2,48 +2,103 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
+
 <title>MPPSC MCQ Hub</title>
+
 <link rel="stylesheet" href="style.css">
+
+<style>
+body{
+font-family:Arial;
+background:#eef4ff;
+margin:0;
+}
+
+header{
+background:#0645d8;
+color:white;
+padding:15px;
+}
+
+.box{
+background:white;
+padding:15px;
+border-radius:10px;
+margin:15px;
+}
+
+.qbox{
+background:#ffffff;
+padding:15px;
+margin:15px;
+border-radius:10px;
+}
+
+.option{
+display:block;
+padding:8px;
+margin:5px;
+border:1px solid #ddd;
+border-radius:5px;
+}
+
+.correct{
+background:#b6f7b6;
+}
+
+.wrong{
+background:#ffb3b3;
+}
+
+button{
+padding:10px 20px;
+background:#0645d8;
+color:white;
+border:none;
+border-radius:5px;
+}
+
+#scoreBox{
+font-size:20px;
+font-weight:bold;
+padding:20px;
+}
+</style>
+
 </head>
 
+
 <body>
+
 
 <header>
 <h2>MPPSC MCQ Hub</h2>
 </header>
 
 
-<div class="box">
-
 <div id="quiz"></div>
+
+
+<div class="box">
 
 <button onclick="submitQuiz()">Submit Test</button>
 
 <div id="scoreBox"></div>
 
 
-<div class="comment">
 <h3>Student Comment</h3>
+
 <textarea placeholder="अपनी राय लिखें..."></textarea>
-</div>
-
 
 </div>
 
 
-<!-- आपका data file -->
-<script src="questionBank.js"></script>
+
+<script src="questions1.js"></script>
+
 
 
 <script>
-
-let params = new URLSearchParams(window.location.search);
-
-let unit = params.get("unit") || "1";
-let test = params.get("test") || "1";
-
-
-let questions = window.questionBank["unit"+unit]["test"+test];
 
 
 let quiz=document.getElementById("quiz");
@@ -56,19 +111,27 @@ let html=`
 
 <div class="qbox">
 
-<h3>${i+1}. ${q.question}</h3>
+<h3>
+${q.question}
+</h3>
 
 `;
+
+
 
 q.options.forEach((op,index)=>{
 
+
 html+=`
 
-<label>
-<input type="radio" name="q${i}" value="${index}">
+<label class="option" id="opt${i}${index}">
+
+<input type="radio" name="q${i}" value="${String.fromCharCode(65+index)}">
+
 ${op}
+
 </label>
-<br>
+
 
 `;
 
@@ -77,20 +140,25 @@ ${op}
 
 html+=`
 
-<div id="exp${i}"></div>
+<p id="exp${i}"></p>
 
 </div>
 
+
 `;
 
-quiz.innerHTML += html;
+
+quiz.innerHTML+=html;
 
 
 });
+
+
 
 
 
 function submitQuiz(){
+
 
 let score=0;
 
@@ -106,19 +174,15 @@ let ans=document.querySelector(
 let exp=document.getElementById("exp"+i);
 
 
-if(ans){
+q.options.forEach((op,index)=>{
 
-if(Number(ans.value)==q.answer){
 
-score++;
+let div=document.getElementById("opt"+i+index);
 
-exp.innerHTML="✅ सही उत्तर<br>"+q.explanation;
 
-}else{
+if(String.fromCharCode(65+index)==q.answer){
 
-exp.innerHTML="❌ गलत उत्तर<br>सही उत्तर: "+q.options[q.answer]+"<br>"+q.explanation;
-
-}
+div.classList.add("correct");
 
 }
 
@@ -126,14 +190,47 @@ exp.innerHTML="❌ गलत उत्तर<br>सही उत्तर: "+q.o
 });
 
 
+
+if(ans){
+
+
+if(ans.value==q.answer){
+
+score++;
+
+}
+
+else{
+
+let index=ans.value.charCodeAt(0)-65;
+
+document.getElementById("opt"+i+index)
+.classList.add("wrong");
+
+}
+
+
+exp.innerHTML=
+"Explanation: "+q.explanation;
+
+
+}
+
+
+});
+
+
+
 document.getElementById("scoreBox").innerHTML=
 
-"<h2>Score : "+score+"/"+questions.length+"</h2>";
+"Your Score : "+score+"/"+questions.length;
+
 
 }
 
 
 </script>
+
 
 </body>
 </html>
