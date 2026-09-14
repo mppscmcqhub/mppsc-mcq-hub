@@ -2,190 +2,51 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>MPPSC MCQ Hub Quiz</title>
-
-<style>
-
-*{
-box-sizing:border-box;
-font-family:Arial;
-}
-
-body{
-margin:0;
-background:#eaf2fc;
-color:#082c6c;
-}
-
-header{
-background:#083b8a;
-color:white;
-padding:15px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.container{
-max-width:900px;
-margin:auto;
-padding:20px;
-}
-
-.card{
-background:white;
-padding:20px;
-margin-bottom:15px;
-border-radius:15px;
-box-shadow:0 5px 15px #ccc;
-}
-
-
-.option{
-display:block;
-padding:12px;
-margin:8px 0;
-border:1px solid #ccc;
-border-radius:8px;
-cursor:pointer;
-}
-
-
-.option:hover{
-background:#f1f6ff;
-}
-
-
-.correct{
-background:#b8f5c2!important;
-border-color:green;
-}
-
-
-.wrong{
-background:#ffbaba!important;
-border-color:red;
-}
-
-
-button{
-background:#0b63ff;
-color:white;
-border:none;
-padding:12px 20px;
-border-radius:10px;
-cursor:pointer;
-font-weight:bold;
-}
-
-
-.explanation{
-display:none;
-background:#eef8ff;
-padding:10px;
-margin-top:10px;
-border-left:4px solid blue;
-}
-
-
-textarea{
-width:100%;
-height:80px;
-padding:10px;
-}
-
-
-</style>
-
+<title>MPPSC MCQ Hub</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-
 <header>
-
 <h2>MPPSC MCQ Hub</h2>
-
-<div id="timer">
-10:00
-</div>
-
 </header>
 
 
-<div class="container">
-
-
-<h2 id="title"></h2>
-
+<div class="box">
 
 <div id="quiz"></div>
 
-
 <button onclick="submitQuiz()">Submit Test</button>
 
+<div id="scoreBox"></div>
 
 
-<div class="card" id="result" style="display:none">
-
-<h2>Final Result</h2>
-
-<h3 id="score"></h3>
-
-</div>
-
-
-
-<div class="card">
-
+<div class="comment">
 <h3>Student Comment</h3>
-
 <textarea placeholder="अपनी राय लिखें..."></textarea>
-
 </div>
 
 
 </div>
 
 
+<!-- आपका data file -->
 <script src="questionBank.js"></script>
 
 
 <script>
 
-let url=new URLSearchParams(location.search);
+let params = new URLSearchParams(window.location.search);
 
-let unit="unit"+url.get("unit");
-
-let test="test"+url.get("test");
-
-
-let questions=[];
+let unit = params.get("unit") || "1";
+let test = params.get("test") || "1";
 
 
-if(questionBank[unit] && questionBank[unit][test]){
-
-questions=questionBank[unit][test];
-
-}
-else{
-
-document.getElementById("quiz").innerHTML=
-"<h2>Questions नहीं मिले</h2>";
-
-}
-
-
-
-document.getElementById("title").innerHTML=
-"Unit "+url.get("unit")+" - Test "+url.get("test");
-
+let questions = window.questionBank["unit"+unit]["test"+test];
 
 
 let quiz=document.getElementById("quiz");
-
 
 
 questions.forEach((q,i)=>{
@@ -193,30 +54,21 @@ questions.forEach((q,i)=>{
 
 let html=`
 
-<div class="card">
+<div class="qbox">
 
-
-<h3>
-${i+1}. ${q.question}
-</h3>
-
+<h3>${i+1}. ${q.question}</h3>
 
 `;
 
-
-
 q.options.forEach((op,index)=>{
-
 
 html+=`
 
-<label class="option" id="q${i}_${index}">
-
+<label>
 <input type="radio" name="q${i}" value="${index}">
-
 ${op}
-
 </label>
+<br>
 
 `;
 
@@ -225,19 +77,13 @@ ${op}
 
 html+=`
 
-<div class="explanation" id="exp${i}">
-
-${q.explanation}
-
-</div>
-
+<div id="exp${i}"></div>
 
 </div>
 
 `;
 
-
-quiz.innerHTML+=html;
+quiz.innerHTML += html;
 
 
 });
@@ -246,9 +92,7 @@ quiz.innerHTML+=html;
 
 function submitQuiz(){
 
-
 let score=0;
-
 
 
 questions.forEach((q,i)=>{
@@ -259,100 +103,35 @@ let ans=document.querySelector(
 );
 
 
-
-q.options.forEach((x,j)=>{
-
-
-let box=document.getElementById(
-"q"+i+"_"+j
-);
-
-
-box.classList.remove("correct","wrong");
-
-
-
-if(j==q.answer){
-
-box.classList.add("correct");
-
-}
-
-
-
-});
-
+let exp=document.getElementById("exp"+i);
 
 
 if(ans){
-
 
 if(Number(ans.value)==q.answer){
 
 score++;
 
-}
+exp.innerHTML="✅ सही उत्तर<br>"+q.explanation;
 
-else{
+}else{
 
-document.getElementById(
-"q"+i+"_"+ans.value
-).classList.add("wrong");
+exp.innerHTML="❌ गलत उत्तर<br>सही उत्तर: "+q.options[q.answer]+"<br>"+q.explanation;
 
 }
 
 }
-
-
-
-document.getElementById("exp"+i)
-.style.display="block";
 
 
 });
 
 
+document.getElementById("scoreBox").innerHTML=
 
-document.getElementById("result").style.display="block";
-
-
-document.getElementById("score").innerHTML=
-
-"आपका Score : "+score+" / "+questions.length;
-
-
-window.scrollTo(0,document.body.scrollHeight);
+"<h2>Score : "+score+"/"+questions.length+"</h2>";
 
 }
 
-window.scrollTo(0,document.body.scrollHeight);
-
-}
-
-
-// TIMER START
-
-let time = 600; // 10 minutes
-
-let timer = setInterval(()=>{
-
-let min = Math.floor(time/60);
-let sec = time % 60;
-
-document.getElementById("timer").innerHTML =
-min + ":" + String(sec).padStart(2,"0");
-
-time--;
-
-if(time < 0){
-
-clearInterval(timer);
-
-submitQuiz();
-
-}
-
-},1000);
 
 </script>
 
