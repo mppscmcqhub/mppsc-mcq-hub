@@ -1,263 +1,167 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-
 <meta charset="UTF-8">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MPPSC MCQ Hub</title>
-
 <link rel="stylesheet" href="style.css">
 
 <style>
-
 body{
-font-family:Arial;
-background:#eef4ff;
-margin:0;
+  font-family:Arial,sans-serif;
+  background:#eef4ff;
+  margin:0;
 }
-
 header{
-background:#0645d8;
-color:white;
-padding:15px;
+  background:#0645d8;
+  color:#fff;
+  padding:15px;
 }
-
-.box{
-background:white;
-margin:15px;
-padding:15px;
-border-radius:10px;
+#quiz{
+  padding:10px;
 }
-
 .qbox{
-background:white;
-margin:15px;
-padding:15px;
-border-radius:10px;
+  background:#fff;
+  margin:12px 0;
+  padding:15px;
+  border-radius:10px;
+  box-shadow:0 1px 4px rgba(0,0,0,.08);
 }
-
 .option{
-display:block;
-padding:10px;
-margin:6px 0;
-border:1px solid #ccc;
-border-radius:5px;
-cursor:pointer;
+  display:block;
+  padding:10px;
+  margin:8px 0;
+  border:1px solid #ccc;
+  border-radius:6px;
+  cursor:pointer;
 }
-
-.correct{
-background:#9cff9c;
+.option.correct{
+  background:#9bf19b;
+  border-color:#28a745;
 }
-
-.wrong{
-background:#ff9999;
+.option.wrong{
+  background:#ffb5b5;
+  border-color:#dc3545;
 }
-
+.exp{
+  margin-top:10px;
+  padding:10px;
+  background:#fff8dc;
+  border-left:4px solid #f0ad4e;
+  border-radius:6px;
+}
+.box{
+  background:#fff;
+  margin:15px;
+  padding:15px;
+  border-radius:10px;
+}
 button{
-background:#0645d8;
-color:white;
-padding:10px 20px;
-border:none;
-border-radius:5px;
+  background:#0645d8;
+  color:#fff;
+  border:none;
+  padding:10px 20px;
+  border-radius:6px;
+  cursor:pointer;
 }
-
+textarea{
+  width:100%;
+}
 </style>
-
 </head>
-
 
 <body>
 
-
 <header>
-<h2>MPPSC MCQ Hub</h2>
+  <h2>MPPSC MCQ Hub</h2>
 </header>
-
-
 
 <div id="quiz"></div>
 
-
-
 <div class="box">
+  <button onclick="submitQuiz()">Submit Test</button>
+  <h2 id="scoreBox"></h2>
 
-<button onclick="submitQuiz()">
-Submit Test
-</button>
-
-
-<h2 id="scoreBox"></h2>
-
-
-<h3>Student Comment</h3>
-
-<textarea 
-placeholder="अपनी राय लिखें..."
-rows="4"
-style="width:100%">
-</textarea>
-
-
+  <h3>Student Comment</h3>
+  <textarea rows="4" placeholder="अपनी राय लिखें..."></textarea>
 </div>
 
-
-
+<!-- Questions -->
 <script src="questions1.js"></script>
 
-
-
 <script>
+const questions = window.questions || [];
+const quiz = document.getElementById("quiz");
 
-
-let quiz=document.getElementById("quiz");
-
-
+if(questions.length===0){
+  quiz.innerHTML="<h2 style='color:red'>Questions load नहीं हुए। questions1.js check करें।</h2>";
+}else{
 
 questions.forEach((q,i)=>{
 
+  const div=document.createElement("div");
+  div.className="qbox";
 
-let div=document.createElement("div");
+  let html=`<h3>${i+1}. ${q.question}</h3>`;
 
-div.className="qbox";
+  q.options.forEach((op,index)=>{
+    html+=`
+    <label class="option" id="q${i}o${index}">
+      <input type="radio" name="q${i}" value="${String.fromCharCode(65+index)}">
+      ${op}
+    </label>`;
+  });
 
+  html+=`<div id="exp${i}" class="exp" style="display:none"></div>`;
 
-div.innerHTML=
-`
-<h3>
-${q.question}
-</h3>
-
-<div id="options${i}"></div>
-
-<p id="exp${i}"></p>
-
-`;
-
-
-
-quiz.appendChild(div);
-
-
-
-let opt=document.getElementById("options"+i);
-
-
-
-q.options.forEach((o,index)=>{
-
-
-let label=document.createElement("label");
-
-
-label.className="option";
-
-
-label.id="q"+i+"o"+index;
-
-
-label.innerHTML=
-
-`
-<input type="radio" 
-name="q${i}" 
-value="${String.fromCharCode(65+index)}">
-
-${o}
-`;
-
-
-
-opt.appendChild(label);
-
+  div.innerHTML=html;
+  quiz.appendChild(div);
 
 });
 
-
-});
-
-
-
-
+}
 
 function submitQuiz(){
 
-
 let score=0;
-
-
 
 questions.forEach((q,i)=>{
 
+  const selected=document.querySelector('input[name="q'+i+'"]:checked');
+  const exp=document.getElementById("exp"+i);
 
-let selected=
-document.querySelector(
-'input[name="q'+i+'"]:checked'
-);
+  q.options.forEach((op,index)=>{
+    const box=document.getElementById("q"+i+"o"+index);
+    box.classList.remove("correct","wrong");
 
+    if(String.fromCharCode(65+index)===q.answer){
+      box.classList.add("correct");
+    }
+  });
 
+  if(selected){
+    if(selected.value===q.answer){
+      score++;
+    }else{
+      const wrongIndex=selected.value.charCodeAt(0)-65;
+      document.getElementById("q"+i+"o"+wrongIndex).classList.add("wrong");
+    }
+  }
 
-q.options.forEach((o,index)=>{
-
-
-let box=document.getElementById(
-"q"+i+"o"+index
-);
-
-
-if(String.fromCharCode(65+index)==q.answer)
-{
-box.classList.add("correct");
-}
-
-
-});
-
-
-
-if(selected){
-
-if(selected.value==q.answer)
-{
-score++;
-}
-
-else
-{
-let wrongIndex =
-selected.value.charCodeAt(0)-65;
-
-document.getElementById(
-"q"+i+"o"+wrongIndex
-).classList.add("wrong");
-}
-
-}
-
-document.getElementById("exp"+i).innerHTML =
-"Explanation : " + q.explanation;
-
-
-
-}
-
-
+  exp.style.display="block";
+  exp.innerHTML=`
+    <b>Correct Answer:</b> ${q.answer}. ${q.options[q.answer.charCodeAt(0)-65]}<br><br>
+    <b>Detailed Explanation:</b><br>${q.explanation}
+  `;
 
 });
-
-
 
 document.getElementById("scoreBox").innerHTML=
+`🎯 Score: ${score}/${questions.length}`;
 
-"Score : "+score+"/"+questions.length;
-
-
-
+window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
 }
-
-
 </script>
-
-
 
 </body>
 </html>
