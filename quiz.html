@@ -22,8 +22,8 @@ button:hover{background:#084fc7}
 #timer{font-size:32px;font-weight:bold}
 .explanation{margin-top:10px;background:#eef7ff;padding:12px;border-left:5px solid #0d6efd;border-radius:8px}
 </style>
-
 </head>
+
 <body>
 
 <header>
@@ -50,7 +50,6 @@ button:hover{background:#084fc7}
 </div>
 
 <script>
-
 const params=new URLSearchParams(window.location.search);
 const unit=params.get("unit")||"1";
 const test=params.get("test")||"1";
@@ -66,7 +65,6 @@ const script=document.createElement("script");
 script.src=`questions${unit}.js?v=${Date.now()}`;
 
 script.onload=()=>{
-
 if(!window.questionBank){
 document.getElementById("quiz").innerHTML="<h2>Question Bank नहीं मिली</h2>";
 return;
@@ -80,7 +78,6 @@ return;
 }
 
 loadQuiz();
-
 };
 
 script.onerror=()=>{
@@ -90,23 +87,19 @@ document.getElementById("quiz").innerHTML=`<h2>questions${unit}.js Load नह�
 document.body.appendChild(script);
 
 function loadQuiz(){
-
 const quiz=document.getElementById("quiz");
 quiz.innerHTML="";
 
 questions.forEach((q,i)=>{
-
 let html=`<div class="card">
 <div class="question">${q.question}</div>`;
 
 q.options.forEach((op,j)=>{
-
 html+=`
 <label class="option" id="q${i}o${j}">
 <input type="radio" name="q${i}" onchange="answers[${i}]=${j}">
 ${op}
 </label>`;
-
 });
 
 html+=`
@@ -116,67 +109,48 @@ html+=`
 </div>`;
 
 quiz.innerHTML+=html;
-
 });
 
 document.getElementById("submitBtn").style.display="inline-block";
-
 }
 
 function submitQuiz(){
-
 if(submitted)return;
 submitted=true;
 
 let score=0;
 
 questions.forEach((q,i)=>{
-
 document.querySelectorAll(`input[name=q${i}]`).forEach((r,j)=>{
-
 const label=document.getElementById(`q${i}o${j}`);
-
 label.classList.remove("correct","wrong");
 
 if(j===q.answer)label.classList.add("correct");
-
-if(r.checked && j!==q.answer)label.classList.add("wrong");
-
+if(r.checked&&j!==q.answer)label.classList.add("wrong");
 });
 
 document.getElementById(`exp${i}`).style.display="block";
 
 if(answers[i]===q.answer)score++;
-
 });
 
 document.getElementById("result").style.display="block";
 document.getElementById("score").innerHTML=`Score: ${score}/${questions.length}`;
-
 }
 
 setInterval(()=>{
-
 if(submitted)return;
 
 if(time>0){
-
 time--;
-
 const m=Math.floor(time/60);
 const s=time%60;
-
 document.getElementById("timer").innerHTML=
 `${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
-
 }else{
-
 submitQuiz();
-
 }
-
 },1000);
-
 </script>
 
 </body>
