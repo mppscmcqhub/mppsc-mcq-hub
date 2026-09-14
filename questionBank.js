@@ -5100,25 +5100,4601 @@ explanation:"'रिहला' इब्न बतूता का यात्�
 
 ],
 
-test2:[],
-test3:[],
-test4:[],
-test5:[],
-test6:[],
-test7:[],
-test8:[],
-test9:[],
-test10:[],
-test11:[],
-test12:[],
-test13:[],
-test14:[],
-test15:[],
-test16:[],
-test17:[],
-test18:[],
-test19:[],
-test20:[]
+test2:[
+{
+question:"प्रश्न 1: भीमबेटका शैलाश्रयों के संबंध में निम्नलिखित कथनों पर विचार करें / Consider the following statements about Bhimbetka Rock Shelters:",
+options:[
+"A. यह यूनेस्को विश्व धरोहर स्थल है / It is a UNESCO World Heritage Site",
+"B. यह रायसेन जिले में स्थित है / It is located in Raisen district",
+"C. यहाँ पुरापाषाण से मध्यपाषाण काल तक के चित्र मिले हैं / Paintings from Paleolithic to Mesolithic period are found here",
+"D. उपरोक्त सभी / All of the above"
+],
+answer:3,
+explanation:"भीमबेटका रायसेन जिले में स्थित UNESCO World Heritage Site है, जहाँ पुरापाषाण से मध्यपाषाण काल तक के शैलचित्र मिले हैं।"
+},
+
+{
+question:"प्रश्न 2: आदमगढ़ शैलाश्रय किस जिले में स्थित है? / Adamgarh Rock Shelters are located in which district?",
+options:[
+"A. रायसेन / Raisen",
+"B. होशंगाबाद (नर्मदापुरम) / Hoshangabad (Narmadapuram)",
+"C. सीहोर / Sehore",
+"D. विदिशा / Vidisha"
+],
+answer:1,
+explanation:"आदमगढ़ शैलाश्रय नर्मदापुरम जिले में स्थित हैं और मध्यप्रदेश के महत्वपूर्ण प्रागैतिहासिक स्थलों में से एक हैं।"
+},
+
+{
+question:"प्रश्न 3: गार्डभिल्ल (Gardabhilla) वंश का संबंध मुख्यतः किस नगर से था? / Gardabhilla dynasty is mainly associated with which city?",
+options:[
+"A. विदिशा / Vidisha",
+"B. उज्जैन / Ujjain",
+"C. धार / Dhar",
+"D. ग्वालियर / Gwalior"
+],
+answer:1,
+explanation:"गार्डभिल्ल वंश का संबंध उज्जैन से माना जाता है।"
+},
+
+{
+question:"प्रश्न 4: औलिकर (Aulikara) वंश की राजधानी कौन-सी थी? / What was the capital of the Aulikara dynasty?",
+options:[
+"A. उज्जैन / Ujjain",
+"B. दशपुर (मंदसौर) / Dashapura (Mandsaur)",
+"C. विदिशा / Vidisha",
+"D. धार / Dhar"
+],
+answer:1,
+explanation:"औलिकर वंश की राजधानी दशपुर (वर्तमान मंदसौर) थी।"
+},
+
+{
+question:"प्रश्न 5: यशोधर्मन किस वंश का प्रसिद्ध शासक था? / Yashodharman was a famous ruler of which dynasty?",
+options:[
+"A. परमार / Parmar",
+"B. कलचुरी / Kalachuri",
+"C. औलिकर / Aulikara",
+"D. नाग / Nag"
+],
+answer:2,
+explanation:"यशोधर्मन औलिकर वंश का प्रसिद्ध शासक था जिसने हूण शासक मिहिरकुल को पराजित किया।"
+},
+
+{
+question:"प्रश्न 6: मिहिरकुल को पराजित करने वाले शासक का नाम बताइए। / Name the ruler who defeated Mihirakula.",
+options:[
+"A. भोज / Bhoja",
+"B. यशोधर्मन / Yashodharman",
+"C. गंगेयदेव / Gangeyadeva",
+"D. कीर्तिवर्मन / Kirtivarman"
+],
+answer:1,
+explanation:"यशोधर्मन ने हूण शासक मिहिरकुल को पराजित किया था।"
+},
+
+{
+question:"प्रश्न 7: परमार वंश के राजा भोज की राजधानी कहाँ थी? / Where was King Bhoja's capital located?",
+options:[
+"A. उज्जैन / Ujjain",
+"B. धार / Dhar",
+"C. मांडू / Mandu",
+"D. विदिशा / Vidisha"
+],
+answer:1,
+explanation:"राजा भोज की राजधानी धार थी।"
+},
+
+{
+question:"प्रश्न 8: भोजशाला किस नगर में स्थित है? / Bhojshala is located in which city?",
+options:[
+"A. मांडू / Mandu",
+"B. धार / Dhar",
+"C. उज्जैन / Ujjain",
+"D. देवास / Dewas"
+],
+answer:1,
+explanation:"भोजशाला धार में स्थित है और राजा भोज से संबंधित मानी जाती है।"
+},
+
+{
+question:"प्रश्न 9: निम्नलिखित में से किस ग्रंथ की रचना राजा भोज ने की थी? / Which of the following books was written by King Bhoja?",
+options:[
+"A. समरांगण सूत्रधार / Samarangana Sutradhara",
+"B. अर्थशास्त्र / Arthashastra",
+"C. राजतरंगिणी / Rajatarangini",
+"D. हर्षचरित / Harshacharita"
+],
+answer:0,
+explanation:"समरांगण सूत्रधार वास्तुकला पर राजा भोज की प्रसिद्ध कृति है।"
+},
+
+{
+question:"प्रश्न 10: समरांगण सूत्रधार मुख्यतः किस विषय पर आधारित है? / Samarangana Sutradhara is mainly related to?",
+options:[
+"A. व्याकरण / Grammar",
+"B. वास्तुकला / Architecture",
+"C. आयुर्वेद / Ayurveda",
+"D. संगीत / Music"
+],
+answer:1,
+explanation:"यह वास्तुकला और नगर निर्माण पर आधारित महत्वपूर्ण ग्रंथ है।"
+},
+
+{
+question:"प्रश्न 11: चंदेल वंश द्वारा निर्मित मध्यप्रदेश का प्रसिद्ध मंदिर समूह कौन-सा है? / Which famous temple group in Madhya Pradesh was built by the Chandela dynasty?",
+options:[
+"A. भोजपुर मंदिर / Bhojpur Temple",
+"B. खजुराहो मंदिर समूह / Khajuraho Group of Temples",
+"C. उदयगिरि गुफाएँ / Udayagiri Caves",
+"D. साँची स्तूप / Sanchi Stupa"
+],
+answer:1,
+explanation:"खजुराहो मंदिर समूह चंदेल वंश की महान स्थापत्य उपलब्धि है।"
+},
+
+{
+question:"प्रश्न 12: खजुराहो मंदिर समूह किस यूनेस्को श्रेणी में शामिल है? / Khajuraho Group of Temples is included under which UNESCO category?",
+options:[
+"A. प्राकृतिक धरोहर / Natural Heritage",
+"B. सांस्कृतिक धरोहर / Cultural Heritage",
+"C. मिश्रित धरोहर / Mixed Heritage",
+"D. जैवमंडल / Biosphere"
+],
+answer:1,
+explanation:"खजुराहो सांस्कृतिक विश्व धरोहर स्थल है।"
+},
+
+{
+question:"प्रश्न 13: कलचुरी वंश के गंगेयदेव का संबंध किस क्षेत्र से था? / Gangeyadeva of Kalachuri dynasty belonged to which region?",
+options:[
+"A. त्रिपुरी / Tripuri",
+"B. धार / Dhar",
+"C. उज्जैन / Ujjain",
+"D. ग्वालियर / Gwalior"
+],
+answer:0,
+explanation:"गंगेयदेव त्रिपुरी कलचुरी वंश का प्रसिद्ध शासक था।"
+},
+
+{
+question:"प्रश्न 14: त्रिपुरी वर्तमान में किस जिले के निकट स्थित है? / Tripuri is located near which present-day district?",
+options:[
+"A. जबलपुर / Jabalpur",
+"B. रीवा / Rewa",
+"C. सतना / Satna",
+"D. कटनी / Katni"
+],
+answer:0,
+explanation:"त्रिपुरी वर्तमान जबलपुर के निकट स्थित ऐतिहासिक स्थल है।"
+},
+
+{
+question:"प्रश्न 15: ग्वालियर दुर्ग के संबंध में सही कथन चुनिए। / Choose the correct statement about Gwalior Fort.",
+options:[
+"A. यह तोमर शासकों से संबंधित है / It is associated with Tomar rulers",
+"B. मान सिंह तोमर ने यहाँ महत्वपूर्ण निर्माण कराए / Man Singh Tomar made major constructions here",
+"C. इसे भारत के सबसे मजबूत दुर्गों में गिना जाता है / It is considered one of India's strongest forts",
+"D. उपरोक्त सभी / All of the above"
+],
+answer:3,
+explanation:"ग्वालियर दुर्ग तोमर शासकों, विशेषकर मान सिंह तोमर, से जुड़ा हुआ है।"
+},
+
+{
+question:"प्रश्न 16: निम्नलिखित युग्मों पर विचार करें / Match the following:",
+options:[
+"A. राजा भोज — धार / Bhoja — Dhar",
+"B. यशोधर्मन — मंदसौर / Yashodharman — Mandsaur",
+"C. चंदेल — खजुराहो / Chandela — Khajuraho",
+"D. सभी सही / All are correct"
+],
+answer:3,
+explanation:"तीनों युग्म सही हैं और MPPSC में बार-बार पूछे जाते हैं।"
+},
+
+{
+question:"प्रश्न 17: गोंडवाना राज्य की प्रसिद्ध वीरांगना कौन थीं? / Who was the famous queen of Gondwana?",
+options:[
+"A. रानी लक्ष्मीबाई",
+"B. रानी दुर्गावती",
+"C. अहिल्याबाई होल्कर",
+"D. झलकारी बाई"
+],
+answer:1,
+explanation:"रानी दुर्गावती गोंडवाना राज्य की प्रसिद्ध वीरांगना थीं।"
+},
+
+{
+question:"प्रश्न 18: रानी दुर्गावती ने किस मुगल सेनापति से युद्ध किया था? / Rani Durgavati fought against which Mughal general?",
+options:[
+"A. आसफ खान / Asaf Khan",
+"B. बैरम खान / Bairam Khan",
+"C. मान सिंह / Man Singh",
+"D. अब्दुर रहीम / Abdur Rahim"
+],
+answer:0,
+explanation:"1564 ई. में रानी दुर्गावती ने आसफ खान से युद्ध किया।"
+},
+
+{
+question:"प्रश्न 19: निम्नलिखित में से कौन-सा मध्यप्रदेश का विश्व धरोहर स्थल नहीं है? / Which of the following is NOT a World Heritage Site of Madhya Pradesh?",
+options:[
+"A. भीमबेटका / Bhimbetka",
+"B. साँची / Sanchi",
+"C. खजुराहो / Khajuraho",
+"D. भोजपुर / Bhojpur"
+],
+answer:3,
+explanation:"भोजपुर विश्व धरोहर सूची में शामिल नहीं है, जबकि भीमबेटका, साँची और खजुराहो शामिल हैं।"
+},
+
+{
+question:"प्रश्न 20: MPPSC Pre 2027 के नए सिलेबस में Unit-2 में प्रमुख राजवंशों के साथ किस विषय पर विशेष जोर दिया गया है? / According to the new MPPSC Pre 2027 syllabus, besides major dynasties, Unit-2 especially emphasizes which topic?",
+options:[
+"A. केवल आधुनिक इतिहास / Only Modern History",
+"B. केवल मराठा शासन / Only Maratha Rule",
+"C. प्रागैतिहासिक एवं आद्य ऐतिहासिक मध्यप्रदेश / Prehistoric and Protohistoric Madhya Pradesh",
+"D. केवल मुगल प्रशासन / Only Mughal Administration"
+],
+answer:2,
+explanation:"नए सिलेबस में प्रागैतिहासिक एवं आद्य ऐतिहासिक मध्यप्रदेश पर विशेष जोर दिया गया है।"
+}
+],
+test3:[
+{
+question:"प्रश्न 1: मध्यप्रदेश के किस स्थल को 'सांची स्तूप' के कारण UNESCO विश्व धरोहर स्थल का दर्जा मिला है? / Which site of Madhya Pradesh got UNESCO status due to Sanchi Stupa?",
+options:[
+"A. विदिशा / Vidisha",
+"B. भोपाल / Bhopal",
+"C. रायसेन / Raisen",
+"D. उज्जैन / Ujjain"
+],
+answer:2,
+explanation:"सांची स्तूप रायसेन जिले में स्थित है और UNESCO World Heritage Site है।"
+},
+
+{
+question:"प्रश्न 2: खजुराहो मंदिर समूह का निर्माण मुख्य रूप से किस वंश ने कराया था? / Khajuraho temples were mainly built by which dynasty?",
+options:[
+"A. परमार / Parmar",
+"B. चंदेल / Chandela",
+"C. कलचुरी / Kalachuri",
+"D. तोमर / Tomar"
+],
+answer:1,
+explanation:"खजुराहो मंदिरों का निर्माण चंदेल शासकों ने कराया था।"
+},
+
+{
+question:"प्रश्न 3: भीमबेटका शैलचित्र मुख्य रूप से किस विषय को दर्शाते हैं? / Bhimbetka paintings mainly depict?",
+options:[
+"A. राजदरबार / Royal courts",
+"B. शिकार एवं दैनिक जीवन / Hunting and daily life",
+"C. युद्ध दृश्य / War scenes",
+"D. व्यापार / Trade"
+],
+answer:1,
+explanation:"भीमबेटका के शैलचित्र मानव जीवन, शिकार और सामाजिक गतिविधियों को दर्शाते हैं।"
+},
+
+{
+question:"प्रश्न 4: निम्नलिखित में से कौन-सा मध्यप्रदेश का लोक नृत्य है? / Which is a folk dance of Madhya Pradesh?",
+options:[
+"A. मटकी नृत्य / Matki Dance",
+"B. गरबा / Garba",
+"C. बिहू / Bihu",
+"D. कथकली / Kathakali"
+],
+answer:0,
+explanation:"मटकी नृत्य मध्यप्रदेश का प्रसिद्ध लोक नृत्य है।"
+},
+
+{
+question:"प्रश्न 5: भगोरिया उत्सव मुख्य रूप से किस जनजाति से संबंधित है? / Bhagoria festival is mainly associated with which tribe?",
+options:[
+"A. गोंड / Gond",
+"B. भील / Bhil",
+"C. बैगा / Baiga",
+"D. कोरकू / Korku"
+],
+answer:1,
+explanation:"भगोरिया उत्सव भील जनजाति का प्रमुख पर्व है।"
+},
+
+{
+question:"प्रश्न 6: मध्यप्रदेश की सबसे बड़ी जनजाति कौन-सी है? / Largest tribe of Madhya Pradesh is?",
+options:[
+"A. भील / Bhil",
+"B. गोंड / Gond",
+"C. बैगा / Baiga",
+"D. सहरिया / Sahariya"
+],
+answer:0,
+explanation:"भील मध्यप्रदेश की सबसे बड़ी जनजाति मानी जाती है।"
+},
+
+{
+question:"प्रश्न 7: गोंड चित्रकला किस जनजाति से संबंधित है? / Gond painting is associated with which tribe?",
+options:[
+"A. गोंड / Gond",
+"B. भील / Bhil",
+"C. कोल / Kol",
+"D. भारिया / Bharia"
+],
+answer:0,
+explanation:"गोंड चित्रकला गोंड जनजाति की प्रसिद्ध कला है।"
+},
+
+{
+question:"प्रश्न 8: भील जनजाति की प्रसिद्ध चित्रकला कौन-सी है? / Famous painting style of Bhil tribe?",
+options:[
+"A. पिथौरा / Pithora",
+"B. मधुबनी / Madhubani",
+"C. पट्टचित्र / Pattachitra",
+"D. कलमकारी / Kalamkari"
+],
+answer:0,
+explanation:"पिथौरा चित्रकला भील समुदाय से संबंधित है।"
+},
+
+{
+question:"प्रश्न 9: निम्न में से कौन-सा मध्यप्रदेश का UNESCO World Heritage Site नहीं है? / Which is not UNESCO World Heritage Site of MP?",
+options:[
+"A. सांची / Sanchi",
+"B. खजुराहो / Khajuraho",
+"C. भीमबेटका / Bhimbetka",
+"D. मांडू / Mandu"
+],
+answer:3,
+explanation:"मांडू महत्वपूर्ण ऐतिहासिक स्थल है लेकिन UNESCO World Heritage सूची में नहीं है।"
+},
+
+{
+question:"प्रश्न 10: भोजपुर मंदिर किस शासक से संबंधित है? / Bhojpur Temple is associated with which ruler?",
+options:[
+"A. राजा भोज / Raja Bhoja",
+"B. अशोक / Ashoka",
+"C. यशोधर्मन / Yashodharman",
+"D. सिंधिया / Scindia"
+],
+answer:0,
+explanation:"भोजपुर का शिव मंदिर परमार राजा भोज द्वारा बनवाया गया।"
+},
+
+{
+question:"प्रश्न 11: 'मालवा उत्सव' किस क्षेत्र की संस्कृति को दर्शाता है? / Malwa Utsav represents which culture?",
+options:[
+"A. मालवा क्षेत्र / Malwa Region",
+"B. बुंदेलखंड",
+"C. बघेलखंड",
+"D. निमाड़"
+],
+answer:0,
+explanation:"मालवा उत्सव मालवा क्षेत्र की कला और संस्कृति को प्रदर्शित करता है।"
+},
+
+{
+question:"प्रश्न 12: राई नृत्य किस क्षेत्र से संबंधित है? / Rai dance belongs to which region?",
+options:[
+"A. बुंदेलखंड / Bundelkhand",
+"B. मालवा",
+"C. निमाड़",
+"D. चंबल"
+],
+answer:0,
+explanation:"राई नृत्य बुंदेलखंड का प्रसिद्ध लोक नृत्य है।"
+},
+
+{
+question:"प्रश्न 13: माच लोकनाट्य किस क्षेत्र से संबंधित है? / Maach folk theatre belongs to?",
+options:[
+"A. मालवा / Malwa",
+"B. गोंडवाना",
+"C. बुंदेलखंड",
+"D. बघेलखंड"
+],
+answer:0,
+explanation:"माच मालवा क्षेत्र की प्रसिद्ध लोक नाट्य परंपरा है।"
+},
+
+{
+question:"प्रश्न 14: मध्यप्रदेश में जनजातीय संग्रहालय कहाँ स्थित है? / Tribal Museum of MP is located at?",
+options:[
+"A. भोपाल / Bhopal",
+"B. इंदौर / Indore",
+"C. जबलपुर / Jabalpur",
+"D. ग्वालियर / Gwalior"
+],
+answer:0,
+explanation:"जनजातीय संग्रहालय भोपाल में स्थित है।"
+},
+
+{
+question:"प्रश्न 15: 'भारत भवन' कहाँ स्थित है? / Bharat Bhavan is located at?",
+options:[
+"A. भोपाल / Bhopal",
+"B. उज्जैन / Ujjain",
+"C. सागर / Sagar",
+"D. रीवा / Rewa"
+],
+answer:0,
+explanation:"भारत भवन भोपाल का प्रसिद्ध कला केंद्र है।"
+},
+
+{
+question:"प्रश्न 16: कालिदास समारोह कहाँ आयोजित किया जाता है? / Kalidas Samaroh is organised at?",
+options:[
+"A. उज्जैन / Ujjain",
+"B. भोपाल",
+"C. धार",
+"D. ग्वालियर"
+],
+answer:0,
+explanation:"कालिदास समारोह उज्जैन में आयोजित होता है।"
+},
+
+{
+question:"प्रश्न 17: तानसेन समारोह किस शहर में आयोजित होता है? / Tansen Samaroh is held in?",
+options:[
+"A. ग्वालियर / Gwalior",
+"B. इंदौर",
+"C. भोपाल",
+"D. सागर"
+],
+answer:0,
+explanation:"तानसेन समारोह ग्वालियर में आयोजित होता है।"
+},
+
+{
+question:"प्रश्न 18: निम्न में से कौन मध्यप्रदेश की जनजाति नहीं है? / Which is not a tribe of MP?",
+options:[
+"A. गोंड",
+"B. भील",
+"C. टोडा",
+"D. बैगा"
+],
+answer:2,
+explanation:"टोडा जनजाति मुख्य रूप से दक्षिण भारत में पाई जाती है।"
+},
+
+{
+question:"प्रश्न 19: निम्नलिखित का सही मिलान करें / Match correctly:",
+options:[
+"A. माच — मालवा",
+"B. राई — बुंदेलखंड",
+"C. भगोरिया — भील",
+"D. सभी सही / All correct"
+],
+answer:3,
+explanation:"तीनों युग्म सही हैं।"
+},
+
+{
+question:"प्रश्न 20: MPPSC Pre 2027 में मध्यप्रदेश संस्कृति से प्रश्नों के लिए सबसे महत्वपूर्ण क्षेत्र कौन-से हैं? / Most important areas for MP Culture in MPPSC Pre 2027?",
+options:[
+"A. जनजाति एवं लोक कला",
+"B. स्थापत्य एवं धरोहर",
+"C. साहित्य एवं संगीत",
+"D. उपरोक्त सभी / All of the above"
+],
+answer:3,
+explanation:"MPPSC में संस्कृति के सभी क्षेत्रों से प्रश्न पूछे जाते हैं।"
+}
+],
+test4:[
+{
+question:"प्रश्न 1: मध्यप्रदेश की सबसे बड़ी जनजाति कौन-सी है? / Which is the largest tribe of Madhya Pradesh?",
+options:[
+"A. गोंड / Gond",
+"B. भील / Bhil",
+"C. बैगा / Baiga",
+"D. कोरकू / Korku"
+],
+answer:1,
+explanation:"मध्यप्रदेश में भील जनजाति संख्या की दृष्टि से सबसे बड़ी जनजाति है।"
+},
+
+{
+question:"प्रश्न 2: गोंड जनजाति का प्रमुख क्षेत्र कौन-सा है? / Main region of Gond tribe?",
+options:[
+"A. निमाड़ / Nimar",
+"B. गोंडवाना क्षेत्र / Gondwana Region",
+"C. मालवा / Malwa",
+"D. बुंदेलखंड / Bundelkhand"
+],
+answer:1,
+explanation:"गोंड जनजाति का प्रमुख निवास क्षेत्र गोंडवाना कहलाता है।"
+},
+
+{
+question:"प्रश्न 3: बैगा जनजाति को किस नाम से जाना जाता है? / Baiga tribe is known as?",
+options:[
+"A. योद्धा जनजाति / Warrior tribe",
+"B. जंगल की संतान / Children of Forest",
+"C. व्यापारी जनजाति / Trader tribe",
+"D. कृषक जनजाति / Farmer tribe"
+],
+answer:1,
+explanation:"बैगा जनजाति प्रकृति से गहरे संबंध के कारण जंगल की संतान कहलाती है।"
+},
+
+{
+question:"प्रश्न 4: निम्नलिखित में से कौन-सी जनजाति विशेष रूप से नर्मदा घाटी क्षेत्र में पाई जाती है? / Which tribe is mainly found in Narmada valley?",
+options:[
+"A. भील / Bhil",
+"B. गोंड / Gond",
+"C. टोडा / Toda",
+"D. नागा / Naga"
+],
+answer:1,
+explanation:"गोंड जनजाति मध्यप्रदेश की नर्मदा घाटी और पूर्वी क्षेत्रों में प्रमुख रूप से पाई जाती है।"
+},
+
+{
+question:"प्रश्न 5: भगोरिया उत्सव मुख्य रूप से किस क्षेत्र से संबंधित है? / Bhagoria festival is mainly related to?",
+options:[
+"A. पश्चिमी मध्यप्रदेश / Western MP",
+"B. बुंदेलखंड",
+"C. बघेलखंड",
+"D. चंबल"
+],
+answer:0,
+explanation:"भगोरिया उत्सव झाबुआ, अलीराजपुर आदि पश्चिमी MP क्षेत्रों में प्रसिद्ध है।"
+},
+
+{
+question:"प्रश्न 6: टंट्या भील किससे संबंधित थे? / Tantya Bhil was associated with?",
+options:[
+"A. साहित्य",
+"B. जनजातीय स्वतंत्रता संघर्ष",
+"C. स्थापत्य कला",
+"D. संगीत"
+],
+answer:1,
+explanation:"टंट्या भील को मध्यप्रदेश का जनजातीय स्वतंत्रता सेनानी माना जाता है।"
+},
+
+{
+question:"प्रश्न 7: रानी दुर्गावती किस वंश से संबंधित थीं? / Rani Durgavati belonged to which dynasty?",
+options:[
+"A. गोंड वंश / Gond Dynasty",
+"B. परमार वंश",
+"C. चंदेल वंश",
+"D. तोमर वंश"
+],
+answer:0,
+explanation:"रानी दुर्गावती गोंडवाना राज्य की प्रसिद्ध शासिका थीं।"
+},
+
+{
+question:"प्रश्न 8: भील जनजाति की प्रसिद्ध चित्रकला शैली कौन-सी है? / Famous painting style of Bhil tribe?",
+options:[
+"A. पिथौरा / Pithora",
+"B. गोंड",
+"C. मधुबनी",
+"D. फड़"
+],
+answer:0,
+explanation:"पिथौरा चित्रकला भील समुदाय से जुड़ी है।"
+},
+
+{
+question:"प्रश्न 9: गोंड चित्रकला की प्रमुख विशेषता क्या है? / Main feature of Gond painting?",
+options:[
+"A. बिंदु एवं रेखाओं का प्रयोग",
+"B. केवल धार्मिक चित्र",
+"C. केवल युद्ध दृश्य",
+"D. केवल वास्तु चित्र"
+],
+answer:0,
+explanation:"गोंड कला में बिंदु, रेखा और प्रकृति आधारित आकृतियों का प्रयोग होता है।"
+},
+
+{
+question:"प्रश्न 10: मध्यप्रदेश के प्रसिद्ध साहित्यकार भवानी प्रसाद मिश्र किस क्षेत्र से संबंधित थे? / Bhawani Prasad Mishra belonged to?",
+options:[
+"A. साहित्य / Literature",
+"B. संगीत",
+"C. चित्रकला",
+"D. स्थापत्य"
+],
+answer:0,
+explanation:"भवानी प्रसाद मिश्र हिंदी के प्रसिद्ध कवि थे।"
+},
+
+{
+question:"प्रश्न 11: माखनलाल चतुर्वेदी का संबंध किस स्थान से था? / Makhanlal Chaturvedi was associated with?",
+options:[
+"A. होशंगाबाद क्षेत्र",
+"B. उज्जैन",
+"C. ग्वालियर",
+"D. धार"
+],
+answer:0,
+explanation:"माखनलाल चतुर्वेदी मध्यप्रदेश के प्रसिद्ध साहित्यकार थे।"
+},
+
+{
+question:"प्रश्न 12: 'पुष्प की अभिलाषा' कविता के रचनाकार कौन हैं? / Author of Pushp Ki Abhilasha?",
+options:[
+"A. माखनलाल चतुर्वेदी",
+"B. हरिशंकर परसाई",
+"C. भवानी प्रसाद मिश्र",
+"D. सुभद्रा कुमारी चौहान"
+],
+answer:0,
+explanation:"पुष्प की अभिलाषा माखनलाल चतुर्वेदी की प्रसिद्ध कविता है।"
+},
+
+{
+question:"प्रश्न 13: भारत भवन कहाँ स्थित है? / Bharat Bhavan is located at?",
+options:[
+"A. भोपाल",
+"B. इंदौर",
+"C. उज्जैन",
+"D. जबलपुर"
+],
+answer:0,
+explanation:"भारत भवन भोपाल का प्रमुख कला एवं सांस्कृतिक केंद्र है।"
+},
+
+{
+question:"प्रश्न 14: तानसेन समारोह किस शहर में आयोजित होता है? / Tansen Samaroh is held at?",
+options:[
+"A. ग्वालियर",
+"B. भोपाल",
+"C. सागर",
+"D. रीवा"
+],
+answer:0,
+explanation:"तानसेन समारोह ग्वालियर में आयोजित किया जाता है।"
+},
+
+{
+question:"प्रश्न 15: निम्नलिखित में सही मिलान चुनिए / Choose correct match:",
+options:[
+"A. कालिदास समारोह — उज्जैन",
+"B. तानसेन समारोह — ग्वालियर",
+"C. भगोरिया — भील",
+"D. सभी सही / All correct"
+],
+answer:3,
+explanation:"तीनों युग्म सही हैं।"
+},
+
+{
+question:"प्रश्न 16: भोजपुर मंदिर किस स्थापत्य शैली का उदाहरण है? / Bhojpur Temple represents which style?",
+options:[
+"A. नागर शैली / Nagara Style",
+"B. द्रविड़ शैली",
+"C. इंडो-इस्लामिक",
+"D. वेसर शैली"
+],
+answer:0,
+explanation:"भोजपुर मंदिर उत्तर भारतीय नागर शैली से संबंधित है।"
+},
+
+{
+question:"प्रश्न 17: उदयगिरि गुफाएँ किस जिले में स्थित हैं? / Udayagiri Caves are located in which district?",
+options:[
+"A. विदिशा",
+"B. धार",
+"C. रायसेन",
+"D. उज्जैन"
+],
+answer:0,
+explanation:"उदयगिरि गुफाएँ विदिशा जिले में स्थित हैं।"
+},
+
+{
+question:"प्रश्न 18: सांची स्तूप का संबंध मुख्य रूप से किस धर्म से है? / Sanchi Stupa is mainly related to?",
+options:[
+"A. बौद्ध धर्म",
+"B. जैन धर्म",
+"C. शैव धर्म",
+"D. वैष्णव धर्म"
+],
+answer:0,
+explanation:"सांची स्तूप बौद्ध धर्म का प्रमुख स्मारक है।"
+},
+
+{
+question:"प्रश्न 19: मध्यप्रदेश की संस्कृति में निम्न में से कौन शामिल है? / Which are parts of MP culture?",
+options:[
+"A. लोक नृत्य",
+"B. जनजातीय परंपराएँ",
+"C. स्थापत्य कला",
+"D. सभी सही / All correct"
+],
+answer:3,
+explanation:"MP संस्कृति में सभी तत्व महत्वपूर्ण हैं।"
+},
+
+{
+question:"प्रश्न 20: MPPSC Pre 2027 के लिए मध्यप्रदेश संस्कृति में सबसे महत्वपूर्ण विषय कौन-से हैं? / Most important topics for MP Culture?",
+options:[
+"A. जनजाति",
+"B. कला एवं स्थापत्य",
+"C. साहित्य एवं लोक परंपरा",
+"D. उपरोक्त सभी / All of the above"
+],
+answer:3,
+explanation:"MPPSC में संस्कृति से सभी क्षेत्रों से प्रश्न पूछे जाते हैं।"
+}
+],
+test5:[
+{
+question:"प्रश्न 1: एरण अभिलेख मध्यप्रदेश के किस जिले से संबंधित है? / Eran inscription belongs to which district of Madhya Pradesh?",
+options:[
+"A. सागर / Sagar",
+"B. विदिशा / Vidisha",
+"C. मंदसौर / Mandsaur",
+"D. धार / Dhar"
+],
+answer:0,
+explanation:"एरण अभिलेख सागर जिले के एरण नामक स्थान से प्राप्त हुआ है।"
+},
+
+{
+question:"प्रश्न 2: एरण अभिलेख किस शासक से संबंधित है? / Eran inscription is related to which ruler?",
+options:[
+"A. समुद्रगुप्त / Samudragupta",
+"B. भानुगुप्त / Bhanugupta",
+"C. अशोक / Ashoka",
+"D. भोज / Bhoja"
+],
+answer:1,
+explanation:"एरण अभिलेख भानुगुप्त के समय का महत्वपूर्ण अभिलेख है।"
+},
+
+{
+question:"प्रश्न 3: मंदसौर अभिलेख किस वंश के इतिहास के लिए महत्वपूर्ण है? / Mandsaur inscription is important for which dynasty?",
+options:[
+"A. औलिकर / Aulikara",
+"B. परमार / Parmar",
+"C. चंदेल / Chandela",
+"D. कलचुरी / Kalachuri"
+],
+answer:0,
+explanation:"मंदसौर अभिलेख औलिकर वंश और यशोधर्मन के इतिहास के लिए महत्वपूर्ण है।"
+},
+
+{
+question:"प्रश्न 4: हाथीगुम्फा अभिलेख किससे संबंधित है? / Hathigumpha inscription is related to?",
+options:[
+"A. खारवेल / Kharavela",
+"B. अशोक",
+"C. भोज",
+"D. कनिष्क"
+],
+answer:0,
+explanation:"हाथीगुम्फा अभिलेख कलिंग शासक खारवेल से संबंधित है।"
+},
+
+{
+question:"प्रश्न 5: उदयगिरि गुफाओं का निर्माण मुख्य रूप से किस काल में हुआ? / Udayagiri caves were mainly built during?",
+options:[
+"A. मौर्य काल",
+"B. गुप्त काल",
+"C. चोल काल",
+"D. मुगल काल"
+],
+answer:1,
+explanation:"उदयगिरि गुफाएँ गुप्तकालीन कला का महत्वपूर्ण उदाहरण हैं।"
+},
+
+{
+question:"प्रश्न 6: उदयगिरि गुफाओं में प्रसिद्ध वराह प्रतिमा किससे संबंधित है? / Varaha sculpture at Udayagiri belongs to?",
+options:[
+"A. विष्णु / Vishnu",
+"B. शिव / Shiva",
+"C. बुद्ध / Buddha",
+"D. सूर्य / Sun"
+],
+answer:0,
+explanation:"उदयगिरि की विशाल वराह प्रतिमा भगवान विष्णु के अवतार से संबंधित है।"
+},
+
+{
+question:"प्रश्न 7: परमार वंश की स्थापना किसने की थी? / Who founded Parmar dynasty?",
+options:[
+"A. उपेंद्र / Upendra",
+"B. भोज",
+"C. मुंज",
+"D. सिंधुराज"
+],
+answer:0,
+explanation:"परमार वंश का संस्थापक उपेंद्र माना जाता है।"
+},
+
+{
+question:"प्रश्न 8: राजा भोज किस वंश के सबसे प्रसिद्ध शासक थे? / Raja Bhoja belonged to which dynasty?",
+options:[
+"A. चंदेल",
+"B. परमार",
+"C. कलचुरी",
+"D. तोमर"
+],
+answer:1,
+explanation:"राजा भोज परमार वंश के महान शासक थे।"
+},
+
+{
+question:"प्रश्न 9: खजुराहो मंदिर समूह का निर्माण किस वंश ने कराया? / Khajuraho temples were built by?",
+options:[
+"A. चंदेल",
+"B. परमार",
+"C. गोंड",
+"D. होल्कर"
+],
+answer:0,
+explanation:"खजुराहो मंदिर चंदेल वंश की स्थापत्य उपलब्धि है।"
+},
+
+{
+question:"प्रश्न 10: त्रिपुरी कलचुरी वंश की राजधानी क्या थी? / Capital of Tripuri Kalachuris?",
+options:[
+"A. त्रिपुरी",
+"B. धार",
+"C. उज्जैन",
+"D. ग्वालियर"
+],
+answer:0,
+explanation:"त्रिपुरी कलचुरी वंश की राजधानी त्रिपुरी थी।"
+},
+
+{
+question:"प्रश्न 11: निम्नलिखित में सही मिलान चुनिए / Choose correct match:",
+options:[
+"A. परमार — धार",
+"B. चंदेल — खजुराहो",
+"C. कलचुरी — त्रिपुरी",
+"D. सभी सही / All correct"
+],
+answer:3,
+explanation:"तीनों राजवंशों का मिलान सही है।"
+},
+
+{
+question:"प्रश्न 12: ग्वालियर प्रशस्ति किस शासक से संबंधित है? / Gwalior Prashasti is related to?",
+options:[
+"A. मिहिर भोज",
+"B. अशोक",
+"C. समुद्रगुप्त",
+"D. भोज"
+],
+answer:0,
+explanation:"ग्वालियर प्रशस्ति गुर्जर-प्रतिहार शासक मिहिर भोज से संबंधित है।"
+},
+
+{
+question:"प्रश्न 13: बाघ गुफाएँ किस जिले में स्थित हैं? / Bagh Caves are located in which district?",
+options:[
+"A. धार",
+"B. सागर",
+"C. रीवा",
+"D. जबलपुर"
+],
+answer:0,
+explanation:"बाघ गुफाएँ धार जिले में स्थित प्रसिद्ध बौद्ध गुफाएँ हैं।"
+},
+
+{
+question:"प्रश्न 14: निम्नलिखित कथनों पर विचार करें / Consider statements:",
+options:[
+"A. साँची स्तूप बौद्ध धर्म से संबंधित है",
+"B. भीमबेटका प्रागैतिहासिक स्थल है",
+"C. खजुराहो चंदेल स्थापत्य है",
+"D. सभी सही / All correct"
+],
+answer:3,
+explanation:"तीनों कथन सही हैं।"
+},
+
+{
+question:"प्रश्न 15: भोजपुर मंदिर किस नदी के निकट स्थित है? / Bhojpur Temple is near which river?",
+options:[
+"A. बेतवा / Betwa",
+"B. नर्मदा / Narmada",
+"C. चंबल / Chambal",
+"D. ताप्ती / Tapti"
+],
+answer:0,
+explanation:"भोजपुर मंदिर बेतवा नदी के निकट स्थित है।"
+},
+
+{
+question:"प्रश्न 16: कच्छपघात वंश का प्रमुख केंद्र कौन-सा था? / Main centre of Kachchhapaghata dynasty?",
+options:[
+"A. ग्वालियर",
+"B. उज्जैन",
+"C. धार",
+"D. विदिशा"
+],
+answer:0,
+explanation:"कच्छपघात वंश का प्रमुख केंद्र ग्वालियर क्षेत्र था।"
+},
+
+{
+question:"प्रश्न 17: 'नीलकंठेश्वर मंदिर' किस स्थान पर स्थित है? / Neelkantheshwar Temple is located at?",
+options:[
+"A. उदयपुर (विदिशा)",
+"B. भोजपुर",
+"C. खजुराहो",
+"D. मांडू"
+],
+answer:0,
+explanation:"नीलकंठेश्वर मंदिर उदयपुर (विदिशा) में स्थित है।"
+},
+
+{
+question:"प्रश्न 18: मध्यप्रदेश में बौद्ध कला का प्रमुख केंद्र कौन-सा है? / Major centre of Buddhist art in MP?",
+options:[
+"A. साँची",
+"B. धार",
+"C. मांडू",
+"D. ओरछा"
+],
+answer:0,
+explanation:"साँची मध्यप्रदेश में बौद्ध कला का प्रमुख केंद्र है।"
+},
+
+{
+question:"प्रश्न 19: निम्न में से कौन-सा युग्म गलत है? / Which pair is incorrect?",
+options:[
+"A. भोज — समरांगण सूत्रधार",
+"B. यशोधर्मन — मंदसौर",
+"C. अशोक — खजुराहो",
+"D. चंदेल — खजुराहो"
+],
+answer:2,
+explanation:"खजुराहो चंदेलों से संबंधित है, अशोक से नहीं।"
+},
+
+{
+
+question:"प्रश्न 20: MPPSC Pre 2027 में MP इतिहास के लिए सबसे महत्वपूर्ण स्रोत कौन-से हैं? / Important sources for MP History?",
+options:[
+"A. अभिलेख / Inscriptions",
+"B. पुरातात्विक अवशेष / Archaeological remains",
+"C. साहित्यिक स्रोत / Literary sources",
+"D. उपरोक्त सभी / All of the above"
+],
+answer:3,
+explanation:"MP इतिहास के अध्ययन में अभिलेख, पुरातत्व और साहित्य सभी महत्वपूर्ण स्रोत हैं।"
+}
+],
+test6:[
+{
+question:"प्रश्न 1: मध्यप्रदेश में औलिकर वंश का प्रमुख केंद्र कौन-सा था? / Main centre of Aulikara dynasty in MP was?",
+options:[
+"A. दशपुर (मंदसौर) / Dashapura (Mandsaur)",
+"B. धार / Dhar",
+"C. त्रिपुरी / Tripuri",
+"D. उज्जैन / Ujjain"
+],
+answer:0,
+explanation:"औलिकर वंश की राजधानी दशपुर (वर्तमान मंदसौर) थी।"
+},
+
+{
+question:"प्रश्न 2: निम्नलिखित राजवंशों का सही कालक्रम चुनिए / Arrange the dynasties in correct chronology:",
+options:[
+"A. मौर्य → गुप्त → औलिकर → परमार",
+"B. गुप्त → मौर्य → परमार → औलिकर",
+"C. परमार → गुप्त → मौर्य → औलिकर",
+"D. औलिकर → मौर्य → गुप्त → परमार"
+],
+answer:0,
+explanation:"मौर्य काल के बाद गुप्त, फिर औलिकर और बाद में परमार वंश का प्रभाव रहा।"
+},
+
+{
+question:"प्रश्न 3: मंदसौर अभिलेख किससे संबंधित है? / Mandsaur inscription is related to?",
+options:[
+"A. रेशम बुनकरों की श्रेणी / Silk weavers guild",
+"B. अशोक के आदेश",
+"C. चोल प्रशासन",
+"D. मुगल शासन"
+],
+answer:0,
+explanation:"मंदसौर अभिलेख रेशम बुनकरों की श्रेणी और औलिकर शासकों की जानकारी देता है।"
+},
+
+{
+question:"प्रश्न 4: कथन 1: यशोधर्मन ने हूण शासक मिहिरकुल को हराया।  
+कथन 2: यशोधर्मन औलिकर वंश से संबंधित था। / Statement 1 & 2",
+options:[
+"A. केवल कथन 1 सही",
+"B. केवल कथन 2 सही",
+"C. दोनों सही",
+"D. दोनों गलत"
+],
+answer:2,
+explanation:"दोनों कथन सही हैं। यशोधर्मन औलिकर वंश का महान शासक था।"
+},
+
+{
+question:"प्रश्न 5: एरण अभिलेख किस ऐतिहासिक घटना के लिए महत्वपूर्ण है? / Eran inscription is important for?",
+options:[
+"A. सती प्रथा के प्रारंभिक प्रमाण",
+"B. समुद्री व्यापार",
+"C. चोल प्रशासन",
+"D. बौद्ध संगीति"
+],
+answer:0,
+explanation:"एरण अभिलेख में सती प्रथा के प्रारंभिक प्रमाण मिलते हैं।"
+},
+
+{
+question:"प्रश्न 6: राजा भोज किस शताब्दी में हुए थे? / Raja Bhoja belonged to which century?",
+options:[
+"A. 5वीं शताब्दी",
+"B. 8वीं शताब्दी",
+"C. 11वीं शताब्दी",
+"D. 15वीं शताब्दी"
+],
+answer:2,
+explanation:"राजा भोज 11वीं शताब्दी के परमार शासक थे।"
+},
+
+{
+question:"प्रश्न 7: निम्न में से कौन-सा राजा भोज से संबंधित नहीं है? / Which is NOT related to Raja Bhoja?",
+options:[
+"A. समरांगण सूत्रधार",
+"B. भोजपुर मंदिर",
+"C. धार नगरी",
+"D. प्रयाग प्रशस्ति"
+],
+answer:3,
+explanation:"प्रयाग प्रशस्ति समुद्रगुप्त से संबंधित है।"
+},
+
+{
+question:"प्रश्न 8: त्रिपुरी कलचुरी वंश का उत्कर्ष किस क्षेत्र में हुआ? / Tripuri Kalachuris flourished in?",
+options:[
+"A. महाकौशल क्षेत्र",
+"B. मालवा",
+"C. निमाड़",
+"D. बुंदेलखंड"
+],
+answer:0,
+explanation:"त्रिपुरी कलचुरी वंश का केंद्र महाकौशल क्षेत्र था।"
+},
+
+{
+question:"प्रश्न 9: निम्न में से कौन-सा अभिलेख गुप्तकाल से संबंधित है? / Which inscription belongs to Gupta period?",
+options:[
+"A. उदयगिरि अभिलेख",
+"B. हाथीगुम्फा",
+"C. जूनागढ़",
+"D. ऐहोल"
+],
+answer:0,
+explanation:"उदयगिरि गुफाएँ गुप्तकालीन कला और अभिलेखों के लिए प्रसिद्ध हैं।"
+},
+
+{
+question:"प्रश्न 10: गुप्तकालीन उदयगिरि गुफाओं का संरक्षण किस शासक के समय हुआ? / Udayagiri caves flourished under?",
+options:[
+"A. चंद्रगुप्त द्वितीय",
+"B. अशोक",
+"C. हर्ष",
+"D. भोज"
+],
+answer:0,
+explanation:"उदयगिरि गुफाएँ चंद्रगुप्त द्वितीय विक्रमादित्य के समय विकसित हुईं।"
+},
+
+{
+question:"प्रश्न 11: कच्छपघात वंश का संबंध किस दुर्ग से है? / Kachchhapaghata dynasty associated with which fort?",
+options:[
+"A. ग्वालियर दुर्ग",
+"B. रायसेन दुर्ग",
+"C. मांडू दुर्ग",
+"D. असीरगढ़"
+],
+answer:0,
+explanation:"कच्छपघात शासकों का केंद्र ग्वालियर क्षेत्र था।"
+},
+
+{
+question:"प्रश्न 12: चंदेल वंश की राजधानी प्रारंभ में कहाँ थी? / Early capital of Chandela dynasty?",
+options:[
+"A. खजुराहो",
+"B. धार",
+"C. उज्जैन",
+"D. त्रिपुरी"
+],
+answer:0,
+explanation:"चंदेलों का प्रारंभिक केंद्र खजुराहो क्षेत्र था।"
+},
+
+{
+question:"प्रश्न 13: निम्नलिखित में सही मिलान करें / Correct match:",
+options:[
+"A. यशोधर्मन — मंदसौर",
+"B. भोज — धार",
+"C. चंदेल — खजुराहो",
+"D. सभी सही / All correct"
+],
+answer:3,
+explanation:"सभी युग्म सही हैं।"
+},
+
+{
+question:"प्रश्न 14: 'प्रबंध चिंतामणि' किस शासक से संबंधित जानकारी देता है? / Prabandha Chintamani provides information about?",
+options:[
+"A. राजा भोज",
+"B. अशोक",
+"C. समुद्रगुप्त",
+"D. कनिष्क"
+],
+answer:0,
+explanation:"प्रबंध चिंतामणि में राजा भोज सहित कई राजाओं का वर्णन है।"
+},
+
+{
+question:"प्रश्न 15: मध्यप्रदेश में परमारों का प्रमुख क्षेत्र कौन-सा था? / Main region of Parmars in MP?",
+options:[
+"A. मालवा",
+"B. बुंदेलखंड",
+"C. चंबल",
+"D. बघेलखंड"
+],
+answer:0,
+explanation:"परमारों का मुख्य क्षेत्र मालवा था।"
+},
+
+{
+question:"प्रश्न 16: कथन 1: साँची स्तूप का निर्माण अशोक से संबंधित है।  
+कथन 2: साँची रायसेन जिले में स्थित है।",
+options:[
+"A. केवल 1 सही",
+"B. केवल 2 सही",
+"C. दोनों सही",
+"D. दोनों गलत"
+],
+answer:2,
+explanation:"दोनों कथन सही हैं।"
+},
+
+{
+question:"प्रश्न 17: भोजपुर मंदिर किस देवता को समर्पित है? / Bhojpur temple dedicated to?",
+options:[
+"A. शिव",
+"B. विष्णु",
+"C. सूर्य",
+"D. बुद्ध"
+],
+answer:0,
+explanation:"भोजपुर मंदिर भगवान शिव को समर्पित है।"
+},
+
+{
+question:"प्रश्न 18: मध्यप्रदेश के इतिहास में 'दशपुर' वर्तमान में किस नाम से जाना जाता है? / Dashapura is present-day?",
+options:[
+"A. मंदसौर",
+"B. विदिशा",
+"C. धार",
+"D. सागर"
+],
+answer:0,
+explanation:"दशपुर का वर्तमान नाम मंदसौर है।"
+},
+
+{
+question:"प्रश्न 19: MP के इतिहास के अध्ययन में अभिलेखों का महत्व क्यों है? / Importance of inscriptions?",
+options:[
+"A. राजनीतिक जानकारी",
+"B. सामाजिक जानकारी",
+"C. आर्थिक जानकारी",
+"D. उपरोक्त सभी"
+],
+answer:3,
+explanation:"अभिलेखों से राजनीतिक, सामाजिक और आर्थिक जानकारी मिलती है।"
+},
+
+{
+question:"प्रश्न 20: MPPSC Pre 2027 में राजवंश आधारित प्रश्नों के लिए सबसे महत्वपूर्ण रणनीति क्या है? / Best strategy for dynasty questions?",
+options:[
+"A. केवल नाम याद करना",
+"B. कालक्रम + राजधानी + प्रमुख उपलब्धियां याद करना",
+"C. केवल युद्ध याद करना",
+"D. केवल मंदिर याद करना"
+],
+answer:1,
+explanation:"MPPSC में राजवंशों से जुड़े प्रश्नों में कालक्रम, राजधानी और उपलब्धियां महत्वपूर्ण हैं।"
+}
+],
+test7:[
+{
+question:"प्रश्न 1: मंदसौर अभिलेख किस शासक के समय का महत्वपूर्ण स्रोत है? / Mandsaur inscription is an important source of which ruler's period?",
+options:[
+"A. यशोधर्मन / Yashodharman",
+"B. भोज / Bhoja",
+"C. अशोक / Ashoka",
+"D. चंद्रगुप्त मौर्य / Chandragupta Maurya"
+],
+answer:0,
+explanation:"मंदसौर अभिलेख औलिकर शासक यशोधर्मन की उपलब्धियों का प्रमुख स्रोत है।"
+},
+
+{
+question:"प्रश्न 2: एरण अभिलेख का संबंध किस वंश से जोड़ा जाता है? / Eran inscription is associated with which dynasty?",
+options:[
+"A. गुप्त वंश / Gupta Dynasty",
+"B. चंदेल वंश / Chandela Dynasty",
+"C. परमार वंश / Parmar Dynasty",
+"D. कलचुरी वंश / Kalachuri Dynasty"
+],
+answer:0,
+explanation:"एरण क्षेत्र से गुप्तकालीन महत्वपूर्ण अभिलेख प्राप्त हुए हैं।"
+},
+
+{
+question:"प्रश्न 3: 'सती प्रथा' के प्रारंभिक अभिलेखीय प्रमाण कहाँ से मिले हैं? / Early inscriptional evidence of Sati practice found at?",
+options:[
+"A. एरण / Eran",
+"B. सांची / Sanchi",
+"C. उज्जैन / Ujjain",
+"D. धार / Dhar"
+],
+answer:0,
+explanation:"एरण अभिलेख में सती प्रथा का प्रारंभिक प्रमाण मिलता है।"
+},
+
+{
+question:"प्रश्न 4: कथन 1: यशोधर्मन औलिकर वंश का शासक था।  
+कथन 2: उसने हूण शासक मिहिरकुल को पराजित किया। / Assertion:",
+options:[
+"A. केवल कथन 1 सही",
+"B. केवल कथन 2 सही",
+"C. दोनों सही",
+"D. दोनों गलत"
+],
+answer:2,
+explanation:"दोनों कथन सही हैं।"
+},
+
+{
+question:"प्रश्न 5: राजा भोज की राजधानी कौन-सी थी? / Capital of Raja Bhoja?",
+options:[
+"A. धार / Dhar",
+"B. त्रिपुरी / Tripuri",
+"C. ग्वालियर / Gwalior",
+"D. उज्जैन / Ujjain"
+],
+answer:0,
+explanation:"परमार राजा भोज की राजधानी धार थी।"
+},
+
+{
+question:"प्रश्न 6: त्रिपुरी कलचुरी वंश की राजधानी थी? / Capital of Tripuri Kalachuris?",
+options:[
+"A. त्रिपुरी / Tripuri",
+"B. खजुराहो / Khajuraho",
+"C. विदिशा / Vidisha",
+"D. मांडू / Mandu"
+],
+answer:0,
+explanation:"त्रिपुरी कलचुरी वंश का प्रमुख केंद्र त्रिपुरी था।"
+},
+
+{
+question:"प्रश्न 7: निम्नलिखित में सही मिलान चुनिए / Choose correct match:",
+options:[
+"A. परमार — धार",
+"B. औलिकर — दशपुर",
+"C. कलचुरी — त्रिपुरी",
+"D. सभी सही / All correct"
+],
+answer:3,
+explanation:"सभी युग्म सही हैं।"
+},
+
+{
+question:"प्रश्न 8: गुप्तकालीन कला का प्रमुख केंद्र मध्यप्रदेश में कौन-सा था? / Major Gupta art centre in MP?",
+options:[
+"A. उदयगिरि / Udayagiri",
+"B. मांडू / Mandu",
+"C. ओरछा / Orchha",
+"D. चंदेरी / Chanderi"
+],
+answer:0,
+explanation:"उदयगिरि गुफाएँ गुप्तकालीन कला का उत्कृष्ट उदाहरण हैं।"
+},
+
+{
+question:"प्रश्न 9: उदयगिरि गुफाओं का संबंध किस शासक से है? / Udayagiri caves associated with?",
+options:[
+"A. चंद्रगुप्त द्वितीय",
+"B. अशोक",
+"C. हर्ष",
+"D. भोज"
+],
+answer:0,
+explanation:"उदयगिरि गुफाएँ चंद्रगुप्त द्वितीय के समय विकसित हुईं।"
+},
+
+{
+question:"प्रश्न 10: 'समरांगण सूत्रधार' के लेखक कौन थे? / Author of Samarangana Sutradhara?",
+options:[
+"A. राजा भोज",
+"B. कालिदास",
+"C. बाणभट्ट",
+"D. रविकीर्ति"
+],
+answer:0,
+explanation:"समरांगण सूत्रधार राजा भोज की प्रसिद्ध रचना है।"
+},
+
+{
+question:"प्रश्न 11: चंदेल वंश की प्रसिद्ध स्थापत्य उपलब्धि क्या है? / Famous architectural achievement of Chandela dynasty?",
+options:[
+"A. खजुराहो मंदिर",
+"B. साँची स्तूप",
+"C. भोजपुर मंदिर",
+"D. उदयगिरि गुफा"
+],
+answer:0,
+explanation:"खजुराहो मंदिर समूह चंदेल स्थापत्य की महान उपलब्धि है।"
+},
+
+{
+question:"प्रश्न 12: ग्वालियर दुर्ग का संबंध किस वंश से विशेष रूप से है? / Gwalior Fort especially associated with?",
+options:[
+"A. तोमर",
+"B. मौर्य",
+"C. शुंग",
+"D. सातवाहन"
+],
+answer:0,
+explanation:"ग्वालियर दुर्ग में तोमर शासकों का महत्वपूर्ण योगदान था।"
+},
+
+{
+question:"प्रश्न 13: निम्नलिखित में से कौन-सा MP का प्राचीन शिक्षा केंद्र था? / Ancient education centre of MP?",
+options:[
+"A. उज्जैन",
+"B. तक्षशिला",
+"C. नालंदा",
+"D. विक्रमशिला"
+],
+answer:0,
+explanation:"उज्जैन प्राचीन भारत का प्रमुख शिक्षा और खगोल केंद्र था।"
+},
+
+{
+question:"प्रश्न 14: उज्जैन का प्राचीन नाम क्या था? / Ancient name of Ujjain?",
+options:[
+"A. अवंति",
+"B. दशपुर",
+"C. त्रिपुरी",
+"D. विदिशा"
+],
+answer:0,
+explanation:"उज्जैन प्राचीन अवंति महाजनपद की राजधानी थी।"
+},
+
+{
+question:"प्रश्न 15: विक्रम संवत का प्रारंभ किससे जोड़ा जाता है? / Vikram Samvat is associated with?",
+options:[
+"A. विक्रमादित्य",
+"B. अशोक",
+"C. भोज",
+"D. हर्ष"
+],
+answer:0,
+explanation:"विक्रम संवत परंपरा उज्जैन के विक्रमादित्य से जोड़ी जाती है।"
+},
+
+{
+question:"प्रश्न 16: कथन 1: साँची स्तूप बौद्ध धर्म से संबंधित है।  
+कथन 2: इसका प्रारंभिक निर्माण अशोक ने कराया।",
+options:[
+"A. केवल 1 सही",
+"B. केवल 2 सही",
+"C. दोनों सही",
+"D. दोनों गलत"
+],
+answer:2,
+explanation:"दोनों कथन सही हैं।"
+},
+
+{
+question:"प्रश्न 17: MP में बौद्ध कला का प्रमुख केंद्र कौन-सा है? / Major Buddhist art centre in MP?",
+options:[
+"A. साँची",
+"B. धार",
+"C. भोजपुर",
+"D. मांडू"
+],
+answer:0,
+explanation:"साँची बौद्ध कला का विश्व प्रसिद्ध केंद्र है।"
+},
+
+{
+question:"प्रश्न 18: निम्न में से कौन-सा अभिलेख MP इतिहास के लिए महत्वपूर्ण है? / Important inscription for MP history?",
+options:[
+"A. एरण अभिलेख",
+"B. मंदसौर अभिलेख",
+"C. उदयगिरि अभिलेख",
+"D. सभी सही"
+],
+answer:3,
+explanation:"तीनों अभिलेख MP इतिहास के लिए महत्वपूर्ण हैं।"
+},
+
+{
+question:"प्रश्न 19: MP के इतिहास अध्ययन में सबसे विश्वसनीय स्रोत कौन-से हैं? / Most reliable sources for MP history?",
+options:[
+"A. अभिलेख",
+"B. सिक्के",
+"C. पुरातात्विक अवशेष",
+"D. सभी सही"
+],
+answer:3,
+explanation:"अभिलेख, सिक्के और पुरातात्विक अवशेष महत्वपूर्ण स्रोत हैं।"
+},
+
+{
+question:"प्रश्न 20: MPPSC Pre 2027 में राजवंशों से प्रश्न हल करने के लिए सबसे महत्वपूर्ण है? / Most important for dynasty questions?",
+options:[
+"A. केवल नाम याद करना",
+"B. शासक-राजधानी-अभिलेख-उपलब्धि का संबंध समझना",
+"C. केवल युद्ध याद करना",
+"D. केवल तिथियां याद करना"
+],
+answer:1,
+explanation:"MPPSC में संबंध आधारित प्रश्न अधिक पूछे जाते हैं।"
+}
+],
+test8:[
+{
+question:"प्रश्न 1: खजुराहो मंदिर समूह किस स्थापत्य शैली का प्रमुख उदाहरण है? / Khajuraho temple group is an example of which architectural style?",
+options:[
+"A. नागर शैली / Nagara Style",
+"B. द्रविड़ शैली / Dravidian Style",
+"C. वेसर शैली / Vesara Style",
+"D. इंडो-इस्लामिक शैली / Indo-Islamic Style"
+],
+answer:0,
+explanation:"खजुराहो मंदिर उत्तर भारतीय नागर स्थापत्य शैली के उत्कृष्ट उदाहरण हैं।"
+},
+
+{
+question:"प्रश्न 2: कंदरिया महादेव मंदिर कहाँ स्थित है? / Kandariya Mahadeva Temple is located at?",
+options:[
+"A. भोजपुर",
+"B. खजुराहो",
+"C. सांची",
+"D. उज्जैन"
+],
+answer:1,
+explanation:"कंदरिया महादेव मंदिर खजुराहो मंदिर समूह का प्रमुख मंदिर है।"
+},
+
+{
+question:"प्रश्न 3: भोजपुर मंदिर किस शासक द्वारा बनवाया गया था? / Bhojpur Temple was built by?",
+options:[
+"A. राजा भोज / Raja Bhoja",
+"B. अशोक / Ashoka",
+"C. यशोधर्मन / Yashodharman",
+"D. समुद्रगुप्त / Samudragupta"
+],
+answer:0,
+explanation:"भोजपुर का शिव मंदिर परमार शासक राजा भोज से संबंधित है।"
+},
+
+{
+question:"प्रश्न 4: भोजपुर मंदिर किस देवता को समर्पित है? / Bhojpur Temple is dedicated to?",
+options:[
+"A. भगवान शिव / Lord Shiva",
+"B. भगवान विष्णु / Lord Vishnu",
+"C. सूर्य देव / Sun God",
+"D. बुद्ध / Buddha"
+],
+answer:0,
+explanation:"भोजपुर मंदिर विशाल शिवलिंग के लिए प्रसिद्ध है।"
+},
+
+{
+question:"प्रश्न 5: साँची स्तूप का निर्माण मुख्य रूप से किससे संबंधित है? / Sanchi Stupa is mainly associated with?",
+options:[
+"A. अशोक / Ashoka",
+"B. भोज",
+"C. चंदेल",
+"D. हर्ष"
+],
+answer:0,
+explanation:"सम्राट अशोक ने साँची में स्तूप निर्माण की शुरुआत कराई थी।"
+},
+
+{
+question:"प्रश्न 6: निम्नलिखित कथनों पर विचार करें / Consider the following statements:",
+options:[
+"A. साँची रायसेन जिले में स्थित है",
+"B. यह बौद्ध धर्म से संबंधित है",
+"C. इसे UNESCO World Heritage Site का दर्जा मिला है",
+"D. उपरोक्त सभी / All of the above"
+],
+answer:3,
+explanation:"साँची के सभी कथन सही हैं।"
+},
+
+{
+question:"प्रश्न 7: भीमबेटका किस प्रकार की कला के लिए प्रसिद्ध है? / Bhimbetka is famous for?",
+options:[
+"A. शैल चित्रकला / Rock Paintings",
+"B. कांस्य मूर्तियां",
+"C. मंदिर स्थापत्य",
+"D. सिक्के"
+],
+answer:0,
+explanation:"भीमबेटका प्रागैतिहासिक शैल चित्रों के लिए प्रसिद्ध है।"
+},
+
+{
+question:"प्रश्न 8: उदयगिरि गुफाएँ किस काल की कला का प्रतिनिधित्व करती हैं? / Udayagiri caves represent which period?",
+options:[
+"A. गुप्त काल / Gupta Period",
+"B. मौर्य काल",
+"C. मुगल काल",
+"D. चोल काल"
+],
+answer:0,
+explanation:"उदयगिरि गुफाएँ गुप्तकालीन कला की महत्वपूर्ण धरोहर हैं।"
+},
+
+{
+question:"प्रश्न 9: उदयगिरि की प्रसिद्ध वराह प्रतिमा किस देवता से संबंधित है? / Varaha sculpture belongs to?",
+options:[
+"A. विष्णु / Vishnu",
+"B. शिव / Shiva",
+"C. ब्रह्मा / Brahma",
+"D. सूर्य / Sun"
+],
+answer:0,
+explanation:"वराह भगवान विष्णु के अवतार हैं।"
+},
+
+{
+question:"प्रश्न 10: बाघ गुफाएँ किस कला के लिए प्रसिद्ध हैं? / Bagh Caves are famous for?",
+options:[
+"A. भित्ति चित्र / Wall Paintings",
+"B. लौह कला",
+"C. सिक्का कला",
+"D. स्थापत्य योजना"
+],
+answer:0,
+explanation:"बाघ गुफाएँ अपने सुंदर भित्ति चित्रों के लिए प्रसिद्ध हैं।"
+},
+
+{
+question:"प्रश्न 11: निम्नलिखित का सही मिलान करें / Match correctly:",
+options:[
+"A. खजुराहो — चंदेल",
+"B. भोजपुर — परमार",
+"C. साँची — बौद्ध",
+"D. सभी सही / All correct"
+],
+answer:3,
+explanation:"सभी युग्म सही हैं।"
+},
+
+{
+question:"प्रश्न 12: मध्यप्रदेश में UNESCO के कितने विश्व धरोहर स्थल हैं? / Number of UNESCO World Heritage Sites in MP?",
+options:[
+"A. 1",
+"B. 2",
+"C. 3",
+"D. 4"
+],
+answer:2,
+explanation:"मध्यप्रदेश में साँची, खजुराहो और भीमबेटका तीन UNESCO World Heritage Sites हैं।"
+},
+
+{
+question:"प्रश्न 13: खजुराहो मंदिरों का निर्माण किस शासक वंश ने कराया? / Khajuraho temples built by?",
+options:[
+"A. चंदेल वंश",
+"B. परमार वंश",
+"C. कलचुरी वंश",
+"D. तोमर वंश"
+],
+answer:0,
+explanation:"खजुराहो मंदिर चंदेल वंश की स्थापत्य उपलब्धि है।"
+},
+
+{
+question:"प्रश्न 14: मध्यप्रदेश की कौन-सी मूर्तिकला शैली प्रसिद्ध है? / Famous sculpture tradition of MP?",
+options:[
+"A. गुप्तकालीन मूर्तिकला",
+"B. गांधार शैली",
+"C. अमरावती शैली",
+"D. पल्लव शैली"
+],
+answer:0,
+explanation:"MP में गुप्तकालीन मूर्तिकला का महत्वपूर्ण विकास हुआ।"
+},
+
+{
+question:"प्रश्न 15: कथन 1: भीमबेटका प्रागैतिहासिक स्थल है।  
+कथन 2: यह UNESCO World Heritage Site है।",
+options:[
+"A. केवल कथन 1 सही",
+"B. केवल कथन 2 सही",
+"C. दोनों सही",
+"D. दोनों गलत"
+],
+answer:2,
+explanation:"दोनों कथन सही हैं।"
+},
+
+{
+question:"प्रश्न 16: मांडू किसके लिए प्रसिद्ध है? / Mandu is famous for?",
+options:[
+"A. मध्यकालीन स्थापत्य / Medieval Architecture",
+"B. बौद्ध स्तूप",
+"C. प्रागैतिहासिक चित्र",
+"D. गुप्तकालीन गुफाएँ"
+],
+answer:0,
+explanation:"मांडू अपने अफगान स्थापत्य और मध्यकालीन स्मारकों के लिए प्रसिद्ध है।"
+},
+
+{
+question:"प्रश्न 17: ग्वालियर दुर्ग में स्थित 'मान मंदिर' किसने बनवाया था? / Man Mandir was built by?",
+options:[
+"A. मानसिंह तोमर",
+"B. राजा भोज",
+"C. अशोक",
+"D. रानी दुर्गावती"
+],
+answer:0,
+explanation:"मान मंदिर का निर्माण तोमर शासक मानसिंह तोमर ने कराया था।"
+},
+
+{
+question:"प्रश्न 18: ओरछा के मंदिर किस स्थापत्य परंपरा से जुड़े हैं? / Orchha temples belong to?",
+options:[
+"A. बुंदेला स्थापत्य",
+"B. चंदेल स्थापत्य",
+"C. मौर्य स्थापत्य",
+"D. गुप्त स्थापत्य"
+],
+answer:0,
+explanation:"ओरछा बुंदेला राजवंश की स्थापत्य परंपरा का केंद्र था।"
+},
+
+{
+question:"प्रश्न 19: MP की स्थापत्य कला के अध्ययन के लिए कौन-कौन से स्रोत महत्वपूर्ण हैं? / Sources for studying architecture:",
+options:[
+"A. मंदिर",
+"B. अभिलेख",
+"C. पुरातात्विक अवशेष",
+"D. सभी सही / All correct"
+],
+answer:3,
+explanation:"सभी स्रोत स्थापत्य अध्ययन में महत्वपूर्ण हैं।"
+},
+
+{
+question:"प्रश्न 20: MPPSC Pre 2027 में स्थापत्य से प्रश्नों के लिए सबसे महत्वपूर्ण क्या याद रखना चाहिए? / Important for architecture questions?",
+options:[
+"A. स्थल + निर्माता + शैली",
+"B. केवल नाम",
+"C. केवल वर्ष",
+"D. केवल स्थान"
+],
+answer:0,
+explanation:"MPPSC में स्थल, निर्माता और स्थापत्य शैली आधारित प्रश्न अधिक पूछे जाते हैं।"
+}
+],
+test9:[
+{
+question:"प्रश्न 1: 'पुष्प की अभिलाषा' कविता के रचनाकार कौन हैं? / Who wrote 'Pushp Ki Abhilasha'?",
+options:[
+"A. माखनलाल चतुर्वेदी / Makhanlal Chaturvedi",
+"B. भवानी प्रसाद मिश्र / Bhawani Prasad Mishra",
+"C. हरिशंकर परसाई / Harishankar Parsai",
+"D. सुभद्रा कुमारी चौहान / Subhadra Kumari Chauhan"
+],
+answer:0,
+explanation:"पुष्प की अभिलाषा माखनलाल चतुर्वेदी की प्रसिद्ध राष्ट्रवादी कविता है।"
+},
+
+{
+question:"प्रश्न 2: माखनलाल चतुर्वेदी का संबंध किस क्षेत्र से था? / Makhanlal Chaturvedi belonged to which field?",
+options:[
+"A. साहित्य / Literature",
+"B. चित्रकला / Painting",
+"C. स्थापत्य / Architecture",
+"D. संगीत / Music"
+],
+answer:0,
+explanation:"माखनलाल चतुर्वेदी प्रसिद्ध हिंदी कवि और पत्रकार थे।"
+},
+
+{
+question:"प्रश्न 3: हरिशंकर परसाई किस विधा के लिए प्रसिद्ध हैं? / Harishankar Parsai was famous for?",
+options:[
+"A. व्यंग्य लेखन / Satire Writing",
+"B. संगीत",
+"C. चित्रकला",
+"D. नृत्य"
+],
+answer:0,
+explanation:"हरिशंकर परसाई हिंदी व्यंग्य साहित्य के महान लेखक थे।"
+},
+
+{
+question:"प्रश्न 4: भवानी प्रसाद मिश्र किस साहित्यिक धारा से जुड़े थे? / Bhawani Prasad Mishra associated with?",
+options:[
+"A. हिंदी कविता / Hindi Poetry",
+"B. स्थापत्य कला",
+"C. मूर्तिकला",
+"D. इतिहास लेखन"
+],
+answer:0,
+explanation:"भवानी प्रसाद मिश्र आधुनिक हिंदी कविता के प्रमुख कवि थे।"
+},
+
+{
+question:"प्रश्न 5: 'माच' लोकनाट्य किस क्षेत्र से संबंधित है? / Maach folk theatre belongs to?",
+options:[
+"A. मालवा / Malwa",
+"B. बुंदेलखंड",
+"C. बघेलखंड",
+"D. चंबल"
+],
+answer:0,
+explanation:"माच मालवा क्षेत्र की प्रसिद्ध लोक नाट्य शैली है।"
+},
+
+{
+question:"प्रश्न 6: राई नृत्य किस क्षेत्र का प्रसिद्ध लोक नृत्य है? / Rai dance belongs to?",
+options:[
+"A. बुंदेलखंड / Bundelkhand",
+"B. मालवा",
+"C. निमाड़",
+"D. महाकौशल"
+],
+answer:0,
+explanation:"राई नृत्य बुंदेलखंड का प्रसिद्ध लोक नृत्य है।"
+},
+
+{
+question:"प्रश्न 7: भगोरिया उत्सव किस जनजाति से संबंधित है? / Bhagoria festival is associated with?",
+options:[
+"A. भील / Bhil",
+"B. गोंड / Gond",
+"C. बैगा / Baiga",
+"D. कोरकू / Korku"
+],
+answer:0,
+explanation:"भगोरिया उत्सव मुख्य रूप से भील जनजाति द्वारा मनाया जाता है।"
+},
+
+{
+question:"प्रश्न 8: गोंड चित्रकला की प्रमुख विशेषता क्या है? / Main feature of Gond painting?",
+options:[
+"A. प्रकृति आधारित आकृतियाँ / Nature based figures",
+"B. केवल युद्ध चित्र",
+"C. केवल धार्मिक लेख",
+"D. केवल राजदरबार"
+],
+answer:0,
+explanation:"गोंड कला में प्रकृति, जीव-जंतु और प्रतीकात्मक आकृतियों का प्रयोग होता है।"
+},
+
+{
+question:"प्रश्न 9: पिथौरा चित्रकला किससे संबंधित है? / Pithora painting is related to?",
+options:[
+"A. भील जनजाति / Bhil Tribe",
+"B. गोंड जनजाति",
+"C. बैगा जनजाति",
+"D. कोरकू जनजाति"
+],
+answer:0,
+explanation:"पिथौरा चित्रकला भील समुदाय की प्रसिद्ध कला है।"
+},
+
+{
+question:"प्रश्न 10: तानसेन समारोह कहाँ आयोजित किया जाता है? / Tansen Samaroh is organised at?",
+options:[
+"A. ग्वालियर / Gwalior",
+"B. भोपाल",
+"C. उज्जैन",
+"D. इंदौर"
+],
+answer:0,
+explanation:"तानसेन समारोह ग्वालियर में आयोजित किया जाता है।"
+},
+
+{
+question:"प्रश्न 11: कालिदास समारोह कहाँ आयोजित होता है? / Kalidas Samaroh is held at?",
+options:[
+"A. उज्जैन / Ujjain",
+"B. धार",
+"C. सागर",
+"D. रीवा"
+],
+answer:0,
+explanation:"कालिदास समारोह उज्जैन में आयोजित होता है।"
+},
+
+{
+question:"प्रश्न 12: मध्यप्रदेश का प्रसिद्ध लोकगीत 'निर्गुण' परंपरा किससे संबंधित है? / Nirgun tradition relates to?",
+options:[
+"A. लोक आध्यात्मिक गायन / Folk spiritual singing",
+"B. युद्ध संगीत",
+"C. शास्त्रीय नृत्य",
+"D. स्थापत्य"
+],
+answer:0,
+explanation:"निर्गुण परंपरा आध्यात्मिक लोक गायन से जुड़ी है।"
+},
+
+{
+question:"प्रश्न 13: निम्नलिखित का सही मिलान करें / Match correctly:",
+options:[
+"A. माच — मालवा",
+"B. राई — बुंदेलखंड",
+"C. भगोरिया — भील",
+"D. सभी सही / All correct"
+],
+answer:3,
+explanation:"सभी युग्म सही हैं।"
+},
+
+{
+question:"प्रश्न 14: मध्यप्रदेश जनजातीय संग्रहालय कहाँ स्थित है? / Tribal Museum of MP located at?",
+options:[
+"A. भोपाल / Bhopal",
+"B. इंदौर",
+"C. जबलपुर",
+"D. ग्वालियर"
+],
+answer:0,
+explanation:"मध्यप्रदेश जनजातीय संग्रहालय भोपाल में स्थित है।"
+},
+
+{
+question:"प्रश्न 15: कथन 1: गोंड चित्रकला मध्यप्रदेश की प्रसिद्ध जनजातीय कला है।  
+कथन 2: भील समुदाय पिथौरा चित्रकला से जुड़ा है।",
+options:[
+"A. केवल 1 सही",
+"B. केवल 2 सही",
+"C. दोनों सही",
+"D. दोनों गलत"
+],
+answer:2,
+explanation:"दोनों कथन सही हैं।"
+},
+
+{
+question:"प्रश्न 16: 'भारत भवन' किस शहर में स्थित है? / Bharat Bhavan is located in?",
+options:[
+"A. भोपाल / Bhopal",
+"B. उज्जैन",
+"C. ग्वालियर",
+"D. रीवा"
+],
+answer:0,
+explanation:"भारत भवन भोपाल का प्रमुख कला केंद्र है।"
+},
+
+{
+question:"प्रश्न 17: कुमार गंधर्व किस क्षेत्र से संबंधित थे? / Kumar Gandharva belonged to?",
+options:[
+"A. शास्त्रीय संगीत / Classical Music",
+"B. चित्रकला",
+"C. स्थापत्य",
+"D. साहित्य"
+],
+answer:0,
+explanation:"कुमार गंधर्व प्रसिद्ध भारतीय शास्त्रीय गायक थे।"
+},
+
+{
+question:"प्रश्न 18: मध्यप्रदेश की संस्कृति में कौन-कौन शामिल हैं? / Elements of MP culture:",
+options:[
+"A. लोक नृत्य",
+"B. जनजातीय परंपरा",
+"C. लोक संगीत",
+"D. सभी सही / All correct"
+],
+answer:3,
+explanation:"MP संस्कृति में ये सभी महत्वपूर्ण भाग हैं।"
+},
+
+{
+question:"प्रश्न 19: MPPSC में संस्कृति से प्रश्नों के लिए सबसे महत्वपूर्ण संयोजन क्या है? / Important combination for culture questions?",
+options:[
+"A. कला + कलाकार + क्षेत्र",
+"B. केवल नाम",
+"C. केवल वर्ष",
+"D. केवल स्थान"
+],
+answer:0,
+explanation:"MPPSC में कला, कलाकार और संबंधित क्षेत्र से प्रश्न पूछे जाते हैं।"
+},
+
+{
+question:"प्रश्न 20: MPPSC Pre 2027 में लोक संस्कृति के प्रश्नों के लिए क्या याद रखना चाहिए? / What should be remembered for folk culture questions?",
+options:[
+"A. नृत्य + जनजाति + क्षेत्र",
+"B. केवल नृत्य",
+"C. केवल जनजाति",
+"D. केवल उत्सव"
+],
+answer:0,
+explanation:"लोक संस्कृति में नृत्य, जनजाति और क्षेत्र का संबंध महत्वपूर्ण है।"
+}
+],
+test10:[
+{
+question:"प्रश्न 1: मध्यप्रदेश की सबसे बड़ी जनजाति कौन-सी है? / Largest tribe of Madhya Pradesh?",
+options:[
+"A. भील / Bhil",
+"B. गोंड / Gond",
+"C. बैगा / Baiga",
+"D. कोरकू / Korku"
+],
+answer:0,
+explanation:"भील मध्यप्रदेश की सबसे बड़ी जनजाति है।"
+},
+
+{
+question:"प्रश्न 2: गोंड जनजाति का ऐतिहासिक क्षेत्र किस नाम से जाना जाता है? / Historical region of Gond tribe?",
+options:[
+"A. गोंडवाना / Gondwana",
+"B. मालवा",
+"C. निमाड़",
+"D. बुंदेलखंड"
+],
+answer:0,
+explanation:"गोंड जनजाति का प्रमुख क्षेत्र गोंडवाना कहलाता है।"
+},
+
+{
+question:"प्रश्न 3: बैगा जनजाति मुख्य रूप से किस क्षेत्र में पाई जाती है? / Baiga tribe mainly found in?",
+options:[
+"A. मंडला-डिंडोरी क्षेत्र / Mandla-Dindori",
+"B. ग्वालियर",
+"C. उज्जैन",
+"D. मंदसौर"
+],
+answer:0,
+explanation:"बैगा जनजाति मंडला और डिंडोरी क्षेत्रों में प्रमुख रूप से पाई जाती है।"
+},
+
+{
+question:"प्रश्न 4: कोरकू जनजाति मुख्य रूप से किस क्षेत्र में निवास करती है? / Korku tribe mainly lives in?",
+options:[
+"A. सतपुड़ा क्षेत्र / Satpura Region",
+"B. चंबल क्षेत्र",
+"C. बुंदेलखंड",
+"D. मालवा"
+],
+answer:0,
+explanation:"कोरकू जनजाति सतपुड़ा क्षेत्र में प्रमुख रूप से पाई जाती है।"
+},
+
+{
+question:"प्रश्न 5: टंट्या भील किस आंदोलन से जुड़े थे? / Tantya Bhil was associated with?",
+options:[
+"A. जनजातीय स्वतंत्रता संघर्ष / Tribal Freedom Movement",
+"B. किसान आंदोलन",
+"C. सामाजिक सुधार",
+"D. साहित्य आंदोलन"
+],
+answer:0,
+explanation:"टंट्या भील अंग्रेजों के विरुद्ध संघर्ष करने वाले प्रसिद्ध जनजातीय नायक थे।"
+},
+
+{
+question:"प्रश्न 6: मध्यप्रदेश की प्रसिद्ध जनजातीय वीरांगना कौन थीं? / Famous tribal queen of MP?",
+options:[
+"A. रानी दुर्गावती / Rani Durgavati",
+"B. अहिल्याबाई होल्कर",
+"C. लक्ष्मीबाई",
+"D. अवंतीबाई"
+],
+answer:0,
+explanation:"रानी दुर्गावती गोंडवाना की महान वीरांगना थीं।"
+},
+
+{
+question:"प्रश्न 7: भगोरिया उत्सव किस जनजाति से संबंधित है? / Bhagoria festival belongs to?",
+options:[
+"A. भील / Bhil",
+"B. गोंड",
+"C. बैगा",
+"D. सहरिया"
+],
+answer:0,
+explanation:"भगोरिया भील जनजाति का प्रमुख उत्सव है।"
+},
+
+{
+question:"प्रश्न 8: करमा नृत्य किससे संबंधित है? / Karma dance is associated with?",
+options:[
+"A. जनजातीय संस्कृति / Tribal Culture",
+"B. शास्त्रीय संगीत",
+"C. मंदिर कला",
+"D. चित्रकला"
+],
+answer:0,
+explanation:"करमा मध्यप्रदेश की जनजातीय लोक नृत्य परंपरा है।"
+},
+
+{
+question:"प्रश्न 9: निम्नलिखित में से कौन-सी जनजाति विशेष पिछड़ी जनजाति (PVTG) में आती है? / Which is PVTG?",
+options:[
+"A. बैगा / Baiga",
+"B. भील",
+"C. गोंड",
+"D. कोरकू"
+],
+answer:0,
+explanation:"बैगा मध्यप्रदेश की विशेष पिछड़ी जनजातियों में शामिल है।"
+},
+
+{
+question:"प्रश्न 10: 'पुष्प की अभिलाषा' के लेखक कौन हैं? / Author of Pushp Ki Abhilasha?",
+options:[
+"A. माखनलाल चतुर्वेदी",
+"B. हरिशंकर परसाई",
+"C. भवानी प्रसाद मिश्र",
+"D. सुभद्रा कुमारी चौहान"
+],
+answer:0,
+explanation:"यह प्रसिद्ध कविता माखनलाल चतुर्वेदी की रचना है।"
+},
+
+{
+question:"प्रश्न 11: हरिशंकर परसाई किस विधा के लिए प्रसिद्ध हैं? / Harishankar Parsai famous for?",
+options:[
+"A. व्यंग्य / Satire",
+"B. इतिहास",
+"C. संगीत",
+"D. चित्रकला"
+],
+answer:0,
+explanation:"हरिशंकर परसाई हिंदी व्यंग्य साहित्य के प्रसिद्ध लेखक थे।"
+},
+
+{
+question:"प्रश्न 12: कुमार गंधर्व किस क्षेत्र से संबंधित थे? / Kumar Gandharva belonged to?",
+options:[
+"A. शास्त्रीय संगीत / Classical Music",
+"B. चित्रकला",
+"C. स्थापत्य",
+"D. नृत्य"
+],
+answer:0,
+explanation:"कुमार गंधर्व प्रसिद्ध शास्त्रीय गायक थे।"
+},
+
+{
+question:"प्रश्न 13: निम्नलिखित का सही मिलान करें / Match correctly:",
+options:[
+"A. भगोरिया — भील",
+"B. माच — मालवा",
+"C. राई — बुंदेलखंड",
+"D. सभी सही / All correct"
+],
+answer:3,
+explanation:"सभी युग्म सही हैं।"
+},
+
+{
+question:"प्रश्न 14: मध्यप्रदेश का जनजातीय संग्रहालय कहाँ है? / Tribal Museum located at?",
+options:[
+"A. भोपाल / Bhopal",
+"B. इंदौर",
+"C. जबलपुर",
+"D. ग्वालियर"
+],
+answer:0,
+explanation:"जनजातीय संग्रहालय भोपाल में स्थित है।"
+},
+
+{
+question:"प्रश्न 15: कथन 1: गोंड चित्रकला मध्यप्रदेश की प्रसिद्ध कला है।  
+कथन 2: पिथौरा चित्रकला भील समुदाय से संबंधित है।",
+options:[
+"A. केवल 1 सही",
+"B. केवल 2 सही",
+"C. दोनों सही",
+"D. दोनों गलत"
+],
+answer:2,
+explanation:"दोनों कथन सही हैं।"
+},
+
+{
+question:"प्रश्न 16: भारत भवन किस शहर में स्थित है? / Bharat Bhavan located at?",
+options:[
+"A. भोपाल",
+"B. उज्जैन",
+"C. ग्वालियर",
+"D. सागर"
+],
+answer:0,
+explanation:"भारत भवन भोपाल का प्रमुख सांस्कृतिक केंद्र है।"
+},
+
+{
+question:"प्रश्न 17: तानसेन समारोह कहाँ आयोजित होता है? / Tansen Samaroh held at?",
+options:[
+"A. ग्वालियर",
+"B. भोपाल",
+"C. इंदौर",
+"D. रीवा"
+],
+answer:0,
+explanation:"तानसेन समारोह ग्वालियर में आयोजित होता है।"
+},
+
+{
+question:"प्रश्न 18: कालिदास समारोह किस नगर में आयोजित होता है? / Kalidas Samaroh held at?",
+options:[
+"A. उज्जैन",
+"B. धार",
+"C. भोपाल",
+"D. सागर"
+],
+answer:0,
+explanation:"कालिदास समारोह उज्जैन में आयोजित होता है।"
+},
+
+{
+question:"प्रश्न 19: MP संस्कृति के अध्ययन के लिए कौन-से स्रोत महत्वपूर्ण हैं? / Important sources of MP culture?",
+options:[
+"A. लोक कला",
+"B. साहित्य",
+"C. पुरातात्विक स्थल",
+"D. सभी सही / All correct"
+],
+answer:3,
+explanation:"MP संस्कृति समझने के लिए सभी स्रोत महत्वपूर्ण हैं।"
+},
+
+{
+question:"प्रश्न 20: MPPSC Pre 2027 में संस्कृति के प्रश्नों को हल करने की सबसे अच्छी रणनीति क्या है? / Best strategy for culture questions?",
+options:[
+"A. कलाकार + क्षेत्र + परंपरा का संबंध याद रखना",
+"B. केवल नाम याद करना",
+"C. केवल वर्ष याद करना",
+"D. केवल स्थान याद करना"
+],
+answer:0,
+explanation:"MPPSC में संबंध आधारित प्रश्न अधिक पूछे जाते हैं।"
+}
+],
+test11:[
+{
+question:"प्रश्न 1: सिंधु घाटी सभ्यता के किस स्थल से विशाल स्नानागार प्राप्त हुआ है? / Which site of Indus Valley Civilization yielded the Great Bath?",
+options:[
+"A. हड़प्पा / Harappa",
+"B. मोहनजोदड़ो / Mohenjodaro",
+"C. लोथल / Lothal",
+"D. कालीबंगा / Kalibangan"
+],
+answer:1,
+explanation:"मोहनजोदड़ो का विशाल स्नानागार सिंधु सभ्यता की महत्वपूर्ण स्थापत्य उपलब्धि है।"
+},
+
+{
+question:"प्रश्न 2: लोथल किस विशेषता के लिए प्रसिद्ध है? / Lothal is famous for?",
+options:[
+"A. विशाल स्नानागार / Great Bath",
+"B. डॉकयार्ड / Dockyard",
+"C. अग्निकुंड / Fire altar",
+"D. स्तूप"
+],
+answer:1,
+explanation:"लोथल गुजरात में स्थित सिंधु सभ्यता का प्रमुख बंदरगाह स्थल था।"
+},
+
+{
+question:"प्रश्न 3: सिंधु सभ्यता की लिपि के बारे में कौन-सा कथन सही है? / Correct statement about Indus script:",
+options:[
+"A. यह अभी तक पढ़ी नहीं जा सकी है / It remains undeciphered",
+"B. यह संस्कृत में थी",
+"C. यह ब्राह्मी लिपि थी",
+"D. यह केवल यूनानी भाषा में थी"
+],
+answer:0,
+explanation:"सिंधु लिपि अभी तक पूर्ण रूप से पढ़ी नहीं जा सकी है।"
+},
+
+{
+question:"प्रश्न 4: ऋग्वेद में सबसे अधिक किस देवता का उल्लेख मिलता है? / Most mentioned deity in Rigveda?",
+options:[
+"A. इंद्र / Indra",
+"B. विष्णु / Vishnu",
+"C. शिव / Shiva",
+"D. ब्रह्मा / Brahma"
+],
+answer:0,
+explanation:"ऋग्वेद में इंद्र सबसे प्रमुख देवता हैं।"
+},
+
+{
+question:"प्रश्न 5: उत्तर वैदिक काल में किस धातु का अधिक प्रयोग हुआ? / Which metal was widely used in Later Vedic period?",
+options:[
+"A. लोहा / Iron",
+"B. तांबा / Copper",
+"C. सोना / Gold",
+"D. चांदी / Silver"
+],
+answer:0,
+explanation:"उत्तर वैदिक काल में लोहे के प्रयोग के प्रमाण मिलते हैं।"
+},
+
+{
+question:"प्रश्न 6: 16 महाजनपदों में सबसे शक्तिशाली कौन बना? / Most powerful among 16 Mahajanapadas?",
+options:[
+"A. मगध / Magadha",
+"B. वत्स / Vatsa",
+"C. अवंति / Avanti",
+"D. कोशल / Kosala"
+],
+answer:0,
+explanation:"मगध अपनी भौगोलिक और आर्थिक स्थिति के कारण शक्तिशाली बना।"
+},
+
+{
+question:"प्रश्न 7: गौतम बुद्ध को ज्ञान की प्राप्ति कहाँ हुई? / Buddha attained enlightenment at?",
+options:[
+"A. सारनाथ / Sarnath",
+"B. बोधगया / Bodh Gaya",
+"C. कुशीनगर / Kushinagar",
+"D. लुंबिनी / Lumbini"
+],
+answer:1,
+explanation:"बुद्ध को बोधगया में ज्ञान प्राप्त हुआ।"
+},
+
+{
+question:"प्रश्न 8: प्रथम बौद्ध संगीति कहाँ आयोजित हुई थी? / First Buddhist Council held at?",
+options:[
+"A. राजगृह / Rajgir",
+"B. वैशाली / Vaishali",
+"C. पाटलिपुत्र / Pataliputra",
+"D. कश्मीर / Kashmir"
+],
+answer:0,
+explanation:"प्रथम बौद्ध संगीति राजगृह में अजातशत्रु के समय हुई।"
+},
+
+{
+question:"प्रश्न 9: जैन धर्म के 24वें तीर्थंकर कौन थे? / 24th Tirthankara of Jainism?",
+options:[
+"A. ऋषभदेव",
+"B. पार्श्वनाथ",
+"C. महावीर",
+"D. नेमिनाथ"
+],
+answer:2,
+explanation:"महावीर जैन धर्म के 24वें तीर्थंकर थे।"
+},
+
+{
+question:"प्रश्न 10: चंद्रगुप्त मौर्य के गुरु कौन थे? / Teacher of Chandragupta Maurya?",
+options:[
+"A. कौटिल्य / Kautilya",
+"B. अश्वघोष",
+"C. कालिदास",
+"D. पतंजलि"
+],
+answer:0,
+explanation:"कौटिल्य ने चंद्रगुप्त मौर्य को मार्गदर्शन दिया।"
+},
+
+{
+question:"प्रश्न 11: अर्थशास्त्र ग्रंथ के लेखक कौन थे? / Author of Arthashastra?",
+options:[
+"A. कौटिल्य / Kautilya",
+"B. मेगस्थनीज",
+"C. बाणभट्ट",
+"D. आर्यभट्ट"
+],
+answer:0,
+explanation:"अर्थशास्त्र कौटिल्य द्वारा रचित राजनीतिक ग्रंथ है।"
+},
+
+{
+question:"प्रश्न 12: अशोक के अधिकांश अभिलेख किस भाषा में थे? / Language of most Ashokan inscriptions?",
+options:[
+"A. प्राकृत / Prakrit",
+"B. संस्कृत",
+"C. तमिल",
+"D. फारसी"
+],
+answer:0,
+explanation:"अशोक के अधिकांश अभिलेख प्राकृत भाषा में थे।"
+},
+
+{
+question:"प्रश्न 13: गुप्त काल को किस नाम से जाना जाता है? / Gupta period is known as?",
+options:[
+"A. स्वर्ण युग / Golden Age",
+"B. अंधकार युग",
+"C. लौह युग",
+"D. पाषाण युग"
+],
+answer:0,
+explanation:"गुप्त काल कला, विज्ञान और साहित्य की उन्नति के कारण स्वर्ण युग कहलाता है।"
+},
+
+{
+question:"प्रश्न 14: आर्यभट्ट किस क्षेत्र से संबंधित थे? / Aryabhata belonged to?",
+options:[
+"A. गणित एवं खगोल विज्ञान",
+"B. चिकित्सा",
+"C. राजनीति",
+"D. वास्तुकला"
+],
+answer:0,
+explanation:"आर्यभट्ट महान गणितज्ञ और खगोलशास्त्री थे।"
+},
+
+{
+question:"प्रश्न 15: कालिदास किस काल के प्रसिद्ध साहित्यकार थे? / Kalidasa belonged to which period?",
+options:[
+"A. गुप्त काल / Gupta Period",
+"B. मौर्य काल",
+"C. वैदिक काल",
+"D. कुषाण काल"
+],
+answer:0,
+explanation:"कालिदास गुप्तकाल के महान कवि और नाटककार थे।"
+},
+
+{
+question:"प्रश्न 16: निम्नलिखित का सही मिलान करें / Match correctly:",
+options:[
+"A. लोथल — डॉकयार्ड",
+"B. मोहनजोदड़ो — विशाल स्नानागार",
+"C. धोलावीरा — जल प्रबंधन",
+"D. सभी सही / All correct"
+],
+answer:3,
+explanation:"सभी युग्म सही हैं।"
+},
+
+{
+question:"प्रश्न 17: कथन 1: अशोक ने कलिंग युद्ध के बाद बौद्ध धर्म अपनाया।  
+कथन 2: अशोक के अभिलेख धम्म की जानकारी देते हैं।",
+options:[
+"A. केवल 1 सही",
+"B. केवल 2 सही",
+"C. दोनों सही",
+"D. दोनों गलत"
+],
+answer:2,
+explanation:"दोनों कथन सही हैं।"
+},
+
+{
+question:"प्रश्न 18: नालंदा विश्वविद्यालय का विकास किस काल में हुआ? / Nalanda developed during?",
+options:[
+"A. गुप्त काल",
+"B. मौर्य काल",
+"C. सिंधु काल",
+"D. वैदिक काल"
+],
+answer:0,
+explanation:"नालंदा का विकास गुप्त काल में प्रारंभ हुआ।"
+},
+
+{
+question:"प्रश्न 19: प्राचीन भारत के इतिहास के प्रमुख स्रोत कौन-से हैं? / Sources of Ancient Indian History?",
+options:[
+"A. अभिलेख / Inscriptions",
+"B. सिक्के / Coins",
+"C. साहित्यिक स्रोत / Literary Sources",
+"D. सभी सही / All correct"
+],
+answer:3,
+explanation:"सभी स्रोत प्राचीन इतिहास के अध्ययन में महत्वपूर्ण हैं।"
+},
+
+{
+question:"प्रश्न 20: MPPSC Pre 2027 में Ancient History के प्रश्नों के लिए सबसे महत्वपूर्ण रणनीति क्या है? / Best strategy for Ancient History?",
+options:[
+"A. घटना + समय + स्थान का संबंध समझना",
+"B. केवल नाम याद करना",
+"C. केवल वर्ष याद करना",
+"D. केवल राजा याद करना"
+],
+answer:0,
+explanation:"MPPSC में संबंध आधारित और तथ्यात्मक दोनों प्रकार के प्रश्न पूछे जाते हैं।"
+}
+],
+test12:[
+{
+question:"प्रश्न 1: मध्यप्रदेश में परमार वंश की राजधानी कौन-सी थी? / Capital of Parmar dynasty in MP?",
+options:[
+"A. धार / Dhar",
+"B. त्रिपुरी / Tripuri",
+"C. ग्वालियर / Gwalior",
+"D. खजुराहो / Khajuraho"
+],
+answer:0,
+explanation:"परमार वंश की प्रमुख राजधानी धार थी।"
+},
+
+{
+question:"प्रश्न 2: राजा भोज किस वंश के महान शासक थे? / Raja Bhoja belonged to which dynasty?",
+options:[
+"A. परमार / Parmar",
+"B. चंदेल / Chandela",
+"C. कलचुरी / Kalachuri",
+"D. तोमर / Tomar"
+],
+answer:0,
+explanation:"राजा भोज परमार वंश के प्रसिद्ध शासक थे।"
+},
+
+{
+question:"प्रश्न 3: भोजपुर मंदिर का निर्माण किसने कराया था? / Bhojpur Temple was built by?",
+options:[
+"A. राजा भोज / Raja Bhoja",
+"B. यशोधर्मन",
+"C. अशोक",
+"D. मानसिंह तोमर"
+],
+answer:0,
+explanation:"भोजपुर शिव मंदिर का निर्माण परमार राजा भोज से संबंधित है।"
+},
+
+{
+question:"प्रश्न 4: मंदसौर अभिलेख किस वंश के इतिहास के लिए महत्वपूर्ण है? / Mandsaur inscription important for?",
+options:[
+"A. औलिकर वंश / Aulikara Dynasty",
+"B. मौर्य वंश",
+"C. चंदेल वंश",
+"D. गुप्त वंश"
+],
+answer:0,
+explanation:"मंदसौर अभिलेख औलिकर वंश और यशोधर्मन के इतिहास का प्रमुख स्रोत है।"
+},
+
+{
+question:"प्रश्न 5: यशोधर्मन ने किस विदेशी आक्रमणकारी को पराजित किया था? / Yashodharman defeated?",
+options:[
+"A. मिहिरकुल / Mihirakula",
+"B. सिकंदर",
+"C. बाबर",
+"D. तैमूर"
+],
+answer:0,
+explanation:"यशोधर्मन ने हूण शासक मिहिरकुल को हराया था।"
+},
+
+{
+question:"प्रश्न 6: खजुराहो मंदिरों का निर्माण किस वंश ने कराया? / Khajuraho temples built by?",
+options:[
+"A. चंदेल वंश / Chandela Dynasty",
+"B. परमार वंश",
+"C. कलचुरी वंश",
+"D. मौर्य वंश"
+],
+answer:0,
+explanation:"खजुराहो मंदिर चंदेल वंश की स्थापत्य उपलब्धि हैं।"
+},
+
+{
+question:"प्रश्न 7: खजुराहो मंदिर किस स्थापत्य शैली के उदाहरण हैं? / Khajuraho belongs to which style?",
+options:[
+"A. नागर शैली / Nagara Style",
+"B. द्रविड़ शैली",
+"C. वेसर शैली",
+"D. इंडो-इस्लामिक"
+],
+answer:0,
+explanation:"खजुराहो मंदिर उत्तर भारतीय नागर शैली के उदाहरण हैं।"
+},
+
+{
+question:"प्रश्न 8: उदयगिरि गुफाएँ किस काल की कला का प्रतिनिधित्व करती हैं? / Udayagiri caves represent?",
+options:[
+"A. गुप्त काल / Gupta Period",
+"B. मौर्य काल",
+"C. मुगल काल",
+"D. मराठा काल"
+],
+answer:0,
+explanation:"उदयगिरि गुफाएँ गुप्तकालीन कला की महत्वपूर्ण धरोहर हैं।"
+},
+
+{
+question:"प्रश्न 9: उदयगिरि की प्रसिद्ध वराह प्रतिमा किस देवता से संबंधित है? / Varaha sculpture related to?",
+options:[
+"A. विष्णु / Vishnu",
+"B. शिव / Shiva",
+"C. बुद्ध / Buddha",
+"D. सूर्य / Sun"
+],
+answer:0,
+explanation:"वराह भगवान विष्णु के अवतार हैं।"
+},
+
+{
+question:"प्रश्न 10: साँची स्तूप किस धर्म से संबंधित है? / Sanchi Stupa related to?",
+options:[
+"A. बौद्ध धर्म / Buddhism",
+"B. जैन धर्म",
+"C. हिंदू धर्म",
+"D. इस्लाम"
+],
+answer:0,
+explanation:"साँची बौद्ध धर्म का प्रमुख केंद्र है।"
+},
+
+{
+question:"प्रश्न 11: भीमबेटका किसके लिए प्रसिद्ध है? / Bhimbetka famous for?",
+options:[
+"A. शैल चित्र / Rock Paintings",
+"B. मंदिर",
+"C. स्तूप",
+"D. अभिलेख"
+],
+answer:0,
+explanation:"भीमबेटका प्रागैतिहासिक शैल चित्रों के लिए प्रसिद्ध है।"
+},
+
+{
+question:"प्रश्न 12: मध्यप्रदेश की सबसे बड़ी जनजाति कौन-सी है? / Largest tribe of MP?",
+options:[
+"A. भील / Bhil",
+"B. बैगा / Baiga",
+"C. सहरिया / Sahariya",
+"D. कोरकू / Korku"
+],
+answer:0,
+explanation:"भील मध्यप्रदेश की सबसे बड़ी जनजाति है।"
+},
+
+{
+question:"प्रश्न 13: गोंड जनजाति का प्रमुख क्षेत्र किस नाम से जाना जाता है? / Gond region known as?",
+options:[
+"A. गोंडवाना / Gondwana",
+"B. मालवा",
+"C. निमाड़",
+"D. बुंदेलखंड"
+],
+answer:0,
+explanation:"गोंडों का ऐतिहासिक क्षेत्र गोंडवाना कहलाता है।"
+},
+
+{
+question:"प्रश्न 14: भगोरिया उत्सव किस जनजाति से संबंधित है? / Bhagoria festival belongs to?",
+options:[
+"A. भील / Bhil",
+"B. गोंड",
+"C. बैगा",
+"D. कोल"
+],
+answer:0,
+explanation:"भगोरिया भील जनजाति का प्रमुख उत्सव है।"
+},
+
+{
+question:"प्रश्न 15: 'माच' लोकनाट्य किस क्षेत्र से संबंधित है? / Maach folk theatre belongs to?",
+options:[
+"A. मालवा / Malwa",
+"B. बुंदेलखंड",
+"C. बघेलखंड",
+"D. चंबल"
+],
+answer:0,
+explanation:"माच मालवा क्षेत्र की प्रसिद्ध लोकनाट्य शैली है।"
+},
+
+{
+question:"प्रश्न 16: 'पुष्प की अभिलाषा' के लेखक कौन हैं? / Author of Pushp Ki Abhilasha?",
+options:[
+"A. माखनलाल चतुर्वेदी",
+"B. हरिशंकर परसाई",
+"C. भवानी प्रसाद मिश्र",
+"D. कालिदास"
+],
+answer:0,
+explanation:"यह रचना माखनलाल चतुर्वेदी की प्रसिद्ध कविता है।"
+},
+
+{
+question:"प्रश्न 17: तानसेन समारोह कहाँ आयोजित होता है? / Tansen Samaroh held at?",
+options:[
+"A. ग्वालियर / Gwalior",
+"B. भोपाल",
+"C. उज्जैन",
+"D. इंदौर"
+],
+answer:0,
+explanation:"तानसेन समारोह ग्वालियर में आयोजित होता है।"
+},
+
+{
+question:"प्रश्न 18: निम्नलिखित का सही मिलान करें / Correct match:",
+options:[
+"A. भोज — धार",
+"B. चंदेल — खजुराहो",
+"C. औलिकर — मंदसौर",
+"D. सभी सही / All correct"
+],
+answer:3,
+explanation:"सभी युग्म सही हैं।"
+},
+
+{
+question:"प्रश्न 19: मध्यप्रदेश संस्कृति के अध्ययन के प्रमुख स्रोत कौन-से हैं? / Sources of MP Culture?",
+options:[
+"A. लोक कला",
+"B. साहित्य",
+"C. पुरातात्विक अवशेष",
+"D. सभी सही / All correct"
+],
+answer:3,
+explanation:"सभी स्रोत महत्वपूर्ण हैं।"
+},
+
+{
+question:"प्रश्न 20: MPPSC Pre 2027 में MP इतिहास के प्रश्नों के लिए सबसे महत्वपूर्ण क्या है? / Most important for MP History?",
+options:[
+"A. शासक + स्थान + उपलब्धि का संबंध",
+"B. केवल नाम याद करना",
+"C. केवल वर्ष याद करना",
+"D. केवल स्थान याद करना"
+],
+answer:0,
+explanation:"MPPSC में संबंध आधारित प्रश्न अधिक पूछे जाते हैं।"
+}
+],
+test13:[
+{
+question:"प्रश्न 1: एरण अभिलेख मध्यप्रदेश के किस जिले से प्राप्त हुआ है? / Eran inscription found in which district?",
+options:[
+"A. सागर / Sagar",
+"B. धार / Dhar",
+"C. उज्जैन / Ujjain",
+"D. रीवा / Rewa"
+],
+answer:0,
+explanation:"एरण अभिलेख सागर जिले के एरण स्थान से प्राप्त हुआ है।"
+},
+
+{
+question:"प्रश्न 2: एरण अभिलेख किस काल के अध्ययन के लिए महत्वपूर्ण है? / Eran inscription important for which period?",
+options:[
+"A. गुप्त काल / Gupta Period",
+"B. मौर्य काल",
+"C. मुगल काल",
+"D. मराठा काल"
+],
+answer:0,
+explanation:"एरण से गुप्तकालीन महत्वपूर्ण अभिलेख प्राप्त हुए हैं।"
+},
+
+{
+question:"प्रश्न 3: मंदसौर अभिलेख किस वंश से संबंधित है? / Mandsaur inscription related to?",
+options:[
+"A. औलिकर वंश / Aulikara",
+"B. परमार वंश",
+"C. चंदेल वंश",
+"D. मौर्य वंश"
+],
+answer:0,
+explanation:"मंदसौर अभिलेख औलिकर वंश के इतिहास का प्रमुख स्रोत है।"
+},
+
+{
+question:"प्रश्न 4: यशोधर्मन किस वंश का शासक था? / Yashodharman belonged to?",
+options:[
+"A. औलिकर / Aulikara",
+"B. गुप्त",
+"C. परमार",
+"D. कलचुरी"
+],
+answer:0,
+explanation:"यशोधर्मन औलिकर वंश का प्रसिद्ध शासक था।"
+},
+
+{
+question:"प्रश्न 5: यशोधर्मन ने किस हूण शासक को हराया था? / Yashodharman defeated which Hun ruler?",
+options:[
+"A. मिहिरकुल / Mihirakula",
+"B. तोरमाण",
+"C. कनिष्क",
+"D. हुविष्क"
+],
+answer:0,
+explanation:"यशोधर्मन ने हूण शासक मिहिरकुल को पराजित किया था।"
+},
+
+{
+question:"प्रश्न 6: परमार वंश की राजधानी कौन-सी थी? / Capital of Parmar dynasty?",
+options:[
+"A. धार / Dhar",
+"B. त्रिपुरी",
+"C. खजुराहो",
+"D. ग्वालियर"
+],
+answer:0,
+explanation:"परमार वंश की राजधानी धार थी।"
+},
+
+{
+question:"प्रश्न 7: राजा भोज किस वंश के शासक थे? / Raja Bhoja belonged to?",
+options:[
+"A. परमार / Parmar",
+"B. चंदेल",
+"C. तोमर",
+"D. कलचुरी"
+],
+answer:0,
+explanation:"राजा भोज परमार वंश के महान शासक थे।"
+},
+
+{
+question:"प्रश्न 8: खजुराहो मंदिर समूह किस वंश की देन है? / Khajuraho temples built by?",
+options:[
+"A. चंदेल / Chandela",
+"B. परमार",
+"C. कलचुरी",
+"D. मौर्य"
+],
+answer:0,
+explanation:"खजुराहो मंदिरों का निर्माण चंदेल शासकों ने कराया।"
+},
+
+{
+question:"प्रश्न 9: खजुराहो मंदिर किस स्थापत्य शैली के उदाहरण हैं? / Khajuraho belongs to which style?",
+options:[
+"A. नागर शैली / Nagara",
+"B. द्रविड़ शैली",
+"C. वेसर शैली",
+"D. इंडो-इस्लामिक"
+],
+answer:0,
+explanation:"खजुराहो मंदिर नागर स्थापत्य शैली के उत्कृष्ट उदाहरण हैं।"
+},
+
+{
+question:"प्रश्न 10: भोजपुर मंदिर किस देवता को समर्पित है? / Bhojpur temple dedicated to?",
+options:[
+"A. शिव / Shiva",
+"B. विष्णु",
+"C. सूर्य",
+"D. बुद्ध"
+],
+answer:0,
+explanation:"भोजपुर मंदिर भगवान शिव को समर्पित है।"
+},
+
+{
+question:"प्रश्न 11: साँची स्तूप किस धर्म से संबंधित है? / Sanchi Stupa related to?",
+options:[
+"A. बौद्ध धर्म / Buddhism",
+"B. जैन धर्म",
+"C. शैव धर्म",
+"D. वैष्णव धर्म"
+],
+answer:0,
+explanation:"साँची बौद्ध धर्म का प्रमुख केंद्र है।"
+},
+
+{
+question:"प्रश्न 12: भीमबेटका किस कारण प्रसिद्ध है? / Bhimbetka famous for?",
+options:[
+"A. शैल चित्र / Rock Paintings",
+"B. मंदिर",
+"C. अभिलेख",
+"D. सिक्के"
+],
+answer:0,
+explanation:"भीमबेटका प्रागैतिहासिक शैल चित्रों के लिए प्रसिद्ध है।"
+},
+
+{
+question:"प्रश्न 13: उदयगिरि गुफाएँ किस शासक के समय विकसित हुईं? / Udayagiri caves developed under?",
+options:[
+"A. चंद्रगुप्त द्वितीय",
+"B. अशोक",
+"C. भोज",
+"D. हर्ष"
+],
+answer:0,
+explanation:"उदयगिरि गुफाएँ गुप्त शासक चंद्रगुप्त द्वितीय के समय विकसित हुईं।"
+},
+
+{
+question:"प्रश्न 14: निम्नलिखित का सही मिलान करें / Match correctly:",
+options:[
+"A. धार — परमार",
+"B. खजुराहो — चंदेल",
+"C. त्रिपुरी — कलचुरी",
+"D. सभी सही"
+],
+answer:3,
+explanation:"सभी युग्म सही हैं।"
+},
+
+{
+question:"प्रश्न 15: कथन 1: साँची UNESCO विश्व धरोहर स्थल है।  
+कथन 2: भीमबेटका UNESCO विश्व धरोहर स्थल है।",
+options:[
+"A. केवल 1 सही",
+"B. केवल 2 सही",
+"C. दोनों सही",
+"D. दोनों गलत"
+],
+answer:2,
+explanation:"दोनों कथन सही हैं।"
+},
+
+{
+question:"प्रश्न 16: गोंड जनजाति का ऐतिहासिक क्षेत्र क्या कहलाता है? / Historical region of Gond?",
+options:[
+"A. गोंडवाना / Gondwana",
+"B. मालवा",
+"C. निमाड़",
+"D. बुंदेलखंड"
+],
+answer:0,
+explanation:"गोंडों का प्रमुख ऐतिहासिक क्षेत्र गोंडवाना कहलाता है।"
+},
+
+{
+question:"प्रश्न 17: भगोरिया उत्सव किस जनजाति से संबंधित है? / Bhagoria belongs to?",
+options:[
+"A. भील / Bhil",
+"B. गोंड",
+"C. बैगा",
+"D. सहरिया"
+],
+answer:0,
+explanation:"भगोरिया भील जनजाति का प्रसिद्ध उत्सव है।"
+},
+
+{
+question:"प्रश्न 18: 'माच' लोकनाट्य किस क्षेत्र से संबंधित है? / Maach belongs to?",
+options:[
+"A. मालवा",
+"B. बुंदेलखंड",
+"C. बघेलखंड",
+"D. चंबल"
+],
+answer:0,
+explanation:"माच मालवा क्षेत्र की प्रसिद्ध लोकनाट्य शैली है।"
+},
+
+{
+question:"प्रश्न 19: MP इतिहास के प्रमुख स्रोत कौन-कौन से हैं? / Sources of MP History?",
+options:[
+"A. अभिलेख",
+"B. सिक्के",
+"C. पुरातात्विक अवशेष",
+"D. सभी सही"
+],
+answer:3,
+explanation:"सभी स्रोत MP इतिहास के अध्ययन के लिए महत्वपूर्ण हैं।"
+},
+
+{
+question:"प्रश्न 20: MPPSC Pre 2027 में इतिहास के कठिन प्रश्नों के लिए सबसे महत्वपूर्ण क्या है? / Most important for difficult history questions?",
+options:[
+"A. शासक + स्थान + समय + उपलब्धि का संबंध",
+"B. केवल नाम याद करना",
+"C. केवल वर्ष याद करना",
+"D. केवल स्थान याद करना"
+],
+answer:0,
+explanation:"MPPSC में संबंध आधारित प्रश्नों पर अधिक ध्यान देना चाहिए।"
+}
+],
+test14:[
+{
+question:"प्रश्न 1: मध्यप्रदेश में प्राचीन अवंति महाजनपद की राजधानी कौन-सी थी? / Capital of Avanti Mahajanapada?",
+options:[
+"A. उज्जैन / Ujjain",
+"B. विदिशा / Vidisha",
+"C. धार / Dhar",
+"D. त्रिपुरी / Tripuri"
+],
+answer:0,
+explanation:"अवंति महाजनपद की राजधानी उज्जैन थी।"
+},
+
+{
+question:"प्रश्न 2: मध्यप्रदेश में मौर्य शासन का प्रमुख प्रमाण किससे मिलता है? / Evidence of Mauryan rule in MP?",
+options:[
+"A. अशोक के अभिलेख / Ashokan Inscriptions",
+"B. खजुराहो मंदिर",
+"C. परमार अभिलेख",
+"D. चंदेल स्थापत्य"
+],
+answer:0,
+explanation:"अशोक के अभिलेख मध्यप्रदेश में मौर्य शासन के प्रमुख स्रोत हैं।"
+},
+
+{
+question:"प्रश्न 3: विदिशा का प्राचीन नाम क्या था? / Ancient name of Vidisha?",
+options:[
+"A. बेसनगर / Besnagar",
+"B. दशपुर",
+"C. त्रिपुरी",
+"D. अवंति"
+],
+answer:0,
+explanation:"विदिशा का प्राचीन नाम बेसनगर माना जाता है।"
+},
+
+{
+question:"प्रश्न 4: हेलियोडोरस स्तंभ कहाँ स्थित है? / Heliodorus Pillar located at?",
+options:[
+"A. बेसनगर (विदिशा)",
+"B. उज्जैन",
+"C. धार",
+"D. सागर"
+],
+answer:0,
+explanation:"हेलियोडोरस स्तंभ विदिशा के पास बेसनगर में स्थित है।"
+},
+
+{
+question:"प्रश्न 5: हेलियोडोरस स्तंभ किस देवता को समर्पित है? / Heliodorus Pillar dedicated to?",
+options:[
+"A. वासुदेव / Vasudeva",
+"B. शिव",
+"C. बुद्ध",
+"D. सूर्य"
+],
+answer:0,
+explanation:"यह स्तंभ भगवान वासुदेव को समर्पित है।"
+},
+
+{
+question:"प्रश्न 6: कलचुरी वंश की राजधानी क्या थी? / Capital of Kalachuri dynasty?",
+options:[
+"A. त्रिपुरी / Tripuri",
+"B. धार",
+"C. खजुराहो",
+"D. ग्वालियर"
+],
+answer:0,
+explanation:"त्रिपुरी कलचुरियों की राजधानी थी।"
+},
+
+{
+question:"प्रश्न 7: चंदेल वंश का प्रमुख स्थापत्य उदाहरण कौन-सा है? / Major example of Chandela architecture?",
+options:[
+"A. खजुराहो मंदिर",
+"B. भोजपुर मंदिर",
+"C. साँची स्तूप",
+"D. उदयगिरि गुफाएँ"
+],
+answer:0,
+explanation:"खजुराहो मंदिर चंदेल स्थापत्य की उत्कृष्ट उपलब्धि है।"
+},
+
+{
+question:"प्रश्न 8: परमार वंश का प्रसिद्ध शासक कौन था? / Famous ruler of Parmar dynasty?",
+options:[
+"A. राजा भोज",
+"B. यशोधर्मन",
+"C. मिहिरकुल",
+"D. धंगदेव"
+],
+answer:0,
+explanation:"राजा भोज परमार वंश के महान शासक थे।"
+},
+
+{
+question:"प्रश्न 9: भोज द्वारा रचित 'समरांगण सूत्रधार' किस विषय से संबंधित है? / Samarangana Sutradhara deals with?",
+options:[
+"A. वास्तुकला / Architecture",
+"B. चिकित्सा",
+"C. व्याकरण",
+"D. संगीत"
+],
+answer:0,
+explanation:"समरांगण सूत्रधार वास्तुकला और निर्माण कला पर आधारित ग्रंथ है।"
+},
+
+{
+question:"प्रश्न 10: एरण का प्रसिद्ध वराह मंदिर किस काल से संबंधित है? / Eran Varaha temple belongs to?",
+options:[
+"A. गुप्त काल",
+"B. मौर्य काल",
+"C. मुगल काल",
+"D. मराठा काल"
+],
+answer:0,
+explanation:"एरण का वराह मंदिर गुप्तकालीन कला का उदाहरण है।"
+},
+
+{
+question:"प्रश्न 11: निम्न में से कौन-सा UNESCO विश्व धरोहर स्थल MP में है? / UNESCO site in MP?",
+options:[
+"A. साँची",
+"B. मांडू",
+"C. ओरछा",
+"D. ग्वालियर दुर्ग"
+],
+answer:0,
+explanation:"साँची UNESCO विश्व धरोहर स्थल है।"
+},
+
+{
+question:"प्रश्न 12: भीमबेटका किस युग के अध्ययन में महत्वपूर्ण है? / Bhimbetka important for studying?",
+options:[
+"A. प्रागैतिहासिक काल",
+"B. मुगल काल",
+"C. मराठा काल",
+"D. आधुनिक काल"
+],
+answer:0,
+explanation:"भीमबेटका प्रागैतिहासिक मानव जीवन के अध्ययन के लिए महत्वपूर्ण है।"
+},
+
+{
+question:"प्रश्न 13: कथन 1: उदयगिरि गुफाएँ गुप्तकालीन हैं।  
+कथन 2: इनमें वराह प्रतिमा मिलती है।",
+options:[
+"A. केवल 1 सही",
+"B. केवल 2 सही",
+"C. दोनों सही",
+"D. दोनों गलत"
+],
+answer:2,
+explanation:"दोनों कथन सही हैं।"
+},
+
+{
+question:"प्रश्न 14: सही मिलान चुनिए / Choose correct match:",
+options:[
+"A. धार — परमार",
+"B. त्रिपुरी — कलचुरी",
+"C. खजुराहो — चंदेल",
+"D. सभी सही"
+],
+answer:3,
+explanation:"सभी युग्म सही हैं।"
+},
+
+{
+question:"प्रश्न 15: ग्वालियर दुर्ग का मान मंदिर किसने बनवाया? / Man Mandir built by?",
+options:[
+"A. मानसिंह तोमर",
+"B. राजा भोज",
+"C. अशोक",
+"D. यशोधर्मन"
+],
+answer:0,
+explanation:"मान मंदिर का निर्माण तोमर शासक मानसिंह तोमर ने कराया।"
+},
+
+{
+question:"प्रश्न 16: मध्यप्रदेश की कौन-सी जनजाति विशेष पिछड़ी जनजाति है? / PVTG tribe of MP?",
+options:[
+"A. बैगा / Baiga",
+"B. भील",
+"C. गोंड",
+"D. कोरकू"
+],
+answer:0,
+explanation:"बैगा मध्यप्रदेश की PVTG जनजाति है।"
+},
+
+{
+question:"प्रश्न 17: गोंड चित्रकला किससे संबंधित है? / Gond painting related to?",
+options:[
+"A. गोंड जनजाति",
+"B. भील जनजाति",
+"C. सहरिया जनजाति",
+"D. कोल जनजाति"
+],
+answer:0,
+explanation:"गोंड चित्रकला गोंड समुदाय की प्रसिद्ध कला है।"
+},
+
+{
+question:"प्रश्न 18: तानसेन समारोह कहाँ आयोजित होता है? / Tansen Samaroh held at?",
+options:[
+"A. ग्वालियर",
+"B. भोपाल",
+"C. उज्जैन",
+"D. इंदौर"
+],
+answer:0,
+explanation:"तानसेन समारोह ग्वालियर में आयोजित होता है।"
+},
+
+{
+question:"प्रश्न 19: MP इतिहास के अध्ययन के प्रमुख स्रोत कौन-से हैं? / Sources of MP History?",
+options:[
+"A. अभिलेख",
+"B. सिक्के",
+"C. स्थापत्य अवशेष",
+"D. सभी सही"
+],
+answer:3,
+explanation:"सभी स्रोत इतिहास अध्ययन के लिए महत्वपूर्ण हैं।"
+},
+
+{
+question:"प्रश्न 20: MPPSC Pre 2027 में कठिन इतिहास प्रश्नों के लिए क्या जरूरी है? / Important for difficult questions?",
+options:[
+"A. कालक्रम + स्थान + शासक + उपलब्धि",
+"B. केवल नाम",
+"C. केवल तिथि",
+"D. केवल स्थान"
+],
+answer:0,
+explanation:"MPPSC में संबंध आधारित प्रश्नों की तैयारी सबसे उपयोगी है।"
+}
+],
+test15:[
+{
+question:"प्रश्न 1: मध्यप्रदेश का प्राचीन नाम 'अवन्ति' किस महाजनपद से संबंधित था? / Ancient Avanti was related to which Mahajanapada?",
+options:[
+"A. अवंति / Avanti",
+"B. मगध / Magadha",
+"C. कोशल / Kosala",
+"D. वत्स / Vatsa"
+],
+answer:0,
+explanation:"अवंति महाजनपद का प्रमुख केंद्र वर्तमान मध्यप्रदेश का उज्जैन क्षेत्र था।"
+},
+
+{
+question:"प्रश्न 2: विदिशा के पास स्थित हेलियोडोरस स्तंभ किस काल से संबंधित है? / Heliodorus pillar belongs to which period?",
+options:[
+"A. शुंग काल / Shunga Period",
+"B. मौर्य काल",
+"C. गुप्त काल",
+"D. परमार काल"
+],
+answer:0,
+explanation:"हेलियोडोरस स्तंभ शुंग काल से संबंधित है।"
+},
+
+{
+question:"प्रश्न 3: बेसनगर अभिलेख किस देवता की उपासना का प्रमाण देता है? / Besnagar inscription gives evidence of worship of?",
+options:[
+"A. वासुदेव / Vasudeva",
+"B. शिव",
+"C. बुद्ध",
+"D. सूर्य"
+],
+answer:0,
+explanation:"हेलियोडोरस स्तंभ वासुदेव उपासना का प्रमाण है।"
+},
+
+{
+question:"प्रश्न 4: त्रिपुरी किस राजवंश की राजधानी थी? / Tripuri was capital of which dynasty?",
+options:[
+"A. कलचुरी / Kalachuri",
+"B. परमार",
+"C. चंदेल",
+"D. तोमर"
+],
+answer:0,
+explanation:"त्रिपुरी कलचुरी वंश की राजधानी थी।"
+},
+
+{
+question:"प्रश्न 5: कलचुरी वंश का प्रमुख केंद्र वर्तमान मध्यप्रदेश के किस क्षेत्र में था? / Kalachuri centre was in?",
+options:[
+"A. जबलपुर क्षेत्र / Jabalpur Region",
+"B. मालवा",
+"C. बुंदेलखंड",
+"D. ग्वालियर"
+],
+answer:0,
+explanation:"कलचुरियों का प्रमुख केंद्र त्रिपुरी (जबलपुर क्षेत्र) था।"
+},
+
+{
+question:"प्रश्न 6: परमार वंश का प्रसिद्ध राजा भोज किस क्षेत्र में प्रसिद्ध था? / Raja Bhoja famous for?",
+options:[
+"A. साहित्य एवं स्थापत्य / Literature and Architecture",
+"B. केवल युद्ध",
+"C. केवल व्यापार",
+"D. केवल धर्म प्रचार"
+],
+answer:0,
+explanation:"राजा भोज विद्या, साहित्य और स्थापत्य के महान संरक्षक थे।"
+},
+
+{
+question:"प्रश्न 7: 'भोजशाला' किस शासक से संबंधित है? / Bhojshala related to?",
+options:[
+"A. राजा भोज / Raja Bhoja",
+"B. अशोक",
+"C. मानसिंह तोमर",
+"D. यशोधर्मन"
+],
+answer:0,
+explanation:"भोजशाला का संबंध परमार राजा भोज से है।"
+},
+
+{
+question:"प्रश्न 8: खजुराहो मंदिरों का निर्माण मुख्य रूप से किस शताब्दी में हुआ? / Khajuraho temples mainly built in?",
+options:[
+"A. 10वीं-12वीं शताब्दी",
+"B. 5वीं-6वीं शताब्दी",
+"C. 2वीं-3वीं शताब्दी",
+"D. 15वीं-16वीं शताब्दी"
+],
+answer:0,
+explanation:"खजुराहो मंदिरों का निर्माण चंदेल काल में लगभग 10वीं-12वीं शताब्दी में हुआ।"
+},
+
+{
+question:"प्रश्न 9: कंदरिया महादेव मंदिर कहाँ स्थित है? / Kandariya Mahadeva Temple located at?",
+options:[
+"A. खजुराहो / Khajuraho",
+"B. भोजपुर",
+"C. साँची",
+"D. उज्जैन"
+],
+answer:0,
+explanation:"कंदरिया महादेव मंदिर खजुराहो का प्रसिद्ध मंदिर है।"
+},
+
+{
+question:"प्रश्न 10: साँची स्तूप का निर्माण प्रारंभ किस शासक ने कराया? / Sanchi Stupa started by?",
+options:[
+"A. अशोक / Ashoka",
+"B. समुद्रगुप्त",
+"C. भोज",
+"D. हर्ष"
+],
+answer:0,
+explanation:"साँची स्तूप का प्रारंभिक निर्माण सम्राट अशोक ने कराया।"
+},
+
+{
+question:"प्रश्न 11: एरण से किसकी विशाल प्रतिमा प्राप्त हुई है? / Huge statue found at Eran?",
+options:[
+"A. वराह / Varaha",
+"B. बुद्ध",
+"C. नटराज",
+"D. सूर्य"
+],
+answer:0,
+explanation:"एरण की विशाल वराह प्रतिमा गुप्तकालीन कला का उदाहरण है।"
+},
+
+{
+question:"प्रश्न 12: उदयगिरि गुफाओं का संबंध किस धर्म से भी है? / Udayagiri caves related to?",
+options:[
+"A. वैष्णव एवं हिंदू परंपरा",
+"B. केवल बौद्ध",
+"C. केवल जैन",
+"D. इस्लाम"
+],
+answer:0,
+explanation:"उदयगिरि गुफाओं में वैष्णव और हिंदू धार्मिक प्रतिमाएँ मिलती हैं।"
+},
+
+{
+question:"प्रश्न 13: निम्न में सही मिलान करें / Correct Match:",
+options:[
+"A. भीमबेटका — शैल चित्र",
+"B. साँची — बौद्ध स्तूप",
+"C. खजुराहो — चंदेल स्थापत्य",
+"D. सभी सही"
+],
+answer:3,
+explanation:"सभी युग्म सही हैं।"
+},
+
+{
+question:"प्रश्न 14: मध्यप्रदेश की कौन-सी जनजाति 'भगोरिया' उत्सव मनाती है? / Bhagoria festival celebrated by?",
+options:[
+"A. भील / Bhil",
+"B. बैगा",
+"C. गोंड",
+"D. सहरिया"
+],
+answer:0,
+explanation:"भगोरिया भील जनजाति का प्रसिद्ध उत्सव है।"
+},
+
+{
+question:"प्रश्न 15: गोंड चित्रकला में मुख्य विषय क्या होते हैं? / Main themes of Gond painting?",
+options:[
+"A. प्रकृति एवं जीव-जंतु",
+"B. केवल युद्ध",
+"C. केवल राजदरबार",
+"D. केवल धार्मिक ग्रंथ"
+],
+answer:0,
+explanation:"गोंड कला में प्रकृति, पशु-पक्षी और जीवन चित्रण प्रमुख है।"
+},
+
+{
+question:"प्रश्न 16: 'माच' किस प्रकार की कला है? / Maach is a form of?",
+options:[
+"A. लोकनाट्य / Folk Theatre",
+"B. चित्रकला",
+"C. मूर्तिकला",
+"D. वास्तुकला"
+],
+answer:0,
+explanation:"माच मालवा क्षेत्र की प्रसिद्ध लोकनाट्य शैली है।"
+},
+
+{
+question:"प्रश्न 17: कथन 1: भीमबेटका UNESCO विश्व धरोहर स्थल है।  
+कथन 2: साँची भी UNESCO विश्व धरोहर स्थल है।",
+options:[
+"A. केवल 1 सही",
+"B. केवल 2 सही",
+"C. दोनों सही",
+"D. दोनों गलत"
+],
+answer:2,
+explanation:"दोनों मध्यप्रदेश के UNESCO विश्व धरोहर स्थल हैं।"
+},
+
+{
+question:"प्रश्न 18: तानसेन समारोह किस शहर में आयोजित होता है? / Tansen Samaroh held at?",
+options:[
+"A. ग्वालियर / Gwalior",
+"B. भोपाल",
+"C. इंदौर",
+"D. सागर"
+],
+answer:0,
+explanation:"तानसेन समारोह ग्वालियर में आयोजित किया जाता है।"
+},
+
+{
+question:"प्रश्न 19: मध्यप्रदेश की संस्कृति के अध्ययन में कौन-से स्रोत महत्वपूर्ण हैं? / Sources of MP Culture?",
+options:[
+"A. अभिलेख",
+"B. लोक परंपरा",
+"C. स्थापत्य",
+"D. सभी सही"
+],
+answer:3,
+explanation:"सभी स्रोत MP संस्कृति को समझने में महत्वपूर्ण हैं।"
+},
+
+{
+question:"प्रश्न 20: MPPSC Pre 2027 में संस्कृति के कठिन प्रश्नों के लिए सबसे अच्छा तरीका क्या है? / Best approach for culture questions?",
+options:[
+"A. तथ्य + स्थान + संबंध याद करना",
+"B. केवल नाम याद करना",
+"C. केवल तिथि याद करना",
+"D. केवल पुस्तक पढ़ना"
+],
+answer:0,
+explanation:"MPPSC में तथ्य आधारित संबंध वाले प्रश्न अधिक पूछे जाते हैं।"
+}
+],
+test16:[
+{
+question:"प्रश्न 1: मध्यप्रदेश का 'सांची स्तूप' किस धर्म से संबंधित है? / Sanchi Stupa is related to which religion?",
+options:[
+"A. बौद्ध धर्म / Buddhism",
+"B. जैन धर्म / Jainism",
+"C. शैव धर्म / Shaivism",
+"D. वैष्णव धर्म / Vaishnavism"
+],
+answer:0,
+explanation:"सांची स्तूप बौद्ध धर्म का प्रमुख स्मारक है। इसका प्रारंभिक निर्माण सम्राट अशोक ने कराया था।"
+},
+
+{
+question:"प्रश्न 2: भीमबेटका शैलाश्रय किस जिले में स्थित हैं? / Bhimbetka rock shelters located in which district?",
+options:[
+"A. रायसेन / Raisen",
+"B. सागर / Sagar",
+"C. धार / Dhar",
+"D. विदिशा / Vidisha"
+],
+answer:0,
+explanation:"भीमबेटका मध्यप्रदेश के रायसेन जिले में स्थित है।"
+},
+
+{
+question:"प्रश्न 3: खजुराहो मंदिरों का निर्माण किस वंश ने कराया? / Khajuraho temples were built by which dynasty?",
+options:[
+"A. चंदेल वंश / Chandela Dynasty",
+"B. परमार वंश",
+"C. कलचुरी वंश",
+"D. तोमर वंश"
+],
+answer:0,
+explanation:"खजुराहो मंदिरों का निर्माण चंदेल शासकों ने कराया था।"
+},
+
+{
+question:"प्रश्न 4: राजा भोज किस वंश से संबंधित थे? / Raja Bhoja belonged to which dynasty?",
+options:[
+"A. परमार / Parmar",
+"B. चंदेल",
+"C. गुप्त",
+"D. कलचुरी"
+],
+answer:0,
+explanation:"राजा भोज परमार वंश के महान शासक थे।"
+},
+
+{
+question:"प्रश्न 5: भोजपुर मंदिर किस देवता को समर्पित है? / Bhojpur temple dedicated to which deity?",
+options:[
+"A. शिव / Shiva",
+"B. विष्णु",
+"C. सूर्य",
+"D. गणेश"
+],
+answer:0,
+explanation:"भोजपुर का शिव मंदिर राजा भोज द्वारा निर्मित कराया गया था।"
+},
+
+{
+question:"प्रश्न 6: हेलियोडोरस स्तंभ कहाँ स्थित है? / Heliodorus Pillar located at?",
+options:[
+"A. बेसनगर (विदिशा) / Besnagar",
+"B. उज्जैन",
+"C. धार",
+"D. ग्वालियर"
+],
+answer:0,
+explanation:"हेलियोडोरस स्तंभ विदिशा के निकट बेसनगर में स्थित है।"
+},
+
+{
+question:"प्रश्न 7: मंदसौर अभिलेख किस शासक से संबंधित है? / Mandsaur inscription related to?",
+options:[
+"A. यशोधर्मन / Yashodharman",
+"B. अशोक",
+"C. समुद्रगुप्त",
+"D. भोज"
+],
+answer:0,
+explanation:"मंदसौर अभिलेख यशोधर्मन और औलिकर वंश के इतिहास का महत्वपूर्ण स्रोत है।"
+},
+
+{
+question:"प्रश्न 8: उदयगिरि गुफाएँ किस काल की हैं? / Udayagiri caves belong to which period?",
+options:[
+"A. गुप्त काल / Gupta Period",
+"B. मौर्य काल",
+"C. मुगल काल",
+"D. मराठा काल"
+],
+answer:0,
+explanation:"उदयगिरि गुफाएँ गुप्तकालीन कला का महत्वपूर्ण उदाहरण हैं।"
+},
+
+{
+question:"प्रश्न 9: मध्यप्रदेश की सबसे बड़ी जनजाति कौन-सी है? / Largest tribe of MP?",
+options:[
+"A. भील / Bhil",
+"B. गोंड / Gond",
+"C. बैगा / Baiga",
+"D. सहरिया / Sahariya"
+],
+answer:0,
+explanation:"भील मध्यप्रदेश की सबसे बड़ी जनजाति है।"
+},
+
+{
+question:"प्रश्न 10: भगोरिया उत्सव किस जनजाति से संबंधित है? / Bhagoria festival belongs to?",
+options:[
+"A. भील / Bhil",
+"B. गोंड",
+"C. कोरकू",
+"D. बैगा"
+],
+answer:0,
+explanation:"भगोरिया भील जनजाति का प्रसिद्ध उत्सव है।"
+},
+
+{
+question:"प्रश्न 11: गोंड चित्रकला किससे संबंधित है? / Gond painting related to?",
+options:[
+"A. गोंड जनजाति / Gond Tribe",
+"B. भील जनजाति",
+"C. कोल जनजाति",
+"D. सहरिया जनजाति"
+],
+answer:0,
+explanation:"गोंड चित्रकला गोंड समुदाय की प्रसिद्ध लोक कला है।"
+},
+
+{
+question:"प्रश्न 12: 'माच' लोकनाट्य किस क्षेत्र की कला है? / Maach folk theatre belongs to?",
+options:[
+"A. मालवा / Malwa",
+"B. बुंदेलखंड",
+"C. चंबल",
+"D. बघेलखंड"
+],
+answer:0,
+explanation:"माच मालवा क्षेत्र की प्रसिद्ध लोकनाट्य शैली है।"
+},
+
+{
+question:"प्रश्न 13: 'राई' नृत्य किस क्षेत्र से संबंधित है? / Rai dance belongs to?",
+options:[
+"A. बुंदेलखंड / Bundelkhand",
+"B. मालवा",
+"C. निमाड़",
+"D. महाकौशल"
+],
+answer:0,
+explanation:"राई नृत्य बुंदेलखंड का प्रसिद्ध लोक नृत्य है।"
+},
+
+{
+question:"प्रश्न 14: तानसेन समारोह कहाँ आयोजित होता है? / Tansen Samaroh held at?",
+options:[
+"A. ग्वालियर / Gwalior",
+"B. भोपाल",
+"C. उज्जैन",
+"D. इंदौर"
+],
+answer:0,
+explanation:"तानसेन समारोह ग्वालियर में आयोजित किया जाता है।"
+},
+
+{
+question:"प्रश्न 15: निम्नलिखित का सही मिलान करें / Match correctly:",
+options:[
+"A. खजुराहो — चंदेल",
+"B. धार — परमार",
+"C. त्रिपुरी — कलचुरी",
+"D. सभी सही / All correct"
+],
+answer:3,
+explanation:"सभी युग्म सही हैं।"
+},
+
+{
+question:"प्रश्न 16: कथन 1: साँची UNESCO विश्व धरोहर स्थल है।  
+कथन 2: भीमबेटका UNESCO विश्व धरोहर स्थल है।",
+options:[
+"A. केवल 1 सही",
+"B. केवल 2 सही",
+"C. दोनों सही",
+"D. दोनों गलत"
+],
+answer:2,
+explanation:"दोनों मध्यप्रदेश के UNESCO विश्व धरोहर स्थल हैं।"
+},
+
+{
+question:"प्रश्न 17: मध्यप्रदेश जनजातीय संग्रहालय कहाँ स्थित है? / Tribal Museum located at?",
+options:[
+"A. भोपाल / Bhopal",
+"B. इंदौर",
+"C. जबलपुर",
+"D. ग्वालियर"
+],
+answer:0,
+explanation:"मध्यप्रदेश जनजातीय संग्रहालय भोपाल में स्थित है।"
+},
+
+{
+question:"प्रश्न 18: 'पुष्प की अभिलाषा' के रचनाकार कौन हैं? / Writer of Pushp Ki Abhilasha?",
+options:[
+"A. माखनलाल चतुर्वेदी",
+"B. हरिशंकर परसाई",
+"C. भवानी प्रसाद मिश्र",
+"D. कालिदास"
+],
+answer:0,
+explanation:"पुष्प की अभिलाषा माखनलाल चतुर्वेदी की प्रसिद्ध कविता है।"
+},
+
+{
+question:"प्रश्न 19: MP इतिहास के प्रमुख स्रोत कौन-से हैं? / Sources of MP History?",
+options:[
+"A. अभिलेख",
+"B. सिक्के",
+"C. स्थापत्य अवशेष",
+"D. सभी सही"
+],
+answer:3,
+explanation:"सभी स्रोत मध्यप्रदेश इतिहास के अध्ययन में महत्वपूर्ण हैं।"
+},
+
+{
+question:"प्रश्न 20: MPPSC Pre में संस्कृति के प्रश्नों की तैयारी के लिए सबसे महत्वपूर्ण क्या है? / Important for culture preparation?",
+options:[
+"A. कला + स्थान + शासक + समय का संबंध",
+"B. केवल नाम याद करना",
+"C. केवल तिथि याद करना",
+"D. केवल स्थान याद करना"
+],
+answer:0,
+explanation:"MPPSC में संबंध आधारित प्रश्न अधिक पूछे जाते हैं।"
+}
+],
+test17:[
+{
+question:"प्रश्न 1: मध्यप्रदेश का प्राचीन 'दशपुर' वर्तमान में किस नाम से जाना जाता है? / Ancient Dashpur is known as?",
+options:[
+"A. मंदसौर / Mandsaur",
+"B. उज्जैन / Ujjain",
+"C. विदिशा / Vidisha",
+"D. धार / Dhar"
+],
+answer:0,
+explanation:"दशपुर वर्तमान मंदसौर का प्राचीन नाम था।"
+},
+
+{
+question:"प्रश्न 2: मंदसौर अभिलेख किसके शासनकाल की जानकारी देता है? / Mandsaur inscription gives information about?",
+options:[
+"A. यशोधर्मन / Yashodharman",
+"B. अशोक",
+"C. राजा भोज",
+"D. समुद्रगुप्त"
+],
+answer:0,
+explanation:"मंदसौर अभिलेख यशोधर्मन और औलिकर वंश के इतिहास का प्रमुख स्रोत है।"
+},
+
+{
+question:"प्रश्न 3: एरण अभिलेख किस काल से संबंधित है? / Eran inscription belongs to?",
+options:[
+"A. गुप्त काल / Gupta Period",
+"B. मौर्य काल",
+"C. मुगल काल",
+"D. मराठा काल"
+],
+answer:0,
+explanation:"एरण से गुप्तकालीन अभिलेख प्राप्त हुए हैं।"
+},
+
+{
+question:"प्रश्न 4: हेलियोडोरस स्तंभ किस स्थान पर स्थित है? / Heliodorus pillar located at?",
+options:[
+"A. बेसनगर / Besnagar",
+"B. साँची",
+"C. भोजपुर",
+"D. उज्जैन"
+],
+answer:0,
+explanation:"हेलियोडोरस स्तंभ विदिशा के पास बेसनगर में स्थित है।"
+},
+
+{
+question:"प्रश्न 5: राजा भोज किस वंश के शासक थे? / Raja Bhoja belonged to which dynasty?",
+options:[
+"A. परमार / Parmar",
+"B. चंदेल",
+"C. कलचुरी",
+"D. तोमर"
+],
+answer:0,
+explanation:"राजा भोज परमार वंश के प्रसिद्ध शासक थे।"
+},
+
+{
+question:"प्रश्न 6: परमार वंश की राजधानी कौन-सी थी? / Capital of Parmar dynasty?",
+options:[
+"A. धार / Dhar",
+"B. त्रिपुरी",
+"C. ग्वालियर",
+"D. खजुराहो"
+],
+answer:0,
+explanation:"धार परमार वंश की प्रमुख राजधानी थी।"
+},
+
+{
+question:"प्रश्न 7: त्रिपुरी किस राजवंश की राजधानी थी? / Tripuri was capital of?",
+options:[
+"A. कलचुरी / Kalachuri",
+"B. चंदेल",
+"C. परमार",
+"D. तोमर"
+],
+answer:0,
+explanation:"त्रिपुरी कलचुरी वंश की राजधानी थी।"
+},
+
+{
+question:"प्रश्न 8: खजुराहो मंदिरों का निर्माण किस वंश ने कराया? / Khajuraho temples built by?",
+options:[
+"A. चंदेल वंश / Chandela Dynasty",
+"B. परमार वंश",
+"C. मौर्य वंश",
+"D. गुप्त वंश"
+],
+answer:0,
+explanation:"खजुराहो मंदिर चंदेल शासकों की स्थापत्य उपलब्धि हैं।"
+},
+
+{
+question:"प्रश्न 9: कंदरिया महादेव मंदिर कहाँ स्थित है? / Kandariya Mahadeva Temple located at?",
+options:[
+"A. खजुराहो / Khajuraho",
+"B. भोजपुर",
+"C. साँची",
+"D. मांडू"
+],
+answer:0,
+explanation:"कंदरिया महादेव मंदिर खजुराहो का प्रमुख मंदिर है।"
+},
+
+{
+question:"प्रश्न 10: भोजपुर मंदिर किस देवता को समर्पित है? / Bhojpur temple dedicated to?",
+options:[
+"A. भगवान शिव / Lord Shiva",
+"B. भगवान विष्णु",
+"C. सूर्य देव",
+"D. बुद्ध"
+],
+answer:0,
+explanation:"भोजपुर मंदिर शिव को समर्पित है।"
+},
+
+{
+question:"प्रश्न 11: भीमबेटका किसके लिए प्रसिद्ध है? / Bhimbetka famous for?",
+options:[
+"A. शैल चित्र / Rock Paintings",
+"B. स्तूप",
+"C. अभिलेख",
+"D. सिक्के"
+],
+answer:0,
+explanation:"भीमबेटका प्रागैतिहासिक शैल चित्रों के लिए प्रसिद्ध है।"
+},
+
+{
+question:"प्रश्न 12: साँची स्तूप का निर्माण किसने प्रारंभ कराया? / Sanchi Stupa started by?",
+options:[
+"A. अशोक / Ashoka",
+"B. समुद्रगुप्त",
+"C. भोज",
+"D. हर्ष"
+],
+answer:0,
+explanation:"साँची स्तूप का प्रारंभिक निर्माण सम्राट अशोक ने कराया।"
+},
+
+{
+question:"प्रश्न 13: मध्यप्रदेश की सबसे बड़ी जनजाति कौन-सी है? / Largest tribe of MP?",
+options:[
+"A. भील / Bhil",
+"B. बैगा",
+"C. सहरिया",
+"D. कोरकू"
+],
+answer:0,
+explanation:"भील मध्यप्रदेश की सबसे बड़ी जनजाति है।"
+},
+
+{
+question:"प्रश्न 14: भगोरिया उत्सव किस जनजाति से संबंधित है? / Bhagoria belongs to?",
+options:[
+"A. भील / Bhil",
+"B. गोंड",
+"C. बैगा",
+"D. कोल"
+],
+answer:0,
+explanation:"भगोरिया भील जनजाति का प्रमुख उत्सव है।"
+},
+
+{
+question:"प्रश्न 15: गोंड चित्रकला में मुख्य रूप से क्या दर्शाया जाता है? / Main theme of Gond painting?",
+options:[
+"A. प्रकृति एवं जीव-जंतु / Nature and Animals",
+"B. केवल युद्ध",
+"C. केवल राजदरबार",
+"D. केवल भवन"
+],
+answer:0,
+explanation:"गोंड कला में प्रकृति और जीव-जगत का चित्रण प्रमुख है।"
+},
+
+{
+question:"प्रश्न 16: 'माच' लोकनाट्य किस क्षेत्र से संबंधित है? / Maach folk theatre belongs to?",
+options:[
+"A. मालवा / Malwa",
+"B. बुंदेलखंड",
+"C. चंबल",
+"D. बघेलखंड"
+],
+answer:0,
+explanation:"माच मालवा की प्रसिद्ध लोकनाट्य शैली है।"
+},
+
+{
+question:"प्रश्न 17: कथन 1: साँची UNESCO विश्व धरोहर स्थल है।  
+कथन 2: भीमबेटका UNESCO विश्व धरोहर स्थल है।",
+options:[
+"A. केवल 1 सही",
+"B. केवल 2 सही",
+"C. दोनों सही",
+"D. दोनों गलत"
+],
+answer:2,
+explanation:"दोनों मध्यप्रदेश के UNESCO विश्व धरोहर स्थल हैं।"
+},
+
+{
+question:"प्रश्न 18: तानसेन समारोह कहाँ आयोजित किया जाता है? / Tansen Samaroh held at?",
+options:[
+"A. ग्वालियर / Gwalior",
+"B. भोपाल",
+"C. इंदौर",
+"D. उज्जैन"
+],
+answer:0,
+explanation:"तानसेन समारोह ग्वालियर में आयोजित होता है।"
+},
+
+{
+question:"प्रश्न 19: मध्यप्रदेश संस्कृति के प्रमुख स्रोत कौन-से हैं? / Sources of MP Culture?",
+options:[
+"A. अभिलेख",
+"B. लोक परंपरा",
+"C. स्थापत्य",
+"D. सभी सही"
+],
+answer:3,
+explanation:"सभी स्रोत मध्यप्रदेश संस्कृति के अध्ययन में महत्वपूर्ण हैं।"
+},
+
+{
+question:"प्रश्न 20: MPPSC में संस्कृति के कठिन प्रश्नों के लिए सबसे उपयोगी तरीका क्या है? / Best method for culture questions?",
+options:[
+"A. तथ्य + स्थान + समय + संबंध याद रखना",
+"B. केवल नाम याद करना",
+"C. केवल वर्ष याद करना",
+"D. केवल स्थान याद करना"
+],
+answer:0,
+explanation:"MPPSC में संबंध आधारित प्रश्नों का महत्व अधिक है।"
+}
+],
+test18:[
+{
+question:"प्रश्न 1: मध्यप्रदेश में स्थित प्राचीन नगर उज्जैन का प्राचीन नाम क्या था? / Ancient name of Ujjain?",
+options:[
+"A. अवंति / Avanti",
+"B. दशपुर / Dashpur",
+"C. विदिशा / Vidisha",
+"D. त्रिपुरी / Tripuri"
+],
+answer:0,
+explanation:"उज्जैन प्राचीन अवंति महाजनपद की राजधानी थी।"
+},
+
+{
+question:"प्रश्न 2: हेलियोडोरस स्तंभ किस काल का महत्वपूर्ण प्रमाण है? / Heliodorus Pillar belongs to which period?",
+options:[
+"A. शुंग काल / Shunga Period",
+"B. मौर्य काल",
+"C. गुप्त काल",
+"D. परमार काल"
+],
+answer:0,
+explanation:"हेलियोडोरस स्तंभ शुंगकाल में स्थापित किया गया था।"
+},
+
+{
+question:"प्रश्न 3: एरण किस जिले में स्थित है? / Eran is located in which district?",
+options:[
+"A. सागर / Sagar",
+"B. रायसेन",
+"C. धार",
+"D. उज्जैन"
+],
+answer:0,
+explanation:"एरण मध्यप्रदेश के सागर जिले में स्थित महत्वपूर्ण पुरातात्विक स्थल है।"
+},
+
+{
+question:"प्रश्न 4: मंदसौर अभिलेख किस शासक की उपलब्धियों का वर्णन करता है? / Mandsaur inscription describes achievements of?",
+options:[
+"A. यशोधर्मन / Yashodharman",
+"B. अशोक",
+"C. भोज",
+"D. समुद्रगुप्त"
+],
+answer:0,
+explanation:"मंदसौर अभिलेख यशोधर्मन की उपलब्धियों का प्रमुख स्रोत है।"
+},
+
+{
+question:"प्रश्न 5: राजा भोज की राजधानी कौन-सी थी? / Capital of Raja Bhoja?",
+options:[
+"A. धार / Dhar",
+"B. उज्जैन",
+"C. त्रिपुरी",
+"D. ग्वालियर"
+],
+answer:0,
+explanation:"परमार राजा भोज की राजधानी धार थी।"
+},
+
+{
+question:"प्रश्न 6: भोजपुर मंदिर का निर्माण किसने कराया? / Bhojpur temple built by?",
+options:[
+"A. राजा भोज / Raja Bhoja",
+"B. अशोक",
+"C. यशोधर्मन",
+"D. मानसिंह तोमर"
+],
+answer:0,
+explanation:"भोजपुर शिव मंदिर का निर्माण राजा भोज से संबंधित है।"
+},
+
+{
+question:"प्रश्न 7: खजुराहो मंदिर किस वंश की कला का उदाहरण हैं? / Khajuraho represents which dynasty?",
+options:[
+"A. चंदेल / Chandela",
+"B. परमार",
+"C. कलचुरी",
+"D. तोमर"
+],
+answer:0,
+explanation:"खजुराहो मंदिर चंदेल वंश की स्थापत्य कला के उदाहरण हैं।"
+},
+
+{
+question:"प्रश्न 8: ग्वालियर दुर्ग का मान मंदिर किसने बनवाया? / Man Mandir built by?",
+options:[
+"A. मानसिंह तोमर",
+"B. राजा भोज",
+"C. अशोक",
+"D. यशोधर्मन"
+],
+answer:0,
+explanation:"मान मंदिर का निर्माण तोमर शासक मानसिंह तोमर ने कराया।"
+},
+
+{
+question:"प्रश्न 9: उदयगिरि गुफाएँ किस काल से संबंधित हैं? / Udayagiri caves belong to?",
+options:[
+"A. गुप्त काल / Gupta Period",
+"B. मौर्य काल",
+"C. मुगल काल",
+"D. मराठा काल"
+],
+answer:0,
+explanation:"उदयगिरि गुफाएँ गुप्तकालीन कला की महत्वपूर्ण धरोहर हैं।"
+},
+
+{
+question:"प्रश्न 10: साँची स्तूप का संबंध किस धर्म से है? / Sanchi Stupa related to?",
+options:[
+"A. बौद्ध धर्म / Buddhism",
+"B. जैन धर्म",
+"C. शैव धर्म",
+"D. वैष्णव धर्म"
+],
+answer:0,
+explanation:"साँची बौद्ध धर्म का प्रमुख केंद्र है।"
+},
+
+{
+question:"प्रश्न 11: भीमबेटका किसके लिए प्रसिद्ध है? / Bhimbetka famous for?",
+options:[
+"A. प्रागैतिहासिक शैल चित्र",
+"B. मंदिर स्थापत्य",
+"C. अभिलेख",
+"D. सिक्के"
+],
+answer:0,
+explanation:"भीमबेटका प्राचीन मानव के शैल चित्रों के लिए प्रसिद्ध है।"
+},
+
+{
+question:"प्रश्न 12: मध्यप्रदेश की सबसे बड़ी जनजाति कौन-सी है? / Largest tribe of MP?",
+options:[
+"A. भील / Bhil",
+"B. बैगा",
+"C. कोरकू",
+"D. सहरिया"
+],
+answer:0,
+explanation:"भील मध्यप्रदेश की सबसे बड़ी जनजाति है।"
+},
+
+{
+question:"प्रश्न 13: भगोरिया उत्सव किस जनजाति से संबंधित है? / Bhagoria belongs to?",
+options:[
+"A. भील / Bhil",
+"B. गोंड",
+"C. बैगा",
+"D. कोल"
+],
+answer:0,
+explanation:"भगोरिया भील जनजाति का प्रसिद्ध उत्सव है।"
+},
+
+{
+question:"प्रश्न 14: गोंड चित्रकला का मुख्य विषय क्या है? / Main theme of Gond painting?",
+options:[
+"A. प्रकृति और जीव-जंतु",
+"B. युद्ध दृश्य",
+"C. राजदरबार",
+"D. भवन निर्माण"
+],
+answer:0,
+explanation:"गोंड चित्रकला में प्रकृति और जीवन का चित्रण प्रमुख है।"
+},
+
+{
+question:"प्रश्न 15: 'माच' लोकनाट्य किस क्षेत्र की कला है? / Maach belongs to?",
+options:[
+"A. मालवा / Malwa",
+"B. बुंदेलखंड",
+"C. चंबल",
+"D. निमाड़"
+],
+answer:0,
+explanation:"माच मालवा क्षेत्र की प्रसिद्ध लोकनाट्य शैली है।"
+},
+
+{
+question:"प्रश्न 16: कथन 1: साँची UNESCO विश्व धरोहर स्थल है।  
+कथन 2: खजुराहो UNESCO विश्व धरोहर स्थल है।",
+options:[
+"A. केवल 1 सही",
+"B. केवल 2 सही",
+"C. दोनों सही",
+"D. दोनों गलत"
+],
+answer:2,
+explanation:"दोनों मध्यप्रदेश के UNESCO विश्व धरोहर स्थल हैं।"
+},
+
+{
+question:"प्रश्न 17: तानसेन समारोह कहाँ आयोजित होता है? / Tansen Samaroh held at?",
+options:[
+"A. ग्वालियर / Gwalior",
+"B. भोपाल",
+"C. इंदौर",
+"D. उज्जैन"
+],
+answer:0,
+explanation:"तानसेन समारोह ग्वालियर में आयोजित होता है।"
+},
+
+{
+question:"प्रश्न 18: मध्यप्रदेश जनजातीय संग्रहालय कहाँ स्थित है? / Tribal Museum located at?",
+options:[
+"A. भोपाल / Bhopal",
+"B. जबलपुर",
+"C. सागर",
+"D. रीवा"
+],
+answer:0,
+explanation:"मध्यप्रदेश जनजातीय संग्रहालय भोपाल में स्थित है।"
+},
+
+{
+question:"प्रश्न 19: MP संस्कृति के अध्ययन के प्रमुख स्रोत कौन-से हैं? / Sources of MP Culture?",
+options:[
+"A. अभिलेख",
+"B. साहित्य",
+"C. पुरातात्विक अवशेष",
+"D. सभी सही"
+],
+answer:3,
+explanation:"सभी स्रोत संस्कृति अध्ययन के लिए महत्वपूर्ण हैं।"
+},
+
+{
+question:"प्रश्न 20: MPPSC Pre 2027 में कठिन संस्कृति प्रश्नों के लिए क्या याद रखना चाहिए? / Important for culture questions?",
+options:[
+"A. स्थान + शासक + काल + विशेषता",
+"B. केवल नाम",
+"C. केवल वर्ष",
+"D. केवल स्थान"
+],
+answer:0,
+explanation:"MPPSC में संबंध आधारित प्रश्न अधिक पूछे जाते हैं।"
+}
+],
+test19:[
+{
+question:"प्रश्न 1: मध्यप्रदेश में स्थित प्राचीन नगरी उज्जैन किस नदी के किनारे स्थित है? / Ujjain is situated on which river?",
+options:[
+"A. क्षिप्रा / Shipra",
+"B. नर्मदा / Narmada",
+"C. ताप्ती / Tapti",
+"D. चंबल / Chambal"
+],
+answer:0,
+explanation:"उज्जैन क्षिप्रा नदी के किनारे स्थित प्राचीन नगरी है।"
+},
+
+{
+question:"प्रश्न 2: अवंति महाजनपद की उत्तरी राजधानी कौन-सी थी? / Northern capital of Avanti?",
+options:[
+"A. उज्जैन / Ujjain",
+"B. महिष्मती / Mahishmati",
+"C. विदिशा",
+"D. धार"
+],
+answer:0,
+explanation:"अवंति की प्रमुख राजधानी उज्जैन थी।"
+},
+
+{
+question:"प्रश्न 3: महिष्मती नगरी वर्तमान में किस क्षेत्र से संबंधित मानी जाती है? / Mahishmati related to?",
+options:[
+"A. महेश्वर / Maheshwar",
+"B. उज्जैन",
+"C. विदिशा",
+"D. सागर"
+],
+answer:0,
+explanation:"महिष्मती का संबंध वर्तमान महेश्वर क्षेत्र से माना जाता है।"
+},
+
+{
+question:"प्रश्न 4: हेलियोडोरस स्तंभ किस शासक के समय स्थापित हुआ था? / Heliodorus Pillar established during?",
+options:[
+"A. शुंग काल / Shunga Period",
+"B. मौर्य काल",
+"C. गुप्त काल",
+"D. परमार काल"
+],
+answer:0,
+explanation:"हेलियोडोरस स्तंभ शुंग शासक भागभद्र के समय स्थापित हुआ था।"
+},
+
+{
+question:"प्रश्न 5: एरण से प्राप्त वराह प्रतिमा किस काल की है? / Eran Varaha belongs to?",
+options:[
+"A. गुप्त काल / Gupta Period",
+"B. मौर्य काल",
+"C. मुगल काल",
+"D. मराठा काल"
+],
+answer:0,
+explanation:"एरण की वराह प्रतिमा गुप्तकालीन कला का उदाहरण है।"
+},
+
+{
+question:"प्रश्न 6: यशोधर्मन किस वंश से संबंधित था? / Yashodharman belonged to?",
+options:[
+"A. औलिकर वंश / Aulikara",
+"B. परमार",
+"C. चंदेल",
+"D. कलचुरी"
+],
+answer:0,
+explanation:"यशोधर्मन औलिकर वंश का प्रसिद्ध शासक था।"
+},
+
+{
+question:"प्रश्न 7: राजा भोज द्वारा रचित 'तत्वप्रकाश' किस विषय से संबंधित है? / Tattva Prakash deals with?",
+options:[
+"A. शैव दर्शन / Shaiv Philosophy",
+"B. चिकित्सा",
+"C. संगीत",
+"D. गणित"
+],
+answer:0,
+explanation:"तत्वप्रकाश राजा भोज द्वारा रचित शैव दर्शन का ग्रंथ है।"
+},
+
+{
+question:"प्रश्न 8: परमार वंश की राजधानी कौन-सी थी? / Capital of Parmar dynasty?",
+options:[
+"A. धार / Dhar",
+"B. त्रिपुरी",
+"C. ग्वालियर",
+"D. खजुराहो"
+],
+answer:0,
+explanation:"धार परमार वंश की राजधानी थी।"
+},
+
+{
+question:"प्रश्न 9: कलचुरी वंश की राजधानी क्या थी? / Capital of Kalachuri?",
+options:[
+"A. त्रिपुरी / Tripuri",
+"B. धार",
+"C. उज्जैन",
+"D. मांडू"
+],
+answer:0,
+explanation:"त्रिपुरी कलचुरी वंश की राजधानी थी।"
+},
+
+{
+question:"प्रश्न 10: खजुराहो मंदिर किस स्थापत्य शैली के उदाहरण हैं? / Khajuraho belongs to which style?",
+options:[
+"A. नागर शैली / Nagara Style",
+"B. द्रविड़ शैली",
+"C. वेसर शैली",
+"D. इंडो-इस्लामिक"
+],
+answer:0,
+explanation:"खजुराहो मंदिर नागर शैली के उत्कृष्ट उदाहरण हैं।"
+},
+
+{
+question:"प्रश्न 11: भोजपुर मंदिर में स्थापित शिवलिंग की विशेषता क्या है? / Feature of Bhojpur Shivling?",
+options:[
+"A. विशाल आकार / Huge Size",
+"B. स्वर्ण निर्मित",
+"C. लकड़ी का",
+"D. चलायमान"
+],
+answer:0,
+explanation:"भोजपुर का शिवलिंग विशाल आकार के लिए प्रसिद्ध है।"
+},
+
+{
+question:"प्रश्न 12: मांडू का प्राचीन नाम क्या था? / Ancient name of Mandu?",
+options:[
+"A. मांडवगढ़ / Mandavgarh",
+"B. दशपुर",
+"C. अवंति",
+"D. त्रिपुरी"
+],
+answer:0,
+explanation:"मांडू का प्राचीन नाम मांडवगढ़ था।"
+},
+
+{
+question:"प्रश्न 13: निम्न में सही मिलान चुनिए / Correct Match:",
+options:[
+"A. साँची — बौद्ध स्तूप",
+"B. भीमबेटका — शैल चित्र",
+"C. खजुराहो — चंदेल",
+"D. सभी सही"
+],
+answer:3,
+explanation:"सभी युग्म सही हैं।"
+},
+
+{
+question:"प्रश्न 14: बैगा जनजाति किस श्रेणी में आती है? / Baiga tribe belongs to?",
+options:[
+"A. विशेष रूप से कमजोर जनजातीय समूह (PVTG)",
+"B. सामान्य जनजाति",
+"C. शहरी समुदाय",
+"D. कृषक जाति"
+],
+answer:0,
+explanation:"बैगा मध्यप्रदेश की PVTG जनजातियों में शामिल है।"
+},
+
+{
+question:"प्रश्न 15: निमाड़ क्षेत्र का प्रमुख लोकनृत्य कौन-सा है? / Famous folk dance of Nimar?",
+options:[
+"A. गणगौर / Gangaur",
+"B. माच",
+"C. राई",
+"D. करमा"
+],
+answer:0,
+explanation:"निमाड़ क्षेत्र में गणगौर सहित कई लोक परंपराएँ प्रसिद्ध हैं।"
+},
+
+{
+question:"प्रश्न 16: 'राई' लोकनृत्य किस क्षेत्र से संबंधित है? / Rai dance belongs to?",
+options:[
+"A. बुंदेलखंड / Bundelkhand",
+"B. मालवा",
+"C. निमाड़",
+"D. चंबल"
+],
+answer:0,
+explanation:"राई बुंदेलखंड का प्रसिद्ध लोकनृत्य है।"
+},
+
+{
+question:"प्रश्न 17: कथन 1: खजुराहो UNESCO विश्व धरोहर स्थल है।  
+कथन 2: साँची UNESCO विश्व धरोहर स्थल है।",
+options:[
+"A. केवल 1 सही",
+"B. केवल 2 सही",
+"C. दोनों सही",
+"D. दोनों गलत"
+],
+answer:2,
+explanation:"दोनों मध्यप्रदेश के UNESCO विश्व धरोहर स्थल हैं।"
+},
+
+{
+question:"प्रश्न 18: तानसेन किस क्षेत्र से संबंधित थे? / Tansen related to?",
+options:[
+"A. संगीत / Music",
+"B. चित्रकला",
+"C. वास्तुकला",
+"D. साहित्य"
+],
+answer:0,
+explanation:"तानसेन भारतीय शास्त्रीय संगीत के महान कलाकार थे।"
+},
+
+{
+question:"प्रश्न 19: मध्यप्रदेश इतिहास के अध्ययन में कौन-कौन से स्रोत महत्वपूर्ण हैं? / Sources of MP History?",
+options:[
+"A. अभिलेख",
+"B. सिक्के",
+"C. स्मारक",
+"D. सभी सही"
+],
+answer:3,
+explanation:"सभी स्रोत इतिहास के अध्ययन के लिए महत्वपूर्ण हैं।"
+},
+
+{
+question:"प्रश्न 20: MPPSC Pre 2027 में इतिहास एवं संस्कृति के प्रश्नों के लिए सबसे महत्वपूर्ण रणनीति क्या है? / Best strategy?",
+options:[
+"A. तथ्य को स्थान, काल और व्यक्ति से जोड़कर पढ़ना",
+"B. केवल नाम याद करना",
+"C. केवल तिथि याद करना",
+"D. केवल किताब पढ़ना"
+],
+answer:0,
+explanation:"MPPSC में संबंध आधारित प्रश्नों की संभावना अधिक रहती है।"
+}
+],
+test20:[
+{
+question:"प्रश्न 1: मध्यप्रदेश का प्राचीन अवंति महाजनपद मुख्य रूप से किस क्षेत्र में स्थित था? / Ancient Avanti Mahajanapada was mainly located in?",
+options:[
+"A. पश्चिमी मध्यप्रदेश / Western MP",
+"B. पूर्वी MP",
+"C. बुंदेलखंड",
+"D. बघेलखंड"
+],
+answer:0,
+explanation:"अवंति महाजनपद का मुख्य केंद्र उज्जैन और पश्चिमी मध्यप्रदेश क्षेत्र था।"
+},
+
+{
+question:"प्रश्न 2: उज्जैन का प्राचीन नाम क्या था? / Ancient name of Ujjain?",
+options:[
+"A. अवंतिका / Avantika",
+"B. दशपुर",
+"C. बेसनगर",
+"D. त्रिपुरी"
+],
+answer:0,
+explanation:"उज्जैन को प्राचीन काल में अवंतिका कहा जाता था।"
+},
+
+{
+question:"प्रश्न 3: हेलियोडोरस स्तंभ कहाँ स्थित है? / Heliodorus Pillar located at?",
+options:[
+"A. बेसनगर (विदिशा)",
+"B. साँची",
+"C. धार",
+"D. उज्जैन"
+],
+answer:0,
+explanation:"हेलियोडोरस स्तंभ विदिशा के निकट बेसनगर में स्थित है।"
+},
+
+{
+question:"प्रश्न 4: एरण अभिलेख किस काल के अध्ययन में महत्वपूर्ण है? / Eran inscription important for?",
+options:[
+"A. गुप्त काल / Gupta Period",
+"B. मौर्य काल",
+"C. मुगल काल",
+"D. मराठा काल"
+],
+answer:0,
+explanation:"एरण गुप्तकालीन अभिलेखों और कला के लिए प्रसिद्ध है।"
+},
+
+{
+question:"प्रश्न 5: यशोधर्मन किस वंश का शासक था? / Yashodharman belonged to?",
+options:[
+"A. औलिकर वंश",
+"B. परमार वंश",
+"C. चंदेल वंश",
+"D. कलचुरी वंश"
+],
+answer:0,
+explanation:"यशोधर्मन औलिकर वंश का महान शासक था।"
+},
+
+{
+question:"प्रश्न 6: राजा भोज किस वंश से संबंधित थे? / Raja Bhoja belonged to?",
+options:[
+"A. परमार",
+"B. चंदेल",
+"C. तोमर",
+"D. गुप्त"
+],
+answer:0,
+explanation:"राजा भोज परमार वंश के प्रसिद्ध शासक थे।"
+},
+
+{
+question:"प्रश्न 7: परमार वंश की राजधानी कौन-सी थी? / Capital of Parmar dynasty?",
+options:[
+"A. धार",
+"B. त्रिपुरी",
+"C. खजुराहो",
+"D. ग्वालियर"
+],
+answer:0,
+explanation:"धार परमार वंश की राजधानी थी।"
+},
+
+{
+question:"प्रश्न 8: त्रिपुरी किस राजवंश की राजधानी थी? / Tripuri was capital of?",
+options:[
+"A. कलचुरी",
+"B. परमार",
+"C. चंदेल",
+"D. तोमर"
+],
+answer:0,
+explanation:"त्रिपुरी कलचुरी वंश की राजधानी थी।"
+},
+
+{
+question:"प्रश्न 9: खजुराहो मंदिरों का निर्माण किस वंश ने कराया? / Khajuraho temples built by?",
+options:[
+"A. चंदेल वंश",
+"B. परमार वंश",
+"C. मौर्य वंश",
+"D. गुप्त वंश"
+],
+answer:0,
+explanation:"खजुराहो मंदिर चंदेल वंश की स्थापत्य उपलब्धि हैं।"
+},
+
+{
+question:"प्रश्न 10: खजुराहो मंदिर किस शैली के उदाहरण हैं? / Khajuraho belongs to which style?",
+options:[
+"A. नागर शैली",
+"B. द्रविड़ शैली",
+"C. वेसर शैली",
+"D. इंडो-इस्लामिक"
+],
+answer:0,
+explanation:"खजुराहो मंदिर नागर शैली के उत्कृष्ट उदाहरण हैं।"
+},
+
+{
+question:"प्रश्न 11: भोजपुर मंदिर किस देवता को समर्पित है? / Bhojpur temple dedicated to?",
+options:[
+"A. शिव",
+"B. विष्णु",
+"C. सूर्य",
+"D. बुद्ध"
+],
+answer:0,
+explanation:"भोजपुर मंदिर भगवान शिव को समर्पित है।"
+},
+
+{
+question:"प्रश्न 12: साँची स्तूप का प्रारंभिक निर्माण किसने कराया? / Sanchi Stupa started by?",
+options:[
+"A. अशोक",
+"B. समुद्रगुप्त",
+"C. भोज",
+"D. हर्ष"
+],
+answer:0,
+explanation:"साँची स्तूप का निर्माण सम्राट अशोक ने प्रारंभ कराया था।"
+},
+
+{
+question:"प्रश्न 13: भीमबेटका किसके लिए प्रसिद्ध है? / Bhimbetka famous for?",
+options:[
+"A. शैल चित्र",
+"B. मंदिर",
+"C. अभिलेख",
+"D. सिक्के"
+],
+answer:0,
+explanation:"भीमबेटका प्रागैतिहासिक शैल चित्रों के लिए प्रसिद्ध है।"
+},
+
+{
+question:"प्रश्न 14: मध्यप्रदेश की सबसे बड़ी जनजाति कौन-सी है? / Largest tribe of MP?",
+options:[
+"A. भील",
+"B. बैगा",
+"C. सहरिया",
+"D. कोरकू"
+],
+answer:0,
+explanation:"भील मध्यप्रदेश की सबसे बड़ी जनजाति है।"
+},
+
+{
+question:"प्रश्न 15: भगोरिया उत्सव किस जनजाति से संबंधित है? / Bhagoria belongs to?",
+options:[
+"A. भील",
+"B. गोंड",
+"C. बैगा",
+"D. कोल"
+],
+answer:0,
+explanation:"भगोरिया भील जनजाति का प्रसिद्ध उत्सव है।"
+},
+
+{
+question:"प्रश्न 16: गोंड चित्रकला किस समुदाय से संबंधित है? / Gond painting belongs to?",
+options:[
+"A. गोंड जनजाति",
+"B. भील जनजाति",
+"C. बैगा जनजाति",
+"D. सहरिया जनजाति"
+],
+answer:0,
+explanation:"गोंड चित्रकला गोंड समुदाय की प्रसिद्ध कला है।"
+},
+
+{
+question:"प्रश्न 17: 'माच' लोकनाट्य किस क्षेत्र से संबंधित है? / Maach belongs to?",
+options:[
+"A. मालवा",
+"B. बुंदेलखंड",
+"C. चंबल",
+"D. बघेलखंड"
+],
+answer:0,
+explanation:"माच मालवा क्षेत्र की प्रसिद्ध लोकनाट्य शैली है।"
+},
+
+{
+question:"प्रश्न 18: तानसेन समारोह कहाँ आयोजित होता है? / Tansen Samaroh held at?",
+options:[
+"A. ग्वालियर",
+"B. भोपाल",
+"C. इंदौर",
+"D. उज्जैन"
+],
+answer:0,
+explanation:"तानसेन समारोह ग्वालियर में आयोजित होता है।"
+},
+
+{
+question:"प्रश्न 19: निम्न में से कौन-कौन MP के UNESCO विश्व धरोहर स्थल हैं? / UNESCO sites of MP?",
+options:[
+"A. साँची",
+"B. भीमबेटका",
+"C. खजुराहो",
+"D. सभी सही"
+],
+answer:3,
+explanation:"साँची, भीमबेटका और खजुराहो तीनों UNESCO विश्व धरोहर स्थल हैं।"
+},
+
+{
+question:"प्रश्न 20: MPPSC Pre 2027 में MP इतिहास एवं संस्कृति के प्रश्नों के लिए सबसे महत्वपूर्ण क्या है? / Most important approach?",
+options:[
+"A. शासक + स्थान + काल + उपलब्धि का संबंध",
+"B. केवल नाम याद करना",
+"C. केवल वर्ष याद करना",
+"D. केवल पुस्तक पढ़ना"
+],
+answer:0,
+explanation:"MPPSC में संबंध आधारित और तथ्यात्मक प्रश्नों का महत्व अधिक होता है।"
+}
+],
 
 },
 unit3:{},
