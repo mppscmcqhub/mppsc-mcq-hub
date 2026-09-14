@@ -12,15 +12,17 @@ header{background:#0d3b8e;color:#fff;padding:15px}
 .top{display:flex;justify-content:space-between;align-items:center}
 .container{max-width:900px;margin:25px auto;padding:15px}
 .card{background:#fff;border-radius:12px;padding:18px;margin-bottom:18px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
-.question{font-size:18px;font-weight:bold;margin-bottom:15px;line-height:1.5}
+.question{font-size:18px;font-weight:bold;line-height:1.6;margin-bottom:15px}
 .option{display:block;border:1px solid #ccc;border-radius:8px;padding:10px;margin:8px 0;cursor:pointer}
 .option:hover{background:#f5f5f5}
 .correct{background:#d4edda;border-color:green}
 .wrong{background:#f8d7da;border-color:red}
-button{background:#0d6efd;color:#fff;border:none;padding:12px 22px;border-radius:8px;cursor:pointer}
+button{background:#0d6efd;color:#fff;border:none;padding:12px 25px;border-radius:8px;cursor:pointer;font-size:16px}
 button:hover{background:#084fc7}
 #timer{font-size:28px;font-weight:bold}
-.explanation{margin-top:10px;background:#eef7ff;padding:12px;border-left:5px solid #0d6efd;border-radius:8px}
+.explanation{display:none;margin-top:10px;background:#eef7ff;padding:12px;border-left:5px solid #0d6efd;border-radius:8px}
+.comment-box{background:#fff;padding:20px;border-radius:12px;margin-top:20px}
+textarea{width:100%;padding:10px;border:1px solid #ccc;border-radius:8px}
 </style>
 </head>
 
@@ -47,12 +49,17 @@ button:hover{background:#084fc7}
 <h3 id="score"></h3>
 </div>
 
+<div class="comment-box">
+<h3>Student Comment</h3>
+<textarea rows="4" placeholder="अपनी राय लिखें..."></textarea>
+</div>
+
 </div>
 
 <script>
-const params = new URLSearchParams(window.location.search);
-const unit = params.get("unit") || "1";
-const test = params.get("test") || "1";
+const params=new URLSearchParams(location.search);
+const unit=params.get("unit")||"1";
+const test=params.get("test")||"1";
 
 document.getElementById("quizTitle").innerHTML=`Unit ${unit}<br>Test ${test}`;
 
@@ -62,43 +69,37 @@ let submitted=false;
 let time=600;
 
 const script=document.createElement("script");
-script.src=`questions${unit}.js?v=${Date.now()}`;
+script.src="questionBank.js?v="+Date.now();
 
-script.onload=function(){
+script.onload=()=>{
+questions=window.questionBank?.[`unit${unit}`]?.[`test${test}`]||[];
 
-    if(!window.questionBank){
-        document.getElementById("quiz").innerHTML="<h2>Question Bank नहीं मिली</h2>";
-        return;
-    }
+if(questions.length===0){
+document.getElementById("quiz").innerHTML="<h2>Questions नहीं मिले</h2>";
+return;
+}
 
-    // ✅ यही Fix है
-    questions=window.questionBank?.[`unit${unit}`]?.[`test${test}`]||[];
-
-    if(questions.length===0){
-        document.getElementById("quiz").innerHTML="<h2>Questions नहीं मिले</h2>";
-        return;
-    }
-
-    loadQuiz();
+loadQuiz();
 };
 
-script.onerror=function(){
-document.getElementById("quiz").innerHTML=`<h2>questions${unit}.js Load नहीं हुई</h2>`;
+script.onerror=()=>{
+document.getElementById("quiz").innerHTML="<h2>questionBank.js Load नहीं हुई</h2>";
 };
 
 document.body.appendChild(script);
 
 function loadQuiz(){
+
 const quiz=document.getElementById("quiz");
 quiz.innerHTML="";
 
-questions.forEach(function(q,i){
+questions.forEach((q,i)=>{
 
 let html=`
 <div class="card">
 <div class="question">${q.question}</div>`;
 
-q.options.forEach(function(op,j){
+q.options.forEach((op,j)=>{
 
 html+=`
 <label class="option" id="q${i}o${j}">
@@ -108,11 +109,9 @@ ${op}
 });
 
 html+=`
-<div class="explanation" id="exp${i}" style="display:none">
-<b>Explanation / व्याख्या:</b><br>
-${q.explanation}
-</div>
-</div>`;
+<div class="explanation" id="exp${i}">
+<b>Explanation / व्याख्या</b><br>${q.explanation}
+</div></div>`;
 
 quiz.innerHTML+=html;
 });
@@ -127,23 +126,23 @@ submitted=true;
 
 let score=0;
 
-questions.forEach(function(q,i){
+questions.forEach((q,i)=>{
 
-document.querySelectorAll(`input[name=q${i}]`).forEach(function(r,j){
+document.querySelectorAll(`input[name=q${i}]`).forEach((r,j)=>{
 
 const label=document.getElementById(`q${i}o${j}`);
 
 label.classList.remove("correct","wrong");
 
-if(j===q.answer) label.classList.add("correct");
+if(j===q.answer)label.classList.add("correct");
 
-if(r.checked && j!==q.answer) label.classList.add("wrong");
+if(r.checked&&j!==q.answer)label.classList.add("wrong");
 
 });
 
 document.getElementById(`exp${i}`).style.display="block";
 
-if(answers[i]===q.answer) score++;
+if(answers[i]===q.answer)score++;
 
 });
 
@@ -153,7 +152,7 @@ document.getElementById("score").innerHTML=`Score: ${score}/${questions.length}`
 window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
 }
 
-setInterval(function(){
+setInterval(()=>{
 
 if(submitted)return;
 
@@ -167,10 +166,13 @@ const s=time%60;
 document.getElementById("timer").innerHTML=`${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
 
 }else{
+
 submitQuiz();
+
 }
 
 },1000);
+
 </script>
 
 </body>
