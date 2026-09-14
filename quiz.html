@@ -323,35 +323,28 @@ document.getElementById("score").innerHTML=
 
 window.scrollTo(0,document.body.scrollHeight);
 
+}
+
+window.scrollTo(0,document.body.scrollHeight);
 
 }
 
 
-
-</script>// TIMER START
+// TIMER START
 
 let time = 600; // 10 minutes
 
+let timer = setInterval(()=>{
 
-let timer=setInterval(()=>{
+let min = Math.floor(time/60);
+let sec = time % 60;
 
-
-let min=Math.floor(time/60);
-
-let sec=time%60;
-
-
-document.getElementById("timer").innerHTML=
-
-min+":"+String(sec).padStart(2,"0");
-
-
+document.getElementById("timer").innerHTML =
+min + ":" + String(sec).padStart(2,"0");
 
 time--;
 
-
-
-if(time<0){
+if(time < 0){
 
 clearInterval(timer);
 
@@ -359,15 +352,9 @@ submitQuiz();
 
 }
 
-
 },1000);
-
-
-// TIMER END
-
 
 </script>
 
 </body>
-
 </html>
