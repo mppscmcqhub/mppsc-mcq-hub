@@ -10,16 +10,17 @@
 
 *{
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:Arial;
 }
 
 body{
 margin:0;
-background:#e8eef8;
+background:#eaf2fc;
+color:#082c6c;
 }
 
 header{
-background:#123c8c;
+background:#083b8a;
 color:white;
 padding:15px;
 display:flex;
@@ -27,85 +28,74 @@ justify-content:space-between;
 align-items:center;
 }
 
-header h1{
-margin:0;
-font-size:25px;
-}
-
-#timer{
-font-size:22px;
-font-weight:bold;
-}
-
 .container{
 max-width:900px;
-margin:20px auto;
-padding:15px;
+margin:auto;
+padding:20px;
 }
 
 .card{
 background:white;
 padding:20px;
-border-radius:12px;
-box-shadow:0 2px 10px #aaa;
-margin-bottom:20px;
+margin-bottom:15px;
+border-radius:15px;
+box-shadow:0 5px 15px #ccc;
 }
 
-.question{
-font-size:18px;
-font-weight:bold;
-margin-bottom:15px;
-}
 
 .option{
 display:block;
 padding:12px;
+margin:8px 0;
 border:1px solid #ccc;
 border-radius:8px;
-margin:8px 0;
 cursor:pointer;
-background:#fff;
 }
+
 
 .option:hover{
-background:#f1f1f1;
+background:#f1f6ff;
 }
 
+
 .correct{
-background:#b7f7b7!important;
+background:#b8f5c2!important;
 border-color:green;
 }
 
+
 .wrong{
-background:#ffb3b3!important;
+background:#ffbaba!important;
 border-color:red;
 }
 
-.explanation{
-display:none;
-margin-top:10px;
-padding:10px;
-background:#eef6ff;
-border-left:5px solid #1d5fd1;
-border-radius:8px;
-}
 
 button{
-background:#123c8c;
+background:#0b63ff;
 color:white;
-border:0;
-padding:12px 25px;
-border-radius:8px;
-font-size:16px;
+border:none;
+padding:12px 20px;
+border-radius:10px;
 cursor:pointer;
+font-weight:bold;
 }
+
+
+.explanation{
+display:none;
+background:#eef8ff;
+padding:10px;
+margin-top:10px;
+border-left:4px solid blue;
+}
+
 
 textarea{
 width:100%;
 height:80px;
 padding:10px;
-border-radius:8px;
 }
+
 
 </style>
 
@@ -113,12 +103,10 @@ border-radius:8px;
 
 <body>
 
+
 <header>
 
-<div>
-<h1>MPPSC MCQ Hub</h1>
-<div id="title"></div>
-</div>
+<h2>MPPSC MCQ Hub</h2>
 
 <div id="timer">
 10:00
@@ -129,16 +117,15 @@ border-radius:8px;
 
 <div class="container">
 
+
+<h2 id="title"></h2>
+
+
 <div id="quiz"></div>
 
 
-<div class="card">
+<button onclick="submitQuiz()">Submit Test</button>
 
-<button onclick="submitQuiz()" id="submitBtn">
-Submit Test
-</button>
-
-</div>
 
 
 <div class="card" id="result" style="display:none">
@@ -148,6 +135,7 @@ Submit Test
 <h3 id="score"></h3>
 
 </div>
+
 
 
 <div class="card">
@@ -162,77 +150,69 @@ Submit Test
 </div>
 
 
-
 <script src="questionBank.js"></script>
 
 
 <script>
 
-let url=new URLSearchParams(window.location.search);
+let url=new URLSearchParams(location.search);
 
 let unit="unit"+url.get("unit");
 
 let test="test"+url.get("test");
 
 
-document.getElementById("title").innerHTML=
-"Unit "+url.get("unit")+"<br>Test "+url.get("test");
-
-
-
 let questions=[];
 
 
-if(window.questionBank &&
-questionBank[unit] &&
-questionBank[unit][test]){
+if(questionBank[unit] && questionBank[unit][test]){
 
 questions=questionBank[unit][test];
 
 }
+else{
+
+document.getElementById("quiz").innerHTML=
+"<h2>Questions नहीं मिले</h2>";
+
+}
+
+
+
+document.getElementById("title").innerHTML=
+"Unit "+url.get("unit")+" - Test "+url.get("test");
+
 
 
 let quiz=document.getElementById("quiz");
 
 
-if(questions.length==0){
-
-quiz.innerHTML="<h2>Questions नहीं मिले</h2>";
-
-}
-
-else{
-
 
 questions.forEach((q,i)=>{
 
 
-let div=document.createElement("div");
-
-div.className="card";
-
-
 let html=`
 
-<div class="question">
+<div class="card">
 
+
+<h3>
 ${i+1}. ${q.question}
+</h3>
 
-</div>
 
 `;
 
 
-q.options.forEach((op,j)=>{
+
+q.options.forEach((op,index)=>{
+
 
 html+=`
 
-<label class="option" id="q${i}o${j}">
+<label class="option" id="q${i}_${index}">
 
-<input type="radio" 
-name="q${i}" 
-value="${j}"
-onclick="checkAnswer(${i},${j})">
+<input type="radio" name="q${i}" value="${index}">
 
 ${op}
 
@@ -251,64 +231,16 @@ ${q.explanation}
 
 </div>
 
+
+</div>
+
 `;
 
 
-div.innerHTML=html;
-
-quiz.appendChild(div);
+quiz.innerHTML+=html;
 
 
 });
-
-
-}
-
-
-function checkAnswer(q,o){
-
-
-let correct=questions[q].answer;
-
-
-let options=document.querySelectorAll(
-`input[name="q${q}"]`
-);
-
-
-options.forEach((x,index)=>{
-
-
-let label=document.getElementById(`q${q}o${index}`);
-
-
-label.classList.remove("correct","wrong");
-
-
-if(index==correct){
-
-label.classList.add("correct");
-
-}
-
-
-});
-
-
-if(o!=correct){
-
-document
-.getElementById(`q${q}o${o}`)
-.classList.add("wrong");
-
-}
-
-
-document.getElementById("exp"+q)
-.style.display="block";
-
-
-}
 
 
 
@@ -318,21 +250,67 @@ function submitQuiz(){
 let score=0;
 
 
+
 questions.forEach((q,i)=>{
 
+
 let ans=document.querySelector(
-`input[name="q${i}"]:checked`
+'input[name="q'+i+'"]:checked'
 );
 
 
-if(ans && Number(ans.value)==q.answer){
+
+q.options.forEach((x,j)=>{
+
+
+let box=document.getElementById(
+"q"+i+"_"+j
+);
+
+
+box.classList.remove("correct","wrong");
+
+
+
+if(j==q.answer){
+
+box.classList.add("correct");
+
+}
+
+
+
+});
+
+
+
+if(ans){
+
+
+if(Number(ans.value)==q.answer){
 
 score++;
 
 }
 
+else{
+
+document.getElementById(
+"q"+i+"_"+ans.value
+).classList.add("wrong");
+
+}
+
+}
+
+
+
+document.getElementById("exp"+i)
+.style.display="block";
+
 
 });
+
 
 
 document.getElementById("result").style.display="block";
@@ -350,7 +328,46 @@ window.scrollTo(0,document.body.scrollHeight);
 
 
 
+</script>// TIMER START
+
+let time = 600; // 10 minutes
+
+
+let timer=setInterval(()=>{
+
+
+let min=Math.floor(time/60);
+
+let sec=time%60;
+
+
+document.getElementById("timer").innerHTML=
+
+min+":"+String(sec).padStart(2,"0");
+
+
+
+time--;
+
+
+
+if(time<0){
+
+clearInterval(timer);
+
+submitQuiz();
+
+}
+
+
+},1000);
+
+
+// TIMER END
+
+
 </script>
 
 </body>
+
 </html>
