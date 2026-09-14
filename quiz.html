@@ -6,113 +6,82 @@
 <title>MPPSC MCQ Hub Quiz</title>
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box}
 body{
-margin:0;
 font-family:Arial,sans-serif;
-background:#d7e0ec;
+background:#d6e0ec;
 }
-
 header{
 background:#083b8a;
-color:white;
-padding:15px;
+color:#fff;
+padding:18px;
 display:flex;
 justify-content:space-between;
 align-items:center;
 }
-
-header h2{margin:0;}
-
+header h2{margin-bottom:6px}
+.timer{
+font-size:28px;
+font-weight:bold;
+}
 .container{
 max-width:900px;
-margin:20px auto;
-padding:10px;
+margin:25px auto;
+padding:15px;
 }
-
-.question-card{
-background:white;
-border-radius:12px;
+.card{
+background:#fff;
 padding:18px;
+border-radius:14px;
+box-shadow:0 3px 12px rgba(0,0,0,.12);
 margin-bottom:18px;
-box-shadow:0 3px 10px rgba(0,0,0,.12);
 }
-
 .question{
-font-weight:bold;
 font-size:20px;
+font-weight:bold;
 margin-bottom:15px;
 }
-
 .option{
 display:block;
 padding:12px;
+margin:8px 0;
 border:1px solid #ccc;
 border-radius:8px;
-margin:8px 0;
 cursor:pointer;
 }
-
-.option:hover{
-background:#eef4ff;
-}
-
-.correct{
-background:#d4edda;
-border-color:green;
-}
-
-.wrong{
-background:#f8d7da;
-border-color:red;
-}
-
+.option:hover{background:#eef4ff}
+.correct{background:#d4edda;border-color:green}
+.wrong{background:#f8d7da;border-color:red}
 .explanation{
 display:none;
+margin-top:12px;
+padding:12px;
 background:#eef7ff;
 border-left:5px solid #0d6efd;
-padding:12px;
-margin-top:10px;
 border-radius:8px;
 }
-
 button{
 background:#0d6efd;
 color:white;
 border:none;
-padding:12px 22px;
+padding:12px 24px;
 border-radius:8px;
 cursor:pointer;
 font-size:16px;
 }
-
-button:hover{
-background:#084298;
-}
-
+button:hover{background:#084298}
 #result{
 display:none;
-background:white;
-padding:20px;
-border-radius:12px;
-margin-top:25px;
-box-shadow:0 3px 10px rgba(0,0,0,.12);
-}
-
-.timer{
-font-size:24px;
-font-weight:bold;
 }
 </style>
 </head>
-
 <body>
 
 <header>
 <div>
 <h2>MPPSC MCQ Hub</h2>
-<div id="title"></div>
+<div id="quizTitle"></div>
 </div>
-
 <div class="timer" id="timer">10:00</div>
 </header>
 
@@ -120,9 +89,9 @@ font-weight:bold;
 
 <div id="quiz"></div>
 
-<button onclick="submitQuiz()">Submit Test</button>
+<button id="submitBtn" onclick="submitQuiz()" style="display:none">Submit Test</button>
 
-<div id="result">
+<div id="result" class="card">
 <h2>Final Result</h2>
 <h3 id="score"></h3>
 </div>
@@ -130,140 +99,132 @@ font-weight:bold;
 </div>
 
 <script>
-
 const params=new URLSearchParams(location.search);
-
 const unit=params.get("unit")||"1";
 const test=params.get("test")||"1";
 
-document.getElementById("title").innerHTML=`Unit ${unit}<br>Test ${test}`;
+document.getElementById("quizTitle").innerHTML=`Unit ${unit}<br>Test ${test}`;
 
-let questionBank={};
 let questions=[];
+let answers=[];
 let time=600;
-let userAnswers=[];
+let submitted=false;
 
-const script=document.createElement("script");
-script.src=`questions${unit}.js`;
+// Questions File Load
+const s=document.createElement("script");
+s.src=`questions${unit}.js`;
 
-script.onload=function(){
+s.onload=function(){
 
-questions=questionBank["test"+test]||[];
-
-if(questions.length===0){
-
-document.getElementById("quiz").innerHTML="<h2>Questions नहीं मिले</h2>";
+if(!window.questionBank){
+document.getElementById("quiz").innerHTML="<h2>questions"+unit+".js नहीं मिली</h2>";
 return;
-
 }
 
-loadQuiz();
+questions=window.questionBank["test"+test]||[];
 
+if(questions.length===0){
+document.getElementById("quiz").innerHTML="<h2>Questions नहीं मिले</h2>";
+return;
+}
+
+document.getElementById("submitBtn").style.display="inline-block";
+loadQuiz();
 };
 
-document.body.appendChild(script);
+s.onerror=function(){
+document.getElementById("quiz").innerHTML="<h2>questions"+unit+".js Load नहीं हुई</h2>";
+};
 
+document.body.appendChild(s);
+
+// Quiz Render
 function loadQuiz(){
 
 const quiz=document.getElementById("quiz");
-
 quiz.innerHTML="";
 
 questions.forEach((q,i)=>{
 
-let html=`
-<div class="question-card">
+let html=`<div class="card">
+<div class="question">प्रश्न ${i+1}: ${q.question}</div>`;
 
-<div class="question">
-प्रश्न ${i+1}: ${q.question}
-</div>
-`;
-
-q.options.forEach((opt,j)=>{
+q.options.forEach((op,j)=>{
 
 html+=`
 <label class="option" id="q${i}o${j}">
-<input type="radio" name="q${i}" value="${j}" onchange="saveAnswer(${i},${j})">
-${opt}
-</label>
-`;
-
+<input type="radio"
+name="q${i}"
+value="${j}"
+onchange="answers[${i}]=${j}">
+${op}
+</label>`;
 });
 
 html+=`
 <div class="explanation" id="exp${i}">
 <b>Explanation:</b><br>${q.explanation}
-</div>
-
-</div>
-`;
+</div></div>`;
 
 quiz.innerHTML+=html;
-
 });
-
 }
 
-function saveAnswer(q,o){
-
-userAnswers[q]=o;
-
-}
-
+// Submit
 function submitQuiz(){
+
+if(submitted)return;
+submitted=true;
 
 let score=0;
 
 questions.forEach((q,i)=>{
 
-const options=document.querySelectorAll(`input[name=q${i}]`);
+const radios=document.querySelectorAll(`input[name=q${i}]`);
 
-options.forEach((op,j)=>{
+radios.forEach((r,j)=>{
 
 const label=document.getElementById(`q${i}o${j}`);
 
 label.classList.remove("correct","wrong");
 
 if(j===q.answer){
-
 label.classList.add("correct");
-
 }
 
-if(op.checked && j!==q.answer){
-
+if(r.checked && j!==q.answer){
 label.classList.add("wrong");
-
 }
 
 });
 
 document.getElementById(`exp${i}`).style.display="block";
 
-if(userAnswers[i]===q.answer){
-
+if(answers[i]===q.answer){
 score++;
-
 }
-
 });
 
 document.getElementById("result").style.display="block";
-
 document.getElementById("score").innerHTML=`Score: ${score} / ${questions.length}`;
 
-window.scrollTo(0,document.body.scrollHeight);
-
+window.scrollTo({
+top:document.body.scrollHeight,
+behavior:"smooth"
+});
 }
 
+// Timer
 setInterval(()=>{
+
+if(submitted)return;
 
 if(time>0){
 
 time--;
 
-let m=Math.floor(time/60);
-let s=time%60;
+const m=Math.floor(time/60);
+const s=time%60;
 
 document.getElementById("timer").innerHTML=
 `${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
