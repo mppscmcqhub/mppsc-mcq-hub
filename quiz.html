@@ -37,80 +37,107 @@ textarea{width:100%}
 </div>
 
 <script>
+// URL से Unit और Test लो
 const params = new URLSearchParams(window.location.search);
-const test = params.get("test") || "1";
 
+const unit = Number(params.get("unit")) || 1;
+const test = Number(params.get("test")) || 1;
+
+// 10 Unit × 20 Test = 200 Files
+// Unit-1 = questions1.js - questions20.js
+// Unit-2 = questions21.js - questions40.js
+// Unit-3 = questions41.js - questions60.js
+const fileNo = (unit - 1) * 20 + test;
+
+// सही File Load करो
 const script = document.createElement("script");
-script.src = `questions${test}.js`;
+script.src = `questions${fileNo}.js`;
 
 script.onload = () => {
-  const quiz = document.getElementById("quiz");
-
-  if (!window.questions) {
-    quiz.innerHTML = "<h2>Questions Load नहीं हुए।</h2>";
-    return;
-  }
-
-  quiz.innerHTML = "";
-
-  window.questions.forEach((q, i) => {
-    let html = `
-      <div class="qbox">
-        <h3>${i + 1}. ${q.question}</h3>
-    `;
-
-    q.options.forEach((op, index) => {
-      html += `
-        <label class="option" id="q${i}o${index}">
-          <input type="radio" name="q${i}" value="${String.fromCharCode(65 + index)}">
-          ${op}
-        </label>`;
-    });
-
-    html += `<div id="exp${i}" class="exp" style="display:none"></div></div>`;
-    quiz.innerHTML += html;
-  });
+    loadQuiz();
 };
 
 document.body.appendChild(script);
 
-function submitQuiz() {
-  let score = 0;
+function loadQuiz(){
 
-  window.questions.forEach((q, i) => {
-    const selected = document.querySelector(`input[name="q${i}"]:checked`);
+const quiz = document.getElementById("quiz");
+quiz.innerHTML="";
 
-    q.options.forEach((op, index) => {
-      const box = document.getElementById(`q${i}o${index}`);
-      box.classList.remove("correct", "wrong");
+window.questions.forEach((q,i)=>{
 
-      if (String.fromCharCode(65 + index) === q.answer) {
-        box.classList.add("correct");
-      }
-    });
+let html=`
+<div class="qbox">
+<h3>${i+1}. ${q.question}</h3>
+`;
 
-    if (selected) {
-      if (selected.value === q.answer) {
-        score++;
-      } else {
-        const wrong = selected.value.charCodeAt(0) - 65;
-        document.getElementById(`q${i}o${wrong}`).classList.add("wrong");
-      }
-    }
+q.options.forEach((op,index)=>{
+html+=`
+<label class="option" id="q${i}o${index}">
+<input type="radio" name="q${i}" value="${String.fromCharCode(65+index)}">
+${op}
+</label>`;
+});
 
-    const exp = document.getElementById(`exp${i}`);
-    exp.style.display = "block";
-    exp.innerHTML = `
-      <b>Correct Answer:</b> ${q.answer}. ${q.options[q.answer.charCodeAt(0)-65]}<br><br>
-      <b>Detailed Explanation:</b><br>${q.explanation}
-    `;
-  });
+html+=`
+<div id="exp${i}" class="exp"></div>
+</div>`;
 
-  document.getElementById("scoreBox").innerHTML =
-    `🎯 Score: ${score}/${window.questions.length}`;
+quiz.innerHTML+=html;
+
+});
+
+}
+
+function submitQuiz(){
+
+let score=0;
+
+window.questions.forEach((q,i)=>{
+
+const selected=document.querySelector(`input[name="q${i}"]:checked`);
+
+q.options.forEach((op,index)=>{
+
+const box=document.getElementById(`q${i}o${index}`);
+
+box.classList.remove("correct","wrong");
+
+if(String.fromCharCode(65+index)==q.answer){
+box.classList.add("correct");
+}
+
+});
+
+if(selected){
+
+if(selected.value==q.answer){
+
+score++;
+
+}else{
+
+const wrong=selected.value.charCodeAt(0)-65;
+document.getElementById(`q${i}o${wrong}`).classList.add("wrong");
+
+}
+
+}
+
+const exp=document.getElementById(`exp${i}`);
+exp.style.display="block";
+exp.innerHTML=`
+<b>Correct Answer:</b> ${q.answer}. ${q.options[q.answer.charCodeAt(0)-65]}<br><br>
+<b>Detailed Explanation:</b><br>${q.explanation}
+`;
+
+});
+
+document.getElementById("scoreBox").innerHTML=
+`🎯 Score : ${score}/${window.questions.length}`;
+
 }
 </script>
-
 <script>
 const quiz = document.getElementById("quiz");
 
