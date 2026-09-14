@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
+
 <meta charset="UTF-8">
 
 <title>MPPSC MCQ Hub</title>
@@ -8,6 +9,7 @@
 <link rel="stylesheet" href="style.css">
 
 <style>
+
 body{
 font-family:Arial;
 background:#eef4ff;
@@ -22,47 +24,43 @@ padding:15px;
 
 .box{
 background:white;
+margin:15px;
 padding:15px;
 border-radius:10px;
-margin:15px;
 }
 
 .qbox{
-background:#ffffff;
-padding:15px;
+background:white;
 margin:15px;
+padding:15px;
 border-radius:10px;
 }
 
 .option{
 display:block;
-padding:8px;
-margin:5px;
-border:1px solid #ddd;
+padding:10px;
+margin:6px 0;
+border:1px solid #ccc;
 border-radius:5px;
+cursor:pointer;
 }
 
 .correct{
-background:#b6f7b6;
+background:#9cff9c;
 }
 
 .wrong{
-background:#ffb3b3;
+background:#ff9999;
 }
 
 button{
-padding:10px 20px;
 background:#0645d8;
 color:white;
+padding:10px 20px;
 border:none;
 border-radius:5px;
 }
 
-#scoreBox{
-font-size:20px;
-font-weight:bold;
-padding:20px;
-}
 </style>
 
 </head>
@@ -76,19 +74,29 @@ padding:20px;
 </header>
 
 
+
 <div id="quiz"></div>
+
 
 
 <div class="box">
 
-<button onclick="submitQuiz()">Submit Test</button>
+<button onclick="submitQuiz()">
+Submit Test
+</button>
 
-<div id="scoreBox"></div>
+
+<h2 id="scoreBox"></h2>
 
 
 <h3>Student Comment</h3>
 
-<textarea placeholder="अपनी राय लिखें..."></textarea>
+<textarea 
+placeholder="अपनी राय लिखें..."
+rows="4"
+style="width:100%">
+</textarea>
+
 
 </div>
 
@@ -104,51 +112,65 @@ padding:20px;
 let quiz=document.getElementById("quiz");
 
 
+
 questions.forEach((q,i)=>{
 
 
-let html=`
+let div=document.createElement("div");
 
-<div class="qbox">
+div.className="qbox";
 
+
+div.innerHTML=
+`
 <h3>
 ${q.question}
 </h3>
 
-`;
-
-
-
-q.options.forEach((op,index)=>{
-
-
-html+=`
-
-<label class="option" id="opt${i}${index}">
-
-<input type="radio" name="q${i}" value="${String.fromCharCode(65+index)}">
-
-${op}
-
-</label>
-
-
-`;
-
-});
-
-
-html+=`
+<div id="options${i}"></div>
 
 <p id="exp${i}"></p>
 
-</div>
-
-
 `;
 
 
-quiz.innerHTML+=html;
+
+quiz.appendChild(div);
+
+
+
+let opt=document.getElementById("options"+i);
+
+
+
+q.options.forEach((o,index)=>{
+
+
+let label=document.createElement("label");
+
+
+label.className="option";
+
+
+label.id="q"+i+"o"+index;
+
+
+label.innerHTML=
+
+`
+<input type="radio" 
+name="q${i}" 
+value="${String.fromCharCode(65+index)}">
+
+${o}
+`;
+
+
+
+opt.appendChild(label);
+
+
+});
 
 
 });
@@ -163,27 +185,28 @@ function submitQuiz(){
 let score=0;
 
 
+
 questions.forEach((q,i)=>{
 
 
-let ans=document.querySelector(
+let selected=
+document.querySelector(
 'input[name="q'+i+'"]:checked'
 );
 
 
-let exp=document.getElementById("exp"+i);
+
+q.options.forEach((o,index)=>{
 
 
-q.options.forEach((op,index)=>{
+let box=document.getElementById(
+"q"+i+"o"+index
+);
 
 
-let div=document.getElementById("opt"+i+index);
-
-
-if(String.fromCharCode(65+index)==q.answer){
-
-div.classList.add("correct");
-
+if(String.fromCharCode(65+index)==q.answer)
+{
+box.classList.add("correct");
 }
 
 
@@ -191,30 +214,40 @@ div.classList.add("correct");
 
 
 
-if(ans){
+if(selected){
 
 
-if(ans.value==q.answer){
+if(selected.value==q.answer)
+{
 
 score++;
 
 }
 
-else{
+else
+{
 
-let index=ans.value.charCodeAt(0)-65;
-
-document.getElementById("opt"+i+index)
-.classList.add("wrong");
-
-}
+let wrongIndex=
+selected.value.charCodeAt(0)-65;
 
 
-exp.innerHTML=
-"Explanation: "+q.explanation;
+document.getElementById(
+"q"+i+"o"+wrongIndex
+).classList.add("wrong");
 
 
 }
+
+
+
+document.getElementById("exp"+i).innerHTML=
+
+"Explanation : "+q.explanation;
+
+
+
+}
+
 
 
 });
@@ -223,13 +256,15 @@ exp.innerHTML=
 
 document.getElementById("scoreBox").innerHTML=
 
-"Your Score : "+score+"/"+questions.length;
+"Score : "+score+"/"+questions.length;
+
 
 
 }
 
 
 </script>
+
 
 
 </body>
