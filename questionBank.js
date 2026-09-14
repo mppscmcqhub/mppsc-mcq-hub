@@ -246,7 +246,249 @@ explanation:"महर्षि कपिल सांख्य दर्शन 
 
 ],
 
-test2:[],
+test2:[
+
+{
+question:"प्रश्न 1: उत्तर वैदिक काल में 'निष्क' शब्द का प्रयोग मुख्यतः किस अर्थ में हुआ? / In the Later Vedic Period, the term 'Nishka' mainly referred to?",
+options:[
+"A. भूमि कर / Land Tax",
+"B. स्वर्ण आभूषण या मुद्रा / Gold Ornament or Currency",
+"C. सैनिक पद / Military Rank",
+"D. कृषि उपकरण / Agricultural Tool"
+],
+answer:1,
+explanation:"उत्तर वैदिक काल में निष्क स्वर्ण आभूषण तथा विनिमय के माध्यम के रूप में प्रयुक्त होता था।"
+},
+
+{
+question:"प्रश्न 2: निम्नलिखित में से किस स्थल से अग्निकुण्ड (Fire Altars) के प्रमाण मिले हैं? / Which Harappan site has yielded evidence of fire altars?",
+options:[
+"A. लोथल / Lothal",
+"B. कालीबंगन / Kalibangan",
+"C. राखीगढ़ी / Rakhigarhi",
+"D. धोलावीरा / Dholavira"
+],
+answer:1,
+explanation:"कालीबंगन से अग्निकुण्डों के प्रमाण प्राप्त हुए हैं।"
+},
+
+{
+question:"प्रश्न 3: 'ऐतरेय उपनिषद' किस वेद से संबंधित है? / Aitareya Upanishad belongs to which Veda?",
+options:[
+"A. ऋग्वेद",
+"B. सामवेद",
+"C. यजुर्वेद",
+"D. अथर्ववेद"
+],
+answer:0,
+explanation:"ऐतरेय उपनिषद ऋग्वेद से संबंधित है।"
+},
+
+{
+question:"प्रश्न 4: वैदिक साहित्य में 'सभा' का प्रमुख कार्य क्या था? / What was the primary function of Sabha in Vedic literature?",
+options:[
+"A. व्यापार नियंत्रण",
+"B. सीमित सलाहकार परिषद",
+"C. कर संग्रह",
+"D. धार्मिक उत्सव"
+],
+answer:1,
+explanation:"सभा सीमित सदस्यों वाली सलाहकार परिषद मानी जाती थी।"
+},
+
+{
+question:"प्रश्न 5: किस महाजनपद की राजधानी कौशाम्बी थी? / Kaushambi was the capital of which Mahajanapada?",
+options:[
+"A. वत्स",
+"B. कोशल",
+"C. अवंति",
+"D. मगध"
+],
+answer:0,
+explanation:"कौशाम्बी वत्स महाजनपद की राजधानी थी।"
+},
+
+{
+question:"प्रश्न 6: 'पंचमहायज्ञ' में 'पितृयज्ञ' किससे संबंधित है? / Pitri Yajna is related to?",
+options:[
+"A. देवता",
+"B. पूर्वज",
+"C. पशु",
+"D. ऋषि"
+],
+answer:1,
+explanation:"पितृयज्ञ पूर्वजों के प्रति कर्तव्य से संबंधित है।"
+},
+
+{
+question:"प्रश्न 7: 'कपिल' किस दर्शन के प्रवर्तक माने जाते हैं? / Kapila is regarded as the founder of which philosophy?",
+options:[
+"A. योग",
+"B. न्याय",
+"C. सांख्य",
+"D. वैशेषिक"
+],
+answer:2,
+explanation:"महर्षि कपिल सांख्य दर्शन के प्रवर्तक माने जाते हैं।"
+},
+
+{
+question:"प्रश्न 8: सिंधु सभ्यता में सबसे बड़ा गोदाम (Granary) कहाँ मिला है? / Where has the largest granary of the Harappan Civilization been found?",
+options:[
+"A. मोहनजोदड़ो",
+"B. हड़प्पा",
+"C. लोथल",
+"D. धोलावीरा"
+],
+answer:1,
+explanation:"हड़प्पा से विशाल अन्नागार के प्रमाण मिले हैं।"
+},
+
+{
+question:"प्रश्न 9: 'महावीर' का जन्म किस गणराज्य में हुआ था? / Mahavira was born in which republic?",
+options:[
+"A. शाक्य",
+"B. लिच्छवि",
+"C. ज्ञात्रिक",
+"D. मल्ल"
+],
+answer:2,
+explanation:"महावीर का जन्म ज्ञात्रिक गणराज्य में हुआ था।"
+},
+
+{
+question:"प्रश्न 10: 'ईशावास्य उपनिषद' किस वेद से संबंधित है? / Isha Upanishad belongs to which Veda?",
+options:[
+"A. ऋग्वेद",
+"B. सामवेद",
+"C. शुक्ल यजुर्वेद",
+"D. अथर्ववेद"
+],
+answer:2,
+explanation:"ईशावास्य उपनिषद शुक्ल यजुर्वेद से संबंधित है।"
+},
+
+{
+question:"प्रश्न 11: 'वर्ण व्यवस्था' का प्रारंभिक उल्लेख किस वेद में मिलता है? / The earliest mention of the Varna system is found in which Veda?",
+options:[
+"A. अथर्ववेद",
+"B. सामवेद",
+"C. ऋग्वेद (पुरुषसूक्त)",
+"D. यजुर्वेद"
+],
+answer:2,
+explanation:"ऋग्वेद के पुरुषसूक्त में वर्ण व्यवस्था का उल्लेख मिलता है।"
+},
+
+{
+question:"प्रश्न 12: लोथल की सबसे महत्वपूर्ण विशेषता क्या मानी जाती है? / What is considered the most important feature of Lothal?",
+options:[
+"A. स्तूप",
+"B. गोदी (Dockyard)",
+"C. अशोक स्तंभ",
+"D. दुर्ग"
+],
+answer:1,
+explanation:"लोथल अपनी गोदी (Dockyard) के लिए प्रसिद्ध है।"
+},
+
+{
+question:"प्रश्न 13: 'आजीवक' संप्रदाय का प्रमुख सिद्धांत क्या था? / What was the main doctrine of the Ajivika sect?",
+options:[
+"A. कर्मवाद",
+"B. नियतिवाद",
+"C. अहिंसा",
+"D. मध्यम मार्ग"
+],
+answer:1,
+explanation:"आजीवक संप्रदाय नियतिवाद (Fatalism) में विश्वास करता था।"
+},
+
+{
+question:"प्रश्न 14: 'ब्रह्मचर्य आश्रम' का मुख्य उद्देश्य क्या था? / What was the primary purpose of Brahmacharya Ashrama?",
+options:[
+"A. विवाह",
+"B. शिक्षा",
+"C. व्यापार",
+"D. शासन"
+],
+answer:1,
+explanation:"ब्रह्मचर्य आश्रम का उद्देश्य शिक्षा प्राप्त करना था।"
+},
+
+{
+question:"प्रश्न 15: धोलावीरा किस वर्तमान राज्य में स्थित है? / Dholavira is located in which present-day state?",
+options:[
+"A. राजस्थान",
+"B. गुजरात",
+"C. हरियाणा",
+"D. पंजाब"
+],
+answer:1,
+explanation:"धोलावीरा गुजरात के कच्छ जिले में स्थित है।"
+},
+
+{
+question:"प्रश्न 16: 'जम्बूद्वीप' शब्द का प्रयोग किस धर्म में विशेष रूप से मिलता है? / The term 'Jambudvipa' is prominently used in which religion?",
+options:[
+"A. वैदिक",
+"B. बौद्ध",
+"C. जैन",
+"D. बौद्ध एवं जैन दोनों"
+],
+answer:3,
+explanation:"जम्बूद्वीप का उल्लेख बौद्ध और जैन दोनों परंपराओं में मिलता है।"
+},
+
+{
+question:"प्रश्न 17: 'गोपथ ब्राह्मण' किस वेद से संबंधित है? / Gopatha Brahmana belongs to which Veda?",
+options:[
+"A. ऋग्वेद",
+"B. सामवेद",
+"C. अथर्ववेद",
+"D. यजुर्वेद"
+],
+answer:2,
+explanation:"गोपथ ब्राह्मण अथर्ववेद का प्रमुख ब्राह्मण ग्रंथ है।"
+},
+
+{
+question:"प्रश्न 18: 'समिति' का प्रमुख कार्य क्या माना जाता है? / What was the main function of Samiti?",
+options:[
+"A. न्याय देना",
+"B. व्यापक जनसभा के रूप में निर्णय लेना",
+"C. कर वसूलना",
+"D. यज्ञ कराना"
+],
+answer:1,
+explanation:"समिति व्यापक जनसभा मानी जाती थी।"
+},
+
+{
+question:"प्रश्न 19: किस स्थल से 'नृत्य करती हुई कांस्य बालिका' (Dancing Girl) की मूर्ति मिली है? / The bronze Dancing Girl was found at?",
+options:[
+"A. हड़प्पा",
+"B. मोहनजोदड़ो",
+"C. लोथल",
+"D. कालीबंगन"
+],
+answer:1,
+explanation:"प्रसिद्ध कांस्य नर्तकी की मूर्ति मोहनजोदड़ो से मिली है।"
+},
+
+{
+question:"प्रश्न 20: निम्नलिखित में से कौन-सा महावाक्य बृहदारण्यक उपनिषद में मिलता है? / Which Mahavakya is found in Brihadaranyaka Upanishad?",
+options:[
+"A. तत्त्वमसि",
+"B. प्रज्ञानं ब्रह्म",
+"C. अहं ब्रह्मास्मि",
+"D. अयमात्मा ब्रह्म"
+],
+answer:2,
+explanation:"'अहं ब्रह्मास्मि' बृहदारण्यक उपनिषद का प्रसिद्ध महावाक्य है।"
+}
+
+],
 test3:[],
 test4:[],
 test5:[],
