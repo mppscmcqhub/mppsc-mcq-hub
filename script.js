@@ -1,1 +1,1 @@
-const c=["#1e88e5","#16a34a","#7c3aed","#f97316","#06b6d4","#ec4899","#2563eb","#eab308","#0d9488","#6d28d9"],i=["📖","🏛️","🌍","👤","🧪","🍃","👥","💡","📄","📚"],n=["इतिहास","राजव्यवस्था","भूगोल","अर्थशास्त्र","विज्ञान","पर्यावरण","करेंट अफेयर्स","सामान्य विज्ञान","म.प्र. विशेष","समय अभ्यास"],g=document.getElementById("grid");for(let x=1;x<=10;x++)g.innerHTML+=`<div class="card"><div class="icon" style="background:${c[x-1]}">${i[x-1]}</div><h3>Unit ${x}</h3><p>इकाई ${x} - ${n[x-1]}</p><p>20 Questions</p><button>▶ Start Test</button></div>`;
+// placeholder
