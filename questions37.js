@@ -1,243 +1,146 @@
-window.questions37 = [
-
-{
-q:"प्रश्न 1: निम्न कथनों पर विचार कीजिए। (1) हेलियोडोरस स्तंभ शुंग शासक भागभद्र के समय स्थापित हुआ। (2) हेलियोडोरस स्वयं को 'भगवत' कहता है। (3) यह स्तंभ बेसनगर (विदिशा) में स्थित है। सही उत्तर चुनिए। / Consider the following statements: (1) The Heliodorus Pillar was erected during the reign of the Shunga ruler Bhagabhadra. (2) Heliodorus describes himself as a Bhagavata. (3) The pillar is located at Besnagar (Vidisha). Choose the correct answer.",
-o:[
-"A. केवल 1 और 2 / Only 1 and 2",
-"B. केवल 2 और 3 / Only 2 and 3",
-"C. 1, 2 और 3 तीनों / All 1, 2 and 3",
-"D. केवल 1 और 3 / Only 1 and 3"
-],
-a:2,
-exp:"तीनों कथन सही हैं। हेलियोडोरस स्तंभ भागवत (वैष्णव) परंपरा का प्रारंभिक अभिलेखीय प्रमाण है। / All three statements are correct. The Heliodorus Pillar is one of the earliest epigraphic evidences of the Bhagavata (Vaishnava) tradition."
-},
-
-{
-q:"प्रश्न 2: सही कालक्रम चुनिए। (1) नर्मदा मानव (2) मालवा संस्कृति (3) साँची स्तूप (4) हेलियोडोरस स्तंभ / Arrange the following in chronological order: (1) Narmada Man (2) Malwa Culture (3) Sanchi Stupa (4) Heliodorus Pillar.",
-o:[
-"A. 1-2-3-4",
-"B. 1-2-4-3",
-"C. 2-1-4-3",
-"D. 1-4-2-3"
-],
-a:0,
-exp:"नर्मदा मानव → मालवा संस्कृति → साँची स्तूप → हेलियोडोरस स्तंभ। / Correct sequence: Narmada Man → Malwa Culture → Sanchi Stupa → Heliodorus Pillar."
-},
-
-{
-q:"प्रश्न 3: निम्न युग्मों में कौन-सा गलत है? / Which of the following pairs is incorrect?",
-o:[
-"A. एरण—बीना नदी / Eran—Bina River",
-"B. उदयगिरि—विदिशा / Udayagiri—Vidisha",
-"C. गढ़ा-कटंगा—जबलपुर / Garha-Katanga—Jabalpur",
-"D. महेश्वर—क्षिप्रा नदी / Maheshwar—Shipra River"
-],
-a:3,
-exp:"महेश्वर नर्मदा नदी पर स्थित है। / Maheshwar is situated on the Narmada River."
-},
-
-{
-q:"प्रश्न 4: कथन (A): एरण का वराह शिल्प गुप्तकालीन कला का उत्कृष्ट उदाहरण है। कारण (R): एरण से समुद्रगुप्त और भानुगुप्त के अभिलेख मिले हैं। / Assertion (A): The Varaha sculpture of Eran is an excellent example of Gupta art. Reason (R): Inscriptions of Samudragupta and Bhanugupta have been found at Eran.",
-o:[
-"A. दोनों सही तथा R, A की सही व्याख्या है / Both are correct and R is the correct explanation",
-"B. दोनों सही पर R व्याख्या नहीं है / Both are correct but R is not the correct explanation",
-"C. A सही, R गलत / A is true, R is false",
-"D. A गलत, R सही / A is false, R is true"
-],
-a:1,
-exp:"दोनों कथन सही हैं, लेकिन अभिलेख मिलना वराह शिल्प की उत्कृष्टता का कारण नहीं है। / Both statements are true, but the inscriptions are not the reason for the excellence of the Varaha sculpture."
-},
-
-{
-q:"प्रश्न 5: मालवा संस्कृति का सबसे महत्वपूर्ण पुरातात्विक स्थल कौन-सा है? / Which is the most important archaeological site of the Malwa Culture?",
-o:[
-"A. नवदाटोली / Navdatoli",
-"B. भीमबेटका / Bhimbetka",
-"C. एरण / Eran",
-"D. उदयगिरि / Udayagiri"
-],
-a:0,
-exp:"नवदाटोली मालवा ताम्रपाषाण संस्कृति का प्रमुख स्थल है। / Navdatoli is the major Chalcolithic site of the Malwa Culture."
-},
-
-{
-q:"प्रश्न 6: सही सुमेलित युग्म चुनिए। / Choose the correctly matched pair.",
-o:[
-"A. खजुराहो—चंदेल / Khajuraho—Chandela",
-"B. भोजपुर—परमार / Bhojpur—Parmar",
-"C. महेश्वर—होल्कर / Maheshwar—Holkar",
-"D. उपरोक्त सभी / All of the above"
-],
-a:3,
-exp:"तीनों युग्म सही हैं। / All three pairs are correctly matched."
-},
-
-{
-q:"प्रश्न 7: निम्न कथनों पर विचार कीजिए। (1) राजा भोज ने समरांगण सूत्रधार लिखा। (2) उन्होंने सरस्वतीकंठाभरण की रचना की। (3) उन्होंने भोजपुर बसाया। सही उत्तर चुनिए। / Consider the following statements about Raja Bhoja.",
-o:[
-"A. केवल 1 और 2 / Only 1 and 2",
-"B. केवल 2 और 3 / Only 2 and 3",
-"C. 1, 2 और 3 तीनों / All 1, 2 and 3",
-"D. केवल 1 और 3 / Only 1 and 3"
-],
-a:2,
-exp:"तीनों कथन सही हैं। / All three statements are correct."
-},
-
-{
-q:"प्रश्न 8: सही कालक्रम चुनिए। (1) धंगदेव (2) राजा भोज (3) मान सिंह तोमर (4) अहिल्याबाई होल्कर / Arrange chronologically.",
-o:[
-"A. 1-2-3-4",
-"B. 2-1-3-4",
-"C. 1-3-2-4",
-"D. 2-3-1-4"
-],
-a:0,
-exp:"धंगदेव → राजा भोज → मान सिंह तोमर → अहिल्याबाई। / Correct order: Dhangadeva → Raja Bhoja → Man Singh Tomar → Ahilyabai Holkar."
-},
-
-{
-q:"प्रश्न 9: निम्न में से कौन-सा कथन सही नहीं है? / Which of the following statements is NOT correct?",
-o:[
-"A. खजुराहो में जैन मंदिर भी हैं / Khajuraho also has Jain temples",
-"B. साँची रायसेन में है / Sanchi is in Raisen",
-"C. बेसनगर सागर जिले में है / Besnagar is in Sagar district",
-"D. उदयगिरि विदिशा में है / Udayagiri is in Vidisha"
-],
-a:2,
-exp:"बेसनगर विदिशा जिले में स्थित है। / Besnagar is located in Vidisha district."
-},
-
-{
-q:"प्रश्न 10: MPPSC में सबसे बड़ा Trap Question कौन-सा है? / Which is the biggest MPPSC trap combination?",
-o:[
-"A. महेश्वर—नर्मदा / Maheshwar—Narmada",
-"B. उज्जैन—क्षिप्रा / Ujjain—Shipra",
-"C. भोजपुर—राजा भोज / Bhojpur—Raja Bhoja",
-"D. उपरोक्त सभी / All of the above"
-],
-a:3,
-exp:"ये तीनों संयोजन MPPSC में बार-बार पूछे जाते हैं। / All three combinations are frequently asked in MPPSC."
-},
-
-{
-q:"प्रश्न 11: निम्न कथनों पर विचार कीजिए। (1) बाघ गुफाएँ बौद्ध विहार हैं। (2) उनकी चित्रकला अजंता शैली से मिलती है। (3) वे धार जिले में स्थित हैं। सही उत्तर चुनिए। / Consider the following statements about Bagh Caves.",
-o:[
-"A. केवल 1 और 2 / Only 1 and 2",
-"B. केवल 2 और 3 / Only 2 and 3",
-"C. 1, 2 और 3 तीनों / All 1, 2 and 3",
-"D. केवल 1 और 3 / Only 1 and 3"
-],
-a:2,
-exp:"तीनों कथन सही हैं। / All three statements are correct."
-},
-
-{
-q:"प्रश्न 12: निम्न में से कौन-सा स्मारक गयासुद्दीन खिलजी से संबंधित है? / Which monument is associated with Ghiyas-ud-din Khalji?",
-o:[
-"A. जहाज महल / Jahaz Mahal",
-"B. रूपमती महल / Roopmati Mahal",
-"C. भोजपुर मंदिर / Bhojpur Temple",
-"D. हुसंग शाह का मकबरा / Hoshang Shah's Tomb"
-],
-a:0,
-exp:"जहाज महल गयासुद्दीन खिलजी के समय बना था। / Jahaz Mahal was built during Ghiyas-ud-din Khalji's reign."
-},
-
-{
-q:"प्रश्न 13: कथन (A): रानी दुर्गावती ने आत्मसमर्पण नहीं किया। कारण (R): उन्होंने अंतिम समय में स्वयं का बलिदान दिया। / Assertion (A): Rani Durgavati never surrendered. Reason (R): She sacrificed herself in the final stage of the battle.",
-o:[
-"A. दोनों सही तथा R, A की सही व्याख्या है / Both are correct and R is the correct explanation",
-"B. दोनों सही पर R व्याख्या नहीं है / Both are correct but R is not the explanation",
-"C. A सही, R गलत / A is true, R is false",
-"D. A गलत, R सही / A is false, R is true"
-],
-a:0,
-exp:"दोनों कथन सही हैं और R, A की व्याख्या करता है। / Both statements are correct and R correctly explains A."
-},
-
-{
-q:"प्रश्न 14: सही कालक्रम चुनिए। (1) हेलियोडोरस स्तंभ (2) एरण वराह (3) भोजपुर मंदिर (4) जहाज महल / Arrange chronologically.",
-o:[
-"A. 1-2-3-4",
-"B. 2-1-3-4",
-"C. 1-3-2-4",
-"D. 3-2-1-4"
-],
-a:0,
-exp:"यह सही ऐतिहासिक क्रम है। / This is the correct historical sequence."
-},
-
-{
-q:"प्रश्न 15: निम्न कथनों पर विचार कीजिए। (1) अहिल्याबाई ने महेश्वर को राजधानी बनाया। (2) उन्होंने महेश्वरी साड़ियों को संरक्षण दिया। (3) उन्होंने सोमनाथ और काशी विश्वनाथ के पुनर्निर्माण में योगदान दिया। सही उत्तर चुनिए। / Consider the following statements about Ahilyabai Holkar.",
-o:[
-"A. केवल 1 और 2 / Only 1 and 2",
-"B. केवल 2 और 3 / Only 2 and 3",
-"C. 1, 2 और 3 तीनों / All 1, 2 and 3",
-"D. केवल 1 और 3 / Only 1 and 3"
-],
-a:2,
-exp:"तीनों कथन सही हैं। / All three statements are correct."
-},
-
-{
-q:"प्रश्न 16: निम्न में से कौन-सा स्थल UNESCO विश्व धरोहर नहीं है? / Which of the following is NOT a UNESCO World Heritage Site?",
-o:[
-"A. भीमबेटका / Bhimbetka",
-"B. साँची / Sanchi",
-"C. खजुराहो / Khajuraho",
-"D. मांडू / Mandu"
-],
-a:3,
-exp:"मांडू अभी UNESCO विश्व धरोहर सूची में नहीं है। / Mandu is not yet a UNESCO World Heritage Site."
-},
-
-{
-q:"प्रश्न 17: निम्न में से कौन-सा कथन सही है? / Which statement is correct?",
-o:[
-"A. महेश्वर चंबल पर है / Maheshwar is on Chambal",
-"B. एरण बीना नदी पर है / Eran is on Bina River",
-"C. भोजपुर क्षिप्रा पर है / Bhojpur is on Shipra",
-"D. साँची विदिशा शहर में है / Sanchi is in Vidisha city"
-],
-a:1,
-exp:"एरण बीना नदी के किनारे स्थित है। / Eran is situated on the Bina River."
-},
-
-{
-q:"प्रश्न 18: सही कालक्रम चुनिए। (1) नर्मदा मानव (2) हेलियोडोरस स्तंभ (3) राजा भोज (4) बाज बहादुर / Arrange chronologically.",
-o:[
-"A. 1-2-3-4",
-"B. 2-1-3-4",
-"C. 1-3-2-4",
-"D. 3-2-1-4"
-],
-a:0,
-exp:"यह सही क्रम है। / This is the correct chronological order."
-},
-
-{
-q:"प्रश्न 19: निम्न में से कौन-सा संयोजन MPPSC में सबसे अधिक पूछा जाता है? / Which combination is most frequently asked in MPPSC?",
-o:[
-"A. राजवंश + स्मारक / Dynasty + Monument",
-"B. नदी + जिला / River + District",
-"C. UNESCO + स्थान / UNESCO + Place",
-"D. उपरोक्त सभी / All of the above"
-],
-a:3,
-exp:"तीनों प्रकार के संयोजन MPPSC में महत्वपूर्ण हैं। / All three types of combinations are important in MPPSC."
-},
-
-{
-q:"प्रश्न 20: Final Trap Question: निम्न में से कौन-सा कथन सही नहीं है? / Final Trap Question: Which statement is NOT correct?",
-o:[
-"A. बेसनगर—विदिशा / Besnagar—Vidisha",
-"B. उदयगिरि—गुप्तकाल / Udayagiri—Gupta Period",
-"C. महेश्वर—नर्मदा / Maheshwar—Narmada",
-"D. गढ़ा-कटंगा—धार / Garha-Katanga—Dhar"
-],
-a:3,
-exp:"गढ़ा-कटंगा का केंद्र जबलपुर था, धार नहीं। / Garha-Katanga was centred around Jabalpur, not Dhar."
-}
-
-];
+window.questions = [
+  {
+    question: "1. मध्य प्रदेश की जलवायु मूलतः उष्णकटिबंधीय मानसूनी (Tropical Monsoon) है। राज्य के किस भौगोलिक अंचल में समशीतोष्ण (Temperate) जलवायु पाई जाती है, जहाँ गर्मियों में न तो अत्यधिक गर्मी और सर्दियों में न तो अत्यधिक ठंड पड़ती है? / Which geographical region of MP has a temperate climate characterized by moderate summers and moderate winters?",
+    options: [
+      "A. मालवा का पठार (Malwa Plateau)",
+      "B. उत्तर का मैदानी क्षेत्र",
+      "C. नर्मदा-सोन की गहरी घाटी",
+      "D. विंध्यन का कगारी प्रदेश"
+    ],
+    answer: "A",
+    explanation: "मालवा के पठार की जलवायु को समशीतोष्ण जलवायु कहा जाता है। प्रसिद्ध चीनी यात्री फाहियान ने इसे 'विश्व की सर्वश्रेष्ठ जलवायु' कहा था क्योंकि यहाँ वर्ष भर मौसम अत्यधिक सुहावना और संतुलित रहता है।"
+  },
+  {
+    question: "2. समुद्र से अत्यधिक दूरी के कारण मध्य प्रदेश के उत्तरी मैदान (चंबल और बुंदेलखंड संभाग) में किस प्रकार की जलवायु का प्रभाव पाया जाता है, जिसके कारण वहाँ तापीय विसंगतियाँ अत्यधिक तीव्र होती हैं? / Due to maximum distance from the sea, which type of climate dominates northern MP (Chambal & Bundelkhand)?",
+    options: [
+      "A. महाद्वीपीय प्रकार की जलवायु (Continental Climate)",
+      "B. भूमध्यसागरीय शुष्क जलवायु",
+      "C. उप-आर्द्र पश्चिमी तटीय जलवायु",
+      "D. ध्रुवीय ठंडी जलवायु"
+    ],
+    answer: "A",
+    explanation: "उत्तर का मैदानी क्षेत्र समुद्र से दूर होने के कारण महाद्वीपीय जलवायु (Continental Climate) के प्रभाव में रहता है। यहाँ ग्रीष्म ऋतु में अत्यधिक गर्मी (तापमान 45°C पार) और शीत ऋतु में अत्यधिक कड़ाके की ठंड पड़ती है।"
+  },
+  {
+    question: "3. मध्य प्रदेश में ग्रीष्म ऋतु के दौरान चलने वाली अत्यधिक गर्म और शुष्क स्थानीय हवाओं को 'लू' (Loo) कहा जाता है। ये हवाएँ मुख्य रूप से किस दिशा से आकर राज्य के तापमान को अचानक बढ़ा देती हैं? / From which direction do the hot and dry local winds called 'Loo' primarily blow into MP during summers?",
+    options: [
+      "A. पश्चिम और उत्तर-पश्चिम दिशा से (West and North-West)",
+      "B. पूर्व और दक्षिण-पूर्व दिशा से",
+      "C. सीधे हिंद महासागर की ओर से",
+      "D. हिमालय के तिब्बत पठार की ओर से"
+    ],
+    answer: "A",
+    explanation: "मई-जून में राजस्थान के मरुस्थलीय और शुष्क क्षेत्रों (पश्चिम और उत्तर-पश्चिम) से आने वाली गर्म व शुष्क हवाओं के कारण मप्र के उत्तरी और पश्चिमी जिलों में तीव्र तापीय विसंगतियाँ (लू) उत्पन्न होती हैं।"
+  },
+  {
+    question: "4. मध्य प्रदेश में शीत ऋतु (Winter) के दौरान होने वाली हल्की चक्रवाती वर्षा को 'मावठ' कहा जाता है। यह वर्षा मुख्य रूप से किस भौगोलिक कारण से घटित होती है? / The light winter rainfall in MP called 'Mawath' is primarily caused by which geographical phenomenon?",
+    options: [
+      "A. भूमध्य सागर से उठने वाले पश्चिमी विक्षोभ के कारण (Western Disturbances from the Mediterranean Sea)",
+      "B. बंगाल की खाड़ी के तीव्र अवदाब से",
+      "C. अल-नीनो के दक्षिणी दोलन प्रभाव से",
+      "D. स्थानीय स्तर पर होने वाले संवहन तरंगों से"
+    ],
+    answer: "A",
+    explanation: "सर्दियों में (दिसंबर-जनवरी) भूमध्य सागर से आने वाले पश्चिमी विक्षोभ (Western Disturbances) के कारण मप्र के उत्तरी-पश्चिमी हिस्सों में वर्षा होती है जिसे 'मावठ' कहते हैं। यह रबी की फसल (विशेषकर गेहूँ) के लिए वरदान है।"
+  },
+  {
+    question: "5. मध्य प्रदेश का वह कौन सा एकमात्र स्थान है जहाँ राज्य की सर्वाधिक औसत वार्षिक वर्षा (लगभग 199 सेमी) दर्ज की जाती है और जिसे 'मप्र का चेरापूंजी' कहा जाता है? / Which specific location in MP records the highest average annual rainfall (approx. 199 cm)?",
+    options: [
+      "A. पचमढ़ी, होशंगाबाद / नर्मदापुरम (Pachmarhi - Narmadapuram)",
+      "B. अमरकंटक, अनूपपुर जिला",
+      "C. तामिया, छिंदवाड़ा जिला",
+      "D. मुलताई, बैतुल अंचल"
+    ],
+    answer: "A",
+    explanation: "सतपुड़ा पर्वतमाला की महादेव पहाड़ियों पर स्थित हिल स्टेशन पचमढ़ी में मप्र की सर्वाधिक वर्षा (199 सेमी) दर्ज होती है। इसके विपरीत राज्य का न्यूनतम वर्षा वाला स्थान भिंड जिले का 'गोहद' (Gohad - मात्र 55 सेमी) है।"
+  },
+  {
+    question: "6. मध्य प्रदेश में वर्षा का वितरण दक्षिण-पूर्व से उत्तर-पश्चिम की ओर जाने पर किस प्रकार बदलता है, जो वनस्पति प्रतिरूप को भी प्रभावित करता है? / How does the spatial distribution of rainfall in MP change from South-East to North-West?",
+    options: [
+      "A. वर्षा की मात्रा धीरे-धीरे घटती जाती है (Rainfall density decreases gradually)",
+      "B. वर्षा की मात्रा तेजी से बढ़ती जाती है",
+      "C. वर्षा का प्रतिरूप पूरी तरह अपरिवर्तित रहता है",
+      "D. उत्तर-पश्चिमी जिलों में वर्षा अचानक दोगुनी हो जाती है"
+    ],
+    answer: "A",
+    explanation: "मप्र में मानसूनी हवाएँ दक्षिण-पूर्व (बालाघाट, मण्डला, डिंडोरी) में सर्वाधिक वर्षा (120-150 सेमी) करती हैं। जैसे-जैसे ये हवाएँ उत्तर-पश्चिम (भिंड, मुरैना, रतलाम) की ओर बढ़ती हैं, इनमें नमी कम होती जाती है और वर्षा घटकर 55-75 सेमी रह जाती है।"
+  },
+  {
+    question: "7. मध्य प्रदेश मौसम विज्ञान केंद्र (Meteorological Centre of MP) कहाँ स्थित है और राज्य की एकमात्र आधिकारिक 'मौसम वेधशाला' (Weather Observatory) कहाँ संचालित है? / Where is the Meteorological Centre of MP located and where is the official Weather Observatory operating?",
+    options: [
+      "A. मौसम केंद्र भोपाल में और वेधशाला इंदौर में (Centre in Bhopal & Observatory in Indore)",
+      "B. मौसम केंद्र और वेधशाला दोनों केवल जबलपुर में",
+      "C. मौसम केंद्र इंदौर में और वेधशाला उज्जैन में",
+      "D. मौसम केंद्र ग्वालियर में और वेधशाला भोपाल में"
+    ],
+    answer: "A",
+    explanation: "मध्य प्रदेश का आधिकारिक मौसम विज्ञान केंद्र राजधानी भोपाल में स्थित है, जबकि राज्य की एकमात्र ऋतु/मौसम संबंधी वेधशाला (Weather Observatory) व्यावसायिक राजधानी इंदौर में संचालित है।"
+  },
+  {
+    question: "8. प्रसिद्ध जलवायु वैज्ञानिक कोपेन (Koppen) के वर्गीकरण के अनुसार, मध्य प्रदेश के उत्तरी और मध्य भागों को किस विशिष्ट जलवायु संकेत के अंतर्गत रखा गया है? / According to Koppen's climate classification, the northern and central parts of MP fall under which category?",
+    options: [
+      "A. Cwg - शुष्क शीत मानसूनी जलवायु (Cwg - Dry Winter Monsoon Climate)",
+      "B. Aw - उष्णकटिबंधीय सावाना जलवायु",
+      "C. Bsh - अर्ध-शुष्क स्टेपी मैदान",
+      "D. Amw - मानसूनी वर्षा वन क्षेत्र"
+    ],
+    answer: "A",
+    explanation: "कोपेन के अनुसार मप्र का उत्तरी और मध्य-पूर्वी भाग 'Cwg' (गंगा प्रकार की जलवायु/शुष्क शीत ऋतु) के अंतर्गत आता है, जबकि दक्षिण-पश्चिमी भाग (मालवा/निमाड़ का सिरा) 'Aw' (उष्णकटिबंधीय सावाना) के अंतर्गत वर्गीकृत है।"
+  },
+  {
+    question: "9. मध्य प्रदेश में ग्रीष्म ऋतु को 'यूनाला' और शीत ऋतु को 'सियाला' कहा जाता है। वर्षा ऋतु के चार महीनों को स्थानीय भाषा में किस नाम से पुकारा जाता है? / Summers are called 'Yunala' and winters are 'Siyala' in MP. What is the local name for the rainy season?",
+    options: [
+      "A. चौमासा (Chaumasa)",
+      "B. मावठ",
+      "C. उमस काल",
+      "D. सियाला कछार"
+    ],
+    answer: "A",
+    explanation: "मध्य प्रदेश में ऋतुओं के स्थानीय नाम लोक संस्कृति का हिस्सा हैं: ग्रीष्म ऋतु को 'यूनाला', शीत ऋतु को 'सियाला' और वर्षा ऋतु को 'चौमासा' (चार महीनों का समूह) कहा जाता है।"
+  },
+  {
+    question: "10. मध्य प्रदेश का कौन सा भौतिक भू-भाग गर्मियों में अत्यधिक गर्म होता है, लेकिन सर्दियों में वहाँ सामान्य या सुहावनी ठंड ही पड़ती है, जो विंध्याचल के दक्षिण में स्थित है? / Which physical region of MP is extremely hot in summer but experiences pleasant/moderate cold in winter?",
+    options: [
+      "A. नर्मदा-सोन की संकीर्ण भ्रंश घाटी (Narmada-Son Rift Valley)",
+      "B. मालवा का पठार",
+      "C. बुंदेलखंड का पहाड़ी अंचल",
+      "D. मध्य भारत का पठारी भू-भाग"
+    ],
+    answer: "A",
+    explanation: "नर्मदा घाटी क्षेत्र कर्क रेखा के निकट और विंध्याचल व सतपुड़ा के बीच संकीर्ण गहरी स्थिति में होने के कारण गर्मियों में अत्यधिक गर्म (तापमान 40°C - 45°C) हो जाता है, परंतु सर्दियों में यहाँ मौसम अपेक्षाकृत सुहावना रहता है।"
+  },
+  {
+    question: "11. मध्य प्रदेश में वर्षा मुख्य रूप से जून से सितंबर के मध्य होती है। राज्य में मानसून के आगमन की सामान्य आधिकारिक तिथि क्या मानी जाती है? / What is the standard official date for the onset of the monsoon in Madhya Pradesh?",
+    options: [
+      "A. 10 से 15 जून के मध्य (10th to 15th June)",
+      "B. 1 मई निश्चित",
+      "C. 1 जुलाई के बाद हमेशा",
+      "D. 30 मार्च के आस-पास"
+    ],
+    answer: "A",
+    explanation: "केरल तट पर 1 जून को टकराने के बाद, दक्षिण-पश्चिम मानसून की अरब सागर और बंगाल की खाड़ी शाखाएँ तीव्र गति से बढ़ती हुई 10 से 15 जून के मध्य मध्य प्रदेश के दक्षिणी-पूर्वी हिस्सों (अमरकंटक/बालाघाट) में प्रवेश करती हैं।"
+  },
+  {
+    question: "12. मध्य प्रदेश का वह कौन सा पश्चिमी जिला है जहाँ औसत वार्षिक वर्षा राज्य में सबसे कम (मात्र 55-60 सेमी) दर्ज होती है और जहाँ सूखा प्रबंधन योजनाएँ सक्रिय हैं? / Which western/northern district of MP records the lowest average annual rainfall (approx. 55 cm)?",
+    options: [
+      "A. भिंड - गोहद अंचल (Bhind - Gohad)",
+      "B. झाबुआ जिला",
+      "C. बड़वानी जिला",
+      "D. मंदसौर जिला"
+    ],
+    answer: "A",
+    explanation: "भिंड जिले का 'गोहद' (Gohad) अंचल मध्य प्रदेश का सबसे कम वर्षा वाला स्थान है, जहाँ मानसून की दोनों शाखाओं के कमजोर पड़ने के कारण मात्र 55 सेमी की औसत वार्षिक वर्षा ही दर्ज हो पाती है।"
+  },
+  {
+    question: "13. जलवायु वैज्ञानिकों के अनुसार, मध्य प्रदेश के विंध्य पर्वतीय क्षेत्र (जैसे दमोह, सागर, कटनी) में किस प्रकार की जलवायु दशाएँ पाई जाती हैं? / According to climatologists, what type of climatic conditions are found in the Vindhyan mountain region of MP?",
+    options: [
+      "A. समशीतोष्ण और स्वास्थ्यवर्धक शुष्क जलवायु (Temperate and healthy dry climate)",
+      "B. कड़ाके की गर्मी और कड़ाके की ठंड हमेशा",
+      "C. पूरे वर्ष दलदली और अत्यधिक आर्द्र नम मौसम",
+      "D. पूरी तरह से शुष्क मरुस्थलीय दशाएँ"
+    ],
+    answer: "A",
+    explanation: "विंध्य पर्वतीय क्षेत्र की ऊँचाई और वनों की प्रचुरता के कारण यहाँ की जलवायु समशीतोष्ण और अत्यधिक स्वास्थ्यवर्धक मानी जाती है। यहाँ गर्मियों में अधिक गर्मी नहीं होती और सर्दियों में ठंड सामान्य पड़ती है।"
+  },
+  {
+question: "14. मध्य प्रदेश में 'तापीय विसंगति' या सर्वाधिक तापमान (Highest Recorded Temperature) ऐतिहासिक रूप से किस स्थान पर दर्ज किया गया है, जो विंध्य और बुंदेलखंड की सीमा पर है? / Historically, which location in MP has recorded the highest temperature anomalies during peak summers?",options: ["A. गंजबासौदा - विदिशा जिला / खजुराहो (Ganjbasoda - Vidisha / Khajuraho)","B. पचमढ़ी हिल स्टेशन","C. इंदौर शहर","D. सिवनी का पठार"],answer: "A",explanation: "मध्य प्रदेश में सर्वाधिक तापमान आधिकारिक रूप से विदिशा जिले के 'गंजबासौदा' (Ganjbasoda) में 48.9°C दर्ज किया गया था। हाल के वर्षों में खजुराहो, बड़वानी और नौगांव (छतरपुर) में भी तापीय विसंगतियाँ अत्यधिक तीव्र दर्ज की गई हैं।"},{question: "15. वर्षा ऋतु के अंत में सितंबर-अक्टूबर के महीने में वातावरण में अचानक बढ़ने वाली अत्यधिक उमस और गर्मी को स्थानीय स्तर पर क्या कहा जाता है? / What is the sudden rise in humidity and temperature during September-October called locally in MP?",options: ["A. द्वितीय ग्रीष्म ऋतु (Second Summer / अक्टूबर हीट)","B. लौटता हुआ मावठ","C. यूनाला कछार","D. पाला काल"],answer: "A",explanation: "मानसून की विदाई (सितंबर के अंत) के समय आसमान साफ हो जाता है और तेज धूप के कारण आर्द्र भूमि से पानी का वाष्पीकरण होता है, जिससे भयंकर उमस होती है। इसे 'अक्टूबर हीट' या 'द्वितीय ग्रीष्म ऋतु' (Second Summer) कहा जाता है।"},{question: "16. मध्य प्रदेश के किस हिस्से में अरब सागर (Arabian Sea) और बंगाल की खाड़ी (Bay of Bengal) दोनों मानसून शाखाओं से वर्षा प्राप्त होती है, जिससे वह अत्यधिक जैव-विविधता संपन्न क्षेत्र है? / Which part of MP receives rainfall from both the Arabian Sea and the Bay of Bengal monsoon branches?",options: ["A. दक्षिण-पूर्वी और विंध्यन पर्वतीय क्षेत्र (South-Eastern and Eastern Vindhyan Region)","B. केवल उत्तर-पश्चिमी चंबल कछार","C. मालवा का पश्चिमी सिरा","D. ग्वालियर-दतिया का मैदानी क्षेत्र"],answer: "A",explanation: "मप्र के दक्षिण-पूर्वी भाग (मैकल श्रेणी, अमरकंटक, पचमढ़ी) में अरब सागर और बंगाल की खाड़ी दोनों ओर से आने वाली मानसूनी हवाएँ आपस में टकराती हैं, जिसके कारण इस क्षेत्र में भारी और सघन वर्षा होती है।"},{question: "17. मध्य प्रदेश के शुष्क पश्चिमी जिलों (झाबुआ, धार, रतलाम) में औसत वार्षिक वर्षा का प्रतिरूप सामान्यतः कितने सेंटीमीटर के बीच ही सीमित रहता है? / The average annual rainfall in the dry western districts of MP (Jhabua, Dhar) is limited to which range?",options: ["A. 50 से 75 सेंटीमीटर के मध्य (50 to 75 cm)","B. 150 से 200 सेंटीमीटर के मध्य","C. 25 सेंटीमीटर से कम हमेशा","D. 100 से 120 सेंटीमीटर के मध्य"],answer: "A",explanation: "मप्र का पश्चिमी भाग अल्प वर्षा क्षेत्र के अंतर्गत आता है। समुद्र के मानसूनी बादलों की दूरी और अरावली की स्थिति के कारण यहाँ औसतन मात्र 50 से 75 सेमी के बीच ही वर्षा हो पाती है, जिससे यह क्षेत्र सूखा प्रवण माना जाता है।"},{question: "18. मध्य प्रदेश में न्यूनतम तापमान (Lowest Recorded Temperature) शीत ऋतु के दौरान सामान्यतः किस जिले में दर्ज किया जाता है, जिसे राज्य का सबसे ठंडा स्थान माना जाता है? / During winters, the lowest temperature is generally recorded in which district/city of MP?",options: ["A. शिवपुरी शहर (Shivpuri Town)","B. इंदौर शहर","C. बुरहानपुर जिला","D. सिंगरौली ऊर्जा नगर"],answer: "A",explanation: "शीत ऋतु (दिसंबर-जनवरी) में मध्य प्रदेश का सबसे ठंडा स्थान 'शिवपुरी' (Shivpuri) माना जाता है, जहाँ तापमान कभी-कभी 2°C से 4°C तक गिर जाता है। पचमढ़ी में भी ऊँचाई के कारण तीव्र ठंड पड़ती है।"},{question: "19. मध्य प्रदेश की जलवायु को प्रभावित करने वाला 'इंटर-ट्रॉपिकल कन्वर्जेंस ज़ोन' (ITCZ) ग्रीष्म ऋतु में उत्तर की ओर खिसक जाता है। इसका राज्य के मौसम पर क्या प्रभाव पड़ता है? / What is the impact of the northward shifting of the ITCZ on MP's weather during summers?",options: ["A. राज्य में तीव्र निम्न दाब का क्षेत्र बनता है जो मानसूनी हवाओं को आकर्षित करता है (Creates a low-pressure zone attracting monsoon winds)","B. कड़ाके की ठंड और पाला पड़ने लगता है","C. वर्षा पूरी तरह रुक जाती है और अकाल पड़ता है","D. हवा की गति पूरी तरह शून्य हो जाती है"],answer: "A",explanation: "ITCZ के उत्तर की ओर (गंगा के मैदान और मप्र के ऊपर) खिसकने से अत्यधिक गर्मी के कारण एक विशाल 'निम्न वायुदाब केंद्र' (Low Pressure Trough) बनता है। यही निम्न दाब हिंद महासागर से आने वाली उच्च दाब की मानसूनी हवाओं को भारत और मप्र की ओर खींचने का मुख्य कारण बनता है।"},{question: "20. मध्य प्रदेश की समूची अर्थव्यवस्था मुख्य रूप से 'कृषि आधारित' है। राज्य के सकल घरेलू उत्पाद (GSDP) पर मानसूनी वर्षा की विसंगतियों का क्या प्रभाव पड़ता है? / How do monsoonal anomalies impact the GSDP and agrarian economy of Madhya Pradesh?",options: ["A. मानसून की अनिश्चितता सीधे तौर पर फसलों के उत्पादन और राज्य के आर्थिक विकास दर को प्रभावित करती है (Directly affects crop yield and economic growth rate)","B. मप्र की कृषि पूरी तरह से वर्षा पर निर्भर नहीं है, इसलिए कोई प्रभाव नहीं पड़ता","C. खराब मानसून से उद्योगों का उत्पादन अचानक दोगुना हो जाता है","D. इससे केवल शहरी रियल एस्टेट क्षेत्र को ही लाभ होता है"],answer: "A",explanation: "मप्र में बड़े पैमाने पर खरीफ (सोयाबीन, धान) और रबी की फसलें होती हैं। मानसून की विसंगतियाँ (देरी से आना या सूखा पड़ना) सीधे तौर पर कृषि उत्पादन को घटा देती हैं, जिसका विपरीत प्रभाव राज्य के सकल घरेलू उत्पाद (GSDP) और ग्रामीण क्रय शक्ति पर पड़ता है।"}];
