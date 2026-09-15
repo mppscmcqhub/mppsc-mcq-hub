@@ -1,168 +1,112 @@
-window.questions24 = [
-
-{
-q:"प्रश्न 1: निम्नलिखित में से किस शासक को 'मालवा का विक्रमादित्य' कहा जाता है? / Who is known as the 'Vikramaditya of Malwa'?",
-o:["राजा भोज / Raja Bhoja","मुंज / Munja","सिंधुराज / Sindhuraja","धंगदेव / Dhangadeva"],
-a:0,
-exp:"राजा भोज को उनके विद्वतापूर्ण शासन के कारण 'मालवा का विक्रमादित्य' कहा जाता है। / Raja Bhoja is called the Vikramaditya of Malwa."
-},
-
-{
-q:"प्रश्न 2: निम्न में से कौन-सा स्थल अशोक के शिलालेखों से संबंधित है? / Which site is associated with Ashokan inscriptions?",
-o:["साँची / Sanchi","उदयगिरि / Udayagiri","खजुराहो / Khajuraho","मांडू / Mandu"],
-a:1,
-exp:"उदयगिरि (विदिशा) अशोक के अभिलेखों से जुड़ा है। / Udayagiri is associated with Ashokan inscriptions."
-},
-
-{
-q:"प्रश्न 3: भीमबेटका की गुफाओं का काल किस युग से माना जाता है? / Bhimbetka caves belong mainly to which age?",
-o:["पुरापाषाण से मध्यपाषाण / Paleolithic to Mesolithic","कांस्य युग / Bronze Age","लौह युग / Iron Age","वैदिक काल / Vedic Age"],
-a:0,
-exp:"भीमबेटका में पुरापाषाण और मध्यपाषाण काल के साक्ष्य मिलते हैं। / Evidence ranges from Paleolithic to Mesolithic."
-},
-
-{
-q:"प्रश्न 4: निम्न युग्मों में कौन-सा सही है? / Which pair is correctly matched?",
-o:[
-"उदयगिरि — विदिशा / Udayagiri — Vidisha",
-"साँची — रायसेन / Sanchi — Raisen",
-"खजुराहो — सागर / Khajuraho — Sagar",
-"भोजपुर — उज्जैन / Bhojpur — Ujjain"
-],
-a:0,
-exp:"उदयगिरि विदिशा जिले में स्थित है। / Udayagiri is in Vidisha."
-},
-
-{
-q:"प्रश्न 5: निम्न कथनों पर विचार कीजिए। (1) भोजपुर शिव मंदिर अधूरा है। (2) इसका निर्माण राजा भोज ने कराया। सही उत्तर चुनिए। / Consider the statements about Bhojpur Temple.",
-o:[
-"केवल 1 / Only 1",
-"केवल 2 / Only 2",
-"दोनों सही / Both are correct",
-"दोनों गलत / Both are incorrect"
-],
-a:2,
-exp:"दोनों कथन सही हैं। / Both statements are correct."
-},
-
-{
-q:"प्रश्न 6: परमार वंश के मुंज का वास्तविक नाम क्या था? / What was the real name of Munja of the Parmar Dynasty?",
-o:["वाक्पति द्वितीय / Vakpati II","सिंधुराज / Sindhuraja","भोज / Bhoja","उदयादित्य / Udayaditya"],
-a:0,
-exp:"मुंज का वास्तविक नाम वाक्पति द्वितीय था। / Munja was Vakpati II."
-},
-
-{
-q:"प्रश्न 7: ग्वालियर दुर्ग में स्थित 'सास-बहू मंदिर' किस स्थापत्य शैली का उदाहरण है? / Sas-Bahu Temple at Gwalior Fort is an example of:",
-o:["नागर शैली / Nagara Style","द्रविड़ शैली / Dravida Style","वेसर शैली / Vesara Style","इंडो-इस्लामिक / Indo-Islamic"],
-a:0,
-exp:"यह नागर शैली का उत्कृष्ट उदाहरण है। / It is an example of Nagara architecture."
-},
-
-{
-q:"प्रश्न 8: निम्न में से कौन-सा गुप्तकालीन स्थल है? / Which is a Gupta-period site?",
-o:["उदयगिरि / Udayagiri","मांडू / Mandu","खजुराहो / Khajuraho","महेश्वर / Maheshwar"],
-a:0,
-exp:"उदयगिरि की गुफाएँ गुप्तकालीन हैं। / Udayagiri caves belong to the Gupta period."
-},
-
-{
-q:"प्रश्न 9: साँची स्तूप के चार तोरण किस काल में जोड़े गए? / The four gateways of Sanchi were added during:",
-o:["शुंग काल / Shunga Period","मौर्य काल / Mauryan Period","गुप्त काल / Gupta Period","चंदेल काल / Chandela Period"],
-a:0,
-exp:"तोरणों का निर्माण शुंग काल में हुआ। / The gateways were added during the Shunga period."
-},
-
-{
-q:"प्रश्न 10: निम्न में से कौन-सा स्थल बौद्ध, जैन और हिंदू तीनों परंपराओं से जुड़ा है? / Which site is associated with Buddhist, Jain and Hindu traditions?",
-o:["उदयगिरि / Udayagiri","खजुराहो / Khajuraho","ग्वालियर / Gwalior","साँची / Sanchi"],
-a:0,
-exp:"उदयगिरि क्षेत्र तीनों परंपराओं से जुड़ा है। / Udayagiri is linked with all three traditions."
-},
-
-{
-q:"प्रश्न 11: गोंड शासिका रानी दुर्गावती के पति का नाम क्या था? / Who was the husband of Rani Durgavati?",
-o:["दलपत शाह / Dalpat Shah","संग्राम शाह / Sangram Shah","मान सिंह / Man Singh","आसफ खाँ / Asaf Khan"],
-a:0,
-exp:"दलपत शाह रानी दुर्गावती के पति थे। / Dalpat Shah was her husband."
-},
-
-{
-q:"प्रश्न 12: निम्न में से कौन-सा शासक परमार वंश का नहीं था? / Which ruler did NOT belong to the Parmar Dynasty?",
-o:["सिंधुराज / Sindhuraja","मुंज / Munja","धंगदेव / Dhangadeva","राजा भोज / Raja Bhoja"],
-a:2,
-exp:"धंगदेव चंदेल वंश के शासक थे। / Dhangadeva belonged to the Chandela dynasty."
-},
-
-{
-q:"प्रश्न 13: खजुराहो समूह में सबसे बड़ा मंदिर कौन-सा है? / Which is the largest temple in the Khajuraho group?",
-o:["कंदारिया महादेव / Kandariya Mahadeva","लक्ष्मण मंदिर / Lakshmana Temple","विश्वनाथ मंदिर / Vishwanath Temple","चित्रगुप्त मंदिर / Chitragupta Temple"],
-a:0,
-exp:"कंदारिया महादेव सबसे बड़ा मंदिर है। / Kandariya Mahadeva is the largest."
-},
-
-{
-q:"प्रश्न 14: निम्न कथनों पर विचार कीजिए। (1) महेश्वर नर्मदा के किनारे है। (2) अहिल्याबाई होल्कर ने इसे अपनी राजधानी बनाया। सही उत्तर चुनिए। / Consider the statements about Maheshwar.",
-o:[
-"केवल 1 / Only 1",
-"केवल 2 / Only 2",
-"दोनों सही / Both are correct",
-"दोनों गलत / Both are incorrect"
-],
-a:2,
-exp:"दोनों कथन सही हैं। / Both statements are correct."
-},
-
-{
-q:"प्रश्न 15: निम्न में से किस स्थान का संबंध 'भोजशाला' से है? / Which place is associated with Bhojshala?",
-o:["धार / Dhar","उज्जैन / Ujjain","विदिशा / Vidisha","ग्वालियर / Gwalior"],
-a:0,
-exp:"भोजशाला धार में स्थित है। / Bhojshala is located in Dhar."
-},
-
-{
-q:"प्रश्न 16: मध्य प्रदेश में 'गढ़ा-कटंगा' किस राजवंश का प्रमुख केंद्र था? / Garha-Katanga was the main center of which dynasty?",
-o:["गोंड / Gond","परमार / Parmar","चंदेल / Chandela","तोमर / Tomar"],
-a:0,
-exp:"गढ़ा-कटंगा गोंड राज्य का प्रमुख केंद्र था। / It was a major Gond center."
-},
-
-{
-q:"प्रश्न 17: निम्न में से कौन-सा स्थान यूनेस्को विश्व धरोहर नहीं है? / Which is NOT a UNESCO World Heritage Site?",
-o:["साँची / Sanchi","भीमबेटका / Bhimbetka","खजुराहो / Khajuraho","भोजपुर / Bhojpur"],
-a:3,
-exp:"भोजपुर यूनेस्को विश्व धरोहर सूची में नहीं है। / Bhojpur is not a UNESCO World Heritage Site."
-},
-
-{
-q:"प्रश्न 18: निम्न में से किस शासक ने धार को विद्या का प्रमुख केंद्र बनाया? / Who made Dhar a major center of learning?",
-o:["राजा भोज / Raja Bhoja","मुंज / Munja","सिंधुराज / Sindhuraja","यशोवर्मन / Yashovarman"],
-a:0,
-exp:"राजा भोज ने धार को शिक्षा का प्रमुख केंद्र बनाया। / Raja Bhoja made Dhar a center of learning."
-},
-
-{
-q:"प्रश्न 19: निम्न में से कौन-सा युग्म गलत है? / Which pair is incorrectly matched?",
-o:[
-"भीमबेटका — रायसेन / Bhimbetka — Raisen",
-"उदयगिरि — विदिशा / Udayagiri — Vidisha",
-"खजुराहो — रीवा / Khajuraho — Rewa",
-"महेश्वर — नर्मदा / Maheshwar — Narmada"
-],
-a:2,
-exp:"खजुराहो छतरपुर जिले में स्थित है। / Khajuraho is in Chhatarpur."
-},
-
-{
-q:"प्रश्न 20: निम्न कथनों पर विचार कीजिए। (1) कंदारिया महादेव मंदिर खजुराहो का सबसे बड़ा मंदिर है। (2) इसका निर्माण चंदेल शासकों ने कराया। सही उत्तर चुनिए। / Consider the statements about Kandariya Mahadeva Temple.",
-o:[
-"केवल 1 / Only 1",
-"केवल 2 / Only 2",
-"दोनों सही / Both are correct",
-"दोनों गलत / Both are incorrect"
-],
-a:2,
-exp:"दोनों कथन सही हैं। / Both statements are correct."
-}
-
+window.questions = [
+  {
+    question: "1. भारतीय वन स्थिति रिपोर्ट (ISFR) के अनुसार, क्षेत्रफल की दृष्टि से भारत का वह कौन सा राज्य है जहाँ सबसे विशाल वन क्षेत्र (Largest Forest Cover) पाया जाता है? / According to the India State of Forest Report (ISFR), which Indian state possesses the largest forest cover by area?",
+    options: [
+      "A. मध्य प्रदेश (Madhya Pradesh)",
+      "B. अरुणाचल प्रदेश",
+      "C. छत्तीसगढ़",
+      "D. ओडिशा"
+    ],
+    answer: "A",
+    explanation: "मध्य प्रदेश में भारत का सबसे बड़ा वन क्षेत्र है, जो राज्य के कुल भौगोलिक क्षेत्रफल का लगभग 25.14% हिस्सा (77,493 वर्ग किमी) कवर करता है। प्रतिशत की दृष्टि से मिजोरम शीर्ष पर है।"
+  },
+  {
+    question: "2. वन विभाग के प्रशासनिक वर्गीकरण के अनुसार, मध्य प्रदेश में किस प्रकार के वनों का प्रतिशत सर्वाधिक पाया जाता है, जहाँ कड़े नियमों के तहत पशुचारण और लकड़ी काटना पूरी तरह प्रतिबंधित होता है? / According to administrative classification, which forest category has strict legal protection with zero tolerance for grazing and logging in MP?",
+    options: [
+      "A. आरक्षित वन (Reserved Forests)",
+      "B. संरक्षित वन (Protected Forests)",
+      "C. अवर्गीकृत वन",
+      "D. निजी सामुदायिक वन"
+    ],
+    answer: "A",
+    explanation: "प्रशासनिक दृष्टि से मप्र के वनों को तीन भागों में बांटा गया है: 1. आरक्षित वन (Reserved - 65.36%, पूर्णतः प्रतिबंधित), 2. संरक्षित वन (Protected - 32.84%, सीमित छूट), और 3. अवर्गीकृत वन (Unclassified - 1.80%)।"
+  },
+  {
+    question: "3. मध्य प्रदेश के वनों में बहुतायत में पाए जाने वाले 'सागौन' (Teak / Tectona grandis) के वृक्षों के संबंध में कौन सा भौगोलिक तथ्य सत्य है? / Which geographical fact is TRUE regarding the Teak (Tectona grandis) forests of Madhya Pradesh?",
+    options: [
+      "A. ये उष्णकटिबंधीय अर्ध-पर्णपाती वनों का हिस्सा हैं और मप्र के कुल वन क्षेत्र के सर्वाधिक हिस्से (लगभग 19.36%) पर विस्तृत हैं (Teak covers the highest percentage of MP's total forest area)",
+      "B. ये केवल दलदली और अत्यधिक रेतीली मिट्टी में उगते हैं",
+      "C. सागौन के वन केवल बुंदेलखंड के उत्तरी भाग में ही सीमित हैं",
+      "D. मप्र में सागौन के वनों का प्रतिशत साल के वनों से बहुत कम है"
+    ],
+    answer: "A",
+    explanation: "सागौन मध्य प्रदेश की सबसे प्रमुख वन प्रजाति है, जो राज्य के कुल वन क्षेत्र के 19.36% भाग पर पाई जाती है। इसके लिए काली-दोमट मिट्टी और 75-125 सेमी वर्षा उपयुक्त होती है। होशंगाबाद का 'बोरी अभ्यारण्य' (Bori Reserve) सर्वश्रेष्ठ सागौन वनों के लिए प्रसिद्ध है।"
+  },
+  {
+    question: "4. मध्य प्रदेश का वह कौन सा पहला राष्ट्रीय उद्यान (First National Park) है, जहाँ 'भूरसिंह द बारासिंघा' (Bhoorsingh the Barasingha) नामक आधिकारिक शुभंकर (Mascot) जारी किया गया है? / Which is the first National Park of MP to introduce an official mascot named 'Bhoorsingh the Barasingha'?",
+    options: [
+      "A. कान्हा किसली राष्ट्रीय उद्यान (Kanha National Park)",
+      "B. बांधवगढ़ राष्ट्रीय उद्यान",
+      "C. पेंच राष्ट्रीय उद्यान",
+      "D. माधव राष्ट्रीय उद्यान"
+    ],
+    answer: "A",
+    explanation: "मंडला और बालाघाट जिलों में विस्तृत कान्हा किसली मप्र का सबसे बड़ा और पहला राष्ट्रीय उद्यान (1955) है। वर्ष 2017 में प्रसिद्ध कार्टूनिस्ट रोहन चक्रवर्ती के डिज़ाइन किए गए 'भूरसिंह द बारासिंघा' शुभंकर को अपनाने वाला यह भारत का पहला राष्ट्रीय उद्यान बना, जो दुर्लभ ब्रेडरी प्रजाति के बारहसिंघा को दर्शाता है।"
+  },
+  {
+    question: "5. मध्य प्रदेश का वह कौन सा राष्ट्रीय उद्यान है जो 32 पहाड़ियों (32 Hills) से घिरा हुआ है और जहाँ भारत में बाघों का सर्वाधिक घनत्व (Highest Density of Tigers) पाया जाता है? / Which National Park of MP is surrounded by 32 hills and is famous for the highest density of tigers?",
+    options: [
+      "A. बांधवगढ़ राष्ट्रीय उद्यान (Bandhavgarh National Park)",
+      "B. सतपुड़ा राष्ट्रीय उद्यान",
+      "C. पन्ना राष्ट्रीय उद्यान",
+      "D. संजय दुबरी राष्ट्रीय उद्यान"
+    ],
+    answer: "A",
+    explanation: "उमरिया जिले में स्थित बांधवगढ़ राष्ट्रीय उद्यान (1968) विंध्याचल की 32 पहाड़ियों से घिरा है। यहाँ हर 8 किमी पर एक बाघ पाया जाता है, जो देश में बाघों का सर्वाधिक घनत्व है। यहीं से ऐतिहासिक 'चार्ज' नामक बाघ और 'सीता' नामक बाघिन विश्व प्रसिद्ध हुए थे।"
+  },
+  {
+    question: "6. शिवपुरी जिले में स्थित 'माधव राष्ट्रीय उद्यान' (Madhav National Park) के भीतर ऊँची पहाड़ी पर स्थित प्रसिद्ध 'जॉर्ज कैसल' (George Castle) भवन का निर्माण किस ब्रिटिश राजा के स्वागत के लिए 1911 में कराया गया था? / The famous George Castle inside Madhav National Park, Shivpuri was built in 1911 to welcome which British King?",
+    options: [
+      "A. किंग जॉर्ज पंचम (King George V)",
+      "B. किंग एडवर्ड सप्तम",
+      "C. प्रिंस ऑफ वेल्स",
+      "D. कर्नल स्लीमैन"
+    ],
+    answer: "A",
+    explanation: "सिंधिया राजाओं के शाही शिकार गाह रहे माधव राष्ट्रीय उद्यान (1958) में ग्वालियर के महाराजा माधवराव सिंधिया ने ब्रिटिश सम्राट जॉर्ज पंचम के एक रात रुकने और शिकार के लिए जॉर्ज कैसल भवन बनवाया था, हालांकि राजा वहां पहुँचने से पहले ही शिकार कर चुके थे। इस उद्यान से राष्ट्रीय राजमार्ग 46 गुजरता है।"
+  },
+  {
+    question: "7. मध्य प्रदेश के किस राष्ट्रीय उद्यान को 'मोगली लैंड' (Mogli Land) के रूप में विकसित किया गया है, जो रुडयार्ड किपलिंग की प्रसिद्ध कृति 'द जंगल बुक' का मुख्य प्रेरणा स्रोत रहा है? / Which National Park of MP is developed as 'Mogli Land', inspiring Rudyard Kipling's famous work 'The Jungle Book'?",
+    options: [
+      "A. पेंच राष्ट्रीय उद्यान / प्रियदर्शिनी (Pench National Park)",
+      "B. कान्हा किसली उद्यान",
+      "C. वन विहार उद्यान",
+      "D. जीवाश्म राष्ट्रीय उद्यान"
+    ],
+    answer: "A",
+    explanation: "सिवनी और छिंदवाड़ा जिलों तथा महाराष्ट्र की सीमा पर स्थित पेंच राष्ट्रीय उद्यान का नाम बदलकर 'इंदिरा गांधी प्रियदर्शिनी राष्ट्रीय उद्यान' किया गया है। यहाँ की प्राकृतिक संरचना और भेड़ियों के कुनबे को देखकर रुडयार्ड किपलिंग ने मोगली के चरित्र की रचना की थी। यहाँ प्रतिवर्ष 'मोगली उत्सव' मनाया जाता है।"
+  },
+  {
+    question: "8. पन्ना राष्ट्रीय उद्यान (Panna National Park) के बीच से बहने वाली वह कौन सी मुख्य नदी है, जिसे इस राष्ट्रीय उद्यान की 'जीवन रेखा' (Lifeline) कहा जाता है? / Which major river flows through the center of Panna National Park and is considered its lifeline?",
+    options: [
+      "A. केन नदी (Ken River)",
+      "B. बेतवा नदी",
+      "C. सोन नदी",
+      "D. चंबल नदी"
+    ],
+    answer: "A",
+    explanation: "केन नदी पन्ना राष्ट्रीय उद्यान के बीच से उत्तर की ओर बहती है। यह उद्यान के वन्यजीवों के लिए पानी का मुख्य स्रोत है। केन-बेतवा लिंक परियोजना के कारण इस राष्ट्रीय उद्यान का एक बड़ा हिस्सा डूब क्षेत्र के अंतर्गत आने के कारण चर्चा में है।"
+  },
+  {
+    question: "9. मध्य प्रदेश के भोपाल शहर के ठीक बीच में स्थित 'वन विहार राष्ट्रीय उद्यान' (Van Vihar National Park) को किस अनूठी और आधुनिक प्रशासनिक श्रेणी के अंतर्गत प्रबंधित किया जाता है? / Under which unique administrative category is Van Vihar National Park in Bhopal managed?",
+    options: [
+      "A. यह एक राष्ट्रीय उद्यान होने के साथ-साथ एक आधुनिक चिड़ियाघर (In-situ Zoo) और वन्यप्राणी रेस्क्यू सेंटर है (National Park managed as a modern Zoo & Rescue Centre)",
+      "B. यह पूरी तरह से बंद निजी बायोस्फीयर रिजर्व है",
+      "C. यहाँ केवल विदेशी प्रवासी पक्षियों को ही रखा जाता है",
+      "D. यह भारत का सबसे बड़ा बाघ आरक्षित क्षेत्र है"
+    ],
+    answer: "A",
+    explanation: "वर्ष 1979 में स्थापित वन विहार एक अनूठा राष्ट्रीय उद्यान है जो केंद्रीय चिड़ियाघर प्राधिकरण (CZA) द्वारा मान्यता प्राप्त जू (Zoo) भी है। यहाँ घायल वन्यजीवों का रेस्क्यू और ब्रीडिंग (जैसे गिद्ध प्रजनन केंद्र) किया जाता है। यहाँ पर्यटकों को पैदल या साइकिल से घूमने की अनुमति है।"
+  },
+  {
+    question: "10. मध्य प्रदेश का वह कौन सा सबसे छोटा राष्ट्रीय उद्यान (Smallest National Park) है जो डिंडोरी जिले में स्थित है और जहाँ करोड़ों वर्ष पुराने पौधों और पेड़ों के जीवाश्मों को संरक्षित किया गया है? / Which is the smallest National Park of MP, located in Dindori district, preserving millions of years old plant fossils?",
+    options: [
+      "A. फॉसिल जीवाश्म राष्ट्रीय उद्यान, घूघवा (Fossil National Park, Ghughwa)",
+      "B. डायनासोर जीवाश्म उद्यान, धार",
+      "C. कूनो राष्ट्रीय उद्यान, श्योपुर",
+      "D. ओंकारेश्वर राष्ट्रीय उद्यान"
+    ],
+    answer: "A",
+    explanation: "डिंडोरी जिले के शाहपुरा के पास स्थित 'घुघवा जीवाश्म राष्ट्रीय उद्यान' मध्य प्रदेश का सबसे छोटा राष्ट्रीय उद्यान है, जिसका क्षेत्रफल मात्र 0.27 वर्ग किमी है। यहाँ लगभग 6.5 करोड़ वर्ष पुराने पौधों, फलों और पत्तों के जीवाश्म (Fossils) संरक्षित हैं।"
+  }
 ];
