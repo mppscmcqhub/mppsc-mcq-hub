@@ -37,18 +37,18 @@ textarea{width:100%}
 </div>
 
 <script>
-// 1. URL से Unit और Test पैरामीटर प्राप्त करें
+// 1. URL से Unit और Test पैरामीटर पढ़ें
 const params = new URLSearchParams(window.location.search);
 const unit = Number(params.get("unit")) || 1;
 const test = Number(params.get("test")) || 1;
 
-// 2. सही फाइल नंबर की गणना (1 से 200)
+// 2. 10 Unit × 20 Test = 200 Files का सही गणित
 const fileNo = (unit - 1) * 20 + test;
 
-// 3. पुरानी फाइल के डेटा को मेमोरी से पूरी तरह डिलीट/क्लियर करें
+// 3. पुरानी फाइल के डेटा को मेमोरी (Global Scope) से पूरी तरह साफ करें
 window.questions = null;
 
-// 4. नया स्क्रिप्ट टैग बनाकर फ़ाइल लोड करें (Cache-Busting के साथ)
+// 4. नया स्क्रिप्ट टैग बनाकर सही फाइल लोड करें (Cache-Busting ?v= के साथ)
 const script = document.createElement("script");
 script.src = `questions${fileNo}.js?v=${new Date().getTime()}`;
 
@@ -57,12 +57,12 @@ script.onload = () => {
     if (window.questions && Array.isArray(window.questions)) {
         loadQuiz();
     } else {
-        document.getElementById("quiz").innerHTML = `<h2 style='color:red'>त्रुटि: questions${fileNo}.js में window.questions डेटा नहीं मिला या फ़ाइल खाली है!</h2>`;
+        document.getElementById("quiz").innerHTML = `<h2 style='color:red'>त्रुटि: questions${fileNo}.js लोड हुई पर window.questions डेटा नहीं मिला!</h2>`;
     }
 };
 
 script.onerror = () => {
-    document.getElementById("quiz").innerHTML = `<h2 style='color:red'>त्रुटि: questions${fileNo}.js फ़ाइल सर्वर पर नहीं मिली! कृपया फ़ाइल का नाम जांचें।</h2>`;
+    document.getElementById("quiz").innerHTML = `<h2 style='color:red'>त्रुटि: questions${fileNo}.js फाइल सर्वर पर नहीं मिली! कृपया यूआरएल या फाइल का नाम जांचें।</h2>`;
 };
 
 document.body.appendChild(script);
