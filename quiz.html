@@ -37,7 +37,7 @@ textarea{width:100%}
 </div>
 
 <script>
-// 1. URL से Unit और Test पैरामीटर लें
+// 1. URL से Unit और Test पैरामीटर प्राप्त करें
 const params = new URLSearchParams(window.location.search);
 const unit = Number(params.get("unit")) || 1;
 const test = Number(params.get("test")) || 1;
@@ -45,26 +45,29 @@ const test = Number(params.get("test")) || 1;
 // 2. सही फाइल नंबर की गणना (1 से 200)
 const fileNo = (unit - 1) * 20 + test;
 
-// 3. ब्राउज़र पुराना डेटा न दिखाए इसलिए Cache Buster (?t=...) जोड़कर फाइल लोड करें
+// 3. पुरानी फाइल के डेटा को मेमोरी से पूरी तरह डिलीट/क्लियर करें
+window.questions = null;
+
+// 4. नया स्क्रिप्ट टैग बनाकर फ़ाइल लोड करें (Cache-Busting के साथ)
 const script = document.createElement("script");
-script.src = `questions${fileNo}.js?t=${new Date().getTime()}`;
+script.src = `questions${fileNo}.js?v=${new Date().getTime()}`;
 
 script.onload = () => {
-    // जांचें कि फाइल सही से लोड हुई या नहीं
+    // जांचें कि नई फाइल का डेटा सही से लोड हुआ या नहीं
     if (window.questions && Array.isArray(window.questions)) {
         loadQuiz();
     } else {
-        document.getElementById("quiz").innerHTML = `<h2 style='color:red'>त्रुटि: questions${fileNo}.js में window.questions डेटा नहीं मिला!</h2>`;
+        document.getElementById("quiz").innerHTML = `<h2 style='color:red'>त्रुटि: questions${fileNo}.js में window.questions डेटा नहीं मिला या फ़ाइल खाली है!</h2>`;
     }
 };
 
 script.onerror = () => {
-    document.getElementById("quiz").innerHTML = `<h2 style='color:red'>त्रुटि: questions${fileNo}.js फाइल सर्वर पर नहीं मिली!</h2>`;
+    document.getElementById("quiz").innerHTML = `<h2 style='color:red'>त्रुटि: questions${fileNo}.js फ़ाइल सर्वर पर नहीं मिली! कृपया फ़ाइल का नाम जांचें।</h2>`;
 };
 
 document.body.appendChild(script);
 
-// 4. क्विज को स्क्रीन पर दिखाने का फंक्शन
+// 5. क्विज को स्क्रीन पर दिखाने का फंक्शन
 function loadQuiz(){
     const quiz = document.getElementById("quiz");
     quiz.innerHTML = "";
@@ -91,7 +94,7 @@ function loadQuiz(){
     });
 }
 
-// 5. टेस्ट सबमिट करने का फंक्शन
+// 6. टेस्ट सबमिट करने का फंक्शन
 function submitQuiz(){
     if (!window.questions) return;
     
