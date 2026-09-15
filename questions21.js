@@ -1,243 +1,154 @@
 window.questions = [
-
-{
-question:"1. सिंधु घाटी सभ्यता में 'डॉकयार्ड' का सबसे विकसित उदाहरण किस स्थल पर मिला है? / The most developed dockyard of the Indus Valley Civilization has been found at which site?",
-options:[
-"A. धौलावीरा / Dholavira",
-"B. लोथल / Lothal",
-"C. कालीबंगन / Kalibangan",
-"D. राखीगढ़ी / Rakhigarhi"
-],
-answer:"B",
-explanation:"लोथल (गुजरात) से विश्व का सबसे प्राचीन ज्ञात डॉकयार्ड मिला है। यह समुद्री व्यापार, जल-प्रबंधन तथा हड़प्पाई इंजीनियरिंग का उत्कृष्ट उदाहरण है। MPPSC में यह तथ्य बार-बार पूछा जाता है।"
-},
-
-{
-question:"2. हड़प्पा सभ्यता में अग्निकुण्ड (Fire Altars) का सर्वाधिक प्रमाण किस स्थल से प्राप्त हुआ? / Fire altars have been found in the largest number at which Harappan site?",
-options:[
-"A. मोहनजोदड़ो / Mohenjodaro",
-"B. कालीबंगन / Kalibangan",
-"C. बनावली / Banawali",
-"D. चन्हूदड़ो / Chanhudaro"
-],
-answer:"B",
-explanation:"कालीबंगन (राजस्थान) से अनेक अग्निकुण्ड प्राप्त हुए हैं। इन्हें धार्मिक अनुष्ठानों से जोड़ा जाता है और यह हड़प्पा संस्कृति की विशिष्ट पहचान है।"
-},
-
-{
-question:"3. ऋग्वेद में सर्वाधिक बार किस नदी का उल्लेख हुआ है? / Which river is mentioned most frequently in the Rigveda?",
-options:[
-"A. यमुना / Yamuna",
-"B. सरस्वती / Saraswati",
-"C. गंगा / Ganga",
-"D. सिंधु / Indus"
-],
-answer:"B",
-explanation:"ऋग्वेद में सरस्वती नदी का उल्लेख सबसे अधिक मिलता है। इसे 'नदीतमा' अर्थात् श्रेष्ठ नदी कहा गया है, जिससे इसके सांस्कृतिक महत्व का पता चलता है।"
-},
-
-{
-question:"4. वैदिक काल में 'निष्क' शब्द का प्रयोग मुख्यतः किस अर्थ में होता था? / In the Vedic period, the term 'Nishka' mainly referred to?",
-options:[
-"A. भूमि कर / Land tax",
-"B. स्वर्ण आभूषण / Gold ornament",
-"C. चाँदी का सिक्का / Silver coin",
-"D. कृषि उपकरण / Agricultural implement"
-],
-answer:"B",
-explanation:"निष्क प्रारंभ में स्वर्ण आभूषण था, जिसे बाद में विनिमय के माध्यम के रूप में भी प्रयोग किया गया। MPPSC में इसका अर्थ अक्सर भ्रमित करने वाले विकल्पों के साथ पूछा जाता है।"
-},
-
-{
-question:"5. उत्तर वैदिक काल में 'सभा' और 'समिति' में प्रमुख अंतर क्या था? / What was the main difference between Sabha and Samiti in the Later Vedic period?",
-options:[
-"A. दोनों सैन्य परिषद थीं / Both were military councils",
-"B. सभा वरिष्ठों की परिषद थी, समिति जनसभा थी / Sabha was a council of elders while Samiti was a general assembly",
-"C. दोनों धार्मिक संस्थाएँ थीं / Both were religious bodies",
-"D. कोई अंतर नहीं था / There was no difference"
-],
-answer:"B",
-explanation:"सभा में प्रमुख एवं वरिष्ठ लोग भाग लेते थे, जबकि समिति व्यापक जनसभा मानी जाती थी। उत्तर वैदिक काल में सभा का महत्व अपेक्षाकृत बढ़ गया था।"
-},
-
-{
-question:"6. महाजनपद काल में मगध की शक्ति का सबसे बड़ा कारण क्या था? / What was the greatest reason behind the rise of Magadha during the Mahajanapada period?",
-options:[
-"A. समुद्री व्यापार / Sea trade",
-"B. लौह संसाधन एवं उपजाऊ भूमि / Iron resources and fertile land",
-"C. विदेशी सहायता / Foreign support",
-"D. धार्मिक प्रभाव / Religious influence"
-],
-answer:"B",
-explanation:"मगध के पास लौह अयस्क, उपजाऊ गंगा घाटी तथा हाथियों की उपलब्धता थी। यही कारण उसके राजनीतिक प्रभुत्व का आधार बना।"
-},
-
-{
-question:"7. बौद्ध धर्म में 'धम्मचक्र प्रवर्तन' किस स्थान पर हुआ? / Where was the 'Dhammachakra Pravartana' delivered in Buddhism?",
-options:[
-"A. बोधगया / Bodh Gaya",
-"B. सारनाथ / Sarnath",
-"C. राजगृह / Rajgir",
-"D. वैशाली / Vaishali"
-],
-answer:"B",
-explanation:"ज्ञान प्राप्ति के बाद बुद्ध ने अपना पहला उपदेश सारनाथ के मृगदाय वन में दिया। इसे धम्मचक्र प्रवर्तन कहा जाता है।"
-},
-
-{
-question:"8. जैन धर्म के 24वें तीर्थंकर कौन थे? / Who was the 24th Tirthankara of Jainism?",
-options:[
-"A. पार्श्वनाथ / Parshvanatha",
-"B. ऋषभदेव / Rishabhadeva",
-"C. महावीर स्वामी / Mahavira",
-"D. नेमिनाथ / Neminatha"
-],
-answer:"C",
-explanation:"महावीर स्वामी जैन धर्म के 24वें तीर्थंकर थे। उन्होंने पंच महाव्रतों को पूर्ण रूप दिया और संघ का विस्तार किया।"
-},
-
-{
-question:"9. मौर्य साम्राज्य में 'अमात्य' का प्रमुख कार्य क्या था? / What was the main role of an 'Amatya' in the Mauryan Empire?",
-options:[
-"A. सैनिक अधिकारी / Military officer",
-"B. मंत्री एवं प्रशासनिक अधिकारी / Minister and administrative officer",
-"C. कर संग्राहक / Tax collector",
-"D. न्यायाधीश / Judge"
-],
-answer:"B",
-explanation:"अमात्य उच्च प्रशासनिक अधिकारी थे। कौटिल्य के अर्थशास्त्र में इन्हें राज्य संचालन की रीढ़ माना गया है।"
-},
-
-{
-question:"10. अशोक के शिलालेख मुख्यतः किस लिपि में लिखे गए थे? / Ashoka's inscriptions were primarily written in which script?",
-options:[
-"A. ब्राह्मी / Brahmi",
-"B. खरोष्ठी / Kharosthi",
-"C. शारदा / Sharada",
-"D. नागरी / Nagari"
-],
-answer:"A",
-explanation:"भारत के अधिकांश अशोक शिलालेख ब्राह्मी लिपि में हैं, जबकि उत्तर-पश्चिम क्षेत्र में खरोष्ठी का प्रयोग हुआ।"
-},
-
-{
-question:"11. मेगस्थनीज किस शासक के दरबार में आया था? / Megasthenes visited the court of which ruler?",
-options:[
-"A. अशोक",
-"B. बिंदुसार",
-"C. चंद्रगुप्त मौर्य",
-"D. समुद्रगुप्त"
-],
-answer:"C",
-explanation:"सेल्युकस निकेटर का राजदूत मेगस्थनीज चंद्रगुप्त मौर्य के दरबार में आया था। उसकी पुस्तक 'इंडिका' मौर्यकाल का महत्वपूर्ण स्रोत है।"
-},
-
-{
-question:"12. गुप्त काल में 'स्वर्ण मुद्रा' को सामान्यतः क्या कहा जाता था? / What were the gold coins of the Gupta period commonly called?",
-options:[
-"A. दीनार / Dinar",
-"B. निष्क / Nishka",
-"C. कर्षापण / Karshapana",
-"D. पण / Pana"
-],
-answer:"A",
-explanation:"गुप्त शासकों ने उत्कृष्ट स्वर्ण मुद्राएँ जारी कीं जिन्हें दीनार कहा जाता है। विशेषकर समुद्रगुप्त और चंद्रगुप्त द्वितीय की मुद्राएँ प्रसिद्ध हैं।"
-},
-
-{
-question:"13. इलाहाबाद प्रशस्ति किसने लिखी थी? / Who composed the Allahabad Prashasti?",
-options:[
-"A. कालिदास",
-"B. बाणभट्ट",
-"C. हरिषेण",
-"D. विष्णु शर्मा"
-],
-answer:"C",
-explanation:"हरिषेण समुद्रगुप्त का दरबारी कवि था। उसकी रचना इलाहाबाद प्रशस्ति गुप्तकाल का प्रमुख ऐतिहासिक स्रोत है।"
-},
-
-{
-question:"14. नालंदा विश्वविद्यालय का सर्वाधिक विस्तार किस काल में हुआ? / Nalanda University reached its greatest expansion during which period?",
-options:[
-"A. मौर्य काल",
-"B. गुप्त काल",
-"C. शुंग काल",
-"D. सातवाहन काल"
-],
-answer:"B",
-explanation:"गुप्त शासकों के संरक्षण में नालंदा विश्वविद्यालय का विकास हुआ और बाद में हर्ष तथा पाल शासकों ने भी इसे बढ़ावा दिया।"
-},
-
-{
-question:"15. अजंता गुफाओं का प्रमुख विषय क्या है? / What is the principal theme of the Ajanta Caves?",
-options:[
-"A. वैदिक यज्ञ",
-"B. जैन तीर्थंकर",
-"C. बौद्ध जातक कथाएँ",
-"D. मौर्य प्रशासन"
-],
-answer:"C",
-explanation:"अजंता की भित्तिचित्रों में बुद्ध के जीवन और जातक कथाओं का अत्यंत सुंदर चित्रण है। यह भारतीय चित्रकला का स्वर्णिम उदाहरण है।"
-},
-
-{
-question:"16. गुप्त काल को 'भारत का स्वर्ण युग' क्यों कहा जाता है? / Why is the Gupta period called the 'Golden Age of India'?",
-options:[
-"A. केवल सैन्य विजय के कारण",
-"B. विज्ञान, साहित्य, कला एवं अर्थव्यवस्था के उत्कर्ष के कारण",
-"C. केवल धार्मिक कारणों से",
-"D. विदेशी व्यापार के कारण"
-],
-answer:"B",
-explanation:"गुप्त काल में आर्यभट्ट, कालिदास, फाह्यान के विवरण, उत्कृष्ट कला तथा आर्थिक समृद्धि ने इसे स्वर्ण युग बनाया।"
-},
-
-{
-question:"17. संस्कृत व्याकरण के महान विद्वान पाणिनि की प्रसिद्ध रचना कौन-सी है? / Which famous work was composed by Panini?",
-options:[
-"A. अर्थशास्त्र",
-"B. अष्टाध्यायी",
-"C. नाट्यशास्त्र",
-"D. रघुवंश"
-],
-answer:"B",
-explanation:"अष्टाध्यायी संस्कृत व्याकरण का सबसे महत्वपूर्ण ग्रंथ है। यह भाषा-विज्ञान की विश्व की महान कृतियों में गिना जाता है।"
-},
-
-{
-question:"18. आर्यभट्ट ने पृथ्वी के बारे में कौन-सा महत्वपूर्ण सिद्धांत दिया? / Which important theory about the Earth was proposed by Aryabhata?",
-options:[
-"A. पृथ्वी स्थिर है",
-"B. पृथ्वी सूर्य के चारों ओर घूमती है",
-"C. पृथ्वी अपनी धुरी पर घूमती है",
-"D. पृथ्वी समतल है"
-],
-answer:"C",
-explanation:"आर्यभट्ट ने पृथ्वी के अपनी धुरी पर घूमने का विचार प्रस्तुत किया। यह अपने समय के लिए अत्यंत उन्नत वैज्ञानिक अवधारणा थी।"
-},
-
-{
-question:"19. फाह्यान भारत किस गुप्त शासक के समय आया था? / During the reign of which Gupta ruler did Fa-Hien visit India?",
-options:[
-"A. समुद्रगुप्त",
-"B. चंद्रगुप्त प्रथम",
-"C. चंद्रगुप्त द्वितीय",
-"D. कुमारगुप्त"
-],
-answer:"C",
-explanation:"चीनी यात्री फाह्यान चंद्रगुप्त द्वितीय विक्रमादित्य के शासनकाल में भारत आया। उसके विवरण से तत्कालीन समाज और प्रशासन की जानकारी मिलती है।"
-},
-
-{
-question:"20. निम्नलिखित में से कौन-सा स्थल UNESCO विश्व धरोहर होने के साथ-साथ बौद्ध शिक्षा का प्रमुख केंद्र भी रहा है? / Which of the following is both a UNESCO World Heritage Site and a major centre of Buddhist learning?",
-options:[
-"A. साँची",
-"B. नालंदा महाविहार",
-"C. बोधगया",
-"D. अमरावती"
-],
-answer:"B",
-explanation:"नालंदा महाविहार विश्व के सबसे प्राचीन आवासीय विश्वविद्यालयों में से एक था। इसे UNESCO विश्व धरोहर का दर्जा प्राप्त है और यह MPPSC में अत्यंत महत्वपूर्ण विषय है।"
-}
-
-];
+  {
+    question: "1. भू-संरचना की दृष्टि से मध्य प्रदेश अविभाजित गोनडवाना लैंड (Gondwanaland) का भाग है। राज्य का कौन सा भौतिक भू-भाग क्षेत्रफल की दृष्टि से सबसे बड़ा है, जो कुल क्षेत्रफल का लगभग 28% हिस्सा कवर करता है? / Physiographically, Madhya Pradesh is a part of the ancient Gondwanaland. Which physical division is the largest by area, covering nearly 28% of the state's total area?",
+    options: [
+      "A. मालवा का पठार (Plateau of Malwa)",
+      "B. मध्य भारत का पठार",
+      "C. नर्मदा-सोन घाटी",
+      "D. बुंदेलखंड का पठार"
+    ],
+    answer: "A",
+    explanation: "मालवा का पठार मध्य प्रदेश का सबसे बड़ा भौतिक प्रदेश है, जो राज्य के कुल क्षेत्रफल का 28.62% भाग (लगभग 88,222 वर्ग किमी) कवर करता है। यह दक्कन ट्रैप की बेसाल्ट चट्टानों और काली मिट्टी से निर्मित है।"
+  },
+  {
+    question: "2. मालवा के पठार की सबसे ऊँची चोटी 'सिगार' (Sigar) है, जिसकी ऊँचाई 881 मीटर है। यह चोटी मुख्य रूप से किस पहाड़ी अंचल के अंतर्गत स्थित है? / The highest peak of the Malwa Plateau is 'Sigar' (881m). Under which hill range is this peak primarily located?",
+    options: [
+      "A. विंध्याचल पर्वत श्रृंखला (Vindhyachal Mountain Range)",
+      "B. सतपुड़ा पर्वत श्रृंखला",
+      "C. मेकल श्रेणी",
+      "D. भांडेर श्रेणी"
+    ],
+    answer: "A",
+    explanation: "सिगार चोटी (881 मीटर) मालवा के पठार की सर्वोच्च चोटी है जो विंध्याचल पर्वत श्रृंखला के अंतर्गत इंदौर अंचल (मऊ के पास) में आती है। मालवा की अन्य प्रमुख चोटियाँ धाजारी (810 मीटर) और जानापाव (854 मीटर) हैं।"
+  },
+  {
+    question: "3. मध्य प्रदेश का वह कौन सा भौतिक प्रदेश है, जिसे 'सरसों की हांडी' (Bowl of Mustard) कहा जाता है और जहाँ जलोढ़ मिट्टी की प्रचुरता पाई जाती है? / Which physical division of Madhya Pradesh is famously known as the 'Bowl of Mustard' and is rich in alluvial soil?",
+    options: [
+      "A. मध्य भारत का पठार (Plateau of Central India)",
+      "B. रीवा-पन्ना का पठार",
+      "C. बुंदेलखंड का पठार",
+      "D. बघेलखंड का पठार"
+    ],
+    answer: "A",
+    explanation: "मध्य भारत के पठार (चंबल उप-आर्द्र क्षेत्र) में रबी की फसल के दौरान अत्यधिक मात्रा में सरसों (Mustard) का उत्पादन होता है, जिसके कारण इसे 'सरसों की हांडी' कहा जाता है। यह क्षेत्र भिंड, मुरैना, श्योपुर और ग्वालियर तक विस्तृत है।"
+  },
+  {
+    question: "4. सतपुड़ा पर्वत श्रृंखला (Satpura Range) को तीन मुख्य श्रेणियों में विभाजित किया गया है। इसके सबसे पूर्वी भाग को किस नाम से जाना जाता है, जहाँ से नर्मदा, सोन और जोहिला नदियों का उद्गम होता है? / The Satpura Range is divided into three sections. What is its easternmost part called, which is the source of Narmada, Son, and Johila rivers?",
+    options: [
+      "A. मैकल श्रेणी (Maikal Range)",
+      "B. राजपीपला श्रेणी",
+      "C. महादेव श्रेणी",
+      "D. ग्वालिगढ़ श्रेणी"
+    ],
+    answer: "A",
+    explanation: "सतपुड़ा के पूर्वी अर्धवृत्ताकार भाग को 'मैकल श्रेणी' कहा जाता है, जिसका विस्तार अमरकंटक (अनूपपुर) तक है। सतपुड़ा का पश्चिमी भाग 'राजपीपला' (गुजरात सीमा) और मध्य भाग 'महादेव श्रेणी' (पचमढ़ी अंचल) कहलाता है।"
+  },
+  {
+    question: "5. मध्य प्रदेश की सर्वोच्च भौगोलिक चोटी 'धूपगढ़' (Dhupgarh) है, जिसकी ऊँचाई 1350 मीटर है। यह चोटी किस पर्वत श्रेणी और किस पहाड़ी पर स्थित है? / The highest geographical peak of MP is 'Dhupgarh' (1350m). On which mountain range and specific hill is it located?",
+    options: [
+      "A. सतपुड़ा श्रेणी - महादेव पहाड़ियाँ (Satpura Range - Mahadeo Hills)",
+      "B. विंध्याचल श्रेणी - भांडेर पहाड़ियाँ",
+      "C. मैकल श्रेणी - अमरकंटक पहाड़ियाँ",
+      "D. राजपीपला श्रेणी - बड़वानी पहाड़ियाँ"
+    ],
+    answer: "A",
+    explanation: "धूपगढ़ (1350 मीटर) मध्य प्रदेश और पूरी सतपुड़ा श्रृंखला की सबसे ऊँची चोटी है। यह होशंगाबाद (नर्मदापुरम) जिले के पचमढ़ी में सतपुड़ा पर्वतमाला के अंतर्गत 'महादेव पहाड़ियों' पर स्थित है।"
+  },
+  {
+    question: "6. बुंदेलखंड के पठार (Bundelkhand Plateau) की सबसे ऊँची चोटी कौन सी है, जो दतिया और झांसी की सीमा के निकट स्थित है और जिसकी ऊँचाई 1172 मीटर है? / Which is the highest peak of the Bundelkhand Plateau, located near Datia with an elevation of 1172 meters?",
+    options: [
+      "A. सिद्धबाबा की चोटी (Siddhababa Peak)",
+      "B. सिगार चोटी",
+      "C. सद्भावना शिखर (गुडविल पीक)",
+      "D. कुल्हारी चोटी"
+    ],
+    answer: "A",
+    explanation: "बुंदेलखंड पठार की सर्वोच्च चोटी 'सिद्धबाबा की चोटी' है, जिसकी ऊँचाई 1172 मीटर है। यह क्षेत्र ग्रेनाइट और नीस चट्टानों से निर्मित ग्रे-गुलाबी पहाड़ी भू-भाग का हिस्सा है।"
+  },
+  {
+    question: "7. विंध्याचल पर्वत श्रृंखला की वह कौन सी उप-श्रेणी है जो कटनी, दमोह और सागर जिलों तक विस्तृत है और जहाँ विंध्याचल का सर्वोच्च बिंदु 'सदभावना शिखर' (Goodwill Peak / कलुमार चोटी) स्थित है? / Which sub-range of Vindhyachal extends through Katni and Damoh, hosting the highest point 'Goodwill Peak'?",
+    options: [
+      "A. भांडेर श्रेणी (Bhander Range)",
+      "B. कैमूर श्रेणी",
+      "C. मैकल श्रेणी",
+      "D. राजपीपला श्रेणी"
+    ],
+    answer: "A",
+    explanation: "विंध्याचल पर्वत के मध्य भाग को 'भांडेर श्रेणी' कहा जाता है। इसी श्रेणी में दमोह जिले के सिंग्रामपुर के पास विंध्याचल पर्वतमाला का सर्वोच्च बिंदु 'सद्भावना शिखर' या कलुमार चोटी (752 मीटर) स्थित है।"
+  },
+  {
+    question: "8. विंध्याचल की 'कैमूर श्रेणी' (Kaimur Range) का मुख्य भौगोलिक और हाइड्रोलॉजिकल महत्व क्या है, जो मध्य प्रदेश के पूर्वी हिस्से में स्थित है? / What is the primary geographical and hydrological significance of the Kaimur Range in eastern MP?",
+    options: [
+      "A. यह यमुना और सोन नदी के बीच जल द्विभाजक (Water Divide) का कार्य करती है (Acts as a water divide between Yamuna and Son rivers)",
+      "B. यह राज्य की सबसे ठंडी जलवायु वाली श्रेणी है",
+      "C. यहाँ केवल अत्यधिक मात्रा में बॉक्साइट का खनन होता है",
+      "D. यह पूरी तरह से घने दलदली दलदल से घिरी है"
+    ],
+    answer: "A",
+    explanation: "कैमूर और भांडेर श्रेणियाँ सोन नदी के उत्तर में स्थित हैं। कैमूर श्रेणी उत्तर की ओर बहने वाली यमुना और दक्षिण-पूर्व की ओर बहने वाली सोन नदी के बेसिन के बीच एक प्राकृतिक 'जल द्विभाजक' (Water Divide) का काम करती है।"
+  },
+  {
+    question: "9. मध्य प्रदेश का कौन सा भौतिक क्षेत्र 'नर्मदा-सोन घाटी' (Narmada-Son Valley) के रूप में जाना जाता है, जो राज्य का सबसे निचला भू-भाग (Deepest Rift Valley) है? / Which physical division of MP is known as the deepest rift valley and the lowest geographic zone of the state?",
+    options: [
+      "A. नर्मदा-सोन भ्रंश घाटी (Narmada-Son Rift Valley)",
+      "B. मालवा का पठार",
+      "C. मध्य भारत का बेसिन",
+      "D. बघेलखंड की पहाड़ियाँ"
+    ],
+    answer: "A",
+    explanation: "नर्मदा-सोन घाटी मध्य प्रदेश का दूसरा सबसे बड़ा भौतिक प्रदेश (26% भाग) है। यह एक संकीर्ण और गहरी 'भ्रंश घाटी' (Rift Valley) है, जो विंध्याचल और सतपुड़ा पर्वतों के बीच स्थित है और राज्य का सबसे निचला बिंदु बनाती है।"
+  },
+  {
+    question: "10. मध्य प्रदेश के किस भौतिक पठार को 'विंध्यन कगार' (Vindhyan Scrap Land) के नाम से भी जाना जाता है, जो कड़प्पा और विंध्यन शेल समूहों से निर्मित है? / Which physical plateau of MP is also known as the 'Vindhyan Scrap Land'?",
+    options: [
+      "A. रीवा-पन्ना का पठार (Rewa-Panna Plateau)",
+      "B. बुंदेलखंड का पठार",
+      "C. बघेलखंड का पठार",
+      "D. मालवा का पठार"
+    ],
+    answer: "A",
+    explanation: "रीवा-पन्ना के पठार को 'विंध्यन कगारी प्रदेश' (Vindhyan Scrap Land) कहा जाता है। यह मालवा के पठार के उत्तर-पूर्व में स्थित है और इसके अंतर्गत रीवा, पन्ना, सतना, और दमोह के कुछ हिस्से आते हैं।"
+  },
+  {
+    question: "11. मध्य प्रदेश का सबसे छोटा भौतिक भू-भाग कौन सा है, जो राज्य के पूर्वी हिस्से में स्थित है और कुल क्षेत्रफल का केवल 7% हिस्सा कवर करता है? / Which is the smallest physical division of MP, located in the eastern part, covering only 7% of the total area?",
+    options: [
+      "A. बघेलखंड का पठार / पूर्वी पठार (Baghelkhand Plateau / Eastern Plateau)",
+      "B. बुंदेलखंड का पठार",
+      "C. रीवा-पन्ना का पठार",
+      "D. मध्य भारत का पठार"
+    ],
+    answer: "A",
+    explanation: "बघेलखंड का पठार (पूर्वी पठार) मध्य प्रदेश का सबसे छोटा भौतिक प्रदेश है, जो राज्य के कुल क्षेत्रफल का लगभग 7% हिस्सा (21,577 वर्ग किमी) ही कवर करता है। इसके अंतर्गत सीधी, सिंगरौली, और शहडोल के हिस्से आते हैं।"
+  },
+  {
+    question: "12. चंबल नदी द्वारा निर्मित गहरे खड्डों (Ravines) और बीहड़ों की समस्या मध्य प्रदेश के किस भौतिक प्रदेश की एक मुख्य भू-आकृतिक चुनौती है? / The problem of deep ravines created by the Chambal river is a major geomorphological challenge of which physical division?",
+    options: [
+      "A. मध्य भारत का पठार (Plateau of Central India)",
+      "B. मालवा का पठार",
+      "C. बुंदेलखंड का पठार",
+      "D. नर्मदा-सोन घाटी"
+    ],
+    answer: "A",
+    explanation: "मध्य भारत के पठार में चंबल नदी द्वारा अत्यधिक 'अवनलिका अपरदन' (Gully Erosion) किया जाता है। इसके कारण भिंड, मुरैना और श्योपुर जिलों में विशाल और गहरे बीहड़ (Ravines) बन गए हैं, जो कृषि और भूमि उपयोग के लिए एक बड़ी भौगोलिक समस्या हैं।"
+  },
+  {
+    question: "13. सतपुड़ा पर्वत श्रृंखला के अंतर्गत आने वाली 'ग्वालिगढ़ पहाड़ियाँ' (Gwaligarh Hills) और 'असीरगढ़ पहाड़ियाँ' मुख्य रूप से किस श्रेणी का हिस्सा मानी जाती हैं? / The Gwaligarh and Asirgarh hills under the Satpura range are part of which section?",
+    options: [
+      "A. पश्चिमी सतपुड़ा / राजपीपला श्रेणी (Western Satpura / Rajpipla Range)",
+      "B. केंद्रीय महादेव श्रेणी",
+      "C. पूर्वी मैकल श्रेणी",
+      "D. भांडेर उप श्रेणी"
+    ],
+    answer: "A",
+    explanation: "सतपुड़ा के पश्चिमी भाग को 'राजपीपला श्रेणी' कहा जाता है। इसी श्रेणी के अंतर्गत असीरगढ़ की पहाड़ियाँ, बड़वानी की पहाड़ियाँ, बीजागढ़ और ग्वालिगढ़ की पहाड़ियाँ (मप्र-महाराष्ट्र सीमा) विस्तृत हैं।"
+  },
+  {
+    question: "14. विंध्याचल और सतपुड़ा पर्वत श्रृंखलाओं के मिलन बिंदु पर मध्य प्रदेश का कौन सा प्रसिद्ध पठार और खगोलशास्त्रीय महत्व का स्थल स्थित है? / Which famous plateau and ecological zone is located at the meeting point of Vindhyachal and Satpura ranges?",
+    options: [
+      "A. अमरकंटक का पठार / मैकल क्षेत्र (Amarkantak Plateau / Maikal Region)",
+      "B. मालवा का पश्चिमी सिरा",
+      "C. ग्वालियर का पठार",
+      "D. रीवा का कगारी प्रदेश"
+    ],
+    answer: "A",
+explanation: "मैकल श्रेणी के अंतर्गत आने वाला अमरकंटक पठार वह भौगोलिक संधि स्थल है जहाँ विंध्याचल की कगार और सतपुड़ा की पूर्वी पर्वतमाला आपस में आकर मिलती हैं। यह क्षेत्र जलविद्युत और नदियों के उद्गम का मुख्य उद्गम केंद्र है।"},{question: "15. कर्क रेखा (Cataract of Cancer / 23.5° N) मध्य प्रदेश के कुल कितने जिलों से होकर गुजरती है, जो इसके भौतिक भूगोल को दो स्पष्ट जलवायु भागों में बांटती है? / The Tropic of Cancer passes through how many districts of Madhya Pradesh?",options: ["A. 14 जिलों से (14 Districts)","B. 12 जिलों से","C. 16 जिलों से","D. 10 जिलों से"],answer: "A",explanation: "कर्क रेखा मध्य प्रदेश के ठीक मध्य से होकर 14 जिलों से गुजरती है: रतलाम, उज्जैन, शाजापुर, राजगढ़, सीहोर, भोपाल, विदिशा, रायसेन, सागर, दमोद, जबलपुर, कटनी, उमरिया और शहडोल। यह राज्य को समशीतोष्ण और उष्णकटिबंधीय भागों में बांटती है।"},{question: "16. मालवा के पठार के अंतर्गत स्थित 'जानापाव पहाड़ी' (Janapav Hills) की भौगोलिक विशेषता क्या है, जिसकी ऊँचाई 854 मीटर है? / What is the geographical significance of Janapav Hills (854m) located in the Malwa Plateau?",options: ["A. यह चंबल नदी का उद्गम स्थल है (Source of origin for the Chambal River)","B. यह सोन नदी का एकमात्र जलप्रपात है","C. यह राज्य का सबसे ठंडा बिंदु है","D. यह पूरी तरह से कोयले की खदानों से घिरा है"],answer: "A",explanation: "इन्दौर जिले के मऊ के पास स्थित जानापाव पहाड़ी (854 मीटर) मालवा की दूसरी सबसे ऊँची चोटी है। यह भारत की प्रमुख नदी 'चंबल' (Chambal River) का मूल उद्गम स्थल है और इसे परशुराम की तपोभूमि भी माना जाता है।"},{question: "17. मध्य प्रदेश का कौन सा भौतिक भू-भाग उत्तर में यमुना नदी के बेसिन और दक्षिण में नर्मदा नदी के बेसिन के बीच एक विशाल ढाल अवरोधक का कार्य करता है? / Which physical region of MP acts as a massive barrier between the Yamuna basin in the north and the Narmada basin in the south?",options: ["A. मध्य उच्च प्रदेश / विंध्यन पर्वतमाला (Central Highlands / Vindhyan Range)","B. सतपुड़ा श्रेणी केवल","C. बघेलखंड का पूर्वी किनारा","D. दक्कन का लावा ट्रैप"],answer: "A",explanation: "मध्य उच्च प्रदेश (Central Highlands) और उसके अंतर्गत आने वाली विंध्याचल श्रृंखला उत्तर भारत की नदियों (यमुना बेसिन) और दक्षिण भारत/नर्मदा घाटी के बीच एक मुख्य 'जल विभाजक' (Water Divide) का काम करती है।"},{question: "18. बुंदेलखंड के पठार में पाई जाने वाली 'लाल-पीली और काली मिश्रित मिट्टी' का निर्माण मुख्य रूप से किस काल की चट्टानों के टूटने से हुआ है? / The mixed soil found in the Bundelkhand Plateau is formed due to the weathering of rocks from which geological era?",options: ["A. आर्कियन काल की ग्रेनाइट और नीस चट्टानें (Archaean Granite and Gneiss)","B. कड़प्पा कालीन चूना पत्थर","C. क्रेटेशियस काल का बेसाल्ट लावा","D. टर्शियरी काल के जलोढ़ निक्षेप"],answer: "A",explanation: "बुंदेलखंड पठार की भू-संरचना अत्यंत प्राचीन है। यह मुख्य रूप से प्री-कैलम्ब्रियन या आर्कियन युग की 'बुंदेलखंड ग्रेनाइट' और नीस (Gneiss) चट्टानों के क्षरण से बना है, जिससे यहाँ की मिट्टी कंकड़युक्त और मिश्रित स्वरूप की है।"},{question: "19. मध्य प्रदेश के दक्षिण में स्थित 'ताप्ती नदी की घाटी' और नर्मदा घाटी के बीच कौन सा पर्वत अवरोधक (Mountain Barrier) का कार्य करता है जो दोनों नदियों को अलग रखता है? / Which mountain range acts as a barrier between the Narmada valley and the Tapti valley in the south?",options: ["A. सतपुड़ा पर्वत श्रृंखला (Satpura Mountain Range)","B. विंध्याचल श्रृंखला","C. अरावली पहाड़ियाँ","D. अजंता की पहाड़ियाँ"],answer: "A",explanation: "सतपुड़ा पर्वतमाला नर्मदा और ताप्ती नदियों के बीच स्थित है। यह उत्तर में नर्मदा घाटी और दक्षिण में ताप्ती घाटी के बीच एक प्राकृतिक ब्लॉक पर्वत (Block Mountain) की तरह अवरोधक का कार्य करती है।"},{question: "20. भौगोलिक दृष्टि से मध्य प्रदेश का कुल क्षेत्रफल कितना है और भारत के कुल क्षेत्रफल में इसका हिस्सा कितने प्रतिशत निर्धारित है? / Geographically, what is the total area of MP and what is its percentage share in India's total area?",options: ["A. 3,08,252 वर्ग किमी - 9.38% (3,08,252 sq km - 9.38%)","B. 4,08,252 वर्ग किमी - 11.5%","C. 2,08,252 वर्ग किमी - 7.5%","D. 3,48,252 वर्ग किमी - 10.2%"],answer: "A",explanation: "मध्य प्रदेश का कुल क्षेत्रफल 3,08,252 वर्ग किमी है (अमरकंटक की किरार घाटी विवाद के कारण कुछ स्थानों पर 3,08,245 वर्ग किमी भी मिलता है)। यह भारत के कुल क्षेत्रफल का 9.38% हिस्सा कवर करता है और राजस्थान के बाद देश का दूसरा सबसे बड़ा राज्य है।"}];
