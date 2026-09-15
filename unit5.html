@@ -3,44 +3,77 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Unit 1 - MPPSC MCQ Hub</title>
+<title>MPPSC MCQ Hub - Unit Tests</title>
 <style>
-body{font-family:Arial;background:#eef5ff;margin:0}
-header{background:#083b8a;color:#fff;padding:15px;display:flex;align-items:center;gap:10px}
-header img{width:50px;height:50px;border-radius:50%}
-.container{max-width:1100px;margin:auto;padding:20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:15px}
-.card{background:#fff;padding:18px;border-radius:15px;text-align:center;box-shadow:0 5px 12px rgba(0,0,0,.08)}
-.btn{display:inline-block;margin-top:10px;padding:10px 18px;background:#0b63ff;color:#fff;text-decoration:none;border-radius:10px;font-weight:bold}
+  body { font-family: Arial, sans-serif; background: #eaf2fc; color: #072c6c; margin: 0; padding: 0; }
+  header { background: #083b8a; color: #fff; padding: 15px 25px; display: flex; justify-content: space-between; align-items: center; }
+  header h1 { font-size: 22px; margin: 0; }
+  header a { color: white; text-decoration: none; font-weight: bold; }
+  .container { padding: 20px; max-width: 1200px; margin: auto; }
+  .back-btn { display: inline-block; margin-bottom: 20px; padding: 10px 20px; background: #083b8a; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; }
+  .unit-title { font-size: 28px; margin-bottom: 20px; border-bottom: 3px solid #083b8a; padding-bottom: 10px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; }
+  .test-card { background: white; padding: 20px; border-radius: 12px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+  .test-card h4 { margin: 0 0 10px 0; font-size: 18px; }
+  .btn { display: inline-block; background: #0b63ff; color: white; text-decoration: none; padding: 10px 15px; border-radius: 8px; font-weight: bold; border: none; cursor: pointer; width: 100%; box-sizing: border-box; }
+  .btn:hover { background: #0046c7; }
 </style>
 </head>
 <body>
 
 <header>
-<img src="mppsc-logo.jpg">
-<div>
-<h2>MPPSC MCQ Hub V14</h2>
-<small>Unit 1 - इतिहास</small>
-</div>
+  <h1>MPPSC MCQ Hub</h1>
+  <a href="index.html">🏠 Home</a>
 </header>
 
 <div class="container">
-<h2>Unit 1 - 20 Tests</h2>
+  <a href="index.html" class="back-btn">⬅ Back to Dashboard</a>
+  <h2 id="page-title" class="unit-title">Loading Unit...</h2>
+  <div id="tests-grid" class="grid"></div>
+</div>
 
-<div class="grid">
 <script>
-for(let i=1;i<=20;i++){
-document.write(`
-<div class="card">
-<h3>Test ${i}</h3>
-<p>20 Questions</p>
-<a class="btn" href="quiz.html?unit=1&test=${i}">Start Test</a>
-</div>`);
-}
-</script>
-</div>
+  // 1. फ़ाइल के नाम से ऑटोमैटिक पता करें कि यह कौन सी Unit है (जैसे: unit9.html से 9 निकालेगा)
+  const pageName = window.location.pathname.split("/").pop();
+  const unitMatch = pageName.match(/\d+/);
+  const currentUnit = unitMatch ? Number(unitMatch[0]) : 1;
 
-</div>
+  // यूनिट के नाम (MPPSC सिलेबस के अनुसार)
+  const unitNames = {
+    1: "इतिहास (History)",
+    2: "राजव्यवस्था (Polity)",
+    3: "भूगोल (Geography)",
+    4: "अर्थशास्त्र (Economics)",
+    5: "विज्ञान (Science)",
+    6: "पर्यावरण (Environment)",
+    7: "करेंट अफेयर्स (Current Affairs)",
+    8: "सामान्य विज्ञान (General Science)",
+    9: "म.प्र. विशेष (MP Special)",
+    10: "समय अभ्यास (Aptitude/Practice)"
+  };
+
+  // स्क्रीन पर टाइटल सेट करें
+  document.getElementById("page-title").innerText = `📚 Unit ${currentUnit} : ${unitNames[currentUnit] || "Practice Tests"}`;
+
+  // 2. ऑटोमैटिक 1 से 20 टेस्ट के सही लिंक जनरेट करें
+  const grid = document.getElementById("tests-grid");
+  let html = "";
+
+  for (let t = 1; t <= 20; t++) {
+    // 🔴 यहाँ बिल्कुल सही URL डायनामिक तरीके से बन रहा है
+    const correctUrl = `quiz.html?unit=${currentUnit}&test=${t}`;
+
+    html += `
+      <div class="test-card">
+        <h4>📝 Test ${t}</h4>
+        <p style="font-size: 13px; color: #555; margin-bottom: 12px;">20 Questions • MCQ</p>
+        <a href="${correctUrl}" class="btn">Start Test</a>
+      </div>
+    `;
+  }
+
+  grid.innerHTML = html;
+</script>
 
 </body>
 </html>
