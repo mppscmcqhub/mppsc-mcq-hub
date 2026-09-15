@@ -13,7 +13,7 @@ header{background:#0645d8;color:#fff;padding:15px}
 .option{display:block;padding:10px;margin:8px 0;border:1px solid #ccc;border-radius:6px;cursor:pointer}
 .option.correct{background:#8ee98e}
 .option.wrong{background:#ffb3b3}
-.exp{display:none;background:#fff8dc;padding:10px;margin-top:10px;border-left:4px solid orange}
+.exp{display:none;background:#fff8dc;padding:10px;margin-top:10px;border-left:4px solid orange;border-radius:6px}
 .box{background:#fff;margin:15px;padding:15px;border-radius:10px}
 button{background:#0645d8;color:#fff;border:none;padding:10px 20px;border-radius:6px;cursor:pointer}
 textarea{width:100%}
@@ -26,7 +26,7 @@ textarea{width:100%}
 <h2>MPPSC MCQ Hub</h2>
 </header>
 
-<div id="quiz"></div>
+<div id="quiz">🎯 टेस्ट लोड हो रहा है, कृपया प्रतीक्षा करें...</div>
 
 <div class="box">
 <button onclick="submitQuiz()">Submit Test</button>
@@ -37,166 +37,102 @@ textarea{width:100%}
 </div>
 
 <script>
-// URL से Unit और Test लो
+// 1. URL से Unit और Test पैरामीटर लें
 const params = new URLSearchParams(window.location.search);
-
 const unit = Number(params.get("unit")) || 1;
 const test = Number(params.get("test")) || 1;
 
-// 10 Unit × 20 Test = 200 Files
-// Unit-1 = questions1.js - questions20.js
-// Unit-2 = questions21.js - questions40.js
-// Unit-3 = questions41.js - questions60.js
+// 2. सही फाइल नंबर की गणना (1 से 200)
 const fileNo = (unit - 1) * 20 + test;
 
-// सही File Load करो
+// 3. ब्राउज़र पुराना डेटा न दिखाए इसलिए Cache Buster (?t=...) जोड़कर फाइल लोड करें
 const script = document.createElement("script");
-script.src = `questions${fileNo}.js`;
+script.src = `questions${fileNo}.js?t=${new Date().getTime()}`;
 
 script.onload = () => {
-    loadQuiz();
+    // जांचें कि फाइल सही से लोड हुई या नहीं
+    if (window.questions && Array.isArray(window.questions)) {
+        loadQuiz();
+    } else {
+        document.getElementById("quiz").innerHTML = `<h2 style='color:red'>त्रुटि: questions${fileNo}.js में window.questions डेटा नहीं मिला!</h2>`;
+    }
+};
+
+script.onerror = () => {
+    document.getElementById("quiz").innerHTML = `<h2 style='color:red'>त्रुटि: questions${fileNo}.js फाइल सर्वर पर नहीं मिली!</h2>`;
 };
 
 document.body.appendChild(script);
 
+// 4. क्विज को स्क्रीन पर दिखाने का फंक्शन
 function loadQuiz(){
+    const quiz = document.getElementById("quiz");
+    quiz.innerHTML = "";
 
-const quiz = document.getElementById("quiz");
-quiz.innerHTML="";
+    window.questions.forEach((q, i) => {
+        let html = `
+        <div class="qbox">
+        <h3>${i + 1}. ${q.question}</h3>
+        `;
 
-window.questions.forEach((q,i)=>{
+        q.options.forEach((op, index) => {
+            html += `
+            <label class="option" id="q${i}o${index}">
+            <input type="radio" name="q${i}" value="${String.fromCharCode(65 + index)}">
+            ${op}
+            </label>`;
+        });
 
-let html=`
-<div class="qbox">
-<h3>${i+1}. ${q.question}</h3>
-`;
+        html += `
+        <div id="exp${i}" class="exp"></div>
+        </div>`;
 
-q.options.forEach((op,index)=>{
-html+=`
-<label class="option" id="q${i}o${index}">
-<input type="radio" name="q${i}" value="${String.fromCharCode(65+index)}">
-${op}
-</label>`;
-});
-
-html+=`
-<div id="exp${i}" class="exp"></div>
-</div>`;
-
-quiz.innerHTML+=html;
-
-});
-
+        quiz.innerHTML += html;
+    });
 }
 
+// 5. टेस्ट सबमिट करने का फंक्शन
 function submitQuiz(){
+    if (!window.questions) return;
+    
+    let score = 0;
 
-let score=0;
+    window.questions.forEach((q, i) => {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
 
-window.questions.forEach((q,i)=>{
+        q.options.forEach((op, index) => {
+            const box = document.getElementById(`q${i}o${index}`);
+            if (box) {
+                box.classList.remove("correct", "wrong");
+                if (String.fromCharCode(65 + index) === q.answer) {
+                    box.classList.add("correct");
+                }
+            }
+        });
 
-const selected=document.querySelector(`input[name="q${i}"]:checked`);
+        if (selected) {
+            if (selected.value === q.answer) {
+                score++;
+            } else {
+                const wrongIndex = selected.value.charCodeAt(0) - 65;
+                const wrongBox = document.getElementById(`q${i}o${wrongIndex}`);
+                if (wrongBox) wrongBox.classList.add("wrong");
+            }
+        }
 
-q.options.forEach((op,index)=>{
-
-const box=document.getElementById(`q${i}o${index}`);
-
-box.classList.remove("correct","wrong");
-
-if(String.fromCharCode(65+index)==q.answer){
-box.classList.add("correct");
-}
-
-});
-
-if(selected){
-
-if(selected.value==q.answer){
-
-score++;
-
-}else{
-
-const wrong=selected.value.charCodeAt(0)-65;
-document.getElementById(`q${i}o${wrong}`).classList.add("wrong");
-
-}
-
-}
-
-const exp=document.getElementById(`exp${i}`);
-exp.style.display="block";
-exp.innerHTML=`
-<b>Correct Answer:</b> ${q.answer}. ${q.options[q.answer.charCodeAt(0)-65]}<br><br>
-<b>Detailed Explanation:</b><br>${q.explanation}
-`;
-
-});
-
-document.getElementById("scoreBox").innerHTML=
-`🎯 Score : ${score}/${window.questions.length}`;
-
-}
-</script>
-<script>
-const quiz = document.getElementById("quiz");
-
-if (!window.questions || !Array.isArray(window.questions)) {
-  quiz.innerHTML = "<h2 style='color:red'>Questions load नहीं हुए।</h2>";
-} else {
-  window.questions.forEach((q, i) => {
-    const div = document.createElement("div");
-    div.className = "qbox";
-
-    let html = `<h3>${i + 1}. ${q.question}</h3>`;
-
-    q.options.forEach((op, index) => {
-      html += `
-      <label class="option" id="q${i}o${index}">
-        <input type="radio" name="q${i}" value="${String.fromCharCode(65 + index)}">
-        ${op}
-      </label>`;
+        const exp = document.getElementById(`exp${i}`);
+        if (exp) {
+            exp.style.display = "block";
+            exp.innerHTML = `
+                <b>Correct Answer:</b> ${q.answer}. ${q.options[q.answer.charCodeAt(0) - 65]}<br><br>
+                <b>Detailed Explanation:</b><br>${q.explanation}
+            `;
+        }
     });
 
-    html += `<div id="exp${i}" style="display:none;background:#fff8dc;padding:10px;margin-top:10px;border-left:4px solid orange;border-radius:6px"></div>`;
-
-    div.innerHTML = html;
-    quiz.appendChild(div);
-  });
-}
-
-function submitQuiz() {
-  let score = 0;
-
-  window.questions.forEach((q, i) => {
-    const selected = document.querySelector(`input[name="q${i}"]:checked`);
-
-    q.options.forEach((op, index) => {
-      const box = document.getElementById(`q${i}o${index}`);
-      box.classList.remove("correct", "wrong");
-
-      if (String.fromCharCode(65 + index) === q.answer) {
-        box.classList.add("correct");
-      }
-    });
-
-    if (selected) {
-      if (selected.value === q.answer) {
-        score++;
-      } else {
-        const wrongIndex = selected.value.charCodeAt(0) - 65;
-        document.getElementById(`q${i}o${wrongIndex}`).classList.add("wrong");
-      }
-    }
-
-    const exp = document.getElementById(`exp${i}`);
-    exp.style.display = "block";
-    exp.innerHTML = `
-      <b>Correct Answer:</b> ${q.answer}. ${q.options[q.answer.charCodeAt(0)-65]}<br><br>
-      <b>Detailed Explanation:</b><br>${q.explanation}
-    `;
-  });
-
-  document.getElementById("scoreBox").innerHTML = `🎯 Score: ${score}/${window.questions.length}`;
+    document.getElementById("scoreBox").innerHTML = `🎯 Score : ${score}/${window.questions.length}`;
 }
 </script>
+
+</body>
+</html>
