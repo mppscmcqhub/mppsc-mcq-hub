@@ -1,243 +1,146 @@
-window.questions38 = [
-
-{
-q:"प्रश्न 1: निम्न कथनों पर विचार कीजिए। (1) हेलियोडोरस स्तंभ बेसनगर में है। (2) यह भागवत धर्म का प्रारंभिक अभिलेखीय प्रमाण है। सही उत्तर चुनिए। / Consider the statements: (1) Heliodorus Pillar is at Besnagar. (2) It is an early epigraphic evidence of Bhagavata (Vaishnava) tradition.",
-o:[
-"A. केवल 1 / Only 1",
-"B. केवल 2 / Only 2",
-"C. 1 और 2 दोनों सही / Both 1 and 2 are correct",
-"D. दोनों गलत / Both are incorrect"
-],
-a:2,
-exp:"दोनों कथन सही हैं। हेलियोडोरस स्तंभ वैष्णव परंपरा का प्रारंभिक अभिलेखीय प्रमाण माना जाता है। / Both statements are correct."
-},
-
-{
-q:"प्रश्न 2: सही कालक्रम चुनिए। (1) नर्मदा मानव (2) नवदाटोली संस्कृति (3) साँची स्तूप (4) उदयगिरि गुफाएँ / Arrange chronologically.",
-o:[
-"A. 1-2-3-4",
-"B. 2-1-3-4",
-"C. 1-3-2-4",
-"D. 3-2-1-4"
-],
-a:0,
-exp:"यह सही ऐतिहासिक क्रम है। / This is the correct chronological order."
-},
-
-{
-q:"प्रश्न 3: निम्न में से कौन-सा युग्म गलत है? / Which pair is incorrect?",
-o:[
-"A. एरण—बीना नदी / Eran—Bina River",
-"B. बेसनगर—विदिशा / Besnagar—Vidisha",
-"C. महेश्वर—नर्मदा / Maheshwar—Narmada",
-"D. गढ़ा-कटंगा—धार / Garha-Katanga—Dhar"
-],
-a:3,
-exp:"गढ़ा-कटंगा का केंद्र जबलपुर क्षेत्र था। / Garha-Katanga was centred around Jabalpur."
-},
-
-{
-q:"प्रश्न 4: Assertion (A): एरण का वराह शिल्प गुप्तकालीन कला का उत्कृष्ट उदाहरण है। Reason (R): एरण से समुद्रगुप्त और भानुगुप्त के अभिलेख मिले हैं।",
-o:[
-"A. दोनों सही तथा R व्याख्या है / Both are correct and R explains A",
-"B. दोनों सही पर R व्याख्या नहीं है / Both are correct but R is not the explanation",
-"C. A सही, R गलत / A is true, R is false",
-"D. A गलत, R सही / A is false, R is true"
-],
-a:1,
-exp:"दोनों कथन सही हैं, लेकिन R, A की व्याख्या नहीं करता। / Both are true, but R is not the explanation."
-},
-
-{
-q:"प्रश्न 5: मालवा संस्कृति का प्रमुख पुरातात्विक स्थल कौन-सा है? / Which is the major archaeological site of the Malwa Culture?",
-o:[
-"A. नवदाटोली / Navdatoli",
-"B. भीमबेटका / Bhimbetka",
-"C. एरण / Eran",
-"D. उदयगिरि / Udayagiri"
-],
-a:0,
-exp:"नवदाटोली मालवा संस्कृति का प्रमुख स्थल है। / Navdatoli is the major site."
-},
-
-{
-q:"प्रश्न 6: सही सुमेलित युग्म चुनिए। / Choose the correctly matched pair.",
-o:[
-"A. खजुराहो—चंदेल / Khajuraho—Chandela",
-"B. भोजपुर—परमार / Bhojpur—Parmar",
-"C. महेश्वर—होल्कर / Maheshwar—Holkar",
-"D. उपरोक्त सभी / All of the above"
-],
-a:3,
-exp:"तीनों युग्म सही हैं। / All three pairs are correct."
-},
-
-{
-q:"प्रश्न 7: बाघ गुफाओं की चित्रकला किससे मिलती-जुलती है? / Bagh cave paintings resemble which style?",
-o:[
-"A. अजंता / Ajanta",
-"B. एलोरा / Ellora",
-"C. साँची / Sanchi",
-"D. अमरावती / Amaravati"
-],
-a:0,
-exp:"बाघ की चित्रकला अजंता शैली से मिलती है। / Bagh paintings resemble Ajanta."
-},
-
-{
-q:"प्रश्न 8: सही कालक्रम चुनिए। (1) चंदेल (2) परमार (3) तोमर (4) होल्कर / Arrange chronologically.",
-o:[
-"A. 1-2-3-4",
-"B. 2-1-3-4",
-"C. 1-3-2-4",
-"D. 2-3-1-4"
-],
-a:0,
-exp:"यह सही क्रम है। / This is the correct sequence."
-},
-
-{
-q:"प्रश्न 9: निम्न में से कौन-सा कथन सही नहीं है? / Which statement is NOT correct?",
-o:[
-"A. उदयगिरि विदिशा में है / Udayagiri is in Vidisha",
-"B. साँची रायसेन में है / Sanchi is in Raisen",
-"C. महेश्वर क्षिप्रा नदी पर है / Maheshwar is on Shipra",
-"D. एरण बीना नदी पर है / Eran is on Bina River"
-],
-a:2,
-exp:"महेश्वर नर्मदा नदी पर स्थित है। / Maheshwar is on the Narmada."
-},
-
-{
-q:"प्रश्न 10: वैष्णव धर्म के प्रारंभिक प्रसार का महत्वपूर्ण प्रमाण कौन-सा है? / Which is an important evidence of early Vaishnavism?",
-o:[
-"A. बेसनगर / Besnagar",
-"B. साँची / Sanchi",
-"C. बाघ / Bagh",
-"D. मांडू / Mandu"
-],
-a:0,
-exp:"हेलियोडोरस स्तंभ इसका प्रमुख प्रमाण है। / The Heliodorus Pillar is the key evidence."
-},
-
-{
-q:"प्रश्न 11: Match the Following. A- हेलियोडोरस, B- संग्राम शाह, C- राजा भोज, D- अहिल्याबाई. 1- महेश्वर, 2- भोजशाला, 3- गढ़ा-कटंगा, 4- बेसनगर.",
-o:[
-"A. A-4,B-3,C-2,D-1",
-"B. A-3,B-4,C-2,D-1",
-"C. A-4,B-1,C-3,D-2",
-"D. A-2,B-3,C-4,D-1"
-],
-a:0,
-exp:"यह सही मिलान है। / This is the correct matching."
-},
-
-{
-q:"प्रश्न 12: नर्मदा मानव का जीवाश्म कहाँ मिला था? / Where was the Narmada Man fossil discovered?",
-o:[
-"A. हथनौरा / Hathnora",
-"B. भीमबेटका / Bhimbetka",
-"C. विदिशा / Vidisha",
-"D. महेश्वर / Maheshwar"
-],
-a:0,
-exp:"हथनौरा (सीहोर) से मिला था। / It was found at Hathnora."
-},
-
-{
-q:"प्रश्न 13: जहाज महल किस शासक से संबंधित है? / Jahaz Mahal is associated with which ruler?",
-o:[
-"A. गयासुद्दीन खिलजी / Ghiyas-ud-din Khalji",
-"B. बाज बहादुर / Baz Bahadur",
-"C. हुसंग शाह / Hoshang Shah",
-"D. महमूद खिलजी / Mahmud Khalji"
-],
-a:0,
-exp:"जहाज महल गयासुद्दीन खिलजी के समय बना था। / It was built during Ghiyas-ud-din Khalji's reign."
-},
-
-{
-q:"प्रश्न 14: Assertion (A): महेश्वर वस्त्र उद्योग के लिए प्रसिद्ध है। Reason (R): महेश्वरी साड़ियों का संरक्षण अहिल्याबाई ने किया।",
-o:[
-"A. दोनों सही तथा R व्याख्या है / Both correct and R explains A",
-"B. दोनों सही पर R व्याख्या नहीं है / Both correct but R is not explanation",
-"C. A सही, R गलत / A true, R false",
-"D. A गलत, R सही / A false, R true"
-],
-a:0,
-exp:"दोनों कथन सही हैं। / Both statements are correct."
-},
-
-{
-q:"प्रश्न 15: सही कालक्रम चुनिए। (1) हेलियोडोरस स्तंभ (2) एरण वराह (3) भोजपुर मंदिर (4) जहाज महल / Arrange chronologically.",
-o:[
-"A. 1-2-3-4",
-"B. 2-1-3-4",
-"C. 1-3-2-4",
-"D. 3-2-1-4"
-],
-a:0,
-exp:"यह सही क्रम है। / This is the correct order."
-},
-
-{
-q:"प्रश्न 16: खजुराहो के संबंध में कौन-सा कथन सही है? / Which statement about Khajuraho is correct?",
-o:[
-"A. वहाँ जैन मंदिर भी हैं / It also has Jain temples",
-"B. सभी मंदिर केवल शिव को समर्पित हैं / All temples are dedicated only to Shiva",
-"C. यह गुप्तकाल में बना / It was built in the Gupta period",
-"D. यह रायसेन में है / It is in Raisen"
-],
-a:0,
-exp:"खजुराहो में हिंदू और जैन दोनों मंदिर हैं। / Khajuraho has both Hindu and Jain temples."
-},
-
-{
-q:"प्रश्न 17: निम्न में से कौन-सा MPPSC Elimination Question है? / Which is an MPPSC-style elimination question?",
-o:[
-"A. महेश्वर—नर्मदा / Maheshwar—Narmada",
-"B. उज्जैन—क्षिप्रा / Ujjain—Shipra",
-"C. एरण—बीना / Eran—Bina",
-"D. उपरोक्त सभी / All of the above"
-],
-a:3,
-exp:"तीनों युग्म सही हैं। / All three pairs are correct."
-},
-
-{
-q:"प्रश्न 18: चंदेल वंश का प्रमुख शासक कौन था? / Who was a major ruler of the Chandela Dynasty?",
-o:[
-"A. धंगदेव / Dhangadeva",
-"B. मुंज / Munja",
-"C. संग्राम शाह / Sangram Shah",
-"D. मल्हार राव / Malhar Rao"
-],
-a:0,
-exp:"धंगदेव चंदेल वंश के प्रमुख शासक थे। / Dhangadeva was a major Chandela ruler."
-},
-
-{
-q:"प्रश्न 19: रानी दुर्गावती के संबंध में कौन-सा कथन सही है? / Which statement about Rani Durgavati is correct?",
-o:[
-"A. उन्होंने आत्मसमर्पण किया / She surrendered",
-"B. उन्होंने युद्धभूमि में वीरगति प्राप्त की / She died fighting on the battlefield",
-"C. वे परमार वंश की शासिका थीं / She ruled the Parmar dynasty",
-"D. उन्होंने महेश्वर को राजधानी बनाया / She made Maheshwar her capital"
-],
-a:1,
-exp:"रानी दुर्गावती ने आत्मसमर्पण नहीं किया और युद्धभूमि में वीरगति प्राप्त की। / She refused to surrender and died fighting."
-},
-
-{
-q:"प्रश्न 20: MPPSC GS-I Unit-2 में सबसे अधिक पूछे जाने वाले कॉम्बिनेशन कौन-से हैं? / Which combinations are most frequently asked in MPPSC GS-I Unit-2?",
-o:[
-"A. राजवंश + स्मारक + नदी + जिला / Dynasty + Monument + River + District",
-"B. केवल वर्ष / Only years",
-"C. केवल राजधानी / Only capitals",
-"D. केवल युद्ध / Only battles"
-],
-a:0,
-exp:"MPPSC में राजवंश, स्मारक, नदी और जिला आधारित प्रश्न सबसे अधिक पूछे जाते हैं। / Dynasty–Monument–River–District combinations are the most frequent."
-}
-
-];
+window.questions = [
+  {
+    question: "1. धार जिले में स्थित प्रसिद्ध 'पीथमपुर' औद्योगिक केंद्र ऑटोमोबाइल हब होने के कारण भारत का डेट्रॉइट कहलाता है। यह मध्य प्रदेश के किस प्रशासनिक संभाग (Administrative Division) के अंतर्गत आता है? / Under which administrative division of MP does the Pithampur industrial hub fall?",
+    options: [
+      "A. इंदौर संभाग (Indore Division)",
+      "B. उज्जैन संभाग",
+      "C. भोपाल संभाग",
+      "D. नर्मदापुरम संभाग"
+    ],
+    answer: "A",
+    explanation: "पीथमपुर भौतिक रूप से धार जिले में स्थित है, लेकिन प्रशासनिक और भौगोलिक रूप से यह 'इंदौर संभाग' (Indore Division) के अंतर्गत आता है और इंदौर शहर के अत्यधिक निकट एक सैटेलाइट औद्योगिक टाउनशिप के रूप में विकसित हुआ है।"
+  },
+  {
+    question: "2. भोपाल में ब्रिटेन के सहयोग से स्थापित महारत्न कंपनी 'भारत हैवी इलेक्ट्रिकल्स लिमिटेड' (BHEL) का कारखाना मुख्य रूप से किस प्रकार के भारी औद्योगिक उत्पादों के विनिर्माण के लिए जाना जाता है? / BHEL Bhopal is globally recognized for the manufacturing of which type of industrial products?",
+    options: [
+      "A. भारी विद्युत उपकरण जैसे ट्रांसफार्मर, टरबाइन और ट्रैक्शन मोटर (Heavy Electrical equipment like transformers and turbines)",
+      "B. केवल कंप्यूटर सॉफ्टवेयर और आईटी माइक्रोचिप्स",
+      "C. हल्के सूती वस्त्र और रेडीमेड गारमेंट्स",
+      "D. सोने और चांदी के मीनाकारी आभूषण विंग"
+    ],
+    answer: "A",
+    explanation: "भेल (BHEL) भोपाल बिजली क्षेत्र के भारी उपकरणों (Heavy Electrical Equipments) जैसे बड़े पावर ट्रांसफार्मर, हाइड्रो व स्टीम टरबाइन, रेलवे के इलेक्ट्रॉनिक इंजन और जनरेटर का विनिर्माण करने वाली भारत की अग्रणी महारत्न सरकारी कंपनी है।"
+  },
+  {
+    question: "3. मध्य प्रदेश का वह कौन सा विशिष्ट औद्योगिक केंद्र है, जहाँ भारत सरकार के कपड़ा मंत्रालय के सहयोग से देश का पहला 'एकीकृत टेक्सटाइल पार्क' (Integrated Textile Park) और ट्राइडेंट समूह का विशाल विनिर्माण संयंत्र स्थापित है? / Where is the mega Integrated Textile Park and Trident Group plant located in MP?",
+    options: [
+      "A. बुधनी, सीहोर जिला (Budhni - Sehore District)",
+      "B. पीथमपुर, धार जिला",
+      "C. मालनपुर, भिंड जिला",
+      "D. मनेरी, मण्डला जिला"
+    ],
+    answer: "A",
+    explanation: "सीहोर जिले के 'बुधनी' (Budhni) में निजी क्षेत्र के ट्राइडेंट समूह का एशिया का सबसे बड़ा कंपोजिट टेक्सटाइल और टेरी टॉवल (तौलिया) विनिर्माण संयंत्र स्थापित है, जहाँ से निर्मित प्रीमियम कपड़े और धागे दुनिया भर के 50 से अधिक देशों में निर्यात किए जाते हैं।"
+  },
+  {
+    question: "4. गुना जिले के विजयपुर में स्थित 'नेशनल फर्टिलाइजर्स लिमिटेड' (NFL) का विशाल खाद कारखाना मुख्य रूप से किस अनिवार्य प्राकृतिक संसाधन पर आधारित गैस-आधारित यूरिया संयंत्र है? / On which natural resource gas pipeline input is the NFL plant at Vijaipur, Guna based?",
+    options: [
+      "A. एचवीजे गैस पाइपलाइन - हजीरा-विजयपुर-जगदीशपुर (HVJ Pipeline)",
+      "B. तापी अंतर्राष्ट्रीय गैस ग्रिड",
+      "C. केवल स्थानीय स्तर पर उत्खनित मीथेन",
+      "D. मुंबई-हाई से आने वाली तरल कच्चे तेल की पाइपलाइन"
+    ],
+    answer: "A",
+    explanation: "विजयपुर (गुना) का एनएफएल (NFL) अमोनिया और यूरिया खाद का देश का एक बड़ा विनिर्माण केंद्र है। इसे ईंधन और कच्चे माल के रूप में गैस 'HVJ (हजीरा-विजयपुर-जगदीशपुर) पाइपलाइन' के माध्यम से सीधे प्राप्त होती है, जो इटली और अमेरिका के तकनीकी सहयोग से स्थापित है।"
+  },
+  {
+    question: "5. ओमान ऑयल कंपनी के सहयोग से सागर जिले के आगासोद (बीना) में स्थापित 'भारत-ओमान रिफाइनरीज लिमिटेड' (BORL) को पेट्रोलियम की आपूर्ति के लिए किस समुद्री बंदरगाह से क्रूड ऑयल पाइपलाइन बिछाई गई है? / From which sea port is crude oil supplied via pipeline to the Bina Oil Refinery in Sagar?",
+    options: [
+      "A. वाडिनार बंदरगाह, गुजरात (Vadinar Port, Gujarat)",
+      "B. काण्डला बंदरगाह, गुजरात",
+      "C. मुंबई पोर्ट ट्रस्ट, महाराष्ट्र",
+      "D. विशाखापत्तनम टर्मिनस, आंध्र प्रदेश"
+    ],
+    answer: "A",
+    explanation: "बीना ओमान ऑयल रिफाइनरी की स्थापना भारत पेट्रोलियम (BPCL) और ओमान ऑयल कंपनी के सहयोग से हुई थी। इसे कच्चा तेल गुजरात के 'वाडिनार बंदरगाह' (Vadinar) से बिछाई गई लंबी भूमिगत क्रॉस-कंट्री पाइपलाइन के माध्यम से सीधे प्राप्त होता है।"
+  },
+  {
+    question: "6. अखबारी कागज (Newsprint) के विनिर्माण के लिए प्रसिद्ध 'नेशनल न्यूजप्रिंट एंड पेपर मिल' (NEPA) मध्य प्रदेश के बुरहानपुर जिले में स्थित है। इस कारखाने को लुगदी (Pulp) बनाने के लिए किस मुख्य वनस्पति कच्चे माल की आपूर्ति स्थानीय वनों से होती है? / What primary forest raw material is supplied to the NEPA mill in Burhanpur for paper pulp?",
+    options: [
+      "A. सलाई की लकड़ी और बाँस (Salai wood and Bamboo)",
+      "B. केवल सागौन के पत्तों का रस",
+      "C. सुंदरी वृक्षों की छाल",
+      "D. केवल चीड़ और देवदार के शंकुधारी पेड़"
+    ],
+    answer: "A",
+    explanation: "नेपानगर मिल (बुरहानपुर) को अखबारी कागज की लुगदी बनाने के लिए स्थानीय सतपुड़ा वनों से 'सलाई की लकड़ी' (Salai Wood) और बाँस की प्रचुर मात्रा में नियमित आपूर्ति की जाती है, जो इसका मुख्य आधार है।"
+  },
+  {
+    question: "7. भारतीय रिजर्व बैंक (RBI) के नियंत्रण में चलने वाली 'बैंक नोट प्रेस' (Bank Note Press) देवास में स्थित है। इसके अतिरिक्त, नोट छापने के लिए विशेष 'सुरक्षा कागज' (Security Paper) बनाने की सरकारी मिल मप्र में कहाँ संचालित है? / Where is the official Security Paper Mill located in MP that manufactures specialized paper for currency notes?",
+    options: [
+      "A. होशंगाबाद / नर्मदापुरम (Hoshangabad / Narmadapuram)",
+      "B. देवास औद्योगिक क्षेत्र",
+      "C. नेपानगर टाउनशिप",
+      "D. भोपाल भेल अंचल"
+    ],
+    answer: "A",
+    explanation: "करेंसी नोटों और स्टांप पेपरों के लिए प्रयुक्त होने वाले विशेष सुरक्षा कागज का निर्माण वर्ष 1967-68 से 'होशंगाबाद' (नर्मदापुरम) में स्थित 'सुरक्षा कागज कारखाना' (Security Paper Mill) में कड़ाई से भारत सरकार की देखरेख में किया जाता है।"
+  },
+  {
+    question: "8. मध्य प्रदेश के किस औद्योगिक संकुल को 'हार्ट ऑफ आईटी एंड जेम्स' कहा जाता है, जहाँ इलेक्ट्रॉनिक्स कॉम्प्लेक्स के साथ-साथ देश का पहला 'जेम्स एंड ज्वैलरी पार्क' और क्रिस्टल आईटी सेज स्थित है? / Which city of MP hosts the Electronics Complex, Crystal IT SEZ, and the customized Gems & Jewelry Park?",
+    options: [
+      "A. इंदौर (Indore)",
+      "B. पीथमपुर",
+      "C. मालनपुर",
+      "D. मंडीदीप"
+    ],
+    answer: "A",
+    explanation: "इंदौर में रेडीमेड गारमेंट कॉम्प्लेक्स, इलेक्ट्रॉनिक्स कॉम्प्लेक्स और हीरा व कीमती आभूषणों के अंतरराष्ट्रीय व्यापार को बढ़ावा देने के लिए जेम्स एंड ज्वैलरी पार्क और क्रिस्टल आईटी पार्क (SEZ) स्थापित हैं, जो मप्र के मुख्य आईटी निर्यात नोड्स हैं।"
+  },
+  {
+    question: "9. रायसेन जिले में स्थित 'मंडीदीप' (Mandideep) औद्योगिक क्षेत्र में देश का पहला 'ऑप्टिकल फाइबर कारखाना' किस देश के तकनीकी और वित्तीय सहयोग से स्थापित किया गया था? / The first Optical Fibre factory of India at Mandideep, Raisen was established with the technical collaboration of which country?",
+    options: [
+      "A. जापान (Japan)",
+      "B. दक्षिण कोरिया",
+      "C. संयुक्त राज्य अमेरिका",
+      "D. ताइवान"
+    ],
+    answer: "A",
+    explanation: "मंडीदीप (रायसेन) में स्थित भारत का पहला ऑप्टिकल फाइबर कारखाना 'जापान' (Japan) के तकनीकी और वित्तीय सहयोग से स्थापित किया गया था, जो दूरसंचार क्षेत्र के लिए फाइबर ग्लास केबल्स का बड़े पैमाने पर विनिर्माण करता है।"
+  },
+  {
+    question: "10. मध्य प्रदेश का वह कौन सा जिला है जिसे 'रक्षा औद्योगिक केंद्र' (Defense Industrial Hub) कहा जाता है, जहाँ सेना के लिए भारी तोपें (जैसे धनुष तोप) और ऑर्डनेंस सामग्री बनाई जाती है? / Which district of MP is known as the Defense Industrial Hub, hosting the Gun Carriage Factory?",
+    options: [
+      "A. जबलपुर (Jabalpur)",
+      "B. इटारसी",
+      "C. ग्वालियर",
+      "D. भोपाल"
+    ],
+    answer: "A",
+    explanation: "जबलपुर को मध्य प्रदेश का रक्षा औद्योगिक केंद्र कहा जाता है। यहाँ गन कैरिज फैक्ट्री (GCF), ऑर्डनेंस फैक्ट्री खमरिया (OFK) और हेवी व्हीकल फैक्ट्री (HVF) स्थित हैं, जहाँ सेना के लिए गोला-बारूद और तोपें बनाई जाती हैं।"
+  },
+  {
+    question: "11. सूखा बंदरगाह (Dry Port) और इनलैंड कंटेनर डिपो (ICD) की सुविधा से लैस 'मालनपुर औद्योगिक केंद्र' (Malanpur) मध्य प्रदेश के किस उत्तरी जिले के अंतर्गत आता है? / Malanpur Industrial Area, which possesses a Dry Port terminal, is located in which district of MP?",
+    options: [
+      "A. भिंड जिला (Bhind District)",
+      "B. मुरैना जिला",
+      "C. दतिया जिला",
+      "D. गुना जिला"
+    ],
+    answer: "A",
+    explanation: "मालनपुर औद्योगिक केंद्र भिंड जिले के अंतर्गत आता है। ग्वालियर संभाग के नजदीक होने के कारण यहाँ बड़े पैमाने पर दवाइयाँ, लॉजिस्टिक्स और मशीनरी उद्योग विकसित हुए हैं और यहाँ एक 'सूखा बंदरगाह' (Dry Port) संचालित है।"
+  },
+  {
+    question: "12. मध्य प्रदेश लघु उद्योग निगम (MP Laghu Udyog Nigam) की स्थापना भोपाल में किस वर्ष की गई थी, जिसका मुख्य कार्य छोटे कुटीर उद्योगों को वित्तीय, तकनीकी और विपणन सहायता देना है? / In which year was the MP Laghu Udyog Nigam established in Bhopal?",
+    options: [
+      "A. वर्ष 1961 (Year 1961)",
+      "B. वर्ष 1956",
+      "C. वर्ष 1972",
+      "D. वर्ष 1985"
+    ],
+    answer: "A",
+    explanation: "मध्य प्रदेश लघु उद्योग निगम की स्थापना 28 दिसंबर 1961 को भोपाल में की गई थी। यह निगम छोटे और मध्यम उद्यमियों को तकनीकी सहायता देता है और उनके उत्पादों को बाजार प्रदान करने में मदद करता है।"
+  },
+  {
+    question: "13. मध्य प्रदेश के कुटीर और हस्तशिल्प उत्पादों (जैसे चंदेरी-महेश्वरी साड़ियाँ, बेल मेटल शिल्प) को राष्ट्रीय स्तर पर ब्रांडिंग प्रदान करने वाले शासकीय एम्पोरियम शोरूम का नाम क्या है? / What is the official brand name of the government emporium showrooms that market MP's handicrafts?",
+    options: [
+      "A. मृगनयनी एम्पोरियम (Mrignayanee)",
+      "B. मप्र सिल्क हाउस",
+      "C. अहिल्या हस्तशिल्प केंद्र",
+      "D. मालवा मार्ट"
+    ],
+    answer: "A",
+    explanation: "मप्र के पारंपरिक हस्तशिल्प को बेचने के लिए सरकार देश भर में 'मृगनयनी' (Mrignayanee) नाम से एम्पोरियम शोरूम चलाती है। इसका नाम तोमर राजा मानसिंह की प्रिय रानी मृगनयनी के नाम पर रखा गया है।"
+  },
+  {
+question: "14. झाबुआ जिले का 'मेघनगर' (Meghnagar Industrial Area) क्यों प्रसिद्ध है और यहाँ किस खनिज के रासायनिक प्रसंस्करण के कारखाने बड़े पैमाने पर स्थापित किए गए हैं? / Why is Meghnagar in Jhabua district famous, and which mineral processing industries are concentrated here?",options: ["A. रॉक फॉस्फेट आधारित उर्वरक और रासायनिक इकाइयाँ (Rock Phosphate based fertilizer units)","B. हीरा तराशने और निर्यात का सरकारी हब","C. सूती कपड़ा बुनाई और धागा मिलें","D. भारी तोप विनिर्माण लोकोमोटिव शेड"],answer: "A",explanation: "मेघनगर झाबुआ जिले का मुख्य औद्योगिक केंद्र है। झाबुआ में मिलने वाले 'रॉक फॉस्फेट' खनिज के कारण मेघनगर में फॉस्फेटिक खाद, सुपरफॉस्फेट और कीटनाशक बनाने के कारखाने स्थापित किए गए हैं।"},{question: "15. चमड़ा खिलौना (Leather Toys) विनिर्माण कला मध्य प्रदेश के किस शहर की एक विशिष्ट भौगोलिक पहचान है, जिसे इसकी अनूठी हस्तशिल्प श्रेणी के कारण भारत सरकार द्वारा जीआई टैग मिला है? / Leather toy manufacturing holds a GI Tag for which specific city of MP?",options: ["A. इंदौर (Indore - Leather Art)","B. देवास शहर","C. ग्वालियर किला अंचल","D. सतना शहर"],answer: "A",explanation: "इंदौर के चमड़े के खिलौने (Leather Toys) विश्व प्रसिद्ध हैं। चमड़े को कस्टमाइज्ड कर विभिन्न सजीव दिखने वाले जानवरों के खिलौने हाथ से बनाए जाते हैं। इस हस्तशिल्प विधा को भारत सरकार द्वारा 'GI Tag' प्रदान किया गया है।"},{question: "16. मध्य प्रदेश औद्योगिक विकास निगम (MPIDC) द्वारा बुंदेलखंड अंचल के औद्योगिक विकास के लिए सागर जिले में किस मुख्य 'औद्योगिक केंद्र' का विकास किया गया है? / Which major industrial area has been developed by MPIDC in Sagar district?",options: ["A. सिद्धागुआ औद्योगिक केंद्र (Siddhaguwan)","B. प्रतापपुरा औद्योगिक केंद्र","C. मनेरी औद्योगिक केंद्र","D. पीलूखेड़ी औद्योगिक केंद्र"],answer: "A",explanation: "सागर जिले का 'सिद्धागुआ' (Siddhaguwan) बुंदेलखंड का एक मुख्य औद्योगिक केंद्र है। यहाँ विभिन्न लघु, मध्यम और लॉजिस्टिक्स उद्योगों को बढ़ावा देने के लिए अधोसंरचना विकसित की गई है।"},{question: "17. मध्य प्रदेश के शहडोल जिले के 'अमलाई' (Amlai) में स्थित ओरिएंट पेपर मिल (Orient Paper Mill) निजी क्षेत्र का एक बड़ा कागज कारखाना है। यह किस औद्योगिक घराने के स्वामित्व में है? / Orient Paper Mill at Amlai, Shahdol is managed under which private industrial house?",options: ["A. सी.के. बिड़ला समूह (Birla Group)","B. टाटा इंडस्ट्रीज कॉर्प","C. रिलायंस इंडस्ट्रीज","D. जेपी समूह"],answer: "A",explanation: "अमलाई (शहडोल) की ओरिएंट पेपर मिल निजी क्षेत्र के सी.के. बिड़ला ग्रुप (Birla Group) की एक प्रसिद्ध मिल है। यह मुख्य रूप से बाँस और लकड़ी की लुगदी से उच्च श्रेणी का राइटिंग और प्रिंटिंग पेपर बनाती है।"},{question: "18. रीवा जिले का 'गोविंदगढ़' (Govindgarh) अंचल बागवानी क्षेत्र के अंतर्गत किस फल की विशिष्ट प्रजाति के अनुसंधान और देश के पहले 'सफेद बाघ सफारी' के केंद्र के रूप में प्रसिद्ध है? / Govindgarh in Rewa is famous for the research of which fruit variety and the first White Tiger Safari?",options: ["A. सुंदरजा आम (Sundarja Mango - GI Tag)","B. कड़कनाथ पोल्ट्री ब्रीडिंग","C. चिन्नौर चावल कछार","D. शरबती गेहूँ भंडार"],answer: "A",explanation: "रीवा के गोविंदगढ़ का 'सुंदरजा आम' (Sundarja Mango) अपनी मिठास और विशिष्ट सुगंध के लिए वैश्विक स्तर पर प्रसिद्ध है, जिसे भारत सरकार द्वारा जीआई टैग (GI Tag) मिला है। मुकुंदपुर सफेद बाघ सफारी भी इसी अंचल के निकट स्थित है।"},{question: "19. मध्य प्रदेश वस्त्र उद्योग निगम (MP Textile Corporation) की स्थापना इंदौर में किस वर्ष की गई थी, जो राज्य के सरकारी स्वामित्व वाली सूती मिलों का प्रबंधन संभालती है? / In which year was the MP Textile Corporation established in Indore?",options: ["A. वर्ष 1970 (Year 1970)","B. वर्ष 1956","C. वर्ष 1961","D. वर्ष 1982"],answer: "A",explanation: "मध्य प्रदेश वस्त्र उद्योग निगम की स्थापना वर्ष 1970 में इंदौर में की गई थी। इसका मुख्य कार्य राज्य की बीमार और सरकारी स्वामित्व वाली सूती कपड़ा मिलों का सुचारू संचालन और प्रशासनिक प्रबंधन संभालना है।"},{question: "20. कड़कनाथ मुर्गा (Kandaknath Chicken) अपनी उच्च प्रोटीन और कम कोलेस्ट्रॉल के कारण प्रसिद्ध है, जिसे मप्र का पहला लाइवस्टॉक जीआई टैग प्राप्त हुआ है। यह मुख्य रूप से किस जिले की भौगोलिक पहचान है? / Kadaknath Chicken, which holds a GI Tag, is the primary geographical identity of which district of MP?",options: ["A. झाबुआ और अलीराजपुर जिला (Jhabua and Alirajpur)","B. मुरैना और भिंड संभाग","C. रीवा और पन्ना कछार","D. सागर और दमोह अंचल"],answer: "A",explanation: "झाबुआ जिले के काले रंग के 'कड़कनाथ मुर्गे' (स्थानीय नाम कालीमासी) को अपनी विशिष्ट पोषण गुणवत्ता और औषधीय महत्व के कारण भारत सरकार द्वारा कस्टमाइज्ड भौगोलिक संकेतक (GI Tag) प्रदान किया गया है, जो राज्य के पशुपालन उद्योग का एक मुख्य ब्रांड है।"}];
