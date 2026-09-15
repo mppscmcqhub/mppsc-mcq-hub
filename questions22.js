@@ -1,243 +1,165 @@
-window.questions22 = [
-
-{
-q:"प्रश्न 1: निम्न कथनों पर विचार कीजिए। (1) भीमबेटका यूनेस्को विश्व धरोहर स्थल है। (2) यह रायसेन जिले में स्थित है। सही उत्तर चुनिए। / Consider the statements: (1) Bhimbetka is a UNESCO World Heritage Site. (2) It is located in Raisen district.",
-o:[
-"केवल 1 / Only 1",
-"केवल 2 / Only 2",
-"1 और 2 दोनों / Both 1 and 2",
-"न तो 1 न ही 2 / Neither 1 nor 2"
-],
-a:2,
-exp:"दोनों कथन सही हैं। / Both statements are correct."
-},
-
-{
-q:"प्रश्न 2: 'समरांगण सूत्रधार' किस विषय से संबंधित ग्रंथ है? / 'Samarangana Sutradhara' is related to:",
-o:[
-"वास्तुकला / Architecture",
-"ज्योतिष / Astronomy",
-"व्याकरण / Grammar",
-"संगीत / Music"
-],
-a:0,
-exp:"राजा भोज द्वारा रचित यह ग्रंथ वास्तुकला और नगर नियोजन से संबंधित है। / It deals with architecture and town planning."
-},
-
-{
-q:"प्रश्न 3: परमार वंश के संदर्भ में निम्न में से कौन-सा युग्म सही है? / Which pair is correctly matched?",
-o:[
-"राजा भोज — धार / Raja Bhoja — Dhar",
-"सिंधुराज — उज्जैन / Sindhuraja — Ujjain",
-"उदयादित्य — ग्वालियर / Udayaditya — Gwalior",
-"मुंज — महेश्वर / Munja — Maheshwar"
-],
-a:0,
-exp:"राजा भोज की राजधानी धार थी। / Raja Bhoja ruled from Dhar."
-},
-
-{
-q:"प्रश्न 4: खजुराहो के मंदिरों के संबंध में सही कथन चुनिए। / Choose the correct statement about Khajuraho Temples.",
-o:[
-"इनका निर्माण गुप्तों ने कराया। / Built by Guptas",
-"ये केवल शैव मंदिर हैं। / Only Shaiva temples",
-"ये नागर शैली के उत्कृष्ट उदाहरण हैं। / Excellent examples of Nagara style",
-"इनमें कोई जैन मंदिर नहीं है। / No Jain temples"
-],
-a:2,
-exp:"खजुराहो नागर शैली का उत्कृष्ट उदाहरण है। / They are prime examples of Nagara architecture."
-},
-
-{
-q:"प्रश्न 5: निम्न में से कौन-सा स्थान कलचुरी राजधानी था? / Which was the Kalachuri capital?",
-o:[
-"त्रिपुरी / Tripuri",
-"धार / Dhar",
-"उज्जैन / Ujjain",
-"विदिशा / Vidisha"
-],
-a:0,
-exp:"त्रिपुरी (जबलपुर के निकट) कलचुरियों की राजधानी थी। / Tripuri was their capital."
-},
-
-{
-q:"प्रश्न 6: रानी दुर्गावती के संबंध में कौन-सा कथन सही है? / Which statement about Rani Durgavati is correct?",
-o:[
-"उन्होंने अकबर से संधि की। / She made a treaty with Akbar",
-"उन्होंने आसफ खाँ से युद्ध किया। / She fought Asaf Khan",
-"वे चंदेल वंश की थीं। / She belonged to Chandela dynasty",
-"दो और तीन दोनों / Both 2 and 3"
-],
-a:3,
-exp:"रानी दुर्गावती चंदेल वंश से थीं और उन्होंने आसफ खाँ से युद्ध किया। / Both statements are correct."
-},
-
-{
-q:"प्रश्न 7: ग्वालियर दुर्ग का सबसे प्रमुख विकास किस शासक ने किया? / Who significantly developed Gwalior Fort?",
-o:[
-"मान सिंह तोमर / Man Singh Tomar",
-"राजा भोज / Raja Bhoja",
-"धंगदेव / Dhangadeva",
-"अहिल्याबाई / Ahilyabai"
-],
-a:0,
-exp:"मान सिंह तोमर ने ग्वालियर दुर्ग का विस्तार कराया। / Man Singh Tomar expanded the fort."
-},
-
-{
-q:"प्रश्न 8: महेश्वर का ऐतिहासिक महत्व किससे जुड़ा है? / Maheshwar is historically associated with:",
-o:[
-"अहिल्याबाई होल्कर / Ahilyabai Holkar",
-"राजा भोज / Raja Bhoja",
-"अशोक / Ashoka",
-"चंद्रगुप्त / Chandragupta"
-],
-a:0,
-exp:"महेश्वर अहिल्याबाई होल्कर की राजधानी थी। / It was Ahilyabai's capital."
-},
-
-{
-q:"प्रश्न 9: साँची स्तूप का मूल निर्माण किस काल में हुआ? / The original Sanchi Stupa was built during:",
-o:[
-"मौर्य काल / Mauryan Period",
-"गुप्त काल / Gupta Period",
-"कुषाण काल / Kushan Period",
-"चंदेल काल / Chandela Period"
-],
-a:0,
-exp:"मौर्य सम्राट अशोक ने इसका निर्माण कराया। / Built by Ashoka in the Mauryan period."
-},
-
-{
-q:"प्रश्न 10: निम्न में से कौन-सा स्थल शुंग काल में विस्तारित हुआ? / Which site was expanded during the Shunga period?",
-o:[
-"साँची / Sanchi",
-"मांडू / Mandu",
-"ग्वालियर / Gwalior",
-"खजुराहो / Khajuraho"
-],
-a:0,
-exp:"साँची स्तूप का विस्तार शुंग काल में हुआ। / Sanchi was expanded during the Shunga period."
-},
-
-{
-q:"प्रश्न 11: राजा भोज के समय 'भोजशाला' कहाँ स्थित थी? / Where was Bhojshala located?",
-o:[
-"धार / Dhar",
-"उज्जैन / Ujjain",
-"भोपाल / Bhopal",
-"विदिशा / Vidisha"
-],
-a:0,
-exp:"भोजशाला धार में स्थित थी। / Bhojshala is in Dhar."
-},
-
-{
-q:"प्रश्न 12: निम्न में से कौन-सा युग्म गलत है? / Which pair is incorrect?",
-o:[
-"भीमबेटका — रायसेन / Bhimbetka — Raisen",
-"खजुराहो — छतरपुर / Khajuraho — Chhatarpur",
-"साँची — सागर / Sanchi — Sagar",
-"महेश्वर — नर्मदा / Maheshwar — Narmada"
-],
-a:2,
-exp:"साँची विदिशा जिले में है, सागर में नहीं। / Sanchi is in Vidisha, not Sagar."
-},
-
-{
-q:"प्रश्न 13: मध्य प्रदेश में 'त्रिपुरी' वर्तमान में किस शहर के निकट है? / Tripuri is near which present-day city?",
-o:[
-"जबलपुर / Jabalpur",
-"रीवा / Rewa",
-"भोपाल / Bhopal",
-"इंदौर / Indore"
-],
-a:0,
-exp:"त्रिपुरी जबलपुर के निकट है। / It is near Jabalpur."
-},
-
-{
-q:"प्रश्न 14: कच्छपघात वंश का प्रमुख केंद्र था। / The main center of Kacchapghata Dynasty was:",
-o:[
-"ग्वालियर / Gwalior",
-"धार / Dhar",
-"उज्जैन / Ujjain",
-"मंदसौर / Mandsaur"
-],
-a:0,
-exp:"ग्वालियर उनका प्रमुख केंद्र था। / Gwalior was their main center."
-},
-
-{
-q:"प्रश्न 15: भोजपुर मंदिर किस स्थापत्य शैली का उदाहरण है? / Bhojpur Temple is an example of:",
-o:[
-"नागर शैली / Nagara Style",
-"द्रविड़ शैली / Dravida Style",
-"वेसर शैली / Vesara Style",
-"इंडो-इस्लामिक शैली / Indo-Islamic"
-],
-a:0,
-exp:"यह नागर शैली का उत्कृष्ट उदाहरण है। / It is an example of Nagara style."
-},
-
-{
-q:"प्रश्न 16: निम्न में से कौन-सा चंदेल शासक था? / Which was a Chandela ruler?",
-o:[
-"धंगदेव / Dhangadeva",
-"मुंज / Munja",
-"सिंधुराज / Sindhuraja",
-"मान सिंह / Man Singh"
-],
-a:0,
-exp:"धंगदेव चंदेल शासक थे। / Dhangadeva was a Chandela ruler."
-},
-
-{
-q:"प्रश्न 17: गोंड राज्य की राजधानी गढ़ा-कटंगा किसके निकट थी? / Garha-Katanga was near:",
-o:[
-"जबलपुर / Jabalpur",
-"इंदौर / Indore",
-"भोपाल / Bhopal",
-"उज्जैन / Ujjain"
-],
-a:0,
-exp:"गढ़ा-कटंगा जबलपुर क्षेत्र में था। / It was in the Jabalpur region."
-},
-
-{
-q:"प्रश्न 18: निम्न में से कौन-सा स्थान नर्मदा घाटी सभ्यता से जुड़ा है? / Which place is associated with the Narmada Valley civilization?",
-o:[
-"भीमबेटका / Bhimbetka",
-"साँची / Sanchi",
-"खजुराहो / Khajuraho",
-"मांडू / Mandu"
-],
-a:0,
-exp:"भीमबेटका नर्मदा घाटी के प्रागैतिहासिक स्थलों में प्रमुख है। / Bhimbetka is a major prehistoric site of the Narmada Valley."
-},
-
-{
-q:"प्रश्न 19: निम्न में से कौन-सा शासक 'मुंज' के नाम से प्रसिद्ध था? / Which ruler was known as Munja?",
-o:[
-"वाक्पति द्वितीय / Vakpati II",
-"राजा भोज / Raja Bhoja",
-"धंगदेव / Dhangadeva",
-"यशोवर्मन / Yashovarman"
-],
-a:0,
-exp:"वाक्पति द्वितीय को मुंज कहा जाता था। / Vakpati II was known as Munja."
-},
-
-{
-q:"प्रश्न 20: निम्न कथनों पर विचार कीजिए। (1) राजा भोज ने भोजपुर नगर बसाया। (2) भोजपुर शिव मंदिर अधूरा है। सही उत्तर चुनिए। / Consider: (1) Raja Bhoja founded Bhojpur. (2) Bhojpur Shiva Temple remains incomplete.",
-o:[
-"केवल 1 / Only 1",
-"केवल 2 / Only 2",
-"दोनों सही / Both are correct",
-"दोनों गलत / Both are incorrect"
-],
-a:2,
-exp:"दोनों कथन सही हैं। / Both statements are correct."
-}
-
-];
+window.questions = [
+  {
+    question: "1. मध्य प्रदेश को 'नदियों का मायका' (Motherland of Rivers) कहा जाता है। राज्य की सबसे लंबी नदी कौन सी है, जो भारत की पांचवीं सबसे लंबी नदी भी है और पश्चिम की ओर बहती है? / MP is known as the 'Motherland of Rivers'. Which is the longest river in the state, which is also the 5th longest river in India and flows westward?",
+    options: [
+      "A. नर्मदा नदी (Narmada River)",
+      "B. चंबल नदी",
+      "C. सोन नदी",
+      "D. ताप्ती नदी"
+    ],
+    answer: "A",
+    explanation: "नर्मदा नदी मध्य प्रदेश की जीवन रेखा है। इसकी कुल लंबाई 1312 किमी है, जिसमें से यह मध्य प्रदेश में 1077 किमी बहती है। यह अमरकंटक से निकलकर खंभात की खाड़ी (अरब सागर) में गिरती है और एस्चुरी (Estuary) का निर्माण करती है।"
+  },
+  {
+    question: "2. चंबल नदी (Chambal River) का उद्गम मालवा के पठार की जानापाव पहाड़ी से होता है। यह नदी उत्तर प्रदेश के किस जिले के निकट यमुना नदी में जाकर मिल जाती है? / The Chambal river originates from Janapav hills. Near which district of UP does it merge into the Yamuna river?",
+    options: [
+      "A. इटावा (Etawah)",
+      "B. हमीरपुर",
+      "C. प्रयागराज",
+      "D. जालौन"
+    ],
+    answer: "A",
+    explanation: "चंबल नदी मध्य प्रदेश की दूसरी सबसे लंबी नदी (965 किमी) है। यह मप्र के बाद राजस्थान में बहती हुई उत्तर प्रदेश के इटावा जिले के पास (मुरादगंज) यमुना नदी में समाहित हो जाती है।"
+  },
+  {
+    question: "3. मध्य प्रदेश की वह कौन सी नदी है जो कर्क रेखा को दो बार (Twice) काटती है और पश्चिम की ओर बहती हुई गुजरात में प्रवेश करती है? / Which river of MP crosses the Tropic of Cancer twice and flows westward into Gujarat?",
+    options: [
+      "A. माही नदी (Mahi River)",
+      "B. ताप्ती नदी",
+      "C. नर्मदा नदी",
+      "D. बेतवा नदी"
+    ],
+    answer: "A",
+    explanation: "माही नदी धार जिले के मिंडा गाँव से निकलती है। यह भारत की एकमात्र ऐसी नदी है जो कर्क रेखा को दो बार काटती है। यह मप्र, राजस्थान और गुजरात से बहती हुई अरब सागर में गिरती है।"
+  },
+  {
+    question: "4. मध्य प्रदेश के अपवाह तंत्र के अंतर्गत, 'बेतवा नदी' (Betwa River) का उद्गम रायसेन जिले के किस गाँव से होता है, जिसे अपनी प्रदूषण समानता के कारण 'मालवा की गंगा' भी कहा जाता है? / Under the drainage system of MP, the Betwa river originates from which village in Raisen district?",
+    options: [
+      "A. कुमरा गाँव (Kumra Gaon)",
+      "B. मुलताई",
+      "C. अमरकंटक",
+      "D. बागली"
+    ],
+    answer: "A",
+    explanation: "बेतवा (प्राचीन नाम वेत्रवती) का उद्गम रायसेन जिले के कुमरा गाँव से होता है। प्रदूषण के उच्च स्तर के कारण इसे 'मध्य प्रदेश की गंगा' भी कहा जाता है। यह बुंदेलखंड की जीवन रेखा है और हमीरपुर (UP) के पास यमुना में मिलती है।"
+  },
+  {
+    question: "5. नर्मदा नदी की कुल कितनी सहायक नदियाँ (Tributaries) हैं और इनमें से कौन सी इसकी सबसे प्रमुख और लंबी दक्षिणी सहायक नदी है जो होशंगाबाद में आकर मिलती है? / How many total tributaries does the Narmada river have, and which is its primary southern tributary?",
+    options: [
+      "A. 41 सहायक नदियाँ - तवा नदी (41 Tributaries - Tawa River)",
+      "B. 32 सहायक नदियाँ - क्षिप्रा नदी",
+      "C. 21 सहायक नदियाँ - केन नदी",
+      "D. 50 सहायक नदियाँ - सोन नदी"
+    ],
+    answer: "A",
+    explanation: "नर्मदा नदी बेसिन की कुल 41 सहायक नदियाँ हैं (22 बाईं ओर से और 19 दाईं ओर से)। 'तवा नदी' इसकी सबसे बड़ी सहायक नदी है जो पचमढ़ी के महादेव पर्वत से निकलकर होशंगाबाद के बांद्राभान में नर्मदा से मिलती है।"
+  },
+  {
+    question: "6. मध्य प्रदेश की वह कौन सी नदी है जो गंगा नदी अपवाह तंत्र का हिस्सा है, लेकिन सीधे (Directly) गंगा में जाकर मिलती है, न कि किसी उप-नदी के माध्यम से? / Which river of MP belongs to the Ganga basin but merges directly into the Ganga river without any intermediary stream?",
+    options: [
+      "A. सोन नदी (Son River / स्वर्ण नदी)",
+      "B. चंबल नदी",
+      "C. टोंस (तमसा) नदी केवल",
+      "D. बेतवा नदी"
+    ],
+    answer: "A",
+    explanation: "अमरकंटक की पहाड़ियों से निकलने वाली सोन नदी उत्तर की ओर बहती हुई बिहार में पटना के पास (दीनापुर) 'सीधे गंगा नदी' में विलीन हो जाती है। टोंस (तमसा) भी सिरसा (UP) के पास सीधे गंगा में मिलती है।"
+  },
+  {
+    question: "7. मध्य प्रदेश और उत्तर प्रदेश की संयुक्त 'केन-बेतवा नदी लिंक परियोजना' (Ken-Betwa Link Project) के तहत केन नदी का पानी बेतवा में भेजा जा रहा है। 'केन नदी' का उद्गम कहाँ से होता है? / Under the Ken-Betwa link project, water is transferred from Ken to Betwa. Where does the Ken river originate?",
+    options: [
+      "A. कटनी जिले की कैमूर पहाड़ियाँ (Kaimur Hills of Katni District)",
+      "B. सीहोर की जानापाव पहाड़ी",
+      "C. बैतुल का मुलताई अंचल",
+      "D. छिंदवाड़ा का पातालकोट"
+    ],
+    answer: "A",
+    explanation: "केन नदी (वेधवती) का उद्गम कटनी जिले की रीठी तहसील की कैमूर पहाड़ियों से होता है। यह पन्ना राष्ट्रीय उद्यान के बीच से बहती हुई उत्तर प्रदेश के बांदा जिले में यमुना नदी से मिल जाती है।"
+  },
+  {
+    question: "8. मध्य प्रदेश के दक्षिणी अपवाह तंत्र के तहत, 'वेनगंगा नदी' (Wainganga River) का उद्गम सिवनी जिले के परसवाड़ा पठार से होता है। यह नदी दक्षिण में किस नदी के साथ मिलकर 'प्राणहिता' (Pranhita) संगम बनाती है? / In the southern basin of MP, the Wainganga river merges with which river to form the 'Pranhita' confluence?",
+    options: [
+      "A. वर्धा नदी (Wardha River)",
+      "B. ताप्ती नदी",
+      "C. महानदी",
+      "D. पेन्च नदी"
+    ],
+    answer: "A",
+    explanation: "वेनगंगा सिवनी से निकलकर दक्षिण (महाराष्ट्र) की ओर बहती है। जब यह वर्धा नदी (जो बैतुल से निकलती है) से मिलती है, तो दोनों के संयुक्त संगम को 'प्राणहिता' कहा जाता है, जो आगे चलकर गोदावरी नदी अपवाह तंत्र में समाहित हो जाती है।"
+  },
+  {
+    question: "9. उज्जैन की प्रसिद्ध 'क्षिप्रा नदी' (Shipra River) के तट पर प्रत्येक 12 वर्ष में सिंहस्थ कुंभ मेला आयोजित होता है। इस नदी का उद्गम इंदौर के निकट किस पहाड़ी से होता है? / The famous Shipra river hosts the Simhastha Kumbh at Ujjain. From which hill near Indore does it originate?",
+    options: [
+      "A. काकरी बरडी पहाड़ी (Kakri Bardi Hills)",
+      "B. जानापाव पहाड़ी",
+      "C. सिगार पहाड़ी",
+      "D. शाहगढ़ पहाड़ी"
+    ],
+    answer: "A",
+    explanation: "क्षिप्रा नदी इंदौर के समीप महू की 'काकरी बरडी पहाड़ी' से निकलती है। इसकी कुल लंबाई 195 किमी है और यह मंदसौर सीमा के पास चंबल नदी में जाकर मिल जाती है। खान (Khan) नदी इसकी मुख्य सहायक नदी है।"
+  },
+  {
+    question: "10. मध्य प्रदेश की 'ताप्ती नदी' (Tapti River) नर्मदा के समानांतर पूर्व से पश्चिम की ओर भ्रंश घाटी में बहती है। इस नदी का उद्गम बैतुल जिले के किस पवित्र स्थान से होता है? / The Tapti river flows parallel to Narmada in a rift valley. From which holy place in Betul district does it originate?",
+    options: [
+      "A. मुलताई (Multai)",
+      "B. घोड़ाडोंगरी",
+      "C. सारणी अंचल",
+      "D. भैंसदेही पठार"
+    ],
+    answer: "A",
+    explanation: "ताप्ती नदी का उद्गम बैतुल जिले के 'मुलताई' (मूल ताप्ती) नामक तालाब से होता है। यह नदी सतपुड़ा के दक्षिण में बहती हुई महाराष्ट्र और गुजरात से गुजरकर सूरत के पास खंभात की खाड़ी (अरब सागर) में गिरती है।"
+  },
+  {
+    question: "11. मध्य प्रदेश का सबसे ऊँचा जलप्रपात 'चचाई जलप्रपात' (Chachai Waterfall) किस नदी पर स्थित है, जो रीवा जिले के अंतर्गत आता है? / Which river hosts the highest waterfall of MP, 'Chachai Waterfall', located in the Rewa district?",
+    options: [
+      "A. बीहड़ नदी (Bihad River)",
+      "B. महानदी",
+      "C. नर्मदा नदी",
+      "D. चंबल नदी"
+    ],
+    answer: "A",
+    explanation: "रीवा जिले में स्थित चचाई जलप्रपात (लगभग 130 मीटर ऊँचा) 'बीहड़ नदी' पर स्थित है, जो टोंस की सहायक नदी है। रीवा के अन्य प्रमुख जलप्रपात केवटी (महाना नदी) और बहुती (सेलर नदी) हैं।"
+  },
+  {
+    question: "12. जबलपुर के भेड़ाघाट में नर्मदा नदी पर बनने वाले विश्व प्रसिद्ध जलप्रपात का क्या नाम है, जो सफेद संगमरमर की चट्टानों के बीच से गिरता है? / What is the name of the world-famous waterfall formed by the Narmada river at Bhedaghat, Jabalpur?",
+    options: [
+      "A. धुआँधार जलप्रपात (Dhuandhar Waterfall)",
+      "B. कपिलधारा",
+      "C. दुग्धधारा",
+      "D. सहस्रधारा"
+    ],
+    answer: "A",
+    explanation: "जबलपुर के भेड़ाघाट में नर्मदा नदी एक ऊँची संगमरमर की चट्टान से गिरती है, जिससे पानी की सूक्ष्म बूंदें धुएं का भ्रम पैदा करती हैं, इसी कारण इसे 'धुआँधार जलप्रपात' कहा जाता है। अमरकंटक में नर्मदा कपिलधारा और दुग्धधारा जलप्रपात बनाती है।"
+  },
+  {
+    question: "13. मध्य प्रदेश और राजस्थान की प्राकृतिक सीमा का निर्धारण करने वाली मुख्य नदी कौन सी है, जो उत्तरी सीमा पर बीहड़ों का निर्माण करती है? / Which major river defines the natural boundary between Madhya Pradesh and Rajasthan?",
+    options: [
+      "A. चंबल नदी (Chambal River)",
+      "B. ताप्ती नदी",
+      "C. यमुना नदी",
+      "D. सिन्ध नदी"
+    ],
+    answer: "A",
+    explanation: "चंबल नदी मध्य प्रदेश के इंदौर, धार और रतलाम से बहती हुई राजस्थान में प्रवेश करती है। इसके बाद यह पुनः मप्र के श्योपुर, मुरैना और भिंड जिलों की सीमा बनाते हुए राजस्थान के साथ एक लंबी 'उत्तरी प्राकृतिक सीमा' का निर्धारण करती है।"
+  },
+  {
+    question: "14. गुना जिले को दो बराबर भागों (पूर्वी और पश्चिमी गुना) में विभाजित करने वाली मध्य प्रदेश की प्रमुख नदी कौन सी है, जो विदिशा के सिरोंज से निकलती है? / Which major river of MP divides the Guna district into two equal halves, originating from Sironj in Vidisha?",
+    options: [
+      "A. सिन्ध नदी (Sindh River)",
+      "B. बेतवा नदी",
+      "C. पार्वती नदी",
+      "D. कुंवारी नदी"
+    ],
+    answer: "A",
+    explanation: "सिन्ध (Sindh) नदी विदिशा जिले की सिरोंज तहसील से निकलती है। यह उत्तर की ओर बहती हुई गुना जिले को दो बराबर भागों में बांटती है और शिवपुरी, दतिया, भिंड से गुजरती हुई अंततः चंबल के समानांतर यमुना में मिल जाती है।"
+  },
+  {
+    question: "15. मध्य प्रदेश की 'शक्कर नदी' (Shakkar River) और 'दूधी नदी' मुख्य रूप से किस विशाल नदी तंत्र की दक्षिणी सहायक नदियाँ हैं, जिनका बेसिन कोयला खनन के लिए प्रसिद्ध है? / The Shakkar and Dudhi rivers are southern tributaries of which major river system in MP?",
+    options: [
+      "A. नर्मदा नदी तंत्र (Narmada River System)",
+      "B. गोदावरी अपवाह तंत्र",
+      "C. चंबल नदी बेसिन",
+      "D. बेतवा नदी बेसिन"
+    ],
+    answer: "A",
+explanation: "शक्कर, दूधी, गंजाल, शेर, और शंख नदी नर्मदा नदी की प्रमुख दक्षिणी सहायक नदियाँ हैं, जो सतपुड़ा पर्वतमाला से निकलकर उत्तर की ओर बहती हुई नर्मदा घाटी में समाहित होती हैं।"},{question: "16. मध्य प्रदेश और महाराष्ट्र की संयुक्त 'बावनथड़ी सिंचाई परियोजना' (Bawanthadi Project) किस नदी पर स्थित है, जो सिवनी और बालाघाट जिलों की सीमा पर है? / On which river is the Bawanthadi irrigation project, a joint venture of MP and Maharashtra, located?",options: ["A. बावनथड़ी नदी / वेनगंगा की सहायक (Bawanthadi River)","B. ताप्ती नदी","C. वर्धा नदी","D. कान्हन नदी"],answer: "A",explanation: "बावनथड़ी परियोजना (राजीव सागर परियोजना) बालाघाट जिले में बावनथड़ी नदी पर स्थित है, जो वेनगंगा की एक मुख्य सहायक नदी है। यह मध्य प्रदेश और महाराष्ट्र की एक महत्वपूर्ण संयुक्त अंतर-राज्यीय परियोजना है।"},{question: "17. मध्य प्रदेश के मालवा अंचल के देवास (बागली) से निकलने वाली 'कालीसिन्ध नदी' (Kalisindh River) उत्तर की ओर बहती हुई राजस्थान में किस मुख्य नदी से मिल जाती है? / The Kalisindh river originating from Dewas flows northward and merges into which major river in Rajasthan?",options: ["A. चंबल नदी (Chambal River)","B. बेतवा नदी","C. यमुना नदी","D. क्षिप्रा नदी"],answer: "A",explanation: "कालीसिन्ध नदी देवास जिले के बागली गाँव से निकलती है। यह सोनकच्छ और शाजापुर-राजगढ़ से बहती हुई राजस्थान के बारां जिले में प्रवेश करती है और अंततः कोटा के पास 'चंबल नदी' में विलीन हो जाती है।"},{question: "18. छिंदवाड़ा जिले के सौंसर क्षेत्र से निकलने वाली 'जाम नदी' (Jam River) के तट पर प्रतिवर्ष पत्थरों से लड़ा जाने वाला प्रसिद्ध 'गोटमार मेला' (Gotmar Mela) कहाँ आयोजित होता है? / On the banks of which river is the famous 'Gotmar Mela' celebrated annually in Chhindwara district?",options: ["A. जाम नदी - पांढुर्णा (Jam River - Pandhurna)","B. पेन्च नदी - परासिया","C. वेनगंगा नदी - कन्हान अंचल","D. वर्धा नदी - मुलताई सीमा"],answer: "A",explanation: "छिंदवाड़ा (अब पांढुर्णा जिला) के पांढुर्णा शहर में जाम नदी के दोनों तटों के गांवों के लोग एकत्रित होकर एक-दूसरे पर पत्थर फेंकते हैं, जिसे पारंपरिक 'गोटमार मेला' कहा जाता है। यह जाम नदी के तट पर आयोजित होने वाली एक अनूठी लोक परंपरा है।"},{question: "19. मध्य प्रदेश के धार जिले के सरदारपुर अंचल से निकलने वाली 'माही नदी' अपना जल अंततः कहाँ विसर्जित करती है, जो भारत की एक प्रमुख पश्चिम वाहिनी नदी है? / The Mahi river originating from Dhar district ultimately discharges its water into which body?",options: ["A. खंभात की खाड़ी / अरब सागर (Gulf of Khambhat / Arabian Sea)","B. कच्छ का रन","C. यमुना नदी बेसिन","D. बंगाल की खाड़ी"],answer: "A",explanation: "माही नदी धार से निकलकर राजस्थान के बांसवाड़ा-डूँगरपुर से होती हुई गुजरात में प्रवेश करती है। यह कुल 583 किमी की यात्रा तय करके अरब सागर के अंतर्गत 'खंभात की खाड़ी' में अपना जल विसर्जित करती है।"},{question: "20. मध्य प्रदेश का कौन सा अपवाह तंत्र (Drainage Basin) भौगोलिक दृष्टि से सबसे बड़ा है, जो राज्य के लगभग 70% हिस्से के जल प्रवाह को समेटता है? / Which drainage basin of Madhya Pradesh is geographically the largest, covering nearly 70% of the state's area?",options: ["A. गंगा-यमुना अपवाह तंत्र (Ganga-Yamuna Drainage Basin)","B. नर्मदा अपवाह तंत्र","C. गोदावरी अपवाह तंत्र","D. ताप्ती अपवाह तंत्र"],answer: "A",explanation: "गंगा नदी अपवाह तंत्र (मुख्यतः यमुना उप-बेसिन) मध्य प्रदेश का सबसे बड़ा अपवाह तंत्र है। यद्यपि गंगा मप्र में नहीं बहती, लेकिन राज्य की प्रमुख नदियाँ (चंबल, बेतवा, केन, सोन, सिन्ध) यमुना और गंगा में जाकर मिलती हैं, जिससे यह राज्य का सबसे विशाल जलग्रहण क्षेत्र बनता है।"}];
