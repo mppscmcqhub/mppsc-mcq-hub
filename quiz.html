@@ -55,6 +55,37 @@ script.src = `questions${fileNo}.js?v=${new Date().getTime()}`;
 script.onload = () => {
     // जांचें कि नई फाइल का डेटा सही से लोड हुआ या नहीं
     if (window.questions && Array.isArray(window.questions)) {
+        
+        // ─── नया SHUFFLE (विकल्पों को मिक्स करने का) कोड ───
+        window.questions.forEach(q => {
+            try {
+                // 1. पुराना सही उत्तर कौन सा था, उसका मुख्य टेक्स्ट निकालें
+                let correctText = q.options.find(opt => opt.trim().startsWith(q.answer + ".")).replace(/^[A-D]\.\s*/, "");
+                
+                // 2. सभी विकल्पों के आगे से "A. ", "B. " हटाकर साफ करें
+                let cleanOptions = q.options.map(opt => opt.replace(/^[A-D]\.\s*/, ""));
+                
+                // 3. विकल्पों को रैंडम तरीके से आपस में बदलें (Shuffle)
+                for (let i = cleanOptions.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [cleanOptions[i], cleanOptions[j]] = [cleanOptions[j], cleanOptions[i]];
+                }
+                
+                // 4. नए क्रम के अनुसार वापस "A. ", "B. ", "C. ", "D. " जोड़ें
+                const prefixes = ["A. ", "B. ", "C. ", "D. "];
+                q.options = cleanOptions.map((opt, index) => prefixes[index] + opt);
+                
+                // 5. कंप्यूटर के लिए सही उत्तर (q.answer) को नए स्थान के अनुसार अपडेट करें
+                let newIndex = cleanOptions.indexOf(correctText);
+                if (newIndex !== -1) {
+                    q.answer = String.fromCharCode(65 + newIndex);
+                }
+            } catch (e) {
+                console.log("Error shuffling options for a question", e);
+            }
+        });
+        // ─── शफल कोड यहाँ समाप्त होता है ───
+
         loadQuiz();
     } else {
         document.getElementById("quiz").innerHTML = `<h2 style='color:red'>त्रुटि: questions${fileNo}.js लोड हुई पर window.questions डेटा नहीं मिला!</h2>`;
