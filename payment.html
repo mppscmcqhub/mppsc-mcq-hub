@@ -10,8 +10,11 @@
         h2 { color: #e65100; margin-bottom: 10px; font-size: 22px; }
         p { color: #555; font-size: 15px; line-height: 1.6; margin-bottom: 15px; }
         .price-tag { font-size: 22px; font-weight: bold; color: #2e7d32; margin: 15px 0; background: #e8f5e9; padding: 8px; border-radius: 6px; display: inline-block; }
-        .qr-container { margin: 20px 0; padding: 10px; border: 2px solid #ff9800; border-radius: 8px; background: #fff; display: inline-block; position: relative; }
-        .qr-img { max-width: 250px; height: auto; display: block; margin: 0 auto; }
+        
+        /* क्यूआर कोड कंटेनर को पूरी तरह फिक्स किया गया है */
+        .qr-container { margin: 20px auto; padding: 15px; border: 2px solid #ff9800; border-radius: 8px; background: #fff; width: 280px; height: 280px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .qr-img { width: 100%; height: 100%; object-fit: contain; display: block; }
+        
         .mppsc-badge { background-color: #ff9800; color: white; padding: 5px 15px; font-weight: bold; border-radius: 20px; font-size: 14px; margin-bottom: 10px; display: inline-block; }
         .note-text { color: #d32f2f; font-weight: bold; font-size: 14px; margin-top: 15px; line-height: 1.4; }
         .whatsapp-btn { display: inline-block; background-color: #25d366; color: white; padding: 12px 25px; text-decoration: none; font-size: 16px; font-weight: bold; border-radius: 6px; margin-top: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s; }
@@ -31,8 +34,8 @@
         <br>
         <div class="mppsc-badge">🏢 MPPSC MCQ Hub Official Account</div>
 
+        <!-- फिक्स किया गया QR कोड बॉक्स -->
         <div class="qr-container">
-            <!-- यहाँ गिटहब का डायरेक्ट लाइव इमेज लिंक डाल दिया गया है -->
             <img src="https://githubusercontent.com" alt="India Post Payments Bank QR Code" class="qr-img" onerror="this.src='https://githubusercontent.com'">
         </div>
 
@@ -44,7 +47,7 @@
         <div class="note-text">
             ⚠️ महत्वपूर्ण सूचना: पेमेंट करने के बाद उसका स्क्रीनशॉट लें। कोर्स तुरंत चालू करवाने के लिए नीचे दिए गए बटन पर क्लिक करके स्क्रीनशॉट व्हाट्सएप पर भेजें।
             <br>
-            <span style="font-size: 12px; color: #b71c1c; display: block; margin-top: 5px;">(नोट: इस नंबर पर कॉल सेवा उपलब्ध नहीं है, कृपया केवल व्हाट्सएप मैसेज करें)</span>
+            <span style="font-size: 12px; color: #b71c1c; display: block; margin-top: 5px;">(नोट: इस नंबर पर call सेवा उपलब्ध नहीं है, कृपया केवल व्हाट्सएप मैसेज करें)</span>
         </div>
 
         <!-- डायरेक्ट व्हाट्सऐप चैट लिंक -->
