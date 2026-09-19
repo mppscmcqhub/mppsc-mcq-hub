@@ -1,341 +1,181 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MPPSC MCQ Hub V14</title>
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,sans-serif;background:#eaf2fc;color:#072c6c}
-header{
-background:#083b8a;
-color:#fff;
-padding:12px 25px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-.logo{display:flex;align-items:center;gap:12px}
-.logo img{
-width:48px;
-height:48px;
-border-radius:50%;
-object-fit:cover;
-border:2px solid #fff;
-}
-.logo h1{font-size:22px}
-.logo span{color:#ffbf00}
-.logo small{display:block;font-size:11px;color:#d7e7ff}
-nav a{
-color:white;
-text-decoration:none;
-margin-left:20px;
-font-size:14px;
-cursor: pointer;
-}
-.hero{
-margin:16px;
-background:#eef6ff;
-border-radius:22px;
-padding:22px;
-display:grid;
-grid-template-columns:1.1fr 1fr;
-gap:25px;
-}
-.left img{
-width:95px;
-height:95px;
-border-radius:50%;
-object-fit:cover;
-box-shadow:0 5px 18px rgba(0,0,0,.2);
-}
-.left h2{font-size:30px;margin:10px 0}
-.left h2 span{color:#ffbf00}
-.left p{margin:3px 0}
-.right input{
-width:100%;
-padding:12px;
-margin-bottom:10px;
-border-radius:10px;
-border:1px solid #cbd5e1;
-}
-.right .row{display:flex;gap:10px}
-.btn{
-background:#0b63ff;
-color:white;
-border:none;
-padding:12px;
-border-radius:10px;
-cursor:pointer;
-font-weight:bold;
-}
-.btn:hover{background:#0046c7}
-.features{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:10px;
-margin-top:10px;
-}
-.features div{
-background:white;
-padding:14px;
-border-radius:12px;
-text-align:center;
-}
-.section{margin:16px}
-.section h3{margin-bottom:12px;font-size:30px}
-
-/* आपकी पुरानी ओरिजिनल ग्रिड सेटिंग - बिना किसी बदलाव के */
-.units{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:16px;
-}
-.card{
-background:white;
-border-radius:18px;
-padding:18px;
-text-align:center;
-box-shadow:0 5px 15px rgba(0,0,0,.08);
-height: 100%;
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-}
-.circle{
-width:62px;
-height:62px;
-border-radius:50%;
-margin:auto;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:30px;
-color:white;
-margin-bottom:10px;
-}
-.card p{font-size:13px;margin:5px 0}
-.latest{
-margin:16px;
-background:white;
-border:2px solid #f2b400;
-border-radius:18px;
-padding:18px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-}
-.bottom{
-margin:16px;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:15px;
-}
-.box{
-background:white;
-padding:18px;
-border-radius:16px;
-box-shadow:0 5px 12px rgba(0,0,0,.05);
-}
-footer{
-background:#083b8a;
-color:white;
-padding:16px;
-text-align:center;
-margin-top:18px;
-font-size:14px;
-}
-
-/* ==================== ADDED STORE PANEL STYLING ==================== */
-.store-bar-new {
-    margin: 16px; 
-    background: #ffffff; 
-    border-radius: 14px; 
-    padding: 12px 20px; 
-    box-shadow: 0 4px 10px rgba(0,0,0,.05); 
-    border-left: 5px solid #0b63ff; 
-    display: flex; 
-    align-items: center; 
-    justify-content: space-between; 
-    flex-wrap: wrap; 
-    gap: 15px;
-}
-.premium-links-box {
-    margin: 16px; padding: 15px; background: #e6f9ed; border: 1px solid #a3e0a8; border-radius: 12px; display: none;
-}
-.admin-box {
-    margin: 16px; padding: 20px; background: #ffffff; border: 2px dashed #d9a300; border-radius: 14px; display: none;
-}
-.admin-input {
-    width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #cbd5e1; border-radius: 8px;
-}
-@media(max-width:768px){
-.hero{grid-template-columns:1fr}
-header{flex-direction:column;gap:10px}
-nav{display:flex;flex-wrap:wrap;justify-content:center}
-.store-bar-new { flex-direction: column; text-align: center; }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPPSC MCQ Hub V14</title>
+    <!-- Bootstrap CSS for Responsive Layout -->
+    <link href="https://jsdelivr.net" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link href="https://cloudflare.com" rel="stylesheet">
+    
+    <style>
+        body { background-color: #eef4ff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .navbar-custom { background-color: #0d47a1; color: white; }
+        .navbar-custom .nav-link { color: rgba(255,255,255,0.8); }
+        .navbar-custom .nav-link:hover { color: white; }
+        .hero-section { background-color: #fff; padding: 20px; border-bottom: 2px solid #0d47a1; }
+        .info-box { background: #fff; border-radius: 8px; padding: 15px; border: 1px solid #e0e0e0; height: 100%; }
+        .premium-banner { background: #fff; border: 1px dashed #ff9800; border-radius: 6px; padding: 10px; margin: 15px 0; }
+        .section-title { font-weight: bold; color: #1a237e; margin: 25px 0 15px 0; border-left: 5px solid #0d47a1; padding-left: 10px; }
+        .unit-card { background: white; border: none; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.3s; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+        .unit-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+        .unit-icon { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px auto; color: white; font-size: 20px; }
+        .btn-open { background-color: #0d47a1; color: white; border-radius: 20px; font-weight: 500; transition: 0.3s; }
+        .btn-open:hover { background-color: #1565c0; color: white; }
+        
+        /* Unit-wise Icon Background Colors */
+        .u1 { background-color: #2196f3; }
+        .u2 { background-color: #4caf50; }
+        .u3 { background-color: #673ab7; }
+        .u4 { background-color: #ff9800; }
+        .u5 { background-color: #009688; }
+        .u6 { background-color: #e91e63; }
+        .u7 { background-color: #00bcd4; }
+        .u8 { background-color: #ff5722; }
+        .u9 { background-color: #9c27b0; }
+        .u10 { background-color: #3f51b5; }
+    </style>
 </head>
 <body>
 
-<header>
-<div class="logo">
-<img src="mppsc-logo.jpg" alt="MPPSC Logo">
-<div>
-<h1>MPPSC MCQ Hub <span>V14</span></h1>
-<small>Your Success • Our Mission</small>
-</div>
-</div>
-
-<nav>
-<a href="#">🏠 Home</a>
-<a href="#">📝 Tests</a>
-<a href="#">📊 Results</a>
-<a href="#">ℹ About</a>
-<!-- इस गुप्त बटन से सीधे पासवर्ड का पॉपअप खुलेगा -->
-<a onclick="openAdminPanel()">🔑 Login</a>
-</nav>
-</header>
-
-<section class="hero">
-<div class="left">
-<img src="mppsc-logo.jpg" alt="Logo">
-<h2>MPPSC MCQ Hub <span>V14</span></h2>
-<p><b>Madhya Pradesh Public Service Commission</b></p>
-<p>MCQ Practice Platform • Hindi + English</p>
-<p>बेहतर तैयारी • उज्जवल भविष्य • MPPSC आपके साथ</p>
-</div>
-
-<div class="right">
-<div class="row">
-<input placeholder="Enter Test No. (1,101,201)">
-<button class="btn">Search</button>
-</div>
-
-<div class="row">
-<input placeholder="Your Name (Optional)">
-<button class="btn">Save</button>
-</div>
-
-<div class="features">
-<div>📘<br>20 Questions</div>
-<div>🎯<br>Instant Result</div>
-<div>🌐<br>Hindi + English</div>
-<div>🛡<br>100% Free</div>
-</div>
-</div>
-</section>
-
-<!-- ==================== NEW SAFE PREMIUM STORE BAR ==================== -->
-<div class="store-bar-new">
-    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-        <span style="font-size: 18px;">📚</span>
-        <div>
-            <h4 style="margin: 0; font-size: 15px; color: #083b8a;">MPPSC Premium Store</h4>
-            <p style="margin: 1px 0 0 0; font-size: 12px; color: #555;">
-                <span style="background: #fff3e0; color: #e65100; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 11px;">Pre 100 Tests: ₹29</span> 
-                &nbsp;|&nbsp; 
-                <span style="background: #e3f2fd; color: #0d47a1; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 11px;">Mains Papers: ₹99</span>
-            </p>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-custom shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white font-weight-bold" href="#">
+                <i class="fas fa-graduation-cap mr-2"></i>MPPSC MCQ Hub V14
+            </a>
+            <div class="ml-auto d-flex align-items-center">
+                <a href="#" class="nav-link text-white mx-2"><i class="fas fa-home"></i> Home</a>
+                <a href="#" class="nav-link text-white mx-2"><i class="fas fa-file-alt"></i> Tests</a>
+                <a href="#" class="nav-link text-white mx-2"><i class="fas fa-poll"></i> Results</a>
+                <a href="#" class="nav-link text-white mx-2"><i class="fas fa-info-circle"></i> About</a>
+                <a href="#" class="btn btn-light btn-sm font-weight-bold text-primary px-3 ml-2"><i class="fas fa-sign-in-alt"></i> Login</a>
+            </div>
         </div>
-        <!-- अपनी WhatsApp लिंक सेट करें -->
-        <a href="https://wa.me" target="_blank" style="color: #ff7a00; font-size: 13px; font-weight: bold; text-decoration: none; margin-left: 10px;">[ 🛒 Buy Pre ]</a>
-        <a href="https://wa.me" target="_blank" style="color: #0b63ff; font-size: 13px; font-weight: bold; text-decoration: none;">[ 🛒 Buy Mains ]</a>
-    </div>
+    </nav>
 
-    <div style="display: flex; align-items: center; gap: 8px;">
-        <input type="text" id="activationKey" placeholder="🔑 कोड दर्ज करें" style="padding: 8px 12px; border-radius: 6px; border: 1px solid #cbd5e1; font-size: 13px; width: 140px; text-align: center;">
-        <button class="btn" onclick="activateCourse()" style="padding: 8px 12px; font-size: 13px; border-radius: 6px; margin: 0;">Verify</button>
-    </div>
-</div>
-
-<!-- 📂 अनलॉक होने वाला प्रीमियम बॉक्स -->
-<div id="premiumContentBox" class="premium-links-box">
-    <h4 style="color: #149c42; margin-bottom: 5px;">🎉 आपका प्रीमियम मटीरियल अनलॉक हो चुका है (This Device Only):</h4>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 10px;">
-        <div style="background: white; padding: 10px; border-radius: 8px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-            📁 <a id="preLinkDisplay" href="#" target="_blank" style="color: #0b63ff; font-weight: bold; text-decoration: none; font-size: 14px;">MPPSC Pre 100 Test Series (PDF)</a>
-        </div>
-        <div style="background: white; padding: 10px; border-radius: 8px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-            📁 <a id="mainsLinkDisplay" href="#" target="_blank" style="color: #0b63ff; font-weight: bold; text-decoration: none; font-size: 14px;">MPPSC Mains All Papers Solution</a>
+    <!-- Hero / Intro Section -->
+    <div class="hero-section shadow-sm">
+        <div class="container-fluid text-center">
+            <h3 class="text-primary font-weight-bold">MPPSC MCQ Hub <span class="badge badge-warning text-dark">V14</span></h3>
+            <p class="text-muted mb-1">Madhya Pradesh Public Service Commission | MCQ Practice Platform • Hindi + English</p>
+            <p class="text-success font-weight-bold mb-0">बेहतर तैयारी • उज्जवल भविष्य • MPPSC आपके साथ</p>
         </div>
     </div>
-</div>
 
-<!-- ⚙️ SECRET ADMIN PANEL DASHBOARD -->
-<div id="secretAdminPanel" class="admin-box">
-    <h3 style="color: #d9a300; margin-bottom: 10px;">⚙️ Admin Dashboard (लिंक्स अपडेट करें)</h3>
-    <label><b>Pre Notes & Tests URL:</b></label>
-    <input type="text" id="preUrlInput" class="admin-input" placeholder="प्री नोट्स की लिंक डालें">
-    <label><b>Mains Notes & Papers URL:</b></label>
-    <input type="text" id="mainsUrlInput" class="admin-input" placeholder="मेन्स नोट्स की लिंक डालें">
-    <button class="btn" onclick="saveAdminLinks()" style="background: #149c42; margin-top: 10px;">Save & Update</button>
-    <button class="btn" onclick="document.getElementById('secretAdminPanel').style.display='none'" style="background: #666; margin-top: 10px; margin-left: 10px;">Close</button>
-</div>
+    <!-- Info Cards & Features Row -->
+    <div class="container-fluid mt-3">
+        <div class="row text-center">
+            <div class="col-md-3 mb-2"><div class="info-box shadow-sm"><i class="fas fa-list text-primary mb-2"></i><h6>20 Questions</h6></div></div>
+            <div class="col-md-3 mb-2"><div class="info-box shadow-sm"><i class="fas fa-bolt text-warning mb-2"></i><h6>Instant Result</h6></div></div>
+            <div class="col-md-3 mb-2"><div class="info-box shadow-sm"><i class="fas fa-language text-success mb-2"></i><h6>Hindi + English</h6></div></div>
+            <div class="col-md-3 mb-2"><div class="info-box shadow-sm"><i class="fas fa-gift text-danger mb-2"></i><h6>100% Free</h6></div></div>
+        </div>
 
-<div id="statusAlert" style="margin: 0 16px 10px 16px; padding: 6px 15px; border-radius: 8px; font-size: 12px; display: none; font-weight: bold; text-align: center;"></div>
+        <!-- Premium Store Banner -->
+        <div class="premium-banner d-flex justify-content-between align-items-center shadow-sm">
+            <div><i class="fas fa-shopping-cart text-warning mr-2"></i><strong>MPPSC Premium Store</strong> <span class="text-muted font-weight-normal">(Pre 100 Tests: ₹29 | Mains Papers: ₹99)</span></div>
+            <div>
+                <a href="#" class="btn btn-outline-warning btn-sm mx-1 font-weight-bold">🛒 Buy Pre</a>
+                <a href="#" class="btn btn-outline-warning btn-sm mx-1 font-weight-bold">🛒 Buy Mains</a>
+            </div>
+        </div>
 
-<!-- ==================== SELECT UNIT AREA (ORIGINAL 10 UNITS) ==================== -->
-<section class="section">
-<h3>📚 Select Unit / इकाई चुनें</h3>
-<div class="units">
+        <!-- Selection Heading -->
+        <h4 class="section-title">Select Unit / इकाई चुनें</h4>
 
-<div class="card">
-<div>
-<div class="circle" style="background:#0b63ff">📜</div>
-<h4>Unit 1</h4>
-<p>भारत का इतिहास</p>
-<p>20 Tests</p>
-</div>
-<button class="btn" onclick="location.href='unit1.html'">Open Unit</button>
-</div>
+        <!-- Main Units Grid (1 to 10) -->
+        <div class="row px-2">
+            
+            <!-- Unit 1 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card unit-card text-center p-3">
+                    <div>
+                        <div class="unit-icon u1 shadow-sm"><i class="fas fa-book-open"></i></div>
+                        <h6 class="font-weight-bold mb-1">Unit 1</h6>
+                        <p class="text-muted small">भारत का इतिहास</p>
+                    </div>
+                    <div>
+                        <p class="text-secondary small font-weight-bold mb-2">20 Tests</p>
+                        <a href="unit1.html" class="btn btn-open btn-sm btn-block py-2">Open Unit</a>
+                    </div>
+                </div>
+            </div>
 
-<div class="card">
-<div>
-<div class="circle" style="background:#149c42">🏯</div>
-<h4>Unit 2</h4>
-<p>मध्यप्रदेश का इतिहास, संस्कृति एवं साहित्य</p>
-<p>20 Tests</p>
-</div>
-<button class="btn" onclick="location.href='unit2.html'">Open Unit</button>
-</div>
+            <!-- Unit 2 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card unit-card text-center p-3">
+                    <div>
+                        <div class="unit-icon u2 shadow-sm"><i class="fas fa-gavel"></i></div>
+                        <h6 class="font-weight-bold mb-1">Unit 2</h6>
+                        <p class="text-muted small">मध्यप्रदेश का इतिहास, संस्कृति एवं साहित्य</p>
+                    </div>
+                    <div>
+                        <p class="text-secondary small font-weight-bold mb-2">20 Tests</p>
+                        <a href="unit2.html" class="btn btn-open btn-sm btn-block py-2">Open Unit</a>
+                    </div>
+                </div>
+            </div>
 
-<div class="card">
-<div>
-<div class="circle" style="background:#6d31e6">🗺️</div>
-<h4>Unit 3</h4>
-<p>भारत का भूगोल</p>
-<p>20 Tests</p>
-</div>
-<button class="btn" onclick="location.href='unit3.html'">Open Unit</button>
-</div>
+            <!-- Unit 3 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card unit-card text-center p-3">
+                    <div>
+                        <div class="unit-icon u3 shadow-sm"><i class="fas fa-globe-asia"></i></div>
+                        <h6 class="font-weight-bold mb-1">Unit 3</h6>
+                        <p class="text-muted small">भारत का भूगोल</p>
+                    </div>
+                    <div>
+                        <p class="text-secondary small font-weight-bold mb-2">20 Tests</p>
+                        <a href="unit3.html" class="btn btn-open btn-sm btn-block py-2">Open Unit</a>
+                    </div>
+                </div>
+            </div>
 
-<div class="card">
-<div>
-<div class="circle" style="background:#ff7a00">🏞️</div>
-<h4>Unit 4</h4>
-<p>मध्यप्रदेश का भूगोल</p>
-<p>20 Tests</p>
-</div>
-<button class="btn" onclick="location.href='unit4.html'">Open Unit</button>
-</div>
+            <!-- Unit 4 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card unit-card text-center p-3">
+                    <div>
+                        <div class="unit-icon u4 shadow-sm"><i class="fas fa-map-marked-alt"></i></div>
+                        <h6 class="font-weight-bold mb-1">Unit 4</h6>
+                        <p class="text-muted small">मध्यप्रदेश का भूगोल</p>
+                    </div>
+                    <div>
+                        <p class="text-secondary small font-weight-bold mb-2">20 Tests</p>
+                        <a href="unit4.html" class="btn btn-open btn-sm btn-block py-2">Open Unit</a>
+                    </div>
+                </div>
+            </div>
 
-<div class="card">
-<div>
-<div class="circle" style="background:#08a9c8">🏛️</div>
-<h4>Unit 5</h4>
-<p>भारत एवं म.प्र. की संवैधानिक व्यवस्था</p>
-<p>20 Tests</p>
-</div>
-<button class="btn" onclick="location.href='unit5.html'">Open Unit</button>
-</div>
+            <!-- Unit 5 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card unit-card text-center p-3">
+                    <div>
+                        <div class="unit-icon u5 shadow-sm"><i class="fas fa-landmark"></i></div>
+                        <h6 class="font-weight-bold mb-1">Unit 5</h6>
+                        <p class="text-muted small">भारत एवं म.प्र. की संवैधानिक व्यवस्था</p>
+                    </div>
+                    <div>
+                        <p class="text-secondary small font-weight-bold mb-2">20 Tests</p>
+                        <a href="unit5.html" class="btn btn-open btn-sm btn-block py-2">Open Unit</a>
+                    </div>
+                </div>
+            </div>
 
-<div class="card">
-<div>
-<div class="circle" style="background:#e63888">💰</div>
-<h4>Unit 6</h4>
-<p>भारत एवं म.प्र. की अर्थव्यवस्था</p>
-<p>20 Tests</p>
+            <!-- Unit 6 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card unit-card text-center p-3">
+                    <div>
+                        <div class="unit-icon u6 shadow-sm"><i class="fas fa-chart-line"></i></div>
+                        <h6 class="font-weight-bold mb-1">Unit 6</h6>
+                        <p class="text-muted small">भारत एवं म.प्र. की अर्थव्यवस्था</p>
+                    </div>
+                    <div>
+                        <p class="text-secondary small font-weight-bold mb-2">20 Tests</p>
+                        <a href="unit6.html" class="btn btn-open btn-sm btn-block py-2">Open Unit</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unit 7 -->
