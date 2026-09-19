@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="hi" class="notranslate" translate="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
     <title>MPPSC Premium Payment Gateway</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -12,13 +13,15 @@
         p { color: #555; font-size: 15px; line-height: 1.6; margin-bottom: 15px; }
         .price-tag { font-size: 22px; font-weight: bold; color: #2e7d32; margin: 15px 0; background: #e8f5e9; padding: 8px; border-radius: 6px; display: inline-block; }
         
-        /* नया फिक्स और लाइव क्यूआर कोड लेआउट */
-        .qr-section { margin: 20px auto; padding: 15px; border: 2px solid #ff9800; border-radius: 12px; background: #fff; width: 280px; height: 280px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
-        .qr-img { width: 100%; height: 100%; object-fit: contain; display: block; }
+        /* नया डायरेक्ट यूपीआई पेमेंट बटन स्टाइल */
+        .upi-pay-box { margin: 25px auto; padding: 20px; border: 2px dashed #ff9800; border-radius: 12px; background: #fffbe6; max-width: 100%; text-align: center; }
+        .direct-pay-btn { display: inline-block; background-color: #0d47a1; color: white; padding: 14px 30px; text-decoration: none; font-size: 18px; font-weight: bold; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.15); transition: 0.3s; width: 100%; }
+        .direct-pay-btn:hover { background-color: #1565c0; }
+        .upi-id-display { font-size: 16px; font-weight: bold; color: #333; background: #fff; padding: 8px; border: 1px solid #ccc; border-radius: 6px; display: inline-block; margin-top: 5px; letter-spacing: 0.5px; }
         
         .mppsc-badge { background-color: #ff9800; color: white; padding: 6px 18px; font-weight: bold; border-radius: 20px; font-size: 14px; margin-bottom: 10px; display: inline-block; }
         .note-text { color: #d32f2f; font-weight: bold; font-size: 14px; margin-top: 15px; line-height: 1.4; text-align: center; }
-        .whatsapp-btn { display: inline-block; background-color: #25d366; color: white; padding: 12px 25px; text-decoration: none; font-size: 16px; font-weight: bold; border-radius: 6px; margin-top: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s; }
+        .whatsapp-btn { display: inline-block; background-color: #25d366; color: white; padding: 12px 25px; text-decoration: none; font-size: 16px; font-weight: bold; border-radius: 6px; margin-top: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s; width: 100%; }
         .whatsapp-btn:hover { background-color: #128c7e; }
         .back-link { display: inline-block; margin-top: 25px; color: #0d47a1; text-decoration: none; font-size: 15px; font-weight: bold; }
         .back-link:hover { text-decoration: underline; }
@@ -26,23 +29,31 @@
 </head>
 <body>
 
-    <div class="payment-box">
+    <div class="payment-box notranslate" translate="no">
         <h2>🎓 MPPSC Premium Course Payment 🎓</h2>
-        <p>संपूर्ण सिलेबस, स्पेशल नोट्स और प्रीमियम मॉक टेस्ट सीरीज अनलॉक करने के लिए नीचे दिए गए QR कोड को स्कैन करके भुगतान करें।</p>
+        <p>संपूर्ण सिलेबस, स्पेशल नोट्स और प्रीमियम मॉक टेस्ट सीरीज अनलॉक करने के लिए नीचे दिए गए बटन पर क्लिक करके या यूपीआई आईडी पर भुगतान करें।</p>
         
         <div class="price-tag">💰 Pre: ₹29 | Mains: ₹99</div>
 
         <br>
         <div class="mppsc-badge">🏢 MPPSC MCQ Hub Official Account</div>
 
-        <!-- यह लाइव क्यूआर कोड कभी सर्वर एरर की वजह से फेल नहीं होगा -->
-        <div class="qr-section">
-            <img src="https://qrserver.com" alt="India Post Payments Bank QR Code" class="qr-img">
+        <!-- यह बॉक्स बिना किसी इमेज के गूगल ट्रांसलेट में भी 100% सही काम करेगा -->
+        <div class="upi-pay-box notranslate" translate="no">
+            <!-- मोबाइल यूज़र्स के लिए डायरेक्ट पेमेंट बटन -->
+            <a href="upi://pay?pa=mppsc@postbank&pn=RAJESH%20KUMAR%20OJHA&cu=INR" class="direct-pay-btn">
+                ⚡ Click Here to Pay via Any UPI App
+            </a>
+            <p style="font-size: 14px; color: #666; font-weight: 500;">(मोबाइल यूजर्स ऊपर क्लिक करके सीधे PhonePe/GPay से पे कर सकते हैं)</p>
+            
+            <div style="margin-top: 15px; border-top: 1px solid #ddd; padding-top: 15px;">
+                <p style="font-size: 14px; color: #444; margin-bottom: 2px;">कंप्यूटर यूज़र्स इस UPI ID पर पेमेंट भेजें:</p>
+                <div class="upi-id-display">mppsc@postbank</div>
+            </div>
         </div>
 
         <p style="font-size: 13px; color: #666; margin-top: 8px;">
             <strong>Account Holder Name:</strong> RAJESH KUMAR OJHA <br>
-            <strong>UPI ID:</strong> mppsc@postbank <br>
             <span style="font-size: 11px; color: #999;">(MPPSC MCQ Hub Verified Receiving Merchant)</span>
         </p>
 
@@ -52,7 +63,7 @@
             <span style="font-size: 12px; color: #b71c1c; display: block; margin-top: 5px;">(नोट: इस नंबर पर कॉल सेवा उपलब्ध नहीं है, कृपया केवल व्हाट्सएप मैसेज करें)</span>
         </div>
 
-        <!-- नया व्हाट्सएप लिंक अपडेटेड मोबाइल नंबर 9755392328 के साथ -->
+        <!-- व्हाट्सएप चैट लिंक नंबर 9755392328 के साथ -->
         <a href="https://wa.me." target="_blank" class="whatsapp-btn">
             💬 Send Screenshot on WhatsApp
         </a>
