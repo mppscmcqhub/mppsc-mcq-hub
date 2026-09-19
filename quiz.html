@@ -1,172 +1,181 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MPPSC MCQ Hub</title>
-
-<style>
-body{font-family:Arial,sans-serif;background:#eef4ff;margin:0}
-header{background:#0645d8;color:#fff;padding:15px}
-#quiz{padding:10px}
-.qbox{background:#fff;margin:12px 0;padding:15px;border-radius:10px}
-.option{display:block;padding:10px;margin:8px 0;border:1px solid #ccc;border-radius:6px;cursor:pointer}
-.option.correct{background:#8ee98e}
-.option.wrong{background:#ffb3b3}
-.exp{display:none;background:#fff8dc;padding:10px;margin-top:10px;border-left:4px solid orange;border-radius:6px}
-.box{background:#fff;margin:15px;padding:15px;border-radius:10px}
-button{background:#0645d8;color:#fff;border:none;padding:10px 20px;border-radius:6px;cursor:pointer}
-textarea{width:100%}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPPSC MCQ Hub V14</title>
+    <!-- Bootstrap CSS for Responsive Layout -->
+    <link href="https://bootstrapcdn.com" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link href="https://cloudflare.com" rel="stylesheet">
+    
+    <style>
+        body { background-color: #eef4ff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .navbar-custom { background-color: #0d47a1; color: white; }
+        .navbar-custom .nav-link { color: rgba(255,255,255,0.8); }
+        .navbar-custom .nav-link:hover { color: white; }
+        .hero-section { background-color: #fff; padding: 20px; border-bottom: 2px solid #0d47a1; }
+        .info-box { background: #fff; border-radius: 8px; padding: 15px; border: 1px solid #e0e0e0; height: 100%; }
+        .premium-banner { background: #fff; border: 1px dashed #ff9800; border-radius: 6px; padding: 10px; margin: 15px 0; }
+        .section-title { font-weight: bold; color: #1a237e; margin: 25px 0 15px 0; border-left: 5px solid #0d47a1; padding-left: 10px; }
+        .unit-card { background: white; border: none; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.3s; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+        .unit-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+        .unit-icon { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px auto; color: white; font-size: 20px; }
+        .btn-open { background-color: #0d47a1; color: white; border-radius: 20px; font-weight: 500; transition: 0.3s; }
+        .btn-open:hover { background-color: #1565c0; color: white; }
+        
+        /* Unit-wise Icon Background Colors */
+        .u1 { background-color: #2196f3; }
+        .u2 { background-color: #4caf50; }
+        .u3 { background-color: #673ab7; }
+        .u4 { background-color: #ff9800; }
+        .u5 { background-color: #009688; }
+        .u6 { background-color: #e91e63; }
+        .u7 { background-color: #00bcd4; }
+        .u8 { background-color: #ff5722; }
+        .u9 { background-color: #9c27b0; }
+        .u10 { background-color: #3f51b5; }
+    </style>
 </head>
-
 <body>
 
-<header>
-<h2>MPPSC MCQ Hub</h2>
-</header>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-custom shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white font-weight-bold" href="#">
+                <i class="fas fa-graduation-cap mr-2"></i>MPPSC MCQ Hub V14
+            </a>
+            <div class="ml-auto d-flex align-items-center">
+                <a href="#" class="nav-link text-white mx-2"><i class="fas fa-home"></i> Home</a>
+                <a href="#" class="nav-link text-white mx-2"><i class="fas fa-file-alt"></i> Tests</a>
+                <a href="#" class="nav-link text-white mx-2"><i class="fas fa-poll"></i> Results</a>
+                <a href="#" class="nav-link text-white mx-2"><i class="fas fa-info-circle"></i> About</a>
+                <a href="#" class="btn btn-light btn-sm font-weight-bold text-primary px-3 ml-2"><i class="fas fa-sign-in-alt"></i> Login</a>
+            </div>
+        </div>
+    </nav>
 
-<div id="quiz">🎯 टेस्ट लोड हो रहा है, कृपया प्रतीक्षा करें...</div>
+    <!-- Hero / Intro Section -->
+    <div class="hero-section shadow-sm">
+        <div class="container-fluid text-center">
+            <h3 class="text-primary font-weight-bold">MPPSC MCQ Hub <span class="badge badge-warning text-dark">V14</span></h3>
+            <p class="text-muted mb-1">Madhya Pradesh Public Service Commission | MCQ Practice Platform • Hindi + English</p>
+            <p class="text-success font-weight-bold mb-0">बेहतर तैयारी • उज्जवल भविष्य • MPPSC आपके साथ</p>
+        </div>
+    </div>
 
-<div class="box">
-<button onclick="submitQuiz()">Submit Test</button>
-<h2 id="scoreBox"></h2>
+    <!-- Info Cards & Features Row -->
+    <div class="container-fluid mt-3">
+        <div class="row text-center">
+            <div class="col-md-3 mb-2"><div class="info-box shadow-sm"><i class="fas fa-list text-primary mb-2"></i><h6>20 Questions</h6></div></div>
+            <div class="col-md-3 mb-2"><div class="info-box shadow-sm"><i class="fas fa-bolt text-warning mb-2"></i><h6>Instant Result</h6></div></div>
+            <div class="col-md-3 mb-2"><div class="info-box shadow-sm"><i class="fas fa-language text-success mb-2"></i><h6>Hindi + English</h6></div></div>
+            <div class="col-md-3 mb-2"><div class="info-box shadow-sm"><i class="fas fa-gift text-danger mb-2"></i><h6>100% Free</h6></div></div>
+        </div>
 
-<h3>Student Comment</h3>
-<textarea rows="4" placeholder="अपनी राय लिखें..."></textarea>
-</div>
+        <!-- Premium Store Banner -->
+        <div class="premium-banner d-flex justify-content-between align-items-center shadow-sm">
+            <div><i class="fas fa-shopping-cart text-warning mr-2"></i><strong>MPPSC Premium Store</strong> <span class="text-muted font-weight-normal">(Pre 100 Tests: ₹29 | Mains Papers: ₹99)</span></div>
+            <div>
+                <a href="#" class="btn btn-outline-warning btn-sm mx-1 font-weight-bold">🛒 Buy Pre</a>
+                <a href="#" class="btn btn-outline-warning btn-sm mx-1 font-weight-bold">🛒 Buy Mains</a>
+            </div>
+        </div>
 
-<script>
-// 1. URL से Unit और Test पैरामीटर पढ़ें
-const params = new URLSearchParams(window.location.search);
-const unit = Number(params.get("unit")) || 1;
-const test = Number(params.get("test")) || 1;
+        <!-- Selection Heading -->
+        <h4 class="section-title">Select Unit / इकाई चुनें</h4>
 
-// 2. 10 Unit × 20 Test = 200 Files का सही गणित
-const fileNo = (unit - 1) * 20 + test;
+        <!-- Main Units Grid (1 to 10) -->
+        <div class="row px-2">
+            
+            <!-- Unit 1 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card unit-card text-center p-3">
+                    <div>
+                        <div class="unit-icon u1 shadow-sm"><i class="fas fa-book-open"></i></div>
+                        <h6 class="font-weight-bold mb-1">Unit 1</h6>
+                        <p class="text-muted small">भारत का इतिहास</p>
+                    </div>
+                    <div>
+                        <p class="text-secondary small font-weight-bold mb-2">20 Tests</p>
+                        <a href="unit1.html" class="btn btn-open btn-sm btn-block py-2">Open Unit</a>
+                    </div>
+                </div>
+            </div>
 
-// 3. पुरानी फाइल के डेटा को मेमोरी (Global Scope) से पूरी तरह साफ करें
-window.questions = null;
+            <!-- Unit 2 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card unit-card text-center p-3">
+                    <div>
+                        <div class="unit-icon u2 shadow-sm"><i class="fas fa-gavel"></i></div>
+                        <h6 class="font-weight-bold mb-1">Unit 2</h6>
+                        <p class="text-muted small">मध्यप्रदेश का इतिहास, संस्कृति एवं साहित्य</p>
+                    </div>
+                    <div>
+                        <p class="text-secondary small font-weight-bold mb-2">20 Tests</p>
+                        <a href="unit2.html" class="btn btn-open btn-sm btn-block py-2">Open Unit</a>
+                    </div>
+                </div>
+            </div>
 
-// 4. नया स्क्रिप्ट टैग बनाकर सही फाइल लोड करें (Cache-Busting ?v= के साथ)
-const script = document.createElement("script");
-script.src = `questions${fileNo}.js?v=${new Date().getTime()}`;
+            <!-- Unit 3 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card unit-card text-center p-3">
+                    <div>
+                        <div class="unit-icon u3 shadow-sm"><i class="fas fa-globe-asia"></i></div>
+                        <h6 class="font-weight-bold mb-1">Unit 3</h6>
+                        <p class="text-muted small">भारत का भूगोल</p>
+                    </div>
+                    <div>
+                        <p class="text-secondary small font-weight-bold mb-2">20 Tests</p>
+                        <a href="unit3.html" class="btn btn-open btn-sm btn-block py-2">Open Unit</a>
+                    </div>
+                </div>
+            </div>
 
-script.onload = () => {
-    // जांचें कि नई फाइल का डेटा सही से लोड हुआ या नहीं
-    if (window.questions && Array.isArray(window.questions)) {
-        
-        // ─── नया SHUFFLE (विकल्पों को मिक्स करने का) कोड ───
-        window.questions.forEach(q => {
-            try {
-                // 1. पुराना सही उत्तर कौन सा था, उसका मुख्य टेक्स्ट निकालें
-                let correctText = q.options.find(opt => opt.trim().startsWith(q.answer + ".")).replace(/^[A-D]\.\s*/, "");
-                
-                // 2. सभी विकल्पों के आगे से "A. ", "B. " हटाकर साफ करें
-                let cleanOptions = q.options.map(opt => opt.replace(/^[A-D]\.\s*/, ""));
-                
-                // 3. विकल्पों को रैंडम तरीके से आपस में बदलें (Shuffle)
-                for (let i = cleanOptions.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [cleanOptions[i], cleanOptions[j]] = [cleanOptions[j], cleanOptions[i]];
-                }
-                
-                // 4. नए क्रम के अनुसार वापस "A. ", "B. ", "C. ", "D. " जोड़ें
-                const prefixes = ["A. ", "B. ", "C. ", "D. "];
-                q.options = cleanOptions.map((opt, index) => prefixes[index] + opt);
-                
-                // 5. कंप्यूटर के लिए सही उत्तर (q.answer) को नए स्थान के अनुसार अपडेट करें
-                let newIndex = cleanOptions.indexOf(correctText);
-                if (newIndex !== -1) {
-                    q.answer = String.fromCharCode(65 + newIndex);
-                }
-            } catch (e) {
-                console.log("Error shuffling options for a question", e);
-            }
-        });
-        // ─── शफल कोड यहाँ समाप्त होता है ───
+            <!-- Unit 4 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card unit-card text-center p-3">
+                    <div>
+                        <div class="unit-icon u4 shadow-sm"><i class="fas fa-map-marked-alt"></i></div>
+                        <h6 class="font-weight-bold mb-1">Unit 4</h6>
+                        <p class="text-muted small">मध्यप्रदेश का भूगोल</p>
+                    </div>
+                    <div>
+                        <p class="text-secondary small font-weight-bold mb-2">20 Tests</p>
+                        <a href="unit4.html" class="btn btn-open btn-sm btn-block py-2">Open Unit</a>
+                    </div>
+                </div>
+            </div>
 
-        loadQuiz();
-    } else {
-        document.getElementById("quiz").innerHTML = `<h2 style='color:red'>त्रुटि: questions${fileNo}.js लोड हुई पर window.questions डेटा नहीं मिला!</h2>`;
-    }
-};
+            <!-- Unit 5 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card unit-card text-center p-3">
+                    <div>
+                        <div class="unit-icon u5 shadow-sm"><i class="fas fa-landmark"></i></div>
+                        <h6 class="font-weight-bold mb-1">Unit 5</h6>
+                        <p class="text-muted small">भारत एवं म.प्र. की संवैधानिक व्यवस्था</p>
+                    </div>
+                    <div>
+                        <p class="text-secondary small font-weight-bold mb-2">20 Tests</p>
+                        <a href="unit5.html" class="btn btn-open btn-sm btn-block py-2">Open Unit</a>
+                    </div>
+                </div>
+            </div>
 
-script.onerror = () => {
-    document.getElementById("quiz").innerHTML = `<h2 style='color:red'>त्रुटि: questions${fileNo}.js फाइल सर्वर पर नहीं मिली! कृपया यूआरएल या फाइल का नाम जांचें।</h2>`;
-};
+            <!-- Unit 6 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card unit-card text-center p-3">
+                    <div>
+                        <div class="unit-icon u6 shadow-sm"><i class="fas fa-chart-line"></i></div>
+                        <h6 class="font-weight-bold mb-1">Unit 6</h6>
+                        <p class="text-muted small">भारत एवं म.प्र. की अर्थव्यवस्था</p>
+                    </div>
+                    <div>
+                        <p class="text-secondary small font-weight-bold mb-2">20 Tests</p>
+                        <a href="unit6.html" class="btn btn-open btn-sm btn-block py-2">Open Unit</a>
+                    </div>
+                </div>
+            </div>
 
-document.body.appendChild(script);
-
-// 5. क्विज को स्क्रीन पर दिखाने का फंक्शन
-function loadQuiz(){
-    const quiz = document.getElementById("quiz");
-    quiz.innerHTML = "";
-
-    window.questions.forEach((q, i) => {
-        let html = `
-        <div class="qbox">
-        <h3>${i + 1}. ${q.question}</h3>
-        `;
-
-        q.options.forEach((op, index) => {
-            html += `
-            <label class="option" id="q${i}o${index}">
-            <input type="radio" name="q${i}" value="${String.fromCharCode(65 + index)}">
-            ${op}
-            </label>`;
-        });
-
-        html += `
-        <div id="exp${i}" class="exp"></div>
-        </div>`;
-
-        quiz.innerHTML += html;
-    });
-}
-
-// 6. टेस्ट सबमिट करने का फंक्शन
-function submitQuiz(){
-    if (!window.questions) return;
-    
-    let score = 0;
-
-    window.questions.forEach((q, i) => {
-        const selected = document.querySelector(`input[name="q${i}"]:checked`);
-
-        q.options.forEach((op, index) => {
-            const box = document.getElementById(`q${i}o${index}`);
-            if (box) {
-                box.classList.remove("correct", "wrong");
-                if (String.fromCharCode(65 + index) === q.answer) {
-                    box.classList.add("correct");
-                }
-            }
-        });
-
-        if (selected) {
-            if (selected.value === q.answer) {
-                score++;
-            } else {
-                const wrongIndex = selected.value.charCodeAt(0) - 65;
-                const wrongBox = document.getElementById(`q${i}o${wrongIndex}`);
-                if (wrongBox) wrongBox.classList.add("wrong");
-            }
-        }
-
-        const exp = document.getElementById(`exp${i}`);
-        if (exp) {
-            exp.style.display = "block";
-            exp.innerHTML = `
-                <b>Correct Answer:</b> ${q.answer}. ${q.options[q.answer.charCodeAt(0) - 65]}<br><br>
-                <b>Detailed Explanation:</b><br>${q.explanation}
-            `;
-        }
-    });
-
-    document.getElementById("scoreBox").innerHTML = `🎯 Score : ${score}/${window.questions.length}`;
-}
-</script>
-
-</body>
-</html>
+            <!-- Unit 7 -->
