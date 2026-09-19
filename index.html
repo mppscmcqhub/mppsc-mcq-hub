@@ -83,13 +83,13 @@ padding:14px;
 border-radius:12px;
 text-align:center;
 }
-.section{margin:16px; clear: both;}
+.section{margin:16px}
 .section h3{margin-bottom:12px;font-size:30px}
 
-/* ग्रिड सिस्टम जो सभी 10 यूनिट को सही से दिखाएगा */
+/* आपकी पुरानी ओरिजिनल ग्रिड सेटिंग - बिना किसी बदलाव के */
 .units{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px, 1fr));
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
 gap:16px;
 }
 .card{
@@ -148,8 +148,8 @@ margin-top:18px;
 font-size:14px;
 }
 
-/* ==================== STORE BAR STYLE ==================== */
-.store-bar {
+/* ==================== ADDED STORE PANEL STYLING ==================== */
+.store-bar-new {
     margin: 16px; 
     background: #ffffff; 
     border-radius: 14px; 
@@ -162,103 +162,20 @@ font-size:14px;
     flex-wrap: wrap; 
     gap: 15px;
 }
-.store-info {
-    display: flex; 
-    align-items: center; 
-    gap: 12px; 
-    flex-wrap: wrap;
-}
-.store-badge-pre {
-    background: #fff3e0; 
-    color: #e65100; 
-    padding: 2px 6px; 
-    border-radius: 4px; 
-    font-weight: bold; 
-    font-size: 11px;
-}
-.store-badge-mains {
-    background: #e3f2fd; 
-    color: #0d47a1; 
-    padding: 2px 6px; 
-    border-radius: 4px; 
-    font-weight: bold; 
-    font-size: 11px;
-}
-.buy-lnk-pre {
-    color: #ff7a00; 
-    font-size: 13px; 
-    font-weight: bold; 
-    text-decoration: none; 
-    margin-left: 10px;
-}
-.buy-lnk-mains {
-    color: #0b63ff; 
-    font-size: 13px; 
-    font-weight: bold; 
-    text-decoration: none;
-}
-.unlock-wrapper {
-    display: flex; 
-    align-items: center; 
-    gap: 8px;
-}
-.unlock-input-field {
-    padding: 8px 12px; 
-    border-radius: 6px; 
-    border: 1px solid #cbd5e1; 
-    font-size: 13px; 
-    width: 150px; 
-    text-align: center;
-}
 .premium-links-box {
-    margin: 16px;
-    padding: 15px;
-    background: #e6f9ed;
-    border: 1px solid #a3e0a8;
-    border-radius: 12px;
-    display: none;
-}
-.premium-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 12px;
-    margin-top: 10px;
-}
-.premium-item {
-    background: white;
-    padding: 10px;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-.premium-item a {
-    color: #0b63ff;
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 14px;
+    margin: 16px; padding: 15px; background: #e6f9ed; border: 1px solid #a3e0a8; border-radius: 12px; display: none;
 }
 .admin-box {
-    margin: 16px;
-    padding: 20px;
-    background: #ffffff;
-    border: 2px dashed #d9a300;
-    border-radius: 14px;
-    display: none;
+    margin: 16px; padding: 20px; background: #ffffff; border: 2px dashed #d9a300; border-radius: 14px; display: none;
 }
 .admin-input {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
+    width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #cbd5e1; border-radius: 8px;
 }
 @media(max-width:768px){
-    .hero{grid-template-columns:1fr}
-    header{flex-direction:column;gap:10px}
-    nav{display:flex;flex-wrap:wrap;justify-content:center}
-    .store-bar { flex-direction: column; text-align: center; }
-    .store-info { justify-content: center; }
-    .unlock-wrapper { width: 100%; justify-content: center; }
+.hero{grid-template-columns:1fr}
+header{flex-direction:column;gap:10px}
+nav{display:flex;flex-wrap:wrap;justify-content:center}
+.store-bar-new { flex-direction: column; text-align: center; }
 }
 </style>
 </head>
@@ -278,7 +195,7 @@ font-size:14px;
 <a href="#">📝 Tests</a>
 <a href="#">📊 Results</a>
 <a href="#">ℹ About</a>
-<!-- इस बटन से पासवर्ड डालकर एडमिन खुलेगा -->
+<!-- इस गुप्त बटन से सीधे पासवर्ड का पॉपअप खुलेगा -->
 <a onclick="openAdminPanel()">🔑 Login</a>
 </nav>
 </header>
@@ -312,37 +229,38 @@ font-size:14px;
 </div>
 </section>
 
-<!-- ==================== PREMIUM STORE BAR ==================== -->
-<div class="store-bar">
-    <div class="store-info">
+<!-- ==================== NEW SAFE PREMIUM STORE BAR ==================== -->
+<div class="store-bar-new">
+    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
         <span style="font-size: 18px;">📚</span>
         <div>
             <h4 style="margin: 0; font-size: 15px; color: #083b8a;">MPPSC Premium Store</h4>
             <p style="margin: 1px 0 0 0; font-size: 12px; color: #555;">
-                <span class="store-badge-pre">Pre 100 Tests: ₹29</span> 
+                <span style="background: #fff3e0; color: #e65100; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 11px;">Pre 100 Tests: ₹29</span> 
                 &nbsp;|&nbsp; 
-                <span class="store-badge-mains">Mains Papers: ₹99</span>
+                <span style="background: #e3f2fd; color: #0d47a1; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 11px;">Mains Papers: ₹99</span>
             </p>
         </div>
-        <a href="https://wa.me" target="_blank" class="buy-lnk-pre">[ 🛒 Buy Pre ]</a>
-        <a href="https://wa.me" target="_blank" class="buy-lnk-mains">[ 🛒 Buy Mains ]</a>
+        <!-- अपनी WhatsApp लिंक सेट करें -->
+        <a href="https://wa.me" target="_blank" style="color: #ff7a00; font-size: 13px; font-weight: bold; text-decoration: none; margin-left: 10px;">[ 🛒 Buy Pre ]</a>
+        <a href="https://wa.me" target="_blank" style="color: #0b63ff; font-size: 13px; font-weight: bold; text-decoration: none;">[ 🛒 Buy Mains ]</a>
     </div>
 
-    <div class="unlock-wrapper">
-        <input type="text" id="activationKey" class="unlock-input-field" placeholder="🔑 कोड दर्ज करें">
+    <div style="display: flex; align-items: center; gap: 8px;">
+        <input type="text" id="activationKey" placeholder="🔑 कोड दर्ज करें" style="padding: 8px 12px; border-radius: 6px; border: 1px solid #cbd5e1; font-size: 13px; width: 140px; text-align: center;">
         <button class="btn" onclick="activateCourse()" style="padding: 8px 12px; font-size: 13px; border-radius: 6px; margin: 0;">Verify</button>
     </div>
 </div>
 
 <!-- 📂 अनलॉक होने वाला प्रीमियम बॉक्स -->
 <div id="premiumContentBox" class="premium-links-box">
-    <h4 style="color: #149c42; margin-bottom: 10px;">🎉 आपका प्रीमियम मटीरियल अनलॉक हो चुका है (This Device Only):</h4>
-    <div class="premium-grid">
-        <div class="premium-item">
-            📁 <a id="preLinkDisplay" href="#" target="_blank">MPPSC Pre 100 Test Series (PDF)</a>
+    <h4 style="color: #149c42; margin-bottom: 5px;">🎉 आपका प्रीमियम मटीरियल अनलॉक हो चुका है (This Device Only):</h4>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 10px;">
+        <div style="background: white; padding: 10px; border-radius: 8px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+            📁 <a id="preLinkDisplay" href="#" target="_blank" style="color: #0b63ff; font-weight: bold; text-decoration: none; font-size: 14px;">MPPSC Pre 100 Test Series (PDF)</a>
         </div>
-        <div class="premium-item">
-            📁 <a id="mainsLinkDisplay" href="#" target="_blank">MPPSC Mains All Papers Solution</a>
+        <div style="background: white; padding: 10px; border-radius: 8px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+            📁 <a id="mainsLinkDisplay" href="#" target="_blank" style="color: #0b63ff; font-weight: bold; text-decoration: none; font-size: 14px;">MPPSC Mains All Papers Solution</a>
         </div>
     </div>
 </div>
@@ -352,18 +270,15 @@ font-size:14px;
     <h3 style="color: #d9a300; margin-bottom: 10px;">⚙️ Admin Dashboard (लिंक्स अपडेट करें)</h3>
     <label><b>Pre Notes & Tests URL:</b></label>
     <input type="text" id="preUrlInput" class="admin-input" placeholder="प्री नोट्स की लिंक डालें">
-    
     <label><b>Mains Notes & Papers URL:</b></label>
     <input type="text" id="mainsUrlInput" class="admin-input" placeholder="मेन्स नोट्स की लिंक डालें">
-    
-    <button class="btn" onclick="saveAdminLinks()" style="background: #149c42; margin-top: 10px;">Save & Update Links</button>
+    <button class="btn" onclick="saveAdminLinks()" style="background: #149c42; margin-top: 10px;">Save & Update</button>
     <button class="btn" onclick="document.getElementById('secretAdminPanel').style.display='none'" style="background: #666; margin-top: 10px; margin-left: 10px;">Close</button>
 </div>
 
-<!-- Alert Status Holder -->
 <div id="statusAlert" style="margin: 0 16px 10px 16px; padding: 6px 15px; border-radius: 8px; font-size: 12px; display: none; font-weight: bold; text-align: center;"></div>
 
-<!-- ==================== SELECT UNIT AREA (COMPLETE 10 UNITS) ==================== -->
+<!-- ==================== SELECT UNIT AREA (ORIGINAL 10 UNITS) ==================== -->
 <section class="section">
 <h3>📚 Select Unit / इकाई चुनें</h3>
 <div class="units">
@@ -371,7 +286,9 @@ font-size:14px;
 <div class="card">
 <div>
 <div class="circle" style="background:#0b63ff">📜</div>
-<h4>Unit 1</h4><p>भारत का इतिहास</p><p>20 Tests</p>
+<h4>Unit 1</h4>
+<p>भारत का इतिहास</p>
+<p>20 Tests</p>
 </div>
 <button class="btn" onclick="location.href='unit1.html'">Open Unit</button>
 </div>
@@ -379,7 +296,9 @@ font-size:14px;
 <div class="card">
 <div>
 <div class="circle" style="background:#149c42">🏯</div>
-<h4>Unit 2</h4><p>मध्यप्रदेश का इतिहास, संस्कृति एवं साहित्य</p><p>20 Tests</p>
+<h4>Unit 2</h4>
+<p>मध्यप्रदेश का इतिहास, संस्कृति एवं साहित्य</p>
+<p>20 Tests</p>
 </div>
 <button class="btn" onclick="location.href='unit2.html'">Open Unit</button>
 </div>
@@ -387,10 +306,36 @@ font-size:14px;
 <div class="card">
 <div>
 <div class="circle" style="background:#6d31e6">🗺️</div>
-<h4>Unit 3</h4><p>भारत का भूगोल</p><p>20 Tests</p>
+<h4>Unit 3</h4>
+<p>भारत का भूगोल</p>
+<p>20 Tests</p>
 </div>
 <button class="btn" onclick="location.href='unit3.html'">Open Unit</button>
 </div>
 
 <div class="card">
 <div>
+<div class="circle" style="background:#ff7a00">🏞️</div>
+<h4>Unit 4</h4>
+<p>मध्यप्रदेश का भूगोल</p>
+<p>20 Tests</p>
+</div>
+<button class="btn" onclick="location.href='unit4.html'">Open Unit</button>
+</div>
+
+<div class="card">
+<div>
+<div class="circle" style="background:#08a9c8">🏛️</div>
+<h4>Unit 5</h4>
+<p>भारत एवं म.प्र. की संवैधानिक व्यवस्था</p>
+<p>20 Tests</p>
+</div>
+<button class="btn" onclick="location.href='unit5.html'">Open Unit</button>
+</div>
+
+<div class="card">
+<div>
+<div class="circle" style="background:#e63888">💰</div>
+<h4>Unit 6</h4>
+<p>भारत एवं म.प्र. की अर्थव्यवस्था</p>
+<p>20 Tests</p>
