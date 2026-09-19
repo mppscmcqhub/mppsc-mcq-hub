@@ -82,6 +82,78 @@ padding:14px;
 border-radius:12px;
 text-align:center;
 }
+
+/* ==================== NEW STORE STYLING ==================== */
+.store-section {
+    margin: 16px;
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 22px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.05);
+    text-align: center;
+    border: 2px dashed #0b63ff;
+}
+.store-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+.store-card {
+    background: #eef6ff;
+    padding: 20px;
+    border-radius: 16px;
+    border-top: 5px solid #083b8a;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.store-card.pre { border-top-color: #ff7a00; }
+.store-price {
+    font-size: 26px;
+    font-weight: bold;
+    color: #083b8a;
+    margin: 10px 0;
+}
+.store-price.pre { color: #ff7a00; }
+.store-btn {
+    background: #083b8a;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    display: block;
+    margin-top: 10px;
+}
+.store-btn.pre { background: #ff7a00; }
+.unlock-container {
+    max-width: 450px;
+    margin: 20px auto 0 auto;
+    background: #f1f7ff;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #cbd5e1;
+}
+.unlock-input {
+    width: 70%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    text-align: center;
+    font-size: 15px;
+    margin-right: 5px;
+}
+.success-alert {
+    color: #149c42;
+    font-weight: bold;
+    margin-top: 10px;
+    display: none;
+    font-size: 14px;
+}
+/* =========================================================== */
+
 .section{margin:16px}
 .section h3{margin-bottom:12px;font-size:30px}
 .units{
@@ -148,6 +220,7 @@ font-size:14px;
 .hero{grid-template-columns:1fr}
 header{flex-direction:column;gap:10px}
 nav{display:flex;flex-wrap:wrap;justify-content:center}
+.unlock-input { width: 100%; margin-bottom: 8px; }
 }
 </style>
 </head>
@@ -172,18 +245,15 @@ nav{display:flex;flex-wrap:wrap;justify-content:center}
 </header>
 
 <section class="hero">
-
 <div class="left">
 <img src="mppsc-logo.jpg" alt="Logo">
 <h2>MPPSC MCQ Hub <span>V14</span></h2>
-
 <p><b>Madhya Pradesh Public Service Commission</b></p>
 <p>MCQ Practice Platform • Hindi + English</p>
 <p>बेहतर तैयारी • उज्जवल भविष्य • MPPSC आपके साथ</p>
 </div>
 
 <div class="right">
-
 <div class="row">
 <input placeholder="Enter Test No. (1,101,201)">
 <button class="btn">Search</button>
@@ -200,9 +270,52 @@ nav{display:flex;flex-wrap:wrap;justify-content:center}
 <div>🌐<br>Hindi + English</div>
 <div>🛡<br>100% Free</div>
 </div>
-
 </div>
 </section>
+
+<!-- ==================== NEW: NOTES & TEST STORE SECTION ==================== -->
+<section class="store-section">
+    <h2>📚 MPPSC Premium Study Material & Store</h2>
+    <p>कम कीमत में सबसे बेहतरीन कंटेंट • आज ही एक्सेस प्राप्त करें</p>
+    
+    <div class="store-grid">
+        <!-- Pre Bundle Card -->
+        <div class="store-card pre">
+            <div>
+                <span style="background:#fff3e0; color:#e65100; padding:3px 8px; border-radius:15px; font-size:11px; font-weight:bold;">🎁 PRE EXAM</span>
+                <h4 style="margin-top:10px; font-size:18px;">MPPSC Pre Notes + Tests</h4>
+                <p style="font-size:13px; color:#555; margin:5px 0;">Complete Pre PDF Notes + Full Mock Tests</p>
+                <div class="store-price pre">₹29 <span style="font-size:13px; color:#999; text-decoration:line-through;">₹199</span></div>
+            </div>
+            <!-- NOTE: Replace YOUR_NUMBER with your actual WhatsApp number -->
+            <a href="https://wa.me" target="_blank" class="store-btn pre">Buy Pre Bundle</a>
+        </div>
+
+        <!-- Mains Notes Card -->
+        <div class="store-card">
+            <div>
+                <span style="background:#e3f2fd; color:#0d47a1; padding:3px 8px; border-radius:15px; font-size:11px; font-weight:bold;">🔥 MAINS SPECIAL</span>
+                <h4 style="margin-top:10px; font-size:18px;">MPPSC Mains Complete Notes</h4>
+                <p style="font-size:13px; color:#555; margin:5px 0;">Toppers Verified Hand-written & Typed PDF Notes</p>
+                <div class="store-price">₹99 <span style="font-size:13px; color:#999; text-decoration:line-through;">₹499</span></div>
+            </div>
+            <!-- NOTE: Replace YOUR_NUMBER with your actual WhatsApp number -->
+            <a href="https://wa.me" target="_blank" class="store-btn">Buy Mains Notes</a>
+        </div>
+    </div>
+
+    <!-- 🔐 Device-Lock System -->
+    <div class="unlock-container">
+        <h4 style="margin-bottom:5px;">🔑 अपना प्रीमियम कोर्स अनलॉक करें</h4>
+        <p style="font-size:11px; color:#666; margin-bottom:10px;">यह कोड सिर्फ इसी मोबाइल/लैपटॉप पर काम करेगा।</p>
+        
+        <input type="text" id="activationKey" class="unlock-input" placeholder="यहाँ एक्टिवेशन कोड दर्ज करें">
+        <button class="btn" onclick="activateCourse()">Verify</button>
+        
+        <div id="statusAlert" class="success-alert"></div>
+    </div>
+</section>
+<!-- ========================================================================= -->
 
 <section class="section">
 <h3>📚 Select Unit / इकाई चुनें</h3>
@@ -283,74 +396,3 @@ nav{display:flex;flex-wrap:wrap;justify-content:center}
 <div>
 <div class="circle" style="background:#d9a300">🔥</div>
 <h4>Unit 8</h4>
-<p>अंतर्राष्ट्रीय, राष्ट्रीय एवं प्रादेशिक समसामयिक घटनाएं</p>
-<p>20 Tests</p>
-</div>
-<button class="btn" onclick="location.href='unit8.html'">Open Unit</button>
-</div>
-
-<div class="card">
-<div>
-<div class="circle" style="background:#0f8b8d">💻</div>
-<h4>Unit 9</h4>
-<p>सूचना एवं संचार प्रौद्योगिकी (ICT)</p>
-<p>20 Tests</p>
-</div>
-<button class="btn" onclick="location.href='unit9.html'">Open Unit</button>
-</div>
-
-<div class="card">
-<div>
-<div class="circle" style="background:#7c2be2">🏹</div>
-<h4>Unit 10</h4>
-<p>म.प्र. की जनजातियां: विरासत, लोक संस्कृति एवं साहित्य</p>
-<p>20 Tests</p>
-</div>
-<button class="btn" onclick="location.href='unit10.html'">Open Unit</button>
-</div>
-
-</div>
-</section>
-
-<section class="latest">
-<div>
-<h3>⭐ Latest Test 201</h3>
-<p>20 Questions • A/B/C/D • Explanation</p>
-</div>
-<button class="btn">Start Test 201</button>
-</section>
-
-<section class="bottom">
-
-<div class="box">
-<h4>📈 Progress</h4>
-<p>0 / 200 Tests</p>
-</div>
-
-<div class="box">
-<h4>🌐 Language</h4>
-<label><input type="radio" checked> Hindi</label><br>
-<label><input type="radio"> English</label>
-</div>
-
-<div class="box">
-<h4>🏆 Why MPPSC?</h4>
-<p>✔ Student Friendly</p>
-<p>✔ Regular Updates</p>
-<p>✔ MPPSC Focused</p>
-</div>
-
-<div class="box">
-<h4>🎓 Student Friendly</h4>
-<p>Easy to Use</p>
-<p>MPPSC Focused</p>
-</div>
-
-</section>
-
-<footer>
-© 2026 MPPSC MCQ Hub V14 | Privacy • Terms • Contact
-</footer>
-
-</body>
-</html>
