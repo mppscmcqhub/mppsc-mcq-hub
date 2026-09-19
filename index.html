@@ -207,6 +207,37 @@ font-size:14px;
     width: 170px; 
     text-align: center;
 }
+.premium-links-box {
+    margin: 0 16px 16px 16px;
+    padding: 15px;
+    background: #e6f9ed;
+    border: 1px solid #a3e0a8;
+    border-radius: 12px;
+    display: none;
+}
+.premium-links-box h4 {
+    color: #149c42;
+    margin-bottom: 10px;
+}
+.premium-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 10px;
+}
+.premium-item {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.premium-item a {
+    color: #0b63ff;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 14px;
+}
 /* =============================================================== */
 
 @media(max-width:768px){
@@ -276,12 +307,12 @@ nav{display:flex;flex-wrap:wrap;justify-content:center}
         <div>
             <h4 style="margin: 0; font-size: 15px; color: #083b8a;">MPPSC Premium Store</h4>
             <p style="margin: 1px 0 0 0; font-size: 12px; color: #555;">
-                <span class="store-badge-pre">Pre Bundle: ₹29</span> 
+                <span class="store-badge-pre">Pre 100 Tests: ₹29</span> 
                 &nbsp;|&nbsp; 
-                <span class="store-badge-mains">Mains Notes: ₹99</span>
+                <span class="store-badge-mains">Mains Papers: ₹99</span>
             </p>
         </div>
-        <!-- अपना असली WhatsApp नंबर YOUR_NUMBER की जगह डालिए -->
+        <!-- अपनी WhatsApp लिंक यहाँ सेट करें -->
         <a href="https://wa.me" target="_blank" class="buy-lnk-pre">[ 🛒 Buy Pre ]</a>
         <a href="https://wa.me" target="_blank" class="buy-lnk-mains">[ 🛒 Buy Mains ]</a>
     </div>
@@ -292,6 +323,22 @@ nav{display:flex;flex-wrap:wrap;justify-content:center}
         <button class="btn" onclick="activateCourse()" style="padding: 8px 15px; font-size: 13px; border-radius: 6px; margin: 0;">Verify</button>
     </div>
 </div>
+
+<!-- 📂 अनलॉक होने वाला प्रीमियम बॉक्स (यहाँ आपके 100 टेस्ट और मेन्स पेपर लोड होंगे) -->
+<div id="premiumContentBox" class="premium-links-box">
+    <h4>🎉 आपका प्रीमियम मटीरियल अनलॉक हो चुका है (This Device Only):</h4>
+    <div class="premium-grid">
+        <!-- 📝 प्री के 100 टेस्ट की लिंक नीचे बदलें -->
+        <div class="premium-item">
+            📁 <a href="YOUR_PRE_TESTS_LINK_HERE" target="_blank">MPPSC Pre 100 Test Series (PDF)</a>
+        </div>
+        <!-- 📝 मेन्स के सभी पेपर्स की लिंक नीचे बदलें -->
+        <div class="premium-item">
+            📁 <a href="YOUR_MAINS_PAPERS_LINK_HERE" target="_blank">MPPSC Mains All Papers Solution</a>
+        </div>
+    </div>
+</div>
+
 <!-- Alert Status Holder -->
 <div id="statusAlert" style="margin: 0 16px 10px 16px; padding: 6px 15px; border-radius: 8px; font-size: 12px; display: none; font-weight: bold; text-align: center;"></div>
 <!-- ===================================================================== -->
@@ -368,62 +415,3 @@ nav{display:flex;flex-wrap:wrap;justify-content:center}
 <p>विज्ञान, पर्यावरण एवं स्वास्थ्य</p>
 <p>20 Tests</p>
 </div>
-<button class="btn" onclick="location.href='unit7.html'">Open Unit</button>
-</div>
-
-<div class="card">
-<div>
-<div class="circle" style="background:#d9a300">🔥</div>
-<h4>Unit 8</h4>
-<p>अंतर्राष्ट्रीय, राष्ट्रीय एवं प्रादेशिक समसामयिक घटनाएं</p>
-<p>20 Tests</p>
-</div>
-<button class="btn" onclick="location.href='unit8.html'">Open Unit</button>
-</div>
-
-<div class="card">
-<div>
-<div class="circle" style="background:#0f8b8d">💻</div>
-<h4>Unit 9</h4>
-<p>सूचना एवं संचार प्रौद्योगिकी (ICT)</p>
-<p>20 Tests</p>
-</div>
-<button class="btn" onclick="location.href='unit9.html'">Open Unit</button>
-</div>
-
-<div class="card">
-<div>
-<div class="circle" style="background:#7c2be2">🏹</div>
-<h4>Unit 10</h4>
-<p>म.प्र. की जनजातियां: विरासत, लोक संस्कृति एवं साहित्य</p>
-<p>20 Tests</p>
-</div>
-<button class="btn" onclick="location.href='unit10.html'">Open Unit</button>
-</div>
-
-</div>
-</section>
-
-<section class="latest">
-<div>
-<h3>⭐ Latest Test 201</h3>
-<p>20 Questions • A/B/C/D • Explanation</p>
-</div>
-<button class="btn">Start Test 201</button>
-</section>
-
-<section class="bottom">
-<div class="box">
-<h4>📈 Progress</h4>
-<p>0 / 200 Tests</p>
-</div>
-
-<div class="box">
-<h4>🌐 Language</h4>
-<label><input type="radio" checked> Hindi</label><br>
-<label><input type="radio"> English</label>
-</div>
-
-<div class="box">
-<h4>🏆 Why MPPSC?</h4>
-<p>✔ Student Friendly</p>
