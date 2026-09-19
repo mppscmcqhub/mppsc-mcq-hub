@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MPPSC MCQ Hub V14</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>MPPSC MCQ Hub V14 - Full Grid</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: #eef4ff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; line-height: 1.5; }
@@ -30,15 +33,11 @@
         .btn-store { border: 1px solid #ff9800; color: #ff9800; background: transparent; padding: 5px 12px; border-radius: 4px; font-weight: bold; text-decoration: none; font-size: 0.85rem; margin-left: 5px; display: inline-block; }
         .btn-store:hover { background: #fff3e0; }
         .section-title { font-size: 1.3rem; font-weight: bold; color: #1a237e; margin: 25px 0 15px 0; border-left: 5px solid #0d47a1; padding-left: 10px; text-align: left; }
-        
-        /* नया फिक्स ग्रिड सिस्टम: प्रति लाइन 5 यूनिट्स */
-        .units-grid { display: flex; flex-wrap: wrap; margin: -12px; justify-content: flex-start; }
-        .unit-col { width: 20%; padding: 12px; }
-        @media (max-width: 1200px) { .unit-col { width: 25%; } }
-        @media (max-width: 992px) { .unit-col { width: 33.33%; } }
-        @media (max-width: 768px) { .unit-col { width: 50%; } .premium-banner { flex-direction: column; text-align: center; } }
-        @media (max-width: 480px) { .unit-col { width: 100%; } .nav-links { display: none; } }
-        
+        .units-grid { display: flex !important; flex-wrap: wrap !important; margin: -12px !important; }
+        .unit-col { width: 25% !important; padding: 12px !important; display: block !important; }
+        @media (max-width: 992px) { .unit-col { width: 33.33% !important; } }
+        @media (max-width: 768px) { .unit-col { width: 50% !important; } }
+        @media (max-width: 480px) { .unit-col { width: 100% !important; } }
         .unit-card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; height: 100%; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #eaeaea; }
         .unit-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.1); transition: 0.3s; }
         .unit-icon { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px auto; color: white; font-size: 1.2rem; font-weight: bold; }
@@ -93,7 +92,6 @@
 
         <div class="section-title">Select Unit / इकाई चुनें</div>
         <div class="units-grid">
-            <!-- Unit 1 -->
             <div class="unit-col">
                 <div class="unit-card">
                     <div>
@@ -107,7 +105,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Unit 2 -->
             <div class="unit-col">
                 <div class="unit-card">
                     <div>
@@ -121,7 +118,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Unit 3 -->
             <div class="unit-col">
                 <div class="unit-card">
                     <div>
@@ -135,7 +131,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Unit 4 -->
             <div class="unit-col">
                 <div class="unit-card">
                     <div>
@@ -145,3 +140,86 @@
                     </div>
                     <div>
                         <div class="unit-meta">20 Tests</div>
+                        <a href="unit4.html" class="btn-open">Open Unit</a>
+<div class="unit-col">
+                <div class="unit-card">
+                    <div>
+                        <div class="unit-icon u5">5</div>
+                        <div class="unit-title">Unit 5</div>
+                        <div class="unit-desc">भारत एवं म.प्र. की संवैधानिक व्यवस्था</div>
+                    </div>
+                    <div>
+                        <div class="unit-meta">20 Tests</div>
+                        <a href="unit5.html" class="btn-open">Open Unit</a>
+                    </div>
+                </div>
+            </div>
+            <div class="unit-col">
+                <div class="unit-card">
+                    <div>
+                        <div class="unit-icon u6">6</div>
+                        <div class="unit-title">Unit 6</div>
+                        <div class="unit-desc">भारत एवं म.प्र. की अर्थव्यवस्था</div>
+                    </div>
+                    <div>
+                        <div class="unit-meta">20 Tests</div>
+                        <a href="unit6.html" class="btn-open">Open Unit</a>
+                    </div>
+                </div>
+            </div>
+            <div class="unit-col">
+                <div class="unit-card">
+                    <div>
+                        <div class="unit-icon u7">7</div>
+                        <div class="unit-title">Unit 7</div>
+                        <div class="unit-desc">विज्ञान, पर्यावरण एवं स्वास्थ्य</div>
+                    </div>
+                    <div>
+                        <div class="unit-meta">20 Tests</div>
+                        <a href="unit7.html" class="btn-open">Open Unit</a>
+                    </div>
+                </div>
+            </div>
+            <div class="unit-col">
+                <div class="unit-card">
+                    <div>
+                        <div class="unit-icon u8">8</div>
+                        <div class="unit-title">Unit 8</div>
+                        <div class="unit-desc">अंतर्राष्ट्रीय, राष्ट्रीय एवं प्रादेशिक सामसामयिक घटनाएं</div>
+                    </div>
+                    <div>
+                        <div class="unit-meta">20 Tests</div>
+                        <a href="unit8.html" class="btn-open">Open Unit</a>
+                    </div>
+                </div>
+            </div>
+            <div class="unit-col">
+                <div class="unit-card">
+                    <div>
+                        <div class="unit-icon u9">9</div>
+                        <div class="unit-title">Unit 9</div>
+                        <div class="unit-desc">सूचना एवं संचार प्रौद्योगिकी (ICT)</div>
+                    </div>
+                    <div>
+                        <div class="unit-meta">20 Tests</div>
+                        <a href="unit9.html" class="btn-open">Open Unit</a>
+                    </div>
+                </div>
+            </div>
+            <div class="unit-col">
+                <div class="unit-card">
+                    <div>
+                        <div class="unit-icon u10">10</div>
+                        <div class="unit-title">Unit 10</div>
+                        <div class="unit-desc">मध्यप्रदेश की जनजातियां: विरासत, लोक संस्कृति एवं साहित्य</div>
+                    </div>
+                    <div>
+                        <div class="unit-meta">20 Tests</div>
+                        <a href="unit10.html" class="btn-open">Open Unit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
