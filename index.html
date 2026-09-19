@@ -8,14 +8,15 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: #eef4ff; font-family: 'Segoe UI', sans-serif; color: #333; line-height: 1.5; }
-        .navbar-custom { background-color: #0d47a1; color: white; padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; }
-        .navbar-brand { font-size: 1.25rem; font-weight: bold; text-decoration: none; color: white; }
+        .navbar-custom { background-color: #0d47a1; color: white; padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; min-height: 80px; }
+        .navbar-brand { font-size: 1.4rem; font-weight: bold; text-decoration: none; color: white; }
         .btn-login { background-color: white; color: #0d47a1; border: none; padding: 6px 15px; border-radius: 4px; font-weight: bold; text-decoration: none; font-size: 0.9rem; }
         .hero-section { background-color: #fff; padding: 25px 15px; text-align: center; border-bottom: 2px solid #0d47a1; }
         .hero-title { color: #0d47a1; font-size: 1.8rem; font-weight: bold; }
         .container-fluid { width: 100%; padding: 15px; margin: 0 auto; }
         .premium-banner { background: #fff; border: 1px dashed #ff9800; border-radius: 8px; padding: 15px; margin: 20px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
         .btn-store { border: 1px solid #ff9800; color: #ff9800; background: transparent; padding: 5px 12px; border-radius: 4px; font-weight: bold; text-decoration: none; font-size: 0.85rem; display: inline-block; }
+        .btn-store:hover { background: #fff3e0; }
         .section-title { font-size: 1.3rem; font-weight: bold; color: #1a237e; margin: 25px 0 15px 0; border-left: 5px solid #0d47a1; padding-left: 10px; }
         
         .units-grid { display: flex !important; flex-wrap: wrap !important; margin: -12px !important; width: 100% !important; }
@@ -35,9 +36,9 @@
 </head>
 <body>
     <div class="navbar-custom">
-        <!-- आपका असली गोल लोगो यहाँ लिंक कर दिया गया है -->
-        <a class="navbar-brand" href="#" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: white;">
-            <img src="MPPSC%20MCQ%20Hub%20Logo.png" alt="MPPSC MCQ Hub Logo" style="height: 40px; width: 40px; border-radius: 50%; object-fit: cover; border: 2px solid white; display: inline-block;">
+        <!-- आपका असली गोल और बड़ा लोगो यहाँ पूरी तरह फिक्स कर दिया गया है -->
+        <a class="navbar-brand" href="#" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: white;">
+            <img src="MPPSC%20MCQ%20Hub%20Logo.png" alt="MPPSC MCQ Hub Logo" style="height: 65px; width: 65px; border-radius: 50%; object-fit: cover; border: 2px solid white; display: inline-block;">
             <span>MPPSC MCQ Hub V14</span>
         </a>
         <a href="#" class="btn-login">🔑 Login</a>
