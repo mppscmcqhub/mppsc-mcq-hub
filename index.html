@@ -4,27 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MPPSC MCQ Hub V14</title>
-    <!-- Bootstrap CSS for Responsive Layout -->
-    <link href="https://jsdelivr.net" rel="stylesheet">
-    <!-- FontAwesome for Icons -->
-    <link href="https://cloudflare.com" rel="stylesheet">
     
     <style>
-        body { background-color: #eef4ff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .navbar-custom { background-color: #0d47a1; color: white; }
-        .navbar-custom .nav-link { color: rgba(255,255,255,0.8); }
-        .navbar-custom .nav-link:hover { color: white; }
-        .hero-section { background-color: #fff; padding: 20px; border-bottom: 2px solid #0d47a1; }
-        .info-box { background: #fff; border-radius: 8px; padding: 15px; border: 1px solid #e0e0e0; height: 100%; }
-        .premium-banner { background: #fff; border: 1px dashed #ff9800; border-radius: 6px; padding: 10px; margin: 15px 0; }
-        .section-title { font-weight: bold; color: #1a237e; margin: 25px 0 15px 0; border-left: 5px solid #0d47a1; padding-left: 10px; }
-        .unit-card { background: white; border: none; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.3s; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
-        .unit-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
-        .unit-icon { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px auto; color: white; font-size: 20px; }
-        .btn-open { background-color: #0d47a1; color: white; border-radius: 20px; font-weight: 500; transition: 0.3s; }
-        .btn-open:hover { background-color: #1565c0; color: white; }
+        /* CSS resets and base styles */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: #eef4ff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; line-height: 1.5; }
         
-        /* Unit-wise Icon Background Colors */
+        /* Navbar Custom Styling */
+        .navbar-custom { background-color: #0d47a1; color: white; padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .navbar-brand { font-size: 1.25rem; font-weight: bold; text-decoration: none; color: white; display: flex; align-items: center; }
+        .nav-links { display: flex; align-items: center; }
+        .nav-link { color: rgba(255,255,255,0.8); text-decoration: none; margin: 0 10px; font-size: 0.95rem; }
+        .nav-link:hover { color: white; }
+        .btn-login { background-color: white; color: #0d47a1; border: none; padding: 6px 15px; border-radius: 4px; font-weight: bold; cursor: pointer; text-decoration: none; margin-left: 10px; font-size: 0.9rem; }
+        
+        /* Hero Section */
+        .hero-section { background-color: #fff; padding: 25px 15px; text-center; text-align: center; border-bottom: 2px solid #0d47a1; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .hero-title { color: #0d47a1; font-size: 1.8rem; font-weight: bold; margin-bottom: 5px; }
+        .badge-v { background-color: #ff9800; color: #222; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; vertical-align: middle; margin-left: 5px; }
+        .hero-subtitle { color: #666; font-size: 0.95rem; margin-bottom: 8px; }
+        .hero-tagline { color: #2e7d32; font-weight: bold; font-size: 1rem; }
+        
+        /* Main Container */
+        .container-fluid { width: 100%; padding: 15px; margin-right: auto; margin-left: auto; }
+        
+        /* Info Row Grid */
+        .info-row { display: flex; flex-wrap: wrap; margin: -10px; text-align: center; }
+        .info-col { flex: 1; min-width: 200px; padding: 10px; }
+        .info-box { background: #fff; border-radius: 8px; padding: 15px; border: 1px solid #e0e0e0; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+        .info-box h6 { font-size: 1rem; margin: 0; color: #333; }
+        
+        /* Premium Banner */
+        .premium-banner { background: #fff; border: 1px dashed #ff9800; border-radius: 8px; padding: 15px; margin: 20px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+        .premium-text { font-size: 0.95rem; }
+        .premium-text strong { color: #e65100; }
+        .premium-text span { color: #666; font-size: 0.85rem; }
+        .btn-store { border: 1px solid #ff9800; color: #ff9800; background: transparent; padding: 5px 12px; border-radius: 4px; font-weight: bold; text-decoration: none; font-size: 0.85rem; margin-left: 5px; display: inline-block; }
+        .btn-store:hover { background: #fff3e0; }
+        
+        /* Section Title */
+        .section-title { font-size: 1.3rem; font-weight: bold; color: #1a237e; margin: 25px 0 15px 0; border-left: 5px solid #0d47a1; padding-left: 10px; text-align: left; }
+        
+        /* Units Grid Setup (4 Columns on Desktop) */
+        .units-grid { display: flex; flex-wrap: wrap; margin: -12px; }
+        .unit-col { width: 25%; padding: 12px; }
+        
+        /* Responsive break points */
+        @media (max-width: 992px) { .unit-col { width: 33.33%; } }
+        @media (max-width: 768px) { .unit-col { width: 50%; } .premium-banner { flex-direction: column; text-align: center; } }
+        @media (max-width: 480px) { .unit-col { width: 100%; } .nav-links { display: none; } }
+        
+        /* Unit Card Styling */
+        .unit-card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; height: 100%; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #eaeaea; }
+        .unit-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.1); transition: 0.3s; }
+        
+        /* Round Colored Circles for Icons */
+        .unit-icon { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px auto; color: white; font-size: 1.2rem; font-weight: bold; }
+        .unit-title { font-size: 1.05rem; font-weight: bold; margin-bottom: 5px; color: #111; }
+        .unit-desc { color: #666; font-size: 0.85rem; margin-bottom: 15px; min-height: 40px; display: flex; align-items: center; justify-content: center; }
+        .unit-meta { color: #777; font-size: 0.85rem; font-weight: bold; margin-bottom: 12px; }
+        
+        /* Open Button */
+        .btn-open { background-color: #0d47a1; color: white; border: none; padding: 8px 0; width: 100%; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; text-decoration: none; display: block; text-align: center; }
+        .btn-open:hover { background-color: #1565c0; }
+        
+        /* Unit Colors */
         .u1 { background-color: #2196f3; }
         .u2 { background-color: #4caf50; }
         .u3 { background-color: #673ab7; }
@@ -40,142 +84,107 @@
 <body>
 
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-custom shadow-sm">
-        <div class="container-fluid">
-            <a class="navbar-brand text-white font-weight-bold" href="#">
-                <i class="fas fa-graduation-cap mr-2"></i>MPPSC MCQ Hub V14
-            </a>
-            <div class="ml-auto d-flex align-items-center">
-                <a href="#" class="nav-link text-white mx-2"><i class="fas fa-home"></i> Home</a>
-                <a href="#" class="nav-link text-white mx-2"><i class="fas fa-file-alt"></i> Tests</a>
-                <a href="#" class="nav-link text-white mx-2"><i class="fas fa-poll"></i> Results</a>
-                <a href="#" class="nav-link text-white mx-2"><i class="fas fa-info-circle"></i> About</a>
-                <a href="#" class="btn btn-light btn-sm font-weight-bold text-primary px-3 ml-2"><i class="fas fa-sign-in-alt"></i> Login</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero / Intro Section -->
-    <div class="hero-section shadow-sm">
-        <div class="container-fluid text-center">
-            <h3 class="text-primary font-weight-bold">MPPSC MCQ Hub <span class="badge badge-warning text-dark">V14</span></h3>
-            <p class="text-muted mb-1">Madhya Pradesh Public Service Commission | MCQ Practice Platform • Hindi + English</p>
-            <p class="text-success font-weight-bold mb-0">बेहतर तैयारी • उज्जवल भविष्य • MPPSC आपके साथ</p>
+    <div class="navbar-custom">
+        <a class="navbar-brand" href="#">🎓 MPPSC MCQ Hub V14</a>
+        <div class="nav-links">
+            <a href="#" class="nav-link">🏠 Home</a>
+            <a href="#" class="nav-link">📝 Tests</a>
+            <a href="#" class="nav-link">📊 Results</a>
+            <a href="#" class="nav-link">ℹ️ About</a>
+            <a href="#" class="btn-login">🔑 Login</a>
         </div>
     </div>
 
-    <!-- Info Cards & Features Row -->
-    <div class="container-fluid mt-3">
-        <div class="row text-center">
-            <div class="col-md-3 mb-2"><div class="info-box shadow-sm"><i class="fas fa-list text-primary mb-2"></i><h6>20 Questions</h6></div></div>
-            <div class="col-md-3 mb-2"><div class="info-box shadow-sm"><i class="fas fa-bolt text-warning mb-2"></i><h6>Instant Result</h6></div></div>
-            <div class="col-md-3 mb-2"><div class="info-box shadow-sm"><i class="fas fa-language text-success mb-2"></i><h6>Hindi + English</h6></div></div>
-            <div class="col-md-3 mb-2"><div class="info-box shadow-sm"><i class="fas fa-gift text-danger mb-2"></i><h6>100% Free</h6></div></div>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <h3 class="hero-title">MPPSC MCQ Hub<span class="badge-v">V14</span></h3>
+        <p class="hero-subtitle">Madhya Pradesh Public Service Commission | MCQ Practice Platform • Hindi + English</p>
+        <p class="hero-tagline">बेहतर तैयारी • उज्जवल भविष्य • MPPSC आपके साथ</p>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container-fluid">
+        <!-- Info Badges Row -->
+        <div class="info-row">
+            <div class="info-col"><div class="info-box"><h6>📋 20 Questions</h6></div></div>
+            <div class="info-col"><div class="info-box"><h6>⚡ Instant Result</h6></div></div>
+            <div class="info-col"><div class="info-box"><h6>🌐 Hindi + English</h6></div></div>
+            <div class="info-col"><div class="info-box"><h6>🎁 100% Free</h6></div></div>
         </div>
 
         <!-- Premium Store Banner -->
-        <div class="premium-banner d-flex justify-content-between align-items-center shadow-sm">
-            <div><i class="fas fa-shopping-cart text-warning mr-2"></i><strong>MPPSC Premium Store</strong> <span class="text-muted font-weight-normal">(Pre 100 Tests: ₹29 | Mains Papers: ₹99)</span></div>
+        <div class="premium-banner">
+            <div class="premium-text">🛒 <strong>MPPSC Premium Store</strong> <span>(Pre 100 Tests: ₹29 | Mains Papers: ₹99)</span></div>
             <div>
-                <a href="#" class="btn btn-outline-warning btn-sm mx-1 font-weight-bold">🛒 Buy Pre</a>
-                <a href="#" class="btn btn-outline-warning btn-sm mx-1 font-weight-bold">🛒 Buy Mains</a>
+                <a href="#" class="btn-store">Buy Pre</a>
+                <a href="#" class="btn-store">Buy Mains</a>
             </div>
         </div>
 
-        <!-- Selection Heading -->
-        <h4 class="section-title">Select Unit / इकाई चुनें</h4>
+        <!-- Selection Title -->
+        <div class="section-title">Select Unit / इकाई चुनें</div>
 
-        <!-- Main Units Grid (1 to 10) -->
-        <div class="row px-2">
+        <!-- Main 10 Units Grid -->
+        <div class="units-grid">
             
             <!-- Unit 1 -->
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                <div class="card unit-card text-center p-3">
+            <div class="unit-col">
+                <div class="unit-card">
                     <div>
-                        <div class="unit-icon u1 shadow-sm"><i class="fas fa-book-open"></i></div>
-                        <h6 class="font-weight-bold mb-1">Unit 1</h6>
-                        <p class="text-muted small">भारत का इतिहास</p>
+                        <div class="unit-icon u1">1</div>
+                        <div class="unit-title">Unit 1</div>
+                        <div class="unit-desc">भारत का इतिहास</div>
                     </div>
                     <div>
-                        <p class="text-secondary small font-weight-bold mb-2">20 Tests</p>
-                        <a href="unit1.html" class="btn btn-open btn-sm btn-block py-2">Open Unit</a>
+                        <div class="unit-meta">20 Tests</div>
+                        <a href="unit1.html" class="btn-open">Open Unit</a>
                     </div>
                 </div>
             </div>
 
             <!-- Unit 2 -->
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                <div class="card unit-card text-center p-3">
+            <div class="unit-col">
+                <div class="unit-card">
                     <div>
-                        <div class="unit-icon u2 shadow-sm"><i class="fas fa-gavel"></i></div>
-                        <h6 class="font-weight-bold mb-1">Unit 2</h6>
-                        <p class="text-muted small">मध्यप्रदेश का इतिहास, संस्कृति एवं साहित्य</p>
+                        <div class="unit-icon u2">2</div>
+                        <div class="unit-title">Unit 2</div>
+                        <div class="unit-desc">मध्यप्रदेश का इतिहास, संस्कृति एवं साहित्य</div>
                     </div>
                     <div>
-                        <p class="text-secondary small font-weight-bold mb-2">20 Tests</p>
-                        <a href="unit2.html" class="btn btn-open btn-sm btn-block py-2">Open Unit</a>
+                        <div class="unit-meta">20 Tests</div>
+                        <a href="unit2.html" class="btn-open">Open Unit</a>
                     </div>
                 </div>
             </div>
 
             <!-- Unit 3 -->
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                <div class="card unit-card text-center p-3">
+            <div class="unit-col">
+                <div class="unit-card">
                     <div>
-                        <div class="unit-icon u3 shadow-sm"><i class="fas fa-globe-asia"></i></div>
-                        <h6 class="font-weight-bold mb-1">Unit 3</h6>
-                        <p class="text-muted small">भारत का भूगोल</p>
+                        <div class="unit-icon u3">3</div>
+                        <div class="unit-title">Unit 3</div>
+                        <div class="unit-desc">भारत का भूगोल</div>
                     </div>
                     <div>
-                        <p class="text-secondary small font-weight-bold mb-2">20 Tests</p>
-                        <a href="unit3.html" class="btn btn-open btn-sm btn-block py-2">Open Unit</a>
+                        <div class="unit-meta">20 Tests</div>
+                        <a href="unit3.html" class="btn-open">Open Unit</a>
                     </div>
                 </div>
             </div>
 
             <!-- Unit 4 -->
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                <div class="card unit-card text-center p-3">
+            <div class="unit-col">
+                <div class="unit-card">
                     <div>
-                        <div class="unit-icon u4 shadow-sm"><i class="fas fa-map-marked-alt"></i></div>
-                        <h6 class="font-weight-bold mb-1">Unit 4</h6>
-                        <p class="text-muted small">मध्यप्रदेश का भूगोल</p>
+                        <div class="unit-icon u4">4</div>
+                        <div class="unit-title">Unit 4</div>
+                        <div class="unit-desc">मध्यप्रदेश का भूगोल</div>
                     </div>
                     <div>
-                        <p class="text-secondary small font-weight-bold mb-2">20 Tests</p>
-                        <a href="unit4.html" class="btn btn-open btn-sm btn-block py-2">Open Unit</a>
+                        <div class="unit-meta">20 Tests</div>
+                        <a href="unit4.html" class="btn-open">Open Unit</a>
                     </div>
                 </div>
             </div>
 
             <!-- Unit 5 -->
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                <div class="card unit-card text-center p-3">
-                    <div>
-                        <div class="unit-icon u5 shadow-sm"><i class="fas fa-landmark"></i></div>
-                        <h6 class="font-weight-bold mb-1">Unit 5</h6>
-                        <p class="text-muted small">भारत एवं म.प्र. की संवैधानिक व्यवस्था</p>
-                    </div>
-                    <div>
-                        <p class="text-secondary small font-weight-bold mb-2">20 Tests</p>
-                        <a href="unit5.html" class="btn btn-open btn-sm btn-block py-2">Open Unit</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Unit 6 -->
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                <div class="card unit-card text-center p-3">
-                    <div>
-                        <div class="unit-icon u6 shadow-sm"><i class="fas fa-chart-line"></i></div>
-                        <h6 class="font-weight-bold mb-1">Unit 6</h6>
-                        <p class="text-muted small">भारत एवं म.प्र. की अर्थव्यवस्था</p>
-                    </div>
-                    <div>
-                        <p class="text-secondary small font-weight-bold mb-2">20 Tests</p>
-                        <a href="unit6.html" class="btn btn-open btn-sm btn-block py-2">Open Unit</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Unit 7 -->
