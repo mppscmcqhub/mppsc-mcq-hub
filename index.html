@@ -83,15 +83,14 @@ padding:14px;
 border-radius:12px;
 text-align:center;
 }
-.section{margin:16px}
+.section{margin:16px; clear: both;}
 .section h3{margin-bottom:12px;font-size:30px}
 
-/* ग्रिड सिस्टम को बिल्कुल सुरक्षित और स्वतंत्र किया */
+/* ग्रिड सिस्टम जो सभी 10 यूनिट को सही से दिखाएगा */
 .units{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px, 1fr));
 gap:16px;
-margin-top:15px;
 }
 .card{
 background:white;
@@ -149,7 +148,7 @@ margin-top:18px;
 font-size:14px;
 }
 
-/* ==================== CLEANED & SAFE STORE BAR ==================== */
+/* ==================== STORE BAR STYLE ==================== */
 .store-bar {
     margin: 16px; 
     background: #ffffff; 
@@ -279,7 +278,7 @@ font-size:14px;
 <a href="#">📝 Tests</a>
 <a href="#">📊 Results</a>
 <a href="#">ℹ About</a>
-<!-- लॉगिन मेनू बटन पर क्लिक करने से सीधा एडमिन खुलेगा -->
+<!-- इस बटन से पासवर्ड डालकर एडमिन खुलेगा -->
 <a onclick="openAdminPanel()">🔑 Login</a>
 </nav>
 </header>
@@ -313,7 +312,7 @@ font-size:14px;
 </div>
 </section>
 
-<!-- ==================== CLEAN STORE BAR ==================== -->
+<!-- ==================== PREMIUM STORE BAR ==================== -->
 <div class="store-bar">
     <div class="store-info">
         <span style="font-size: 18px;">📚</span>
@@ -329,7 +328,6 @@ font-size:14px;
         <a href="https://wa.me" target="_blank" class="buy-lnk-mains">[ 🛒 Buy Mains ]</a>
     </div>
 
-    <!-- छात्रों के लिए कोड एक्टिवेशन इनपुट -->
     <div class="unlock-wrapper">
         <input type="text" id="activationKey" class="unlock-input-field" placeholder="🔑 कोड दर्ज करें">
         <button class="btn" onclick="activateCourse()" style="padding: 8px 12px; font-size: 13px; border-radius: 6px; margin: 0;">Verify</button>
@@ -365,7 +363,7 @@ font-size:14px;
 <!-- Alert Status Holder -->
 <div id="statusAlert" style="margin: 0 16px 10px 16px; padding: 6px 15px; border-radius: 8px; font-size: 12px; display: none; font-weight: bold; text-align: center;"></div>
 
-<!-- ==================== SELECT UNIT AREA ==================== -->
+<!-- ==================== SELECT UNIT AREA (COMPLETE 10 UNITS) ==================== -->
 <section class="section">
 <h3>📚 Select Unit / इकाई चुनें</h3>
 <div class="units">
@@ -394,3 +392,5 @@ font-size:14px;
 <button class="btn" onclick="location.href='unit3.html'">Open Unit</button>
 </div>
 
+<div class="card">
+<div>
