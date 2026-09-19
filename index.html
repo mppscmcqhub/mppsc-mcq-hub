@@ -32,6 +32,7 @@ color:white;
 text-decoration:none;
 margin-left:20px;
 font-size:14px;
+cursor: pointer;
 }
 .hero{
 margin:16px;
@@ -85,14 +86,13 @@ text-align:center;
 .section{margin:16px}
 .section h3{margin-bottom:12px;font-size:30px}
 
-/* ग्रिड सिस्टम को एकदम सही और मजबूत किया */
+/* ग्रिड सिस्टम को बिल्कुल सुरक्षित और स्वतंत्र किया */
 .units{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(220px, 1fr));
 gap:16px;
-clear: both;
+margin-top:15px;
 }
-
 .card{
 background:white;
 border-radius:18px;
@@ -149,7 +149,7 @@ margin-top:18px;
 font-size:14px;
 }
 
-/* ==================== PREMIUM STORE FIXED STYLING ==================== */
+/* ==================== CLEANED & SAFE STORE BAR ==================== */
 .store-bar {
     margin: 16px; 
     background: #ffffff; 
@@ -253,7 +253,6 @@ font-size:14px;
     border: 1px solid #cbd5e1;
     border-radius: 8px;
 }
-
 @media(max-width:768px){
     .hero{grid-template-columns:1fr}
     header{flex-direction:column;gap:10px}
@@ -261,7 +260,6 @@ font-size:14px;
     .store-bar { flex-direction: column; text-align: center; }
     .store-info { justify-content: center; }
     .unlock-wrapper { width: 100%; justify-content: center; }
-    .unlock-input-field { width: 70%; }
 }
 </style>
 </head>
@@ -281,7 +279,8 @@ font-size:14px;
 <a href="#">📝 Tests</a>
 <a href="#">📊 Results</a>
 <a href="#">ℹ About</a>
-<a href="#">🔑 Login</a>
+<!-- लॉगिन मेनू बटन पर क्लिक करने से सीधा एडमिन खुलेगा -->
+<a onclick="openAdminPanel()">🔑 Login</a>
 </nav>
 </header>
 
@@ -314,7 +313,7 @@ font-size:14px;
 </div>
 </section>
 
-<!-- ==================== SLIM PREMIUM STORE BAR ==================== -->
+<!-- ==================== CLEAN STORE BAR ==================== -->
 <div class="store-bar">
     <div class="store-info">
         <span style="font-size: 18px;">📚</span>
@@ -330,10 +329,10 @@ font-size:14px;
         <a href="https://wa.me" target="_blank" class="buy-lnk-mains">[ 🛒 Buy Mains ]</a>
     </div>
 
+    <!-- छात्रों के लिए कोड एक्टिवेशन इनपुट -->
     <div class="unlock-wrapper">
         <input type="text" id="activationKey" class="unlock-input-field" placeholder="🔑 कोड दर्ज करें">
         <button class="btn" onclick="activateCourse()" style="padding: 8px 12px; font-size: 13px; border-radius: 6px; margin: 0;">Verify</button>
-        <button class="btn" onclick="openAdminPanel()" style="padding: 8px 10px; font-size: 13px; border-radius: 6px; margin: 0; background:#d9a300;">⚙️ Admin</button>
     </div>
 </div>
 
@@ -392,3 +391,6 @@ font-size:14px;
 <div class="circle" style="background:#6d31e6">🗺️</div>
 <h4>Unit 3</h4><p>भारत का भूगोल</p><p>20 Tests</p>
 </div>
+<button class="btn" onclick="location.href='unit3.html'">Open Unit</button>
+</div>
+
