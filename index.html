@@ -238,7 +238,24 @@ font-size:14px;
     text-decoration: none;
     font-size: 14px;
 }
-/* =============================================================== */
+
+/* ==================== SECRET ADMIN PANEL STYLING ==================== */
+.admin-box {
+    margin: 16px;
+    padding: 20px;
+    background: #fff;
+    border: 2px dashed #d9a300;
+    border-radius: 14px;
+    display: none;
+}
+.admin-input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+}
+/* =================================================================== */
 
 @media(max-width:768px){
 .hero{grid-template-columns:1fr}
@@ -300,7 +317,7 @@ nav{display:flex;flex-wrap:wrap;justify-content:center}
 </div>
 </section>
 
-<!-- ==================== NEW: SLIM PREMIUM STORE BAR ==================== -->
+<!-- ==================== SLIM PREMIUM STORE BAR ==================== -->
 <div class="store-bar">
     <div class="store-info">
         <span style="font-size: 18px;">📚</span>
@@ -312,7 +329,6 @@ nav{display:flex;flex-wrap:wrap;justify-content:center}
                 <span class="store-badge-mains">Mains Papers: ₹99</span>
             </p>
         </div>
-        <!-- अपनी WhatsApp लिंक यहाँ सेट करें -->
         <a href="https://wa.me" target="_blank" class="buy-lnk-pre">[ 🛒 Buy Pre ]</a>
         <a href="https://wa.me" target="_blank" class="buy-lnk-mains">[ 🛒 Buy Mains ]</a>
     </div>
@@ -324,36 +340,42 @@ nav{display:flex;flex-wrap:wrap;justify-content:center}
     </div>
 </div>
 
-<!-- 📂 अनलॉक होने वाला प्रीमियम बॉक्स (यहाँ आपके 100 टेस्ट और मेन्स पेपर लोड होंगे) -->
+<!-- 📂 अनलॉक होने वाला प्रीमियम बॉक्स -->
 <div id="premiumContentBox" class="premium-links-box">
     <h4>🎉 आपका प्रीमियम मटीरियल अनलॉक हो चुका है (This Device Only):</h4>
     <div class="premium-grid">
-        <!-- 📝 प्री के 100 टेस्ट की लिंक नीचे बदलें -->
         <div class="premium-item">
-            📁 <a href="YOUR_PRE_TESTS_LINK_HERE" target="_blank">MPPSC Pre 100 Test Series (PDF)</a>
+            📁 <a id="preLinkDisplay" href="#" target="_blank">MPPSC Pre 100 Test Series (PDF)</a>
         </div>
-        <!-- 📝 मेन्स के सभी पेपर्स की लिंक नीचे बदलें -->
         <div class="premium-item">
-            📁 <a href="YOUR_MAINS_PAPERS_LINK_HERE" target="_blank">MPPSC Mains All Papers Solution</a>
+            📁 <a id="mainsLinkDisplay" href="#" target="_blank">MPPSC Mains All Papers Solution</a>
         </div>
     </div>
 </div>
 
+<!-- ⚙️ SECRET ADMIN PANEL DASHBOARD -->
+<div id="secretAdminPanel" class="admin-box">
+    <h3 style="color: #d9a300; margin-bottom: 10px;">⚙️ Admin Dashboard (लिंक्स अपडेट करें)</h3>
+    <label><b>Pre Notes & Tests URL (Google Drive/PDF Link):</b></label>
+    <input type="text" id="preUrlInput" class="admin-input" placeholder="प्री नोट्स की लिंक डालें">
+    
+    <label><b>Mains Notes & Papers URL:</b></label>
+    <input type="text" id="mainsUrlInput" class="admin-input" placeholder="मेन्स नोट्स की लिंक डालें">
+    
+    <button class="btn" onclick="saveAdminLinks()" style="background: #149c42; margin-top: 10px;">Save & Update Links</button>
+    <button class="btn" onclick="document.getElementById('secretAdminPanel').style.display='none'" style="background: #666; margin-top: 10px; margin-left: 10px;">Close</button>
+</div>
+
 <!-- Alert Status Holder -->
 <div id="statusAlert" style="margin: 0 16px 10px 16px; padding: 6px 15px; border-radius: 8px; font-size: 12px; display: none; font-weight: bold; text-align: center;"></div>
-<!-- ===================================================================== -->
 
 <section class="section">
 <h3>📚 Select Unit / इकाई चुनें</h3>
-
 <div class="units">
-
 <div class="card">
 <div>
 <div class="circle" style="background:#0b63ff">📜</div>
-<h4>Unit 1</h4>
-<p>भारत का इतिहास</p>
-<p>20 Tests</p>
+<h4>Unit 1</h4><p>भारत का इतिहास</p><p>20 Tests</p>
 </div>
 <button class="btn" onclick="location.href='unit1.html'">Open Unit</button>
 </div>
@@ -361,9 +383,7 @@ nav{display:flex;flex-wrap:wrap;justify-content:center}
 <div class="card">
 <div>
 <div class="circle" style="background:#149c42">🏯</div>
-<h4>Unit 2</h4>
-<p>मध्यप्रदेश का इतिहास, संस्कृति एवं साहित्य</p>
-<p>20 Tests</p>
+<h4>Unit 2</h4><p>मध्यप्रदेश का इतिहास, संस्कृति एवं साहित्य</p><p>20 Tests</p>
 </div>
 <button class="btn" onclick="location.href='unit2.html'">Open Unit</button>
 </div>
@@ -371,47 +391,10 @@ nav{display:flex;flex-wrap:wrap;justify-content:center}
 <div class="card">
 <div>
 <div class="circle" style="background:#6d31e6">🗺️</div>
-<h4>Unit 3</h4>
-<p>भारत का भूगोल</p>
-<p>20 Tests</p>
+<h4>Unit 3</h4><p>भारत का भूगोल</p><p>20 Tests</p>
 </div>
 <button class="btn" onclick="location.href='unit3.html'">Open Unit</button>
 </div>
 
 <div class="card">
 <div>
-<div class="circle" style="background:#ff7a00">🏞️</div>
-<h4>Unit 4</h4>
-<p>मध्यप्रदेश का भूगोल</p>
-<p>20 Tests</p>
-</div>
-<button class="btn" onclick="location.href='unit4.html'">Open Unit</button>
-</div>
-
-<div class="card">
-<div>
-<div class="circle" style="background:#08a9c8">🏛️</div>
-<h4>Unit 5</h4>
-<p>भारत एवं म.प्र. की संवैधानिक व्यवस्था</p>
-<p>20 Tests</p>
-</div>
-<button class="btn" onclick="location.href='unit5.html'">Open Unit</button>
-</div>
-
-<div class="card">
-<div>
-<div class="circle" style="background:#e63888">💰</div>
-<h4>Unit 6</h4>
-<p>भारत एवं म.प्र. की अर्थव्यवस्था</p>
-<p>20 Tests</p>
-</div>
-<button class="btn" onclick="location.href='unit6.html'">Open Unit</button>
-</div>
-
-<div class="card">
-<div>
-<div class="circle" style="background:#275ee8">🔬</div>
-<h4>Unit 7</h4>
-<p>विज्ञान, पर्यावरण एवं स्वास्थ्य</p>
-<p>20 Tests</p>
-</div>
