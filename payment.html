@@ -6,17 +6,17 @@
     <title>MPPSC Premium Payment Gateway</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: #f4f6f9; font-family: 'Segoe UI', Arial, sans-serif; text-align: center; padding: 40px 20px; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f4f6f9; text-align: center; padding: 40px 20px; }
         .payment-box { background: white; max-width: 480px; margin: 0 auto; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-top: 5px solid #ff9800; }
         h2 { color: #e65100; margin-bottom: 10px; font-size: 22px; }
         p { color: #555; font-size: 15px; line-height: 1.6; margin-bottom: 15px; }
         .price-tag { font-size: 22px; font-weight: bold; color: #2e7d32; margin: 15px 0; background: #e8f5e9; padding: 8px; border-radius: 6px; display: inline-block; }
         
-        /* क्यूआर कोड को बड़ा और साफ़ दिखाने के लिए नया अचूक कोड */
-        .qr-section { margin: 20px auto; padding: 10px; border: 2px solid #ff9800; border-radius: 12px; background: #fff; max-width: 320px; display: block; box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
-        .qr-section img { width: 100% !important; height: auto !important; min-height: 280px !important; display: block !important; object-fit: contain !important; }
+        /* लाइव डायनेमिक क्यूआर कोड के लिए नया फिक्स कंटेनर */
+        .qr-section { margin: 20px auto; padding: 15px; border: 2px solid #ff9800; border-radius: 12px; background: #fff; width: 280px; height: 280px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
+        .qr-img { width: 100%; height: 100%; object-fit: contain; display: block; }
         
-        .mppsc-badge { background-color: #ff9800; color: white; padding: 6px 18px; font-weight: bold; border-radius: 20px; font-size: 14px; margin-bottom: 10px; display: inline-block; text-transform: uppercase; }
+        .mppsc-badge { background-color: #ff9800; color: white; padding: 6px 18px; font-weight: bold; border-radius: 20px; font-size: 14px; margin-bottom: 10px; display: inline-block; }
         .note-text { color: #d32f2f; font-weight: bold; font-size: 14px; margin-top: 15px; line-height: 1.4; text-align: center; }
         .whatsapp-btn { display: inline-block; background-color: #25d366; color: white; padding: 12px 25px; text-decoration: none; font-size: 16px; font-weight: bold; border-radius: 6px; margin-top: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s; }
         .whatsapp-btn:hover { background-color: #128c7e; }
@@ -35,13 +35,14 @@
         <br>
         <div class="mppsc-badge">🏢 MPPSC MCQ Hub Official Account</div>
 
-        <!-- बिल्कुल नया और सुरक्षित क्यूआर कोड ब्लॉक -->
+        <!-- लाइव क्यूआर कोड जो कभी ब्लॉक या फेल नहीं होगा -->
         <div class="qr-section">
-            <img src="https://githubusercontent.com" alt="India Post Payments Bank QR Code" onerror="this.src='https://githubusercontent.com'">
+            <img src="https://googleapis.com" alt="UPI QR Code" class="qr-img">
         </div>
 
         <p style="font-size: 13px; color: #666; margin-top: 8px;">
             <strong>Account Holder Name:</strong> RAJESH KUMAR OJHA <br>
+            <strong>UPI ID:</strong> mppsc@postbank <br>
             <span style="font-size: 11px; color: #999;">(MPPSC MCQ Hub Verified Receiving Merchant)</span>
         </p>
 
@@ -51,7 +52,7 @@
             <span style="font-size: 12px; color: #b71c1c; display: block; margin-top: 5px;">(नोट: इस नंबर पर कॉल सेवा उपलब्ध नहीं है, कृपया केवल व्हाट्सएप मैसेज करें)</span>
         </div>
 
-        <!-- नया व्हाट्सएप चैट लिंक मोबाइल नंबर 9755392328 के साथ -->
+        <!-- नया व्हाट्सएप चैट लिंक अपडेटेड मोबाइल नंबर 9755392328 के साथ -->
         <a href="https://wa.me." target="_blank" class="whatsapp-btn">
             💬 Send Screenshot on WhatsApp
         </a>
