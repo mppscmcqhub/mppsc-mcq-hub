@@ -84,11 +84,15 @@ text-align:center;
 }
 .section{margin:16px}
 .section h3{margin-bottom:12px;font-size:30px}
+
+/* ग्रिड सिस्टम को एकदम सही और मजबूत किया */
 .units{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:16px;
+clear: both;
 }
+
 .card{
 background:white;
 border-radius:18px;
@@ -145,7 +149,7 @@ margin-top:18px;
 font-size:14px;
 }
 
-/* ==================== COMPACT STORE STYLING ==================== */
+/* ==================== PREMIUM STORE FIXED STYLING ==================== */
 .store-bar {
     margin: 16px; 
     background: #ffffff; 
@@ -215,10 +219,6 @@ font-size:14px;
     border-radius: 12px;
     display: none;
 }
-.premium-links-box h4 {
-    color: #149c42;
-    margin-bottom: 10px;
-}
 .premium-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -241,7 +241,7 @@ font-size:14px;
 .admin-box {
     margin: 16px;
     padding: 20px;
-    background: #fff;
+    background: #ffffff;
     border: 2px dashed #d9a300;
     border-radius: 14px;
     display: none;
@@ -263,7 +263,6 @@ font-size:14px;
     .unlock-wrapper { width: 100%; justify-content: center; }
     .unlock-input-field { width: 70%; }
 }
-/* =============================================================== */
 </style>
 </head>
 <body>
@@ -331,7 +330,6 @@ font-size:14px;
         <a href="https://wa.me" target="_blank" class="buy-lnk-mains">[ 🛒 Buy Mains ]</a>
     </div>
 
-    <!-- 🔐 Quick Device-Lock System & Admin Button -->
     <div class="unlock-wrapper">
         <input type="text" id="activationKey" class="unlock-input-field" placeholder="🔑 कोड दर्ज करें">
         <button class="btn" onclick="activateCourse()" style="padding: 8px 12px; font-size: 13px; border-radius: 6px; margin: 0;">Verify</button>
@@ -341,7 +339,7 @@ font-size:14px;
 
 <!-- 📂 अनलॉक होने वाला प्रीमियम बॉक्स -->
 <div id="premiumContentBox" class="premium-links-box">
-    <h4>🎉 आपका प्रीमियम मटीरियल अनलॉक हो चुका है (This Device Only):</h4>
+    <h4 style="color: #149c42; margin-bottom: 10px;">🎉 आपका प्रीमियम मटीरियल अनलॉक हो चुका है (This Device Only):</h4>
     <div class="premium-grid">
         <div class="premium-item">
             📁 <a id="preLinkDisplay" href="#" target="_blank">MPPSC Pre 100 Test Series (PDF)</a>
@@ -392,3 +390,5 @@ font-size:14px;
 <div class="card">
 <div>
 <div class="circle" style="background:#6d31e6">🗺️</div>
+<h4>Unit 3</h4><p>भारत का भूगोल</p><p>20 Tests</p>
+</div>
