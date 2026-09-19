@@ -204,7 +204,7 @@ font-size:14px;
     border-radius: 6px; 
     border: 1px solid #cbd5e1; 
     font-size: 13px; 
-    width: 170px; 
+    width: 150px; 
     text-align: center;
 }
 .premium-links-box {
@@ -238,8 +238,6 @@ font-size:14px;
     text-decoration: none;
     font-size: 14px;
 }
-
-/* ==================== SECRET ADMIN PANEL STYLING ==================== */
 .admin-box {
     margin: 16px;
     padding: 20px;
@@ -255,7 +253,7 @@ font-size:14px;
     border: 1px solid #cbd5e1;
     border-radius: 8px;
 }
-/* =================================================================== */
+/* =============================================================== */
 
 @media(max-width:768px){
 .hero{grid-template-columns:1fr}
@@ -333,10 +331,11 @@ nav{display:flex;flex-wrap:wrap;justify-content:center}
         <a href="https://wa.me" target="_blank" class="buy-lnk-mains">[ 🛒 Buy Mains ]</a>
     </div>
 
-    <!-- 🔐 Quick Device-Lock System -->
+    <!-- 🔐 Quick Device-Lock System & Admin Button -->
     <div class="unlock-wrapper">
         <input type="text" id="activationKey" class="unlock-input-field" placeholder="🔑 कोड दर्ज करें">
-        <button class="btn" onclick="activateCourse()" style="padding: 8px 15px; font-size: 13px; border-radius: 6px; margin: 0;">Verify</button>
+        <button class="btn" onclick="activateCourse()" style="padding: 8px 12px; font-size: 13px; border-radius: 6px; margin: 0;">Verify</button>
+        <button class="btn" onclick="openAdminPanel()" style="padding: 8px 10px; font-size: 13px; border-radius: 6px; margin: 0; background:#d9a300;">⚙️ Admin</button>
     </div>
 </div>
 
@@ -356,7 +355,7 @@ nav{display:flex;flex-wrap:wrap;justify-content:center}
 <!-- ⚙️ SECRET ADMIN PANEL DASHBOARD -->
 <div id="secretAdminPanel" class="admin-box">
     <h3 style="color: #d9a300; margin-bottom: 10px;">⚙️ Admin Dashboard (लिंक्स अपडेट करें)</h3>
-    <label><b>Pre Notes & Tests URL (Google Drive/PDF Link):</b></label>
+    <label><b>Pre Notes & Tests URL:</b></label>
     <input type="text" id="preUrlInput" class="admin-input" placeholder="प्री नोट्स की लिंक डालें">
     
     <label><b>Mains Notes & Papers URL:</b></label>
@@ -369,9 +368,11 @@ nav{display:flex;flex-wrap:wrap;justify-content:center}
 <!-- Alert Status Holder -->
 <div id="statusAlert" style="margin: 0 16px 10px 16px; padding: 6px 15px; border-radius: 8px; font-size: 12px; display: none; font-weight: bold; text-align: center;"></div>
 
+<!-- ==================== SELECT UNIT AREA (FIXED) ==================== -->
 <section class="section">
 <h3>📚 Select Unit / इकाई चुनें</h3>
 <div class="units">
+
 <div class="card">
 <div>
 <div class="circle" style="background:#0b63ff">📜</div>
@@ -391,10 +392,3 @@ nav{display:flex;flex-wrap:wrap;justify-content:center}
 <div class="card">
 <div>
 <div class="circle" style="background:#6d31e6">🗺️</div>
-<h4>Unit 3</h4><p>भारत का भूगोल</p><p>20 Tests</p>
-</div>
-<button class="btn" onclick="location.href='unit3.html'">Open Unit</button>
-</div>
-
-<div class="card">
-<div>
