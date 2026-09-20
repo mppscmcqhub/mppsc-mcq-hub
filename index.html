@@ -11,13 +11,11 @@
         .navbar-custom { background-color: #0d47a1; color: white; padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; min-height: 80px; }
         .navbar-brand { font-size: 1.4rem; font-weight: bold; text-decoration: none; color: white; }
         .btn-login { background-color: white; color: #0d47a1; border: none; padding: 6px 15px; border-radius: 4px; font-weight: bold; text-decoration: none; font-size: 0.9rem; }
-        .hero-section { background-color: #fff; padding: 25px 15px; text-align: center; border-bottom: 2px solid #0d47a1; }
-        .hero-title { color: #0d47a1; font-size: 1.8rem; font-weight: bold; }
         .container-fluid { width: 100%; padding: 15px; margin: 0 auto; }
-        .premium-banner { background: #fff; border: 1px dashed #ff9800; border-radius: 8px; padding: 15px; margin: 20px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .premium-banner { background: #fff; border: 1px dashed #ff9800; border-radius: 8px; padding: 15px; margin: 25px 0 20px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
         .btn-store { border: 1px solid #ff9800; color: #ff9800; background: transparent; padding: 5px 12px; border-radius: 4px; font-weight: bold; text-decoration: none; font-size: 0.85rem; display: inline-block; }
         .btn-store:hover { background: #fff3e0; }
-        .section-title { font-size: 1.3rem; font-weight: bold; color: #1a237e; margin: 25px 0 15px 0; border-left: 5px solid #0d47a1; padding-left: 10px; }
+        .section-title { font-size: 1.3rem; font-weight: bold; color: #1a237e; margin: 10px 0 15px 0; border-left: 5px solid #0d47a1; padding-left: 10px; }
         
         .units-grid { display: flex !important; flex-wrap: wrap !important; margin: -12px !important; width: 100% !important; }
         .unit-col { width: 25% !important; padding: 12px !important; }
@@ -36,31 +34,15 @@
 </head>
 <body>
     <div class="navbar-custom">
-        <!-- यहाँ src में सही फाइल का नाम my-logo.jpg डाल दिया गया है -->
         <a class="navbar-brand" href="#" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: white;">
             <img src="my-logo.jpg" alt="MPPSC MCQ Hub Logo" style="height: 65px; width: 65px; border-radius: 50%; object-fit: cover; border: 2px solid white; display: inline-block;">
             <span>MPPSC MCQ Hub V14</span>
         </a>
         <a href="#" class="btn-login">🔑 Login</a>
     </div>
-    <div class="hero-section">
-        <h3 class="hero-title">MPPSC MCQ Hub</h3>
-    </div>
+
     <div class="container-fluid">
-        <div class="premium-banner">
-            <div>🛒 <strong>MPPSC 2027 Premium Store</strong> <span>(Pre 100 Tests: ₹29 | Mains 500 Qs: ₹99)</span></div>
-            <div>
-                <a href="payment.html" class="btn-store">Buy Pre</a>
-                <a href="payment.html" class="btn-store">Buy Mains</a>
-            </div>
-        </div>
-
-        <div style="border: 2px solid #ff9800; background-color: #fff9c4; border-radius: 12px; padding: 25px; margin: 25px 0; text-align: center;">
-            <h4 style="color: #e65100; font-size: 1.4rem; font-weight: bold;">⭐ MPPSC 2027 Premium Paid Course (विशेष पेड कोर्स) ⭐</h4>
-            <p style="margin: 10px 0 15px 0; font-weight: 500; color: #222;">यहाँ आपको मिलेंगे MPPSC 2027 के लिए स्पेशल 100 प्री टेस्ट (Pre Tests) + 500 मुख्य परीक्षा प्रश्न (Mains Questions) और स्पेशल PDFs का डायरेक्ट एक्सेस।</p>
-            <a href="payment.html" style="background-color: #ff9800; color: white; padding: 12px 35px; text-decoration: none; font-weight: bold; border-radius: 6px; display: inline-block;">🚀 Join Paid Course Now</a>
-        </div>
-
+        <!-- सफेद पट्टी हटाकर यूनिट टेस्ट को सबसे ऊपर कर दिया गया है -->
         <div class="section-title">Select Unit / इकाई चुनें</div>
         <div class="units-grid">
             <div class="unit-col"><div class="unit-card"><div><div class="unit-icon u1">1</div><div class="unit-title">Unit 1</div><div class="unit-desc">भारत का इतिहास</div></div><div><a href="unit1.html" class="btn-open">Open Unit</a></div></div></div>
@@ -73,6 +55,21 @@
             <div class="unit-col"><div class="unit-card"><div><div class="unit-icon u8">8</div><div class="unit-title">Unit 8</div><div class="unit-desc">अंतर्राष्ट्रीय, राष्ट्रीय एवं प्रादेशिक घटनाएं</div></div><div><a href="unit8.html" class="btn-open">Open Unit</a></div></div></div>
             <div class="unit-col"><div class="unit-card"><div><div class="unit-icon u9">9</div><div class="unit-title">Unit 9</div><div class="unit-desc">सूचना एवं संचार प्रौद्योगिकी (ICT)</div></div><div><a href="unit9.html" class="btn-open">Open Unit</a></div></div></div>
             <div class="unit-col"><div class="unit-card"><div><div class="unit-icon u10">10</div><div class="unit-title">Unit 10</div><div class="unit-desc">म.प्र. की जनजातियां: विरासत व लोक संस्कृति</div></div><div><a href="unit10.html" class="btn-open">Open Unit</a></div></div></div>
+        </div>
+
+        <!-- प्रीमियम स्टोर और पेड कोर्स अब नीचे आ गए हैं -->
+        <div class="premium-banner">
+            <div>🛒 <strong>MPPSC 2027 Premium Store</strong> <span>(Pre 100 Tests: ₹29 | Mains 500 Qs: ₹99)</span></div>
+            <div>
+                <a href="payment.html" class="btn-store">Buy Pre</a>
+                <a href="payment.html" class="btn-store">Buy Mains</a>
+            </div>
+        </div>
+
+        <div style="border: 2px solid #ff9800; background-color: #fff9c4; border-radius: 12px; padding: 25px; margin: 25px 0; text-align: center;">
+            <h4 style="color: #e65100; font-size: 1.4rem; font-weight: bold;">⭐ MPPSC 2027 Premium Paid Course (विशेष पेड कोर्स) ⭐</h4>
+            <p style="margin: 10px 0 15px 0; font-weight: 500; color: #222;">यहाँ आपको मिलेंगे MPPSC 2027 के लिए स्पेशल 100 प्री टेस्ट (Pre Tests) + 500 मुख्य परीक्षा प्रश्न (Mains Questions) और स्पेशल PDFs का डायरेक्ट एक्सेस।</p>
+            <a href="payment.html" style="background-color: #ff9800; color: white; padding: 12px 35px; text-decoration: none; font-weight: bold; border-radius: 6px; display: inline-block;">🚀 Join Paid Course Now</a>
         </div>
     </div>
 </body>
