@@ -67,7 +67,7 @@
             <input type="url" id="preQuizUrl" placeholder="https://forms.gle">
             <label>PDF नोट्स लिंक:</label>
             <input type="url" id="prePdfUrl" placeholder="https://google.com">
-            <button class="btn-submit" onclick="savePreTest()">🚀 प्रीलिम्स डेटा लाइव करें</button>
+            <button class="btn-submit" type="button" onclick="savePreTest()">🚀 प्रीलिम्स डेटा लाइव करें</button>
         </div>
     </div>
 
@@ -82,7 +82,7 @@
             <textarea id="mainsQuestionText" rows="4" placeholder="यहाँ प्रश्न लिखें..."></textarea>
             <label>मॉडल उत्तर PDF लिंक:</label>
             <input type="url" id="mainsPdfUrl" placeholder="https://google.com">
-            <button class="btn-submit" onclick="saveMainsQuestion()">🚀 मेन्स प्रश्न लाइव करें</button>
+            <button class="btn-submit" type="button" onclick="saveMainsQuestion()">🚀 मेन्स प्रश्न लाइव करें</button>
         </div>
     </div>
 
@@ -115,17 +115,25 @@
     function filterPreUnit(u) {
         currentPreUnit = u;
         for(var i=1; i<=10; i++) {
-            document.getElementById('pbtn'+i).classList.remove('active');
+            var btn = document.getElementById('pbtn'+i);
+            if(btn) btn.classList.remove('active');
         }
-        document.getElementById('pbtn'+u).classList.add('active');
+        var actBtn = document.getElementById('pbtn'+u);
+        if(actBtn) actBtn.classList.add('active');
         loadPreTests();
     }
 
     function loadPreTests() {
         var c = document.getElementById('preTestsContainer');
+        if(!c) return;
         c.innerHTML = '';
-        var localData = localStorage.getItem('mppsc_100_tests');
-        var data = localData ? JSON.parse(localData) : {};
+        
+        var data = {};
+        try {
+            var localData = localStorage.getItem('mppsc_100_tests');
+            if(localData) data = JSON.parse(localData);
+        } catch(e) { data = {}; }
+        
         var unitData = data[currentPreUnit] || {};
         var found = false;
 
@@ -149,10 +157,15 @@
 
         if(!quiz && !pdf) { alert('कोई एक लिंक ज़रूर डालें!'); return; }
         
-        var localData = localStorage.getItem('mppsc_100_tests');
-        var data = localData ? JSON.parse(localData) : {};
+        var data = {};
+        try {
+            var localData = localStorage.getItem('mppsc_100_tests');
+            if(localData) data = JSON.parse(localData);
+        } catch(e) { data = {}; }
+
         if(!data[u]) data[u] = {};
         data[u][n] = { quiz: quiz, pdf: pdf };
+        
         localStorage.setItem('mppsc_100_tests', JSON.stringify(data));
         
         document.getElementById('preQuizUrl').value = '';
@@ -163,8 +176,12 @@
 
     function deletePre(n) {
         if(confirm('Test ' + n + ' हटाएं?')) {
-            var localData = localStorage.getItem('mppsc_100_tests');
-            var data = localData ? JSON.parse(localData) : {};
+            var data = {};
+            try {
+                var localData = localStorage.getItem('mppsc_100_tests');
+                if(localData) data = JSON.parse(localData);
+            } catch(e) { data = {}; }
+
             if(data[currentPreUnit]) delete data[currentPreUnit][n];
             localStorage.setItem('mppsc_100_tests', JSON.stringify(data));
             loadPreTests();
@@ -172,10 +189,3 @@
     }
 
     function loadMainsQuestions() {
-        var c = document.getElementById('mainsContainer');
-        c.innerHTML = '';
-        var localList = localStorage.getItem('mppsc_live_notes_mains');
-        var list = localList ? JSON.parse(localList) : [];
-        if(list.length === 0) { c.innerHTML = '<p style="color:#777;text-align:center;padding:10px;">कोई मेन्स प्रश्न लाइव नहीं है।</p>'; return; }
-        
-        list.forEach(function(item, index) {
