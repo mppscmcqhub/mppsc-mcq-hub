@@ -28,10 +28,10 @@
         var user = document.getElementById("username").value;
         var pass = document.getElementById("password").value;
 
-        // यहाँ आप अपना मनपसंद Username और Password सेट कर सकते हैं
+        // एडमिन यूजरनेम और पासवर्ड वेरिफिकेशन
         if(user === "admin123" && pass === "mppsc2027") {
-            // लॉगिन सही होने पर नोट्स वाले डैशबोर्ड पर ले जाएगा
-            window.location.href = "dashboard.html";
+            // ✅ यहाँ ब्राउज़र कैशे को बायपास करने के लिए वर्जन कोड लगा दिया गया है
+            window.location.href = "dashboard.html?v=mppsc2027";
         } else {
             document.getElementById("error-msg").style.display = "block";
         }
