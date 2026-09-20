@@ -22,6 +22,14 @@
         .whatsapp-btn { display: inline-block; background-color: #25d366; color: white; padding: 12px 25px; text-decoration: none; font-size: 16px; font-weight: bold; border-radius: 6px; margin-top: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s; width: 100%; }
         .back-link { display: inline-block; margin-top: 25px; color: #0d47a1; text-decoration: none; font-size: 15px; font-weight: bold; }
         .back-link:hover { text-decoration: underline; }
+
+        /* सीधा कोर्स एक्सेस बटन स्टाइल */
+        .course-access-box { margin-top: 25px; padding-top: 20px; border-top: 2px solid #ddd; text-align: center; }
+        .btn-access { display: block; color: white; padding: 12px 20px; text-decoration: none; font-weight: bold; border-radius: 6px; margin: 10px 0; font-size: 16px; box-shadow: 0 3px 6px rgba(0,0,0,0.15); }
+        .bg-pre { background-color: #4caf50; }
+        .bg-pre:hover { background-color: #388e3c; }
+        .bg-main { background-color: #e91e63; }
+        .bg-main:hover { background-color: #c2185b; }
     </style>
 </head>
 <body>
@@ -54,13 +62,22 @@
 
         <div class="note-text">
             ⚠️ महत्वपूर्ण सूचना: पेमेंट करने के बाद उसका स्क्रीनशॉट लें। कोर्स तुरंत चालू करवाने के लिए नीचे दिए गए बटन पर क्लिक करके स्क्रीनशॉट व्हाट्सएप पर भेजें।
-            <br>
-            <span style="font-size: 12px; color: #b71c1c; display: block; margin-top: 5px;">(नोट: इस नंबर पर कॉल सेवा उपलब्ध नहीं है, कृपया केवल व्हाट्सएप मैसेज करें)</span>
         </div>
 
-        <a href="https://wa.me." target="_blank" class="whatsapp-btn">
+        <a href="https://wa.me" target="_blank" class="whatsapp-btn">
             💬 Send Screenshot on WhatsApp
         </a>
+
+        <!-- 🔴 यहाँ भुगतान पूरा होने के बाद सीधा एक्सेस बटन्स जोड़ दिए गए हैं -->
+        <div class="course-access-box">
+            <p style="font-weight: bold; color: #333; margin-bottom: 5px;">👇 भुगतान पूरा होने पर सीधे कोर्स में प्रवेश करें 👇</p>
+            
+            <!-- प्रीलिम्स का भुगतान करने वाले छात्रों के लिए बटन -->
+            <a href="paid-quiz.html" class="btn-access bg-pre">🟢 Start Paid Prelims Course (₹29)</a>
+            
+            <!-- मुख्य परीक्षा का भुगतान करने वाले छात्रों के लिए बटन -->
+            <a href="paid-mains.html" class="btn-access bg-main">💖 Start Paid Mains Course (₹99)</a>
+        </div>
 
         <br>
         <a href="index.html" class="back-link">← वापस मुख्य वेबसाइट पर जाएँ</a>
