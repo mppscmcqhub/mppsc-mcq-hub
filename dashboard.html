@@ -3,76 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MPPSC Prelims Notes & PDF</title>
+    <title>MPPSC Premium Prelims Notes</title>
     <style>
         body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f4f7fc; padding: 30px 15px; margin: 0; }
         .container { max-width: 900px; margin: 0 auto; }
         h1 { text-align: center; color: #1d3557; margin-bottom: 30px; }
-        .loading { text-align: center; font-size: 18px; color: #666; }
         
         /* नोट्स बॉक्स का डिज़ाइन */
-        .notes-card { background: white; border-radius: 10px; padding: 25px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-left: 5px solid #e63946; }
+        .notes-card { background: white; border-radius: 10px; padding: 25px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-left: 5px solid #e63946; text-align: left; }
         .unit-title { font-size: 20px; color: #e63946; font-weight: bold; margin-bottom: 10px; }
         .notes-content { font-size: 16px; color: #333; line-height: 1.6; white-space: pre-line; margin-bottom: 20px; }
         
         /* PDF डाउनलोड बटन */
         .btn-download { display: inline-flex; align-items: center; padding: 10px 20px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: background 0.2s; }
         .btn-download:hover { background-color: #218838; }
+        .back-link { display: inline-block; margin-top: 25px; color: #0d47a1; text-decoration: none; font-weight: bold; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <h1>MPPSC Premium Prelims Notes</h1>
-    <div id="loading" class="loading">नोट्स लोड हो रहे हैं, कृपया प्रतीक्षा करें...</div>
-    <div id="notes-container"></div>
-</div>
-
-<script>
-    // ⚠️ यहाँ अपनी असली Google Sheet ID पेस्ट करें
-    const SHEET_ID = 'अपनी_गूगल_शीट_आईडी_यहाँ_डालें'; 
-    const SHEET_TITLE = 'Sheet1'; // आपकी शीट के टैब का नाम
-    const SHEET_RANGE = 'A2:C100'; // डेटा की रेंज
     
-    const FULL_URL = `https://google.com{SHEET_ID}/gviz/tq?sheet=${SHEET_TITLE}&range=${SHEET_RANGE}`;
-
-    fetch(FULL_URL)
-    .then(res => res.text())
-    .then(rep => {
-        // गूगल शीट के डेटा को क्लीन करना
-        const data = JSON.parse(rep.substr(47).slice(0, -2));
-        const rows = data.table.rows;
+    <div id="notes-container">
         
-        const container = document.getElementById('notes-container');
-        document.getElementById('loading').style.display = 'none';
-        
-        // हर रो के लिए नोट्स और पीडीएफ बटन बनाना
-        rows.forEach(row => {
-            const unit = row.c[0] ? row.c[0].v : '';
-            const textNotes = row.c[1] ? row.c[1].v : 'नोट्स जल्द ही अपडेट किए जाएंगे।';
-            const pdfLink = row.c[2] ? row.c[2].v : '#';
+        <!-- 📝 नोट्स 1 (आप यहाँ अपना टेक्स्ट और लिंक बदल सकते हैं) -->
+        <div class="notes-card">
+            <div class="unit-title">Unit 10: म.प्र. की जनजातियां (क्लास नोट्स 01)</div>
+            <div class="notes-content">
+                यहाँ आपके प्रीलिम्स के महत्वपूर्ण नोट्स का टेक्स्ट आएगा। 
+                आप जो भी लिखना चाहते हैं, उसे इस बॉक्स के अंदर सीधे हिंदी या अंग्रेजी में टाइप कर सकते हैं।
+                यह छात्रों को वेबसाइट पर सीधे दिखाई देगा।
+            </div>
+            <!-- यहाँ href="#" में अपनी असली गूगल ड्राइव की PDF लिंक पेस्ट करें -->
+            <a href="https://google.com" target="_blank" class="btn-download">📥 Download PDF Notes</a>
+        </div>
 
-            const card = document.createElement('div');
-            card.className = 'notes-card';
-            
-            let downloadButtonHTML = '';
-            if(pdfLink !== '#') {
-                downloadButtonHTML = `<a href="${pdfLink}" target="_blank" class="btn-download">📥 Download PDF Notes</a>`;
-            }
+        <!-- 📝 नोट्स 2 -->
+        <div class="notes-card">
+            <div class="unit-title">Unit 10: जनजातीय लोक संस्कृति व कला (क्लास नोट्स 02)</div>
+            <div class="notes-content">
+                यहाँ आप अपनी दूसरी क्लास या दूसरे टॉपिक के नोट्स लिख सकते हैं। 
+                यह पूरी तरह से सुरक्षित है और केवल पेड छात्रों को ही दिखेगा।
+            </div>
+            <a href="https://google.com" target="_blank" class="btn-download">📥 Download PDF Notes</a>
+        </div>
 
-            card.innerHTML = `
-                <div class="unit-title">${unit}</div>
-                <div class="notes-content">${textNotes}</div>
-                ${downloadButtonHTML}
-            `;
-            container.appendChild(card);
-        });
-    })
-    .catch(err => {
-        document.getElementById('loading').innerText = 'नोट्स लोड करने में समस्या आई। कृपया दोबारा प्रयास करें।';
-        console.error(err);
-    });
-</script>
+    </div>
+
+    <a href="index.html" class="back-link">← वापस मुख्य वेबसाइट पर जाएँ</a>
+</div>
 
 </body>
 </html>
