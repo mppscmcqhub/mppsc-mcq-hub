@@ -3,96 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <title>MPPSC 2027 - Premium Paid Mains Course</title>
+    <title>MPPSC 2027 - Premium Mains Course</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fce4ec; color: #333; line-height: 1.6; }
-        
-        /* प्रोफेशनल हेडर */
-        .navbar-custom { background-color: #0d47a1; color: white; padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; min-height: 80px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .navbar-brand { font-size: 1.4rem; font-weight: bold; text-decoration: none; color: white; display: flex; align-items: center; gap: 12px; }
-        .navbar-brand img { height: 65px; width: 65px; border-radius: 50%; object-fit: cover; border: 2px solid white; display: inline-block; }
-        .btn-home { background-color: white; color: #0d47a1; padding: 6px 15px; border-radius: 4px; font-weight: bold; text-decoration: none; font-size: 0.9rem; }
-        
-        .container { padding: 30px 20px; max-width: 1200px; margin: auto; }
-        
-        /* मेन्स स्पेशल पिंक/मजेंटา थीम कार्ड */
-        .mains-header-card { background: linear-gradient(135deg, #e91e63, #880e4f); color: white; padding: 25px; border-radius: 12px; text-align: center; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(136,14,79,0.2); }
-        .mains-header-card h2 { font-size: 22px; margin-bottom: 5px; font-weight: bold; }
-        .mains-header-card p { font-size: 15px; opacity: 0.95; font-weight: 500; }
-        
-        /* मेन्स कार्ड्स ग्रिड */
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-        .mains-card { background: white; padding: 25px 20px; border-radius: 12px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #f8bbd0; position: relative; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
-        .mains-card:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,0.1); }
-        
-        /* प्रीमियम मेन्स रिबन */
-        .mains-card::before { content: "MAINS"; position: absolute; top: 12px; left: -25px; background: #e91e63; color: white; font-size: 9px; font-weight: bold; padding: 2px 25px; transform: rotate(-45deg); box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        
-        .mains-card h4 { margin: 10px 0 5px 0; font-size: 17px; color: #880e4f; font-weight: bold; }
-        .mains-card .syllabus-text { font-size: 13px; color: #666; margin-bottom: 15px; font-weight: 500; height: 40px; display: flex; align-items: center; justify-content: center; }
-        
-        .btn-view { display: inline-block; background: linear-gradient(to bottom, #e91e63, #ad1457); color: white; text-decoration: none; padding: 10px 15px; border-radius: 20px; font-weight: bold; width: 100%; box-sizing: border-box; font-size: 0.9rem; box-shadow: 0 3px 6px rgba(233,30,99,0.2); transition: 0.2s; }
-        .btn-view:hover { background: linear-gradient(to bottom, #c2185b, #880e4f); box-shadow: 0 4px 10px rgba(194,24,91,0.3); }
+        body { background-color: #f4f7fc; font-family: 'Segoe UI', sans-serif; color: #333; padding: 30px 15px; }
+        .header { text-align: center; margin-bottom: 35px; background: #2563eb; color: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .header h1 { font-size: 1.8rem; margin-bottom: 5px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        .mains-card { background: white; border-radius: 12px; padding: 25px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 6px solid #2563eb; }
+        .q-badge { background-color: #eff6ff; color: #2563eb; padding: 4px 10px; border-radius: 4px; font-weight: bold; font-size: 0.85rem; display: inline-block; margin-bottom: 10px; }
+        .question-text { font-size: 1.2rem; font-weight: bold; color: #111; margin-bottom: 15px; line-height: 1.5; }
+        .btn-download-mains { display: inline-block; background-color: #f39c12; color: white; padding: 12px 25px; text-decoration: none; font-weight: bold; border-radius: 6px; box-shadow: 0 3px 6px rgba(0,0,0,0.1); transition: 0.2s; }
+        .btn-download-mains:hover { background-color: #d6860b; }
+        .back-home { display: inline-block; margin-top: 20px; color: #0d47a1; text-decoration: none; font-weight: bold; }
     </style>
 </head>
 <body>
 
-<!-- टॉप नेविगेशन बार (असली लोगो के साथ) -->
-<div class="navbar-custom">
-  <a class="navbar-brand" href="index.html">
-    <img src="my-logo.jpg" alt="Logo">
-    <span>MPPSC MCQ Hub V14</span>
-  </a>
-  <a href="index.html" class="btn-home">🏠 Dashboard</a>
-</div>
-
 <div class="container">
-    <!-- मेन्स कोर्स हेडर सूचना -->
-    <div class="mains-header-card">
-        <h2>📚 MPPSC 2027 Premium Paid Mains Course 📚</h2>
-        <p>500 Special Mains Questions, Model Answers & PDFs (500 विशेष मुख्य परीक्षा प्रश्न एवं उत्तर)</p>
+    <div class="header">
+        <h1>📚 MPPSC 2027 Premium Mains Dashboard 📚</h1>
+        <p>यहाँ मुख्य परीक्षा के लिए 500 उच्च स्तरीय प्रश्न और उनके मॉडल उत्तर (Model Answers) दिए गए हैं।</p>
     </div>
 
-    <!-- मुख्य परीक्षा के सभी 6 पेपर्स की ग्रिड सूची -->
-    <div class="grid">
-        <div class="mains-card">
-            <h4>📄 सामान्य अध्ययन - प्रश्न पत्र 1</h4>
-            <div class="syllabus-text">इतिहास एवं भूगोल (संपूर्ण नोट्स + QAs)</div>
-            <a href="mains-paper-1.pdf" download class="btn-view">Download Paper 1 Material</a>
-        </div>
-        
-        <div class="mains-card">
-            <h4>📄 सामान्य अध्ययन - प्रश्न पत्र 2</h4>
-            <div class="syllabus-text">राजनीति, अर्थशास्त्र एवं समाजशास्त्र</div>
-            <a href="mains-paper-2.pdf" download class="btn-view">Download Paper 2 Material</a>
-        </div>
-        
-        <div class="mains-card">
-            <h4>📄 सामान्य अध्ययन - प्रश्न पत्र 3</h4>
-            <div class="syllabus-text">विज्ञान, तकनीक एवं स्वास्थ्य</div>
-            <a href="mains-paper-3.pdf" download class="btn-view">Download Paper 3 Material</a>
-        </div>
-        
-        <div class="mains-card">
-            <h4>📄 सामान्य अध्ययन - प्रश्न पत्र 4</h4>
-            <div class="syllabus-text">दर्शनशास्त्र, मनोविज्ञान एवं लोक प्रशासन</div>
-            <a href="mains-paper-4.pdf" download class="btn-view">Download Paper 4 Material</a>
-        </div>
-        
-        <div class="mains-card">
-            <h4>✍️ सामान्य हिंदी एवं व्याकरण</h4>
-            <div class="syllabus-text">प्रश्न पत्र 5 (कुल 200 विशेष प्रश्नोत्तर)</div>
-            <a href="mains-paper-5.pdf" download class="btn-view">Download Paper 5 Material</a>
-        </div>
-        
-        <div class="mains-card">
-            <h4>✍️ हिंदी निबंध एवं प्रारूप लेखन</h4>
-            <div class="syllabus-text">प्रश्न पत्र 6 (स्पेशल मॉडल निबंध PDFs)</div>
-            <a href="mains-paper-6.pdf" download class="btn-view">Download Paper 6 Material</a>
-        </div>
+    <!-- Mains प्रश्न 1 -->
+    <div class="mains-card">
+        <div class="q-badge">Paper-1 | Part-B (Geography)</div>
+        <div class="question-text">प्रश्न 1. मध्य प्रदेश की प्रमुख जनजातियों की सामाजिक और आर्थिक समस्याओं का आलोचनात्मक मूल्यांकन कीजिए। (11 अंक / 200 शब्द)</div>
+        <a href="#" class="btn-download-mains">📥 Download Model Answer PDF</a>
     </div>
+
+    <!-- Mains प्रश्न 2 -->
+    <div class="mains-card">
+        <div class="q-badge">Paper-1 | Part-A (History & Culture)</div>
+        <div class="question-text">प्रश्न 2. स्वतंत्रता आंदोलन में मध्य प्रदेश की जनजातीय विभूतियों के योगदान पर प्रकाश डालिए। (5 अंक / 50 शब्द)</div>
+        <a href="#" class="btn-download-mains">📥 Download Model Answer PDF</a>
+    </div>
+
+    <a href="index.html" class="back-home">← मुख्य वेबसाइट पर वापस जाएँ</a>
 </div>
 
 </body>
