@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Control Dashboard</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f4f7fc; padding: 30px 15px; margin: 0; text-align: center; }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { color: #1d3557; margin-bottom: 25px; }
+        .main-toggle { display: flex; justify-content: center; gap: 20px; margin-bottom: 30px; }
+        .main-tab { padding: 14px 30px; font-size: 1.2rem; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; width: 45%; color: white; }
+        .tab-pre { background-color: #b91c1c; }
+        .tab-main { background-color: #2563eb; }
+        .section-box { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: left; margin-top: 15px; }
+        .unit-grid { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px; }
+        .unit-btn { padding: 8px 14px; font-weight: bold; border: 1px solid #b91c1c; background: white; color: #b91c1c; border-radius: 4px; cursor: pointer; }
+        .unit-btn.active { background: #b91c1c; color: white; }
+        .data-row { display: flex; justify-content: space-between; align-items: center; padding: 12px; border-bottom: 1px solid #eee; background: #fafafa; margin-bottom: 8px; border-radius: 4px; }
+        .btn-delete { background-color: #dc3545; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        .form-box { background: #fffbfa; border: 2px dashed #ff9800; padding: 20px; border-radius: 12px; margin-top: 25px; }
+        label { font-weight: bold; display: block; margin-top: 12px; color: #444; }
+        input, select, textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; box-sizing: border-box; }
+        .btn-submit { background-color: #ff9800; color: white; border: none; padding: 12px; font-size: 1.1rem; font-weight: bold; border-radius: 6px; cursor: pointer; margin-top: 15px; width: 100%; }
+        .back-link { display: inline-block; margin-top: 25px; color: #0d47a1; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>MPPSC MCQ Hub - Master Dashboard</h1>
+    
+    <!-- मुख्य स्विच बटन्स -->
+    <div class="main-toggle">
+        <button class="main-tab tab-pre" onclick="showSection('pre')">🎯 PRELIMS FORM</button>
+        <button class="main-tab tab-main" onclick="showSection('main')">📚 MAINS FORM</button>
+    </div>
+
+    <!-- ================= प्रीलिम्स बॉक्स ================= -->
+    <div id="prelimsBox" class="section-box">
+        <h3 style="color:#b91c1c; margin-bottom: 15px;">🎯 प्रीलिम्स टेस्ट लिंक अपलोड करें</h3>
+        <div class="unit-grid">
+            <script>
+                for(var i=1; i<=10; i++) {
+                    document.write('<button class="unit-btn" id="pbtn'+i+'" onclick="changePreUnit('+i+')">Unit '+i+'</button>');
+                }
+            </script>
+        </div>
+        <div id="preLiveList"></div>
+
+        <div class="form-box">
+            <label>यूनिट चुनें (Select Unit):</label>
+            <select id="preUnitSel">
+                <option value="1">Unit 1</option><option value="2">Unit 2</option><option value="3">Unit 3</option><option value="4">Unit 4</option><option value="5">Unit 5</option>
+                <option value="6">Unit 6</option><option value="7">Unit 7</option><option value="8">Unit 8</option><option value="9">Unit 9</option><option value="10">Unit 10</option>
+            </select>
+            
+            <label>टेस्ट नंबर (1 से 10 तक):</label>
+            <select id="preTestNum">
+                <option value="1">Test 1</option><option value="2">Test 2</option><option value="3">Test 3</option><option value="4">Test 4</option><option value="5">Test 5</option>
+                <option value="6">Test 6</option><option value="7">Test 7</option><option value="8">Test 8</option><option value="9">Test 9</option><option value="10">Test 10</option>
+            </select>
+            
+            <label>ऑनलाइन क्विज़ लिंक (Quiz URL):</label>
+            <input type="url" id="preQuizUrl" placeholder="https://forms.gle">
+            
+            <label>PDF नोट्स लिंक (Google Drive URL):</label>
+            <input type="url" id="prePdfUrl" placeholder="https://google.com">
+            
+            <button class="btn-submit" onclick="savePreData()">🚀 प्रीलिम्स डेटा लाइव करें</button>
+        </div>
+    </div>
+
+    <!-- ================= मेन्स बॉक्स ================= -->
+    <div id="mainsBox" class="section-box" style="display:none;">
+        <h3 style="color:#2563eb; margin-bottom: 15px;">📚 मुख्य परीक्षा (Mains) का नया प्रश्न जोड़ें</h3>
+        <div id="mainsLiveList"></div>
+
+        <div class="form-box" style="background: #f0f7ff; border-color: #2563eb;">
+            <label>पेपर विवरण (जैसे: Paper-1 | Part-A):</label>
+            <input type="text" id="mainsTitle" placeholder="Paper-1 | Part-A (History)">
+            
+            <label>मुख्य परीक्षा का प्रश्न (Question Text):</label>
+            <textarea id="mainsQuestion" rows="4" placeholder="यहाँ मेन्स परीक्षा का प्रश्न टाइप करें..."></textarea>
+            
+            <label>मॉडल उत्तर PDF लिंक (Google Drive URL):</label>
+            <input type="url" id="mainsPdfUrl" placeholder="https://google.com">
+            
+            <button class="btn-submit" style="background-color: #2563eb;" onclick="saveMainsData()">🚀 मेन्स प्रश्न लाइव करें</button>
+        </div>
+    </div>
+
+    <br>
+    <a href="index.html" class="back-link">← वापस मुख्य वेबसाइट पर जाएँ</a>
+</div>
+
+<script>
+    var currentUnit = 1;
+
+    window.onload = function() {
+        changePreUnit(1);
+        loadMainsData();
+    };
+
+    function showSection(type) {
+        if(type === 'pre') {
+            document.getElementById('prelimsBox').style.display = 'block';
+            document.getElementById('mainsBox').style.display = 'none';
+        } else {
+            document.getElementById('prelimsBox').style.display = 'none';
+            document.getElementById('mainsBox').style.display = 'block';
+        }
+    }
+
+    function changePreUnit(u) {
+        currentUnit = u;
+        for(var i=1; i<=10; i++) {
+            var btn = document.getElementById('pbtn'+i);
+            if(btn) btn.classList.remove('active');
+        }
+        document.getElementById('pbtn'+u).classList.add('active');
+        loadPreData();
+    }
+
+    function loadPreData() {
+        var container = document.getElementById('preLiveList');
+        container.innerHTML = '';
+        var local = localStorage.getItem('mppsc_100_tests');
+        var data = local ? JSON.parse(local) : {};
+        var unitData = data[currentUnit] || {};
+        var found = false;
+
+        for(var i=1; i<=10; i++) {
+            if(unitData[i]) {
+                found = true;
+                var div = document.createElement('div'); div.className = 'data-row';
+                div.innerHTML = '<div><b>🎯 Test ' + i + '</b> (लाइव है)</div><div><button class="btn-delete" onclick="deletePre(' + i + ')">Delete</button></div>';
+                container.appendChild(div);
+            }
+        }
+        if(!found) container.innerHTML = '<p style="color:#888; text-align:center;">इस यूनिट में कोई टेस्ट लाइव नहीं है। नीचे से जोड़ें।</p>';
+    }
+
+    function savePreData() {
+        var u = document.getElementById('preUnitSel').value;
+        var n = document.getElementById('preTestNum').value;
+        var q = document.getElementById('preQuizUrl').value;
+        var p = document.getElementById('prePdfUrl').value;
+
+        if(!q && !p) { alert('कम से कम एक लिंक ज़रूर भरें!'); return; }
+
+        var local = localStorage.getItem('mppsc_100_tests');
+        var data = local ? JSON.parse(local) : {};
+        if(!data[u]) data[u] = {};
+        data[u][n] = { quiz: q, pdf: p };
+
+        localStorage.setItem('mppsc_100_tests', JSON.stringify(data));
+        document.getElementById('preQuizUrl').value = '';
+        document.getElementById('prePdfUrl').value = '';
+        alert('प्रीलिम्स टेस्ट सफलतापूर्वक सुरक्षित हो गया!');
+        loadPreData();
+    }
+
+    function deletePre(n) {
+        if(confirm('Test ' + n + ' को डिलीट करें?')) {
+            var local = localStorage.getItem('mppsc_100_tests');
+            var data = local ? JSON.parse(local) : {};
+            if(data[currentUnit]) delete data[currentUnit][n];
+            localStorage.setItem('mppsc_100_tests', JSON.stringify(data));
+            loadPreData();
+        }
+    }
+
+    function loadMainsData() {
+        var container = document.getElementById('mainsLiveList');
+        container.innerHTML = '';
+        var local = localStorage.getItem('mppsc_live_notes_mains');
+        var list = local ? JSON.parse(local) : [];
+
+        if(list.length === 0) {
+            container.innerHTML = '<p style="color:#888; text-align:center;">कोई मेन्स प्रश्न लाइव नहीं है। नीचे से नया प्रश्न जोड़ें।</p>';
+            return;
+        }
+
+        list.forEach(function(item, index) {
+            var div = document.createElement('div'); div.className = 'data-row';
+            div.innerHTML = '<div><b>' + item.title + ':</b> ' + item.text.substring(0, 40) + '...</div><div><button class="btn-delete" onclick="deleteMains(' + index + ')">Delete</button></div>';
+            container.appendChild(div);
+        });
+    }
+
+    function saveMainsData() {
+        var t = document.getElementById('mainsTitle').value;
+        var q = document.getElementById('mainsQuestion').value;
+        var p = document.getElementById('mainsPdfUrl').value;
+
+        if(!t || !q) { alert('शीर्षक और प्रश्न दोनों भरना आवश्यक है!'); return; }
+
+        var local = localStorage.getItem('mppsc_live_notes_mains');
