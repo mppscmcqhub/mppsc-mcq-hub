@@ -3,46 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - Prelims Notes</title>
+    <title>MPPSC Prelims Notes & PDF</title>
     <style>
-        body { font-family: Arial, sans-serif; background: #f4f7fc; padding: 20px; }
-        .dashboard-container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        h2 { color: #333; border-bottom: 2px solid #0056b3; padding-bottom: 10px; }
-        textarea { width: 100%; height: 200px; padding: 10px; margin: 15px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-size: 16px; }
-        .btn-save { padding: 10px 20px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
-        .btn-save:hover { background: #218838; }
-        .success-msg { color: green; font-weight: bold; margin-top: 10px; display: none; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f4f7fc; padding: 30px 15px; margin: 0; }
+        .container { max-width: 900px; margin: 0 auto; }
+        h1 { text-align: center; color: #1d3557; margin-bottom: 30px; }
+        .loading { text-align: center; font-size: 18px; color: #666; }
+        
+        /* नोट्स बॉक्स का डिज़ाइन */
+        .notes-card { background: white; border-radius: 10px; padding: 25px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-left: 5px solid #e63946; }
+        .unit-title { font-size: 20px; color: #e63946; font-weight: bold; margin-bottom: 10px; }
+        .notes-content { font-size: 16px; color: #333; line-height: 1.6; white-space: pre-line; margin-bottom: 20px; }
+        
+        /* PDF डाउनलोड बटन */
+        .btn-download { display: inline-flex; align-items: center; padding: 10px 20px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: background 0.2s; }
+        .btn-download:hover { background-color: #218838; }
     </style>
 </head>
 <body>
 
-<div class="dashboard-container">
-    <h2>Prelims Notes Editor (यहाँ अपने नोट्स लिखें)</h2>
-    <p>आप यहाँ जो भी नोट्स टाइप करेंगे, वो सुरक्षित रहेंगे:</p>
-    
-    <textarea id="notesArea" placeholder="यहाँ प्रीलिम्स के नोट्स लिखना या एडिट करना शुरू करें..."></textarea>
-    <br>
-    <button class="btn-save" onclick="saveNotes()">Notes Save करें</button>
-    <p class="success-msg" id="save-msg">मैसेज: नोट्स ब्राउज़र में सुरक्षित सेव हो गए हैं!</p>
+<div class="container">
+    <h1>MPPSC Premium Prelims Notes</h1>
+    <div id="loading" class="loading">नोट्स लोड हो रहे हैं, कृपया प्रतीक्षा करें...</div>
+    <div id="notes-container"></div>
 </div>
 
 <script>
-    // पेज लोड होते ही पुराना सेव किया हुआ डेटा वापस ले आएगा
-    document.addEventListener("DOMContentLoaded", function() {
-        if(localStorage.getItem("mppsc_prelims_notes")) {
-            document.getElementById("notesArea").value = localStorage.getItem("mppsc_prelims_notes");
-        }
-    });
+    // ⚠️ यहाँ अपनी असली Google Sheet ID पेस्ट करें
+    const SHEET_ID = 'अपनी_गूगल_शीट_आईडी_यहाँ_डालें'; 
+    const SHEET_TITLE = 'Sheet1'; // आपकी शीट के टैब का नाम
+    const SHEET_RANGE = 'A2:C100'; // डेटा की रेंज
+    
+    const FULL_URL = `https://google.com{SHEET_ID}/gviz/tq?sheet=${SHEET_TITLE}&range=${SHEET_RANGE}`;
 
-    // नोट्स को ब्राउज़र की लोकल मेमोरी में सेव करने के लिए
-    function saveNotes() {
-        var currentNotes = document.getElementById("notesArea").value;
-        localStorage.setItem("mppsc_prelims_notes", currentNotes);
+    fetch(FULL_URL)
+    .then(res => res.text())
+    .then(rep => {
+        // गूगल शीट के डेटा को क्लीन करना
+        const data = JSON.parse(rep.substr(47).slice(0, -2));
+        const rows = data.table.rows;
         
-        var msg = document.getElementById("save-msg");
-        msg.style.display = "block";
-        setTimeout(function() { msg.style.display = "none"; }, 3000);
-    }
+        const container = document.getElementById('notes-container');
+        document.getElementById('loading').style.display = 'none';
+        
+        // हर रो के लिए नोट्स और पीडीएफ बटन बनाना
+        rows.forEach(row => {
+            const unit = row.c[0] ? row.c[0].v : '';
+            const textNotes = row.c[1] ? row.c[1].v : 'नोट्स जल्द ही अपडेट किए जाएंगे।';
+            const pdfLink = row.c[2] ? row.c[2].v : '#';
+
+            const card = document.createElement('div');
+            card.className = 'notes-card';
+            
+            let downloadButtonHTML = '';
+            if(pdfLink !== '#') {
+                downloadButtonHTML = `<a href="${pdfLink}" target="_blank" class="btn-download">📥 Download PDF Notes</a>`;
+            }
+
+            card.innerHTML = `
+                <div class="unit-title">${unit}</div>
+                <div class="notes-content">${textNotes}</div>
+                ${downloadButtonHTML}
+            `;
+            container.appendChild(card);
+        });
+    })
+    .catch(err => {
+        document.getElementById('loading').innerText = 'नोट्स लोड करने में समस्या आई। कृपया दोबारा प्रयास करें।';
+        console.error(err);
+    });
 </script>
 
 </body>
