@@ -22,10 +22,10 @@
         .unit-btn { padding: 10px; font-weight: bold; border: 2px solid #b91c1c; background: white; color: #b91c1c; border-radius: 6px; cursor: pointer; text-align: center; }
         .unit-btn.active { background: #b91c1c; color: white; }
 
-        .data-row { display: flex; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid #eee; background: #fafafa; margin-bottom: 10px; border-radius: 6px; }
+        .data-row { display: flex; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid #eee; background: #fafafa; margin-bottom: 10px; border-radius: 6px; text-align: left; }
         .btn-delete { background-color: #dc3545; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-weight: bold; }
         
-        .form-box { background: #fffbfa; border: 2px dashed #ff9800; padding: 25px; border-radius: 12px; margin-top: 30px; }
+        .form-box { background: #fffbfa; border: 2px dashed #ff9800; padding: 25px; border-radius: 12px; margin-top: 30px; text-align: left; }
         label { font-weight: bold; display: block; margin-top: 10px; }
         input, select, textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; box-sizing: border-box; }
         .btn-submit { background-color: #ff9800; color: white; border: none; padding: 12px; font-size: 1.1rem; font-weight: bold; border-radius: 6px; cursor: pointer; margin-top: 15px; width: 100%; }
@@ -38,7 +38,6 @@
 <div class="container">
     <h1>MPPSC MCQ Hub - Master Admin Dashboard</h1>
     
-    <!-- मुख्य स्विच: प्रीलिम्स या मेन्स -->
     <div class="main-toggle">
         <button class="main-tab tab-pre active" onclick="switchMode('pre')">🎯 PRELIMS (100 Tests)</button>
         <button class="main-tab tab-main" onclick="switchMode('main')">📚 MAINS (500 Qs)</button>
@@ -47,20 +46,31 @@
     <!-- ================= PRELIMS SECTION ================= -->
     <div id="prelimsSection" class="section-box active">
         <div class="unit-grid">
-            <script>
-                for(let i=1; i<=10; i++) {
-                    document.write(`<button class="unit-btn pre-u-btn ${i==1?'active':''}" onclick="filterPreUnit(${i})">Unit ${i}</button>`);
-                }
-            </script>
+            <button class="unit-btn pre-u-btn active" onclick="filterPreUnit(1)">Unit 1</button>
+            <button class="unit-btn pre-u-btn" onclick="filterPreUnit(2)">Unit 2</button>
+            <button class="unit-btn pre-u-btn" onclick="filterPreUnit(3)">Unit 3</button>
+            <button class="unit-btn pre-u-btn" onclick="filterPreUnit(4)">Unit 4</button>
+            <button class="unit-btn pre-u-btn" onclick="filterPreUnit(5)">Unit 5</button>
+            <button class="unit-btn pre-u-btn" onclick="filterPreUnit(6)">Unit 6</button>
+            <button class="unit-btn pre-u-btn" onclick="filterPreUnit(7), ">Unit 7</button>
+            <button class="unit-btn pre-u-btn" onclick="filterPreUnit(8)">Unit 8</button>
+            <button class="unit-btn pre-u-btn" onclick="filterPreUnit(9)">Unit 9</button>
+            <button class="unit-btn pre-u-btn" onclick="filterPreUnit(10)">Unit 10</button>
         </div>
         <div id="preTestsContainer"></div>
 
         <div class="form-box">
             <h3 style="color:#e65100;">➕ प्रीलिम्स टेस्ट लिंक अपलोड करें</h3>
             <label>यूनिट चुनें:</label>
-            <select id="preUnitSel"><script>for(let i=1; i<=10; i++) document.write(`<option value="${i}">Unit ${i}</option>`);</script></select>
+            <select id="preUnitSel">
+                <option value="1">Unit 1</option><option value="2">Unit 2</option><option value="3">Unit 3</option><option value="4">Unit 4</option><option value="5">Unit 5</option>
+                <option value="6">Unit 6</option><option value="7">Unit 7</option><option value="8">Unit 8</option><option value="9">Unit 9</option><option value="10">Unit 10</option>
+            </select>
             <label>टेस्ट नंबर (1 से 10 तक):</label>
-            <select id="preTestNum"><script>for(let i=1; i<=10; i++) document.write(`<option value="${i}">Test ${i}</option>`);</script></select>
+            <select id="preTestNum">
+                <option value="1">Test 1</option><option value="2">Test 2</option><option value="3">Test 3</option><option value="4">Test 4</option><option value="5">Test 5</option>
+                <option value="6">Test 6</option><option value="7">Test 7</option><option value="8">Test 8</option><option value="9">Test 9</option><option value="10">Test 10</option>
+            </select>
             <label>ऑनलाइन क्विज़ लिंक:</label>
             <input type="url" id="preQuizUrl" placeholder="https://forms.gle">
             <label>PDF नोट्स लिंक:</label>
@@ -129,8 +139,7 @@
             if(unitData[i]) {
                 found = true;
                 const row = document.createElement('div'); row.className = 'data-row';
-                row.innerHTML = `<div><b>🎯 Test ${i}</b> (लाइव है)</div>
-                <div><button class="btn-delete" onclick="deletePre(${i})">❌ Delete</button></div>`;
+                row.innerHTML = '<div><b>🎯 Test ' + i + '</b> (लाइव है)</div><div><button class="btn-delete" onclick="deletePre(' + i + ')">❌ Delete</button></div>';
                 c.appendChild(row);
             }
         }
@@ -147,17 +156,17 @@
         
         let data = JSON.parse(localStorage.getItem('mppsc_100_tests')) || {};
         if(!data[u]) data[u] = {};
-        data[u][n] = { quiz, pdf };
+        data[u][n] = { quiz: quiz, pdf: pdf };
         localStorage.setItem('mppsc_100_tests', JSON.stringify(data));
         
         document.getElementById('preQuizUrl').value = '';
         document.getElementById('prePdfUrl').value = '';
-        alert('प्रीलिम्स टेस्ट सुरक्षित हो गया!');
+        alert('प्रीलिम्स टेस्ट सफलतापूर्वक सुरक्षित हो गया!');
         loadPreTests();
     }
 
     function deletePre(n) {
-        if(confirm(`Test ${n} हटाएं?`)) {
+        if(confirm('Test ' + n + ' हटाएं?')) {
             let data = JSON.parse(localStorage.getItem('mppsc_100_tests')) || {};
             if(data[currentPreUnit]) delete data[currentPreUnit][n];
             localStorage.setItem('mppsc_100_tests', JSON.stringify(data));
@@ -171,30 +180,3 @@
         if(list.length === 0) { c.innerHTML = '<p style="color:#777;text-align:center;">कोई मेन्स प्रश्न लाइव नहीं है।</p>'; return; }
         
         list.forEach((item, index) => {
-            const row = document.createElement('div'); row.className = 'data-row';
-            row.innerHTML = `<div><b>${item.title}:</b> ${item.text.substring(0, 40)}...</div>
-            <div><button class="btn-delete" onclick="deleteMains(${index})">❌ Delete</button></div>`;
-            c.appendChild(row);
-        });
-    }
-
-    function saveMainsQuestion() {
-        const title = document.getElementById('mainsPaperTitle').value;
-        const text = document.getElementById('mainsQuestionText').value;
-        const pdf = document.getElementById('mainsPdfUrl').value;
-
-        if(!title || !text) { alert('शीर्षक और प्रश्न दोनों भरें!'); return; }
-
-        let list = JSON.parse(localStorage.getItem('mppsc_live_notes_mains')) || [];
-        list.push({ title, text, pdf });
-        localStorage.setItem('mppsc_live_notes_mains', JSON.stringify(list));
-
-        document.getElementById('mainsPaperTitle').value = '';
-        document.getElementById('mainsQuestionText').value = '';
-        document.getElementById('mainsPdfUrl').value = '';
-        alert('मेन्स प्रश्न लाइव हो गया!');
-        loadMainsQuestions();
-    }
-
-    function deleteMains(index) {
-        if(confirm('यह प्रश्न हटाएं?')) {
