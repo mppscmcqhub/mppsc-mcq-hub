@@ -15,11 +15,13 @@
         
         .upi-pay-box { margin: 25px auto; padding: 20px; border: 2px dashed #ff9800; border-radius: 12px; background: #fffbe6; max-width: 100%; text-align: center; }
         .direct-pay-btn { display: inline-block; background-color: #0d47a1; color: white; padding: 14px 30px; text-decoration: none; font-size: 18px; font-weight: bold; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.15); transition: 0.3s; width: 100%; }
+        .direct-pay-btn:hover { background-color: #0a3980; }
         .upi-id-display { font-size: 16px; font-weight: bold; color: #333; background: #fff; padding: 8px; border: 1px solid #ccc; border-radius: 6px; display: inline-block; margin-top: 5px; }
         
         .mppsc-badge { background-color: #ff9800; color: white; padding: 6px 18px; font-weight: bold; border-radius: 20px; font-size: 14px; margin-bottom: 10px; display: inline-block; }
         .note-text { color: #d32f2f; font-weight: bold; font-size: 14px; margin-top: 15px; line-height: 1.4; text-align: center; }
         .whatsapp-btn { display: inline-block; background-color: #25d366; color: white; padding: 12px 25px; text-decoration: none; font-size: 16px; font-weight: bold; border-radius: 6px; margin-top: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s; width: 100%; }
+        .whatsapp-btn:hover { background-color: #1ebd59; }
         .back-link { display: inline-block; margin-top: 25px; color: #0d47a1; text-decoration: none; font-size: 15px; font-weight: bold; }
         .back-link:hover { text-decoration: underline; }
 
@@ -44,7 +46,8 @@
         <div class="mppsc-badge">🏢 MPPSC MCQ Hub Official Account</div>
 
         <div class="upi-pay-box notranslate" translate="no">
-            <a href="upi://pay?pa=mppsc@postbank&pn=RAJESH%20KUMAR%20OJHA&cu=INR" class="direct-pay-btn">
+            <!-- मोबाइल उपयोगकर्ताओं के लिए सीधा UPI पेमेंट लिंक (GPay, PhonePe, Paytm काम करेगा) -->
+            <a href="upi://pay?pa=mppsc@postbank&pn=RAJESH%20KUMAR%20OJHA&cu=INR&tn=MPPSC%202027%20Premium" class="direct-pay-btn">
                 ⚡ Click Here to Pay via Any UPI App
             </a>
             <p style="font-size: 14px; color: #666; font-weight: 500;">(मोबाइल यूजर्स ऊपर क्लिक करके सीधे GPay/PhonePe से पे करें)</p>
@@ -64,7 +67,8 @@
             ⚠️ महत्वपूर्ण सूचना: पेमेंट करने के बाद उसका स्क्रीनशॉट लें। कोर्स तुरंत चालू करवाने के लिए नीचे दिए गए बटन पर क्लिक करके स्क्रीनशॉट व्हाट्सएप पर भेजें।
         </div>
 
-        <a href="https://wa.me" target="_blank" class="whatsapp-btn">
+        <!-- ⚠️ 'YOUR_PHONE_NUMBER' को अपने असली 10 अंकों के मोबाइल नंबर से बदलें (जैसे: 919876543210) -->
+        <a href="https://wa.me." target="_blank" class="whatsapp-btn">
             💬 Send Screenshot on WhatsApp
         </a>
 
