@@ -3,128 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MPPSC 2027 - Premium Prelims Tests</title>
+    <title>MPPSC 2027 - Premium Mains Course</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: #eef4ff; font-family: 'Segoe UI', sans-serif; color: #333; padding: 30px 15px; }
+        body { background-color: #f4f7fc; font-family: 'Segoe UI', sans-serif; color: #333; padding: 30px 15px; }
         
-        /* प्रीमियम हेडर */
-        .premium-header { text-align: center; margin-bottom: 30px; background: linear-gradient(135deg, #b91c1c, #dc2626); color: white; padding: 30px 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(220, 38, 38, 0.2); }
+        .premium-header { text-align: center; margin-bottom: 30px; background: linear-gradient(135deg, #1d4ed8, #2563eb); color: white; padding: 30px 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2); }
         .premium-header h1 { font-size: 1.8rem; margin-bottom: 8px; font-weight: bold; }
-        .premium-header p { font-size: 1rem; opacity: 0.95; }
         
-        .container { max-width: 1000px; margin: 0 auto; }
+        .container { max-width: 900px; margin: 0 auto; }
         
-        /* यूनिट फ़िल्टर ग्रिड टैब्स */
-        .unit-tabs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(85px, 1fr)); gap: 10px; margin-bottom: 30px; }
-        .tab-btn { padding: 12px 5px; font-weight: bold; border: 2px solid #b91c1c; background: white; color: #b91c1c; border-radius: 8px; cursor: pointer; transition: all 0.2s ease; text-align: center; font-size: 0.95rem; }
-        .tab-btn.active, .tab-btn:hover { background: #b91c1c; color: white; box-shadow: 0 4px 10px rgba(185, 28, 28, 0.2); }
-
-        /* टेस्ट लिस्ट एरिया */
-        .display-section { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); min-height: 250px; border-top: 4px solid #b91c1c; }
-        .current-unit-title { color: #b91c1c; border-bottom: 2px solid #eaeaea; padding-bottom: 10px; margin-bottom: 20px; font-size: 1.4rem; font-weight: bold; }
+        .mains-card { background: white; border-radius: 12px; padding: 25px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-left: 6px solid #2563eb; position: relative; }
+        .q-badge { background-color: #eff6ff; color: #2563eb; padding: 4px 10px; border-radius: 4px; font-weight: bold; font-size: 0.85rem; display: inline-block; margin-bottom: 10px; }
+        .question-text { font-size: 1.15rem; font-weight: bold; color: #111; margin-bottom: 15px; line-height: 1.5; }
         
-        /* सिंगल टेस्ट रो */
-        .student-test-row { display: flex; justify-content: space-between; align-items: center; padding: 18px 20px; border-bottom: 1px solid #f0f0f0; background: #fbfbfb; margin-bottom: 12px; border-radius: 8px; transition: transform 0.2s; border: 1px solid #eaeaea; }
-        .student-test-row:hover { transform: translateY(-2px); background: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.02); }
-        .test-title-text { font-weight: bold; font-size: 1.1rem; color: #222; display: flex; align-items: center; gap: 8px; }
+        .btn-download-mains { display: inline-block; background-color: #f39c12; color: white; padding: 10px 22px; text-decoration: none; font-weight: bold; border-radius: 6px; transition: 0.2s; font-size: 0.95rem; }
+        .btn-download-mains:hover { background-color: #d6860b; }
         
-        /* छात्र बटन्स */
-        .actions-group { display: flex; gap: 12px; }
-        .btn-action { padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.9rem; text-align: center; transition: background 0.2s; display: inline-flex; align-items: center; gap: 5px; }
-        .bg-start-quiz { background-color: #0d47a1; color: white; }
-        .bg-start-quiz:hover { background-color: #0a3980; }
-        .bg-download-pdf { background-color: #28a745; color: white; }
-        .bg-download-pdf:hover { background-color: #218838; }
-        
-        .no-test-msg { text-align: center; color: #666; padding: 40px 20px; font-size: 1.1rem; font-weight: 500; }
-        .back-to-home { display: inline-block; margin-top: 25px; color: #0d47a1; text-decoration: none; font-weight: bold; font-size: 1rem; }
-        .back-to-home:hover { text-decoration: underline; }
+        .no-data { text-align: center; padding: 40px; color: #666; font-size: 1.1rem; }
+        .back-home { display: inline-block; margin-top: 25px; color: #0d47a1; text-decoration: none; font-weight: bold; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div class="premium-header">
-        <h1>🚀 MPPSC 2027 Premium Prelims Test Series 🚀</h1>
-        <p>आपका भुगतान सफल रहा! यहाँ आपके लिए सभी 10 यूनिट्स के 100 स्पेशल टेस्ट और पीडीएफ नोट्स अनलॉक हैं।</p>
-    </div>
-    
-    <!-- यूनिट स्विच करने के लिए बटन्स -->
-    <div class="unit-tabs-grid">
-        <button class="tab-btn active" onclick="changeUnit(1)">Unit 1</button>
-        <button class="tab-btn" onclick="changeUnit(2)">Unit 2</button>
-        <button class="tab-btn" onclick="changeUnit(3)">Unit 3</button>
-        <button class="tab-btn" onclick="changeUnit(4)">Unit 4</button>
-        <button class="tab-btn" onclick="changeUnit(5)">Unit 5</button>
-        <button class="tab-btn" onclick="changeUnit(6)">Unit 6</button>
-        <button class="tab-btn" onclick="changeUnit(7)">Unit 7</button>
-        <button class="tab-btn" onclick="changeUnit(8)">Unit 8</button>
-        <button class="tab-btn" onclick="changeUnit(9)">Unit 9</button>
-        <button class="tab-btn" onclick="changeUnit(10)">Unit 10</button>
-    </div>
-    
-    <!-- टेस्ट डिस्प्ले एरिया -->
-    <div class="display-section">
-        <div class="current-unit-title" id="unitTitleDisplay">Unit 1 के स्पेशल टेस्ट सीरीज</div>
-        <div id="studentTestsContainer"></div>
+        <h1>📚 MPPSC 2027 Premium Mains Course 📚</h1>
+        <p>यहाँ आपके लिए मुख्य परीक्षा के 500 प्रश्नों का संकलन और उनके सटीक मॉडल उत्तर लाइव हैं।</p>
     </div>
 
-    <br>
-    <a href="index.html" class="back-to-home">← वापस मुख्य वेबसाइट पर जाएँ</a>
+    <!-- यहाँ एडमिन पैनल से लाइव प्रश्न लोड होंगे -->
+    <div id="mainsQuestionsContainer"></div>
+
+    <a href="index.html" class="back-home">← वापस मुख्य वेबसाइट पर जाएँ</a>
 </div>
 
 <script>
-    let activeUnit = 1;
-
-    // पेज खुलते ही पहली यूनिट के टेस्ट लोड करना
     document.addEventListener("DOMContentLoaded", function() {
-        renderStudentTests();
+        renderMainsQuestions();
     });
 
-    // यूनिट बदलने का फंक्शन
-    function changeUnit(unitNumber) {
-        activeUnit = unitNumber;
-        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-        event.target.classList.add('active');
-        document.getElementById('unitTitleDisplay').innerText = `Unit ${unitNumber} के स्पेशल टेस्ट सीरीज`;
-        renderStudentTests();
-    }
-
-    // एडमिन द्वारा सेव किए गए टेस्ट को छात्रों के लिए दिखाने का फंक्शन
-    function renderStudentTests() {
-        const listContainer = document.getElementById('studentTestsContainer');
-        listContainer.innerHTML = '';
+    function renderMainsQuestions() {
+        const container = document.getElementById('mainsQuestionsContainer');
+        container.innerHTML = '';
         
-        // एडमिन डेटाबेस (Local Storage) से लाइव डेटा उठाना
-        let allLiveTests = JSON.parse(localStorage.getItem('mppsc_100_tests')) || {};
-        let currentUnitData = allLiveTests[activeUnit] || {};
-
-        let dataFound = false;
+        // एडमिन डेटाबेस से लाइव मेन्स का डेटा उठाना
+        let storedMains = JSON.parse(localStorage.getItem('mppsc_live_notes_mains')) || [];
         
-        // 1 से 10 तक के टेस्ट्स को लाइन से चेक करना
-        for (let testIndex = 1; testIndex <= 10; testIndex++) {
-            if (currentUnitData[testIndex]) {
-                dataFound = true;
-                const singleTest = currentUnitData[testIndex];
-                const rowElement = document.createElement('div');
-                rowElement.className = 'student-test-row';
-                
-                rowElement.innerHTML = `
-                    <div class="test-title-text">📝 Premium Test ${testIndex}</div>
-                    <div class="actions-group">
-                        ${singleTest.quiz ? `<a href="\${singleTest.quiz}" target="_blank" class="btn-action bg-start-quiz">🎯 Play Quiz</a>` : ''}
-                        ${singleTest.pdf ? `<a href="\${singleTest.pdf}" target="_blank" class="btn-action bg-download-pdf">📥 PDF Notes</a>` : ''}
-                    </div>
-                `;
-                listContainer.appendChild(rowElement);
-            }
+        if(storedMains.length === 0) {
+            container.innerHTML = `<div class="no-data">🔒 मुख्य परीक्षा के प्रश्न एवं मॉडल उत्तर एडमिन द्वारा जल्द ही यहाँ लाइव अपलोड किए जा रहे हैं।</div>`;
+            return;
         }
 
-        // यदि एडमिन ने अभी तक इस यूनिट में कोई लिंक नहीं डाली है
-        if (!dataFound) {
-            listContainer.innerHTML = `<div class="no-test-msg">🔒 इस यूनिट के टेस्ट एडमिन द्वारा जल्द ही लाइव किए जा रहे हैं। कृपया प्रतीक्षा करें!</div>`;
-        }
+        storedMains.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'mains-card';
+            card.innerHTML = `
+                <div class="q-badge">${item.title}</div>
+                <div class="question-text">${item.text}</div>
+                ${item.pdf ? `<a href="\${item.pdf}" target="_blank" class="btn-download-mains">📥 Download Model Answer PDF</a>` : ''}
+            `;
+            container.appendChild(card);
+        });
     }
 </script>
 
