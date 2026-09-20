@@ -3,81 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MPPSC 2027 - Premium Paid Pre Tests</title>
+    <title>MPPSC 2027 - Premium Prelims Course</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f0f4f8; color: #333; line-height: 1.6; }
-        
-        /* प्रोफेशनल हेडर */
-        .navbar-custom { background-color: #0d47a1; color: white; padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; min-height: 80px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .navbar-brand { font-size: 1.4rem; font-weight: bold; text-decoration: none; color: white; display: flex; align-items: center; gap: 12px; }
-        .navbar-brand img { height: 65px; width: 65px; border-radius: 50%; object-fit: cover; border: 2px solid white; }
-        .btn-home { background-color: white; color: #0d47a1; padding: 6px 15px; border-radius: 4px; font-weight: bold; text-decoration: none; font-size: 0.9rem; }
-        
-        .container { padding: 30px 20px; max-width: 1200px; margin: auto; }
-        
-        /* प्रीमियम टाइटल कार्ड */
-        .premium-header-card { background: linear-gradient(135deg, #ff9800, #e65100); color: white; padding: 25px; border-radius: 12px; text-align: center; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(230,81,0,0.2); }
-        .premium-header-card h2 { font-size: 22px; margin-bottom: 5px; font-weight: bold; }
-        .premium-header-card p { font-size: 15px; opacity: 0.95; font-weight: 500; }
-        
-        /* टेस्ट ग्रिड */
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
-        .test-card { background: white; padding: 25px 20px; border-radius: 12px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; transition: transform 0.2s, box-shadow 0.2s; position: relative; overflow: hidden; }
-        .test-card:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,0.1); }
-        
-        /* प्रीमियम बैज प्रभाव */
-        .test-card::before { content: "PREMIUM"; position: absolute; top: 12px; left: -25px; background: #ff9800; color: white; font-size: 9px; font-weight: bold; padding: 2px 25px; transform: rotate(-45deg); box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        
-        .test-card h4 { margin: 10px 0 8px 0; font-size: 18px; color: #0d47a1; font-weight: bold; }
-        .test-card p { font-size: 13px; color: #666; margin-bottom: 15px; font-weight: 500; }
-        
-        .btn-start { display: inline-block; background: linear-gradient(to bottom, #0b63ff, #0046c7); color: white; text-decoration: none; padding: 10px 15px; border-radius: 20px; font-weight: bold; border: none; cursor: pointer; width: 100%; box-sizing: border-box; box-shadow: 0 3px 6px rgba(11,99,255,0.2); transition: 0.2s; }
-        .btn-start:hover { background: linear-gradient(to bottom, #0056e0, #00369c); box-shadow: 0 4px 10px rgba(0,46,199,0.3); }
+        body { background-color: #f4f7fc; font-family: 'Segoe UI', sans-serif; color: #333; padding: 30px 15px; }
+        .header { text-align: center; margin-bottom: 35px; background: #dc2626; color: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .header h1 { font-size: 1.8rem; margin-bottom: 5px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        .content-card { background: white; border-radius: 12px; padding: 25px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 6px solid #dc2626; }
+        .card-title { font-size: 1.25rem; font-weight: bold; color: #111; margin-bottom: 10px; }
+        .card-desc { color: #555; font-size: 0.95rem; margin-bottom: 20px; line-height: 1.6; }
+        .btn-group { display: flex; gap: 15px; flex-wrap: wrap; }
+        .btn { padding: 10px 20px; border-radius: 6px; font-weight: bold; text-decoration: none; font-size: 0.9rem; text-align: center; cursor: pointer; transition: 0.2s; }
+        .btn-test { background-color: #0d47a1; color: white; border: none; }
+        .btn-test:hover { background-color: #0a3980; }
+        .btn-pdf { background-color: #28a745; color: white; border: none; }
+        .btn-pdf:hover { background-color: #218838; }
+        .back-home { display: inline-block; margin-top: 20px; color: #0d47a1; text-decoration: none; font-weight: bold; }
     </style>
 </head>
 <body>
 
-<!-- टॉप नेविगेशन बार (लोगो के साथ) -->
-<div class="navbar-custom">
-  <a class="navbar-brand" href="index.html">
-    <img src="my-logo.jpg" alt="Logo">
-    <span>MPPSC MCQ Hub V14</span>
-  </a>
-  <a href="index.html" class="btn-home">🏠 Dashboard</a>
-</div>
-
 <div class="container">
-    <!-- पेड कोर्स हेडर सूचना -->
-    <div class="premium-header-card">
-        <h2>⭐ MPPSC 2027 Premium Paid Pre Course ⭐</h2>
-        <p>100 Special Preliminary Examination Tests (100 स्पेशल प्रारंभिक परीक्षा टेस्ट्स)</p>
+    <div class="header">
+        <h1>✨ MPPSC 2027 Premium Prelims Dashboard ✨</h1>
+        <p>यहाँ आपके लिए 100 विशेष प्रीलिम्स टेस्ट और स्पेशल नोट्स उपलब्ध हैं।</p>
     </div>
 
-    <!-- टेस्ट सूची यहाँ जनरेट होगी -->
-    <div id="premium-tests-grid" class="grid"></div>
+    <!-- उदाहरण: टेस्ट/नोट्स कार्ड 1 -->
+    <div class="content-card">
+        <div class="card-title">📝 टेस्ट 01: मध्य प्रदेश की प्रमुख जनजातियाँ एवं भौगोलिक विस्तार</div>
+        <div class="card-desc">इस टेस्ट में नए सिलेबस के अनुसार अत्यंत महत्वपूर्ण 50 ऑब्जेक्टिव प्रश्न शामिल हैं। साथ ही नीचे दिए बटन से आप इसका स्पेशल क्विक-रिवीजन PDF भी डाउनलोड कर सकते हैं।</div>
+        <div class="btn-group">
+            <a href="#" class="btn btn-test">🎯 Start Online Test</a>
+            <a href="#" class="btn btn-pdf">📥 Download PDF Notes</a>
+        </div>
+    </div>
+
+    <!-- उदाहरण: टेस्ट/नोट्स कार्ड 2 -->
+    <div class="content-card">
+        <div class="card-title">📝 टेस्ट 02: म.प्र. की लोक संस्कृति, त्योहार एवं लोक नृत्य</div>
+        <div class="card-desc">जनजातीय कला, परम्पराएं और मध्य प्रदेश के लोक साहित्यों पर आधारित विशेष चुनिंदा प्रश्न।</div>
+        <div class="btn-group">
+            <a href="#" class="btn btn-test">🎯 Start Online Test</a>
+            <a href="#" class="btn btn-pdf">📥 Download PDF Notes</a>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-home">← मुख्य वेबसाइट पर वापस जाएँ</a>
 </div>
-
-<script>
-    const grid = document.getElementById("premium-tests-grid");
-    let html = "";
-
-    // 🔴 1 से लेकर 100 स्पेशल प्रीमियम प्री टेस्ट्स की लूप ऑटोमैटिक जनरेट हो रही है
-    for (let t = 1; t <= 100; t++) {
-        // यह यूज़र को quiz.html पर भेजेगा और यूआरएल में बताएगा कि यह पेड प्री टेस्ट नंबर 't' है
-        const premiumUrl = `quiz.html?type=paid-pre&test=${t}`;
-
-        html += `
-          <div class="test-card">
-            <h4>🏆 Test ${t}</h4>
-            <p>100 Questions • Full Syllabus</p>
-            <a href="${premiumUrl}" class="btn-start">Start Test</a>
-          </div>
-        `;
-    }
-
-    grid.innerHTML = html;
-</script>
 
 </body>
 </html>
