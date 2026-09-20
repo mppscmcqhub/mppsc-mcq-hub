@@ -1,9 +1,9 @@
-```html
 <!DOCTYPE html>
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <title>MPPSC 2027 - Premium Prelims Tests</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -22,9 +22,12 @@
         .actions-group { display: flex; gap: 12px; }
         .btn-action { padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.9rem; text-align: center; color: white; }
         .bg-start-quiz { background-color: #0d47a1; }
+        .bg-start-quiz:hover { background-color: #0a3980; }
         .bg-download-pdf { background-color: #28a745; }
+        .bg-download-pdf:hover { background-color: #218838; }
         .no-test-msg { text-align: center; color: #666; padding: 40px 20px; font-size: 1.1rem; }
         .back-to-home { display: inline-block; margin-top: 25px; color: #0d47a1; text-decoration: none; font-weight: bold; }
+        .back-to-home:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -32,20 +35,20 @@
 <div class="container">
     <div class="premium-header">
         <h1>🚀 MPPSC 2027 Premium Prelims Test Series 🚀</h1>
-        <p>आपका भुगतान सफल रहा! यहाँ आपके लिए सभी 10 यूनिट्स के 100 स्पेशल टेस्ट और पीडीएफ नोट्स अनलॉक हैं.</p>
+        <p>आपका भुगतान सफल रहा! यहाँ आपके लिए सभी 10 यूनिट्स के 100 स्पेशल टेस्ट और पीडीएफ नोट्स अनलॉक हैं।</p>
     </div>
     
     <div class="unit-tabs-grid">
-        <button class="tab-btn active" onclick="changeUnit(1)">Unit 1</button>
-        <button class="tab-btn" onclick="changeUnit(2)">Unit 2</button>
-        <button class="tab-btn" onclick="changeUnit(3)">Unit 3</button>
-        <button class="tab-btn" onclick="changeUnit(4)">Unit 4</button>
-        <button class="tab-btn" onclick="changeUnit(5)">Unit 5</button>
-        <button class="tab-btn" onclick="changeUnit(6)">Unit 6</button>
-        <button class="tab-btn" onclick="changeUnit(7)">Unit 7</button>
-        <button class="tab-btn" onclick="changeUnit(8)">Unit 8</button>
-        <button class="tab-btn" onclick="changeUnit(9)">Unit 9</button>
-        <button class="tab-btn" onclick="changeUnit(10)">Unit 10</button>
+        <button class="tab-btn active" id="ubtn1" onclick="changeUnit(1)">Unit 1</button>
+        <button class="tab-btn" id="ubtn2" onclick="changeUnit(2)">Unit 2</button>
+        <button class="tab-btn" id="ubtn3" onclick="changeUnit(3)">Unit 3</button>
+        <button class="tab-btn" id="ubtn4" onclick="changeUnit(4)">Unit 4</button>
+        <button class="tab-btn" id="ubtn5" onclick="changeUnit(5)">Unit 5</button>
+        <button class="tab-btn" id="ubtn6" onclick="changeUnit(6)">Unit 6</button>
+        <button class="tab-btn" id="ubtn7" onclick="changeUnit(7)">Unit 7</button>
+        <button class="tab-btn" id="ubtn8" onclick="changeUnit(8)">Unit 8</button>
+        <button class="tab-btn" id="ubtn9" onclick="changeUnit(9)">Unit 9</button>
+        <button class="tab-btn" id="ubtn10" onclick="changeUnit(10)">Unit 10</button>
     </div>
     
     <div class="display-section">
@@ -57,39 +60,50 @@
 </div>
 
 <script>
-    let activeUnit = 1;
+    var activeUnit = 1;
 
-    document.addEventListener("DOMContentLoaded", function() {
+    window.onload = function() {
         renderStudentTests();
-    });
+    };
 
     function changeUnit(unitNumber) {
         activeUnit = unitNumber;
-        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-        event.target.classList.add('active');
+        for (var i = 1; i <= 10; i++) {
+            var btn = document.getElementById('ubtn' + i);
+            if (btn) btn.classList.remove('active');
+        }
+        var currentBtn = document.getElementById('ubtn' + unitNumber);
+        if (currentBtn) currentBtn.classList.add('active');
+        
         document.getElementById('unitTitleDisplay').innerText = 'Unit ' + unitNumber + ' के स्पेशल टेस्ट सीरीज';
         renderStudentTests();
     }
 
     function renderStudentTests() {
-        const listContainer = document.getElementById('studentTestsContainer');
+        var listContainer = document.getElementById('studentTestsContainer');
+        if (!listContainer) return;
         listContainer.innerHTML = '';
         
-        let allLiveTests = JSON.parse(localStorage.getItem('mppsc_100_tests')) || {};
-        let currentUnitData = allLiveTests[activeUnit] || {};
-        let dataFound = false;
+        var allLiveTests = {};
+        try {
+            var localData = localStorage.getItem('mppsc_100_tests');
+            if (localData) allLiveTests = JSON.parse(localData);
+        } catch (e) { allLiveTests = {}; }
+
+        var currentUnitData = allLiveTests[activeUnit] || {};
+        var dataFound = false;
         
-        for (let testIndex = 1; testIndex <= 10; testIndex++) {
+        for (var testIndex = 1; testIndex <= 10; testIndex++) {
             if (currentUnitData[testIndex]) {
                 dataFound = true;
-                const singleTest = currentUnitData[testIndex];
-                const rowElement = document.createElement('div');
+                var singleTest = currentUnitData[testIndex];
+                var rowElement = document.createElement('div');
                 rowElement.className = 'student-test-row';
                 
-                let quizBtn = singleTest.quiz ? '<a href="' + singleTest.quiz + '" target="_blank" class="btn-action bg-start-quiz">🎯 Play Quiz</a>' : '';
-                let pdfBtn = singleTest.pdf ? '<a href="' + singleTest.pdf + '" target="_blank" class="btn-action bg-download-pdf">📥 PDF Notes</a>' : '';
+                var quizBtn = singleTest.quiz ? '<a href="' + singleTest.quiz + '" target="_blank" class="btn-action bg-start-quiz">🎯 Play Quiz</a>' : '';
+                var pdfBtn = singleTest.pdf ? '<a href="' + singleTest.pdf + '" target="_blank" class="btn-action bg-download-pdf">📥 PDF Notes</a>' : '';
                 
-                rowElement.innerHTML = '<div class="test-title-text">📝 Premium Test ' + testIndex + '</div><div class="actions-group">' + quizBtn + ' ' + pdfBtn + '</div>';
+                rowElement.innerHTML = '<div class="test-title-text">常规 Premium Test ' + testIndex + '</div><div class="actions-group">' + quizBtn + ' ' + pdfBtn + '</div>';
                 listContainer.appendChild(rowElement);
             }
         }
