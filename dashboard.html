@@ -35,7 +35,6 @@
         <button class="main-tab tab-main" id="btnToggleMain" onclick="switchMode('main')">📚 MAINS (500 Qs)</button>
     </div>
 
-    <!-- PRELIMS BOX -->
     <div id="prelimsSection" class="section-box">
         <div class="unit-grid">
             <button class="unit-btn pre-u-btn active" id="pbtn1" onclick="filterPreUnit(1)">Unit 1</button>
@@ -71,7 +70,6 @@
         </div>
     </div>
 
-    <!-- MAINS BOX -->
     <div id="mainsSection" class="section-box" style="display:none;">
         <div id="mainsContainer"></div>
         <div class="form-box">
@@ -127,13 +125,11 @@
         var c = document.getElementById('preTestsContainer');
         if(!c) return;
         c.innerHTML = '';
-        
         var data = {};
         try {
             var localData = localStorage.getItem('mppsc_100_tests');
             if(localData) data = JSON.parse(localData);
         } catch(e) { data = {}; }
-        
         var unitData = data[currentPreUnit] || {};
         var found = false;
 
@@ -165,7 +161,6 @@
 
         if(!data[u]) data[u] = {};
         data[u][n] = { quiz: quiz, pdf: pdf };
-        
         localStorage.setItem('mppsc_100_tests', JSON.stringify(data));
         
         document.getElementById('preQuizUrl').value = '';
@@ -181,7 +176,6 @@
                 var localData = localStorage.getItem('mppsc_100_tests');
                 if(localData) data = JSON.parse(localData);
             } catch(e) { data = {}; }
-
             if(data[currentPreUnit]) delete data[currentPreUnit][n];
             localStorage.setItem('mppsc_100_tests', JSON.stringify(data));
             loadPreTests();
@@ -189,3 +183,8 @@
     }
 
     function loadMainsQuestions() {
+        var c = document.getElementById('mainsContainer');
+        if(!c) return;
+        c.innerHTML = '';
+        var list = [];
+        try {
