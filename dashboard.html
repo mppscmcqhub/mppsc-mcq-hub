@@ -3,56 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MPPSC Premium Prelims Notes</title>
+    <title>Admin Dashboard - Update Notes</title>
     <style>
         body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f4f7fc; padding: 30px 15px; margin: 0; }
         .container { max-width: 900px; margin: 0 auto; }
-        h1 { text-align: center; color: #1d3557; margin-bottom: 30px; }
+        h1 { text-align: center; color: #1d3557; margin-bottom: 20px; }
         
-        /* नोट्स बॉक्स का डिज़ाइन */
-        .notes-card { background: white; border-radius: 10px; padding: 25px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-left: 5px solid #e63946; text-align: left; }
-        .unit-title { font-size: 20px; color: #e63946; font-weight: bold; margin-bottom: 10px; }
-        .notes-content { font-size: 16px; color: #333; line-height: 1.6; white-space: pre-line; margin-bottom: 20px; }
+        /* प्रीलिम्स और मेन्स स्विच करने के लिए टैब */
+        .tab-container { display: flex; justify-content: center; gap: 15px; margin-bottom: 25px; }
+        .tab-btn { padding: 12px 30px; font-size: 1.1rem; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s; }
+        .tab-prelims { background-color: #dc2626; color: white; }
+        .tab-mains { background-color: #2563eb; color: white; opacity: 0.6; }
+        .tab-btn.active { opacity: 1; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 2px solid #333; }
+
+        /* नोट्स बॉक्स डिज़ाइन */
+        .notes-card { background: white; border-radius: 10px; padding: 25px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: left; position: relative; }
+        .prelims-style { border-left: 6px solid #dc2626; }
+        .mains-style { border-left: 6px solid #2563eb; }
+        .unit-title { font-size: 1.25rem; font-weight: bold; margin-bottom: 10px; }
+        .notes-content { font-size: 1rem; color: #333; line-height: 1.6; white-space: pre-line; margin-bottom: 20px; }
         
-        /* PDF डाउनलोड बटन */
-        .btn-download { display: inline-flex; align-items: center; padding: 10px 20px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: background 0.2s; }
-        .btn-download:hover { background-color: #218838; }
+        /* बटन स्टाइल्स */
+        .btn-download { display: inline-flex; align-items: center; padding: 10px 20px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; }
+        .btn-delete { position: absolute; top: 20px; right: 20px; background: #ff4d4d; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+
+        /* एडमिन फॉर्म (नोट्स अपडेट करने के लिए) */
+        .admin-form-box { background: #fffbfa; border: 2px dashed #ff9800; padding: 25px; border-radius: 12px; margin-top: 40px; text-align: left; }
+        .admin-form-box h3 { color: #e65100; margin-bottom: 15px; }
+        label { font-weight: bold; display: block; margin-top: 10px; color: #444; }
+        input, textarea, select { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 1rem; }
+        .btn-submit { background-color: #ff9800; color: white; border: none; padding: 12px 25px; font-size: 1.1rem; font-weight: bold; border-radius: 6px; cursor: pointer; margin-top: 15px; width: 100%; }
+        .btn-submit:hover { background-color: #e65100; }
+        
         .back-link { display: inline-block; margin-top: 25px; color: #0d47a1; text-decoration: none; font-weight: bold; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>MPPSC Premium Prelims Notes</h1>
+    <h1>MPPSC MCQ Hub - Admin Dashboard</h1>
     
-    <div id="notes-container">
+    <!-- कोर्स सेलेक्ट करने के लिए टैब -->
+    <div class="tab-container">
+        <button class="tab-btn tab-prelims active" onclick="switchCourse('prelims')">Prelims Course</button>
+        <button class="tab-btn tab-mains" onclick="switchCourse('mains')">Mains Course</button>
+    </div>
+    
+    <!-- यहाँ लाइव नोट्स लोड होंगे -->
+    <div id="notes-container"></div>
+
+    <!-- 📥 नोट्स जोड़ने/अपडेट करने का फॉर्म -->
+    <div class="admin-form-box">
+        <h3>➕ यहाँ से नया नोट्स/अपडेट जोड़ें (Add & Update)</h3>
         
-        <!-- 📝 नोट्स 1 (आप यहाँ अपना टेक्स्ट और लिंक बदल सकते हैं) -->
-        <div class="notes-card">
-            <div class="unit-title">Unit 10: म.प्र. की जनजातियां (क्लास नोट्स 01)</div>
-            <div class="notes-content">
-                यहाँ आपके प्रीलिम्स के महत्वपूर्ण नोट्स का टेक्स्ट आएगा। 
-                आप जो भी लिखना चाहते हैं, उसे इस बॉक्स के अंदर सीधे हिंदी या अंग्रेजी में टाइप कर सकते हैं।
-                यह छात्रों को वेबसाइट पर सीधे दिखाई देगा।
-            </div>
-            <!-- यहाँ href="#" में अपनी असली गूगल ड्राइव की PDF लिंक पेस्ट करें -->
-            <a href="https://google.com" target="_blank" class="btn-download">📥 Download PDF Notes</a>
-        </div>
+        <label>कोर्स का चयन करें:</label>
+        <select id="courseType">
+            <option value="prelims">Prelims (प्रीलिम्स)</option>
+            <option value="mains">Mains (मेन्स)</option>
+        </select>
 
-        <!-- 📝 नोट्स 2 -->
-        <div class="notes-card">
-            <div class="unit-title">Unit 10: जनजातीय लोक संस्कृति व कला (क्लास नोट्स 02)</div>
-            <div class="notes-content">
-                यहाँ आप अपनी दूसरी क्लास या दूसरे टॉपिक के नोट्स लिख सकते हैं। 
-                यह पूरी तरह से सुरक्षित है और केवल पेड छात्रों को ही दिखेगा।
-            </div>
-            <a href="https://google.com" target="_blank" class="btn-download">📥 Download PDF Notes</a>
-        </div>
+        <label>यूनिट / टॉपिक का नाम (Title):</label>
+        <input type="text" id="noteTitle" placeholder="जैसे: Unit 10: म.प्र. की जनजातियां (क्लास 01)">
 
+        <label>नोट्स का मुख्य विवरण (Text Notes):</label>
+        <textarea id="noteText" rows="5" placeholder="यहाँ अपने नोट्स का टेक्स्ट लिखें या पेस्ट करें..."></textarea>
+
+        <label>गूगल ड्राइव PDF लिंक (Google Drive Link):</label>
+        <input type="url" id="notePdf" placeholder="https://google.com">
+
+        <button class="btn-submit" onclick="addNotesLive()">🚀 वेबसाइट पर लाइव सेव करें</button>
     </div>
 
+    <br>
     <a href="index.html" class="back-link">← वापस मुख्य वेबसाइट पर जाएँ</a>
 </div>
+
+<script>
+    let currentTab = 'prelims';
+
+    // पेज लोड होते ही पुराना सेव किया हुआ डेटा लोड करना
+    document.addEventListener("DOMContentLoaded", function() {
+        loadNotes();
+    });
+
+    function switchCourse(course) {
+        currentTab = course;
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        if(course === 'prelims') document.querySelector('.tab-prelims').classList.add('active');
+        else document.querySelector('.tab-mains').classList.add('active');
+        loadNotes();
+    }
+
+    // नोट्स को स्क्रीन पर लोड करने का फंक्शन
+    function loadNotes() {
+        const container = document.getElementById('notes-container');
+        container.innerHTML = '';
+        
+        let storedNotes = JSON.parse(localStorage.getItem('mppsc_live_notes_' + currentTab)) || [];
+        
+        if(storedNotes.length === 0) {
+            container.innerHTML = `<p style="text-align:center; color:#777; padding:20px;">इस सेक्शन में अभी कोई नोट्स नहीं हैं। नीचे फॉर्म से जोड़ें।</p>`;
+            return;
+        }
+
+        storedNotes.forEach((note, index) => {
+            const card = document.createElement('div');
+            card.className = `notes-card ${currentTab === 'prelims' ? 'prelims-style' : 'mains-style'}`;
+            card.innerHTML = `
+                <button class="btn-delete" onclick="deleteNote(${index})">❌ Delete</button>
+                <div class="unit-title" style="color: ${currentTab === 'prelims' ? '#dc2626' : '#2563eb'}">${note.title}</div>
+                <div class="notes-content">${note.text}</div>
+                ${note.pdf ? `<a href="\${note.pdf}" target="_blank" class="btn-download">📥 Download PDF Notes</a>` : ''}
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    // नया नोट्स सेव करने का फंक्शन
+    function addNotesLive() {
+        const type = document.getElementById('courseType').value;
+        const title = document.getElementById('noteTitle').value;
+        const text = document.getElementById('noteText').value;
+        const pdf = document.getElementById('notePdf').value;
+
+        if(!title || !text) {
+            alert('कृपया शीर्षक (Title) और नोट्स विवरण दोनों भरें!');
+            return;
+        }
+
+        let storedNotes = JSON.parse(localStorage.getItem('mppsc_live_notes_' + type)) || [];
+        storedNotes.push({ title, text, pdf });
+        localStorage.setItem('mppsc_live_notes_' + type, JSON.stringify(storedNotes));
+
+        // फॉर्म खाली करना
+        document.getElementById('noteTitle').value = '';
+        document.getElementById('noteText').value = '';
+        document.getElementById('notePdf').value = '';
+
+        alert('नोट्स सफ़लतापूर्वक लाइव सुरक्षित हो गए हैं!');
+        if(type === currentTab) loadNotes();
+    }
+
+    // नोट्स डिलीट करने का फंक्शन
+    function deleteNote(index) {
+        if(confirm('क्या आप वाकई इस नोट्स को हटाना चाहते हैं?')) {
+            let storedNotes = JSON.parse(localStorage.getItem('mppsc_live_notes_' + currentTab)) || [];
+            storedNotes.splice(index, 1);
+            localStorage.setItem('mppsc_live_notes_' + currentTab, JSON.stringify(storedNotes));
+            loadNotes();
+        }
+    }
+</script>
 
 </body>
 </html>
