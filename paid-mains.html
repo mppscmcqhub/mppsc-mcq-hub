@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <title>MPPSC 2027 - Premium Mains Course</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -10,12 +11,14 @@
         .header { text-align: center; margin-bottom: 35px; background: #2563eb; color: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         .header h1 { font-size: 1.8rem; margin-bottom: 5px; }
         .container { max-width: 900px; margin: 0 auto; }
-        .mains-card { background: white; border-radius: 12px; padding: 25px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 6px solid #2563eb; }
+        .mains-card { background: white; border-radius: 12px; padding: 25px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 6px solid #2563eb; text-align: left; }
         .q-badge { background-color: #eff6ff; color: #2563eb; padding: 4px 10px; border-radius: 4px; font-weight: bold; font-size: 0.85rem; display: inline-block; margin-bottom: 10px; }
         .question-text { font-size: 1.2rem; font-weight: bold; color: #111; margin-bottom: 15px; line-height: 1.5; }
         .btn-download-mains { display: inline-block; background-color: #f39c12; color: white; padding: 12px 25px; text-decoration: none; font-weight: bold; border-radius: 6px; box-shadow: 0 3px 6px rgba(0,0,0,0.1); transition: 0.2s; }
         .btn-download-mains:hover { background-color: #d6860b; }
+        .no-data { text-align: center; padding: 40px; color: #666; font-size: 1.1rem; font-weight: 500; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
         .back-home { display: inline-block; margin-top: 20px; color: #0d47a1; text-decoration: none; font-weight: bold; }
+        .back-home:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -26,22 +29,50 @@
         <p>यहाँ मुख्य परीक्षा के लिए 500 उच्च स्तरीय प्रश्न और उनके मॉडल उत्तर (Model Answers) दिए गए हैं।</p>
     </div>
 
-    <!-- Mains प्रश्न 1 -->
-    <div class="mains-card">
-        <div class="q-badge">Paper-1 | Part-B (Geography)</div>
-        <div class="question-text">प्रश्न 1. मध्य प्रदेश की प्रमुख जनजातियों की सामाजिक और आर्थिक समस्याओं का आलोचनात्मक मूल्यांकन कीजिए। (11 अंक / 200 शब्द)</div>
-        <a href="#" class="btn-download-mains">📥 Download Model Answer PDF</a>
-    </div>
-
-    <!-- Mains प्रश्न 2 -->
-    <div class="mains-card">
-        <div class="q-badge">Paper-1 | Part-A (History & Culture)</div>
-        <div class="question-text">प्रश्न 2. स्वतंत्रता आंदोलन में मध्य प्रदेश की जनजातीय विभूतियों के योगदान पर प्रकाश डालिए। (5 अंक / 50 शब्द)</div>
-        <a href="#" class="btn-download-mains">📥 Download Model Answer PDF</a>
-    </div>
+    <!-- 🔄 यहाँ एडमिन पैनल (dashboard.html) से लाइव प्रश्न अपने आप लोड होंगे -->
+    <div id="mainsQuestionsContainer"></div>
 
     <a href="index.html" class="back-home">← मुख्य वेबसाइट पर वापस जाएँ</a>
 </div>
+
+<script>
+    window.onload = function() {
+        renderMainsQuestions();
+    };
+
+    function renderMainsQuestions() {
+        var container = document.getElementById('mainsQuestionsContainer');
+        if(!container) return;
+        container.innerHTML = '';
+        
+        var list = [];
+        try {
+            // एडमिन पैनल की लोकल मेमोरी से डेटा प्राप्त करना
+            var localList = localStorage.getItem('mppsc_live_notes_mains');
+            if(localList) list = JSON.parse(localList);
+        } catch(e) { list = []; }
+        
+        // यदि एडमिन ने अभी तक कोई प्रश्न अपलोड नहीं किया है
+        if(list.length === 0) {
+            container.innerHTML = '<div class="no-data">🔒 मुख्य परीक्षा के प्रश्न एवं मॉडल उत्तर एडमिन द्वारा जल्द ही यहाँ लाइव अपलोड किए जा रहे हैं। कृपया प्रतीक्षा करें!</div>';
+            return;
+        }
+
+        // हर एक लाइव प्रश्न के लिए सुंदर कार्ड बनाना
+        list.forEach(function(item) {
+            var card = document.createElement('div');
+            card.className = 'mains-card';
+            
+            var pdfBtnHTML = item.pdf ? '<a href="' + item.pdf + '" target="_blank" class="btn-download-mains">📥 Download Model Answer PDF</a>' : '';
+            
+            card.innerHTML = '<div class="q-badge">' + item.title + '</div>' +
+                             '<div class="question-text">' + item.text + '</div>' + 
+                             pdfBtnHTML;
+                             
+            container.appendChild(card);
+        });
+    }
+</script>
 
 </body>
 </html>
