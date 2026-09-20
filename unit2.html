@@ -6,14 +6,15 @@
 <title>MPPSC MCQ Hub - Unit Tests</title>
 <style>
   body { font-family: Arial, sans-serif; background: #eaf2fc; color: #072c6c; margin: 0; padding: 0; }
-  header { background: #083b8a; color: #fff; padding: 15px 25px; display: flex; justify-content: space-between; align-items: center; }
-  header h1 { font-size: 22px; margin: 0; }
-  header a { color: white; text-decoration: none; font-weight: bold; }
+  .navbar-custom { background-color: #0d47a1; color: white; padding: 10px 25px; display: flex; align-items: center; justify-content: space-between; min-height: 80px; }
+  .navbar-brand { font-size: 1.4rem; font-weight: bold; text-decoration: none; color: white; display: flex; align-items: center; gap: 12px; }
+  .navbar-brand img { height: 65px; width: 65px; border-radius: 50%; object-fit: cover; border: 2px solid white; }
+  .btn-home { background-color: white; color: #0d47a1; padding: 6px 15px; border-radius: 4px; font-weight: bold; text-decoration: none; font-size: 0.9rem; }
   .container { padding: 20px; max-width: 1200px; margin: auto; }
   .back-btn { display: inline-block; margin-bottom: 20px; padding: 10px 20px; background: #083b8a; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; }
-  .unit-title { font-size: 28px; margin-bottom: 20px; border-bottom: 3px solid #083b8a; padding-bottom: 10px; }
+  .unit-title { font-size: 24px; margin: 20px 0; border-bottom: 3px solid #083b8a; padding-bottom: 10px; text-align: center; font-weight: bold; }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; }
-  .test-card { background: white; padding: 20px; border-radius: 12px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+  .test-card { background: white; padding: 20px; border-radius: 12px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #eaeaea; }
   .test-card h4 { margin: 0 0 10px 0; font-size: 18px; }
   .btn { display: inline-block; background: #0b63ff; color: white; text-decoration: none; padding: 10px 15px; border-radius: 8px; font-weight: bold; border: none; cursor: pointer; width: 100%; box-sizing: border-box; }
   .btn:hover { background: #0046c7; }
@@ -21,10 +22,14 @@
 </head>
 <body>
 
-<header>
-  <h1>MPPSC MCQ Hub</h1>
-  <a href="index.html">🏠 Home</a>
-</header>
+<!-- हेडर में लोगो और नया डिज़ाइन जोड़ दिया गया है -->
+<div class="navbar-custom">
+  <a class="navbar-brand" href="index.html">
+    <img src="my-logo.jpg" alt="Logo">
+    <span>MPPSC MCQ Hub V14</span>
+  </a>
+  <a href="index.html" class="btn-home">🏠 Home</a>
+</div>
 
 <div class="container">
   <a href="index.html" class="back-btn">⬅ Back to Dashboard</a>
@@ -33,34 +38,33 @@
 </div>
 
 <script>
-  // 1. फ़ाइल के नाम से ऑटोमैटिक पता करें कि यह कौन सी Unit है (जैसे: unit9.html से 9 निकालेगा)
+  // 1. फ़ाइल के नाम से ऑटोमैटिक पता करें कि यह कौन सी Unit है
   const pageName = window.location.pathname.split("/").pop();
   const unitMatch = pageName.match(/\d+/);
   const currentUnit = unitMatch ? Number(unitMatch[0]) : 1;
 
-  // यूनिट के नाम (MPPSC सिलेबस के अनुसार)
+  // 🔴 यहाँ नए सिलेबस के अनुसार बिल्कुल सही नाम अपडेट कर दिए गए हैं
   const unitNames = {
-    1: "इतिहास (History)",
-    2: "राजव्यवस्था (Polity)",
-    3: "भूगोल (Geography)",
-    4: "अर्थशास्त्र (Economics)",
-    5: "विज्ञान (Science)",
-    6: "पर्यावरण (Environment)",
-    7: "करेंट अफेयर्स (Current Affairs)",
-    8: "सामान्य विज्ञान (General Science)",
-    9: "म.प्र. विशेष (MP Special)",
-    10: "समय अभ्यास (Aptitude/Practice)"
+    1: "भारत का इतिहास",
+    2: "मध्यप्रदेश का इतिहास, संस्कृति एवं साहित्य",
+    3: "भारत का भूगोल",
+    4: "मध्यप्रदेश का भूगोल",
+    5: "भारत एवं म.प्र. की संवैधानिक व्यवस्था",
+    6: "भारत एवं म.प्र. की अर्थव्यवस्था",
+    7: "विज्ञान, पर्यावरण एवं स्वास्थ्य",
+    8: "अंतर्राष्ट्रीय, राष्ट्रीय एवं प्रादेशिक घटनाएं",
+    9: "सूचना एवं संचार प्रौद्योगिकी (ICT)",
+    10: "म.प्र. की जनजातियां: विरासत व लोक संस्कृति"
   };
 
-  // स्क्रीन पर टाइटल सेट करें
-  document.getElementById("page-title").innerText = `📚 Unit ${currentUnit} : ${unitNames[currentUnit] || "Practice Tests"}`;
+  // स्क्रीन पर सही टाइटल सेट करें
+  document.getElementById("page-title").innerText = `📑 Unit ${currentUnit} : ${unitNames[currentUnit] || "Practice Tests"}`;
 
-  // 2. ऑटोमैटिक 1 से 20 टेस्ट के सही लिंक जनरेट करें
+  // 2. ऑटोमैटिक 1 से 20 टेस्ट के लिंक जनरेट करें
   const grid = document.getElementById("tests-grid");
   let html = "";
 
   for (let t = 1; t <= 20; t++) {
-    // 🔴 यहाँ बिल्कुल सही URL डायनामिक तरीके से बन रहा है
     const correctUrl = `quiz.html?unit=${currentUnit}&test=${t}`;
 
     html += `
