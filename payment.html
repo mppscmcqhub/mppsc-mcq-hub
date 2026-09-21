@@ -1,91 +1,15 @@
-<!DOCTYPE html>
-<html lang="hi" class="notranslate" translate="no">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google" content="notranslate">
-    <title>MPPSC Premium Payment Gateway</title>
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f4f6f9; text-align: center; padding: 40px 20px; }
-        .payment-box { background: white; max-width: 480px; margin: 0 auto; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-top: 5px solid #ff9800; }
-        h2 { color: #e65100; margin-bottom: 10px; font-size: 22px; }
-        p { color: #555; font-size: 15px; line-height: 1.6; margin-bottom: 15px; }
-        .price-tag { font-size: 22px; font-weight: bold; color: #2e7d32; margin: 15px 0; background: #e8f5e9; padding: 8px; border-radius: 6px; display: inline-block; }
-        
-        .upi-pay-box { margin: 25px auto; padding: 20px; border: 2px dashed #ff9800; border-radius: 12px; background: #fffbe6; max-width: 100%; text-align: center; }
-        .direct-pay-btn { display: inline-block; background-color: #0d47a1; color: white; padding: 14px 30px; text-decoration: none; font-size: 18px; font-weight: bold; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.15); transition: 0.3s; width: 100%; }
-        .direct-pay-btn:hover { background-color: #0a3980; }
-        .upi-id-display { font-size: 16px; font-weight: bold; color: #333; background: #fff; padding: 8px; border: 1px solid #ccc; border-radius: 6px; display: inline-block; margin-top: 5px; }
-        
-        .mppsc-badge { background-color: #ff9800; color: white; padding: 6px 18px; font-weight: bold; border-radius: 20px; font-size: 14px; margin-bottom: 10px; display: inline-block; }
-        .note-text { color: #d32f2f; font-weight: bold; font-size: 14px; margin-top: 15px; line-height: 1.4; text-align: center; }
-        .whatsapp-btn { display: inline-block; background-color: #25d366; color: white; padding: 12px 25px; text-decoration: none; font-size: 16px; font-weight: bold; border-radius: 6px; margin-top: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s; width: 100%; }
-        .whatsapp-btn:hover { background-color: #1ebd59; }
-        .back-link { display: inline-block; margin-top: 25px; color: #0d47a1; text-decoration: none; font-size: 15px; font-weight: bold; }
-        .back-link:hover { text-decoration: underline; }
-
-        /* सीधा कोर्स एक्सेस बटन स्टाइल */
-        .course-access-box { margin-top: 25px; padding-top: 20px; border-top: 2px solid #ddd; text-align: center; }
-        .btn-access { display: block; color: white; padding: 12px 20px; text-decoration: none; font-weight: bold; border-radius: 6px; margin: 10px 0; font-size: 16px; box-shadow: 0 3px 6px rgba(0,0,0,0.15); }
-        .bg-pre { background-color: #4caf50; }
-        .bg-pre:hover { background-color: #388e3c; }
-        .bg-main { background-color: #e91e63; }
-        .bg-main:hover { background-color: #c2185b; }
-    </style>
-</head>
+<!doctype html>
+<html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prelims Paid Access</title><link rel="stylesheet" href="assets/css/style.css"></head>
 <body>
-
-    <div class="payment-box notranslate" translate="no">
-        <h2>🔥 MPPSC 2027 Premium Course 🔥</h2>
-        <p><strong>MPPSC 2027</strong> की 100% सटीक तैयारी के लिए <strong>100 प्री टेस्ट (Pre Tests) + 500 मुख्य परीक्षा प्रश्न (Mains Questions) और उनकी स्पेशल PDFs</strong> तुरंत अनलॉक करने के लिए नीचे भुगतान करें।</p>
-        
-        <div class="price-tag">💰 Pre 100 Tests: ₹29 | Mains 500 Qs: ₹99</div>
-
-        <br>
-        <div class="mppsc-badge">🏢 MPPSC MCQ Hub Official Account</div>
-
-        <div class="upi-pay-box notranslate" translate="no">
-            <!-- मोबाइल उपयोगकर्ताओं के लिए सीधा UPI पेमेंट लिंक (GPay, PhonePe, Paytm काम करेगा) -->
-            <a href="upi://pay?pa=mppsc@postbank&pn=RAJESH%20KUMAR%20OJHA&cu=INR&tn=MPPSC%202027%20Premium" class="direct-pay-btn">
-                ⚡ Click Here to Pay via Any UPI App
-            </a>
-            <p style="font-size: 14px; color: #666; font-weight: 500;">(मोबाइल यूजर्स ऊपर क्लिक करके सीधे GPay/PhonePe से पे करें)</p>
-            
-            <div style="margin-top: 15px; border-top: 1px solid #ddd; padding-top: 15px;">
-                <p style="font-size: 14px; color: #444; margin-bottom: 2px;">कंप्यूटर यूज़र्स इस UPI ID पर पेमेंट भेजें:</p>
-                <div class="upi-id-display">mppsc@postbank</div>
-            </div>
-        </div>
-
-        <p style="font-size: 13px; color: #666; margin-top: 8px;">
-            <strong>Account Holder Name:</strong> RAJESH KUMAR OJHA <br>
-            <span style="font-size: 11px; color: #999;">(MPPSC MCQ Hub Verified Receiving Merchant)</span>
-        </p>
-
-        <div class="note-text">
-            ⚠️ महत्वपूर्ण सूचना: पेमेंट करने के बाद उसका स्क्रीनशॉट लें। कोर्स तुरंत चालू करवाने के लिए नीचे दिए गए बटन पर क्लिक करके स्क्रीनशॉट व्हाट्सएप पर भेजें।
-        </div>
-
-        <!-- ⚠️ 'YOUR_PHONE_NUMBER' को अपने असली 10 अंकों के मोबाइल नंबर से बदलें (जैसे: 919876543210) -->
-        <a href="https://wa.me." target="_blank" class="whatsapp-btn">
-            💬 Send Screenshot on WhatsApp
-        </a>
-
-        <!-- 🔴 यहाँ भुगतान पूरा होने के बाद सीधा एक्सेस बटन्स जोड़ दिए गए हैं -->
-        <div class="course-access-box">
-            <p style="font-weight: bold; color: #333; margin-bottom: 5px;">👇 भुगतान पूरा होने पर सीधे कोर्स में प्रवेश करें 👇</p>
-            
-            <!-- प्रीलिम्स का भुगतान करने वाले छात्रों के लिए बटन -->
-            <a href="paid-quiz.html" class="btn-access bg-pre">🟢 Start Paid Prelims Course (₹29)</a>
-            
-            <!-- मुख्य परीक्षा का भुगतान करने वाले छात्रों के लिए बटन -->
-            <a href="paid-mains.html" class="btn-access bg-main">💖 Start Paid Mains Course (₹99)</a>
-        </div>
-
-        <br>
-        <a href="index.html" class="back-link">← वापस मुख्य वेबसाइट पर जाएँ</a>
-    </div>
-
-</body>
-</html>
+<header class="nav"><div class="nav-in"><div class="brand">MPPSC MCQ Hub · PRELIMS</div>
+<a href="prelims.html" style="color:#fff">Prelims Home</a></div></header>
+<main class="container"><section class="hero"><h1>Paid Prelims Access</h1>
+<p>यह page केवल Prelims Paid Course के access के लिए है।</p></section>
+<div class="card" style="max-width:600px;margin:auto">
+<h2>Payment Verification</h2>
+<p>नीचे का button केवल testing/demo के लिए है। Production में इसे आपके payment gateway + server verification से जोड़ना होगा।</p>
+<a class="btn red" href="#" onclick="unlockDemo();location.href='prelims.html';return false;">Demo: Unlock Paid Prelims</a>
+</div></main>
+<script src="assets/js/common.js"></script>
+</body></html>
