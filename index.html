@@ -4,772 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-
     <title>MPPSC MCQ Hub V14</title>
-
     <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: #eef4ff; font-family: 'Segoe UI', sans-serif; color: #333; line-height: 1.5; }
+        .navbar-custom { background-color: #0d47a1; color: white; padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; min-height: 80px; }
+        .navbar-brand { font-size: 1.4rem; font-weight: bold; text-decoration: none; color: white; }
+        .btn-login { background-color: white; color: #0d47a1; border: none; padding: 6px 15px; border-radius: 4px; font-weight: bold; text-decoration: none; font-size: 0.9rem; }
+        .container-fluid { width: 100%; padding: 15px; margin: 0 auto; }
+        .section-title { font-size: 1.3rem; font-weight: bold; color: #1a237e; margin: 25px 0 15px 0; border-left: 5px solid #0d47a1; padding-left: 10px; }
+        
+        /* ग्रिड सिस्टम */
+        .units-grid { display: flex !important; flex-wrap: wrap !important; margin: -12px !important; width: 100% !important; }
+        .unit-col { width: 25% !important; padding: 12px !important; }
+        @media (max-width: 992px) { .unit-col { width: 33.33% !important; } }
+        @media (max-width: 768px) { .unit-col { width: 50% !important; } }
+        @media (max-width: 480px) { .unit-col { width: 100% !important; } }
+        
+        /* मुख्य कार्ड डिज़ाइन */
+        .unit-card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; height: 320px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #eaeaea; }
+        .unit-icon { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px auto; color: white; font-size: 1.2rem; font-weight: bold; }
+        .unit-title { font-size: 1.05rem; font-weight: bold; color: #111; }
+        .unit-desc { color: #666; font-size: 0.85rem; min-height: 50px; display: flex; align-items: center; justify-content: center; text-align: center; }
+        
+        /* बटन्स का डिज़ाइन */
+        .btn-open { background-color: #0d47a1; color: white; padding: 10px 0; width: 100%; border-radius: 20px; font-weight: 600; font-size: 0.95rem; text-decoration: none; display: block; text-align: center; transition: background 0.2s; }
+        .btn-open:hover { background-color: #0a3980; }
+        
+        /* पेड कोर्स के स्पेशल रंग */
+        .prelims-card { background-color: #fff5f5 !important; border: 2px dashed #f56565 !important; }
+        .prelims-title { color: #c53030 !important; font-size: 1.2rem !important; font-weight: 900 !important; }
+        .btn-prelims-paid { background-color: #e53e3e !important; }
+        .btn-prelims-paid:hover { background-color: #c53030 !important; }
+        
+        .mains-card { background-color: #f0f5ff !important; border: 2px dashed #4299e1 !important; }
+        .mains-title { color: #2b6cb0 !important; font-size: 1.2rem !important; font-weight: 900 !important; }
+        .btn-mains-paid { background-color: #3182ce !important; }
+        .btn-mains-paid:hover { background-color: #2b6cb0 !important; }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background-color: #eef4ff;
-            font-family: 'Segoe UI', sans-serif;
-            color: #333;
-            line-height: 1.5;
-        }
-
-        .navbar-custom {
-            background-color: #0d47a1;
-            color: white;
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            min-height: 80px;
-        }
-
-        .navbar-brand {
-            font-size: 1.4rem;
-            font-weight: bold;
-            text-decoration: none;
-            color: white;
-        }
-
-        .btn-login {
-            background-color: white;
-            color: #0d47a1;
-            border: none;
-            padding: 6px 15px;
-            border-radius: 4px;
-            font-weight: bold;
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-
-        .container-fluid {
-            width: 100%;
-            padding: 15px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #1a237e;
-            margin: 25px 0 15px 0;
-            border-left: 5px solid #0d47a1;
-            padding-left: 10px;
-        }
-
-        /* =========================
-           GRID SYSTEM
-        ========================= */
-
-        .units-grid {
-            display: flex !important;
-            flex-wrap: wrap !important;
-            margin: -12px !important;
-            width: 100% !important;
-        }
-
-        .unit-col {
-            width: 25% !important;
-            padding: 12px !important;
-        }
-
-        @media (max-width: 992px) {
-            .unit-col {
-                width: 33.33% !important;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .unit-col {
-                width: 50% !important;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .unit-col {
-                width: 100% !important;
-            }
-        }
-
-        /* =========================
-           MAIN CARD
-        ========================= */
-
-        .unit-card {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            text-align: center;
-            height: 320px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            border: 1px solid #eaeaea;
-        }
-
-        .unit-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px auto;
-            color: white;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-
-        .unit-title {
-            font-size: 1.05rem;
-            font-weight: bold;
-            color: #111;
-        }
-
-        .unit-desc {
-            color: #666;
-            font-size: 0.85rem;
-            min-height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        /* =========================
-           BUTTON
-        ========================= */
-
-        .btn-open {
-            background-color: #0d47a1;
-            color: white;
-            padding: 10px 0;
-            width: 100%;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            text-decoration: none;
-            display: block;
-            text-align: center;
-            transition: background 0.2s;
-        }
-
-        .btn-open:hover {
-            background-color: #0a3980;
-        }
-
-        /* =========================
-           PAID PRELIMS
-        ========================= */
-
-        .prelims-card {
-            background-color: #fff5f5 !important;
-            border: 2px dashed #f56565 !important;
-        }
-
-        .prelims-title {
-            color: #c53030 !important;
-            font-size: 1.2rem !important;
-            font-weight: 900 !important;
-        }
-
-        .btn-prelims-paid {
-            background-color: #e53e3e !important;
-        }
-
-        .btn-prelims-paid:hover {
-            background-color: #c53030 !important;
-        }
-
-        /* =========================
-           PAID MAINS
-        ========================= */
-
-        .mains-card {
-            background-color: #f0f5ff !important;
-            border: 2px dashed #4299e1 !important;
-        }
-
-        .mains-title {
-            color: #2b6cb0 !important;
-            font-size: 1.2rem !important;
-            font-weight: 900 !important;
-        }
-
-        .btn-mains-paid {
-            background-color: #3182ce !important;
-        }
-
-        .btn-mains-paid:hover {
-            background-color: #2b6cb0 !important;
-        }
-
-        /* =========================
-           FREE UNIT COLORS
-        ========================= */
-
-        .u1 {
-            background-color: #2196f3;
-        }
-
-        .u2 {
-            background-color: #4caf50;
-        }
-
-        .u3 {
-            background-color: #673ab7;
-        }
-
-        .u4 {
-            background-color: #ff9800;
-        }
-
-        .u5 {
-            background-color: #009688;
-        }
-
-        .u6 {
-            background-color: #e91e63;
-        }
-
-        .u7 {
-            background-color: #00bcd4;
-        }
-
-        .u8 {
-            background-color: #ff5722;
-        }
-
-        .u9 {
-            background-color: #9c27b0;
-        }
-
-        .u10 {
-            background-color: #3f51b5;
-        }
-
+        /* फ्री यूनिट्स के बैकग्राउंड कलर्स */
+        .u1 { background-color: #2196f3; } .u2 { background-color: #4caf50; } .u3 { background-color: #673ab7; } .u4 { background-color: #ff9800; } .u5 { background-color: #009688; }
+        .u6 { background-color: #e91e63; } .u7 { background-color: #00bcd4; } .u8 { background-color: #ff5722; } .u9 { background-color: #9c27b0; } .u10 { background-color: #3f51b5; }
     </style>
 </head>
-
 <body>
-
-    <!-- =========================
-         NAVBAR
-    ========================= -->
-
     <div class="navbar-custom">
-
-        <a class="navbar-brand"
-           href="#"
-           style="display:flex;align-items:center;gap:12px;text-decoration:none;color:white;">
-
-            <img src="my-logo.jpg"
-                 alt="MPPSC MCQ Hub Logo"
-                 style="height:65px;width:65px;border-radius:50%;object-fit:cover;border:2px solid white;display:inline-block;">
-
-            <span>
-                MPPSC MCQ Hub V14
-            </span>
-
+        <a class="navbar-brand" href="#" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: white;">
+            <img src="my-logo.jpg" alt="MPPSC MCQ Hub Logo" style="height: 65px; width: 65px; border-radius: 50%; object-fit: cover; border: 2px solid white; display: inline-block;">
+            <span>MPPSC MCQ Hub V14</span>
         </a>
-
-        <a href="#" class="btn-login">
-            🔑 Login
-        </a>
-
+        <a href="#" class="btn-login">🔑 Login</a>
     </div>
-
-
-    <!-- =========================
-         MAIN CONTENT
-    ========================= -->
 
     <div class="container-fluid">
-
-        <div class="section-title">
-            Select Unit / इकाई चुनें
-        </div>
-
-
+        <div class="section-title">Select Unit / इकाई चुनें</div>
         <div class="units-grid">
+            <!-- 10 फ्री यूनिट्स के कार्ड्स -->
+            <div class="unit-col"><div class="unit-card"><div><div class="unit-icon u1">1</div><div class="unit-title">Unit 1</div><div class="unit-desc">भारत का इतिहास</div></div><div><a href="unit1.html" class="btn-open">Open Unit</a></div></div></div>
+            <div class="unit-col"><div class="unit-card"><div><div class="unit-icon u2">2</div><div class="unit-title">Unit 2</div><div class="unit-desc">मध्यप्रदेश का इतिहास, संस्कृति एवं साहित्य</div></div><div><a href="unit2.html" class="btn-open">Open Unit</a></div></div></div>
+            <div class="unit-col"><div class="unit-card"><div><div class="unit-icon u3">3</div><div class="unit-title">Unit 3</div><div class="unit-desc">भारत का भूगोल</div></div><div><a href="unit3.html" class="btn-open">Open Unit</a></div></div></div>
+            <div class="unit-col"><div class="unit-card"><div><div class="unit-icon u4">4</div><div class="unit-title">Unit 4</div><div class="unit-desc">मध्यप्रदेश का भूगोल</div></div><div><a href="unit4.html" class="btn-open">Open Unit</a></div></div></div>
+            <div class="unit-col"><div class="unit-card"><div><div class="unit-icon u5">5</div><div class="unit-title">Unit 5</div><div class="unit-desc">भारत एवं म.प्र. की संवैधानिक व्यवस्था</div></div><div><a href="unit5.html" class="btn-open">Open Unit</a></div></div></div>
+            <div class="unit-col"><div class="unit-card"><div><div class="unit-icon u6">6</div><div class="unit-title">Unit 6</div><div class="unit-desc">भारत एवं म.प्र. की अर्थव्यवस्था</div></div><div><a href="unit6.html" class="btn-open">Open Unit</a></div></div></div>
+            <div class="unit-col"><div class="unit-card"><div><div class="unit-icon u7">7</div><div class="unit-title">Unit 7</div><div class="unit-desc">विज्ञान, पर्यावरण एवं स्वास्थ्य</div></div><div><a href="unit7.html" class="btn-open">Open Unit</a></div></div></div>
+            <div class="unit-col"><div class="unit-card"><div><div class="unit-icon u8">8</div><div class="unit-title">Unit 8</div><div class="unit-desc">अंतर्राष्ट्रीय, राष्ट्रीय एवं प्रादेशिक घटनाएं</div></div><div><a href="unit8.html" class="btn-open">Open Unit</a></div></div></div>
+            <div class="unit-col"><div class="unit-card"><div><div class="unit-icon u9">9</div><div class="unit-title">Unit 9</div><div class="unit-desc">सूचना एवं संचार प्रौद्योगिकी (ICT)</div></div><div><a href="unit9.html" class="btn-open">Open Unit</a></div></div></div>
+            <div class="unit-col"><div class="unit-card"><div><div class="unit-icon u10">10</div><div class="unit-title">Unit 10</div><div class="unit-desc">म.प्र. की जनजातियां: विरासत व लोक संस्कृति</div></div><div><a href="unit10.html" class="btn-open">Open Unit</a></div></div></div>
 
-
-            <!-- =====================================
-                 UNIT 1
-            ====================================== -->
-
+            <!-- 11वां कार्ड: PRELIMS Paid Course (लाल रंग की विशेष ग्रिड थीम) -->
             <div class="unit-col">
-
-                <div class="unit-card">
-
-                    <div>
-
-                        <div class="unit-icon u1">
-                            1
-                        </div>
-
-                        <div class="unit-title">
-                            Unit 1
-                        </div>
-
-                        <div class="unit-desc">
-                            भारत का इतिहास
-                        </div>
-
-                    </div>
-
-                    <div>
-
-                        <a href="prelims-tests/unit-01/index.html"
-                           class="btn-open">
-                            Open Unit
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- =====================================
-                 UNIT 2
-            ====================================== -->
-
-            <div class="unit-col">
-
-                <div class="unit-card">
-
-                    <div>
-
-                        <div class="unit-icon u2">
-                            2
-                        </div>
-
-                        <div class="unit-title">
-                            Unit 2
-                        </div>
-
-                        <div class="unit-desc">
-                            मध्यप्रदेश का इतिहास, संस्कृति एवं साहित्य
-                        </div>
-
-                    </div>
-
-                    <div>
-
-                        <a href="prelims-tests/unit-02/index.html"
-                           class="btn-open">
-                            Open Unit
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- =====================================
-                 UNIT 3
-            ====================================== -->
-
-            <div class="unit-col">
-
-                <div class="unit-card">
-
-                    <div>
-
-                        <div class="unit-icon u3">
-                            3
-                        </div>
-
-                        <div class="unit-title">
-                            Unit 3
-                        </div>
-
-                        <div class="unit-desc">
-                            भारत का भूगोल
-                        </div>
-
-                    </div>
-
-                    <div>
-
-                        <a href="prelims-tests/unit-03/index.html"
-                           class="btn-open">
-                            Open Unit
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- =====================================
-                 UNIT 4
-            ====================================== -->
-
-            <div class="unit-col">
-
-                <div class="unit-card">
-
-                    <div>
-
-                        <div class="unit-icon u4">
-                            4
-                        </div>
-
-                        <div class="unit-title">
-                            Unit 4
-                        </div>
-
-                        <div class="unit-desc">
-                            मध्यप्रदेश का भूगोल
-                        </div>
-
-                    </div>
-
-                    <div>
-
-                        <a href="prelims-tests/unit-04/index.html"
-                           class="btn-open">
-                            Open Unit
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- =====================================
-                 UNIT 5
-            ====================================== -->
-
-            <div class="unit-col">
-
-                <div class="unit-card">
-
-                    <div>
-
-                        <div class="unit-icon u5">
-                            5
-                        </div>
-
-                        <div class="unit-title">
-                            Unit 5
-                        </div>
-
-                        <div class="unit-desc">
-                            भारत एवं म.प्र. की संवैधानिक व्यवस्था
-                        </div>
-
-                    </div>
-
-                    <div>
-
-                        <a href="prelims-tests/unit-05/index.html"
-                           class="btn-open">
-                            Open Unit
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- =====================================
-                 UNIT 6
-            ====================================== -->
-
-            <div class="unit-col">
-
-                <div class="unit-card">
-
-                    <div>
-
-                        <div class="unit-icon u6">
-                            6
-                        </div>
-
-                        <div class="unit-title">
-                            Unit 6
-                        </div>
-
-                        <div class="unit-desc">
-                            भारत एवं म.प्र. की अर्थव्यवस्था
-                        </div>
-
-                    </div>
-
-                    <div>
-
-                        <a href="prelims-tests/unit-06/index.html"
-                           class="btn-open">
-                            Open Unit
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- =====================================
-                 UNIT 7
-            ====================================== -->
-
-            <div class="unit-col">
-
-                <div class="unit-card">
-
-                    <div>
-
-                        <div class="unit-icon u7">
-                            7
-                        </div>
-
-                        <div class="unit-title">
-                            Unit 7
-                        </div>
-
-                        <div class="unit-desc">
-                            विज्ञान, पर्यावरण एवं स्वास्थ्य
-                        </div>
-
-                    </div>
-
-                    <div>
-
-                        <a href="prelims-tests/unit-07/index.html"
-                           class="btn-open">
-                            Open Unit
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- =====================================
-                 UNIT 8
-            ====================================== -->
-
-            <div class="unit-col">
-
-                <div class="unit-card">
-
-                    <div>
-
-                        <div class="unit-icon u8">
-                            8
-                        </div>
-
-                        <div class="unit-title">
-                            Unit 8
-                        </div>
-
-                        <div class="unit-desc">
-                            अंतर्राष्ट्रीय, राष्ट्रीय एवं प्रादेशिक घटनाएं
-                        </div>
-
-                    </div>
-
-                    <div>
-
-                        <a href="prelims-tests/unit-08/index.html"
-                           class="btn-open">
-                            Open Unit
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- =====================================
-                 UNIT 9
-            ====================================== -->
-
-            <div class="unit-col">
-
-                <div class="unit-card">
-
-                    <div>
-
-                        <div class="unit-icon u9">
-                            9
-                        </div>
-
-                        <div class="unit-title">
-                            Unit 9
-                        </div>
-
-                        <div class="unit-desc">
-                            सूचना एवं संचार प्रौद्योगिकी (ICT)
-                        </div>
-
-                    </div>
-
-                    <div>
-
-                        <a href="prelims-tests/unit-09/index.html"
-                           class="btn-open">
-                            Open Unit
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- =====================================
-                 UNIT 10
-            ====================================== -->
-
-            <div class="unit-col">
-
-                <div class="unit-card">
-
-                    <div>
-
-                        <div class="unit-icon u10">
-                            10
-                        </div>
-
-                        <div class="unit-title">
-                            Unit 10
-                        </div>
-
-                        <div class="unit-desc">
-                            म.प्र. की जनजातियां: विरासत व लोक संस्कृति
-                        </div>
-
-                    </div>
-
-                    <div>
-
-                        <a href="prelims-tests/unit-10/index.html"
-                           class="btn-open">
-                            Open Unit
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- =====================================
-                 PAID PRELIMS
-            ====================================== -->
-
-            <div class="unit-col">
-
                 <div class="unit-card prelims-card">
-
                     <div>
-
-                        <div class="prelims-title"
-                             style="margin-top:15px;">
-                            PRELIMS
-                        </div>
-
-                        <div class="unit-desc"
-                             style="font-weight:bold;color:#444;">
-
-                            Paid Course<br>
-                            MPPSC 2027
-
-                        </div>
-
+                        <div class="prelims-title" style="margin-top: 15px;">PRELIMS</div>
+                        <div class="unit-desc" style="font-weight: bold; color: #444;">Paid Course<br>MPPSC 2027</div>
                     </div>
-
                     <div>
-
-                        <a href="payment.html"
-                           class="btn-open btn-prelims-paid">
-
-                            Join Paid Pre (₹29)
-
-                        </a>
-
+                        <a href="payment.html" class="btn-open btn-prelims-paid">Join Paid Pre (₹29)</a>
                     </div>
-
                 </div>
-
             </div>
 
-
-            <!-- =====================================
-                 PAID MAINS
-            ====================================== -->
-
+            <!-- 12वां कार्ड: MAINS Paid Course (नीले रंग की विशेष ग्रिड थीम) -->
             <div class="unit-col">
-
                 <div class="unit-card mains-card">
-
                     <div>
-
-                        <div class="mains-title"
-                             style="margin-top:15px;">
-
-                            MAINS
-
-                        </div>
-
-                        <div class="unit-desc"
-                             style="font-weight:bold;color:#444;">
-
-                            Paid Course<br>
-                            MPPSC 2027
-
-                        </div>
-
+                        <div class="mains-title" style="margin-top: 15px;">MAINS</div>
+                        <div class="unit-desc" style="font-weight: bold; color: #444;">Paid Course<br>MPPSC 2027</div>
                     </div>
-
                     <div>
-
-                        <a href="paid-mains.html"
-                           class="btn-open btn-mains-paid">
-
-                            Join Paid Mains (₹99)
-
-                        </a>
-
+                        <a href="paid-mains.html" class="btn-open btn-mains-paid">Join Paid Mains (₹99)</a>
                     </div>
-
                 </div>
-
             </div>
-
-
         </div>
-
     </div>
-
 </body>
 </html>
