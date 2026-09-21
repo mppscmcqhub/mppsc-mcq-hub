@@ -23,6 +23,7 @@
         input, select, textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; box-sizing: border-box; }
         .btn-submit { background-color: #ff9800; color: white; border: none; padding: 12px; font-size: 1.1rem; font-weight: bold; border-radius: 6px; cursor: pointer; margin-top: 15px; width: 100%; }
         .back-link { display: inline-block; margin-top: 25px; color: #0d47a1; text-decoration: none; font-weight: bold; }
+        .no-data { color: #888; font-style: italic; text-align: center; padding: 10px; }
     </style>
 </head>
 <body>
@@ -35,6 +36,7 @@
         <button class="main-tab tab-main" id="btnToggleMain" onclick="switchMode('main')">📚 MAINS (500 Qs)</button>
     </div>
 
+    <!-- PRELIMS SECTION -->
     <div id="prelimsSection" class="section-box">
         <div class="unit-grid">
             <button class="unit-btn pre-u-btn active" id="pbtn1" onclick="filterPreUnit(1)">Unit 1</button>
@@ -48,6 +50,8 @@
             <button class="unit-btn pre-u-btn" id="pbtn9" onclick="filterPreUnit(9)">Unit 9</button>
             <button class="unit-btn pre-u-btn" id="pbtn10" onclick="filterPreUnit(10)">Unit 10</button>
         </div>
+        
+        <h4 style="margin-bottom: 10px; color: #1a237e;">📋 वर्तमान में अपलोडेड टेस्ट्स की सूची:</h4>
         <div id="preTestsContainer"></div>
 
         <div class="form-box">
@@ -70,8 +74,11 @@
         </div>
     </div>
 
+    <!-- MAINS SECTION -->
     <div id="mainsSection" class="section-box" style="display:none;">
+        <h4 style="margin-bottom: 10px; color: #1a237e;">📋 वर्तमान में अपलोडेड मेन्स प्रश्न:</h4>
         <div id="mainsContainer"></div>
+        
         <div class="form-box">
             <h3 style="color:#e65100;">➕ मुख्य परीक्षा (Mains) का नया प्रश्न जोड़ें</h3>
             <label>पेपर विवरण (जैसे: Paper-1 | Part-A):</label>
@@ -121,6 +128,7 @@
         loadPreTests();
     }
 
+    // 1. प्रीलिम्स टेस्ट लोड करना
     function loadPreTests() {
         var c = document.getElementById('preTestsContainer');
         if(!c) return;
@@ -130,6 +138,7 @@
             var localData = localStorage.getItem('mppsc_100_tests');
             if(localData) data = JSON.parse(localData);
         } catch(e) { data = {}; }
+        
         var unitData = data[currentPreUnit] || {};
         var found = false;
 
@@ -138,53 +147,43 @@
                 found = true;
                 var row = document.createElement('div');
                 row.className = 'data-row';
-                row.innerHTML = '<div><b>🎯 Test ' + i + '</b> (लाइव है)</div><div><button class="btn-delete" onclick="deletePre(' + i + ')">❌ Delete</button></div>';
+                row.innerHTML = '<div><b>🎯 Test ' + i + '</b> (Quiz: <a href="'+unitData[i].quiz+'" target="_blank">Link</a> | PDF: <a href="'+unitData[i].pdf+'" target="_blank">Link</a>)</div><div><button class="btn-delete" onclick="deletePre(' + i + ')">❌ Delete</button></div>';
                 c.appendChild(row);
             }
         }
-        if(!found) c.innerHTML = '<p style="color:#777;text-align:center;padding:10px;">इस यूनिट में अभी कोई टेस्ट लाइव नहीं है।</p>';
+        if(!found) {
+            c.innerHTML = '<div class="no-data">इस यूनिट में अभी कोई टेस्ट लाइव नहीं है।</div>';
+        }
     }
 
+    // 2. प्रीलिम्स टेस्ट सेव करना
     function savePreTest() {
-        var u = document.getElementById('preUnitSel').value;
-        var n = document.getElementById('preTestNum').value;
-        var quiz = document.getElementById('preQuizUrl').value;
-        var pdf = document.getElementById('prePdfUrl').value;
+        var unit = document.getElementById('preUnitSel').value;
+        var testNum = document.getElementById('preTestNum').value;
+        var quizUrl = document.getElementById('preQuizUrl').value;
+        var pdfUrl = document.getElementById('prePdfUrl').value;
 
-        if(!quiz && !pdf) { alert('कोई एक लिंक ज़रूर डालें!'); return; }
-        
+        if(!quizUrl || !pdfUrl) {
+            alert('कृपया क्विज़ और PDF दोनों का वैलिड लिंक भरें!');
+            return;
+        }
+
         var data = {};
         try {
             var localData = localStorage.getItem('mppsc_100_tests');
             if(localData) data = JSON.parse(localData);
-        } catch(e) { data = {}; }
+        } catch(e) {}
 
-        if(!data[u]) data[u] = {};
-        data[u][n] = { quiz: quiz, pdf: pdf };
+        if(!data[unit]) data[unit] = {};
+        data[unit][testNum] = { quiz: quizUrl, pdf: pdfUrl };
+
         localStorage.setItem('mppsc_100_tests', JSON.stringify(data));
+        alert('Unit ' + unit + ' का Test ' + testNum + ' सफलतापूर्वक लाइव कर दिया गया है!');
         
+        // फॉर्म रीसेट करना
         document.getElementById('preQuizUrl').value = '';
         document.getElementById('prePdfUrl').value = '';
-        alert('प्रीलिम्स टेस्ट सफलतापूर्वक सुरक्षित हो गया!');
+        
         loadPreTests();
     }
 
-    function deletePre(n) {
-        if(confirm('Test ' + n + ' हटाएं?')) {
-            var data = {};
-            try {
-                var localData = localStorage.getItem('mppsc_100_tests');
-                if(localData) data = JSON.parse(localData);
-            } catch(e) { data = {}; }
-            if(data[currentPreUnit]) delete data[currentPreUnit][n];
-            localStorage.setItem('mppsc_100_tests', JSON.stringify(data));
-            loadPreTests();
-        }
-    }
-
-    function loadMainsQuestions() {
-        var c = document.getElementById('mainsContainer');
-        if(!c) return;
-        c.innerHTML = '';
-        var list = [];
-        try {
