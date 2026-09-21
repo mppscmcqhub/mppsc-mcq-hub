@@ -3,74 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MPPSC Paid Test</title>
+    <title>MPPSC Paid Test - 1</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #eef4ff; color: #333; padding: 20px; text-align: center; }
-        .test-box { max-width: 700px; background: white; margin: 50px auto; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 2px solid #b91c1c; }
-        h1 { color: #b91c1c; font-size: 1.8rem; margin-bottom: 10px; }
-        .meta-info { font-size: 1rem; color: #555; margin-bottom: 25px; font-weight: 600; background: #fef2f2; display: inline-block; padding: 5px 15px; border-radius: 20px; }
-        .action-buttons { display: flex; flex-direction: column; gap: 15px; max-width: 400px; margin: 0 auto 20px auto; }
-        .btn { display: block; padding: 12px; font-size: 1.1rem; font-weight: bold; text-decoration: none; border-radius: 6px; text-align: center; transition: all 0.2s; }
-        .btn-quiz { background-color: #0d47a1; color: white; }
-        .btn-quiz:hover { background-color: #0a3980; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #eef4ff; color: #333; padding: 15px; text-align: center; }
+        .test-box { max-width: 750px; background: white; margin: 30px auto; padding: 30px; border-radius: 14px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border-top: 5px solid #b91c1c; }
+        h1 { color: #b91c1c; font-size: 1.8rem; margin-bottom: 8px; }
+        .meta-info { font-size: 0.95rem; color: #555; margin-bottom: 20px; font-weight: 600; background: #fef2f2; display: inline-block; padding: 6px 16px; border-radius: 20px; border: 1px solid #fee2e2; }
+        .status-panel { display: flex; justify-content: space-around; background: #f8fafc; padding: 15px; border-radius: 10px; margin-bottom: 25px; border: 1px solid #e2e8f0; }
+        .stat-item { text-align: center; }
+        .stat-label { font-size: 0.85rem; color: #64748b; font-weight: bold; text-transform: uppercase; }
+        .stat-value { font-size: 1.2rem; font-weight: 800; color: #0f172a; margin-top: 3px; }
+        .timer-active { color: #dc2626 !important; animation: blinker 1s linear infinite; }
+        @keyframes blinker { 50% { opacity: 0.5; } }
+        .action-buttons { display: flex; flex-direction: column; gap: 15px; max-width: 450px; margin: 0 auto 25px auto; }
+        .btn { display: block; padding: 14px; font-size: 1.1rem; font-weight: bold; text-decoration: none; border-radius: 8px; text-align: center; transition: all 0.2s; cursor: pointer; border: none; }
+        .btn-quiz { background-color: #0d47a1; color: white; box-shadow: 0 4px 6px rgba(13,71,161,0.2); }
+        .btn-quiz:hover { background-color: #0a3980; transform: translateY(-1px); }
         .btn-pdf { background-color: white; color: #dc2626; border: 2px solid #dc2626; }
         .btn-pdf:hover { background-color: #fef2f2; }
-        .back-link { display: inline-block; margin-top: 20px; color: #0d47a1; text-decoration: none; font-weight: bold; }
+        .score-section { background: #f0fdf4; border: 2px dashed #22c55e; padding: 20px; border-radius: 12px; margin-top: 15px; display: none; }
+        .score-section h3 { color: #166534; margin-bottom: 15px; }
+        .score-inputs { display: flex; justify-content: center; gap: 15px; margin-bottom: 15px; }
+        .score-inputs div { display: flex; flex-direction: column; width: 100px; }
+        .score-inputs input { padding: 8px; border: 1px solid #ccc; border-radius: 6px; text-align: center; font-size: 1.1rem; font-weight: bold; }
+        .btn-score { background-color: #22c55e; color: white; font-size: 1rem; padding: 10px 20px; border-radius: 6px; }
+        .btn-score:hover { background-color: #16a34a; }
+        .result-card { background: #eff6ff; border: 1px solid #bfdbfe; padding: 15px; border-radius: 8px; margin-top: 15px; display: none; font-weight: bold; color: #1e40af; }
+        .back-link { display: inline-block; margin-top: 25px; color: #0d47a1; text-decoration: none; font-weight: bold; font-size: 0.95rem; }
     </style>
 </head>
 <body>
-
     <div class="test-box">
-        <!-- टेस्ट का नंबर अपने आप फ़ाइल के नाम से बदल जाएगा -->
-        <h1 id="testTitle">MPPSC Premium Mock Test</h1>
-        <div class="meta-info" id="testUnitInfo">Loading Unit Information...</div>
-
-        <div class="action-buttons">
-            <!-- छात्र इस बटन पर क्लिक करके सीधे आपके डैशबोर्ड वाले लाइव क्विज़ पर जाएगा -->
-            <a href="#" id="liveQuizBtn" target="_blank" class="btn btn-quiz">💻 Start Online Quiz (Google Form)</a>
-            
-            <!-- छात्र यहाँ से सीधे उत्तर कुंजी या नोट्स की PDF डाउनलोड करेगा -->
-            <a href="#" id="downloadPdfBtn" target="_blank" class="btn btn-pdf">📄 Download Test Paper PDF</a>
+        <h1>🎯 MPPSC Paid Premium Test - 1</h1>
+        <div class="meta-info">Unit 1: भारत का इतिहास | प्राचीन भारतीय ज्ञान परंपरा, वेद, उपनिषद, आरण्यक</div>
+        <div class="status-panel">
+            <div class="stat-item"><div class="stat-label">कुल प्रश्न</div><div class="stat-value" style="color: #0d47a1;">100 Qs</div></div>
+            <div class="stat-item"><div class="stat-label">समय सीमा</div><div class="stat-value">120 मिनट</div></div>
+            <div class="stat-item"><div class="stat-label">बचा हुआ समय</div><div class="stat-value" id="timerDisplay" class="timer-active">120:00</div></div>
         </div>
-
+        <div class="action-buttons">
+            <button id="liveQuizBtn" onclick="startTest()" class="btn btn-quiz">🚀 ऑनलाइन टेस्ट शुरू करें (100 MCQ)</button>
+            <a href="#" id="downloadPdfBtn" target="_blank" class="btn btn-pdf" style="display:none;">📄 टेस्ट पेपर PDF डाउनलोड करें</a>
+        </div>
+        <div id="scoreBoard" class="score-section">
+            <h3>📊 अपना स्कोर चेक करें (Score Board)</h3>
+            <div class="score-inputs">
+                <div><label style="font-size: 0.8rem; font-weight: bold;">सही प्रश्न</label><input type="number" id="correctAnswers" min="0" max="100" placeholder="0"></div>
+                <div><label style="font-size: 0.8rem; font-weight: bold;">गलत प्रश्न</label><input type="number" id="wrongAnswers" min="0" max="100" placeholder="0"></div>
+            </div>
+            <button class="btn btn-score" onclick="calculateScore()">अपना रिजल्ट देखें</button>
+            <div id="resultCard" class="result-card"></div>
+        </div>
         <a href="prelims-tests.html" class="back-link">← वापस टेस्ट लिस्ट पर जाएँ</a>
     </div>
-
     <script>
-        // 1. फ़ाइल के नाम से टेस्ट नंबर का पता लगाना (जैसे paid-prelims-test-25.html से 25 निकालेगा)
-        const pageName = window.location.pathname.split("/").pop();
-        const testMatch = pageName.match(/\d+/);
-        const globalTestNum = testMatch ? Number(testMatch[0]) : 1;
-
-        // 100 टेस्ट्स को 10 यूनिट्स में बांटने का लॉजिक
-        const unitNum = Math.ceil(globalTestNum / 10); 
-        const unitTestNum = globalTestNum % 10 === 0 ? 10 : globalTestNum % 10;
-
-        const unitNames = {
-            1: "भारत का इतिहास", 2: "मध्यप्रदेश का इतिहास", 3: "भारत का भूगोल", 
-            4: "मध्यप्रदेश का भूगोल", 5: "संवैधानिक व्यवस्था", 6: "अर्थव्यवस्था", 
-            7: "विज्ञान व पर्यावरण", 8: "करंट अफेयर्स", 9: "ICT", 10: "म.प्र. जनजातियां"
-        };
-
-        // स्क्रीन पर नाम सेट करना
-        document.getElementById("testTitle").innerText = `🎯 MPPSC Premium Mock Test - ${globalTestNum}`;
-        document.getElementById("testUnitInfo").innerText = `Unit ${unitNum}: ${unitNames[unitNum]} (Test ${unitTestNum})`;
-
-        // 2. डैशबोर्ड (localStorage) से इस खास टेस्ट के लिंक्स उठाना
+        let targetQuizUrl = "#";
         try {
             const localData = localStorage.getItem('mppsc_paid_prelims_tests');
             if(localData) {
                 const dashboardData = JSON.parse(localData);
-                if(dashboardData[unitNum] && dashboardData[unitNum][unitTestNum]) {
-                    const savedTest = dashboardData[unitNum][unitTestNum];
-                    
-                    // लिंक्स को बटन में डालना
-                    if(savedTest.quiz) document.getElementById("liveQuizBtn").href = savedTest.quiz;
-                    if(savedTest.pdf) document.getElementById("downloadPdfBtn").href = savedTest.pdf;
+                if(dashboardData[1] && dashboardData[1][1]) {
+                    if(dashboardData[1][1].quiz) targetQuizUrl = dashboardData[1][1].quiz;
+                    if(dashboardData[1][1].pdf) {
+                        document.getElementById("downloadPdfBtn").href = dashboardData[1][1].pdf;
+                        document.getElementById("downloadPdfBtn").style.display = "block";
+                    }
                 }
             }
-        } catch(e) { console.log("Data load error"); }
+        } catch(e) {}
+        let timerInterval;
+        function startTest() {
+            if(targetQuizUrl === "#" || targetQuizUrl === "") { alert("एडमिन द्वारा अभी ऑनलाइन लिंक अपलोड नहीं किया गया है!"); return; }
+            window.open(targetQuizUrl, '_blank');
+            document.getElementById("scoreBoard").style.display = "block";
+            let totalSeconds = 120 * 60;
+            clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                totalSeconds--;
+                if (totalSeconds <= 0) { clearInterval(timerInterval); document.getElementById("timerDisplay").innerText = "समय समाप्त!"; return; }
+                let mins = Math.floor(totalSeconds / 60); let secs = totalSeconds % 60;
+                document.getElementById("timerDisplay").innerText = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+            }, 1000);
+        }
+        function calculateScore() {
+            const correct = parseInt(document.getElementById("correctAnswers").value) || 0;
+            const wrong = parseInt(document.getElementById("wrongAnswers").value) || 0;
+            if(correct + wrong > 100) { alert("योग 100 से ज्यादा नहीं हो सकता!"); return; }
+            const resultCard = document.getElementById("resultCard"); resultCard.style.display = "block";
+            resultCard.innerHTML = `📈 आपका स्कोर: ${correct * 2} / 200 अंक <br> ✅ सही: ${correct} | ❌ गलत: ${wrong} <br> 🎯 एक्यूरेसी: ${((correct / (correct + wrong || 1)) * 100).toFixed(1)}%`;
+        }
     </script>
 </body>
 </html>
