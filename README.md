@@ -1,22 +1,17 @@
-FINAL MPPSC MCQ HUB package
+MPPSC MCQ Hub V14 - Fixed Package
 
-Main screen:
-- 10 existing Unit cards
-- PRELIMS Paid card -> prelims.html
-- MAINS card remains separate
+STRUCTURE
+- index.html = main screen
+- units/ = 10 FREE units, 10 tests per unit
+- prelims.html = separate Paid PRELIMS section
+- prelims-tests/ = 10 units x 20 paid tests = 200 tests
+- admin-login.html = admin login
+- admin-dashboard.html = 200 paid test dashboard
 
-Paid PRELIMS:
-- 10 Units
-- 20 test boxes per Unit
-- 200 separate test HTML files
-- Codes P01T01 ... P10T20
+ADMIN DEMO
+Username: admin
+Password: MPPSC2027
 
-Replace demo questions in each test file with the actual paid Prelims question bank.
-For real paid access, use server-side payment verification; localStorage is only demo access.
-
-
-## Admin Dashboard
-- `admin-login.html` → Admin login
-- `admin-dashboard.html` → 10 Units × 20 Tests = 200 test boxes
-- Demo login: `admin` / `MPPSC2027`
-- यह client-side demo login है; production में secure backend authentication लगाना चाहिए।
+IMPORTANT
+This package is a static demo. Real payment verification requires a backend/payment provider.
+All HTML pages include the CSS inline so the design still works if an asset upload is missed.
