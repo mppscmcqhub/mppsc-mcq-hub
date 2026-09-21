@@ -1,0 +1,21 @@
+PRELIMS folder structure
+
+Each paid test has its own folder and separate HTML coding:
+
+prelims-tests/
+  unit-01/
+    P01T01/index.html
+    P01T02/index.html
+    ...
+    P01T20/index.html
+  unit-02/
+    P02T01/index.html
+    ...
+  ...
+  unit-10/
+    P10T01/index.html
+    ...
+    P10T20/index.html
+
+Total: 10 units x 20 separate test folders = 200 tests.
+Later, each test folder can contain its matching PDF, e.g. P01T01/P01T01.pdf.
