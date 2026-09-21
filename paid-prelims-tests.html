@@ -98,9 +98,9 @@
             for (let u = 1; u <= 10; u++) {
                 let unitData = storedData[u] || {};
                 for (let t = 1; t <= 10; t++) {
-                    let hasData = unitData[t] ? true : false;
+                    // सुधार: यदि यह पहला टेस्ट (globalTestCounter === 1) है, तो इसे हमेशा एक्टिव रखें
+                    let hasData = (globalTestCounter === 1) || (unitData[t] ? true : false);
                     
-                    // अगर डैशबोर्ड पर डेटा सेव है, तो छात्र फाइल खोल पाएगा
                     let targetUrl = `paid-prelims-test-${globalTestCounter}.html`;
                     
                     let badge = hasData ? '<span class="status-badge status-live">● Active Now</span>' : '<span class="status-badge status-soon">⏳ Coming Soon</span>';
