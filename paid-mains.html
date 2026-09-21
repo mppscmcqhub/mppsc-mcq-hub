@@ -8,7 +8,6 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: #eef4ff; font-family: 'Segoe UI', sans-serif; color: #333; line-height: 1.5; padding: 20px; }
         
-        /* लॉक स्क्रीन स्टाइल */
         .lock-container { text-align: center; margin: 100px auto; max-width: 400px; background: white; padding: 40px 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 1px solid #eaeaea; }
         .lock-container h2 { color: #2563eb; margin-bottom: 15px; font-weight: bold; }
         .lock-container input { width: 100%; padding: 12px; margin-bottom: 15px; border: 2px solid #ddd; border-radius: 6px; font-size: 1rem; text-align: center; }
@@ -16,97 +15,83 @@
         .lock-container button:hover { background-color: #1d4ed8; }
         .error-msg { color: #dc2626; font-weight: bold; margin-top: 10px; display: none; }
 
-        /* मुख्य कंटेंट (शुरुआत में छुपा रहेगा) */
-        #protected-content { display: none; max-width: 1200px; margin: 0 auto; }
-        
-        .header-section { text-align: center; margin: 20px auto 40px auto; max-width: 800px; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #eaeaea; }
+        #protected-content { display: none; max-width: 900px; margin: 0 auto; text-align: left; }
+        .header-section { text-align: center; margin: 20px auto 40px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #eaeaea; }
         .header-section h1 { color: #2563eb; font-size: 2rem; font-weight: 900; margin-bottom: 10px; }
-        .header-section p { color: #555; font-size: 1.1rem; font-weight: 600; }
         
-        .tests-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; margin-bottom: 50px; }
+        .q-card { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.03); border: 1px solid #e2e8f0; margin-bottom: 20px; }
+        .q-meta { font-size: 0.9rem; font-weight: bold; color: #2563eb; margin-bottom: 8px; background: #eff6ff; display: inline-block; padding: 3px 12px; border-radius: 4px; }
+        .q-text { font-size: 1.1rem; font-weight: 600; color: #1e293b; margin-bottom: 15px; line-height: 1.6; }
         
-        .test-card { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.03); text-align: center; border: 1px solid #e2e8f0; display: flex; flex-direction: column; justify-content: space-between; height: 150px; transition: transform 0.2s; }
-        .test-card:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.08); }
-        
-        .test-number { font-size: 1.2rem; font-weight: 800; color: #1e293b; margin-bottom: 5px; }
-        .test-status { font-size: 0.9rem; color: #2563eb; font-weight: bold; margin-bottom: 15px; background: #eff6ff; display: inline-block; padding: 2px 10px; border-radius: 12px; }
-        
-        .btn-download { background-color: #2563eb; color: white; padding: 8px 0; width: 100%; border-radius: 6px; font-weight: 600; font-size: 0.9rem; text-decoration: none; display: block; }
+        .btn-download { display: inline-block; background-color: #2563eb; color: white; padding: 8px 20px; border-radius: 6px; font-weight: 600; font-size: 0.9rem; text-decoration: none; }
         .btn-download:hover { background-color: #1d4ed8; }
-        
         .btn-back { display: inline-block; margin-bottom: 20px; color: #2563eb; text-decoration: none; font-weight: bold; font-size: 1rem; }
+        .no-data { text-align: center; color: #888; font-style: italic; background: white; padding: 30px; border-radius: 10px; }
     </style>
 </head>
 <body>
 
-    <!-- पासवर्ड लॉक स्क्रीन बॉक्स -->
     <div id="lock-screen" class="lock-container">
         <h2>🔒 Mains Course Lock</h2>
-        <p style="margin-bottom: 15px; color: #666; font-weight: 600;">कृपया आगे बढ़ने के लिए अपना मेंस एक्सेस पासवर्ड डालें:</p>
+        <p style="margin-bottom: 15px; color: #666; font-weight: 600;">आगे बढ़ने के लिए मेंस एक्सेस पासवर्ड डालें:</p>
         <input type="password" id="password-input" placeholder="यहाँ पासवर्ड टाइप करें...">
         <button onclick="checkPassword()">पेज अनलॉक करें</button>
         <div id="error" class="error-msg">गलत पासवर्ड! कृपया सही पासवर्ड डालें।</div>
     </div>
 
-    <!-- असली कंटेंट जो पासवर्ड के बाद दिखेगा -->
     <div id="protected-content">
-        <div>
-            <a href="index.html" class="btn-back">← मुख्य पेज पर जाएं</a>
-        </div>
-
+        <div><a href="index.html" class="btn-back">← मुख्य पेज पर जाएं</a></div>
         <div class="header-section">
             <h1>MPPSC 2027 - Mains Premium Course</h1>
-            <p>📚 मुख्य परीक्षा के नोट्स और टेस्ट पेपर्स की सूची</p>
+            <p>📚 मुख्य परीक्षा के डेली प्रश्न और मॉडल उत्तर PDF सूची</p>
         </div>
-
-        <div class="tests-grid">
-            <script>
-                // मान लेते हैं कि मेंस के लिए अभी 50 फाइल्स/नोट्स हैं, आप इसे कम या ज्यादा कर सकते हैं
-                for (let i = 1; i <= 50; i++) {
-                    let noteNo = i < 10 ? '0' + i : i;
-                    document.write(`
-                        <div class="test-card">
-                            <div>
-                                <div class="test-number">Mains Paper - ${noteNo}</div>
-                                <div class="test-status">● Material Ready</div>
-                            </div>
-                            <div>
-                                <a href="mains${i}.pdf" class="btn-download" download>Download PDF</a>
-                            </div>
-                        </div>
-                    `);
-                }
-            </script>
-        </div>
+        <div id="mainsQuestionsList"></div>
     </div>
 
-    <!-- पासवर्ड चेक करने का जावास्क्रिप्ट लॉजिक -->
     <script>
-        // यहाँ मेंस के लिए अपनी पसंद का अलग पासवर्ड रखें (अभी 'mppscmains' सेट है)
         const CORRECT_PASSWORD = "mppscmains";
 
         function checkPassword() {
-            const userInput = document.getElementById("password-input").value;
-            const errorDiv = document.getElementById("error");
-            const lockScreen = document.getElementById("lock-screen");
-            const protectedContent = document.getElementById("protected-content");
-
-            if (userInput === CORRECT_PASSWORD) {
-                lockScreen.style.display = "none";
-                protectedContent.style.display = "block";
+            if (document.getElementById("password-input").value === CORRECT_PASSWORD) {
+                document.getElementById("lock-screen").style.display = "none";
+                document.getElementById("protected-content").style.display = "block";
+                renderMainsQuestions();
             } else {
-                errorDiv.style.display = "block";
+                document.getElementById("error").style.display = "block";
                 document.getElementById("password-input").value = "";
             }
         }
 
-        // Enter की दबाने पर भी अनलॉक हो सके
-        document.getElementById("password-input").addEventListener("keyup", function(event) {
-            if (event.key === "Enter") {
-                checkPassword();
-            }
+        document.getElementById("password-input").addEventListener("keyup", function(e) {
+            if (e.key === "Enter") checkPassword();
         });
-    </script>
 
+        function renderMainsQuestions() {
+            const listContainer = document.getElementById("mainsQuestionsList");
+            listContainer.innerHTML = "";
+            
+            let mainsData = [];
+            try {
+                let local = localStorage.getItem('mppsc_paid_mains_qs');
+                if(local) mainsData = JSON.parse(local);
+            } catch(e) {}
+
+            if(mainsData.length === 0) {
+                listContainer.innerHTML = '<div class="no-data">डैशबोर्ड से अभी तक मुख्य परीक्षा का कोई पेड प्रश्न लाइव नहीं किया गया है।</div>';
+                return;
+            }
+
+            mainsData.forEach(function(item) {
+                let card = document.createElement('div');
+                card.className = 'q-card';
+                card.innerHTML = `
+                    <div class="q-meta">${item.title}</div>
+                    <div class="q-text">${item.question}</div>
+                    <a href="${item.pdf}" target="_blank" class="btn-download">📥 Download Model Answer PDF</a>
+                `;
+                listContainer.appendChild(card);
+            });
+        }
+    </script>
 </body>
 </html>
