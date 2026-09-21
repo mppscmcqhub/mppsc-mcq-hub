@@ -27,12 +27,10 @@
         .test-info { font-size: 0.85rem; color: #666; margin-bottom: 10px; font-weight: 600; }
         .status-badge { font-size: 0.85rem; padding: 3px 10px; border-radius: 12px; font-weight: bold; display: inline-block; margin-bottom: 12px; }
         .status-live { color: #059669; background: #ecfdf5; }
-        .status-soon { color: #7c2d12; background: #fff7ed; }
         
         .btn-action { display: block; width: 100%; padding: 10px 0; border-radius: 6px; font-weight: 600; font-size: 0.95rem; text-decoration: none; text-align: center; margin-top: 10px; }
         .btn-open-test { background-color: #0d47a1; color: white; }
         .btn-open-test:hover { background-color: #0a3980; }
-        .btn-disabled { background-color: #e2e8f0; color: #94a3b8; pointer-events: none; border: none; }
         .btn-back { display: inline-block; margin-bottom: 20px; color: #0d47a1; text-decoration: none; font-weight: bold; font-size: 1rem; }
     </style>
 </head>
@@ -79,12 +77,6 @@
             const grid = document.getElementById("prelimsTestsGrid");
             grid.innerHTML = "";
             
-            let storedData = {};
-            try {
-                let local = localStorage.getItem('mppsc_paid_prelims_tests');
-                if(local) storedData = JSON.parse(local);
-            } catch(e) {}
-
             const unitNames = {
                 1: "भारत का इतिहास", 2: "म.प्र. का इतिहास", 3: "भारत का भूगोल", 
                 4: "म.प्र. का भूगोल", 5: "संवैधानिक व्यवस्था", 6: "अर्थव्यवस्था", 
@@ -94,17 +86,15 @@
             let html = "";
             let globalTestCounter = 1;
 
-            // 10 यूनिट और हर यूनिट में 10 टेस्ट = कुल 100 टेस्ट
+            // 10 यूनिट और हर यूनिट में 10 टेस्ट = कुल 100 टेस्ट ऑटोमैटिक जनरेट होंगे
             for (let u = 1; u <= 10; u++) {
-                let unitData = storedData[u] || {};
                 for (let t = 1; t <= 10; t++) {
-                    // सुधार: यदि यह पहला टेस्ट (globalTestCounter === 1) है, तो इसे हमेशा एक्टिव रखें
-                    let hasData = (globalTestCounter === 1) || (unitData[t] ? true : false);
                     
+                    // हर बॉक्स के लिए फ़ाइल का लिंक ऑटोमैटिक सेट होगा
                     let targetUrl = `paid-prelims-test-${globalTestCounter}.html`;
                     
-                    let badge = hasData ? '<span class="status-badge status-live">● Active Now</span>' : '<span class="status-badge status-soon">⏳ Coming Soon</span>';
-                    let actionBtn = hasData ? `<a href="${targetUrl}" class="btn-action btn-open-test">Open Test Page</a>` : `<a href="#" class="btn-action btn-disabled">Locked</a>`;
+                    let badge = '<span class="status-badge status-live">● Active Now</span>';
+                    let actionBtn = `<a href="${targetUrl}" class="btn-action btn-open-test">Open Test Page</a>`;
 
                     html += `
                         <div class="test-card">
