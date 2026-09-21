@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPPSC Paid Test</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #eef4ff; color: #333; padding: 20px; text-align: center; }
+        .test-box { max-width: 700px; background: white; margin: 50px auto; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 2px solid #b91c1c; }
+        h1 { color: #b91c1c; font-size: 1.8rem; margin-bottom: 10px; }
+        .meta-info { font-size: 1rem; color: #555; margin-bottom: 25px; font-weight: 600; background: #fef2f2; display: inline-block; padding: 5px 15px; border-radius: 20px; }
+        .action-buttons { display: flex; flex-direction: column; gap: 15px; max-width: 400px; margin: 0 auto 20px auto; }
+        .btn { display: block; padding: 12px; font-size: 1.1rem; font-weight: bold; text-decoration: none; border-radius: 6px; text-align: center; transition: all 0.2s; }
+        .btn-quiz { background-color: #0d47a1; color: white; }
+        .btn-quiz:hover { background-color: #0a3980; }
+        .btn-pdf { background-color: white; color: #dc2626; border: 2px solid #dc2626; }
+        .btn-pdf:hover { background-color: #fef2f2; }
+        .back-link { display: inline-block; margin-top: 20px; color: #0d47a1; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="test-box">
+        <!-- टेस्ट का नंबर अपने आप फ़ाइल के नाम से बदल जाएगा -->
+        <h1 id="testTitle">MPPSC Premium Mock Test</h1>
+        <div class="meta-info" id="testUnitInfo">Loading Unit Information...</div>
+
+        <div class="action-buttons">
+            <!-- छात्र इस बटन पर क्लिक करके सीधे आपके डैशबोर्ड वाले लाइव क्विज़ पर जाएगा -->
+            <a href="#" id="liveQuizBtn" target="_blank" class="btn btn-quiz">💻 Start Online Quiz (Google Form)</a>
+            
+            <!-- छात्र यहाँ से सीधे उत्तर कुंजी या नोट्स की PDF डाउनलोड करेगा -->
+            <a href="#" id="downloadPdfBtn" target="_blank" class="btn btn-pdf">📄 Download Test Paper PDF</a>
+        </div>
+
+        <a href="prelims-tests.html" class="back-link">← वापस टेस्ट लिस्ट पर जाएँ</a>
+    </div>
+
+    <script>
+        // 1. फ़ाइल के नाम से टेस्ट नंबर का पता लगाना (जैसे paid-prelims-test-25.html से 25 निकालेगा)
+        const pageName = window.location.pathname.split("/").pop();
+        const testMatch = pageName.match(/\d+/);
+        const globalTestNum = testMatch ? Number(testMatch[0]) : 1;
+
+        // 100 टेस्ट्स को 10 यूनिट्स में बांटने का लॉजिक
+        const unitNum = Math.ceil(globalTestNum / 10); 
+        const unitTestNum = globalTestNum % 10 === 0 ? 10 : globalTestNum % 10;
+
+        const unitNames = {
+            1: "भारत का इतिहास", 2: "मध्यप्रदेश का इतिहास", 3: "भारत का भूगोल", 
+            4: "मध्यप्रदेश का भूगोल", 5: "संवैधानिक व्यवस्था", 6: "अर्थव्यवस्था", 
+            7: "विज्ञान व पर्यावरण", 8: "करंट अफेयर्स", 9: "ICT", 10: "म.प्र. जनजातियां"
+        };
+
+        // स्क्रीन पर नाम सेट करना
+        document.getElementById("testTitle").innerText = `🎯 MPPSC Premium Mock Test - ${globalTestNum}`;
+        document.getElementById("testUnitInfo").innerText = `Unit ${unitNum}: ${unitNames[unitNum]} (Test ${unitTestNum})`;
+
+        // 2. डैशबोर्ड (localStorage) से इस खास टेस्ट के लिंक्स उठाना
+        try {
+            const localData = localStorage.getItem('mppsc_paid_prelims_tests');
+            if(localData) {
+                const dashboardData = JSON.parse(localData);
+                if(dashboardData[unitNum] && dashboardData[unitNum][unitTestNum]) {
+                    const savedTest = dashboardData[unitNum][unitTestNum];
+                    
+                    // लिंक्स को बटन में डालना
+                    if(savedTest.quiz) document.getElementById("liveQuizBtn").href = savedTest.quiz;
+                    if(savedTest.pdf) document.getElementById("downloadPdfBtn").href = savedTest.pdf;
+                }
+            }
+        } catch(e) { console.log("Data load error"); }
+    </script>
+</body>
+</html>
