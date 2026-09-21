@@ -186,4 +186,90 @@
         
         loadPreTests();
     }
+    // 3. प्रीलिम्स टेस्ट डिलीट करना
+    function deletePre(testNum) {
+        if(!confirm('क्या आप इस टेस्ट को डिलीट करना चाहते हैं?')) return;
+        
+        var data = {};
+        try {
+            var localData = localStorage.getItem('mppsc_100_tests');
+            if(localData) data = JSON.parse(localData);
+        } catch(e) {}
+
+        if(data[currentPreUnit] && data[currentPreUnit][testNum]) {
+            delete data[currentPreUnit][testNum];
+            localStorage.setItem('mppsc_100_tests', JSON.stringify(data));
+            loadPreTests();
+        }
+    }
+
+    // 4. मेन्स प्रश्न लोड करना
+    function loadMainsQuestions() {
+        var c = document.getElementById('mainsContainer');
+        if(!c) return;
+        c.innerHTML = '';
+        
+        var mainsData = [];
+        try {
+            var localData = localStorage.getItem('mppsc_mains_qs');
+            if(localData) mainsData = JSON.parse(localData);
+        } catch(e) {}
+
+        if(mainsData.length === 0) {
+            c.innerHTML = '<div class="no-data" style="color: #888; font-style: italic; text-align: center; padding: 10px;">अभी तक मुख्य परीक्षा का कोई प्रश्न नहीं जोड़ा गया है।</div>';
+            return;
+        }
+
+        mainsData.forEach(function(item, index) {
+            var row = document.createElement('div');
+            row.className = 'data-row';
+            row.innerHTML = '<div><b>📝 ' + item.title + '</b>: ' + item.question.substring(0, 40) + '...</div><div><button class="btn-delete" onclick="deleteMains(' + index + ')">❌ Delete</button></div>';
+            c.appendChild(row);
+        });
+    }
+
+    // 5. मेन्स प्रश्न सेव करना
+    function saveMainsQuestion() {
+        var title = document.getElementById('mainsPaperTitle').value;
+        var qText = document.getElementById('mainsQuestionText').value;
+        var pdfUrl = document.getElementById('mainsPdfUrl').value;
+
+        if(!title || !qText || !pdfUrl) {
+            alert('कृपया प्रश्न का विवरण, टेक्स्ट और उत्तर PDF लिंक तीनों भरें!');
+            return;
+        }
+
+        var mainsData = [];
+        try {
+            var localData = localStorage.getItem('mppsc_mains_qs');
+            if(localData) mainsData = JSON.parse(localData);
+        } catch(e) {}
+
+        mainsData.push({ title: title, question: qText, pdf: pdfUrl });
+        localStorage.setItem('mppsc_mains_qs', JSON.stringify(mainsData));
+        
+        alert('मुख्य परीक्षा का प्रश्न सफलता पूर्वक लाइव कर दिया गया है!');
+        
+        // फॉर्म रीसेट करना
+        document.getElementById('mainsPaperTitle').value = '';
+        document.getElementById('mainsQuestionText').value = '';
+        document.getElementById('mainsPdfUrl').value = '';
+        
+        loadMainsQuestions();
+    }
+
+    // 6. मेन्स प्रश्न डिलीट करना
+    function deleteMains(index) {
+        if(!confirm('क्या आप इस प्रश्न को हटाना चाहते हैं?')) return;
+        
+        var mainsData = [];
+        try {
+            var localData = localStorage.getItem('mppsc_mains_qs');
+            if(localData) mainsData = JSON.parse(localData);
+        } catch(e) {}
+
+        mainsData.splice(index, 1);
+        localStorage.setItem('mppsc_mains_qs', JSON.stringify(mainsData));
+        loadMainsQuestions();
+    }
 
