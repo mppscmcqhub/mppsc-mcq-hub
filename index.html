@@ -12,32 +12,36 @@
         .navbar-brand { font-size: 1.4rem; font-weight: bold; text-decoration: none; color: white; }
         .btn-login { background-color: white; color: #0d47a1; border: none; padding: 6px 15px; border-radius: 4px; font-weight: bold; text-decoration: none; font-size: 0.9rem; }
         .container-fluid { width: 100%; padding: 15px; margin: 0 auto; }
-        .section-title { font-size: 1.3rem; font-weight: bold; color: #1a237e; margin: 10px 0 15px 0; border-left: 5px solid #0d47a1; padding-left: 10px; }
+        .section-title { font-size: 1.3rem; font-weight: bold; color: #1a237e; margin: 25px 0 15px 0; border-left: 5px solid #0d47a1; padding-left: 10px; }
         
+        /* मुख्य ग्रिड सिस्टम */
         .units-grid { display: flex !important; flex-wrap: wrap !important; margin: -12px !important; width: 100% !important; }
         .unit-col { width: 25% !important; padding: 12px !important; }
         @media (max-width: 992px) { .unit-col { width: 33.33% !important; } }
         @media (max-width: 768px) { .unit-col { width: 50% !important; } }
         @media (max-width: 480px) { .unit-col { width: 100% !important; } }
         
+        /* कार्ड डिज़ाइन */
         .unit-card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; height: 320px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #eaeaea; }
         .unit-icon { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px auto; color: white; font-size: 1.2rem; font-weight: bold; }
         .unit-title { font-size: 1.05rem; font-weight: bold; color: #111; }
         .unit-desc { color: #666; font-size: 0.85rem; min-height: 50px; display: flex; align-items: center; justify-content: center; text-align: center; }
-        .btn-open { background-color: #0d47a1; color: white; padding: 8px 0; width: 100%; border-radius: 20px; font-weight: 600; font-size: 0.9rem; text-decoration: none; display: block; }
         
-        /* नया प्रीमियम पेड कोर्स बॉक्स का स्टाइल */
-        .paid-course-container { background-color: #fffbeb; border: 2px solid #fcd34d; padding: 30px; border-radius: 12px; text-align: center; max-width: 1200px; margin: 35px auto 20px auto; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .paid-course-container h2 { color: #b45309; font-size: 1.5rem; font-weight: 800; margin-bottom: 10px; }
-        .paid-course-container p { color: #4b5563; font-weight: 600; font-size: 1.05rem; margin-bottom: 25px; }
+        /* बटन डिज़ाइन - जैसा Unit 1 और 2 में है */
+        .btn-open { background-color: #0d47a1; color: white; padding: 10px 0; width: 100%; border-radius: 20px; font-weight: 600; font-size: 0.95rem; text-decoration: none; display: block; text-align: center; transition: background 0.2s; }
+        .btn-open:hover { background-color: #0a3980; }
         
-        /* बटन्स का ग्रुप और स्टाइल */
-        .paid-btn-group { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
-        .btn-paid-prelims { background-color: #dc2626; color: white; text-decoration: none; padding: 14px 35px; border-radius: 8px; font-weight: bold; font-size: 1.1rem; box-shadow: 0 4px 6px rgba(220, 38, 38, 0.2); transition: 0.2s; }
-        .btn-paid-prelims:hover { background-color: #b91c1c; }
-        .btn-paid-mains { background-color: #2563eb; color: white; text-decoration: none; padding: 14px 35px; border-radius: 8px; font-weight: bold; font-size: 1.1rem; box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2); transition: 0.2s; }
-        .btn-paid-mains:hover { background-color: #1d4ed8; }
-
+        /* प्रीमियम पेड कोर्स का विशेष बॉक्स */
+        .paid-course-box { background-color: #fffbeb; border: 2px solid #fcd34d; padding: 25px; border-radius: 12px; margin-top: 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); }
+        .paid-box-title { color: #b45309; font-size: 1.4rem; font-weight: bold; text-align: center; margin-bottom: 8px; }
+        .paid-box-desc { color: #4b5563; font-weight: 600; font-size: 1rem; text-align: center; margin-bottom: 25px; }
+        
+        /* पेड बटन्स का लेआउट - यूनिट बटन्स के जैसी डिज़ाइन */
+        .paid-links-grid { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+        .paid-btn-wrapper { width: 100%; max-width: 340px; background: white; padding: 15px; border-radius: 10px; border: 1px solid #fcd34d; box-shadow: 0 2px 5px rgba(0,0,0,0.02); text-align: center; }
+        .paid-btn-title { font-weight: bold; font-size: 1.1rem; margin-bottom: 12px; color: #111; }
+        
+        /* कलर्स */
         .u1 { background-color: #2196f3; } .u2 { background-color: #4caf50; } .u3 { background-color: #673ab7; } .u4 { background-color: #ff9800; } .u5 { background-color: #009688; }
         .u6 { background-color: #e91e63; } .u7 { background-color: #00bcd4; } .u8 { background-color: #ff5722; } .u9 { background-color: #9c27b0; } .u10 { background-color: #3f51b5; }
     </style>
@@ -52,7 +56,7 @@
     </div>
 
     <div class="container-fluid">
-        <!-- 10 फ्री यूनिट टेस्ट सेक्शन -->
+        <!-- फ्री यूनिट्स सेक्शन -->
         <div class="section-title">Select Unit / इकाई चुनें</div>
         <div class="units-grid">
             <div class="unit-col"><div class="unit-card"><div><div class="unit-icon u1">1</div><div class="unit-title">Unit 1</div><div class="unit-desc">भारत का इतिहास</div></div><div><a href="unit1.html" class="btn-open">Open Unit</a></div></div></div>
@@ -67,21 +71,23 @@
             <div class="unit-col"><div class="unit-card"><div><div class="unit-icon u10">10</div><div class="unit-title">Unit 10</div><div class="unit-desc">म.प्र. की जनजातियां: विरासत व लोक संस्कृति</div></div><div><a href="unit10.html" class="btn-open">Open Unit</a></div></div></div>
         </div>
 
-        <!-- सुधरा हुआ प्रीमियम पेड कोर्स बॉक्स (पुरानी पीली पट्टी हटा दी गई है) -->
-        <div class="paid-course-container">
-            <h2>⭐ MPPSC 2027 Premium Paid Course (विशेष पेड कोर्स) ⭐</h2>
-            <p>यहाँ आपको मिलेंगे MPPSC 2027 के लिए स्पेशल 100 प्री टेस्ट (Pre Tests), मुख्य परीक्षा प्रश्न (Mains Questions) और स्पेशल PDFs का डायरेक्ट एक्सेस।</p>
+        <!-- प्रीमियम पेड कोर्स सेक्शन - बटन्स अब बिल्कुल यूनिट्स जैसे दिखेंगे -->
+        <div class="paid-course-box">
+            <div class="paid-box-title">⭐ MPPSC 2027 Premium Paid Course (विशेष पेड कोर्स) ⭐</div>
+            <div class="paid-box-desc">यहाँ आपको मिलेंगे MPPSC 2027 के लिए स्पेशल टेस्ट सीरीज, मुख्य परीक्षा प्रश्न और स्पेशल PDFs का डायरेक्ट एक्सेस।</div>
             
-            <div class="paid-btn-group">
-                <!-- प्रीलिम्स का अलग लाल बटन (आपकी पेमेंट लिंक यहाँ आएगी) -->
-                <a href="payment.html" class="btn-paid-prelims">
-                    🚀 Join Paid Prelims Course (₹29)
-                </a>
+            <div class="paid-links-grid">
+                <!-- प्रीलिम्स का अलग बॉक्स और बटन -->
+                <div class="paid-btn-wrapper">
+                    <div class="paid-btn-title">📝 Prelims Paid Course</div>
+                    <a href="payment.html" class="btn-open">Join Prelims Course (₹29)</a>
+                </div>
                 
-                <!-- मेंस का अलग नीला बटन -->
-                <a href="paid-mains.html" class="btn-paid-mains">
-                    📝 Join Paid Mains Course (₹99)
-                </a>
+                <!-- मेंस का अलग बॉक्स और बटन -->
+                <div class="paid-btn-wrapper">
+                    <div class="paid-btn-title">📚 Mains Paid Course</div>
+                    <a href="paid-mains.html" class="btn-open">Join Mains Course (₹99)</a>
+                </div>
             </div>
         </div>
     </div>
