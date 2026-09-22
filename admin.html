@@ -22,7 +22,7 @@ body{font-family:Arial,Helvetica,sans-serif;background:#f3f6fa;color:#102a43;pad
 .paper h2, .unit-sec h2{margin:0 0 14px;font-size:20px;color:#082b57;border-bottom: 2px solid #eaf2fb;padding-bottom:8px;}
 .group-title{background:#eaf2fb;border-radius:7px;padding:8px 10px;margin:20px 0 10px;font-size:14px;font-weight:700;color:#082b57}
 
-/* 📊 10-कॉलम का सुपर-फास्ट रिस्पॉन्सिव ग्रिड लेआउट */
+/* 📊 10-कॉलम का मजबूत और बिना स्क्रिप्ट वाला डायरेक्ट ग्रिड */
 .grid{display:grid;grid-template-columns:repeat(10,1fr);gap:6px;margin-top:10px;}
 .card{background:#fff;border:1px solid #d7e1ec;border-radius:6px;padding:8px 2px;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
 .code{font-size:11px;font-weight:700;display:block;margin-bottom:5px;color:#334e68}
@@ -79,102 +79,51 @@ th { background: #f0f5ff; color: #082b57; font-weight: bold; }
 
     <!-- 🔴 PAID PRELIMS SECTION (200 BOXES) -->
     <div class="section-main-title pre-title">🏆 Paid PRELIMS — 200 Total Tests (Unit 1 to 10)</div>
-    <div id="prelims-master-container"></div>
+    
+    <!-- Unit 1 -->
+    <section class="unit-sec">
+        <h2>Unit 1 - भारत का इतिहास</h2>
+        <div class="grid">
+            <div class="card"><span class="code">P01T01</span><a class="open-btn pre-btn" href="prelims-tests/unit-01/P01T01/index.html">Open</a></div>
+            <div class="card"><span class="code">P01T02</span><a class="open-btn pre-btn" href="prelims-tests/unit-01/P01T02/index.html">Open</a></div>
+            <div class="card"><span class="code">P01T03</span><a class="open-btn pre-btn" href="prelims-tests/unit-01/P01T03/index.html">Open</a></div>
+            <div class="card"><span class="code">P01T04</span><a class="open-btn pre-btn" href="prelims-tests/unit-01/P01T04/index.html">Open</a></div>
+            <div class="card"><span class="code">P01T05</span><a class="open-btn pre-btn" href="prelims-tests/unit-01/P01T05/index.html">Open</a></div>
+            <div class="card"><span class="code">P01T06</span><a class="open-btn pre-btn" href="prelims-tests/unit-01/P01T06/index.html">Open</a></div>
+            <div class="card"><span class="code">P01T07</span><a class="open-btn pre-btn" href="prelims-tests/unit-01/P01T07/index.html">Open</a></div>
+            <div class="card"><span class="code">P01T08</span><a class="open-btn pre-btn" href="prelims-tests/unit-01/P01T08/index.html">Open</a></div>
+            <div class="card"><span class="code">P01T09</span><a class="open-btn pre-btn" href="prelims-tests/unit-01/P01T09/index.html">Open</a></div>
+            <div class="card"><span class="code">P01T10</span><a class="open-btn pre-btn" href="prelims-tests/unit-01/P01T10/index.html">Open</a></div>
+            <div class="card"><span class="code">P01T11</span><a class="open-btn pre-btn" href="prelims-tests/unit-01/P01T11/index.html">Open</a></div>
+            <div class="card"><span class="code">P01T12</span><a class="open-btn pre-btn" href="prelims-tests/unit-01/P01T12/index.html">Open</a></div>
+            <div class="card"><span class="code">P01T13</span><a class="open-btn pre-btn" href="prelims-tests/unit-01/P01T13/index.html">Open</a></div>
+            <div class="card"><span class="code">P01T14</span><a class="open-btn pre-btn" href="prelims-tests/unit-01/P01T14/index.html">Open</a></div>
+            <div class="card"><span class="code">P01T15</span><a class="open-btn pre-btn" href="prelims-tests/unit-01/P01T15/index.html">Open</a></div>
+            <div class="card"><span class="code">P01T16</span><a class="open-btn pre-btn" href="prelims-tests/unit-01/P01T16/index.html">Open</a></div>
+            <div class="card"><span class="code">P01T17</span><a class="open-btn pre-btn" href="prelims-tests/unit-01/P01T17/index.html">Open</a></div>
+            <div class="card"><span class="code">P01T18</span><a class="open-btn pre-btn" href="prelims-tests/unit-01/P01T18/index.html">Open</a></div>
+            <div class="card"><span class="code">P01T19</span><a class="open-btn pre-btn" href="prelims-tests/unit-01/P01T19/index.html">Open</a></div>
+            <div class="card"><span class="code">P01T20</span><a class="open-btn pre-btn" href="prelims-tests/unit-01/P01T20/index.html">Open</a></div>
+        </div>
+    </section>
 
-    <!-- 🔵 PAID MAINS SECTION (600 BOXES) -->
-    <div class="section-main-title mains-title">📝 Paid MAINS — 600 Total Boxes (Paper 1 to 6)</div>
-    <div id="mains-master-container"></div>
-</div>
-
-<script>
-    // 🔄 ब्राउज़र इंजन पर लोड को 0% करने के लिए शुद्ध HTML स्ट्रिंग इंजेक्शन तकनीक
-    document.addEventListener('DOMContentLoaded', () => {
-        loadPaymentRequests();
-        generatePureHTMLPrelims();
-        generatePureHTMLMains();
-    });
-
-    function loadPaymentRequests() {
-        const tableBody = document.getElementById("payment-requests-table");
-        if(!tableBody) return;
-        let pendingPayments = JSON.parse(localStorage.getItem("mppsc_pending_payments")) || [];
-        if (pendingPayments.length === 0) return;
-        
-        let html = '';
-        pendingPayments.forEach((req, index) => {
-            html += `<tr>
-                <td>${req.date}</td>
-                <td style="font-weight:bold;">${req.phone}</td>
-                <td><span style="padding:4px 8px; border-radius:4px; font-weight:bold; font-size:12px; background:${req.course==='mains'?'#e1f5fe':'#ffebee'}; color:${req.course==='mains'?'#0288d1':'#c62828'};">${req.course.toUpperCase()}</span></td>
-                <td style="font-family:monospace; font-weight:bold;">${req.utr}</td>
-                <td><img src="${req.screenshot}" style="width:40px; height:40px; object-fit:cover; border-radius:4px;"></td>
-                <td>
-                    <button style="background:#4caf50;color:white;border:none;padding:5px 10px;border-radius:4px;cursor:pointer;font-weight:bold;" onclick="approvePayment(${index})">Approve</button>
-                </td>
-            </tr>`;
-        });
-        tableBody.innerHTML = html;
-    }
-
-    function approvePayment(index) {
-        let pendingPayments = JSON.parse(localStorage.getItem("mppsc_pending_payments")) || [];
-        let approvedReq = pendingPayments[index];
-        const studentPassword = "MPPSC-" + Math.floor(1000 + Math.random() * 9000);
-        let users = JSON.parse(localStorage.getItem("mppsc_students")) || [];
-        users.push({ username: approvedReq.phone, password: studentPassword, type: approvedReq.course });
-        localStorage.setItem("mppsc_students", JSON.stringify(users));
-        alert(`✓ वेरिफिकेशन सफल! छात्र का परमानेंट पासवर्ड है: ${studentPassword}`);
-        pendingPayments.splice(index, 1);
-        localStorage.setItem("mppsc_pending_payments", JSON.stringify(pendingPayments));
-        loadPaymentRequests();
-    }
-
-    // 🔴 प्रीलिम्स 200 बॉक्स कम्पाइलर
-    function generatePureHTMLPrelims() {
-        const container = document.getElementById('prelims-master-container');
-        const preUnits = ["भारत का इतिहास", "म.प्र. का इतिहास, संस्कृति", "भारत का भूगोल", "मध्यप्रदेश का भूगोल", "संवैधानिक व्यवस्था", "भारत एवं म.प्र. की अर्थव्यवस्था", "विज्ञान, पर्यावरण व स्वास्थ्य", "राष्ट्रीय व प्रादेशिक घटनाएं", "सूचना एवं संचार (ICT)", "म.प्र. की जनजातियां व संस्कृति"];
-        let html = '';
-        for (let u = 1; u <= 10; u++) {
-            let padU = u < 10 ? '0' + u : u;
-            html += `<section class="unit-sec"><h2>Unit ${u} - ${preUnits[u-1]}</h2><div class="grid">`;
-            for (let t = 1; t <= 20; t++) {
-                let padT = t < 10 ? '0' + t : t;
-                let code = `P${padU}T${padT}`;
-                html += `<div class="card"><span class="code">${code}</span><a class="open-btn pre-btn" href="prelims-tests/unit-${padU}/${code}/index.html">Open</a></div>`;
-            }
-            html += `</div></section>`;
-        }
-        container.innerHTML = html;
-    }
-
-    // 🔵 मेंस 600 बॉक्स कम्पाइलर (आपके गिटहब फोल्डर नामों से 100% मैच)
-    function generatePureHTMLMains() {
-        const container = document.getElementById('mains-master-container');
-        const mainsPapers = ["General Studies-I", "General Studies-II", "General Studies-III", "General Studies-IV", "General Studies-V", "General Studies-VI"];
-        const mainsFolders = ["paper-01-general-studies-i", "paper-02-general-studies-ii", "paper-03-general-studies-iii", "paper-04-general-studies-iv", "paper-05-general hindi grammar", "paper-06-hindi-essay-draft"];
-        let html = '';
-        mainsPapers.forEach((paperName, index) => {
-            let pNum = index + 1;
-            let folder = mainsFolders[index];
-            html += `<section class="paper"><h2>Paper ${pNum} - ${paperName}</h2>`;
-            
-            // 5 मार्क्स (40 बॉक्स)
-            html += `<div class="group-title">5 अंक वाले प्रश्न — 40 Boxes (001 से 040)</div><div class="grid">`;
-            for (let b = 1; b <= 40; b++) {
-                let boxStr = b < 10 ? '00' + b : '0' + b;
-                let code = `GS${pNum}-5M-${boxStr}`;
-                html += `<div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${folder}/5-marks/${code}/index.html">Open</a></div>`;
-            }
-            html += `</div>`;
-
-            // 10 मार्क्स (40 बॉक्स)
-            html += `<div class="group-title">10 अंक वाले प्रश्न — 40 Boxes (041 से 080)</div><div class="grid">`;
-            for (let b = 41; b <= 80; b++) {
-                let boxStr = '0' + b;
-                let code = `GS${pNum}-10M-${boxStr}`;
-                html += `<div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${folder}/10-marks/${code}/index.html">Open</a></div>`;
-            }
-            html += `</div>`;
-
-            // 15 मार्क्स (20 बॉक्स)
-html += <div class="group-title">15 अंक वाले प्रश्न — 20 Boxes (081 से 100)</div><div class="grid">;for (let b = 81; b <= 100; b++) {let boxStr = b === 100 ? '100' : '0' + b;let code = GS${pNum}-15M-${boxStr};html += <div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${folder}/15-marks/${code}/index.html">Open</a></div>;}html += </div></section>;});container.innerHTML = html;}
+    <!-- Unit 2 -->
+    <section class="unit-sec">
+        <h2>Unit 2 - मध्यप्रदेश का इतिहास, संस्कृति एवं साहित्य</h2>
+        <div class="grid">
+            <div class="card"><span class="code">P02T01</span><a class="open-btn pre-btn" href="prelims-tests/unit-02/P02T01/index.html">Open</a></div>
+            <div class="card"><span class="code">P02T02</span><a class="open-btn pre-btn" href="prelims-tests/unit-02/P02T02/index.html">Open</a></div>
+            <div class="card"><span class="code">P02T03</span><a class="open-btn pre-btn" href="prelims-tests/unit-02/P02T03/index.html">Open</a></div>
+            <div class="card"><span class="code">P02T04</span><a class="open-btn pre-btn" href="prelims-tests/unit-02/P02T04/index.html">Open</a></div>
+            <div class="card"><span class="code">P02T05</span><a class="open-btn pre-btn" href="prelims-tests/unit-02/P02T05/index.html">Open</a></div>
+            <div class="card"><span class="code">P02T06</span><a class="open-btn pre-btn" href="prelims-tests/unit-02/P02T06/index.html">Open</a></div>
+            <div class="card"><span class="code">P02T07</span><a class="open-btn pre-btn" href="prelims-tests/unit-02/P02T07/index.html">Open</a></div>
+            <div class="card"><span class="code">P02T08</span><a class="open-btn pre-btn" href="prelims-tests/unit-02/P02T08/index.html">Open</a></div>
+            <div class="card"><span class="code">P02T09</span><a class="open-btn pre-btn" href="prelims-tests/unit-02/P02T09/index.html">Open</a></div>
+            <div class="card"><span class="code">P02T10</span><a class="open-btn pre-btn" href="prelims-tests/unit-02/P02T10/index.html">Open</a></div>
+            <div class="card"><span class="code">P02T11</span><a class="open-btn pre-btn" href="prelims-tests/unit-02/P02T11/index.html">Open</a></div>
+            <div class="card"><span class="code">P02T12</span><a class="open-btn pre-btn" href="prelims-tests/unit-02/P02T12/index.html">Open</a></div>
+            <div class="card"><span class="code">P02T13</span><a class="open-btn pre-btn" href="prelims-tests/unit-02/P02T13/index.html">Open</a></div>
+            <div class="card"><span class="code">P02T14</span><a class="open-btn pre-btn" href="prelims-tests/unit-02/P02T14/index.html">Open</a></div>
+            <div class="card"><span class="code">P02T15</span><a class="open-btn pre-btn" href="prelims-tests/unit-02/P02T15/index.html">Open</a></div>
+P02T16OpenP02T17OpenP02T18OpenP02T19OpenP02T20Open📝 Paid MAINS — 600 Total Boxes (Paper 1 to 6)Paper 1 - General Studies-I (इतिहास एवं भूगोल)5 अंक वाले प्रश्न — 40 Boxes (001 से 040)GS1-5M-001OpenGS1-5M-002OpenGS1-5M-003OpenGS1-5M-004OpenGS1-5M-005OpenGS1-5M-006OpenGS1-5M-007OpenGS1-5M-008OpenGS1-5M-009OpenGS1-5M-010Open10 अंक वाले प्रश्न — 40 Boxes (041 से 080)GS1-10M-041OpenGS1-10M-042OpenGS1-10M-043OpenGS1-10M-044OpenGS1-10M-045Open// 100% जावास्क्रिप्ट फ्री रेंडरिंग - सिर्फ डेटाबेस रसीद सिंक करने के लिए साधारण फंक्शनwindow.onload = function() {const tableBody = document.getElementById("payment-requests-table");if(!tableBody) return;let pendingPayments = JSON.parse(localStorage.getItem("mppsc_pending_payments")) || [];if (pendingPayments.length === 0) return;let html = '';pendingPayments.forEach((req, index) => {html += `${req.date}${req.phone}${req.course.toUpperCase()}${req.utr}`;});tableBody.innerHTML = html;};function approvePayment(index) {let pendingPayments = JSON.parse(localStorage.getItem("mppsc_pending_payments")) || [];let approvedReq = pendingPayments[index];const studentPassword = "MPPSC-" + Math.floor(1000 + Math.random() * 9000);let users = JSON.parse(localStorage.getItem("mppsc_students")) || [];users.push({ username: approvedReq.phone, password: studentPassword, type: approvedReq.course });localStorage.setItem("mppsc_students", JSON.stringify(users));alert(✓ क्रेडेंशियल एक्टिवेटेड! छात्र का पासवर्ड है: ${studentPassword});pendingPayments.splice(index, 1);localStorage.setItem("mppsc_pending_payments", JSON.stringify(pendingPayments));location.reload();}
