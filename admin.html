@@ -8,23 +8,24 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:Arial,Helvetica,sans-serif;background:#f3f6fa;color:#102a43;padding-bottom:50px;}
 .header{background:#082b57;color:#fff;padding:15px 20px;font-size:19px;font-weight:700;display:flex;justify-content:space-between;align-items:center;min-height:60px;}
-.wrap{max-width:1500px;margin:22px auto;padding:0 15px}
+.wrap{max-width:1400px;margin:22px auto;padding:0 15px}
 .top{background:#fff;border-radius:12px;padding:18px 20px;margin-bottom:18px;box-shadow:0 2px 9px rgba(0,0,0,0.05)}
 .top h1{margin:0 0 6px;font-size:24px}.top p{margin:5px 0;color:#667085}
-.section-main-title {font-size:24px; font-weight:800; color:#082b57; margin:40px 0 15px; padding-left:10px; display:block;}
-.pre-title { border-left: 6px solid #e53e3e; }
-.mains-title { border-left: 6px solid #147dcc; }
-.paper, .unit-sec {background:#fff;border-radius:12px;padding:16px;margin-bottom:25px;box-shadow:0 2px 9px rgba(0,0,0,0.05);display:block;}
-.unit-sec { border-top: 4px solid #e53e3e; }
-.paper { border-top: 4px solid #147dcc; }
-.paper h2, .unit-sec h2{margin:0 0 14px;font-size:20px;color:#082b57;border-bottom: 2px solid #eaf2fb;padding-bottom:8px;}
+
+/* 🎛️ फ़िल्टर कंट्रोलर बॉक्स */
+.filter-sec { background: #fff; border-radius: 12px; padding: 20px; margin-bottom: 25px; box-shadow: 0 2px 9px rgba(0,0,0,0.05); border-top: 4px solid #082b57; text-align: left; }
+.filter-sec label { font-weight: bold; display: block; margin-bottom: 8px; font-size: 15px; }
+.filter-sec select { width: 100%; max-width: 500px; padding: 12px; border: 2px solid #d7e1ec; border-radius: 8px; font-size: 15px; font-weight: bold; color: #082b57; outline: none; }
+
+.section-main-title {font-size:22px; font-weight:800; color:#082b57; margin:25px 0 15px; padding-left:10px; border-left: 6px solid #082b57;}
+.render-box { background:#fff; border-radius:12px; padding:20px; box-shadow:0 2px 9px rgba(0,0,0,0.05); }
 .group-title{background:#eaf2fb;border-radius:7px;padding:8px 10px;margin:20px 0 10px;font-size:14px;font-weight:700;color:#082b57}
 
-/* 📊 10-कॉलम का मजबूत ग्रिड लेआउट */
-.grid{display:grid;grid-template-columns:repeat(10,1fr);gap:6px;margin-top:10px;}
-.card{background:#fff;border:1px solid #d7e1ec;border-radius:6px;padding:6px 2px;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
-.code{font-size:11px;font-weight:700;display:block;margin-bottom:4px;color:#334e68}
-.open-btn {display:block;color:#fff;text-decoration:none;border-radius:4px;padding:4px 2px;font-size:10px;font-weight:bold;text-align:center;}
+/* 📊 ऑटो-ग्रिड */
+.grid{display:grid;grid-template-columns:repeat(8,1fr);gap:8px;margin-top:10px;}
+.card{background:#fff;border:1px solid #d7e1ec;border-radius:6px;padding:8px 4px;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
+.code{font-size:11px;font-weight:700;display:block;margin-bottom:5px;color:#334e68}
+.open-btn {display:block;color:#fff;text-decoration:none;border-radius:4px;padding:5px 2px;font-size:11px;font-weight:bold;text-align:center;}
 .pre-btn { background:#e53e3e; } .pre-btn:hover { background:#c53030; }
 .mains-btn { background:#147dcc; } .mains-btn:hover { background:#0b69b1; }
 .home-btn{background:#fff;color:#082b57;border:none;padding:8px 16px;border-radius:6px;font-weight:bold;cursor:pointer;font-size:14px;text-decoration:none;}
@@ -34,16 +35,15 @@ table { width: 100%; border-collapse: collapse; margin-top: 15px; }
 th, td { border: 1px solid #d7e1ec; padding: 12px; text-align: left; font-size: 14px; }
 th { background: #f0f5ff; color: #082b57; font-weight: bold; }
 
-@media(max-width:1400px){.grid{grid-template-columns:repeat(8,1fr)}}
-@media(max-width:1100px){.grid{grid-template-columns:repeat(6,1fr)}}
-@media(max-width:800px){.grid{grid-template-columns:repeat(4,1fr)}}
-@media(max-width:500px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:1200px){.grid{grid-template-columns:repeat(6,1fr)}}
+@media(max-width:900px){.grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:550px){.grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
 
 <div class="header">
-    <span>MPPSC MCQ Hub V14 — Full Admin Master Dashboard</span>
+    <span>MPPSC MCQ Hub V14 — Master Admin Dashboard</span>
     <a href="index.html" class="home-btn">मुख्य वेबसाइट पर जाएँ</a>
 </div>
 
@@ -75,21 +75,42 @@ th { background: #f0f5ff; color: #082b57; font-weight: bold; }
         </div>
     </section>
 
-    <!-- 🔴 PAID PRELIMS CONTAINERS (200 BOXES) -->
-    <div class="section-main-title pre-title">🏆 Paid PRELIMS — 200 Total Tests (Unit 1 to 10)</div>
-    <div id="prelims-master-grid"></div>
+    <!-- 🎛️ फ़िल्टर कंट्रोलर सेक्शन -->
+    <section class="filter-sec">
+        <label for="course-filter">📋 मैनेज करने के लिए यूनिट या पेपर चुनें (Select Unit/Paper):</label>
+        <select id="course-filter" onchange="handleFilterChange()">
+            <option value="">-- कृपया चयन करें --</option>
+            <optgroup label="🏆 Paid PRELIMS (200 Tests)">
+                <option value="pre-01">Unit 1 - भारत का इतिहास</option>
+                <option value="pre-02">Unit 2 - म.प्र. का इतिहास व संस्कृति</option>
+                <option value="pre-03">Unit 3 - भारत का भूगोल</option>
+                <option value="pre-04">Unit 4 - मध्यप्रदेश का भूगोल</option>
+                <option value="pre-05">Unit 5 - संवैधानिक व्यवस्था</option>
+                <option value="pre-06">Unit 6 - भारत एवं म.प्र. की अर्थव्यवस्था</option>
+                <option value="pre-07">Unit 7 - विज्ञान, पर्यावरण व स्वास्थ्य</option>
+                <option value="pre-08">Unit 8 - राष्ट्रीय व प्रादेशिक घटनाएं</option>
+                <option value="pre-09">Unit 9 - सूचना एवं संचार (ICT)</option>
+                <option value="pre-10">Unit 10 - म.प्र. की जनजातियां व संस्कृति</option>
+            </optgroup>
+            <optgroup label="📝 Paid MAINS (600 Boxes)">
+                <option value="main-1">Paper 1 - General Studies-I</option>
+                <option value="main-2">Paper 2 - General Studies-II</option>
+                <option value="main-3">Paper 3 - General Studies-III</option>
+                <option value="main-4">Paper 4 - General Studies-IV</option>
+                <option value="main-5">Paper 5 - General Studies-V</option>
+                <option value="main-6">Paper 6 - General Studies-VI</option>
+            </optgroup>
+        </select>
+    </section>
 
-    <!-- 🔵 PAID MAINS CONTAINERS (600 BOXES) -->
-    <div class="section-main-title mains-title">📝 Paid MAINS — 600 Total Boxes (Paper 1 to 6)</div>
-    <div id="mains-master-grid"></div>
+    <!-- 📊 लाइव रेंडरिंग ग्रिड बॉक्स (केवल चुनी हुई चीज़ लोड होगी जिससे ब्राउज़र हैंग नहीं होगा) -->
+    <div id="dynamic-title" class="section-main-title" style="display: none;"></div>
+    <div id="master-render-box" class="render-box" style="display: none;"></div>
 </div>
 
 <script>
-    // 🔄 डोम रेडी होते ही पूरे 800 बॉक्सेस इंजेक्ट करने का सबसे फ़ास्ट मैकेनिज्म
     window.addEventListener('DOMContentLoaded', () => {
         loadPaymentRequests();
-        buildPrelims200Boxes();
-        buildMains600Boxes();
     });
 
     function loadPaymentRequests() {
@@ -131,52 +152,28 @@ th { background: #f0f5ff; color: #082b57; font-weight: bold; }
         loadPaymentRequests();
     }
 
-    // 🔴 प्रीलिम्स 200 टेस्ट जनरेटर मैकेनिज्म
+    // 🔄 फ़िल्टर चेंज होने पर सिलेक्टेड यूनिट/पेपर लोड करने का लॉजिक
     const preUnits = ["भारत का इतिहास", "म.प्र. का इतिहास, संस्कृति", "भारत का भूगोल", "मध्यप्रदेश का भूगोल", "संवैधानिक व्यवस्था", "भारत एवं म.प्र. की अर्थव्यवस्था", "विज्ञान, पर्यावरण व स्वास्थ्य", "राष्ट्रीय व प्रादेशिक घटनाएं", "सूचना एवं संचार (ICT)", "म.प्र. की जनजातियां व संस्कृति"];
-    function buildPrelims200Boxes() {
-        const gridContainer = document.getElementById('prelims-master-grid');
-        let html = '';
-        for (let u = 1; u <= 10; u++) {
-            let padU = u < 10 ? '0' + u : u;
-            html += `<section class="unit-sec"><h2>Unit ${u} - ${preUnits[u-1]}</h2><div class="grid">`;
-            for (let t = 1; t <= 20; t++) {
-                let padT = t < 10 ? '0' + t : t;
-                let code = `P${padU}T${padT}`;
-                html += `<div class="card"><span class="code">${code}</span><a class="open-btn pre-btn" href="prelims-tests/unit-${padU}/${code}/index.html">Open</a></div>`;
-            }
-            html += `</div></section>`;
-        }
-        gridContainer.innerHTML = html;
-    }
-
-    // 🔵 मेंस 600 बॉक्सेस जनरेटर मैकेनिज्म (सटीक 40 + 40 + 20 विभाजन)
-    const mainsPapers = ["General Studies-I", "General Studies-II", "General Studies-III", "General Studies-IV", "General Studies-V", "General Studies-VI"];
     const mainsFolders = ["paper-01-general-studies-i", "paper-02-general-studies-ii", "paper-03-general-studies-iii", "paper-04-general-studies-iv", "paper-05-general-studies-v", "paper-06-general-studies-vi"];
-    
-    function buildMains600Boxes() {
-        const gridContainer = document.getElementById('mains-master-grid');
+
+    function handleFilterChange() {
+        const filterValue = document.getElementById("course-filter").value;
+        const titleContainer = document.getElementById("dynamic-title");
+        const gridContainer = document.getElementById("master-render-box");
+
+        if (!filterValue) {
+            titleContainer.style.display = "none";
+            gridContainer.style.display = "none";
+            return;
+        }
+
+        titleContainer.style.display = "block";
+        gridContainer.style.display = "block";
         let html = '';
-        mainsPapers.forEach((paperName, index) => {
-            let pNum = index + 1;
-            let folder = mainsFolders[index];
-            html += `<section class="paper"><h2>Paper ${pNum} - ${paperName}</h2>`;
-            
-            // 5 मार्क्स (40 बॉक्सेस प्रति पेपर: 001 से 040)
-            html += `<div class="group-title">5 अंक वाले प्रश्न — 40 Boxes (001 से 040)</div><div class="grid">`;
-            for (let b = 1; b <= 40; b++) {
-                let boxStr = b < 10 ? '00' + b : '0' + b;
-                let code = `GS${pNum}-5M-${boxStr}`;
-                html += `<div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${folder}/5-marks/${code}/index.html">Open</a></div>`;
-            }
-            html += `</div>`;
 
-            // 10 मार्क्स (40 बॉक्सेस प्रति पेपर: 041 से 080)
-            html += `<div class="group-title">10 अंक वाले प्रश्न — 40 Boxes (041 से 080)</div><div class="grid">`;
-            for (let b = 41; b <= 80; b++) {
-                let boxStr = '0' + b;
-                let code = `GS${pNum}-10M-${boxStr}`;
-                html += `<div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${folder}/10-marks/${code}/index.html">Open</a></div>`;
-            }
-            html += `</div>`;
-
-// 15 मार्क्स (20 बॉक्सेस प्रति पेपर: 081 से 100)html += <div class="group-title">15 अंक वाले प्रश्न — 20 Boxes (081 से 100)</div><div class="grid">;for (let b = 81; b <= 100; b++) {let boxStr = b === 100 ? '100' : '0' + b;let code = GS${pNum}-15M-${boxStr};html += <div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${folder}/15-marks/${code}/index.html">Open</a></div>;}html += </div>;html += </section>;});gridContainer.innerHTML = html;}
+        // 🏆 अगर प्रीलिम्स सिलेक्ट किया है (20 बॉक्सेस लोड होंगे)
+        if (filterValue.startsWith("pre-")) {
+            let uNum = parseInt(filterValue.split("-")[1]);
+            let padU = uNum < 10 ? '0' + uNum : uNum;
+            titleContainer.innerText = `🏆 Unit ${uNum} - ${preUnits[uNum-1]}`;
+html += <div class="grid">;for (let t = 1; t <= 20; t++) {let padT = t < 10 ? '0' + t : t;let code = P${padU}T${padT};html += <div class="card"><span class="code">${code}</span><a class="open-btn pre-btn" href="prelims-tests/unit-${padU}/${code}/index.html">Open Test</a></div>;}html += </div>;}// 📝 अगर मेंस सिलेक्ट किया है (100 बॉक्सेस लोड होंगे)else if (filterValue.startsWith("main-")) {let pNum = parseInt(filterValue.split("-")[1]);let folder = mainsFolders[pNum-1];titleContainer.innerText = 📝 Paper ${pNum} - Control Boxes;// 5 मार्क्सhtml += <div class="group-title">5 अंक वाले प्रश्न — 40 Boxes (001 से 040)</div><div class="grid">;for (let b = 1; b <= 40; b++) {let boxStr = b < 10 ? '00' + b : '0' + b;let code = GS${pNum}-5M-${boxStr};html += <div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${folder}/5-marks/${code}/index.html">Open</a></div>;}html += </div>;// 10 मार्क्सhtml += <div class="group-title">10 अंक वाले प्रश्न — 40 Boxes (041 से 080)</div><div class="grid">;for (let b = 41; b <= 80; b++) {let boxStr = '0' + b;let code = GS${pNum}-10M-${boxStr};html += <div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${folder}/10-marks/${code}/index.html">Open</a></div>;}html += </div>;// 15 मार्क्सhtml += <div class="group-title">15 अंक वाले प्रश्न — 20 Boxes (081 से 100)</div><div class="grid">;for (let b = 81; b <= 100; b++) {let boxStr = b === 100 ? '100' : '0' + b;let code = GS${pNum}-15M-${boxStr};html += <div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${folder}/15-marks/${code}/index.html">Open</a></div>;}html += </div>;}gridContainer.innerHTML = html;}
