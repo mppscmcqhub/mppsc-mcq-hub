@@ -1,42 +1,153 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login - MPPSC Hub</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Admin Dashboard · 200 PRELIMS Tests + 600 MAINS</title>
     <style>
-        body { font-family: Arial, sans-serif; background-color: #f4f7fc; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-        .login-box { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; width: 300px; }
-        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
-        button { width: 100%; padding: 10px; background: #0056b3; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
-        button:hover { background: #004085; }
-        .error { color: red; font-size: 14px; margin-top: 5px; display: none; }
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #edf3ff; color: #111; }
+        a { text-decoration: none; color: inherit; }
+        .top { height: 64px; background: #1551a5; color: #fff; display: flex; align-items: center; padding: 0 18px; }
+        .topin { width: 100%; display: flex; align-items: center; gap: 12px; }
+        .logo { width: 42px; height: 42px; border-radius: 50%; background: #fff; display: grid; place-items: center; color: #1551a5; font-weight: 900; }
+        .logo-main { font-size: 16px; line-height: 15px; text-align: center; }
+        .logo-sub { font-size: 10px; text-align: center; }
+        .title { font-size: 18px; font-weight: 800; }
+        .login { margin-left: auto; background: #fff; color: #111; padding: 7px 15px; border-radius: 4px; font-weight: 700; }
+        .wrap { padding: 25px 10px; max-width: 1650px; margin: auto; }
+        .adminbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
+        .stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin: 18px 0 26px; }
+        .stat { background: #fff; border-radius: 14px; padding: 16px; text-align: center; box-shadow: 0 3px 14px rgba(0,0,0,.08); }
+        .stat b { font-size: 26px; display: block; }
+        .unitsec, .papersec { background: #fff; border-radius: 18px; padding: 18px; margin: 18px 0; box-shadow: 0 4px 18px rgba(0,0,0,.08); }
+        .unithead, .paperhead { display: flex; align-items: center; gap: 14px; margin-bottom: 15px; }
+        .unithead h2, .paperhead h2 { margin: 0 0 4px; }
+        .unithead p, .paperhead p { margin: 0; color: #667085; }
+        .unithead>strong, .paperhead>strong { margin-left: auto; background: #eef5ff; padding: 8px 12px; border-radius: 10px; }
+        .tests { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+        .test { text-decoration: none; color: #172033; border: 1px solid #e1e7ef; border-radius: 12px; padding: 11px 8px; text-align: center; background: #fafcff; transition: .15s; }
+        .test:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,.1); }
+        .test span { display: block; font-size: 18px; font-weight: 800; }
+        .test b { display: block; font-size: 13px; margin: 4px 0; }
+        .test small { color: #667085; }
+        .logout { background: #d32f2f !important; color: #fff; border: 0; cursor: pointer; padding: 10px 20px; border-radius: 6px; font-weight: bold; }
+        .marks { display: inline-block; background: #e8f1ff; color: #1551a5; padding: 4px 8px; border-radius: 10px; font-size: 11px; font-weight: 800; margin-bottom: 5px; }
+        .backtop { display: inline-block; background: #1551a5; color: #fff; padding: 8px 12px; border-radius: 20px; font-size: 12px; font-weight: 800; }
+        
+        /* नया फ़ॉर्म स्टाइल */
+        .form-group { margin-bottom: 15px; }
+        label { font-weight: bold; display: block; margin-bottom: 5px; }
+        input[type="text"], select, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px; }
+        .btn-submit { background: #1551a5; color: white; border: none; padding: 12px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; width: 100%; font-size: 16px; }
+        .btn-submit:hover { background: #0f3d7a; }
+
+        @media(max-width: 1050px) { .tests { grid-template-columns: repeat(4, 1fr); } .stats { grid-template-columns: repeat(3, 1fr); } }
+        @media(max-width: 650px) { .tests { grid-template-columns: repeat(2, 1fr); } .stats { grid-template-columns: 1fr 1fr; .wrap { padding: 14px 9px; } }
+        @media(max-width: 420px) { .tests { grid-template-columns: 1fr; } .stats { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
-<div class="login-box">
-    <h2>Admin Login</h2>
-    <input type="text" id="username" placeholder="Username (एडमिन नाम)">
-    <input type="password" id="password" placeholder="Password (पासवर्ड)">
-    <button onclick="checkLogin()">Login</button>
-    <p class="error" id="error-msg">गलत Username या Password!</p>
-</div>
+<header class="top">
+    <div class="topin">
+        <div class="logo" aria-label="MPPSC logo">
+            <div><div class="logo-main">MP</div><div class="logo-sub">PSC</div></div>
+        </div>
+        <div class="title">MPPSC MCQ Hub V14 · ADMIN DASHBOARD</div>
+        <a class="login" href="index.html">Home</a>
+    </div>
+</header>
 
-<script>
-    function checkLogin() {
-        var user = document.getElementById("username").value;
-        var pass = document.getElementById("password").value;
+<main class="wrap">
+    <div class="adminbar">
+        <div>
+            <h1 style="margin:0 0 5px">Paid PRELIMS – 200 Tests</h1>
+            <p style="margin:0;color:#667085">Admin को सभी 10 Units के सभी Test Boxes दिखाई देंगे।</p>
+        </div>
+        <button class="logout" onclick="logout()">Logout</button>
+    </div>
 
-        // एडमिन यूजरनेम और पासवर्ड वेरिफिकेशन
-        if(user === "admin123" && pass === "mppsc2027") {
-            // ✅ यहाँ ब्राउज़र कैशे को बायपास करने के लिए वर्जन कोड लगा दिया गया है
-            window.location.href = "dashboard.html?v=mppsc2027";
-        } else {
-            document.getElementById("error-msg").style.display = "block";
-        }
-    }
-</script>
+    <div class="stats">
+        <div class="stat"><b>10</b>Units</div>
+        <div class="stat"><b>200</b>PRELIMS Tests</div>
+        <div class="stat"><b>20</b>Tests / Unit</div>
+        <div class="stat"><b>6</b>MAINS Papers</div>
+        <div class="stat"><b>600</b>MAINS Boxes</div>
+    </div>
 
-</body>
-</html>
+    <!-- 🌟 नया: प्रश्न अपडेट करने का लाइव डेवलपर फ़ॉर्म -->
+    <section class="unitsec">
+        <div class="unithead">
+            <div>
+                <h2>➕ नया प्रश्न अपडेट करें (Update Test Questions)</h2>
+                <p>यहाँ से जोड़े गए प्रश्न सीधे चुनी हुई टेस्ट आईडी में अपडेट हो जाएंगे।</p>
+            </div>
+        </div>
+        <form id="questionForm">
+            <div class="form-group">
+                <label>टेस्ट कोड चुनें (Select Test ID):</label>
+                <select id="testBox">
+                    <option value="P01T01">Unit 1 - Test 1 (P01T01)</option>
+                    <option value="P01T02">Unit 1 - Test 2 (P01T02)</option>
+                    <option value="P02T01">Unit 2 - Test 1 (P02T01)</option>
+                    <option value="P02T02">Unit 2 - Test 2 (P02T02)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>प्रश्न टाइप करें (Question):</label>
+                <textarea id="questionText" rows="3" placeholder="जैसे: मध्यप्रदेश का राजकीय पशु कौन सा है?" required></textarea>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px;">
+                <div><label>विकल्प A:</label><input type="text" id="optA" required></div>
+                <div><label>विकल्प B:</label><input type="text" id="optB" required></div>
+                <div><label>विकल्प C:</label><input type="text" id="optC" required></div>
+                <div><label>विकल्प D:</label><input type="text" id="optD" required></div>
+            </div>
+            <div class="form-group">
+                <label>सही उत्तर (Correct Option):</label>
+                <select id="correctOpt">
+                    <option value="A">Option A</option>
+                    <option value="B">Option B</option>
+                    <option value="C">Option C</option>
+                    <option value="D">Option D</option>
+                </select>
+            </div>
+            <button type="button" class="btn-submit" onclick="updateQuestionLive()">🚀 प्रश्न लाइव अपडेट करें</button>
+        </form>
+    </section>
+
+    <!-- यूनिट्स और टेस्ट लिंक्स सेक्शन -->
+    <section class="unitsec">
+        <div class="unithead">
+            <div>
+                <h2>Paid PRELIMS – 200 Tests</h2>
+                <p>पुरानी PRELIMS coding/links जस की तस रखी गई हैं।</p>
+            </div>
+            <a class="backtop" href="prelims.html">Open PRELIMS</a>
+        </div>
+
+        <!-- Unit 1 -->
+        <div class="unitsec">
+            <div class="unithead">
+                <div class="logo" style="width:34px;height:34px;background:#2196f3;color:#fff">1</div>
+                <div><h2>Unit 1</h2><p>भारत का इतिहास</p></div>
+                <strong>20 Tests</strong>
+            </div>
+            <div class="tests">
+                <a class="test" href="prelims-tests/unit-01/P01T01/index.html"><span>01</span><b>P01T01</b><small>Open Test</small></a>
+                <a class="test" href="prelims-tests/unit-01/P01T02/index.html"><span>02</span><b>P01T02</b><small>Open Test</small></a>
+                <a class="test" href="prelims-tests/unit-01/P01T03/index.html"><span>03</span><b>P01T03</b><small>Open Test</small></a>
+                <a class="test" href="prelims-tests/unit-01/P01T04/index.html"><span>04</span><b>P01T04</b><small>Open Test</small></a>
+                <a class="test" href="prelims-tests/unit-01/P01T05/index.html"><span>05</span><b>P01T05</b><small>Open Test</small></a>
+                <a class="test" href="prelims-tests/unit-01/P01T06/index.html"><span>06</span><b>P01T06</b><small>Open Test</small></a>
+                <a class="test" href="prelims-tests/unit-01/P01T07/index.html"><span>07</span><b>P01T07</b><small>Open Test</small></a>
+                <a class="test" href="prelims-tests/unit-01/P01T08/index.html"><span>08</span><b>P01T08</b><small>Open Test</small></a>
+                <a class="test" href="prelims-tests/unit-01/P01T09/index.html"><span>09</span><b>P01T09</b><small>Open Test</small></a>
+                <a class="test" href="prelims-tests/unit-01/P01T10/index.html"><span>10</span><b>P01T10</b><small>Open Test</small></a>
+                <a class="test" href="prelims-tests/unit-01/P01T11/index.html"><span>11</span><b>P01T11</b><small>Open Test</small></a>
+                <a class="test" href="prelims-tests/unit-01/P01T12/index.html"><span>12</span><b>P01T12</b><small>Open Test</small></a>
+                <a class="test" href="prelims-tests/unit-01/P01T13/index.html"><span>13</span><b>P01T13</b><small>Open Test</small></a>
+                <a class="test" href="prelims-tests/unit-01/P01T14/index.html"><span>14</span><b>P01T14</b><small>Open Test</small></a>
+                <a class="test" href="prelims-tests/unit-01/P01T15/index.html"><span>15</span><b>P01T15</b><small>Open Test</small></a>
+16P01T16Open Test17P01T17Open Test18P01T18Open Test19P01T19Open Test20P01T20Open Test2Unit 2मध्यप्रदेश का इतिहास, संस्कृति एवं साहित्य20 Tests01P02T01Open Test02P02T02Open Test// 🛡️ लॉगिन सुरक्षा जांच (वेरिफिकेशन टोकन चेकर)window.onload = function() {const urlParams = new URLSearchParams(window.location.search);const token = urlParams.get('v');// अगर लॉगिन यूआरएल में सही टोकन नहीं है, तो डैशबोर्ड ब्लॉक हो जाएगाif (token !== "mppsc2027") {alert("❌ अनधिकृत पहुंच! कृपया पहले एडमिन पैनल पर लॉगिन करें।");window.location.href = "login.html"; // अपने लॉगिन पेज का सही नाम यहाँ लिखें}};// 🚀 प्रश्न लाइव अपडेट करने का लॉजिक (लोकल स्टोरेज स्टोरेज)function updateQuestionLive() {const testBox = document.getElementById("testBox").value;const questionText = document.getElementById("questionText").value;const optA = document.getElementById("optA").value;const optB = document.getElementById("optB").value;const optC = document.getElementById("optC").value;const optD = document.getElementById("optD").value;const correctOpt = document.getElementById("correctOpt").value;if (!questionText || !optA || !optB || !optC || !optD) {alert("कृपया सभी फ़ील्ड सही तरीके से भरें!");return;}// नया प्रश्न ऑब्जेक्ट तैयार करनाconst newQuestion = {question: questionText,options: { A: optA, B: optB, C: optC, D: optD },answer: correctOpt};// लोकल स्टोरेज से पुराने प्रश्नों की लिस्ट निकालनाlet savedTests = JSON.parse(localStorage.getItem(testBox)) || [];savedTests.push(newQuestion);// अपडेटेड लिस्ट को दोबारा सेव करनाlocalStorage.setItem(testBox, JSON.stringify(savedTests));alert(🎉 सफलतापूर्वक अपडेट हुआ!\nप्रश्न को टेस्ट बॉक्स [${testBox}] में लाइव जोड़ दिया गया है।);document.getElementById("questionForm").reset();}// 🔒 लॉगआउट फंक्शनfunction logout() {alert("आप सफलतापूर्वक लॉगआउट हो चुके हैं।");window.location.href = "login.html";}
