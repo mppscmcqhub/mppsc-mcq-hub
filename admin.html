@@ -67,7 +67,7 @@ th { background: #f0f5ff; color: #082b57; font-weight: bold; }
     </div>
 </div>
 
-<!-- 📊 मुख्य डैशबोर्ड कंटेंट -->
+<!-- 📊 मुख्य डैशबोर्ड कंटेंट (सफल लॉगिन के बाद दिखेगा) -->
 <div id="dashboard-content" style="display: none;">
     <div class="header">
         <span>MPPSC MCQ Hub V14 — Full Admin Master Dashboard</span>
@@ -80,7 +80,7 @@ th { background: #f0f5ff; color: #082b57; font-weight: bold; }
             <p><b>Paid PRELIMS (200 Tests) + Paid MAINS (600 Boxes) Control Dashboard</b></p>
         </div>
 
-        <!-- 💰 🌟 पेमेंट वेरिफिकेशन एवं अप्रूवल टेबल सेक्शन 🌟 -->
+        <!-- 💰 पेमेंट वेरिफिकेशन टेबल सेक्शन -->
         <section class="table-sec">
             <h2 style="color: #4caf50; margin: 0 0 5px 0;">📥 छात्रों के पेंडिंग पेमेंट और रसीदें (Verification Requests)</h2>
             <p style="margin: 0; color: #667085; font-size: 13px;">यहाँ छात्रों द्वारा सबमिट किए गए यूटीआर नंबर और स्क्रीनशॉट की जांच करके उन्हें लाइव एसएमएस द्वारा पासवर्ड भेजें।</p>
@@ -114,12 +114,12 @@ th { background: #f0f5ff; color: #082b57; font-weight: bold; }
 </div>
 
 <script>
-    // 🔐 1. लॉगिन क्रेडेंशियल चेक
+    // 🔐 1. लॉगिन क्रेडेंशियल चेक (त्रुटिहीन शुद्ध कोड)
     function validateAdminLogin() {
         var user = document.getElementById("username").value;
         var pass = document.getElementById("password").value;
 
-        if(user === "rajesh" && pass === "@Meena4585") {
+        if (user === "rajesh" && pass === "mppsc2027") {
             document.getElementById("login-overlay").style.display = "none";
             document.getElementById("dashboard-content").style.display = "block";
             
@@ -132,7 +132,7 @@ th { background: #f0f5ff; color: #082b57; font-weight: bold; }
         }
     }
 
-    // 📥 2. पेमेंट रिक्वेस्ट डेटा रेंडर और लोड लॉजिक
+    // 📥 2. पेमेंट रिक्वेस्ट डेटा लोड लॉजिक
     function loadPaymentRequests() {
         const tableBody = document.getElementById("payment-requests-table");
         let pendingPayments = JSON.parse(localStorage.getItem("mppsc_pending_payments")) || [];
@@ -160,7 +160,7 @@ th { background: #f0f5ff; color: #082b57; font-weight: bold; }
         tableBody.innerHTML = html;
     }
 
-    // 🚀 3. अप्रूवल और Fast2SMS API आटोमैटिक मैसेज ट्रिगर
+    // 🚀 3. अप्रूवल और Fast2SMS API मैसेज ट्रिगर
     function approvePayment(index) {
         let pendingPayments = JSON.parse(localStorage.getItem("mppsc_pending_payments")) || [];
         let approvedReq = pendingPayments[index];
@@ -168,13 +168,12 @@ th { background: #f0f5ff; color: #082b57; font-weight: bold; }
         // रैंडम सीक्रेट पासवर्ड जनरेट करना
         const studentPassword = "MPPSC-" + Math.floor(1000 + Math.random() * 9000);
         
-        // ⚠️ Fast2SMS API इंटिग्रेशन
-        // अपनी Fast2SMS API Key को 'YOUR_FAST2SMS_API_KEY' की जगह रिप्लेस करें
+        // ⚠️ Fast2SMS API (अपनी Key यहाँ बदलें)
         const apiKey = "YOUR_FAST2SMS_API_KEY";
         const smsMessage = `बधाई हो! आपका भुगतान सत्यापित हो गया है। MPPSC Hub लॉगिन ID: ${approvedReq.phone} | पासवर्ड: ${studentPassword} । कृपया student-login.html पर जाकर लॉगिन करें।`;
         
         const apiUrl = `https://fast2sms.com{apiKey}&route=q&message=${encodeURIComponent(smsMessage)}&flash=0&numbers=${approvedReq.phone}`;
 
-        // अप्रूव होते ही छात्र के क्रेडेंशियल को एक्टिव स्टूडेंट लिस्ट में जोड़ना
+        // छात्र क्रेडेंशियल को एक्टिव स्टूडेंट लिस्ट में जोड़ना
         let users = JSON.parse(localStorage.getItem("mppsc_students")) || [];
-users.push({ username: approvedReq.phone, password: studentPassword, type: approvedReq.course });localStorage.setItem("mppsc_students", JSON.stringify(users));// API कॉल भेजकर SMS डिलीवर करनाfetch(apiUrl).then(() => {alert(✓ छात्र ${approvedReq.phone} का कोर्स सफलतापूर्वक एक्टिवेट कर दिया गया है और पासवर्ड SMS द्वारा फोन पर भेज दिया गया है।);// रिक्वेस्ट को पेंडिंग लिस्ट से हटानाpendingPayments.splice(index, 1);localStorage.setItem("mppsc_pending_payments", JSON.stringify(pendingPayments));loadPaymentRequests(); // टेबल रीलोड}).catch(() => {alert(नेटवर्क एरर! क्रेडेंशियल डेटाबेस में सेव हो गया है। छात्र का मैन्युअल पासवर्ड है: ${studentPassword});pendingPayments.splice(index, 1);localStorage.setItem("mppsc_pending_payments", JSON.stringify(pendingPayments));loadPaymentRequests();});}// ❌ 4. पेमेंट रिजेक्ट लॉजिकfunction rejectPayment(index) {if(confirm("क्या आप वाकई इस रिक्वेस्ट को रिजेक्ट करना चाहते हैं?")) {let pendingPayments = JSON.parse(localStorage.getItem("mppsc_pending_payments")) || [];pendingPayments.splice(index, 1);localStorage.setItem("mppsc_pending_payments", JSON.stringify(pendingPayments));loadPaymentRequests();alert("रिक्वेस्ट को सफलतापूर्वक रिजेक्ट सूची में डाल दिया गया है।");}}// 🔴 प्रीलिम्स 200 टेस्ट जनरेटर लूपconst prelimsUnits = ["भारत का इतिहास", "मध्यप्रदेश का इतिहास, संस्कृति एवं साहित्य", "भारत का भूगोल", "मध्यप्रदेश का भूगोल", "भारत एवं म.प्र. की संवैधानिक व्यवस्था", "भारत एवं म.प्र. की अर्थव्यवस्था", "विज्ञान, पर्यावरण एवं स्वास्थ्य", "अंतर्राष्ट्रीय, राष्ट्रीय एवं प्रादेशिक घटनाएं", "सूचना एवं संचार प्रौद्योगिकी (ICT)", "म.प्र. की जनजातियां: विरासत व लोक संस्कृति"];function buildPrelims200Tests() {const container = document.getElementById('prelims-dynamic-container');let html = '';for (let u = 1; u <= 10; u++) {let padU = u < 10 ? '0' + u : u;html += <section class="unit-sec"><h2>Unit ${u} - ${prelimsUnits[u-1]}</h2><div class="grid">;for (let t = 1; t <= 20; t++) {let padT = t < 10 ? '0' + t : t;let code = P${padU}T${padT};html += <div class="card"><span class="code">${code}</span><a class="open-btn pre-btn" href="prelims-tests/unit-${padU}/${code}/index.html">Open Test</a></div>;}html += </div></section>;}container.innerHTML = html;}// 🔵 मेंस 600 बॉक्सेस जनरेटर लूपconst mainsPapers = [{ name: "General Studies-I (इतिहास एवं भूगोल)", folder: "paper-01-general-studies-i" },{ name: "General Studies-II (राजनीति, अर्थशास्त्र एवं समाजशास्त्र)", folder: "paper-02-general-studies-ii" },{ name: "General Studies-III (विज्ञान, प्रौद्योगिकी एवं स्वास्थ्य)", folder: "paper-03-general-studies-iii" },{ name: "General Studies-IV (दर्शनशास्त्र, मनोविज्ञान एवं लोक प्रशासन)", folder: "paper-04-general-studies-iv" },{ name: "General Studies-V (सामान्य हिंदी एवं व्याकरण)", folder: "paper-05-general-studies-v" },{ name: "General Studies-VI (हिंदी निबंध एवं प्रारूप लेखन)", folder: "paper-06-general-studies-vi" }];function buildMains600Boxes() {const container = document.getElementById('mains-dynamic-container');let html = '';mainsPapers.forEach((paper, index) => {const pNum = index + 1;html += <section class="paper"><h2>Paper ${pNum} - ${paper.name}</h2>;html += <div class="group-title">5 अंक वाले प्रश्न — 40 Boxes</div><div class="grid">;for (let b = 1; b <= 40; b++) {let code = GS${pNum}-5M-${b < 10 ? '00'+b : '0'+b};html += <div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${paper.folder}/5-marks/${code}/index.html">Open</a></div>;}html += </div><div class="group-title">10 अंक वाले प्रश्न — 40 Boxes</div><div class="grid">;for (let b = 41; b <= 80; b++) {let code = GS${pNum}-10M-0${b};html += <div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${paper.folder}/10-marks/${code}/index.html">Open</a></div>;}html += </div><div class="group-title">15 अंक वाले प्रश्न — 20 Boxes</div><div class="grid">;for (let b = 81; b <= 100; b++) {let code = GS${pNum}-15M-${b === 100 ? '100' : '0'+b};html += <div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${paper.folder}/15-marks/${code}/index.html">Open</a></div>;}html += </div></section>;});container.innerHTML = html;}// 🔒 लॉगआउट फंक्शनfunction logoutAdmin() {document.getElementById("username").value = "";document.getElementById("password").value = "";document.getElementById("login-overlay").style.display = "flex";document.getElementById("dashboard-content").style.display = "none";}
+users.push({ username: approvedReq.phone, password: studentPassword, type: approvedReq.course });localStorage.setItem("mppsc_students", JSON.stringify(users));fetch(apiUrl).then(() => {alert(✓ छात्र ${approvedReq.phone} का कोर्स एक्टिवेट हो गया है और पासवर्ड फोन पर भेज दिया गया है।);pendingPayments.splice(index, 1);localStorage.setItem("mppsc_pending_payments", JSON.stringify(pendingPayments));loadPaymentRequests();}).catch(() => {alert(डेटाबेस अपडेट सफल! छात्र का मैन्युअल पासवर्ड है: ${studentPassword});pendingPayments.splice(index, 1);localStorage.setItem("mppsc_pending_payments", JSON.stringify(pendingPayments));loadPaymentRequests();});}// ❌ 4. पेमेंट रिजेक्ट लॉजिकfunction rejectPayment(index) {if(confirm("क्या आप वाकई इस रिक्वेस्ट को रिजेक्ट करना चाहते हैं?")) {let pendingPayments = JSON.parse(localStorage.getItem("mppsc_pending_payments")) || [];pendingPayments.splice(index, 1);localStorage.setItem("mppsc_pending_payments", JSON.stringify(pendingPayments));loadPaymentRequests();alert("रिक्वेस्ट को रिजेक्ट कर दिया गया है।");}}// 🔴 प्रीलिम्स 200 टेस्ट जनरेटर लूपconst prelimsUnits = ["भारत का इतिहास", "मध्यप्रदेश का इतिहास, संस्कृति एवं साहित्य", "भारत का भूगोल", "मध्यप्रदेश का भूगोल", "भारत एवं म.प्र. की संवैधानिक व्यवस्था", "भारत एवं म.प्र. की अर्थव्यवस्था", "विज्ञान, पर्यावरण एवं स्वास्थ्य", "अंतर्राष्ट्रीय, राष्ट्रीय एवं प्रादेशिक घटनाएं", "सूचना एवं संचार प्रौद्योगिकी (ICT)", "म.प्र. की जनजातियां: विरासत व लोक संस्कृति"];function buildPrelims200Tests() {const container = document.getElementById('prelims-dynamic-container');let html = '';for (let u = 1; u <= 10; u++) {let padU = u < 10 ? '0' + u : u;html += <section class="unit-sec"><h2>Unit ${u} - ${prelimsUnits[u-1]}</h2><div class="grid">;for (let t = 1; t <= 20; t++) {let padT = t < 10 ? '0' + t : t;let code = P${padU}T${padT};html += <div class="card"><span class="code">${code}</span><a class="open-btn pre-btn" href="prelims-tests/unit-${padU}/${code}/index.html">Open Test</a></div>;}html += </div></section>;}container.innerHTML = html;}// 🔵 मेंस 600 बॉक्सेस जनरेटर लूपconst mainsPapers = [{ name: "General Studies-I (इतिहास एवं भूगोल)", folder: "paper-01-general-studies-i" },{ name: "General Studies-II (राजनीति, अर्थशास्त्र एवं समाजशास्त्र)", folder: "paper-02-general-studies-ii" },{ name: "General Studies-III (विज्ञान, प्रौद्योगिकी एवं स्वास्थ्य)", folder: "paper-03-general-studies-iii" },{ name: "General Studies-IV (दर्शनशास्त्र, मनोविज्ञान एवं लोक प्रशासन)", folder: "paper-04-general-studies-iv" },{ name: "General Studies-V (सामान्य हिंदी एवं व्याकरण)", folder: "paper-05-general-studies-v" },{ name: "General Studies-VI (हिंदी निबंध एवं प्रारूप लेखन)", folder: "paper-06-general-studies-vi" }];function buildMains600Boxes() {const container = document.getElementById('mains-dynamic-container');let html = '';mainsPapers.forEach((paper, index) => {const pNum = index + 1;html += <section class="paper"><h2>Paper ${pNum} - ${paper.name}</h2>;html += <div class="group-title">5 अंक वाले प्रश्न — 40 Boxes</div><div class="grid">;for (let b = 1; b <= 40; b++) {let code = GS${pNum}-5M-${b < 10 ? '00'+b : '0'+b};html += <div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${paper.folder}/5-marks/${code}/index.html">Open</a></div>;}html += </div><div class="group-title">10 अंक वाले प्रश्न — 40 Boxes</div><div class="grid">;for (let b = 41; b <= 80; b++) {let code = GS${pNum}-10M-0${b};html += <div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${paper.folder}/10-marks/${code}/index.html">Open</a></div>;}html += </div><div class="group-title">15 अंक वाले प्रश्न — 20 Boxes</div><div class="grid">;for (let b = 81; b <= 100; b++) {let code = GS${pNum}-15M-${b === 100 ? '100' : '0'+b};html += <div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${paper.folder}/15-marks/${code}/index.html">Open</a></div>;}html += </div></section>;});container.innerHTML = html;}// 🔒 लॉगआउट फंक्शनfunction logoutAdmin() {document.getElementById("username").value = "";document.getElementById("password").value = "";document.getElementById("login-overlay").style.display = "flex";document.getElementById("dashboard-content").style.display = "none";}
