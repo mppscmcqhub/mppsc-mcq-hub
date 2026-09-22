@@ -6,7 +6,8 @@
 <title>MPPSC MCQ Hub - Paid MAINS Course</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f0f5ff;color:#102a43}
+/* 🔒 डिफ़ॉल्ट रूप से पूरा पेज छुपा रहेगा जब तक टोकन सत्यापित नहीं होता */
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f0f5ff;color:#102a43;display:none;}
 .header{background:#082b57;color:#fff;padding:15px 20px;font-size:19px;font-weight:700}
 .wrap{max-width:1400px;margin:22px auto;padding:0 12px}
 .top{background:#fff;border-radius:12px;padding:18px 20px;margin-bottom:18px;box-shadow:0 2px 9px rgba(0,0,0,0.05);border-left: 6px solid #147dcc;}
@@ -36,14 +37,20 @@ body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f0f5ff;color:#1
 </div>
 
 <script>
-    // यूआरएल सुरक्षा जांच (पेमेंट सत्यापन टोकन)
-    window.onload = function() {
+    // 🛡️ टोकन सुरक्षा जांच - यह छात्रों को डायरेक्ट या फ्री एक्सेस से रोकेगा
+    (function() {
         const urlParams = new URLSearchParams(window.location.search);
+        // यदि URL में ?v=mppsc2027 नहीं है, तो एक्सेस ब्लॉक करें
         if (urlParams.get('v') !== "mppsc2027") {
-            alert("❌ कृपया पहले इस कोर्स का भुगतान (Payment) करें!");
+            alert("❌ अनधिकृत एक्सेस! कृपया पहले इस कोर्स के लिए भुगतान (Payment) करें।");
             window.location.href = "index.html";
-            return;
+        } else {
+            // केवल भुगतान करने पर ही पेज दिखेगा
+            document.body.style.display = "block";
         }
+    })();
+
+    window.onload = function() {
         buildStudentMains();
     };
 
