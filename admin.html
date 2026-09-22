@@ -19,10 +19,10 @@ body{font-family:Arial,Helvetica,sans-serif;background:#f3f6fa;color:#102a43;pad
 .paper { border-top: 4px solid #147dcc; }
 .paper h2, .unit-sec h2{margin:0 0 14px;font-size:20px;color:#082b57;border-bottom: 2px solid #eaf2fb;padding-bottom:8px;}
 .group-title{background:#eaf2fb;border-radius:7px;padding:8px 10px;margin:20px 0 10px;font-size:15px;font-weight:700;color:#082b57}
-.grid{display:grid;grid-template-columns:repeat(8,1fr);gap:8px;margin-top:10px;}
-.card{background:#fff;border:1px solid #d7e1ec;border-radius:7px;padding:8px 4px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,0.02)}
-.code{font-size:11px;font-weight:700;display:block;margin-bottom:7px;color:#334e68}
-.open-btn {display:block;color:#fff;text-decoration:none;border-radius:6px;padding:5px 3px;font-size:11px;font-weight:bold;text-align:center;}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:10px;}
+.card{background:#fff;border:1px solid #d7e1ec;border-radius:7px;padding:15px 8px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,0.02)}
+.code{font-size:14px;font-weight:700;display:block;margin-bottom:7px;color:#334e68}
+.open-btn {display:block;color:#fff;text-decoration:none;border-radius:6px;padding:7px 5px;font-size:12px;font-weight:bold;text-align:center;}
 .pre-btn { background:#e53e3e; } .pre-btn:hover { background:#c53030; }
 .mains-btn { background:#147dcc; } .mains-btn:hover { background:#0b69b1; }
 .home-btn{background:#fff;color:#082b57;border:none;padding:8px 16px;border-radius:6px;font-weight:bold;cursor:pointer;font-size:14px;text-decoration:none;}
@@ -30,24 +30,21 @@ body{font-family:Arial,Helvetica,sans-serif;background:#f3f6fa;color:#102a43;pad
 table { width: 100%; border-collapse: collapse; margin-top: 15px; }
 th, td { border: 1px solid #d7e1ec; padding: 12px; text-align: left; font-size: 14px; }
 th { background: #f0f5ff; color: #082b57; font-weight: bold; }
-.btn-approve { background: #4caf50; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-weight: bold; }
-.btn-reject { background: #d32f2f; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-weight: bold; margin-left: 5px; }
-@media(max-width:1200px){.grid{grid-template-columns:repeat(6,1fr)}}
-@media(max-width:900px){.grid{grid-template-columns:repeat(4,1fr)}}
-@media(max-width:550px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:550px){.grid{grid-template-columns:repeat(1,1fr)}}
 </style>
 </head>
 <body>
 
 <div class="header">
-    <span>MPPSC MCQ Hub V14 — Full Admin Master Dashboard (Direct Mode)</span>
+    <span>MPPSC MCQ Hub V14 — Full Admin Master Dashboard</span>
     <a href="index.html" class="home-btn">मुख्य वेबसाइट पर जाएँ</a>
 </div>
 
 <div class="wrap">
     <div class="top">
         <h1>MPPSC Complete Control Board</h1>
-        <p><b>Paid PRELIMS (200 Tests) + Paid MAINS (600 Boxes) Control Dashboard</b></p>
+        <p><b>Paid PRELIMS + Paid MAINS Master Control Folders</b></p>
     </div>
 
     <!-- 💰 पेमेंट वेरिफिकेशन टेबल -->
@@ -72,22 +69,44 @@ th { background: #f0f5ff; color: #082b57; font-weight: bold; }
         </div>
     </section>
 
-    <!-- 🔴 PAID PRELIMS CONTAINERS -->
-    <div class="section-main-title pre-title">🏆 Paid PRELIMS — 200 Total Tests</div>
-    <div id="prelims-dynamic-container"></div>
+    <!-- 🔴 100% स्टेटिक्स PAID PRELIMS SECTION -->
+    <div class="section-main-title pre-title">🏆 Paid PRELIMS — Course Folders Access</div>
+    <section class="unit-sec">
+        <h2>MPPSC Paid Prelims All 10 Units</h2>
+        <div class="grid">
+            <div class="card"><span class="code">Unit 01: भारत का इतिहास</span><a class="open-btn pre-btn" href="prelims-tests/unit-01/index.html">Open Unit 1 Folder</a></div>
+            <div class="card"><span class="code">Unit 02: म.प्र. का इतिहास</span><a class="open-btn pre-btn" href="prelims-tests/unit-02/index.html">Open Unit 2 Folder</a></div>
+            <div class="card"><span class="code">Unit 03: भारत का भूगोल</span><a class="open-btn pre-btn" href="prelims-tests/unit-03/index.html">Open Unit 3 Folder</a></div>
+            <div class="card"><span class="code">Unit 04: म.प्र. का भूगोल</span><a class="open-btn pre-btn" href="prelims-tests/unit-04/index.html">Open Unit 4 Folder</a></div>
+            <div class="card"><span class="code">Unit 05: संवैधानिक व्यवस्था</span><a class="open-btn pre-btn" href="prelims-tests/unit-05/index.html">Open Unit 5 Folder</a></div>
+            <div class="card"><span class="code">Unit 06: म.प्र. की अर्थव्यवस्था</span><a class="open-btn pre-btn" href="prelims-tests/unit-06/index.html">Open Unit 6 Folder</a></div>
+            <div class="card"><span class="code">Unit 07: विज्ञान व पर्यावरण</span><a class="open-btn pre-btn" href="prelims-tests/unit-07/index.html">Open Unit 7 Folder</a></div>
+            <div class="card"><span class="code">Unit 08: समसामयिक घटनाएं</span><a class="open-btn pre-btn" href="prelims-tests/unit-08/index.html">Open Unit 8 Folder</a></div>
+            <div class="card"><span class="code">Unit 09: सूचना प्रौद्योगिकी (ICT)</span><a class="open-btn pre-btn" href="prelims-tests/unit-09/index.html">Open Unit 9 Folder</a></div>
+            <div class="card"><span class="code">Unit 10: म.प्र. की जनजातियां</span><a class="open-btn pre-btn" href="prelims-tests/unit-10/index.html">Open Unit 10 Folder</a></div>
+        </div>
+    </section>
 
-    <!-- 🔵 PAID MAINS CONTAINERS -->
-    <div class="section-main-title mains-title">📝 Paid MAINS — 600 Total Boxes</div>
-    <div id="mains-dynamic-container"></div>
+    <!-- 🔵 100% स्टेटिक्स PAID MAINS SECTION -->
+    <div class="section-main-title mains-title">📝 Paid MAINS — Papers Folders Access</div>
+    <section class="paper">
+        <h2>MPPSC Paid Mains All 6 Papers</h2>
+        <div class="grid">
+            <div class="card"><span class="code">Paper 1: इतिहास एवं भूगोल</span><a class="open-btn mains-btn" href="paper-01-general-studies-i/index.html">Open Paper 1 Folder</a></div>
+            <div class="card"><span class="code">Paper 2: राजनीति व अर्थशास्त्र</span><a class="open-btn mains-btn" href="paper-02-general-studies-ii/index.html">Open Paper 2 Folder</a></div>
+            <div class="card"><span class="code">Paper 3: विज्ञान व प्रौद्योगिकी</span><a class="open-btn mains-btn" href="paper-03-general-studies-iii/index.html">Open Paper 3 Folder</a></div>
+            <div class="card"><span class="code">Paper 4: दर्शनशास्त्र व मनोविज्ञान</span><a class="open-btn mains-btn" href="paper-04-general-studies-iv/index.html">Open Paper 4 Folder</a></div>
+            <div class="card"><span class="code">Paper 5: सामान्य हिंदी व व्याकरण</span><a class="open-btn mains-btn" href="paper-05-general-studies-v/index.html">Open Paper 5 Folder</a></div>
+            <div class="card"><span class="code">Paper 6: हिंदी निबंध लेखन</span><a class="open-btn mains-btn" href="paper-06-general-studies-vi/index.html">Open Paper 6 Folder</a></div>
+        </div>
+    </section>
 </div>
 
 <script>
-    // 🔄 पेज लोड होते ही एलिमेंट्स को सीधे डॉक्यूमेंट ऑब्जेक्ट मॉडल में इंजेक्ट करने का अचूक तरीका
-    window.addEventListener('DOMContentLoaded', () => {
+    // पेमेंट डेटा लोड करने का लॉजिक बैकएंड में सुरक्षित रहेगा
+    window.onload = function() {
         loadPaymentRequests();
-        renderPrelimsStructure();
-        renderMainsStructure();
-    });
+    };
 
     function loadPaymentRequests() {
         const tableBody = document.getElementById("payment-requests-table");
@@ -106,8 +125,7 @@ th { background: #f0f5ff; color: #082b57; font-weight: bold; }
                 <td style="font-family:monospace; font-weight:bold;">${req.utr}</td>
                 <td><img src="${req.screenshot}" style="width:50px; height:50px; object-fit:cover; border-radius:4px;"></td>
                 <td>
-                    <button class="btn-approve" onclick="approvePayment(${index})">Approve & SMS</button>
-                    <button class="btn-reject" onclick="rejectPayment(${index})">Reject</button>
+                    <button style="background:#4caf50;color:white;border:none;padding:5px 10px;border-radius:4px;cursor:pointer;font-weight:bold;" onclick="approvePayment(${index})">Approve</button>
                 </td>
             </tr>`;
         });
@@ -119,62 +137,15 @@ th { background: #f0f5ff; color: #082b57; font-weight: bold; }
         let approvedReq = pendingPayments[index];
         const studentPassword = "MPPSC-" + Math.floor(1000 + Math.random() * 9000);
         
-        const apiKey = "YOUR_FAST2SMS_API_KEY";
-        const smsMessage = `बधाई हो! आपका भुगतान सत्यापित हो गया है। ID: ${approvedReq.phone} | पासवर्ड: ${studentPassword} । कृपया student-login.html पर लॉगिन करें।`;
-        const apiUrl = `https://fast2sms.com{apiKey}&route=q&message=${encodeURIComponent(smsMessage)}&flash=0&numbers=${approvedReq.phone}`;
-
         let users = JSON.parse(localStorage.getItem("mppsc_students")) || [];
         users.push({ username: approvedReq.phone, password: studentPassword, type: approvedReq.course });
         localStorage.setItem("mppsc_students", JSON.stringify(users));
 
-        fetch(apiUrl).then(() => {
-            alert(`✓ छात्र ${approvedReq.phone} का कोर्स एक्टिवेट हो गया है।`);
-            pendingPayments.splice(index, 1);
-            localStorage.setItem("mppsc_pending_payments", JSON.stringify(pendingPayments));
-            loadPaymentRequests();
-        }).catch(() => {
-            alert(`डेटाबेस अपडेट सफल! छात्र का मैन्युअल पासवर्ड है: ${studentPassword}`);
-            pendingPayments.splice(index, 1);
-            localStorage.setItem("mppsc_pending_payments", JSON.stringify(pendingPayments));
-            loadPaymentRequests();
-        });
+        alert(`✓ डेटाबेस अपडेट सफल! छात्र का परमानेंट पासवर्ड है: ${studentPassword}`);
+        pendingPayments.splice(index, 1);
+        localStorage.setItem("mppsc_pending_payments", JSON.stringify(pendingPayments));
+        loadPaymentRequests();
     }
-
-    function rejectPayment(index) {
-        if(confirm("क्या आप वाकई रिजेक्ट करना चाहते हैं?")) {
-            let pendingPayments = JSON.parse(localStorage.getItem("mppsc_pending_payments")) || [];
-            pendingPayments.splice(index, 1);
-            localStorage.setItem("mppsc_pending_payments", JSON.stringify(pendingPayments));
-            loadPaymentRequests();
-        }
-    }
-
-    const prelimsUnits = ["भारत का इतिहास", "मध्यप्रदेश का इतिहास, संस्कृति एवं साहित्य", "भारत का भूगोल", "मध्यप्रदेश का भूगोल", "भारत एवं म.प्र. की संवैधानिक व्यवस्था", "भारत एवं म.प्र. की अर्थव्यवस्था", "विज्ञान, पर्यावरण एवं स्वास्थ्य", "अंतर्राष्ट्रीय, राष्ट्रीय एवं प्रादेशिक घटनाएं", "सूचना एवं संचार प्रौद्योगिकी (ICT)", "म.प्र. की जनजातियां: विरासत व लोक संस्कृति"];
-    
-    function renderPrelimsStructure() {
-        const container = document.getElementById('prelims-dynamic-container');
-        if(!container) return;
-        let html = '';
-        for (let u = 1; u <= 10; u++) {
-            let padU = u < 10 ? '0' + u : u;
-            html += `<section class="unit-sec"><h2>Unit ${u} - ${prelimsUnits[u-1]}</h2><div class="grid">`;
-            for (let t = 1; t <= 20; t++) {
-                let padT = t < 10 ? '0' + t : t;
-                let code = `P${padU}T${padT}`;
-                html += `<div class="card"><span class="code">${code}</span><a class="open-btn pre-btn" href="prelims-tests/unit-${padU}/${code}/index.html">Open</a></div>`;
-            }
-            html += `</div></section>`;
-        }
-        container.innerHTML = html;
-    }
-
-    const mainsPapers = [
-        { name: "General Studies-I", folder: "paper-01-general-studies-i" },
-        { name: "General Studies-II", folder: "paper-02-general-studies-ii" },
-        { name: "General Studies-III", folder: "paper-03-general-studies-iii" },
-        { name: "General Studies-IV", folder: "paper-04-general-studies-iv" },
-        { name: "General Studies-V", folder: "paper-05-general-studies-v" },
-        { name: "General Studies-VI", folder: "paper-06-general-studies-vi" }
-    ];
-    
-function renderMainsStructure() {const container = document.getElementById('mains-dynamic-container');if(!container) return;let html = '';mainsPapers.forEach((paper, index) => {const pNum = index + 1;html += <section class="paper"><h2>Paper ${pNum} - ${paper.name}</h2>;html += <div class="group-title">5 अंक वाले प्रश्न — 40 Boxes</div><div class="grid">;for (let b = 1; b <= 40; b++) {let boxStr = b < 10 ? '00' + b : '0' + b;let code = GS${pNum}-5M-${boxStr};html += <div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${paper.folder}/5-marks/${code}/index.html">Open</a></div>;}html += </div><div class="group-title">10 अंक वाले प्रश्न — 40 Boxes</div><div class="grid">;for (let b = 41; b <= 80; b++) {let boxStr = '0' + b;let code = GS${pNum}-10M-${boxStr};html += <div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${paper.folder}/10-marks/${code}/index.html">Open</a></div>;}html += </div><div class="group-title">15 अंक वाले प्रश्न — 20 Boxes</div><div class="grid">;for (let b = 81; b <= 100; b++) {let boxStr = b === 100 ? '100' : '0' + b;let code = GS${pNum}-15M-${boxStr};html += <div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${paper.folder}/15-marks/${code}/index.html">Open</a></div>;}html += </div></section>;});container.innerHTML = html;}
+</script>
+</body>
+</html>
