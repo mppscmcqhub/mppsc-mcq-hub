@@ -6,7 +6,7 @@
     <title>Admin Dashboard · 200 PRELIMS Tests + 600 MAINS</title>
     <style>
         * { box-sizing: border-box; }
-        body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #edf3ff; color: #111; }
+        body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #edf3ff; color: #111; display: none; } /* पासवर्ड वेरिफिकेशन तक छुपा रहेगा */
         a { text-decoration: none; color: inherit; }
         .top { height: 64px; background: #1551a5; color: #fff; display: flex; align-items: center; padding: 0 18px; }
         .topin { width: 100%; display: flex; align-items: center; gap: 12px; }
@@ -20,28 +20,23 @@
         .stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin: 18px 0 26px; }
         .stat { background: #fff; border-radius: 14px; padding: 16px; text-align: center; box-shadow: 0 3px 14px rgba(0,0,0,.08); }
         .stat b { font-size: 26px; display: block; }
-        .unitsec, .papersec { background: #fff; border-radius: 18px; padding: 18px; margin: 18px 0; box-shadow: 0 4px 18px rgba(0,0,0,.08); }
-        .unithead, .paperhead { display: flex; align-items: center; gap: 14px; margin-bottom: 15px; }
-        .unithead h2, .paperhead h2 { margin: 0 0 4px; }
-        .unithead p, .paperhead p { margin: 0; color: #667085; }
-        .unithead>strong, .paperhead>strong { margin-left: auto; background: #eef5ff; padding: 8px 12px; border-radius: 10px; }
-        .tests { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
-        .test { text-decoration: none; color: #172033; border: 1px solid #e1e7ef; border-radius: 12px; padding: 11px 8px; text-align: center; background: #fafcff; transition: .15s; }
-        .test:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,.1); }
-        .test span { display: block; font-size: 18px; font-weight: 800; }
-        .test b { display: block; font-size: 13px; margin: 4px 0; }
-        .test small { color: #667085; }
+        .unitsec, .papersec { background: #fff; border-radius: 18px; padding: 18px; margin: 25px 0; box-shadow: 0 4px 18px rgba(0,0,0,.08); }
+        .unithead, .paperhead { display: flex; align-items: center; gap: 14px; margin-bottom: 15px; border-bottom: 2px solid #eef4ff; padding-bottom: 10px; }
+        .unithead h2, .paperhead h2 { margin: 0 0 4px; font-size: 1.3rem; color: #1551a5; }
+        .unithead p, .paperhead p { margin: 0; color: #667085; font-size: 0.9rem; }
+        .unithead>strong, .paperhead>strong { margin-left: auto; background: #eef5ff; padding: 8px 12px; border-radius: 10px; color: #1551a5; }
+        .tests { display: grid; grid-template-columns: repeat(10, 1fr); gap: 8px; }
+        .test { text-decoration: none; color: #172033; border: 1px solid #e1e7ef; border-radius: 10px; padding: 10px 4px; text-align: center; background: #fafcff; transition: .15s; font-size: 12px; }
+        .test:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,.1); background: #eef5ff; }
+        .test span { display: block; font-size: 16px; font-weight: 800; }
+        .test b { display: block; font-size: 11px; margin: 2px 0; color: #333; }
+        .test small { color: #1551a5; font-weight: bold; }
         .logout { background: #d32f2f !important; color: #fff; border: 0; cursor: pointer; padding: 10px 20px; border-radius: 6px; font-weight: bold; }
-        .backtop { display: inline-block; background: #1551a5; color: #fff; padding: 8px 12px; border-radius: 20px; font-size: 12px; font-weight: 800; }
         
-        .form-group { margin-bottom: 15px; }
-        label { font-weight: bold; display: block; margin-bottom: 5px; }
-        input[type="text"], select, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px; }
-        .btn-submit { background: #1551a5; color: white; border: none; padding: 12px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; width: 100%; font-size: 16px; }
-
-        @media(max-width: 1050px) { .tests { grid-template-columns: repeat(4, 1fr); } .stats { grid-template-columns: repeat(3, 1fr); } }
-        @media(max-width: 650px) { .tests { grid-template-columns: repeat(2, 1fr); } .stats { grid-template-columns: 1fr 1fr; } .wrap { padding: 14px 9px; } }
-        @media(max-width: 420px) { .tests { grid-template-columns: 1fr; } .stats { grid-template-columns: 1fr; } }
+        @media(max-width: 1400px) { .tests { grid-template-columns: repeat(8, 1fr); } }
+        @media(max-width: 1100px) { .tests { grid-template-columns: repeat(5, 1fr); } .stats { grid-template-columns: repeat(3, 1fr); } }
+        @media(max-width: 768px) { .tests { grid-template-columns: repeat(4, 1fr); } .stats { grid-template-columns: 1fr 1fr; } }
+        @media(max-width: 480px) { .tests { grid-template-columns: repeat(2, 1fr); } .stats { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -51,7 +46,7 @@
         <div class="logo" aria-label="MPPSC logo">
             <div><div class="logo-main">MP</div><div class="logo-sub">PSC</div></div>
         </div>
-        <div class="title">MPPSC MCQ Hub V14 · ADMIN DASHBOARD</div>
+        <div class="title">MPPSC MCQ Hub V14 · ADMIN PANEL</div>
         <a class="login" href="index.html">Home</a>
     </div>
 </header>
@@ -59,98 +54,134 @@
 <main class="wrap">
     <div class="adminbar">
         <div>
-            <h1 style="margin:0 0 5px">Paid PRELIMS + MAINS Control Panel</h1>
-            <p style="margin:0;color:#667085">एडमिन को प्रीलिम्स के 200 टेस्ट और मेंस के सभी 600 बॉक्सेस यहाँ दिखाई देंगे।</p>
+            <h1 style="margin:0 0 5px; color:#1551a5;">Master Control Dashboard</h1>
+            <p style="margin:0;color:#667085">यहाँ पेड प्रीलिम्स के सभी 200 टेस्ट और पेड मेंस के सभी 600 कंट्रोल बॉक्सेस लाइव हैं।</p>
         </div>
-        <button class="logout" onclick="logout()">Logout</button>
+        <button class="logout" onclick="logout()">Logout Panel</button>
     </div>
 
+    <!-- स्टेट्स काउंटर्स -->
     <div class="stats">
-        <div class="stat"><b>10</b>Units</div>
-        <div class="stat"><b>200</b>PRELIMS Tests</div>
-        <div class="stat"><b>20</b>Tests / Unit</div>
-        <div class="stat"><b>6</b>MAINS Papers</div>
-        <div class="stat"><b>600</b>MAINS Boxes</div>
+        <div class="stat" style="border-top: 4px solid #2196f3;"><b>10</b>PRELIMS Units</div>
+        <div class="stat" style="border-top: 4px solid #2196f3;"><b>200</b>Total PRE Tests</div>
+        <div class="stat" style="border-top: 4px solid #1551a5;"><b>6</b>MAINS Papers</div>
+        <div class="stat" style="border-top: 4px solid #1551a5;"><b>600</b>Total MAINS Boxes</div>
+        <div class="stat" style="border-top: 4px solid #4caf50;"><b>🔒 System</b>Password Protected</div>
     </div>
 
-    <!-- 📊 प्रीलिम्स टेस्ट सेक्शन -->
-    <section class="unitsec">
-        <div class="unithead">
-            <div><h2>Paid PRELIMS – 200 Tests</h2><p>सभी 10 प्रीलिम्स यूनिट्स के टेस्ट लिंक नीचे हैं।</p></div>
-        </div>
-        
-        <!-- Unit 1 -->
-        <div class="unitsec">
-            <div class="unithead">
-                <div class="logo" style="width:34px;height:34px;background:#2196f3;color:#fff">1</div>
-                <div><h2>Unit 1</h2><p>भारत का इतिहास</p></div>
-                <strong>20 Tests</strong>
-            </div>
-            <div class="tests">
-                <a class="test" href="prelims-tests/unit-01/P01T01/index.html"><span>01</span><b>P01T01</b><small>Open Test</small></a>
-                <a class="test" href="prelims-tests/unit-01/P01T02/index.html"><span>02</span><b>P01T02</b><small>Open Test</small></a>
-                <a class="test" href="prelims-tests/unit-01/P01T03/index.html"><span>03</span><b>P01T03</b><small>Open Test</small></a>
-                <!-- इसी तरह अन्य 20 टेस्ट्स -->
-            </div>
-        </div>
-    </section>
+    <!-- ================= PAID PRELIMS SECTION (200 TESTS) ================= -->
+    <h1 style="margin: 40px 0 10px 0; border-left: 6px solid #2196f3; padding-left: 12px; color:#111;">🏆 Paid PRELIMS Control Panel (200 Tests)</h1>
+    <div id="prelims-container"></div>
 
-    <!-- 🌟 नया: PAID MAINS SECTION (600 BOXES CONTROL) 🌟 -->
-    <section class="papersec">
-        <div class="paperhead">
-            <div>
-                <h2>Paid MAINS – 600 Boxes Control</h2>
-                <p>यहाँ मेंस मुख्य परीक्षा के सभी पेपर्स के डेटा बॉक्सेस मैनेज किए जा सकते हैं।</p>
-            </div>
-        </div>
-
-        <!-- Paper 1 Control -->
-        <div class="papersec" style="border-top: 4px solid #1551a5; padding-top: 15px;">
-            <div class="paperhead">
-                <div class="logo" style="width:34px;height:34px;background:#1551a5;color:#fff">M1</div>
-                <div><h2>General Studies - Paper I</h2><p>इतिहास एवं भूगोल (History & Geography)</p></div>
-                <strong>100 Boxes</strong>
-            </div>
-            <div class="tests">
-                <a class="test" href="mains-tests/paper-1/box-01/index.html" style="background:#f0f5ff;"><span>01</span><b>M01B01</b><small>Open Box</small></a>
-                <a class="test" href="mains-tests/paper-1/box-02/index.html" style="background:#f0f5ff;"><span>02</span><b>M01B02</b><small>Open Box</small></a>
-                <a class="test" href="mains-tests/paper-1/box-03/index.html" style="background:#f0f5ff;"><span>03</span><b>M01B03</b><small>Open Box</small></a>
-                <a class="test" href="mains-tests/paper-1/box-04/index.html" style="background:#f0f5ff;"><span>04</span><b>M01B04</b><small>Open Box</small></a>
-                <a class="test" href="mains-tests/paper-1/box-05/index.html" style="background:#f0f5ff;"><span>05</span><b>M01B05</b><small>Open Box</small></a>
-            </div>
-        </div>
-
-        <!-- Paper 2 Control -->
-        <div class="papersec" style="border-top: 4px solid #4caf50; padding-top: 15px;">
-            <div class="paperhead">
-                <div class="logo" style="width:34px;height:34px;background:#4caf50;color:#fff">M2</div>
-                <div><h2>General Studies - Paper II</h2><p>राजनीति, अर्थशास्त्र एवं समाजशास्त्र</p></div>
-                <strong>100 Boxes</strong>
-            </div>
-            <div class="tests">
-                <a class="test" href="mains-tests/paper-2/box-01/index.html" style="background:#f3faf4;"><span>01</span><b>M02B01</b><small>Open Box</small></a>
-                <a class="test" href="mains-tests/paper-2/box-02/index.html" style="background:#f3faf4;"><span>02</span><b>M02B02</b><small>Open Box</small></a>
-            </div>
-        </div>
-        
-        <!-- नोट: इसी तरह आप पेपर 3, 4, 5, 6 के डिज़ाइन बॉक्सेस भी आगे बढ़ा सकते हैं -->
-    </section>
+    <!-- ================= PAID MAINS SECTION (600 BOXES) ================= -->
+    <h1 style="margin: 50px 0 10px 0; border-left: 6px solid #1551a5; padding-left: 12px; color:#111;">📝 Paid MAINS Control Panel (600 Boxes)</h1>
+    <div id="mains-container"></div>
 </main>
 
 <script>
-    // सुरक्षा जांच (वेरिफिकेशन टोकन चेकर)
+    // 🛡️ 1. एडमिन लॉगिन और पासवर्ड सुरक्षा लॉजिक
     window.onload = function() {
         const urlParams = new URLSearchParams(window.location.search);
         const token = urlParams.get('v');
+
+        // पासवर्ड और डायरेक्ट यूआरएल ब्लॉक सुरक्षा
         if (token !== "mppsc2027") {
-            alert("❌ अनधिकृत पहुंच! कृपया पहले लॉगिन करें।");
-            window.location.href = "login.html";
+            alert("❌ अनधिकृत एक्सेस! कृपया पहले एडमिन क्रेडेंशियल से लॉगिन करें।");
+            window.location.href = "index.html"; 
+            return;
         }
+
+        // पासवर्ड सही होने पर ही पेज रेंडर और डिस्प्ले होगा
+        document.body.style.display = "block";
+        generatePrelimsDashboard();
+        generateMainsDashboard();
     };
 
+    // 🔄 2. पेड प्रीलिम्स के 10 यूनिट्स और उनके 20-20 (कुल 200) टेस्ट ऑटोमैटिक जेनरेट करने का लूप
+    const preUnitNames = [
+        "भारत का इतिहास", "मध्यप्रदेश का इतिहास, संस्कृति एवं साहित्य", "भारत का भूगोल",
+        "मध्यप्रदेश का भूगोल", "भारत एवं म.प्र. की संवैधानिक व्यवस्था", "भारत एवं म.प्र. की अर्थव्यवस्था",
+        "विज्ञान, पर्यावरण एवं स्वास्थ्य", "अंतर्राष्ट्रीय, राष्ट्रीय एवं प्रादेशिक घटनाएं",
+        "सूचना एवं संचार प्रौद्योगिकी (ICT)", "म.प्र. की जनजातियां: विरासत व लोक संस्कृति"
+    ];
+
+    function generatePrelimsDashboard() {
+        const container = document.getElementById('prelims-container');
+        let html = '';
+
+        for (let u = 1; u <= 10; u++) {
+            let paddedUnit = u < 10 ? '0' + u : u;
+            html += `
+            <section class="unitsec">
+                <div class="unithead">
+                    <div class="logo" style="width:34px;height:34px;background:#2196f3;color:#fff">${u}</div>
+                    <div><h2>Unit ${u}</h2><p>${preUnitNames[u-1]}</p></div>
+                    <strong>20 Tests Box Enabled</strong>
+                </div>
+                <div class="tests">`;
+            
+            // प्रत्येक यूनिट के अंदर 20 टेस्ट्स बॉक्सेस
+            for (let t = 1; t <= 20; t++) {
+                let paddedTest = t < 10 ? '0' + t : t;
+                let testCode = `P${paddedUnit}T${paddedTest}`;
+                html += `
+                <a class="test" href="prelims-tests/unit-${paddedUnit}/${testCode}/index.html">
+                    <span>${paddedTest}</span>
+                    <b>${testCode}</b>
+                    <small>Edit Test</small>
+                </a>`;
+            }
+            html += `</div></section>`;
+        }
+        container.innerHTML = html;
+    }
+
+    // 🔄 3. पेड मेंस के सभी 6 पेपर्स और उनके 100-100 (कुल 600) बॉक्सेस ऑटोमैटिक जेनरेट करने का लूप
+    const mainsPaperNames = [
+        "General Studies - Paper I (इतिहास एवं भूगोल)",
+        "General Studies - Paper II (राजनीति, अर्थशास्त्र एवं समाजशास्त्र)",
+        "General Studies - Paper III (विज्ञान, प्रौद्योगिकी एवं स्वास्थ्य)",
+        "General Studies - Paper IV (दर्शनशास्त्र, मनोविज्ञान एवं लोक प्रशासन)",
+        "General Studies - Paper V (सामान्य हिंदी एवं व्याकरण)",
+        "General Studies - Paper VI (हिंदी निबंध एवं प्रारूप लेखन)"
+    ];
+
+    function generateMainsDashboard() {
+        const container = document.getElementById('mains-container');
+        let html = '';
+
+        for (let p = 1; p <= 6; p++) {
+            html += `
+            <section class="papersec" style="border-top: 4px solid #1551a5;">
+                <div class="paperhead">
+                    <div class="logo" style="width:34px;height:34px;background:#1551a5;color:#fff">M${p}</div>
+                    <div><h2>Paper ${p}</h2><p>${mainsPaperNames[p-1]}</p></div>
+                    <strong>100 Data Boxes Active</strong>
+                </div>
+                <div class="tests">`;
+            
+            // प्रत्येक पेपर के अंदर पूरे 100 बॉक्सेस (1 से 100 तक)
+            for (let b = 1; b <= 100; b++) {
+                let paddedBox = b < 10 ? '0' + b : b;
+                if(b < 100 && b >= 10) paddedBox = '0' + b; // प्रॉपर 3 डिजिट फॉर्मेटिंग के लिए वैकल्पिक सेटिंग्स
+                let boxCode = `M0${p}B${b < 10 ? '0'+b : b}`;
+                
+                html += `
+                <a class="test" href="mains-tests/paper-${p}/box-${b}/index.html" style="background:#f0f5ff;">
+                    <span>${b < 10 ? '0'+b : b}</span>
+                    <b>${boxCode}</b>
+                    <small style="color:#1551a5;">Open Box</small>
+                </a>`;
+            }
+            html += `</div></section>`;
+        }
+        container.innerHTML = html;
+    }
+
+    // 🔒 लॉगआउट मैकेनिज्म
     function logout() {
-        alert("आप सफलतापूर्वक लॉगआउट हो चुके हैं।");
-        window.location.href = "login.html";
+        alert("सुरक्षित लॉगआउट कर दिया गया है।");
+        window.location.href = "index.html";
     }
 </script>
 
