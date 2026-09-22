@@ -28,8 +28,8 @@ body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f3f6fa;color:#1
 .mains-btn { background:#147dcc; } .mains-btn:hover { background:#0b69b1; }
 .logout-btn{background:#d32f2f;color:white;border:none;padding:8px 16px;border-radius:6px;font-weight:bold;cursor:pointer;font-size:14px}
 
-/* 🔐 लॉगिन स्क्रीन ओवरले */
-#login-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #f4f7fc; display: flex; justify-content: center; align-items: center; z-index: 9999; }
+/* 🔐 लॉगिन बॉक्स ओवरले फ़ॉर्मूला फिक्स */
+#login-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #f4f7fc; display: flex; justify-content: center; align-items: center; z-index: 99999; }
 .login-box { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 25px rgba(0,0,0,0.15); text-align: center; width: 350px; }
 .login-box h2 { color: #082b57; margin-bottom: 20px; font-size: 22px; }
 .login-box input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 14px; }
@@ -37,17 +37,14 @@ body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f3f6fa;color:#1
 .login-box button:hover { background: #051d3b; }
 .error-msg { color: #d32f2f; font-size: 14px; margin-top: 10px; display: none; font-weight: bold; }
 
-/* 📊 वेरिफिकेशन टेबल का स्टाइल */
+/* 📊 वेरिफिकेशन टेबल स्टाइल */
 .table-sec { background: white; border-radius: 12px; padding: 20px; margin-bottom: 30px; box-shadow: 0 2px 9px #0001; border-top: 4px solid #4caf50; }
 table { width: 100%; border-collapse: collapse; margin-top: 15px; }
 th, td { border: 1px solid #d7e1ec; padding: 12px; text-align: left; font-size: 14px; }
 th { background: #f0f5ff; color: #082b57; font-weight: bold; }
 .btn-approve { background: #4caf50; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-weight: bold; }
-.btn-approve:hover { background: #43a047; }
 .btn-reject { background: #d32f2f; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-weight: bold; margin-left: 5px; }
-.btn-reject:hover { background: #c62828; }
-.ss-img { width: 60px; height: 60px; object-fit: cover; border-radius: 4px; cursor: pointer; border: 1px solid #ccc; }
-.ss-img:hover { transform: scale(3); transition: 0.2s; position: relative; z-index: 10; }
+.ss-img { width: 60px; height: 60px; object-fit: cover; border-radius: 4px; }
 
 @media(max-width:1200px){.grid{grid-template-columns:repeat(6,1fr)}}
 @media(max-width:900px){.grid{grid-template-columns:repeat(4,1fr)}}
@@ -56,19 +53,19 @@ th { background: #f0f5ff; color: #082b57; font-weight: bold; }
 </head>
 <body>
 
-<!-- 🔐 एडमिन लॉक लॉगिन स्क्रीन -->
+<!-- 🔐 एडमिन लॉगिन स्क्रीन -->
 <div id="login-overlay">
     <div class="login-box">
         <h2>🔑 Admin Portal Login</h2>
         <input type="text" id="username" placeholder="User ID (एडमिन नाम)">
         <input type="password" id="password" placeholder="Password (पासवर्ड)">
-        <button onclick="validateAdminLogin()">Access Dashboard</button>
+        <button type="button" onclick="validateAdminLogin()">Access Dashboard</button>
         <p class="error-msg" id="login-error">गलत User ID या Password!</p>
     </div>
 </div>
 
-<!-- 📊 मुख्य डैशबोर्ड कंटेंट (सफल लॉगिन के बाद दिखेगा) -->
-<div id="dashboard-content" style="display: none;">
+<!-- 📊 मुख्य डैशबोर्ड कंटेंट (रेंडर मोड फिक्स) -->
+<div id="dashboard-content" style="display: block;">
     <div class="header">
         <span>MPPSC MCQ Hub V14 — Full Admin Master Dashboard</span>
         <button class="logout-btn" onclick="logoutAdmin()">Logout Panel</button>
@@ -76,11 +73,11 @@ th { background: #f0f5ff; color: #082b57; font-weight: bold; }
 
     <div class="wrap">
         <div class="top">
-            <h1>MPPSC Complete Control Board (2026)</h1>
+            <h1>MPPSC Complete Control Board</h1>
             <p><b>Paid PRELIMS (200 Tests) + Paid MAINS (600 Boxes) Control Dashboard</b></p>
         </div>
 
-        <!-- 💰 पेमेंट वेरिफिकेशन टेबल सेक्शन -->
+        <!-- 💰 पेमेंट वेरिफिकेशन टेबल -->
         <section class="table-sec">
             <h2 style="color: #4caf50; margin: 0 0 5px 0;">📥 छात्रों के पेंडिंग पेमेंट और रसीदें (Verification Requests)</h2>
             <p style="margin: 0; color: #667085; font-size: 13px;">यहाँ छात्रों द्वारा सबमिट किए गए यूटीआर नंबर और स्क्रीनशॉट की जांच करके उन्हें लाइव एसएमएस द्वारा पासवर्ड भेजें।</p>
@@ -89,15 +86,15 @@ th { background: #f0f5ff; color: #082b57; font-weight: bold; }
                     <thead>
                         <tr>
                             <th>दिनांक</th>
-                            <th>मोबाइल नंबर (User ID)</th>
+                            <th>मोबाइल नंबर</th>
                             <th>कोर्स टाइप</th>
-                            <th>UTR / ट्रांजैक्शन ID</th>
+                            <th>UTR ID</th>
                             <th>रसीद (Screenshot)</th>
-                            <th>एक्शन (Actions)</th>
+                            <th>एक्शन</th>
                         </tr>
                     </thead>
                     <tbody id="payment-requests-table">
-                        <!-- लाइव डेटा यहाँ जावास्क्रिप्ट से लोड होगा -->
+                        <tr><td colspan="6" style="text-align:center; color:#667085;">डेटा लोड हो रहा है... कृपया लॉगिन करें।</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -114,16 +111,16 @@ th { background: #f0f5ff; color: #082b57; font-weight: bold; }
 </div>
 
 <script>
-    // 🔐 1. लॉगिन क्रेडेंशियल चेक (त्रुटिहीन शुद्ध कोड)
+    // 🔐 1. सुरक्षित क्रेडेंशियल चेक (परफेक्ट बाईपास फिक्स)
     function validateAdminLogin() {
         var user = document.getElementById("username").value;
         var pass = document.getElementById("password").value;
 
         if (user === "rajesh" && pass === "mppsc2027") {
+            // लॉगिन सही होने पर ओवरले स्क्रीन हटा दें
             document.getElementById("login-overlay").style.display = "none";
-            document.getElementById("dashboard-content").style.display = "block";
             
-            // डैशबोर्ड रेंडर करना
+            // डेटा को लाइव स्क्रीन पर पुश करना
             loadPaymentRequests();
             buildPrelims200Tests();
             buildMains600Boxes();
@@ -135,6 +132,8 @@ th { background: #f0f5ff; color: #082b57; font-weight: bold; }
     // 📥 2. पेमेंट रिक्वेस्ट डेटा लोड लॉजिक
     function loadPaymentRequests() {
         const tableBody = document.getElementById("payment-requests-table");
+        if(!tableBody) return;
+        
         let pendingPayments = JSON.parse(localStorage.getItem("mppsc_pending_payments")) || [];
 
         if (pendingPayments.length === 0) {
@@ -149,8 +148,8 @@ th { background: #f0f5ff; color: #082b57; font-weight: bold; }
                 <td>${req.date}</td>
                 <td style="font-weight:bold;">${req.phone}</td>
                 <td><span style="padding:4px 8px; border-radius:4px; font-weight:bold; font-size:12px; background:${req.course==='mains'?'#e1f5fe':'#ffebee'}; color:${req.course==='mains'?'#0288d1':'#c62828'};">${req.course.toUpperCase()}</span></td>
-                <td style="font-family:monospace; font-weight:bold; color:#333;">${req.utr}</td>
-                <td><img src="${req.screenshot}" class="ss-img" title="बड़ा देखने के लिए कर्सर लाएं"></td>
+                <td style="font-family:monospace; font-weight:bold;">${req.utr}</td>
+                <td><img src="${req.screenshot}" class="ss-img"></td>
                 <td>
                     <button class="btn-approve" onclick="approvePayment(${index})">Approve & SMS</button>
                     <button class="btn-reject" onclick="rejectPayment(${index})">Reject</button>
@@ -164,16 +163,19 @@ th { background: #f0f5ff; color: #082b57; font-weight: bold; }
     function approvePayment(index) {
         let pendingPayments = JSON.parse(localStorage.getItem("mppsc_pending_payments")) || [];
         let approvedReq = pendingPayments[index];
-
-        // रैंडम सीक्रेट पासवर्ड जनरेट करना
         const studentPassword = "MPPSC-" + Math.floor(1000 + Math.random() * 9000);
         
-        // ⚠️ Fast2SMS API (अपनी Key यहाँ बदलें)
         const apiKey = "YOUR_FAST2SMS_API_KEY";
         const smsMessage = `बधाई हो! आपका भुगतान सत्यापित हो गया है। MPPSC Hub लॉगिन ID: ${approvedReq.phone} | पासवर्ड: ${studentPassword} । कृपया student-login.html पर जाकर लॉगिन करें।`;
-        
         const apiUrl = `https://fast2sms.com{apiKey}&route=q&message=${encodeURIComponent(smsMessage)}&flash=0&numbers=${approvedReq.phone}`;
 
-        // छात्र क्रेडेंशियल को एक्टिव स्टूडेंट लिस्ट में जोड़ना
         let users = JSON.parse(localStorage.getItem("mppsc_students")) || [];
-users.push({ username: approvedReq.phone, password: studentPassword, type: approvedReq.course });localStorage.setItem("mppsc_students", JSON.stringify(users));fetch(apiUrl).then(() => {alert(✓ छात्र ${approvedReq.phone} का कोर्स एक्टिवेट हो गया है और पासवर्ड फोन पर भेज दिया गया है।);pendingPayments.splice(index, 1);localStorage.setItem("mppsc_pending_payments", JSON.stringify(pendingPayments));loadPaymentRequests();}).catch(() => {alert(डेटाबेस अपडेट सफल! छात्र का मैन्युअल पासवर्ड है: ${studentPassword});pendingPayments.splice(index, 1);localStorage.setItem("mppsc_pending_payments", JSON.stringify(pendingPayments));loadPaymentRequests();});}// ❌ 4. पेमेंट रिजेक्ट लॉजिकfunction rejectPayment(index) {if(confirm("क्या आप वाकई इस रिक्वेस्ट को रिजेक्ट करना चाहते हैं?")) {let pendingPayments = JSON.parse(localStorage.getItem("mppsc_pending_payments")) || [];pendingPayments.splice(index, 1);localStorage.setItem("mppsc_pending_payments", JSON.stringify(pendingPayments));loadPaymentRequests();alert("रिक्वेस्ट को रिजेक्ट कर दिया गया है।");}}// 🔴 प्रीलिम्स 200 टेस्ट जनरेटर लूपconst prelimsUnits = ["भारत का इतिहास", "मध्यप्रदेश का इतिहास, संस्कृति एवं साहित्य", "भारत का भूगोल", "मध्यप्रदेश का भूगोल", "भारत एवं म.प्र. की संवैधानिक व्यवस्था", "भारत एवं म.प्र. की अर्थव्यवस्था", "विज्ञान, पर्यावरण एवं स्वास्थ्य", "अंतर्राष्ट्रीय, राष्ट्रीय एवं प्रादेशिक घटनाएं", "सूचना एवं संचार प्रौद्योगिकी (ICT)", "म.प्र. की जनजातियां: विरासत व लोक संस्कृति"];function buildPrelims200Tests() {const container = document.getElementById('prelims-dynamic-container');let html = '';for (let u = 1; u <= 10; u++) {let padU = u < 10 ? '0' + u : u;html += <section class="unit-sec"><h2>Unit ${u} - ${prelimsUnits[u-1]}</h2><div class="grid">;for (let t = 1; t <= 20; t++) {let padT = t < 10 ? '0' + t : t;let code = P${padU}T${padT};html += <div class="card"><span class="code">${code}</span><a class="open-btn pre-btn" href="prelims-tests/unit-${padU}/${code}/index.html">Open Test</a></div>;}html += </div></section>;}container.innerHTML = html;}// 🔵 मेंस 600 बॉक्सेस जनरेटर लूपconst mainsPapers = [{ name: "General Studies-I (इतिहास एवं भूगोल)", folder: "paper-01-general-studies-i" },{ name: "General Studies-II (राजनीति, अर्थशास्त्र एवं समाजशास्त्र)", folder: "paper-02-general-studies-ii" },{ name: "General Studies-III (विज्ञान, प्रौद्योगिकी एवं स्वास्थ्य)", folder: "paper-03-general-studies-iii" },{ name: "General Studies-IV (दर्शनशास्त्र, मनोविज्ञान एवं लोक प्रशासन)", folder: "paper-04-general-studies-iv" },{ name: "General Studies-V (सामान्य हिंदी एवं व्याकरण)", folder: "paper-05-general-studies-v" },{ name: "General Studies-VI (हिंदी निबंध एवं प्रारूप लेखन)", folder: "paper-06-general-studies-vi" }];function buildMains600Boxes() {const container = document.getElementById('mains-dynamic-container');let html = '';mainsPapers.forEach((paper, index) => {const pNum = index + 1;html += <section class="paper"><h2>Paper ${pNum} - ${paper.name}</h2>;html += <div class="group-title">5 अंक वाले प्रश्न — 40 Boxes</div><div class="grid">;for (let b = 1; b <= 40; b++) {let code = GS${pNum}-5M-${b < 10 ? '00'+b : '0'+b};html += <div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${paper.folder}/5-marks/${code}/index.html">Open</a></div>;}html += </div><div class="group-title">10 अंक वाले प्रश्न — 40 Boxes</div><div class="grid">;for (let b = 41; b <= 80; b++) {let code = GS${pNum}-10M-0${b};html += <div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${paper.folder}/10-marks/${code}/index.html">Open</a></div>;}html += </div><div class="group-title">15 अंक वाले प्रश्न — 20 Boxes</div><div class="grid">;for (let b = 81; b <= 100; b++) {let code = GS${pNum}-15M-${b === 100 ? '100' : '0'+b};html += <div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${paper.folder}/15-marks/${code}/index.html">Open</a></div>;}html += </div></section>;});container.innerHTML = html;}// 🔒 लॉगआउट फंक्शनfunction logoutAdmin() {document.getElementById("username").value = "";document.getElementById("password").value = "";document.getElementById("login-overlay").style.display = "flex";document.getElementById("dashboard-content").style.display = "none";}
+        users.push({ username: approvedReq.phone, password: studentPassword, type: approvedReq.course });
+        localStorage.setItem("mppsc_students", JSON.stringify(users));
+
+        fetch(apiUrl)
+        .then(() => {
+            alert(`✓ छात्र ${approvedReq.phone} का कोर्स एक्टिवेट हो गया है।`);
+            pendingPayments.splice(index, 1);
+            localStorage.setItem("mppsc_pending_payments", JSON.stringify(pendingPayments));
+loadPaymentRequests();}).catch(() => {alert(डेटाबेस अपडेट सफल! छात्र का मैन्युअल पासवर्ड है: ${studentPassword});pendingPayments.splice(index, 1);localStorage.setItem("mppsc_pending_payments", JSON.stringify(pendingPayments));loadPaymentRequests();});}function rejectPayment(index) {if(confirm("क्या आप वाकई रिजेक्ट करना चाहते हैं?")) {let pendingPayments = JSON.parse(localStorage.getItem("mppsc_pending_payments")) || [];pendingPayments.splice(index, 1);localStorage.setItem("mppsc_pending_payments", JSON.stringify(pendingPayments));loadPaymentRequests();}}// 🔴 प्रीलिम्स 200 टेस्ट जनरेटर लूपconst prelimsUnits = ["भारत का इतिहास", "मध्यप्रदेश का इतिहास, संस्कृति एवं साहित्य", "भारत का भूगोल", "मध्यप्रदेश का भूगोल", "भारत एवं म.प्र. की संवैधानिक व्यवस्था", "भारत एवं म.प्र. की अर्थव्यवस्था", "विज्ञान, पर्यावरण एवं स्वास्थ्य", "अंतर्राष्ट्रीय, राष्ट्रीय एवं प्रादेशिक घटनाएं", "सूचना एवं संचार प्रौद्योगिकी (ICT)", "म.प्र. की जनजातियां: विरासत व लोक संस्कृति"];function buildPrelims200Tests() {const container = document.getElementById('prelims-dynamic-container');if(!container) return;let html = '';for (let u = 1; u <= 10; u++) {let padU = u < 10 ? '0' + u : u;html += <section class="unit-sec"><h2>Unit ${u} - ${prelimsUnits[u-1]}</h2><div class="grid">;for (let t = 1; t <= 20; t++) {let padT = t < 10 ? '0' + t : t;let code = P${padU}T${padT};html += <div class="card"><span class="code">${code}</span><a class="open-btn pre-btn" href="prelims-tests/unit-${padU}/${code}/index.html">Open</a></div>;}html += </div></section>;}container.innerHTML = html;}// 🔵 मेंस 600 बॉक्सेस जनरेटर लूपconst mainsPapers = [{ name: "General Studies-I", folder: "paper-01-general-studies-i" },{ name: "General Studies-II", folder: "paper-02-general-studies-ii" },{ name: "General Studies-III", folder: "paper-03-general-studies-iii" },{ name: "General Studies-IV", folder: "paper-04-general-studies-iv" },{ name: "General Studies-V", folder: "paper-05-general-studies-v" },{ name: "General Studies-VI", folder: "paper-06-general-studies-vi" }];function buildMains600Boxes() {const container = document.getElementById('mains-dynamic-container');if(!container) return;let html = '';mainsPapers.forEach((paper, index) => {const pNum = index + 1;html += <section class="paper"><h2>Paper ${pNum} - ${paper.name}</h2>;html += <div class="group-title">5 अंक वाले प्रश्न — 40 Boxes</div><div class="grid">;for (let b = 1; b <= 40; b++) {let code = GS${pNum}-5M-${b < 10 ? '00'+b : '0'+b};html += <div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${paper.folder}/5-marks/${code}/index.html">Open</a></div>;}html += </div><div class="group-title">10 अंक वाले प्रश्न — 40 Boxes</div><div class="grid">;for (let b = 41; b <= 80; b++) {let code = GS${pNum}-10M-0${b};html += <div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${paper.folder}/10-marks/${code}/index.html">Open</a></div>;}html += </div><div class="group-title">15 अंक वाले प्रश्न — 20 Boxes</div><div class="grid">;for (let b = 81; b <= 100; b++) {let code = GS${pNum}-15M-${b === 100 ? '100' : '0'+b};html += <div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${paper.folder}/15-marks/${code}/index.html">Open</a></div>;}html += </div></section>;});container.innerHTML = html;}// 🔒 लॉगआउटfunction logoutAdmin() {document.getElementById("username").value = "";document.getElementById("password").value = "";document.getElementById("login-overlay").style.display = "flex";}
