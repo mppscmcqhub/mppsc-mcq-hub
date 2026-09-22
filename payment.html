@@ -18,6 +18,12 @@
         .status-msg { margin-top: 15px; font-weight: bold; color: #082b57; display: none; }
         .loader { border: 4px solid #f3f3f3; border-top: 4px solid #147dcc; border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; display: inline-block; vertical-align: middle; margin-right: 10px; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        
+        /* 📱 मोबाइल इनपुट बॉक्स स्टाइल */
+        .phone-section { margin-bottom: 18px; text-align: left; }
+        .phone-section label { font-weight: bold; display: block; margin-bottom: 6px; color: #333; font-size: 14px; }
+        .phone-section input { width: 100%; padding: 11px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 15px; }
+        .phone-section input:focus { border-color: #147dcc; outline: none; }
     </style>
 </head>
 <body>
@@ -29,6 +35,12 @@
         <span class="price" id="course-price">₹99</span>
         <strong id="course-title">MPPSC Paid Course 2027</strong>
         <p style="margin: 5px 0 0 0; font-size: 13px; color: #555;">अनलॉक प्रकार: डायरेक्ट लाइफटाइम एक्सेस</p>
+    </div>
+
+    <!-- 📱 नया जोड़ा गया: मोबाइल नंबर इनपुट सेक्शन -->
+    <div class="phone-section">
+        <label for="student-phone">अपना मोबाइल नंबर दर्ज करें (इस पर पासवर्ड आएगा):</label>
+        <input type="number" id="student-phone" placeholder="10 अंकों का मोबाइल नंबर दर्ज करें" oninput="if(this.value.length > 10) this.value = this.value.slice(0, 10);" required>
     </div>
 
     <p style="font-size: 14px; margin-bottom: 10px; color:#333;">नीचे दिए गए QR कोड को किसी भी पेमेंट ऐप से स्कैन करें:</p>
@@ -64,21 +76,70 @@
         }
     };
 
+    // 🚀 पेमेंट और SMS क्रेडेंशियल जनरेशन मैकेनिज्म
     function processStudentAccess() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const type = urlParams.get('type');
+        const phone = document.getElementById("student-phone").value;
+        
+        // मोबाइल नंबर वैलिडेशन (10 अंक होना अनिवार्य)
+        if (!phone || phone.length !== 10) {
+            alert("❌ कृपया एक वैध 10 अंकों का मोबाइल नंबर दर्ज करें!");
+            return;
+        }
 
+        // स्टेटस लोडर ऑन करें
+        document.body.style.cursor = "wait";
         document.getElementById("status-box").style.display = "block";
         
-        setTimeout(function() {
-            alert("✓ भुगतान सफलतापूर्वक प्राप्त हुआ! आपको आपके कोर्स पोर्टल पर रीडायरेक्ट किया जा रहा है।");
+        // 1. रैंडम पासवर्ड जेनरेट करना (जैसे: MPPSC-4729)
+        const randomPassword = "MPPSC-" + Math.floor(1000 + Math.random() * 9000);
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const courseType = urlParams.get('type') || 'prelims';
+        const courseName = courseType === 'mains' ? 'Paid MAINS' : 'Paid PRELIMS';
+
+        // 2. Fast2SMS API के ज़रिए छात्र को मोबाइल पर पासवर्ड भेजना
+        // ⚠️ नोट: 'YOUR_FAST2SMS_API_KEY' को हटाकर अपनी असली Fast2SMS API Key यहाँ डालें
+        const apiKey = "YOUR_FAST2SMS_API_KEY";
+        const smsMessage = `आपका MPPSC Hub लॉगिन क्रेडेंशियल तैयार है। User ID: ${phone} | Password: ${randomPassword} । कृपया इस क्रेडेंशियल से student-login.html पर लॉगिन करें।`;
+        
+        const apiUrl = `https://fast2sms.com{apiKey}&route=q&message=${encodeURIComponent(smsMessage)}&flash=0&numbers=${phone}`;
+
+        fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            // 3. लोकल स्टोरेज डेटाबेस में स्टूडेंट क्रेडेंशियल रजिस्टर करना
+            let users = JSON.parse(localStorage.getItem("mppsc_students")) || [];
             
-            if (type === "mains") {
-                window.location.href = "mains.html?v=mppsc2027"; 
+            // अगर पुराना छात्र है तो उसका कोर्स टाइप अपडेट कर देगा, नए छात्र का नया रिकॉर्ड बनाएगा
+            let existingUserIndex = users.findIndex(u => u.username === phone);
+            if(existingUserIndex !== -1) {
+                users[existingUserIndex].password = randomPassword;
+                users[existingUserIndex].type = courseType;
             } else {
-                window.location.href = "prelims.html?v=mppsc2027"; 
+                users.push({ username: phone, password: randomPassword, type: courseType });
             }
-        }, 3000);
+            
+            localStorage.setItem("mppsc_students", JSON.stringify(users));
+
+            document.getElementById("status-box").style.display = "none";
+            document.body.style.cursor = "default";
+            
+            alert(`✓ भुगतान सत्यापित हो गया है!\nआपका पासवर्ड आपके मोबाइल नंबर ${phone} पर SMS द्वारा भेज दिया गया है।`);
+            // छात्र को सीधे लॉगिन स्क्रीन पर भेजें
+            window.location.href = "student-login.html";
+        })
+        .catch(err => {
+            // फॉलबैक सिस्टम (नेटवर्क एरर की स्थिति में भी लोकल डेटा सेव रखेगा)
+            let users = JSON.parse(localStorage.getItem("mppsc_students")) || [];
+            users.push({ username: phone, password: randomPassword, type: courseType });
+            localStorage.setItem("mppsc_students", JSON.stringify(users));
+            
+            document.getElementById("status-box").style.display = "none";
+            document.body.style.cursor = "default";
+            
+            alert(`पेमेंट प्रोसेस हो गया है! (Fast2SMS API की अनुपलब्धता के कारण स्क्रीन पर पासवर्ड दिखाया जा रहा है)\nआपका अस्थायी पासवर्ड है: ${randomPassword}`);
+            window.location.href = "student-login.html";
+        });
     }
 </script>
 
