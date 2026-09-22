@@ -1,186 +1,126 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Admin Dashboard · 200 PRELIMS Tests + 600 MAINS</title>
-    <style>
-        * { box-sizing: border-box; }
-        body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #edf3ff; color: #111; display: none; } /* पासवर्ड वेरिफिकेशन तक छुपा रहेगा */
-        a { text-decoration: none; color: inherit; }
-        .top { height: 64px; background: #1551a5; color: #fff; display: flex; align-items: center; padding: 0 18px; }
-        .topin { width: 100%; display: flex; align-items: center; gap: 12px; }
-        .logo { width: 42px; height: 42px; border-radius: 50%; background: #fff; display: grid; place-items: center; color: #1551a5; font-weight: 900; }
-        .logo-main { font-size: 16px; line-height: 15px; text-align: center; }
-        .logo-sub { font-size: 10px; text-align: center; }
-        .title { font-size: 18px; font-weight: 800; }
-        .login { margin-left: auto; background: #fff; color: #111; padding: 7px 15px; border-radius: 4px; font-weight: 700; }
-        .wrap { padding: 25px 10px; max-width: 1650px; margin: auto; }
-        .adminbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
-        .stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin: 18px 0 26px; }
-        .stat { background: #fff; border-radius: 14px; padding: 16px; text-align: center; box-shadow: 0 3px 14px rgba(0,0,0,.08); }
-        .stat b { font-size: 26px; display: block; }
-        .unitsec, .papersec { background: #fff; border-radius: 18px; padding: 18px; margin: 25px 0; box-shadow: 0 4px 18px rgba(0,0,0,.08); }
-        .unithead, .paperhead { display: flex; align-items: center; gap: 14px; margin-bottom: 15px; border-bottom: 2px solid #eef4ff; padding-bottom: 10px; }
-        .unithead h2, .paperhead h2 { margin: 0 0 4px; font-size: 1.3rem; color: #1551a5; }
-        .unithead p, .paperhead p { margin: 0; color: #667085; font-size: 0.9rem; }
-        .unithead>strong, .paperhead>strong { margin-left: auto; background: #eef5ff; padding: 8px 12px; border-radius: 10px; color: #1551a5; }
-        .tests { display: grid; grid-template-columns: repeat(10, 1fr); gap: 8px; }
-        .test { text-decoration: none; color: #172033; border: 1px solid #e1e7ef; border-radius: 10px; padding: 10px 4px; text-align: center; background: #fafcff; transition: .15s; font-size: 12px; }
-        .test:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,.1); background: #eef5ff; }
-        .test span { display: block; font-size: 16px; font-weight: 800; }
-        .test b { display: block; font-size: 11px; margin: 2px 0; color: #333; }
-        .test small { color: #1551a5; font-weight: bold; }
-        .logout { background: #d32f2f !important; color: #fff; border: 0; cursor: pointer; padding: 10px 20px; border-radius: 6px; font-weight: bold; }
-        
-        @media(max-width: 1400px) { .tests { grid-template-columns: repeat(8, 1fr); } }
-        @media(max-width: 1100px) { .tests { grid-template-columns: repeat(5, 1fr); } .stats { grid-template-columns: repeat(3, 1fr); } }
-        @media(max-width: 768px) { .tests { grid-template-columns: repeat(4, 1fr); } .stats { grid-template-columns: 1fr 1fr; } }
-        @media(max-width: 480px) { .tests { grid-template-columns: repeat(2, 1fr); } .stats { grid-template-columns: 1fr; } }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MPPSC MCQ Hub V14 - Paid MAINS Admin Dashboard</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f3f6fa;color:#102a43;display:none;} /* पासवर्ड वेरिफिकेशन तक लोड नहीं होगा */
+.header{background:#082b57;color:#fff;padding:15px 20px;font-size:19px;font-weight:700;display:flex;justify-content:space-between;align-items:center}
+.wrap{max-width:1400px;margin:22px auto;padding:0 12px}
+.top{background:#fff;border-radius:12px;padding:18px 20px;margin-bottom:18px;box-shadow:0 2px 9px #0001}
+.top h1{margin:0 0 6px;font-size:24px}.top p{margin:5px 0;color:#667085}
+.paper{background:#fff;border-radius:12px;padding:16px;margin-bottom:25px;box-shadow:0 2px 9px #0001;border-top: 4px solid #147dcc;}
+.paper h2{margin:0 0 14px;font-size:22px;color:#082b57;border-bottom: 2px solid #eaf2fb;padding-bottom:8px;}
+.group-title{background:#eaf2fb;border-radius:7px;padding:8px 10px;margin:20px 0 10px;font-size:16px;font-weight:700;color:#082b57}
+.grid{display:grid;grid-template-columns:repeat(8,1fr);gap:7px}
+.card{background:#fff;border:1px solid #d7e1ec;border-radius:7px;padding:7px;text-align:center;transition:0.15s}
+.card:hover{transform:translateY(-2px);box-shadow:0 4px 10px rgba(0,0,0,0.08)}
+.code{font-size:11px;font-weight:700;display:block;margin-bottom:7px;color:#334e68}
+.open{display:block;background:#147dcc;color:#fff;text-decoration:none;border-radius:6px;padding:5px 3px;font-size:11px;font-weight:bold}
+.open:hover{background:#0b69b1}
+.logout-btn{background:#d32f2f;color:white;border:none;padding:8px 16px;border-radius:6px;font-weight:bold;cursor:pointer;font-size:14px}
+@media(max-width:1200px){.grid{grid-template-columns:repeat(6,1fr)}}
+@media(max-width:900px){.grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:550px){.grid{grid-template-columns:repeat(2,1fr)}}
+</style>
 </head>
 <body>
 
-<header class="top">
-    <div class="topin">
-        <div class="logo" aria-label="MPPSC logo">
-            <div><div class="logo-main">MP</div><div class="logo-sub">PSC</div></div>
-        </div>
-        <div class="title">MPPSC MCQ Hub V14 · ADMIN PANEL</div>
-        <a class="login" href="index.html">Home</a>
-    </div>
-</header>
+<div class="header">
+    <span>MPPSC MCQ Hub V14 — Paid MAINS Control Panel</span>
+    <button class="logout-btn" onclick="logout()">Logout Panel</button>
+</div>
 
-<main class="wrap">
-    <div class="adminbar">
-        <div>
-            <h1 style="margin:0 0 5px; color:#1551a5;">Master Control Dashboard</h1>
-            <p style="margin:0;color:#667085">यहाँ पेड प्रीलिम्स के सभी 200 टेस्ट और पेड मेंस के सभी 600 कंट्रोल बॉक्सेस लाइव हैं।</p>
-        </div>
-        <button class="logout" onclick="logout()">Logout Panel</button>
+<div class="wrap">
+    <div class="top">
+        <h1>Paid Course MPPSC 2027</h1>
+        <p><b>MAINS — 600 Master Practice Boxes</b></p>
+        <p>सभी 6 पेपर्स के 5 अंक, 10 अंक और 15 अंक के प्रश्न अलग-अलग बॉक्सेस में विभाजित हैं।</p>
     </div>
 
-    <!-- स्टेट्स काउंटर्स -->
-    <div class="stats">
-        <div class="stat" style="border-top: 4px solid #2196f3;"><b>10</b>PRELIMS Units</div>
-        <div class="stat" style="border-top: 4px solid #2196f3;"><b>200</b>Total PRE Tests</div>
-        <div class="stat" style="border-top: 4px solid #1551a5;"><b>6</b>MAINS Papers</div>
-        <div class="stat" style="border-top: 4px solid #1551a5;"><b>600</b>Total MAINS Boxes</div>
-        <div class="stat" style="border-top: 4px solid #4caf50;"><b>🔒 System</b>Password Protected</div>
-    </div>
-
-    <!-- ================= PAID PRELIMS SECTION (200 TESTS) ================= -->
-    <h1 style="margin: 40px 0 10px 0; border-left: 6px solid #2196f3; padding-left: 12px; color:#111;">🏆 Paid PRELIMS Control Panel (200 Tests)</h1>
-    <div id="prelims-container"></div>
-
-    <!-- ================= PAID MAINS SECTION (600 BOXES) ================= -->
-    <h1 style="margin: 50px 0 10px 0; border-left: 6px solid #1551a5; padding-left: 12px; color:#111;">📝 Paid MAINS Control Panel (600 Boxes)</h1>
-    <div id="mains-container"></div>
-</main>
+    <!-- मुख्य कंटेनर जहाँ लूप के ज़रिए पूरे 600 बॉक्सेस लोड होंगे -->
+    <div id="mains-dynamic-container"></div>
+</div>
 
 <script>
-    // 🛡️ 1. एडमिन लॉगिन और पासवर्ड सुरक्षा लॉजिक
+    // 🛡️ 1. एडमिन सुरक्षा लॉक और क्रेडेंशियल जांच
     window.onload = function() {
         const urlParams = new URLSearchParams(window.location.search);
         const token = urlParams.get('v');
 
-        // पासवर्ड और डायरेक्ट यूआरएल ब्लॉक सुरक्षा
+        // अगर लॉगिन का टोकन यूआरएल में मैच नहीं होता है, तो एक्सेस ब्लॉक करें
         if (token !== "mppsc2027") {
-            alert("❌ अनधिकृत एक्सेस! कृपया पहले एडमिन क्रेडेंशियल से लॉगिन करें।");
+            alert("❌ अनधिकृत एक्सेस! कृपया पहले एडमिन पैनल पर लॉगिन करें।");
             window.location.href = "index.html"; 
             return;
         }
 
-        // पासवर्ड सही होने पर ही पेज रेंडर और डिस्प्ले होगा
+        // पासवर्ड और टोकन सही होने पर कंटेंट लोड करें
         document.body.style.display = "block";
-        generatePrelimsDashboard();
-        generateMainsDashboard();
+        buildMains600Boxes();
     };
 
-    // 🔄 2. पेड प्रीलिम्स के 10 यूनिट्स और उनके 20-20 (कुल 200) टेस्ट ऑटोमैटिक जेनरेट करने का लूप
-    const preUnitNames = [
-        "भारत का इतिहास", "मध्यप्रदेश का इतिहास, संस्कृति एवं साहित्य", "भारत का भूगोल",
-        "मध्यप्रदेश का भूगोल", "भारत एवं म.प्र. की संवैधानिक व्यवस्था", "भारत एवं म.प्र. की अर्थव्यवस्था",
-        "विज्ञान, पर्यावरण एवं स्वास्थ्य", "अंतर्राष्ट्रीय, राष्ट्रीय एवं प्रादेशिक घटनाएं",
-        "सूचना एवं संचार प्रौद्योगिकी (ICT)", "म.प्र. की जनजातियां: विरासत व लोक संस्कृति"
+    // 🔄 2. सभी 6 पेपर्स और उनके 5, 10, 15 मार्क्स के बॉक्सेस का ऑटोमैटिक जनरेटर लूप
+    const papersConfig = [
+        { name: "General Studies-I (इतिहास एवं भूगोल)", folder: "paper-01-general-studies-i" },
+        { name: "General Studies-II (राजनीति, अर्थशास्त्र एवं समाजशास्त्र)", folder: "paper-02-general-studies-ii" },
+        { name: "General Studies-III (विज्ञान, प्रौद्योगिकी एवं स्वास्थ्य)", folder: "paper-03-general-studies-iii" },
+        { name: "General Studies-IV (दर्शनशास्त्र, मनोविज्ञान एवं लोक प्रशासन)", folder: "paper-04-general-studies-iv" },
+        { name: "General Studies-V (सामान्य हिंदी एवं व्याकरण)", folder: "paper-05-general-studies-v" },
+        { name: "General Studies-VI (हिंदी निबंध एवं प्रारूप लेखन)", folder: "paper-06-general-studies-vi" }
     ];
 
-    function generatePrelimsDashboard() {
-        const container = document.getElementById('prelims-container');
-        let html = '';
+    function buildMains600Boxes() {
+        const container = document.getElementById('mains-dynamic-container');
+        let fullHtml = '';
 
-        for (let u = 1; u <= 10; u++) {
-            let paddedUnit = u < 10 ? '0' + u : u;
-            html += `
-            <section class="unitsec">
-                <div class="unithead">
-                    <div class="logo" style="width:34px;height:34px;background:#2196f3;color:#fff">${u}</div>
-                    <div><h2>Unit ${u}</h2><p>${preUnitNames[u-1]}</p></div>
-                    <strong>20 Tests Box Enabled</strong>
-                </div>
-                <div class="tests">`;
+        papersConfig.forEach((paper, index) => {
+            const pNum = index + 1;
             
-            // प्रत्येक यूनिट के अंदर 20 टेस्ट्स बॉक्सेस
-            for (let t = 1; t <= 20; t++) {
-                let paddedTest = t < 10 ? '0' + t : t;
-                let testCode = `P${paddedUnit}T${paddedTest}`;
-                html += `
-                <a class="test" href="prelims-tests/unit-${paddedUnit}/${testCode}/index.html">
-                    <span>${paddedTest}</span>
-                    <b>${testCode}</b>
-                    <small>Edit Test</small>
-                </a>`;
+            fullHtml += `<section class="paper">
+                <h2>Paper ${pNum} - ${paper.name}</h2>`;
+
+            // --- 5 अंक वाले प्रश्न (Box 1 से 40) ---
+            fullHtml += `<div class="group-title">5 अंक वाले प्रश्न — 40 Boxes (001 से 040)</div><div class="grid">`;
+            for (let b = 1; b <= 40; b++) {
+                let boxStr = b < 10 ? '00' + b : '0' + b;
+                let code = `GS${pNum}-5M-${boxStr}`;
+                let path = `${paper.folder}/5-marks/${code}/index.html`;
+                fullHtml += `<div class="card"><span class="code">${code}</span><a class="open" href="${path}">Open</a></div>`;
             }
-            html += `</div></section>`;
-        }
-        container.innerHTML = html;
+            fullHtml += `</div>`;
+
+            // --- 10 अंक वाले प्रश्न (Box 41 से 80) ---
+            fullHtml += `<div class="group-title">10 अंक वाले प्रश्न — 40 Boxes (041 से 080)</div><div class="grid">`;
+            for (let b = 41; b <= 80; b++) {
+                let boxStr = '0' + b;
+                let code = `GS${pNum}-10M-${boxStr}`;
+                let path = `${paper.folder}/10-marks/${code}/index.html`;
+                fullHtml += `<div class="card"><span class="code">${code}</span><a class="open" href="${path}">Open</a></div>`;
+            }
+            fullHtml += `</div>`;
+
+            // --- 15 अंक वाले प्रश्न (Box 81 से 100) ---
+            fullHtml += `<div class="group-title">15 अंक वाले प्रश्न — 20 Boxes (081 से 100)</div><div class="grid">`;
+            for (let b = 81; b <= 100; b++) {
+                let boxStr = b === 100 ? '100' : '0' + b;
+                let code = `GS${pNum}-15M-${boxStr}`;
+                let path = `${paper.folder}/15-marks/${code}/index.html`;
+                fullHtml += `<div class="card"><span class="code">${code}</span><a class="open" href="${path}">Open</a></div>`;
+            }
+            fullHtml += `</div>`;
+
+            fullHtml += `</section>`;
+        });
+
+        container.innerHTML = fullHtml;
     }
 
-    // 🔄 3. पेड मेंस के सभी 6 पेपर्स और उनके 100-100 (कुल 600) बॉक्सेस ऑटोमैटिक जेनरेट करने का लूप
-    const mainsPaperNames = [
-        "General Studies - Paper I (इतिहास एवं भूगोल)",
-        "General Studies - Paper II (राजनीति, अर्थशास्त्र एवं समाजशास्त्र)",
-        "General Studies - Paper III (विज्ञान, प्रौद्योगिकी एवं स्वास्थ्य)",
-        "General Studies - Paper IV (दर्शनशास्त्र, मनोविज्ञान एवं लोक प्रशासन)",
-        "General Studies - Paper V (सामान्य हिंदी एवं व्याकरण)",
-        "General Studies - Paper VI (हिंदी निबंध एवं प्रारूप लेखन)"
-    ];
-
-    function generateMainsDashboard() {
-        const container = document.getElementById('mains-container');
-        let html = '';
-
-        for (let p = 1; p <= 6; p++) {
-            html += `
-            <section class="papersec" style="border-top: 4px solid #1551a5;">
-                <div class="paperhead">
-                    <div class="logo" style="width:34px;height:34px;background:#1551a5;color:#fff">M${p}</div>
-                    <div><h2>Paper ${p}</h2><p>${mainsPaperNames[p-1]}</p></div>
-                    <strong>100 Data Boxes Active</strong>
-                </div>
-                <div class="tests">`;
-            
-            // प्रत्येक पेपर के अंदर पूरे 100 बॉक्सेस (1 से 100 तक)
-            for (let b = 1; b <= 100; b++) {
-                let paddedBox = b < 10 ? '0' + b : b;
-                if(b < 100 && b >= 10) paddedBox = '0' + b; // प्रॉपर 3 डिजिट फॉर्मेटिंग के लिए वैकल्पिक सेटिंग्स
-                let boxCode = `M0${p}B${b < 10 ? '0'+b : b}`;
-                
-                html += `
-                <a class="test" href="mains-tests/paper-${p}/box-${b}/index.html" style="background:#f0f5ff;">
-                    <span>${b < 10 ? '0'+b : b}</span>
-                    <b>${boxCode}</b>
-                    <small style="color:#1551a5;">Open Box</small>
-                </a>`;
-            }
-            html += `</div></section>`;
-        }
-        container.innerHTML = html;
-    }
-
-    // 🔒 लॉगआउट मैकेनिज्म
+    // 🔒 लॉगआउट करने के लिए
     function logout() {
-        alert("सुरक्षित लॉगआउट कर दिया गया है।");
+        alert("आप सफलतापूर्वक लॉगआउट हो चुके हैं।");
         window.location.href = "index.html";
     }
 </script>
