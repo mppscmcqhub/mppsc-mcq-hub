@@ -10,7 +10,8 @@
         body { background-color: #eef4ff; font-family: 'Segoe UI', sans-serif; color: #333; line-height: 1.5; }
         .navbar-custom { background-color: #0d47a1; color: white; padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; min-height: 80px; }
         .navbar-brand { font-size: 1.4rem; font-weight: bold; text-decoration: none; color: white; }
-        .btn-login { background-color: white; color: #0d47a1; border: none; padding: 6px 15px; border-radius: 4px; font-weight: bold; text-decoration: none; font-size: 0.9rem; }
+        .btn-login { background-color: white; color: #0d47a1; border: none; padding: 6px 15px; border-radius: 4px; font-weight: bold; text-decoration: none; font-size: 0.9rem; transition: background 0.2s; }
+        .btn-login:hover { background-color: #e1e7ef; }
         .container-fluid { width: 100%; padding: 15px; margin: 0 auto; }
         .section-title { font-size: 1.3rem; font-weight: bold; color: #1a237e; margin: 25px 0 15px 0; border-left: 5px solid #0d47a1; padding-left: 10px; }
         
@@ -53,7 +54,8 @@
             <img src="my-logo.jpg" alt="MPPSC MCQ Hub Logo" style="height: 65px; width: 65px; border-radius: 50%; object-fit: cover; border: 2px solid white; display: inline-block;">
             <span>MPPSC MCQ Hub V14</span>
         </a>
-        <a href="#" class="btn-login">🔑 Login</a>
+        <!-- 🔑 लॉगिन बटन को सीधे एडमिन फ़ाइल से लिंक किया गया है -->
+        <a href="admin.html" class="btn-login">🔑 Login</a>
     </div>
 
     <div class="container-fluid">
@@ -71,7 +73,7 @@
             <div class="unit-col"><div class="unit-card"><div><div class="unit-icon u9">9</div><div class="unit-title">Unit 9</div><div class="unit-desc">सूचना एवं संचार प्रौद्योगिकी (ICT)</div></div><div><a href="unit9.html" class="btn-open">Open Unit</a></div></div></div>
             <div class="unit-col"><div class="unit-card"><div><div class="unit-icon u10">10</div><div class="unit-title">Unit 10</div><div class="unit-desc">म.प्र. की जनजातियां: विरासत व लोक संस्कृति</div></div><div><a href="unit10.html" class="btn-open">Open Unit</a></div></div></div>
 
-            <!-- 11वां कार्ड: PRELIMS Paid Course (लाल रंग की विशेष ग्रिड थीम) -->
+            <!-- 11वां कार्ड: PRELIMS Paid Course (फीस अपडेट की गई: ₹99) -->
             <div class="unit-col">
                 <div class="unit-card prelims-card">
                     <div>
@@ -79,12 +81,12 @@
                         <div class="unit-desc" style="font-weight: bold; color: #444;">Paid Course<br>MPPSC 2027</div>
                     </div>
                     <div>
-                        <a href="payment.html" class="btn-open btn-prelims-paid">Join Paid Pre (₹29)</a>
+                        <a href="payment.html?type=prelims" class="btn-open btn-prelims-paid">Join Paid Pre (₹99)</a>
                     </div>
                 </div>
             </div>
 
-            <!-- 12वां कार्ड: MAINS Paid Course (नीले रंग की विशेष ग्रिड थीम) -->
+            <!-- 12वां कार्ड: MAINS Paid Course (फीस अपडेट की गई: ₹199) -->
             <div class="unit-col">
                 <div class="unit-card mains-card">
                     <div>
@@ -92,7 +94,7 @@
                         <div class="unit-desc" style="font-weight: bold; color: #444;">Paid Course<br>MPPSC 2027</div>
                     </div>
                     <div>
-                        <a href="paid-mains.html" class="btn-open btn-mains-paid">Join Paid Mains (₹99)</a>
+                        <a href="payment.html?type=mains" class="btn-open btn-mains-paid">Join Paid Mains (₹199)</a>
                     </div>
                 </div>
             </div>
