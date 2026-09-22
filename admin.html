@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MPPSC MCQ Hub V14 - Full Admin Dashboard</title>
+<title>MPPSC MCQ Hub V14 - Secure Admin Dashboard</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f3f6fa;color:#102a43;display:none;}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f3f6fa;color:#102a43}
 .header{background:#082b57;color:#fff;padding:15px 20px;font-size:19px;font-weight:700;display:flex;justify-content:space-between;align-items:center}
 .wrap{max-width:1400px;margin:22px auto;padding:0 12px}
 .top{background:#fff;border-radius:12px;padding:18px 20px;margin-bottom:18px;box-shadow:0 2px 9px #0001}
@@ -23,10 +23,20 @@ body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f3f6fa;color:#1
 .card{background:#fff;border:1px solid #d7e1ec;border-radius:7px;padding:7px;text-align:center;transition:0.15s}
 .card:hover{transform:translateY(-2px);box-shadow:0 4px 10px rgba(0,0,0,0.08)}
 .code{font-size:11px;font-weight:700;display:block;margin-bottom:7px;color:#334e68}
-.open-btn{display:block;color:#fff;text-decoration:none;border-radius:6px;padding:5px 3px;font-size:11px;font-weight:bold;text-align:center;}
+.open-btn {display:block;color:#fff;text-decoration:none;border-radius:6px;padding:5px 3px;font-size:11px;font-weight:bold;text-align:center;}
 .pre-btn { background:#e53e3e; } .pre-btn:hover { background:#c53030; }
 .mains-btn { background:#147dcc; } .mains-btn:hover { background:#0b69b1; }
 .logout-btn{background:#d32f2f;color:white;border:none;padding:8px 16px;border-radius:6px;font-weight:bold;cursor:pointer;font-size:14px}
+
+/* 🔐 लॉगिन स्क्रीन ओवरले का स्टाइल */
+#login-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #f4f7fc; display: flex; justify-content: center; align-items: center; z-index: 9999; }
+.login-box { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 25px rgba(0,0,0,0.15); text-align: center; width: 350px; }
+.login-box h2 { color: #082b57; margin-bottom: 20px; font-size: 22px; }
+.login-box input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 14px; }
+.login-box button { width: 100%; padding: 12px; background: #082b57; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold; margin-top: 10px; }
+.login-box button:hover { background: #051d3b; }
+.error-msg { color: #d32f2f; font-size: 14px; margin-top: 10px; display: none; font-weight: bold; }
+
 @media(max-width:1200px){.grid{grid-template-columns:repeat(6,1fr)}}
 @media(max-width:900px){.grid{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:550px){.grid{grid-template-columns:repeat(2,1fr)}}
@@ -34,43 +44,61 @@ body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f3f6fa;color:#1
 </head>
 <body>
 
-<div class="header">
-    <span>MPPSC MCQ Hub V14 — Full Admin Master Dashboard</span>
-    <button class="logout-btn" onclick="logout()">Logout Panel</button>
+<!-- 🔐 एडमिन लॉक लॉगिन स्क्रीन (User ID & Password) -->
+<div id="login-overlay">
+    <div class="login-box">
+        <h2>🔑 Admin Portal Login</h2>
+        <input type="text" id="username" placeholder="User ID (एडमिन नाम)">
+        <input type="password" id="password" placeholder="Password (पासवर्ड)">
+        <button onclick="validateAdminLogin()">Access Dashboard</button>
+        <p class="error-msg" id="login-error">गलत User ID या Password!</p>
+    </div>
 </div>
 
-<div class="wrap">
-    <div class="top">
-        <h1>MPPSC Complete Control Board (2027)</h1>
-        <p><b>Paid PRELIMS (200 Tests) + Paid MAINS (600 Boxes)</b></p>
-        <p>यहाँ सभी 10 प्रीलिम्स यूनिट्स और मुख्य परीक्षा के सभी 6 पेपर्स के डेटा बॉक्सेस एक साथ लाइव हैं।</p>
+<!-- 📊 मुख्य डैशबोर्ड कंटेंट (सफल लॉगिन के बाद दिखेगा) -->
+<div id="dashboard-content" style="display: none;">
+    <div class="header">
+        <span>MPPSC MCQ Hub V14 — Full Admin Master Dashboard</span>
+        <button class="logout-btn" onclick="logoutAdmin()">Logout Panel</button>
     </div>
 
-    <!-- 🔴 1. PAID PRELIMS CONTAINERS -->
-    <div class="section-main-title pre-title">🏆 Paid PRELIMS — 200 Total Tests</div>
-    <div id="prelims-dynamic-container"></div>
+    <div class="wrap">
+        <div class="top">
+            <h1>MPPSC Complete Control Board (2027)</h1>
+            <p><b>Paid PRELIMS (200 Tests) + Paid MAINS (600 Boxes)</b></p>
+            <p>लॉगिन सफल। सभी 10 प्रीलिम्स यूनिट्स और मुख्य परीक्षा के सभी 6 पेपर्स के डेटा बॉक्सेस यहाँ लाइव हैं।</p>
+        </div>
 
-    <!-- 🔵 2. PAID MAINS CONTAINERS -->
-    <div class="section-main-title mains-title">📝 Paid MAINS — 600 Total Boxes</div>
-    <div id="mains-dynamic-container"></div>
+        <!-- 🔴 1. PAID PRELIMS -->
+        <div class="section-main-title pre-title">🏆 Paid PRELIMS — 200 Total Tests</div>
+        <div id="prelims-dynamic-container"></div>
+
+        <!-- 🔵 2. PAID MAINS -->
+        <div class="section-main-title mains-title">📝 Paid MAINS — 600 Total Boxes</div>
+        <div id="mains-dynamic-container"></div>
+    </div>
 </div>
 
 <script>
-    // 🛡️ सुरक्षा क्रेडेंशियल टोकन चेक
-    window.onload = function() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const token = urlParams.get('v');
+    // 🔐 1. User ID और Password वेरिफिकेशन फंक्शन
+    function validateAdminLogin() {
+        var user = document.getElementById("username").value;
+        var pass = document.getElementById("password").value;
 
-        if (token !== "mppsc2027") {
-            alert("❌ अनधिकृत एक्सेस! कृपया पहले लॉगिन करें।");
-            window.location.href = "index.html"; 
-            return;
+        // क्रेडेंशियल्स की जांच (User ID: admin123 | Pass: mppsc2027)
+        if(user === "admin123" && pass === "mppsc2027") {
+            // लॉगिन सफल होने पर लॉगिन बॉक्स छुपाएं और डैशबोर्ड दिखाएं
+            document.getElementById("login-overlay").style.display = "none";
+            document.getElementById("dashboard-content").style.display = "block";
+            
+            // डेटा ग्रिड जनरेट करें
+            buildPrelims200Tests();
+            buildMains600Boxes();
+        } else {
+            // गलत क्रेडेंशियल्स होने पर एरर मैसेज दिखाएं
+            document.getElementById("login-error").style.display = "block";
         }
-
-        document.body.style.display = "block";
-        buildPrelims200Tests();
-        buildMains600Boxes();
-    };
+    }
 
     // 🔴 प्रीलिम्स 10 यूनिट्स * 20 टेस्ट्स = 200 बॉक्सेस जनरेटर लूप
     const prelimsUnits = [
@@ -116,7 +144,7 @@ body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f3f6fa;color:#1
             const pNum = index + 1;
             html += `<section class="paper"><h2>Paper ${pNum} - ${paper.name}</h2>`;
             
-            // 5 मार्क्स
+            // 5 मार्क्स (1-40)
             html += `<div class="group-title">5 अंक वाले प्रश्न — 40 Boxes</div><div class="grid">`;
             for (let b = 1; b <= 40; b++) {
                 let code = `GS${pNum}-5M-${b < 10 ? '00'+b : '0'+b}`;
@@ -124,7 +152,7 @@ body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f3f6fa;color:#1
             }
             html += `</div>`;
 
-            // 10 मार्क्स
+            // 10 मार्क्स (41-80)
             html += `<div class="group-title">10 अंक वाले प्रश्न — 40 Boxes</div><div class="grid">`;
             for (let b = 41; b <= 80; b++) {
                 let code = `GS${pNum}-10M-0${b}`;
@@ -132,7 +160,7 @@ body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f3f6fa;color:#1
             }
             html += `</div>`;
 
-            // 15 मार्क्स
+            // 15 मार्क्स (81-100)
             html += `<div class="group-title">15 अंक वाले प्रश्न — 20 Boxes</div><div class="grid">`;
             for (let b = 81; b <= 100; b++) {
                 let code = `GS${pNum}-15M-${b === 100 ? '100' : '0'+b}`;
@@ -143,9 +171,13 @@ body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f3f6fa;color:#1
         container.innerHTML = html;
     }
 
-    function logout() {
-        alert("सफलतापूर्वक लॉगआउट कर दिया गया है।");
-        window.location.href = "index.html";
+    // 🔒 लॉगआउट फंक्शन (पेज को वापस लॉक कर देगा)
+    function logoutAdmin() {
+        document.getElementById("username").value = "";
+        document.getElementById("password").value = "";
+        document.getElementById("login-error").style.display = "none";
+        document.getElementById("dashboard-content").style.display = "none";
+        document.getElementById("login-overlay").style.display = "flex";
     }
 </script>
 </body>
