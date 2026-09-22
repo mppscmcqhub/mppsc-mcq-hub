@@ -8,42 +8,27 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:Arial,Helvetica,sans-serif;background:#f3f6fa;color:#102a43;padding-bottom:50px;}
 .header{background:#082b57;color:#fff;padding:15px 20px;font-size:19px;font-weight:700;display:flex;justify-content:space-between;align-items:center;min-height:60px;}
-.wrap{max-width:1500px;margin:22px auto;padding:0 15px}
+.wrap{max-width:1400px;margin:22px auto;padding:0 15px}
 .top{background:#fff;border-radius:12px;padding:18px 20px;margin-bottom:18px;box-shadow:0 2px 9px rgba(0,0,0,0.05)}
 .top h1{margin:0 0 6px;font-size:24px}.top p{margin:5px 0;color:#667085}
 
-/* 🔘 बड़े कंट्रोल बटन्स */
-.control-panel-btn { display: inline-block; padding: 12px 24px; font-size: 15px; font-weight: bold; color: white; border: none; border-radius: 8px; cursor: pointer; margin: 15px 10px 15px 0; transition: 0.2s; text-align: center; }
-.pre-trigger-btn { background: #e53e3e; } .pre-trigger-btn:hover { background: #c53030; }
-.mains-trigger-btn { background: #147dcc; } .mains-trigger-btn:hover { background: #0b69b1; }
-
-.section-main-title {font-size:24px; font-weight:800; color:#082b57; margin:30px 0 15px; padding-left:10px; display:block;}
+.section-main-title {font-size:22px; font-weight:800; color:#082b57; margin:35px 0 15px; padding-left:10px;}
 .pre-title { border-left: 6px solid #e53e3e; }
 .mains-title { border-left: 6px solid #147dcc; }
-.paper, .unit-sec {background:#fff;border-radius:12px;padding:16px;margin-bottom:25px;box-shadow:0 2px 9px rgba(0,0,0,0.05);display:block;}
-.unit-sec { border-top: 4px solid #e53e3e; }
-.paper { border-top: 4px solid #147dcc; }
-.paper h2, .unit-sec h2{margin:0 0 14px;font-size:20px;color:#082b57;border-bottom: 2px solid #eaf2fb;padding-bottom:8px;}
-.group-title{background:#eaf2fb;border-radius:7px;padding:8px 10px;margin:20px 0 10px;font-size:14px;font-weight:700;color:#082b57}
 
-/* 📊 10-कॉलम का मजबूत ग्रिड लेआउट */
-.grid{display:grid;grid-template-columns:repeat(10,1fr);gap:6px;margin-top:10px;}
-.card{background:#fff;border:1px solid #d7e1ec;border-radius:6px;padding:6px 2px;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
-.code{font-size:11px;font-weight:700;display:block;margin-bottom:4px;color:#334e68}
-.open-btn {display:block;color:#fff;text-decoration:none;border-radius:4px;padding:4px 2px;font-size:10px;font-weight:bold;text-align:center;}
-.pre-btn { background:#e53e3e; } .pre-btn:hover { background:#c53030; }
-.mains-btn { background:#147dcc; } .mains-btn:hover { background:#0b69b1; }
-.home-btn{background:#fff;color:#082b57;border:none;padding:8px 16px;border-radius:6px;font-weight:bold;cursor:pointer;font-size:14px;text-decoration:none;}
+.table-sec { background: white; border-radius: 12px; padding: 20px; margin-bottom: 30px; box-shadow: 0 2px 9px rgba(0,0,0,0.05); }
+.t-pre { border-top: 4px solid #e53e3e; }
+.t-mains { border-top: 4px solid #147dcc; }
+.t-pay { border-top: 4px solid #4caf50; }
 
-.table-sec { background: white; border-radius: 12px; padding: 20px; margin-bottom: 30px; box-shadow: 0 2px 9px rgba(0,0,0,0.05); border-top: 4px solid #4caf50; }
 table { width: 100%; border-collapse: collapse; margin-top: 15px; }
 th, td { border: 1px solid #d7e1ec; padding: 12px; text-align: left; font-size: 14px; }
 th { background: #f0f5ff; color: #082b57; font-weight: bold; }
 
-@media(max-width:1400px){.grid{grid-template-columns:repeat(8,1fr)}}
-@media(max-width:1100px){.grid{grid-template-columns:repeat(6,1fr)}}
-@media(max-width:800px){.grid{grid-template-columns:repeat(4,1fr)}}
-@media(max-width:500px){.grid{grid-template-columns:repeat(2,1fr)}}
+.link-btn { display: inline-block; background: #e53e3e; color: white; text-decoration: none; padding: 6px 12px; border-radius: 4px; font-weight: bold; font-size: 13px; }
+.m-btn { background: #147dcc; }
+.link-btn:hover { opacity: 0.9; }
+.home-btn{background:#fff;color:#082b57;border:none;padding:8px 16px;border-radius:6px;font-weight:bold;cursor:pointer;font-size:14px;text-decoration:none;}
 </style>
 </head>
 <body>
@@ -56,11 +41,11 @@ th { background: #f0f5ff; color: #082b57; font-weight: bold; }
 <div class="wrap">
     <div class="top">
         <h1>MPPSC Complete Control Board</h1>
-        <p><b>Paid PRELIMS (200 Tests) + Paid MAINS (600 Boxes) Control Dashboard</b></p>
+        <p><b>Paid PRELIMS (200 Tests) + Paid MAINS (600 Boxes) Master Control Dashboard</b></p>
     </div>
 
-    <!-- 💰 पेमेंट वेरिफिकेशन टेबल -->
-    <section class="table-sec">
+    <!-- 💰 १. पेमेंट वेरिफिकेशन टेबल -->
+    <section class="table-sec t-pay">
         <h2 style="color: #4caf50; margin: 0 0 5px 0;">📥 छात्रों के पेंडिंग पेमेंट और रसीदें (Verification Requests)</h2>
         <div style="overflow-x: auto;">
             <table>
@@ -75,44 +60,71 @@ th { background: #f0f5ff; color: #082b57; font-weight: bold; }
                     </tr>
                 </thead>
                 <tbody id="payment-requests-table">
-                    <!-- लाइव डेटा यहाँ लोड होगा -->
+                    <tr><td colspan="6" style="text-align:center; color:#667085;">वर्तमान में कोई पेंडिंग पेमेंट रिक्वेस्ट नहीं है।</td></tr>
                 </tbody>
             </table>
         </div>
     </section>
 
-    <!-- 🛠️ कंट्रोल पैनल बटन्स -->
-    <div style="margin: 20px 0;">
-        <button class="control-panel-btn pre-trigger-btn" onclick="togglePrelims()">👁️ प्रीलिम्स के 200 बॉक्स लोड/खोलें</button>
-        <button class="control-panel-btn mains-trigger-btn" onclick="toggleMains()">👁️ मेंस के 600 बॉक्स लोड/खोलें</button>
-    </div>
+    <!-- 🔴 २. PAID PRELIMS CONTROL TABLE (200 TESTS ACCESSIBLE) -->
+    <div class="section-main-title pre-title">🏆 Paid PRELIMS — 200 Tests Master Control Panel</div>
+    <section class="table-sec t-pre">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 15%;">यूनिट संख्या</th>
+                    <th style="width: 50%;">यूनिट का नाम (Prelims Syllabus)</th>
+                    <th style="width: 20%;">टोटल एक्टिव टेस्ट</th>
+                    <th style="width: 15%;">कंट्रोल एक्शन</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><b>Unit 1</b></td><td>भारत का इतिहास</td><td>20 Tests (P01T01 - P01T20)</td><td><a class="link-btn" href="prelims-tests/unit-01/index.html">Open Unit 1 Folder</a></td></tr>
+                <tr><td><b>Unit 2</b></td><td>मध्यप्रदेश का इतिहास, संस्कृति एवं साहित्य</td><td>20 Tests (P02T01 - P02T20)</td><td><a class="link-btn" href="prelims-tests/unit-02/index.html">Open Unit 2 Folder</a></td></tr>
+                <tr><td><b>Unit 3</b></td><td>भारत का भूगोल</td><td>20 Tests (P03T01 - P03T20)</td><td><a class="link-btn" href="prelims-tests/unit-03/index.html">Open Unit 3 Folder</a></td></tr>
+                <tr><td><b>Unit 4</b></td><td>मध्यप्रदेश का भूगोल</td><td>20 Tests (P04T01 - P04T20)</td><td><a class="link-btn" href="prelims-tests/unit-04/index.html">Open Unit 4 Folder</a></td></tr>
+                <tr><td><b>Unit 5</b></td><td>भारत एवं म.प्र. की संवैधानिक व्यवस्था</td><td>20 Tests (P05T01 - P05T20)</td><td><a class="link-btn" href="prelims-tests/unit-05/index.html">Open Unit 5 Folder</a></td></tr>
+                <tr><td><b>Unit 6</b></td><td>भारत एवं म.प्र. की अर्थव्यवस्था</td><td>20 Tests (P06T01 - P06T20)</td><td><a class="link-btn" href="prelims-tests/unit-06/index.html">Open Unit 6 Folder</a></td></tr>
+                <tr><td><b>Unit 7</b></td><td>विज्ञान, पर्यावरण एवं स्वास्थ्य</td><td>20 Tests (P07T01 - P07T20)</td><td><a class="link-btn" href="prelims-tests/unit-07/index.html">Open Unit 7 Folder</a></td></tr>
+                <tr><td><b>Unit 8</b></td><td>अंतर्राष्ट्रीय, राष्ट्रीय एवं प्रादेशिक घटनाएं</td><td>20 Tests (P08T01 - P08T20)</td><td><a class="link-btn" href="prelims-tests/unit-08/index.html">Open Unit 8 Folder</a></td></tr>
+                <tr><td><b>Unit 9</b></td><td>सूचना एवं संचार प्रौद्योगिकी (ICT)</td><td>20 Tests (P09T01 - P09T20)</td><td><a class="link-btn" href="prelims-tests/unit-09/index.html">Open Unit 9 Folder</a></td></tr>
+                <tr><td><b>Unit 10</b></td><td>म.प्र. की जनजातियां: विरासत व लोक संस्कृति</td><td>20 Tests (P10T01 - P10T20)</td><td><a class="link-btn" href="prelims-tests/unit-10/index.html">Open Unit 10 Folder</a></td></tr>
+            </tbody>
+        </table>
+    </section>
 
-    <!-- 🔴 PAID PRELIMS BLOCK -->
-    <div id="prelims-master-wrapper" style="display: none;">
-        <div class="section-main-title pre-title">🏆 Paid PRELIMS — 200 Total Tests (Unit 1 to 10)</div>
-        <div id="prelims-master-grid"></div>
-    </div>
-
-    <!-- 🔵 PAID MAINS BLOCK -->
-    <div id="mains-master-wrapper" style="display: none;">
-        <div class="section-main-title mains-title">📝 Paid MAINS — 600 Total Boxes (Paper 1 to 6)</div>
-        <div id="mains-master-grid"></div>
-    </div>
+    <!-- 🔵 ३. PAID MAINS CONTROL TABLE (600 BOXES ACCESSIBLE) -->
+    <div class="section-main-title mains-title">📝 Paid MAINS — 600 Boxes Master Control Panel</div>
+    <section class="table-sec t-mains">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 15%;">पेपर संख्या</th>
+                    <th style="width: 45%;">मुख्य परीक्षा पेपर का नाम (Mains Syllabus)</th>
+                    <th style="width: 25%;">प्रशन विभाजन (5M, 10M, 15M)</th>
+                    <th style="width: 15%;">कंट्रोल एक्शन</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><b>Paper 1</b></td><td>General Studies-I (इतिहास एवं भूगोल)</td><td>100 Boxes (40 + 40 + 20)</td><td><a class="link-btn m-btn" href="paper-01-general-studies-i/index.html">Open Paper 1 Folder</a></td></tr>
+                <tr><td><b>Paper 2</b></td><td>General Studies-II (राजनीति, अर्थशास्त्र व्यवस्था)</td><td>100 Boxes (40 + 40 + 20)</td><td><a class="link-btn m-btn" href="paper-02-general-studies-ii/index.html">Open Paper 2 Folder</a></td></tr>
+                <tr><td><b>Paper 3</b></td><td>General Studies-III (विज्ञान, तकनीकी व स्वास्थ्य)</td><td>100 Boxes (40 + 40 + 20)</td><td><a class="link-btn m-btn" href="paper-03-general-studies-iii/index.html">Open Paper 3 Folder</a></td></tr>
+                <tr><td><b>Paper 4</b></td><td>General Studies-IV (दर्शनशास्त्र, मनोविज्ञान प्रशासन)</td><td>100 Boxes (40 + 40 + 20)</td><td><a class="link-btn m-btn" href="paper-04-general-studies-iv/index.html">Open Paper 4 Folder</a></td></tr>
+                <tr><td><b>Paper 5</b></td><td>General Studies-V (सामान्य हिंदी एवं व्याकरण)</td><td>100 Boxes (40 + 40 + 20)</td><td><a class="link-btn m-btn" href="paper-05-general-studies-v/index.html">Open Paper 5 Folder</a></td></tr>
+                <tr><td><b>Paper 6</b></td><td>General Studies-VI (हिंदी निबंध एवं प्रारूप लेखन)</td><td>100 Boxes (40 + 40 + 20)</td><td><a class="link-btn m-btn" href="paper-06-general-studies-vi/index.html">Open Paper 6 Folder</a></td></tr>
+            </tbody>
+        </table>
+    </section>
 </div>
 
 <script>
-    window.addEventListener('DOMContentLoaded', () => {
-        loadPaymentRequests();
-    });
-
-    function loadPaymentRequests() {
+    // लोकल स्टोरेज से सिर्फ छात्र रसीद डेटा सिंक करने की साधारण स्क्रिप्ट
+    window.onload = function() {
         const tableBody = document.getElementById("payment-requests-table");
         if(!tableBody) return;
         let pendingPayments = JSON.parse(localStorage.getItem("mppsc_pending_payments")) || [];
-        if (pendingPayments.length === 0) {
-            tableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:#667085; font-weight:bold;">वर्तमान में कोई पेंडिंग पेमेंट रिक्वेस्ट नहीं है।</td></tr>`;
-            return;
-        }
+        if (pendingPayments.length === 0) return;
+        
         let html = '';
         pendingPayments.forEach((req, index) => {
             html += `<tr>
@@ -120,14 +132,14 @@ th { background: #f0f5ff; color: #082b57; font-weight: bold; }
                 <td style="font-weight:bold;">${req.phone}</td>
                 <td><span style="padding:4px 8px; border-radius:4px; font-weight:bold; font-size:12px; background:${req.course==='mains'?'#e1f5fe':'#ffebee'}; color:${req.course==='mains'?'#0288d1':'#c62828'};">${req.course.toUpperCase()}</span></td>
                 <td style="font-family:monospace; font-weight:bold;">${req.utr}</td>
-                <td><img src="${req.screenshot}" style="width:40px; height:40px; object-fit:cover; border-radius:4px;"></td>
+                <td><img src="${req.screenshot}" style="width:50px; height:50px; object-fit:cover; border-radius:4px;"></td>
                 <td>
                     <button style="background:#4caf50;color:white;border:none;padding:5px 10px;border-radius:4px;cursor:pointer;font-weight:bold;" onclick="approvePayment(${index})">Approve</button>
                 </td>
             </tr>`;
         });
         tableBody.innerHTML = html;
-    }
+    };
 
     function approvePayment(index) {
         let pendingPayments = JSON.parse(localStorage.getItem("mppsc_pending_payments")) || [];
@@ -136,52 +148,4 @@ th { background: #f0f5ff; color: #082b57; font-weight: bold; }
         let users = JSON.parse(localStorage.getItem("mppsc_students")) || [];
         users.push({ username: approvedReq.phone, password: studentPassword, type: approvedReq.course });
         localStorage.setItem("mppsc_students", JSON.stringify(users));
-        alert(`✓ वेरिफिकेशन सफल! छात्र का पासवर्ड है: ${studentPassword}`);
-        pendingPayments.splice(index, 1);
-        localStorage.setItem("mppsc_pending_payments", JSON.stringify(pendingPayments));
-        loadPaymentRequests();
-    }
-
-    // 🔴 प्रीलिम्स ऑन-डिमांड रेंडरर
-    function togglePrelims() {
-        const wrapper = document.getElementById("prelims-master-wrapper");
-        const gridContainer = document.getElementById('prelims-master-grid');
-        
-        if (wrapper.style.display === "block") {
-            wrapper.style.display = "none";
-            return;
-        }
-        
-        wrapper.style.display = "block";
-        if (gridContainer.innerHTML !== "") return; // पहले से लोड है तो दोबारा लोड न करे
-
-        const preUnits = ["भारत का इतिहास", "म.प्र. का इतिहास, संस्कृति", "भारत का भूगोल", "मध्यप्रदेश का भूगोल", "संवैधानिक व्यवस्था", "भारत एवं म.प्र. की अर्थव्यवस्था", "विज्ञान, पर्यावरण व स्वास्थ्य", "राष्ट्रीय व प्रादेशिक घटनाएं", "सूचना एवं संचार (ICT)", "म.प्र. की जनजातियां व संस्कृति"];
-        let html = '';
-        for (let u = 1; u <= 10; u++) {
-            let padU = u < 10 ? '0' + u : u;
-            html += `<section class="unit-sec"><h2>Unit ${u} - ${preUnits[u-1]}</h2><div class="grid">`;
-            for (let t = 1; t <= 20; t++) {
-                let padT = t < 10 ? '0' + t : t;
-                let code = `P${padU}T${padT}`;
-                html += `<div class="card"><span class="code">${code}</span><a class="open-btn pre-btn" href="prelims-tests/unit-${padU}/${code}/index.html">Open</a></div>`;
-            }
-            html += `</div></section>`;
-        }
-        gridContainer.innerHTML = html;
-    }
-
-    // 🔵 मेंस ऑन-डिमांड रेंडरर
-    function toggleMains() {
-        const wrapper = document.getElementById("mains-master-wrapper");
-        const gridContainer = document.getElementById('mains-master-grid');
-        
-        if (wrapper.style.display === "block") {
-            wrapper.style.display = "none";
-            return;
-        }
-        
-        wrapper.style.display = "block";
-        if (gridContainer.innerHTML !== "") return; // पहले से लोड है तो दोबारा लोड न करे
-
-        const mainsPapers = ["General Studies-I", "General Studies-II", "General Studies-III", "General Studies-IV", "General Studies-V", "General Studies-VI"];
-const mainsFolders = ["paper-01-general-studies-i", "paper-02-general-studies-ii", "paper-03-general-studies-iii", "paper-04-general-studies-iv", "paper-05-general-studies-v", "paper-06-general-studies-vi"];let html = '';mainsPapers.forEach((paperName, index) => {let pNum = index + 1;let folder = mainsFolders[index];html += <section class="paper"><h2>Paper ${pNum} - ${paperName}</h2>;// 5 मार्क्सhtml += <div class="group-title">5 अंक वाले प्रश्न — 40 Boxes (001 से 040)</div><div class="grid">;for (let b = 1; b <= 40; b++) {let boxStr = b < 10 ? '00' + b : '0' + b;let code = GS${pNum}-5M-${boxStr};html += <div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${folder}/5-marks/${code}/index.html">Open</a></div>;}html += </div>;// 10 मार्क्सhtml += <div class="group-title">10 अंक वाले प्रश्न — 40 Boxes (041 से 080)</div><div class="grid">;for (let b = 41; b <= 80; b++) {let boxStr = '0' + b;let code = GS${pNum}-10M-${boxStr};html += <div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${folder}/10-marks/${code}/index.html">Open</a></div>;}html += </div>;// 15 मार्क्सhtml += <div class="group-title">15 अंक वाले प्रश्न — 20 Boxes (081 से 100)</div><div class="grid">;for (let b = 81; b <= 100; b++) {let boxStr = b === 100 ? '100' : '0' + b;let code = GS${pNum}-15M-${boxStr};html += <div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${folder}/15-marks/${code}/index.html">Open</a></div>;}html += </div></section>;});gridContainer.innerHTML = html;}
+alert(✓ वेरिफिकेशन सफल! छात्र का परमानेंट पासवर्ड है: ${studentPassword});pendingPayments.splice(index, 1);localStorage.setItem("mppsc_pending_payments", JSON.stringify(pendingPayments));location.reload();}
