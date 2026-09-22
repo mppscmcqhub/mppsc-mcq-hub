@@ -1,152 +1,965 @@
 <!DOCTYPE html>
 <html lang="hi">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        http-equiv="Cache-Control"
+        content="no-cache, no-store, must-revalidate"
+    >
+
+    <meta
+        http-equiv="Pragma"
+        content="no-cache"
+    >
+
+    <meta
+        http-equiv="Expires"
+        content="0"
+    >
+
     <title>MPPSC MCQ Hub - Secure QR Payment</title>
+
+
     <style>
-        body { font-family: Arial, sans-serif; background-color: #f4f7fc; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 15px; }
-        .payment-box { background: white; max-width: 440px; width: 100%; padding: 25px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); text-align: center; }
-        .logo-title { color: #082b57; font-size: 20px; font-weight: bold; margin-bottom: 15px; }
-        .course-details { background: #eaf2fb; padding: 12px; border-radius: 8px; margin-bottom: 20px; text-align: left; border-left: 5px solid #147dcc; }
-        .price { font-size: 24px; font-weight: 900; color: #d32f2f; text-align: right; float: right; margin-top: -5px; }
-        .qr-section { background: #fff; border: 2px dashed #ccc; padding: 15px; border-radius: 8px; display: inline-block; margin-bottom: 15px; width: 100%; max-width: 240px; }
-        .qr-image { width: 100%; max-width: 200px; height: 200px; object-fit: contain; }
-        .upi-apps { font-size: 11px; color: #666; margin-top: 5px; font-weight: bold; }
-        .btn-verify { background: #082b57; color: white; border: none; padding: 12px; width: 100%; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold; margin-top: 15px; display: block; width: 100%; transition: background 0.2s; }
-        .btn-verify:hover { background: #051d3b; }
-        
-        /* 📝 फॉर्म फ़ील्ड्स स्टाइल */
-        .input-group { margin-bottom: 15px; text-align: left; }
-        .input-group label { font-weight: bold; display: block; margin-bottom: 6px; color: #333; font-size: 14px; }
-        .input-group input { width: 100%; padding: 11px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 14px; }
-        .input-group input:focus { border-color: #147dcc; outline: none; }
-        
-        /* फाइल अपलोड कस्टम डिज़ाइन */
-        .file-input-wrapper { position: relative; overflow: hidden; display: inline-block; width: 100%; }
-        .file-input-btn { border: 2px dashed #147dcc; color: #147dcc; background-color: #fff; padding: 10px; border-radius: 6px; font-weight: bold; display: block; text-align: center; cursor: pointer; font-size: 14px; }
-        .file-input-wrapper input[type=file] { font-size: 100px; position: absolute; left: 0; top: 0; opacity: 0; cursor: pointer; }
-        .file-name-display { font-size: 12px; color: #4caf50; font-weight: bold; margin-top: 5px; text-align: left; display: none; }
+
+        *{
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:Arial,"Noto Sans Devanagari",sans-serif;
+            background-color:#f4f7fc;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            min-height:100vh;
+            margin:0;
+            padding:15px;
+            color:#333;
+        }
+
+
+        /* ================= PAYMENT BOX ================= */
+
+        .payment-box{
+            background:#fff;
+            max-width:440px;
+            width:100%;
+            padding:25px;
+            border-radius:12px;
+            box-shadow:0 4px 20px rgba(0,0,0,0.10);
+            text-align:center;
+        }
+
+
+        /* ================= TITLE ================= */
+
+        .logo-title{
+            color:#082b57;
+            font-size:20px;
+            font-weight:bold;
+            margin-bottom:15px;
+        }
+
+
+        /* ================= COURSE DETAILS ================= */
+
+        .course-details{
+            background:#eaf2fb;
+            padding:12px;
+            border-radius:8px;
+            margin-bottom:20px;
+            text-align:left;
+            border-left:5px solid #147dcc;
+            overflow:hidden;
+        }
+
+
+        .price{
+            font-size:24px;
+            font-weight:900;
+            color:#d32f2f;
+            text-align:right;
+            float:right;
+            margin-top:-5px;
+        }
+
+
+        #course-title{
+            color:#082b57;
+        }
+
+
+        /* ================= QR SECTION ================= */
+
+        .qr-section{
+            background:#fff;
+            border:2px solid #d7e1ec;
+            padding:15px;
+            border-radius:10px;
+            display:inline-block;
+            margin-bottom:15px;
+            width:100%;
+            max-width:260px;
+            box-shadow:0 2px 8px rgba(0,0,0,0.06);
+        }
+
+
+        .qr-heading{
+            font-size:15px;
+            font-weight:bold;
+            color:#082b57;
+            margin-bottom:10px;
+        }
+
+
+        .qr-image{
+            width:100%;
+            max-width:210px;
+            height:210px;
+            object-fit:contain;
+            display:block;
+            margin:0 auto;
+        }
+
+
+        .qr-owner{
+            margin-top:8px;
+            font-size:13px;
+            font-weight:bold;
+            color:#333;
+        }
+
+
+        .qr-upi{
+            margin-top:3px;
+            font-size:12px;
+            color:#555;
+            font-weight:bold;
+        }
+
+
+        .upi-apps{
+            font-size:11px;
+            color:#666;
+            margin-top:8px;
+            font-weight:bold;
+        }
+
+
+        .qr-instruction{
+            font-size:11px;
+            color:#555;
+            line-height:1.5;
+            margin-top:8px;
+        }
+
+
+        /* ================= FORM ================= */
+
+        .input-group{
+            margin-bottom:15px;
+            text-align:left;
+        }
+
+
+        .input-group label{
+            font-weight:bold;
+            display:block;
+            margin-bottom:6px;
+            color:#333;
+            font-size:14px;
+        }
+
+
+        .input-group input{
+            width:100%;
+            padding:11px;
+            border:1px solid #ccc;
+            border-radius:6px;
+            box-sizing:border-box;
+            font-size:14px;
+            outline:none;
+        }
+
+
+        .input-group input:focus{
+            border-color:#147dcc;
+            box-shadow:0 0 0 2px rgba(20,125,204,0.10);
+        }
+
+
+        /* ================= FILE UPLOAD ================= */
+
+        .file-input-wrapper{
+            position:relative;
+            overflow:hidden;
+            display:inline-block;
+            width:100%;
+        }
+
+
+        .file-input-btn{
+            border:2px dashed #147dcc;
+            color:#147dcc;
+            background-color:#fff;
+            padding:10px;
+            border-radius:6px;
+            font-weight:bold;
+            display:block;
+            text-align:center;
+            cursor:pointer;
+            font-size:14px;
+        }
+
+
+        .file-input-wrapper input[type=file]{
+            font-size:100px;
+            position:absolute;
+            left:0;
+            top:0;
+            opacity:0;
+            cursor:pointer;
+            width:100%;
+            height:100%;
+        }
+
+
+        .file-name-display{
+            font-size:12px;
+            color:#4caf50;
+            font-weight:bold;
+            margin-top:5px;
+            text-align:left;
+            display:none;
+            word-break:break-word;
+        }
+
+
+        /* ================= SUBMIT BUTTON ================= */
+
+        .btn-verify{
+            background:#082b57;
+            color:white;
+            border:none;
+            padding:12px;
+            width:100%;
+            border-radius:6px;
+            cursor:pointer;
+            font-size:16px;
+            font-weight:bold;
+            margin-top:15px;
+            display:block;
+            transition:background 0.2s;
+        }
+
+
+        .btn-verify:hover{
+            background:#051d3b;
+        }
+
+
+        .btn-verify:disabled{
+            background:#999;
+            cursor:not-allowed;
+        }
+
+
+        /* ================= WARNING ================= */
+
+        .warning{
+            font-size:11px;
+            color:#e53e3e;
+            font-weight:bold;
+            text-align:left;
+            margin-top:10px;
+            line-height:1.5;
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media(max-width:480px){
+
+            body{
+                padding:10px;
+                align-items:flex-start;
+                padding-top:20px;
+            }
+
+            .payment-box{
+                padding:18px;
+            }
+
+            .logo-title{
+                font-size:18px;
+            }
+
+            .qr-image{
+                max-width:190px;
+                height:190px;
+            }
+
+        }
+
     </style>
+
 </head>
+
+
 <body>
 
+
 <div class="payment-box">
-    <div class="logo-title">🔒 Secure UPI Payment Portal</div>
-    
+
+
+    <!-- ================= TITLE ================= -->
+
+    <div class="logo-title">
+        🔒 Secure UPI Payment Portal
+    </div>
+
+
+    <!-- ================= COURSE DETAILS ================= -->
+
     <div class="course-details">
-        <span class="price" id="course-price">₹99</span>
-        <strong id="course-title">MPPSC Paid Course 2027</strong>
-        <p style="margin: 5px 0 0 0; font-size: 13px; color: #555;">अनलॉक प्रकार: रसीद सत्यापन के बाद एसएमएस एक्सेस</p>
-    </div>
 
-    <p style="font-size: 14px; margin-bottom: 12px; color:#333;">नीचे दिए गए QR कोड को किसी भी UPI ऐप से स्कैन करके भुगतान करें:</p>
+        <span
+            class="price"
+            id="course-price"
+        >
+            ₹99
+        </span>
 
-    <!-- 📲 QR CODE बॉक्स -->
-    <div class="qr-section">
-        <img src="my-qr.jpg" alt="UPI QR Code" class="qr-image" id="qr-img">
-        <div class="upi-apps">BHIM UPI | PhonePe | GPay | Paytm</div>
-    </div>
 
-    <!-- ✍️ स्टूडेंट डिटेल्स फ़ॉर्म -->
-    <form id="paymentForm">
-        <div class="input-group">
-            <label>1. आपका चालू मोबाइल नंबर (इस पर SMS आएगा):</label>
-            <input type="number" id="student-phone" placeholder="10 अंकों का मोबाइल नंबर" oninput="if(this.value.length > 10) this.value = this.value.slice(0, 10);" required>
-        </div>
+        <strong id="course-title">
+            MPPSC Paid PRELIMS Course
+        </strong>
 
-        <div class="input-group">
-            <label>2. ट्रांजैक्शन आईडी / UTR नंबर दर्ज करें:</label>
-            <input type="text" id="transaction-id" placeholder="12 अंकों का UTR नंबर दर्ज करें" required>
-        </div>
 
-        <div class="input-group">
-            <label>3. भुगतान की रसीद (Screenshot) अपलोड करें:</label>
-            <div class="file-input-wrapper">
-                <span class="file-input-btn" id="upload-label">📸 रसीद का स्क्रीनशॉट चुनें</span>
-                <input type="file" id="screenshot-file" accept="image/*" onchange="showFileName(this)" required>
-            </div>
-            <div class="file-name-display" id="file-name-text">✓ फ़ाइल चुनी गई!</div>
-        </div>
-
-        <p style="font-size: 11px; color: #e53e3e; font-weight: bold; text-align: left; margin-top: 10px;">
-            ⚠️ नोट: गलत UTR नंबर या स्क्रीनशॉट डालने पर आपका अकाउंट एक्टिवेट नहीं किया जाएगा।
+        <p
+            style="
+                margin:5px 0 0 0;
+                font-size:13px;
+                color:#555;
+            "
+        >
+            अनलॉक प्रकार: रसीद सत्यापन के बाद एक्सेस
         </p>
-        
-        <button type="button" class="btn-verify" onclick="submitReceiptDetails()">सत्यापन के लिए सबमिट करें</button>
+
+    </div>
+
+
+    <!-- ================= PAYMENT INSTRUCTION ================= -->
+
+    <p
+        style="
+            font-size:14px;
+            margin-bottom:12px;
+            color:#333;
+            line-height:1.5;
+        "
+    >
+        नीचे दिए गए QR कोड को किसी भी UPI ऐप से
+        स्कैन करके भुगतान करें:
+    </p>
+
+
+    <!-- =====================================================
+         YOUR ACTUAL QR CODE
+         File name: my-qr.jpg
+    ====================================================== -->
+
+    <div class="qr-section">
+
+
+        <div class="qr-heading">
+            📱 UPI Payment QR Code
+        </div>
+
+
+        <img
+            src="my-qr.jpg"
+            alt="MPPSC UPI Payment QR Code"
+            class="qr-image"
+            id="qr-img"
+        >
+
+
+        <div class="qr-owner">
+            RAJESH KUMAR OJHA
+        </div>
+
+
+        <div class="qr-upi">
+            mppsc@postbank
+        </div>
+
+
+        <div class="upi-apps">
+            BHIM UPI | PhonePe | GPay | Paytm
+        </div>
+
+
+        <div class="qr-instruction">
+            QR Code को Scan करके अपने चुने हुए
+            Paid Course की राशि का भुगतान करें।
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         STUDENT PAYMENT FORM
+    ====================================================== -->
+
+    <form id="paymentForm">
+
+
+        <!-- MOBILE -->
+
+        <div class="input-group">
+
+            <label>
+                1. आपका चालू मोबाइल नंबर
+                (इस पर SMS आएगा):
+            </label>
+
+
+            <input
+                type="tel"
+                id="student-phone"
+                placeholder="10 अंकों का मोबाइल नंबर"
+                maxlength="10"
+                inputmode="numeric"
+                autocomplete="tel"
+                required
+            >
+
+        </div>
+
+
+        <!-- UTR -->
+
+        <div class="input-group">
+
+            <label>
+                2. ट्रांजैक्शन आईडी / UTR नंबर दर्ज करें:
+            </label>
+
+
+            <input
+                type="text"
+                id="transaction-id"
+                placeholder="UTR / Transaction ID दर्ज करें"
+                maxlength="50"
+                autocomplete="off"
+                required
+            >
+
+        </div>
+
+
+        <!-- SCREENSHOT -->
+
+        <div class="input-group">
+
+            <label>
+                3. भुगतान की रसीद
+                (Screenshot) अपलोड करें:
+            </label>
+
+
+            <div class="file-input-wrapper">
+
+
+                <span
+                    class="file-input-btn"
+                    id="upload-label"
+                >
+                    📸 रसीद का स्क्रीनशॉट चुनें
+                </span>
+
+
+                <input
+                    type="file"
+                    id="screenshot-file"
+                    accept="image/*"
+                    onchange="showFileName(this)"
+                    required
+                >
+
+            </div>
+
+
+            <div
+                class="file-name-display"
+                id="file-name-text"
+            >
+                ✓ फ़ाइल चुनी गई!
+            </div>
+
+        </div>
+
+
+        <!-- WARNING -->
+
+        <p class="warning">
+
+            ⚠️ नोट: गलत UTR नंबर या गलत भुगतान
+            स्क्रीनशॉट डालने पर आपका अकाउंट
+            एक्टिवेट नहीं किया जाएगा।
+
+        </p>
+
+
+        <!-- SUBMIT -->
+
+        <button
+            type="button"
+            class="btn-verify"
+            id="submit-button"
+            onclick="submitReceiptDetails()"
+        >
+            सत्यापन के लिए सबमिट करें
+        </button>
+
+
     </form>
+
+
 </div>
 
-<script>
-    // URL से फीस और कोर्स का लाइव मिलान
-    window.onload = function() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const type = urlParams.get('type');
 
-        if (type === "mains") {
-            document.getElementById("course-title").innerText = "MPPSC Paid MAINS Course";
-            document.getElementById("course-price").innerText = "₹199";
-        } else {
-            document.getElementById("course-title").innerText = "MPPSC Paid PRELIMS Course";
-            document.getElementById("course-price").innerText = "₹99";
+
+<script>
+
+
+/* =========================================================
+   COURSE TYPE + PRICE
+========================================================= */
+
+window.onload = function(){
+
+    const urlParams =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const type =
+        urlParams.get("type");
+
+
+    const courseTitle =
+        document.getElementById(
+            "course-title"
+        );
+
+
+    const coursePrice =
+        document.getElementById(
+            "course-price"
+        );
+
+
+    if(type === "mains"){
+
+        courseTitle.innerText =
+            "MPPSC Paid MAINS Course";
+
+        coursePrice.innerText =
+            "₹199";
+
+    }
+
+    else{
+
+        courseTitle.innerText =
+            "MPPSC Paid PRELIMS Course";
+
+        coursePrice.innerText =
+            "₹99";
+
+    }
+
+};
+
+
+
+/* =========================================================
+   MOBILE NUMBER - ONLY DIGITS
+========================================================= */
+
+document
+.getElementById("student-phone")
+.addEventListener("input", function(){
+
+    this.value =
+        this.value
+        .replace(/\D/g,"")
+        .slice(0,10);
+
+});
+
+
+
+/* =========================================================
+   UTR CLEANING
+========================================================= */
+
+document
+.getElementById("transaction-id")
+.addEventListener("input", function(){
+
+    this.value =
+        this.value
+        .replace(/\s+/g,"")
+        .slice(0,50);
+
+});
+
+
+
+/* =========================================================
+   SHOW SELECTED FILE NAME
+========================================================= */
+
+function showFileName(input){
+
+    const textDisplay =
+        document.getElementById(
+            "file-name-text"
+        );
+
+
+    const label =
+        document.getElementById(
+            "upload-label"
+        );
+
+
+    if(
+        input.files &&
+        input.files.length > 0
+    ){
+
+        const file =
+            input.files[0];
+
+
+        textDisplay.innerText =
+            "✓ स्क्रीनशॉट सफलतापूर्वक अटैच हुआ: "
+            + file.name;
+
+
+        textDisplay.style.display =
+            "block";
+
+
+        label.style.borderColor =
+            "#4caf50";
+
+
+        label.style.color =
+            "#4caf50";
+
+    }
+
+}
+
+
+
+/* =========================================================
+   SUBMIT PAYMENT RECEIPT
+========================================================= */
+
+function submitReceiptDetails(){
+
+
+    const phone =
+        document.getElementById(
+            "student-phone"
+        ).value.trim();
+
+
+    const utr =
+        document.getElementById(
+            "transaction-id"
+        ).value.trim();
+
+
+    const fileInput =
+        document.getElementById(
+            "screenshot-file"
+        );
+
+
+    /* ================= PHONE VALIDATION ================= */
+
+    if(
+        !/^[0-9]{10}$/.test(phone)
+    ){
+
+        alert(
+            "कृपया 10 अंकों का वैध मोबाइल नंबर दर्ज करें!"
+        );
+
+        return;
+
+    }
+
+
+    /* ================= UTR VALIDATION ================= */
+
+    if(
+        !utr ||
+        utr.length < 6
+    ){
+
+        alert(
+            "कृपया सही Transaction ID / UTR नंबर दर्ज करें!"
+        );
+
+        return;
+
+    }
+
+
+    /* ================= FILE VALIDATION ================= */
+
+    if(
+        !fileInput.files ||
+        fileInput.files.length === 0
+    ){
+
+        alert(
+            "कृपया भुगतान की रसीद का Screenshot अपलोड करें!"
+        );
+
+        return;
+
+    }
+
+
+    const file =
+        fileInput.files[0];
+
+
+    /* केवल image */
+
+    if(
+        !file.type.startsWith("image/")
+    ){
+
+        alert(
+            "कृपया केवल Image Screenshot अपलोड करें!"
+        );
+
+        return;
+
+    }
+
+
+    /* File size limit: 2MB */
+
+    if(
+        file.size > 2 * 1024 * 1024
+    ){
+
+        alert(
+            "Screenshot का size 2MB से कम होना चाहिए!"
+        );
+
+        return;
+
+    }
+
+
+    /* ================= COURSE TYPE ================= */
+
+    const urlParams =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const courseType =
+        urlParams.get("type") || "prelims";
+
+
+    let coursePrice =
+        "99";
+
+
+    if(courseType === "mains"){
+
+        coursePrice = "199";
+
+    }
+
+
+    /* ================= BUTTON LOCK ================= */
+
+    const submitButton =
+        document.getElementById(
+            "submit-button"
+        );
+
+
+    submitButton.disabled =
+        true;
+
+
+    submitButton.innerText =
+        "⏳ विवरण भेजा जा रहा है...";
+
+
+    /* =====================================================
+       FILE READER
+    ====================================================== */
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload = function(e){
+
+
+        try{
+
+
+            let pendingRequests =
+                JSON.parse(
+                    localStorage.getItem(
+                        "mppsc_pending_payments"
+                    )
+                ) || [];
+
+
+            /* ================= REQUEST OBJECT ================= */
+
+            const paymentRequest = {
+
+                phone: phone,
+
+                utr: utr,
+
+                course: courseType,
+
+                amount: coursePrice,
+
+                screenshot: e.target.result,
+
+                date:
+                    new Date()
+                    .toLocaleString("hi-IN"),
+
+                status:
+                    "pending"
+
+            };
+
+
+            /* ================= SAVE REQUEST ================= */
+
+            pendingRequests.push(
+                paymentRequest
+            );
+
+
+            localStorage.setItem(
+                "mppsc_pending_payments",
+                JSON.stringify(
+                    pendingRequests
+                )
+            );
+
+
+            /* ================= SUCCESS ================= */
+
+            alert(
+
+                "✓ आपकी Payment Receipt सफलतापूर्वक Submit हो गई है!\n\n" +
+
+                "Course: " +
+                (
+                    courseType === "mains"
+                    ? "MAINS"
+                    : "PRELIMS"
+                ) +
+                "\n" +
+
+                "Amount: ₹" +
+                coursePrice +
+                "\n\n" +
+
+                "Admin द्वारा UTR और Screenshot verify करने के बाद आपका access activate किया जाएगा।"
+
+            );
+
+
+            /* ================= HOME ================= */
+
+            window.location.href =
+                "index.html";
+
+
         }
+
+        catch(error){
+
+            console.error(error);
+
+
+            alert(
+                "डेटा सेव नहीं हो पाया। कृपया दोबारा प्रयास करें।"
+            );
+
+
+            submitButton.disabled =
+                false;
+
+
+            submitButton.innerText =
+                "सत्यापन के लिए सबमिट करें";
+
+        }
+
     };
 
-    // अपलोड की गई फाइल का नाम दिखाने के लिए
-    function showFileName(input) {
-        const textDisplay = document.getElementById("file-name-text");
-        const label = document.getElementById("upload-label");
-        if (input.files && input.files.length > 0) {
-            textDisplay.innerText = "✓ स्क्रीनशॉट सफलतापूर्वक अटैच हुआ: " + input.files[0].name;
-            textDisplay.style.display = "block";
-            label.style.borderColor = "#4caf50";
-            label.style.color = "#4caf50";
-        }
-    }
 
-    // विवरण सबमिट करने का लॉजिक
-    function submitReceiptDetails() {
-        const phone = document.getElementById("student-phone").value;
-        const utr = document.getElementById("transaction-id").value;
-        const fileInput = document.getElementById("screenshot-file");
+    reader.onerror = function(){
 
-        if (!phone || phone.length !== 10) {
-            alert("कृपया 10 अंकों का वैध मोबाइल नंबर दर्ज करें!");
-            return;
-        }
-        if (!utr || utr.trim().length < 6) {
-            alert("कृपया सही ट्रांजैक्शन आईडी या UTR नंबर दर्ज करें!");
-            return;
-        }
-        if (!fileInput.files || fileInput.files.length === 0) {
-            alert("कृपया भुगतान की रसीद का स्क्रीनशॉट अपलोड करें!");
-            return;
-        }
+        alert(
+            "Screenshot पढ़ने में समस्या हुई। कृपया दोबारा चुनें।"
+        );
 
-        const urlParams = new URLSearchParams(window.location.search);
-        const courseType = urlParams.get('type') || 'prelims';
 
-        // 🧠 लोकल स्टोरेज में पेंडिंग वेरिफिकेशन रिक्वेस्ट डेटा सेव करना
-        let pendingRequests = JSON.parse(localStorage.getItem("mppsc_pending_payments")) || [];
-        
-        // बेस64 में इमेज कन्वर्ट करना ताकि एडमिन पैनल पर बाद में दिख सके
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            pendingRequests.push({
-                phone: phone,
-                utr: utr,
-                course: courseType,
-                screenshot: e.target.result, // बेस64 इमेज डेटा
-                date: new Date().toLocaleString('hi-IN')
-            });
-            localStorage.setItem("mppsc_pending_payments", JSON.stringify(pendingRequests));
+        submitButton.disabled =
+            false;
 
-            alert("✓ आपकी रसीद और विवरण सफलतापूर्वक एडमिन के पास भेज दिए गए हैं!\n\nएडमिन द्वारा UTR वेरिफिकेशन होते ही 10-15 मिनट के अंदर आपके मोबाइल पर SMS द्वारा पासवर्ड भेज दिया जाएगा।");
-            window.location.href = "index.html"; // सबमिशन के बाद होमपेज पर भेजें
-        };
-        reader.readAsDataURL(fileInput.files[0]);
-    }
+
+        submitButton.innerText =
+            "सत्यापन के लिए सबमिट करें";
+
+    };
+
+
+    reader.readAsDataURL(file);
+
+}
+
 </script>
+
 
 </body>
 </html>
