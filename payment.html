@@ -1,38 +1,86 @@
-<!doctype html><html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Paid PRELIMS Access</title><style>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPPSC MCQ Hub - Secure QR Payment</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f7fc; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 15px; }
+        .payment-box { background: white; max-width: 420px; width: 100%; padding: 25px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); text-align: center; }
+        .logo-title { color: #082b57; font-size: 20px; font-weight: bold; margin-bottom: 15px; }
+        .course-details { background: #eaf2fb; padding: 12px; border-radius: 8px; margin-bottom: 20px; text-align: left; border-left: 5px solid #147dcc; }
+        .price { font-size: 24px; font-weight: 900; color: #d32f2f; text-align: right; float: right; margin-top: -5px; }
+        .qr-section { background: #fff; border: 2px dashed #ccc; padding: 15px; border-radius: 8px; display: inline-block; margin-bottom: 15px; width: 100%; max-width: 240px; }
+        .qr-image { width: 100%; max-width: 200px; height: 200px; object-fit: contain; }
+        .upi-apps { font-size: 11px; color: #666; margin-top: 5px; font-weight: bold; }
+        .btn-verify { background: #4caf50; color: white; border: none; padding: 12px; width: 100%; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold; margin-top: 15px; display: block; }
+        .btn-verify:hover { background: #43a047; }
+        .status-msg { margin-top: 15px; font-weight: bold; color: #082b57; display: none; }
+        .loader { border: 4px solid #f3f3f3; border-top: 4px solid #147dcc; border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; display: inline-block; vertical-align: middle; margin-right: 10px; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
 
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#edf3ff;color:#111}
-a{text-decoration:none;color:inherit}
-.top{height:64px;background:#1551a5;color:#fff;display:flex;align-items:center;padding:0 18px}
-.topin{width:100%;display:flex;align-items:center;gap:12px}
-.logo{width:42px;height:42px;border-radius:50%;background:#fff;display:grid;place-items:center;color:#1551a5;font-weight:900}
-.title{font-size:18px;font-weight:800}
-.login{margin-left:auto;background:#fff;color:#111;padding:7px 15px;border-radius:4px;font-weight:700}
-.wrap{padding:25px 10px;max-width:1650px;margin:auto}
-.heading{border-left:4px solid #1551a5;padding-left:9px;color:#0d3e85;margin:0 0 10px}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.card{background:#fff;border:1px solid #dce3ee;border-radius:9px;min-height:205px;padding:15px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 2px 7px rgba(0,0,0,.05)}
-.unitno{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;margin:auto}
-.card h3{text-align:center;margin:8px 0;font-size:14px}.card p{text-align:center;font-size:12px;color:#555}
-.btn{background:#1551a5;color:#fff;text-align:center;padding:8px 12px;border-radius:20px;font-size:12px;font-weight:800}
-.pre{border:1px dashed #ff6b6b;background:#fff8f8}.pre .btn{background:#ef3f3f}
-.main{border:1px dashed #7da9e8;background:#f6f9ff}.main .btn{background:#3489cf}
-.hero{background:#1551a5;color:#fff;border-radius:10px;padding:22px;margin-bottom:20px}
-.testgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.testcard{background:#fff;border:1px solid #dce3ee;border-radius:9px;padding:16px;min-height:145px;display:flex;flex-direction:column;justify-content:space-between}
-.badge{display:inline-block;background:#e5efff;color:#1551a5;padding:5px 8px;border-radius:12px;font-weight:800;font-size:11px}
-.question{background:#fff;border:1px solid #dce3ee;border-radius:10px;padding:18px;margin:14px 0}
-.option{display:block;border:1px solid #ccd6e3;border-radius:8px;padding:10px;margin:7px 0}
-.submit{border:0;background:#16a34a;color:#fff;padding:11px 20px;border-radius:8px;font-weight:800;cursor:pointer}
-.result{margin-top:18px;background:#ecfdf5;border:1px solid #86efac;border-radius:10px;padding:18px}
-.back{display:inline-block;color:#1551a5;font-weight:800;margin-bottom:14px}
-@media(max-width:1050px){.grid,.testgrid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.grid,.testgrid{grid-template-columns:1fr}.wrap{padding:14px 9px}}
+<div class="payment-box">
+    <div class="logo-title">🔒 Secure UPI Payment Portal</div>
+    
+    <div class="course-details">
+        <span class="price" id="course-price">₹99</span>
+        <strong id="course-title">MPPSC Paid Course 2027</strong>
+        <p style="margin: 5px 0 0 0; font-size: 13px; color: #555;">अनलॉक प्रकार: डायरेक्ट लाइफटाइम एक्सेस</p>
+    </div>
 
-</style></head>
-<body><header class="top"><div class="topin"><div class="logo" aria-label="MPPSC logo"><div class="logo-main">MP</div><div class="logo-sub">PSC</div></div><div class="title">Paid PRELIMS Access</div></div></header>
-<main class="wrap"><section class="hero"><h1>PRELIMS Paid Course</h1><p>Production में payment gateway verification जोड़ें।</p></section>
-<div class="card" style="max-width:600px;margin:auto"><h2>₹29 · Prelims</h2>
-<p>Demo/testing के लिए नीचे unlock करें।</p>
-<a class="btn" href="#" onclick="localStorage.setItem('mppsc_prelims_paid_access','paid');location.href='prelims.html';return false;">Demo Unlock</a></div></main></body></html>
+    <p style="font-size: 14px; margin-bottom: 10px; color:#333;">नीचे दिए गए QR कोड को किसी भी पेमेंट ऐप से स्कैन करें:</p>
+
+    <div class="qr-section">
+        <!-- अपनी UPI QR इमेज का नाम यहाँ 'my-qr.jpg' ही रखें -->
+        <img src="my-qr.jpg" alt="UPI QR Code" class="qr-image" id="qr-img">
+        <div class="upi-apps">BHIM UPI | PhonePe | GPay | Paytm</div>
+    </div>
+
+    <p style="font-size: 12px; color: #e53e3e; font-weight: bold; margin: 5px 0;">⚠️ भुगतान करने के बाद नीचे दिए गए बटन पर क्लिक करें।</p>
+    
+    <button class="btn-verify" onclick="processStudentAccess()">मैंने भुगतान (Payment) कर दिया है</button>
+
+    <div class="status-msg" id="status-box">
+        <div class="loader"></div> 
+        <span>भुगतान सत्यापित किया जा रहा है... पेज को बंद न करें।</span>
+    </div>
+</div>
+
+<script>
+    // 🎛️ URL से फीस और कोर्स का लाइव मिलान
+    window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const type = urlParams.get('type');
+
+        if (type === "mains") {
+            document.getElementById("course-title").innerText = "MPPSC Paid MAINS Course";
+            document.getElementById("course-price").innerText = "₹199";
+        } else {
+            document.getElementById("course-title").innerText = "MPPSC Paid PRELIMS Course";
+            document.getElementById("course-price").innerText = "₹99";
+        }
+    };
+
+    function processStudentAccess() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const type = urlParams.get('type');
+
+        document.getElementById("status-box").style.display = "block";
+        
+        setTimeout(function() {
+            alert("✓ भुगतान सफलतापूर्वक प्राप्त हुआ! आपको आपके कोर्स पोर्टल पर रीडायरेक्ट किया जा रहा है।");
+            
+            if (type === "mains") {
+                window.location.href = "mains.html?v=mppsc2027"; 
+            } else {
+                window.location.href = "prelims.html?v=mppsc2027"; 
+            }
+        }, 3000);
+    }
+</script>
+
+</body>
+</html>
