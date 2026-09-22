@@ -5,38 +5,33 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>MPPSC MCQ Hub V14 - Full Admin Master Dashboard</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f3f6fa;color:#102a43}
-.header{background:#082b57;color:#fff;padding:15px 20px;font-size:19px;font-weight:700;display:flex;justify-content:space-between;align-items:center}
-.wrap{max-width:1400px;margin:22px auto;padding:0 12px}
-.top{background:#fff;border-radius:12px;padding:18px 20px;margin-bottom:18px;box-shadow:0 2px 9px #0001}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:Arial,Helvetica,sans-serif;background:#f3f6fa;color:#102a43;padding-bottom:50px;}
+.header{background:#082b57;color:#fff;padding:15px 20px;font-size:19px;font-weight:700;display:flex;justify-content:space-between;align-items:center;min-height:60px;}
+.wrap{max-width:1400px;margin:22px auto;padding:0 15px}
+.top{background:#fff;border-radius:12px;padding:18px 20px;margin-bottom:18px;box-shadow:0 2px 9px rgba(0,0,0,0.05)}
 .top h1{margin:0 0 6px;font-size:24px}.top p{margin:5px 0;color:#667085}
-.section-main-title {font-size:24px; font-weight:800; color:#082b57; margin:40px 0 15px; padding-left:10px;}
+.section-main-title {font-size:24px; font-weight:800; color:#082b57; margin:40px 0 15px; padding-left:10px; display:block;}
 .pre-title { border-left: 6px solid #e53e3e; }
 .mains-title { border-left: 6px solid #147dcc; }
-.paper, .unit-sec {background:#fff;border-radius:12px;padding:16px;margin-bottom:25px;box-shadow:0 2px 9px #0001;}
+.paper, .unit-sec {background:#fff;border-radius:12px;padding:16px;margin-bottom:25px;box-shadow:0 2px 9px rgba(0,0,0,0.05);display:block;}
 .unit-sec { border-top: 4px solid #e53e3e; }
 .paper { border-top: 4px solid #147dcc; }
 .paper h2, .unit-sec h2{margin:0 0 14px;font-size:20px;color:#082b57;border-bottom: 2px solid #eaf2fb;padding-bottom:8px;}
 .group-title{background:#eaf2fb;border-radius:7px;padding:8px 10px;margin:20px 0 10px;font-size:15px;font-weight:700;color:#082b57}
-
-.grid{display:grid;grid-template-columns:repeat(8,1fr);gap:7px}
-.card{background:#fff;border:1px solid #d7e1ec;border-radius:7px;padding:7px;text-align:center;transition:0.15s}
-.card:hover{transform:translateY(-2px);box-shadow:0 4px 10px rgba(0,0,0,0.08)}
+.grid{display:grid;grid-template-columns:repeat(8,1fr);gap:8px;margin-top:10px;}
+.card{background:#fff;border:1px solid #d7e1ec;border-radius:7px;padding:8px 4px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,0.02)}
 .code{font-size:11px;font-weight:700;display:block;margin-bottom:7px;color:#334e68}
 .open-btn {display:block;color:#fff;text-decoration:none;border-radius:6px;padding:5px 3px;font-size:11px;font-weight:bold;text-align:center;}
 .pre-btn { background:#e53e3e; } .pre-btn:hover { background:#c53030; }
 .mains-btn { background:#147dcc; } .mains-btn:hover { background:#0b69b1; }
 .home-btn{background:#fff;color:#082b57;border:none;padding:8px 16px;border-radius:6px;font-weight:bold;cursor:pointer;font-size:14px;text-decoration:none;}
-
-.table-sec { background: white; border-radius: 12px; padding: 20px; margin-bottom: 30px; box-shadow: 0 2px 9px #0001; border-top: 4px solid #4caf50; }
+.table-sec { background: white; border-radius: 12px; padding: 20px; margin-bottom: 30px; box-shadow: 0 2px 9px rgba(0,0,0,0.05); border-top: 4px solid #4caf50; }
 table { width: 100%; border-collapse: collapse; margin-top: 15px; }
 th, td { border: 1px solid #d7e1ec; padding: 12px; text-align: left; font-size: 14px; }
 th { background: #f0f5ff; color: #082b57; font-weight: bold; }
 .btn-approve { background: #4caf50; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-weight: bold; }
 .btn-reject { background: #d32f2f; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-weight: bold; margin-left: 5px; }
-.ss-img { width: 60px; height: 60px; object-fit: cover; border-radius: 4px; }
-
 @media(max-width:1200px){.grid{grid-template-columns:repeat(6,1fr)}}
 @media(max-width:900px){.grid{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:550px){.grid{grid-template-columns:repeat(2,1fr)}}
@@ -45,7 +40,7 @@ th { background: #f0f5ff; color: #082b57; font-weight: bold; }
 <body>
 
 <div class="header">
-    <span>MPPSC MCQ Hub V14 — Full Admin Master Dashboard</span>
+    <span>MPPSC MCQ Hub V14 — Full Admin Master Dashboard (Direct Mode)</span>
     <a href="index.html" class="home-btn">मुख्य वेबसाइट पर जाएँ</a>
 </div>
 
@@ -58,7 +53,6 @@ th { background: #f0f5ff; color: #082b57; font-weight: bold; }
     <!-- 💰 पेमेंट वेरिफिकेशन टेबल -->
     <section class="table-sec">
         <h2 style="color: #4caf50; margin: 0 0 5px 0;">📥 छात्रों के पेंडिंग पेमेंट और रसीदें (Verification Requests)</h2>
-        <p style="margin: 0; color: #667085; font-size: 13px;">यहाँ छात्रों द्वारा सबमिट किए गए यूटीआर नंबर और स्क्रीनशॉट की जांच करके उन्हें लाइव एसएमएस द्वारा पासवर्ड भेजें।</p>
         <div style="overflow-x: auto;">
             <table>
                 <thead>
@@ -72,28 +66,28 @@ th { background: #f0f5ff; color: #082b57; font-weight: bold; }
                     </tr>
                 </thead>
                 <tbody id="payment-requests-table">
-                    <!-- डेटा जावास्क्रिप्ट से लोड होगा -->
+                    <!-- लाइव डेटा यहाँ लोड होगा -->
                 </tbody>
             </table>
         </div>
     </section>
 
-    <!-- 🔴 PAID PRELIMS SECTION -->
+    <!-- 🔴 PAID PRELIMS CONTAINERS -->
     <div class="section-main-title pre-title">🏆 Paid PRELIMS — 200 Total Tests</div>
-    <div id="prelims-static-container"></div>
+    <div id="prelims-dynamic-container"></div>
 
-    <!-- 🔵 PAID MAINS SECTION -->
+    <!-- 🔵 PAID MAINS CONTAINERS -->
     <div class="section-main-title mains-title">📝 Paid MAINS — 600 Total Boxes</div>
     <div id="mains-dynamic-container"></div>
 </div>
 
 <script>
-    // 🔄 लाइव रेंडरिंग के लिए ऑटोमैटिक लूप आर्किटेक्चर फिक्स
-    window.onload = function() {
+    // 🔄 पेज लोड होते ही एलिमेंट्स को सीधे डॉक्यूमेंट ऑब्जेक्ट मॉडल में इंजेक्ट करने का अचूक तरीका
+    window.addEventListener('DOMContentLoaded', () => {
         loadPaymentRequests();
-        buildPrelims200Tests();
-        buildMains600Boxes();
-    };
+        renderPrelimsStructure();
+        renderMainsStructure();
+    });
 
     function loadPaymentRequests() {
         const tableBody = document.getElementById("payment-requests-table");
@@ -110,7 +104,7 @@ th { background: #f0f5ff; color: #082b57; font-weight: bold; }
                 <td style="font-weight:bold;">${req.phone}</td>
                 <td><span style="padding:4px 8px; border-radius:4px; font-weight:bold; font-size:12px; background:${req.course==='mains'?'#e1f5fe':'#ffebee'}; color:${req.course==='mains'?'#0288d1':'#c62828'};">${req.course.toUpperCase()}</span></td>
                 <td style="font-family:monospace; font-weight:bold;">${req.utr}</td>
-                <td><img src="${req.screenshot}" class="ss-img" style="width:50px; height:50px;"></td>
+                <td><img src="${req.screenshot}" style="width:50px; height:50px; object-fit:cover; border-radius:4px;"></td>
                 <td>
                     <button class="btn-approve" onclick="approvePayment(${index})">Approve & SMS</button>
                     <button class="btn-reject" onclick="rejectPayment(${index})">Reject</button>
@@ -126,7 +120,7 @@ th { background: #f0f5ff; color: #082b57; font-weight: bold; }
         const studentPassword = "MPPSC-" + Math.floor(1000 + Math.random() * 9000);
         
         const apiKey = "YOUR_FAST2SMS_API_KEY";
-        const smsMessage = `बधाई हो! आपका भुगतान सत्यापित हो गया है। MPPSC Hub लॉगिन ID: ${approvedReq.phone} | पासवर्ड: ${studentPassword} । कृपया student-login.html पर जाकर लॉगिन करें।`;
+        const smsMessage = `बधाई हो! आपका भुगतान सत्यापित हो गया है। ID: ${approvedReq.phone} | पासवर्ड: ${studentPassword} । कृपया student-login.html पर लॉगिन करें।`;
         const apiUrl = `https://fast2sms.com{apiKey}&route=q&message=${encodeURIComponent(smsMessage)}&flash=0&numbers=${approvedReq.phone}`;
 
         let users = JSON.parse(localStorage.getItem("mppsc_students")) || [];
@@ -157,7 +151,7 @@ th { background: #f0f5ff; color: #082b57; font-weight: bold; }
 
     const prelimsUnits = ["भारत का इतिहास", "मध्यप्रदेश का इतिहास, संस्कृति एवं साहित्य", "भारत का भूगोल", "मध्यप्रदेश का भूगोल", "भारत एवं म.प्र. की संवैधानिक व्यवस्था", "भारत एवं म.प्र. की अर्थव्यवस्था", "विज्ञान, पर्यावरण एवं स्वास्थ्य", "अंतर्राष्ट्रीय, राष्ट्रीय एवं प्रादेशिक घटनाएं", "सूचना एवं संचार प्रौद्योगिकी (ICT)", "म.प्र. की जनजातियां: विरासत व लोक संस्कृति"];
     
-    function buildPrelims200Tests() {
+    function renderPrelimsStructure() {
         const container = document.getElementById('prelims-dynamic-container');
         if(!container) return;
         let html = '';
@@ -180,4 +174,7 @@ th { background: #f0f5ff; color: #082b57; font-weight: bold; }
         { name: "General Studies-III", folder: "paper-03-general-studies-iii" },
         { name: "General Studies-IV", folder: "paper-04-general-studies-iv" },
         { name: "General Studies-V", folder: "paper-05-general-studies-v" },
-{ name: "General Studies-VI", folder: "paper-06-general-studies-vi" }];function buildMains600Boxes() {const container = document.getElementById('mains-dynamic-container');if(!container) return;let html = '';mainsPapers.forEach((paper, index) => {const pNum = index + 1;html += <section class="paper"><h2>Paper ${pNum} - ${paper.name}</h2>;html += <div class="group-title">5 अंक वाले प्रश्न — 40 Boxes</div><div class="grid">;for (let b = 1; b <= 40; b++) {let code = GS${pNum}-5M-${b < 10 ? '00'+b : '0'+b};html += <div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${paper.folder}/5-marks/${code}/index.html">Open</a></div>;}html += </div><div class="group-title">10 अंक वाले प्रश्न — 40 Boxes</div><div class="grid">;for (let b = 41; b <= 80; b++) {let code = GS${pNum}-10M-0${b};html += <div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${paper.folder}/10-marks/${code}/index.html">Open</a></div>;}html += </div><div class="group-title">15 अंक वाले प्रश्न — 20 Boxes</div><div class="grid">;for (let b = 81; b <= 100; b++) {let code = GS${pNum}-15M-${b === 100 ? '100' : '0'+b};html += <div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${paper.folder}/15-marks/${code}/index.html">Open</a></div>;}html += </div></section>;});container.innerHTML = html;}
+        { name: "General Studies-VI", folder: "paper-06-general-studies-vi" }
+    ];
+    
+function renderMainsStructure() {const container = document.getElementById('mains-dynamic-container');if(!container) return;let html = '';mainsPapers.forEach((paper, index) => {const pNum = index + 1;html += <section class="paper"><h2>Paper ${pNum} - ${paper.name}</h2>;html += <div class="group-title">5 अंक वाले प्रश्न — 40 Boxes</div><div class="grid">;for (let b = 1; b <= 40; b++) {let boxStr = b < 10 ? '00' + b : '0' + b;let code = GS${pNum}-5M-${boxStr};html += <div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${paper.folder}/5-marks/${code}/index.html">Open</a></div>;}html += </div><div class="group-title">10 अंक वाले प्रश्न — 40 Boxes</div><div class="grid">;for (let b = 41; b <= 80; b++) {let boxStr = '0' + b;let code = GS${pNum}-10M-${boxStr};html += <div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${paper.folder}/10-marks/${code}/index.html">Open</a></div>;}html += </div><div class="group-title">15 अंक वाले प्रश्न — 20 Boxes</div><div class="grid">;for (let b = 81; b <= 100; b++) {let boxStr = b === 100 ? '100' : '0' + b;let code = GS${pNum}-15M-${boxStr};html += <div class="card"><span class="code">${code}</span><a class="open-btn mains-btn" href="${paper.folder}/15-marks/${code}/index.html">Open</a></div>;}html += </div></section>;});container.innerHTML = html;}
