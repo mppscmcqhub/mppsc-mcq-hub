@@ -929,3 +929,172 @@ function renderMains600Boxes(){
 
 </body>
 </html>
+<!-- ================= ADMIN PASSWORD LOCK ================= -->
+
+<div id="admin-password-lock"
+     style="
+        position:fixed;
+        inset:0;
+        z-index:999999;
+        background:#eef4ff;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        padding:20px;
+     ">
+
+    <div style="
+        width:100%;
+        max-width:380px;
+        background:#fff;
+        padding:30px;
+        border-radius:15px;
+        box-shadow:0 5px 25px rgba(0,0,0,0.15);
+        text-align:center;
+    ">
+
+        <div style="
+            font-size:45px;
+            margin-bottom:10px;
+        ">
+            🔐
+        </div>
+
+        <h2 style="
+            color:#082b57;
+            margin-bottom:8px;
+        ">
+            Admin Login
+        </h2>
+
+        <p style="
+            color:#667085;
+            margin-bottom:20px;
+        ">
+            MPPSC MCQ Hub Admin Panel
+        </p>
+
+        <input
+            type="password"
+            id="admin-password-input"
+            placeholder="Admin Password"
+            autocomplete="off"
+            style="
+                width:100%;
+                padding:12px;
+                border:1px solid #ccd6e0;
+                border-radius:7px;
+                font-size:16px;
+                outline:none;
+                margin-bottom:12px;
+            "
+        >
+
+        <button
+            onclick="checkAdminPassword()"
+            style="
+                width:100%;
+                padding:12px;
+                border:none;
+                border-radius:7px;
+                background:#0d47a1;
+                color:#fff;
+                font-size:16px;
+                font-weight:bold;
+                cursor:pointer;
+            "
+        >
+            🔓 Login
+        </button>
+
+        <div
+            id="admin-password-error"
+            style="
+                display:none;
+                color:#d32f2f;
+                font-weight:bold;
+                margin-top:12px;
+            "
+        >
+            ❌ गलत Password
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   ADMIN PASSWORD
+   ===================================================== */
+
+const ADMIN_PASSWORD = "MPPSC@2027";
+
+
+function checkAdminPassword(){
+
+    const input =
+        document.getElementById("admin-password-input").value;
+
+    const error =
+        document.getElementById("admin-password-error");
+
+    if(input === ADMIN_PASSWORD){
+
+        sessionStorage.setItem(
+            "mppsc_admin_authenticated",
+            "true"
+        );
+
+        document.getElementById(
+            "admin-password-lock"
+        ).style.display = "none";
+
+    }else{
+
+        error.style.display = "block";
+
+        document.getElementById(
+            "admin-password-input"
+        ).value = "";
+
+    }
+
+}
+
+
+/* Already logged in during this browser session */
+document.addEventListener("DOMContentLoaded", function(){
+
+    if(
+        sessionStorage.getItem(
+            "mppsc_admin_authenticated"
+        ) === "true"
+    ){
+
+        document.getElementById(
+            "admin-password-lock"
+        ).style.display = "none";
+
+    }
+
+});
+
+
+/* Enter key से भी Login */
+document.addEventListener("keydown", function(e){
+
+    if(
+        e.key === "Enter" &&
+        document.activeElement.id === "admin-password-input"
+    ){
+
+        checkAdminPassword();
+
+    }
+
+});
+
+</script>
