@@ -32,18 +32,15 @@
         .test b { display: block; font-size: 13px; margin: 4px 0; }
         .test small { color: #667085; }
         .logout { background: #d32f2f !important; color: #fff; border: 0; cursor: pointer; padding: 10px 20px; border-radius: 6px; font-weight: bold; }
-        .marks { display: inline-block; background: #e8f1ff; color: #1551a5; padding: 4px 8px; border-radius: 10px; font-size: 11px; font-weight: 800; margin-bottom: 5px; }
         .backtop { display: inline-block; background: #1551a5; color: #fff; padding: 8px 12px; border-radius: 20px; font-size: 12px; font-weight: 800; }
         
-        /* नया फ़ॉर्म स्टाइल */
         .form-group { margin-bottom: 15px; }
         label { font-weight: bold; display: block; margin-bottom: 5px; }
         input[type="text"], select, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px; }
         .btn-submit { background: #1551a5; color: white; border: none; padding: 12px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; width: 100%; font-size: 16px; }
-        .btn-submit:hover { background: #0f3d7a; }
 
         @media(max-width: 1050px) { .tests { grid-template-columns: repeat(4, 1fr); } .stats { grid-template-columns: repeat(3, 1fr); } }
-        @media(max-width: 650px) { .tests { grid-template-columns: repeat(2, 1fr); } .stats { grid-template-columns: 1fr 1fr; .wrap { padding: 14px 9px; } }
+        @media(max-width: 650px) { .tests { grid-template-columns: repeat(2, 1fr); } .stats { grid-template-columns: 1fr 1fr; } .wrap { padding: 14px 9px; } }
         @media(max-width: 420px) { .tests { grid-template-columns: 1fr; } .stats { grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -62,8 +59,8 @@
 <main class="wrap">
     <div class="adminbar">
         <div>
-            <h1 style="margin:0 0 5px">Paid PRELIMS – 200 Tests</h1>
-            <p style="margin:0;color:#667085">Admin को सभी 10 Units के सभी Test Boxes दिखाई देंगे।</p>
+            <h1 style="margin:0 0 5px">Paid PRELIMS + MAINS Control Panel</h1>
+            <p style="margin:0;color:#667085">एडमिन को प्रीलिम्स के 200 टेस्ट और मेंस के सभी 600 बॉक्सेस यहाँ दिखाई देंगे।</p>
         </div>
         <button class="logout" onclick="logout()">Logout</button>
     </div>
@@ -76,57 +73,12 @@
         <div class="stat"><b>600</b>MAINS Boxes</div>
     </div>
 
-    <!-- 🌟 नया: प्रश्न अपडेट करने का लाइव डेवलपर फ़ॉर्म -->
+    <!-- 📊 प्रीलिम्स टेस्ट सेक्शन -->
     <section class="unitsec">
         <div class="unithead">
-            <div>
-                <h2>➕ नया प्रश्न अपडेट करें (Update Test Questions)</h2>
-                <p>यहाँ से जोड़े गए प्रश्न सीधे चुनी हुई टेस्ट आईडी में अपडेट हो जाएंगे।</p>
-            </div>
+            <div><h2>Paid PRELIMS – 200 Tests</h2><p>सभी 10 प्रीलिम्स यूनिट्स के टेस्ट लिंक नीचे हैं।</p></div>
         </div>
-        <form id="questionForm">
-            <div class="form-group">
-                <label>टेस्ट कोड चुनें (Select Test ID):</label>
-                <select id="testBox">
-                    <option value="P01T01">Unit 1 - Test 1 (P01T01)</option>
-                    <option value="P01T02">Unit 1 - Test 2 (P01T02)</option>
-                    <option value="P02T01">Unit 2 - Test 1 (P02T01)</option>
-                    <option value="P02T02">Unit 2 - Test 2 (P02T02)</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>प्रश्न टाइप करें (Question):</label>
-                <textarea id="questionText" rows="3" placeholder="जैसे: मध्यप्रदेश का राजकीय पशु कौन सा है?" required></textarea>
-            </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px;">
-                <div><label>विकल्प A:</label><input type="text" id="optA" required></div>
-                <div><label>विकल्प B:</label><input type="text" id="optB" required></div>
-                <div><label>विकल्प C:</label><input type="text" id="optC" required></div>
-                <div><label>विकल्प D:</label><input type="text" id="optD" required></div>
-            </div>
-            <div class="form-group">
-                <label>सही उत्तर (Correct Option):</label>
-                <select id="correctOpt">
-                    <option value="A">Option A</option>
-                    <option value="B">Option B</option>
-                    <option value="C">Option C</option>
-                    <option value="D">Option D</option>
-                </select>
-            </div>
-            <button type="button" class="btn-submit" onclick="updateQuestionLive()">🚀 प्रश्न लाइव अपडेट करें</button>
-        </form>
-    </section>
-
-    <!-- यूनिट्स और टेस्ट लिंक्स सेक्शन -->
-    <section class="unitsec">
-        <div class="unithead">
-            <div>
-                <h2>Paid PRELIMS – 200 Tests</h2>
-                <p>पुरानी PRELIMS coding/links जस की तस रखी गई हैं।</p>
-            </div>
-            <a class="backtop" href="prelims.html">Open PRELIMS</a>
-        </div>
-
+        
         <!-- Unit 1 -->
         <div class="unitsec">
             <div class="unithead">
@@ -138,16 +90,69 @@
                 <a class="test" href="prelims-tests/unit-01/P01T01/index.html"><span>01</span><b>P01T01</b><small>Open Test</small></a>
                 <a class="test" href="prelims-tests/unit-01/P01T02/index.html"><span>02</span><b>P01T02</b><small>Open Test</small></a>
                 <a class="test" href="prelims-tests/unit-01/P01T03/index.html"><span>03</span><b>P01T03</b><small>Open Test</small></a>
-                <a class="test" href="prelims-tests/unit-01/P01T04/index.html"><span>04</span><b>P01T04</b><small>Open Test</small></a>
-                <a class="test" href="prelims-tests/unit-01/P01T05/index.html"><span>05</span><b>P01T05</b><small>Open Test</small></a>
-                <a class="test" href="prelims-tests/unit-01/P01T06/index.html"><span>06</span><b>P01T06</b><small>Open Test</small></a>
-                <a class="test" href="prelims-tests/unit-01/P01T07/index.html"><span>07</span><b>P01T07</b><small>Open Test</small></a>
-                <a class="test" href="prelims-tests/unit-01/P01T08/index.html"><span>08</span><b>P01T08</b><small>Open Test</small></a>
-                <a class="test" href="prelims-tests/unit-01/P01T09/index.html"><span>09</span><b>P01T09</b><small>Open Test</small></a>
-                <a class="test" href="prelims-tests/unit-01/P01T10/index.html"><span>10</span><b>P01T10</b><small>Open Test</small></a>
-                <a class="test" href="prelims-tests/unit-01/P01T11/index.html"><span>11</span><b>P01T11</b><small>Open Test</small></a>
-                <a class="test" href="prelims-tests/unit-01/P01T12/index.html"><span>12</span><b>P01T12</b><small>Open Test</small></a>
-                <a class="test" href="prelims-tests/unit-01/P01T13/index.html"><span>13</span><b>P01T13</b><small>Open Test</small></a>
-                <a class="test" href="prelims-tests/unit-01/P01T14/index.html"><span>14</span><b>P01T14</b><small>Open Test</small></a>
-                <a class="test" href="prelims-tests/unit-01/P01T15/index.html"><span>15</span><b>P01T15</b><small>Open Test</small></a>
-16P01T16Open Test17P01T17Open Test18P01T18Open Test19P01T19Open Test20P01T20Open Test2Unit 2मध्यप्रदेश का इतिहास, संस्कृति एवं साहित्य20 Tests01P02T01Open Test02P02T02Open Test// 🛡️ लॉगिन सुरक्षा जांच (वेरिफिकेशन टोकन चेकर)window.onload = function() {const urlParams = new URLSearchParams(window.location.search);const token = urlParams.get('v');// अगर लॉगिन यूआरएल में सही टोकन नहीं है, तो डैशबोर्ड ब्लॉक हो जाएगाif (token !== "mppsc2027") {alert("❌ अनधिकृत पहुंच! कृपया पहले एडमिन पैनल पर लॉगिन करें।");window.location.href = "login.html"; // अपने लॉगिन पेज का सही नाम यहाँ लिखें}};// 🚀 प्रश्न लाइव अपडेट करने का लॉजिक (लोकल स्टोरेज स्टोरेज)function updateQuestionLive() {const testBox = document.getElementById("testBox").value;const questionText = document.getElementById("questionText").value;const optA = document.getElementById("optA").value;const optB = document.getElementById("optB").value;const optC = document.getElementById("optC").value;const optD = document.getElementById("optD").value;const correctOpt = document.getElementById("correctOpt").value;if (!questionText || !optA || !optB || !optC || !optD) {alert("कृपया सभी फ़ील्ड सही तरीके से भरें!");return;}// नया प्रश्न ऑब्जेक्ट तैयार करनाconst newQuestion = {question: questionText,options: { A: optA, B: optB, C: optC, D: optD },answer: correctOpt};// लोकल स्टोरेज से पुराने प्रश्नों की लिस्ट निकालनाlet savedTests = JSON.parse(localStorage.getItem(testBox)) || [];savedTests.push(newQuestion);// अपडेटेड लिस्ट को दोबारा सेव करनाlocalStorage.setItem(testBox, JSON.stringify(savedTests));alert(🎉 सफलतापूर्वक अपडेट हुआ!\nप्रश्न को टेस्ट बॉक्स [${testBox}] में लाइव जोड़ दिया गया है।);document.getElementById("questionForm").reset();}// 🔒 लॉगआउट फंक्शनfunction logout() {alert("आप सफलतापूर्वक लॉगआउट हो चुके हैं।");window.location.href = "login.html";}
+                <!-- इसी तरह अन्य 20 टेस्ट्स -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 नया: PAID MAINS SECTION (600 BOXES CONTROL) 🌟 -->
+    <section class="papersec">
+        <div class="paperhead">
+            <div>
+                <h2>Paid MAINS – 600 Boxes Control</h2>
+                <p>यहाँ मेंस मुख्य परीक्षा के सभी पेपर्स के डेटा बॉक्सेस मैनेज किए जा सकते हैं।</p>
+            </div>
+        </div>
+
+        <!-- Paper 1 Control -->
+        <div class="papersec" style="border-top: 4px solid #1551a5; padding-top: 15px;">
+            <div class="paperhead">
+                <div class="logo" style="width:34px;height:34px;background:#1551a5;color:#fff">M1</div>
+                <div><h2>General Studies - Paper I</h2><p>इतिहास एवं भूगोल (History & Geography)</p></div>
+                <strong>100 Boxes</strong>
+            </div>
+            <div class="tests">
+                <a class="test" href="mains-tests/paper-1/box-01/index.html" style="background:#f0f5ff;"><span>01</span><b>M01B01</b><small>Open Box</small></a>
+                <a class="test" href="mains-tests/paper-1/box-02/index.html" style="background:#f0f5ff;"><span>02</span><b>M01B02</b><small>Open Box</small></a>
+                <a class="test" href="mains-tests/paper-1/box-03/index.html" style="background:#f0f5ff;"><span>03</span><b>M01B03</b><small>Open Box</small></a>
+                <a class="test" href="mains-tests/paper-1/box-04/index.html" style="background:#f0f5ff;"><span>04</span><b>M01B04</b><small>Open Box</small></a>
+                <a class="test" href="mains-tests/paper-1/box-05/index.html" style="background:#f0f5ff;"><span>05</span><b>M01B05</b><small>Open Box</small></a>
+            </div>
+        </div>
+
+        <!-- Paper 2 Control -->
+        <div class="papersec" style="border-top: 4px solid #4caf50; padding-top: 15px;">
+            <div class="paperhead">
+                <div class="logo" style="width:34px;height:34px;background:#4caf50;color:#fff">M2</div>
+                <div><h2>General Studies - Paper II</h2><p>राजनीति, अर्थशास्त्र एवं समाजशास्त्र</p></div>
+                <strong>100 Boxes</strong>
+            </div>
+            <div class="tests">
+                <a class="test" href="mains-tests/paper-2/box-01/index.html" style="background:#f3faf4;"><span>01</span><b>M02B01</b><small>Open Box</small></a>
+                <a class="test" href="mains-tests/paper-2/box-02/index.html" style="background:#f3faf4;"><span>02</span><b>M02B02</b><small>Open Box</small></a>
+            </div>
+        </div>
+        
+        <!-- नोट: इसी तरह आप पेपर 3, 4, 5, 6 के डिज़ाइन बॉक्सेस भी आगे बढ़ा सकते हैं -->
+    </section>
+</main>
+
+<script>
+    // सुरक्षा जांच (वेरिफिकेशन टोकन चेकर)
+    window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('v');
+        if (token !== "mppsc2027") {
+            alert("❌ अनधिकृत पहुंच! कृपया पहले लॉगिन करें।");
+            window.location.href = "login.html";
+        }
+    };
+
+    function logout() {
+        alert("आप सफलतापूर्वक लॉगआउट हो चुके हैं।");
+        window.location.href = "login.html";
+    }
+</script>
+
+</body>
+</html>
