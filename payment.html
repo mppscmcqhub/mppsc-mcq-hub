@@ -6,24 +6,27 @@
     <title>MPPSC MCQ Hub - Secure QR Payment</title>
     <style>
         body { font-family: Arial, sans-serif; background-color: #f4f7fc; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 15px; }
-        .payment-box { background: white; max-width: 420px; width: 100%; padding: 25px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); text-align: center; }
+        .payment-box { background: white; max-width: 440px; width: 100%; padding: 25px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); text-align: center; }
         .logo-title { color: #082b57; font-size: 20px; font-weight: bold; margin-bottom: 15px; }
         .course-details { background: #eaf2fb; padding: 12px; border-radius: 8px; margin-bottom: 20px; text-align: left; border-left: 5px solid #147dcc; }
         .price { font-size: 24px; font-weight: 900; color: #d32f2f; text-align: right; float: right; margin-top: -5px; }
         .qr-section { background: #fff; border: 2px dashed #ccc; padding: 15px; border-radius: 8px; display: inline-block; margin-bottom: 15px; width: 100%; max-width: 240px; }
         .qr-image { width: 100%; max-width: 200px; height: 200px; object-fit: contain; }
         .upi-apps { font-size: 11px; color: #666; margin-top: 5px; font-weight: bold; }
-        .btn-verify { background: #4caf50; color: white; border: none; padding: 12px; width: 100%; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold; margin-top: 15px; display: block; }
-        .btn-verify:hover { background: #43a047; }
-        .status-msg { margin-top: 15px; font-weight: bold; color: #082b57; display: none; }
-        .loader { border: 4px solid #f3f3f3; border-top: 4px solid #147dcc; border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; display: inline-block; vertical-align: middle; margin-right: 10px; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .btn-verify { background: #082b57; color: white; border: none; padding: 12px; width: 100%; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold; margin-top: 15px; display: block; width: 100%; transition: background 0.2s; }
+        .btn-verify:hover { background: #051d3b; }
         
-        /* 📱 मोबाइल इनपुट बॉक्स स्टाइल */
-        .phone-section { margin-bottom: 18px; text-align: left; }
-        .phone-section label { font-weight: bold; display: block; margin-bottom: 6px; color: #333; font-size: 14px; }
-        .phone-section input { width: 100%; padding: 11px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 15px; }
-        .phone-section input:focus { border-color: #147dcc; outline: none; }
+        /* 📝 फॉर्म फ़ील्ड्स स्टाइल */
+        .input-group { margin-bottom: 15px; text-align: left; }
+        .input-group label { font-weight: bold; display: block; margin-bottom: 6px; color: #333; font-size: 14px; }
+        .input-group input { width: 100%; padding: 11px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 14px; }
+        .input-group input:focus { border-color: #147dcc; outline: none; }
+        
+        /* फाइल अपलोड कस्टम डिज़ाइन */
+        .file-input-wrapper { position: relative; overflow: hidden; display: inline-block; width: 100%; }
+        .file-input-btn { border: 2px dashed #147dcc; color: #147dcc; background-color: #fff; padding: 10px; border-radius: 6px; font-weight: bold; display: block; text-align: center; cursor: pointer; font-size: 14px; }
+        .file-input-wrapper input[type=file] { font-size: 100px; position: absolute; left: 0; top: 0; opacity: 0; cursor: pointer; }
+        .file-name-display { font-size: 12px; color: #4caf50; font-weight: bold; margin-top: 5px; text-align: left; display: none; }
     </style>
 </head>
 <body>
@@ -34,35 +37,48 @@
     <div class="course-details">
         <span class="price" id="course-price">₹99</span>
         <strong id="course-title">MPPSC Paid Course 2027</strong>
-        <p style="margin: 5px 0 0 0; font-size: 13px; color: #555;">अनलॉक प्रकार: डायरेक्ट लाइफटाइम एक्सेस</p>
+        <p style="margin: 5px 0 0 0; font-size: 13px; color: #555;">अनलॉक प्रकार: रसीद सत्यापन के बाद एसएमएस एक्सेस</p>
     </div>
 
-    <!-- 📱 नया जोड़ा गया: मोबाइल नंबर इनपुट सेक्शन -->
-    <div class="phone-section">
-        <label for="student-phone">अपना मोबाइल नंबर दर्ज करें (इस पर पासवर्ड आएगा):</label>
-        <input type="number" id="student-phone" placeholder="10 अंकों का मोबाइल नंबर दर्ज करें" oninput="if(this.value.length > 10) this.value = this.value.slice(0, 10);" required>
-    </div>
+    <p style="font-size: 14px; margin-bottom: 12px; color:#333;">नीचे दिए गए QR कोड को किसी भी UPI ऐप से स्कैन करके भुगतान करें:</p>
 
-    <p style="font-size: 14px; margin-bottom: 10px; color:#333;">नीचे दिए गए QR कोड को किसी भी पेमेंट ऐप से स्कैन करें:</p>
-
+    <!-- 📲 QR CODE बॉक्स -->
     <div class="qr-section">
-        <!-- अपनी UPI QR इमेज का नाम यहाँ 'my-qr.jpg' ही रखें -->
         <img src="my-qr.jpg" alt="UPI QR Code" class="qr-image" id="qr-img">
         <div class="upi-apps">BHIM UPI | PhonePe | GPay | Paytm</div>
     </div>
 
-    <p style="font-size: 12px; color: #e53e3e; font-weight: bold; margin: 5px 0;">⚠️ भुगतान करने के बाद नीचे दिए गए बटन पर क्लिक करें।</p>
-    
-    <button class="btn-verify" onclick="processStudentAccess()">मैंने भुगतान (Payment) कर दिया है</button>
+    <!-- ✍️ स्टूडेंट डिटेल्स फ़ॉर्म -->
+    <form id="paymentForm">
+        <div class="input-group">
+            <label>1. आपका चालू मोबाइल नंबर (इस पर SMS आएगा):</label>
+            <input type="number" id="student-phone" placeholder="10 अंकों का मोबाइल नंबर" oninput="if(this.value.length > 10) this.value = this.value.slice(0, 10);" required>
+        </div>
 
-    <div class="status-msg" id="status-box">
-        <div class="loader"></div> 
-        <span>भुगतान सत्यापित किया जा रहा है... पेज को बंद न करें।</span>
-    </div>
+        <div class="input-group">
+            <label>2. ट्रांजैक्शन आईडी / UTR नंबर दर्ज करें:</label>
+            <input type="text" id="transaction-id" placeholder="12 अंकों का UTR नंबर दर्ज करें" required>
+        </div>
+
+        <div class="input-group">
+            <label>3. भुगतान की रसीद (Screenshot) अपलोड करें:</label>
+            <div class="file-input-wrapper">
+                <span class="file-input-btn" id="upload-label">📸 रसीद का स्क्रीनशॉट चुनें</span>
+                <input type="file" id="screenshot-file" accept="image/*" onchange="showFileName(this)" required>
+            </div>
+            <div class="file-name-display" id="file-name-text">✓ फ़ाइल चुनी गई!</div>
+        </div>
+
+        <p style="font-size: 11px; color: #e53e3e; font-weight: bold; text-align: left; margin-top: 10px;">
+            ⚠️ नोट: गलत UTR नंबर या स्क्रीनशॉट डालने पर आपका अकाउंट एक्टिवेट नहीं किया जाएगा।
+        </p>
+        
+        <button type="button" class="btn-verify" onclick="submitReceiptDetails()">सत्यापन के लिए सबमिट करें</button>
+    </form>
 </div>
 
 <script>
-    // 🎛️ URL से फीस और कोर्स का लाइव मिलान
+    // URL से फीस और कोर्स का लाइव मिलान
     window.onload = function() {
         const urlParams = new URLSearchParams(window.location.search);
         const type = urlParams.get('type');
@@ -76,70 +92,59 @@
         }
     };
 
-    // 🚀 पेमेंट और SMS क्रेडेंशियल जनरेशन मैकेनिज्म
-    function processStudentAccess() {
+    // अपलोड की गई फाइल का नाम दिखाने के लिए
+    function showFileName(input) {
+        const textDisplay = document.getElementById("file-name-text");
+        const label = document.getElementById("upload-label");
+        if (input.files && input.files.length > 0) {
+            textDisplay.innerText = "✓ स्क्रीनशॉट सफलतापूर्वक अटैच हुआ: " + input.files[0].name;
+            textDisplay.style.display = "block";
+            label.style.borderColor = "#4caf50";
+            label.style.color = "#4caf50";
+        }
+    }
+
+    // विवरण सबमिट करने का लॉजिक
+    function submitReceiptDetails() {
         const phone = document.getElementById("student-phone").value;
-        
-        // मोबाइल नंबर वैलिडेशन (10 अंक होना अनिवार्य)
+        const utr = document.getElementById("transaction-id").value;
+        const fileInput = document.getElementById("screenshot-file");
+
         if (!phone || phone.length !== 10) {
-            alert("❌ कृपया एक वैध 10 अंकों का मोबाइल नंबर दर्ज करें!");
+            alert("कृपया 10 अंकों का वैध मोबाइल नंबर दर्ज करें!");
+            return;
+        }
+        if (!utr || utr.trim().length < 6) {
+            alert("कृपया सही ट्रांजैक्शन आईडी या UTR नंबर दर्ज करें!");
+            return;
+        }
+        if (!fileInput.files || fileInput.files.length === 0) {
+            alert("कृपया भुगतान की रसीद का स्क्रीनशॉट अपलोड करें!");
             return;
         }
 
-        // स्टेटस लोडर ऑन करें
-        document.body.style.cursor = "wait";
-        document.getElementById("status-box").style.display = "block";
-        
-        // 1. रैंडम पासवर्ड जेनरेट करना (जैसे: MPPSC-4729)
-        const randomPassword = "MPPSC-" + Math.floor(1000 + Math.random() * 9000);
-        
         const urlParams = new URLSearchParams(window.location.search);
         const courseType = urlParams.get('type') || 'prelims';
-        const courseName = courseType === 'mains' ? 'Paid MAINS' : 'Paid PRELIMS';
 
-        // 2. Fast2SMS API के ज़रिए छात्र को मोबाइल पर पासवर्ड भेजना
-        // ⚠️ नोट: 'YOUR_FAST2SMS_API_KEY' को हटाकर अपनी असली Fast2SMS API Key यहाँ डालें
-        const apiKey = "YOUR_FAST2SMS_API_KEY";
-        const smsMessage = `आपका MPPSC Hub लॉगिन क्रेडेंशियल तैयार है। User ID: ${phone} | Password: ${randomPassword} । कृपया इस क्रेडेंशियल से student-login.html पर लॉगिन करें।`;
+        // 🧠 लोकल स्टोरेज में पेंडिंग वेरिफिकेशन रिक्वेस्ट डेटा सेव करना
+        let pendingRequests = JSON.parse(localStorage.getItem("mppsc_pending_payments")) || [];
         
-        const apiUrl = `https://fast2sms.com{apiKey}&route=q&message=${encodeURIComponent(smsMessage)}&flash=0&numbers=${phone}`;
+        // बेस64 में इमेज कन्वर्ट करना ताकि एडमिन पैनल पर बाद में दिख सके
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            pendingRequests.push({
+                phone: phone,
+                utr: utr,
+                course: courseType,
+                screenshot: e.target.result, // बेस64 इमेज डेटा
+                date: new Date().toLocaleString('hi-IN')
+            });
+            localStorage.setItem("mppsc_pending_payments", JSON.stringify(pendingRequests));
 
-        fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-            // 3. लोकल स्टोरेज डेटाबेस में स्टूडेंट क्रेडेंशियल रजिस्टर करना
-            let users = JSON.parse(localStorage.getItem("mppsc_students")) || [];
-            
-            // अगर पुराना छात्र है तो उसका कोर्स टाइप अपडेट कर देगा, नए छात्र का नया रिकॉर्ड बनाएगा
-            let existingUserIndex = users.findIndex(u => u.username === phone);
-            if(existingUserIndex !== -1) {
-                users[existingUserIndex].password = randomPassword;
-                users[existingUserIndex].type = courseType;
-            } else {
-                users.push({ username: phone, password: randomPassword, type: courseType });
-            }
-            
-            localStorage.setItem("mppsc_students", JSON.stringify(users));
-
-            document.getElementById("status-box").style.display = "none";
-            document.body.style.cursor = "default";
-            
-            alert(`✓ भुगतान सत्यापित हो गया है!\nआपका पासवर्ड आपके मोबाइल नंबर ${phone} पर SMS द्वारा भेज दिया गया है।`);
-            // छात्र को सीधे लॉगिन स्क्रीन पर भेजें
-            window.location.href = "student-login.html";
-        })
-        .catch(err => {
-            // फॉलबैक सिस्टम (नेटवर्क एरर की स्थिति में भी लोकल डेटा सेव रखेगा)
-            let users = JSON.parse(localStorage.getItem("mppsc_students")) || [];
-            users.push({ username: phone, password: randomPassword, type: courseType });
-            localStorage.setItem("mppsc_students", JSON.stringify(users));
-            
-            document.getElementById("status-box").style.display = "none";
-            document.body.style.cursor = "default";
-            
-            alert(`पेमेंट प्रोसेस हो गया है! (Fast2SMS API की अनुपलब्धता के कारण स्क्रीन पर पासवर्ड दिखाया जा रहा है)\nआपका अस्थायी पासवर्ड है: ${randomPassword}`);
-            window.location.href = "student-login.html";
-        });
+            alert("✓ आपकी रसीद और विवरण सफलतापूर्वक एडमिन के पास भेज दिए गए हैं!\n\nएडमिन द्वारा UTR वेरिफिकेशन होते ही 10-15 मिनट के अंदर आपके मोबाइल पर SMS द्वारा पासवर्ड भेज दिया जाएगा।");
+            window.location.href = "index.html"; // सबमिशन के बाद होमपेज पर भेजें
+        };
+        reader.readAsDataURL(fileInput.files[0]);
     }
 </script>
 
