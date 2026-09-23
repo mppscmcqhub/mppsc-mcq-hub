@@ -1,17 +1,13 @@
-async function generatePDF(){
+async function generatePDF() {
 
-    if(!submitted){
-        alert(
-            "पहले Test Submit करें।\n\n" +
-            "Please submit the test first."
-        );
+    if (!submitted) {
+        alert("पहले Test Submit करें।\nPlease submit the test first.");
         return;
     }
 
-    const pdfButton = document.querySelector(".pdf-btn");
-
-    pdfButton.innerText = "PDF तैयार हो रही है...";
-    pdfButton.disabled = true;
+    const btn = document.querySelector(".pdf-btn");
+    btn.innerText = "PDF तैयार हो रही है...";
+    btn.disabled = true;
 
     try {
 
@@ -21,46 +17,52 @@ async function generatePDF(){
 
         /*
         =====================================================
-        PDF TITLE PAGE
+        COVER / RESULT PAGE
         =====================================================
         */
 
-        const titlePage = document.createElement("div");
+        const score = getScore();
 
-        titlePage.style.cssText = `
+        const cover = document.createElement("div");
+
+        cover.style.cssText = `
+            position:absolute;
+            left:-10000px;
+            top:0;
             width:794px;
-            padding:40px;
-            background:white;
+            min-height:1123px;
+            background:#ffffff;
+            padding:55px;
+            font-family:Arial, "Noto Sans Devanagari", "Mangal", sans-serif;
             color:#111;
-            font-family:Arial,"Noto Sans Devanagari","Mangal",sans-serif;
         `;
 
-        titlePage.innerHTML = `
+        cover.innerHTML = `
 
             <div style="
                 text-align:center;
-                border-bottom:3px solid #1261a0;
-                padding-bottom:20px;
-                margin-bottom:30px;
+                border-bottom:4px solid #1261a0;
+                padding-bottom:25px;
+                margin-bottom:45px;
             ">
 
                 <h1 style="
                     color:#1261a0;
-                    margin:0;
-                    font-size:28px;
+                    font-size:34px;
+                    margin:0 0 15px 0;
                 ">
                     MPPSC Prelims 2027
                 </h1>
 
                 <h2 style="
+                    font-size:25px;
                     margin:10px 0;
-                    font-size:22px;
                 ">
                     Unit 1 — Test 01
                 </h2>
 
                 <p style="
-                    font-size:17px;
+                    font-size:19px;
                     color:#555;
                 ">
                     P01T01 | Hard Level
@@ -70,45 +72,68 @@ async function generatePDF(){
 
             <div style="
                 background:#eef6ff;
-                padding:25px;
-                border-radius:12px;
+                border-radius:15px;
+                padding:40px;
                 text-align:center;
             ">
 
-                <h2 style="color:#1261a0;">
-                    Result / परिणाम
+                <h2 style="
+                    color:#1261a0;
+                    font-size:27px;
+                ">
+                    परिणाम / RESULT
                 </h2>
 
                 <div style="
-                    font-size:32px;
+                    font-size:45px;
                     font-weight:bold;
-                    margin:20px;
+                    color:#198754;
+                    margin:35px 0;
                 ">
-                    ${getScore()}
+                    ${score} / 5
                 </div>
 
-                <p>
-                    Questions: 5
+                <p style="font-size:19px;">
+                    कुल प्रश्न / Total Questions: 5
                 </p>
 
-                <p>
-                    सभी प्रश्नों के विकल्प और explanations नीचे दिए गए हैं।
+                <p style="font-size:17px;color:#555;">
+                    प्रत्येक प्रश्न में पूरा Question,
+                    सभी 4 Options तथा Explanation दिया गया है।
                 </p>
+
+            </div>
+
+            <div style="
+                margin-top:50px;
+                padding:20px;
+                border-left:5px solid #1261a0;
+                background:#f7f7f7;
+                font-size:17px;
+                line-height:1.7;
+            ">
+
+                <strong>MPPSC Practice Test</strong><br><br>
+
+                यह Practice Test MPPSC Prelims-oriented है।
+                2027 में किसी प्रश्न के आने की निश्चित भविष्यवाणी नहीं की गई है।
 
             </div>
         `;
 
-        document.body.appendChild(titlePage);
+        document.body.appendChild(cover);
 
-        let titleCanvas = await html2canvas(titlePage,{
+        const coverCanvas = await html2canvas(cover, {
             scale:2,
+            useCORS:true,
             backgroundColor:"#ffffff"
         });
 
-        let titleImg = titleCanvas.toDataURL("image/png");
+        const coverImg =
+            coverCanvas.toDataURL("image/png");
 
         pdf.addImage(
-            titleImg,
+            coverImg,
             "PNG",
             10,
             10,
@@ -116,261 +141,372 @@ async function generatePDF(){
             277
         );
 
-        document.body.removeChild(titlePage);
+        document.body.removeChild(cover);
 
 
         /*
         =====================================================
-        CREATE EACH QUESTION PAGE
+        GET ALL QUESTIONS
         =====================================================
         */
 
-        for(let i=0; i<questions.length; i++){
+        const questionBoxes =
+            document.querySelectorAll(".question");
 
-            const q = questions[i];
 
-            const originalQuestion =
-                document.querySelectorAll(".question")[i];
+        /*
+        =====================================================
+        CREATE PDF FOR EACH QUESTION
+        =====================================================
+        */
+
+        for (let i = 0; i < questionBoxes.length; i++) {
+
+            const original =
+                questionBoxes[i];
+
+            const q =
+                questions[i];
+
+
+            /*
+            QUESTION TEXT
+            */
+
+            const heading =
+                original.querySelector("h3");
+
+            const statement =
+                original.querySelector(".statement");
+
+
+            /*
+            ALL 4 OPTIONS
+            */
+
+            const optionLabels =
+                original.querySelectorAll(".option");
+
+
+            let optionsHTML = "";
+
+            optionLabels.forEach((label, index) => {
+
+                let optionText =
+                    label.innerText.trim();
+
+                /*
+                Radio button का कोई text PDF में नहीं जाएगा
+                */
+
+                optionText =
+                    optionText
+                    .replace(/\s+/g, " ")
+                    .trim();
+
+
+                const letter =
+                    String.fromCharCode(65 + index);
+
+
+                optionsHTML += `
+
+                    <div style="
+                        margin:12px 0;
+                        padding:14px 16px;
+                        border:1.5px solid #cccccc;
+                        border-radius:8px;
+                        background:#fafafa;
+                        font-size:17px;
+                        line-height:1.6;
+                    ">
+
+                        <strong style="color:#1261a0;">
+                            ${letter}.
+                        </strong>
+
+                        ${optionText
+                            .replace(
+                                /^[A-D]\.\s*/i,
+                                ""
+                            )
+                        }
+
+                    </div>
+
+                `;
+            });
+
+
+            /*
+            USER ANSWER
+            */
 
             const selected =
                 document.querySelector(
                     `input[name="${q.id}"]:checked`
                 );
 
-            const selectedValue =
-                selected ? selected.value : "Not Answered";
 
-            const isCorrect =
-                selectedValue === q.answer;
+            const userAnswer =
+                selected
+                ? selected.value
+                : "Not Answered";
 
 
-            /*
-            Question text निकालना
-            */
-
-            const questionClone =
-                originalQuestion.cloneNode(true);
+            const correct =
+                userAnswer === q.answer;
 
 
             /*
-            Radio buttons हटाएँ
-            */
-
-            questionClone
-                .querySelectorAll("input")
-                .forEach(input => input.remove());
-
-
-            /*
-            Submit-related चीजें हटाएँ
-            */
-
-            questionClone
-                .querySelectorAll("button")
-                .forEach(button => button.remove());
-
-
-            /*
-            Question heading
-            */
-
-            const heading =
-                questionClone.querySelector("h3");
-
-            if(heading){
-
-                heading.style.cssText = `
-                    color:#1261a0;
-                    font-size:20px;
-                    line-height:1.6;
-                    margin-bottom:15px;
-                `;
-
-            }
-
-
-            /*
-            Options को साफ और बड़ा करें
-            */
-
-            questionClone
-                .querySelectorAll(".option")
-                .forEach(option => {
-
-                    option.style.cssText = `
-                        display:block;
-                        padding:12px;
-                        margin:9px 0;
-                        border:1px solid #cccccc;
-                        border-radius:6px;
-                        background:#fafafa;
-                        font-size:16px;
-                        line-height:1.55;
-                    `;
-
-                });
-
-
-            /*
-            Question box
+            =================================================
+            CREATE DEDICATED PDF PAGE
+            =================================================
             */
 
             const page =
-            document.createElement("div");
+                document.createElement("div");
+
 
             page.style.cssText = `
+                position:absolute;
+                left:-10000px;
+                top:0;
                 width:794px;
-                min-height:1050px;
-                padding:35px;
-                background:#ffffff;
-                color:#111111;
-                font-family:Arial,"Noto Sans Devanagari","Mangal",sans-serif;
+                min-height:1123px;
+                background:white;
+                padding:38px 45px;
+                font-family:Arial, "Noto Sans Devanagari", "Mangal", sans-serif;
+                color:#111;
             `;
 
 
             page.innerHTML = `
 
+                <!-- HEADER -->
+
                 <div style="
-                    border-bottom:2px solid #1261a0;
+                    display:flex;
+                    justify-content:space-between;
+                    align-items:center;
+                    border-bottom:3px solid #1261a0;
                     padding-bottom:12px;
-                    margin-bottom:20px;
+                    margin-bottom:25px;
                 ">
 
                     <strong style="
                         color:#1261a0;
-                        font-size:18px;
+                        font-size:19px;
                     ">
-                        MPPSC Prelims 2027 — P01T01
+                        MPPSC Prelims 2027
                     </strong>
 
-                    <span style="
-                        float:right;
-                        color:#666;
+                    <strong style="
+                        color:#555;
+                        font-size:16px;
                     ">
-                        Question ${i+1}/5
-                    </span>
+                        P01T01
+                    </strong>
 
                 </div>
 
-            `;
+
+                <!-- QUESTION NUMBER -->
+
+                <div style="
+                    font-size:22px;
+                    font-weight:bold;
+                    color:#1261a0;
+                    margin-bottom:15px;
+                ">
+                    प्रश्न ${i+1} / Question ${i+1}
+                </div>
 
 
-            /*
-            Clone question add करें
-            */
+                <!-- QUESTION -->
 
-            page.appendChild(questionClone);
+                <div style="
+                    font-size:18px;
+                    line-height:1.7;
+                    margin-bottom:15px;
+                ">
 
+                    ${heading ? heading.innerHTML : ""}
 
-            /*
-            Result Box
-            */
-
-            const resultBox =
-            document.createElement("div");
-
-            resultBox.style.cssText = `
-                margin-top:20px;
-                padding:15px;
-                border-radius:8px;
-                background:${isCorrect ? "#e9f8ee" : "#fff0f0"};
-                border-left:5px solid ${isCorrect ? "#198754" : "#dc3545"};
-                font-size:16px;
-                line-height:1.6;
-            `;
+                </div>
 
 
-            resultBox.innerHTML = `
+                <!-- STATEMENT -->
 
-                <p>
+                ${
+                    statement
+                    ? `
+                    <div style="
+                        background:#f4f8fc;
+                        border-left:5px solid #1261a0;
+                        padding:16px;
+                        margin:15px 0;
+                        font-size:17px;
+                        line-height:1.7;
+                    ">
+                        ${statement.innerHTML}
+                    </div>
+                    `
+                    : ""
+                }
+
+
+                <!-- OPTIONS -->
+
+                <div style="
+                    margin-top:18px;
+                ">
+
+                    <h3 style="
+                        font-size:19px;
+                        color:#1261a0;
+                        margin-bottom:10px;
+                    ">
+                        विकल्प / Options
+                    </h3>
+
+                    ${optionsHTML}
+
+                </div>
+
+
+                <!-- ANSWER -->
+
+                <div style="
+                    margin-top:22px;
+                    padding:16px;
+                    background:${correct ? "#e9f8ee" : "#fff0f0"};
+                    border-left:5px solid
+                    ${correct ? "#198754" : "#dc3545"};
+                    border-radius:7px;
+                    font-size:17px;
+                    line-height:1.7;
+                ">
+
                     <strong>
-                    आपका उत्तर / Your Answer:
+                        आपका उत्तर / Your Answer:
                     </strong>
 
-                    ${selectedValue}
-                </p>
+                    ${userAnswer}
 
-                <p style="
-                    color:#1261a0;
-                    font-weight:bold;
-                ">
-                    सही उत्तर / Correct Answer:
+                    <br>
+
+                    <strong style="color:#1261a0;">
+                        सही उत्तर / Correct Answer:
+                    </strong>
+
                     ${q.correctText}
-                </p>
 
-                <hr>
+                </div>
 
-                <h3 style="color:#1261a0;">
-                    हिन्दी Explanation
-                </h3>
 
-                <p>
-                    ${q.explanationHindi}
-                </p>
+                <!-- HINDI EXPLANATION -->
 
-                <h3 style="color:#1261a0;">
-                    English Explanation
-                </h3>
+                <div style="
+                    margin-top:20px;
+                    font-size:17px;
+                    line-height:1.7;
+                ">
 
-                <p>
-                    ${q.explanationEnglish}
-                </p>
+                    <h3 style="
+                        color:#1261a0;
+                        margin-bottom:8px;
+                    ">
+                        हिन्दी Explanation
+                    </h3>
+
+                    <p>
+                        ${q.explanationHindi}
+                    </p>
+
+                </div>
+
+
+                <!-- ENGLISH EXPLANATION -->
+
+                <div style="
+                    margin-top:15px;
+                    font-size:17px;
+                    line-height:1.7;
+                ">
+
+                    <h3 style="
+                        color:#1261a0;
+                        margin-bottom:8px;
+                    ">
+                        English Explanation
+                    </h3>
+
+                    <p>
+                        ${q.explanationEnglish}
+                    </p>
+
+                </div>
+
+
+                <!-- FOOTER -->
+
+                <div style="
+                    position:absolute;
+                    bottom:25px;
+                    left:45px;
+                    right:45px;
+                    border-top:1px solid #ddd;
+                    padding-top:8px;
+                    text-align:center;
+                    color:#777;
+                    font-size:12px;
+                ">
+                    MPPSC MCQ Hub | P01T01 | MPPSC Prelims 2027 Practice
+                </div>
 
             `;
-
-
-            page.appendChild(resultBox);
 
 
             document.body.appendChild(page);
 
 
             /*
-            Canvas बनाना
+            =================================================
+            CONVERT PAGE TO IMAGE
+            =================================================
             */
 
             const canvas =
-            await html2canvas(page,{
-                scale:2,
-                useCORS:true,
-                backgroundColor:"#ffffff"
-            });
+                await html2canvas(page, {
+                    scale:2,
+                    useCORS:true,
+                    backgroundColor:"#ffffff",
+                    width:794,
+                    height:1123
+                });
 
 
-            const imgData =
-            canvas.toDataURL("image/png");
+            const image =
+                canvas.toDataURL("image/png");
 
 
             /*
-            हर question के लिए नया PDF page
+            =================================================
+            ADD NEW PDF PAGE
+            =================================================
             */
 
             pdf.addPage();
 
 
-            const pageWidth = 190;
-            const pageHeight = 277;
-
-            const ratio =
-                Math.min(
-                    pageWidth / canvas.width,
-                    pageHeight / canvas.height
-                );
-
-            const imgWidth =
-                canvas.width * ratio;
-
-            const imgHeight =
-                canvas.height * ratio;
-
-
             pdf.addImage(
-                imgData,
+                image,
                 "PNG",
-                (210-imgWidth)/2,
                 10,
-                imgWidth,
-                imgHeight
+                10,
+                190,
+                277
             );
 
 
@@ -381,12 +517,12 @@ async function generatePDF(){
 
         /*
         =====================================================
-        SAVE PDF
+        SAVE
         =====================================================
         */
 
         pdf.save(
-            "MPPSC_P01T01_Result_With_Questions.pdf"
+            "MPPSC_P01T01_Full_Result.pdf"
         );
 
 
@@ -395,27 +531,26 @@ async function generatePDF(){
         console.error(error);
 
         alert(
-            "PDF बनाने में समस्या हुई। कृपया फिर से कोशिश करें।"
+            "PDF बनाने में समस्या हुई। कृपया page को refresh करके फिर Submit Test करें।"
         );
 
     }
 
 
-    pdfButton.innerText =
+    btn.innerText =
         "📄 Download Result PDF";
 
-    pdfButton.disabled = false;
-
+    btn.disabled = false;
 }
 
 
 /*
 =========================================================
-SCORE FUNCTION
+SCORE
 =========================================================
 */
 
-function getScore(){
+function getScore() {
 
     let score = 0;
 
@@ -426,15 +561,14 @@ function getScore(){
                 `input[name="${q.id}"]:checked`
             );
 
-        if(
+        if (
             selected &&
             selected.value === q.answer
-        ){
+        ) {
             score++;
         }
 
     });
 
-    return score + " / 5";
-
+    return score;
 }
