@@ -1,13 +1,12 @@
-html<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>P01T02 - MPPSC Paid Prelims</title>
 
-<!-- PDF जनरेशन के लिए jsPDF लाइब्रेरी -->
-<script src="https://cloudflare.com"></script>
+<!-- jsPDF: Score PDF बनाने के लिए -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <style>
 *{box-sizing:border-box}
@@ -27,7 +26,7 @@ header{
     align-items:center;
     justify-content:space-between;
     flex-wrap:wrap;
-    position: relative;
+    position:relative;
 }
 
 .brand{
@@ -59,25 +58,24 @@ header{
     text-decoration:none;
     font-weight:bold;
     font-size:14px;
-    margin-right: 140px;
+    margin-right:140px;
 }
 
-/* 60 मिनट का फ्लोटिंग टाइमर स्टाइल */
-.timer-box {
-    position: fixed;
-    top: 15px;
-    right: 20px;
-    background: #ff4d4d;
-    color: white;
-    padding: 10px 18px;
-    border-radius: 25px;
-    font-weight: bold;
-    font-size: 16px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.timer-box{
+    position:fixed;
+    top:15px;
+    right:20px;
+    background:#ff4d4d;
+    color:white;
+    padding:10px 18px;
+    border-radius:25px;
+    font-weight:bold;
+    font-size:16px;
+    box-shadow:0 4px 10px rgba(0,0,0,.2);
+    z-index:1000;
+    display:flex;
+    align-items:center;
+    gap:8px;
 }
 
 .container{
@@ -121,7 +119,7 @@ header{
     padding:20px;
     border-radius:12px;
     box-shadow:0 3px 10px rgba(0,0,0,.07);
-    transition: all 0.3s ease;
+    transition:all .3s ease;
 }
 
 .question h3{
@@ -145,11 +143,15 @@ header{
     border-radius:7px;
     cursor:pointer;
     line-height:1.5;
-    transition: background 0.2s;
+    transition:background .2s;
 }
 
 .option:hover{
     background:#f0f7ff;
+}
+
+.option input{
+    margin-right:8px;
 }
 
 .explanation{
@@ -167,55 +169,55 @@ header{
     font-weight:bold;
 }
 
-.option-correct {
-    background: #e6f4ea !important;
-    border-color: #57b87a !important;
-    color: #137333 !important;
-    font-weight: bold;
+.option-correct{
+    background:#e6f4ea !important;
+    border-color:#57b87a !important;
+    color:#137333 !important;
+    font-weight:bold;
 }
 
-.option-wrong {
-    background: #fce8e6 !important;
-    border-color: #f28b82 !important;
-    color: #c5221f !important;
+.option-wrong{
+    background:#fce8e6 !important;
+    border-color:#f28b82 !important;
+    color:#c5221f !important;
 }
 
-.action-buttons {
-    display: flex;
-    gap: 15px;
-    margin-top: 25px;
-    margin-bottom: 25px;
+.action-buttons{
+    display:flex;
+    gap:15px;
+    margin-top:25px;
+    margin-bottom:25px;
 }
 
-.submit, .download-btn {
-    flex: 1;
-    padding: 14px;
-    border: 0;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    text-align: center;
-    transition: background 0.2s;
+.submit,.download-btn{
+    flex:1;
+    padding:14px;
+    border:0;
+    border-radius:8px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    text-align:center;
+    transition:background .2s;
 }
 
-.submit {
-    background: #1261a0;
-    color: white;
+.submit{
+    background:#1261a0;
+    color:white;
 }
 
-.submit:hover {
-    background: #0f4f82;
+.submit:hover{
+    background:#0f4f82;
 }
 
-.download-btn {
-    background: #16833b;
-    color: white;
-    display: none;
+.download-btn{
+    background:#16833b;
+    color:white;
+    display:none;
 }
 
-.download-btn:hover {
-    background: #116229;
+.download-btn:hover{
+    background:#116229;
 }
 
 .result{
@@ -228,26 +230,30 @@ header{
     font-weight:bold;
     display:none;
     box-shadow:0 3px 10px rgba(0,0,0,.07);
-    border: 2px solid #1261a0;
+    border:2px solid #1261a0;
 }
 
 @media(max-width:600px){
     header{
         gap:10px;
     }
+
     .brand h2{
         font-size:16px;
     }
-    .action-buttons {
-        flex-direction: column;
+
+    .action-buttons{
+        flex-direction:column;
     }
-    .timer-box {
-        position: static;
-        margin: 10px auto;
-        width: fit-content;
+
+    .timer-box{
+        position:static;
+        margin:10px auto;
+        width:fit-content;
     }
-    .back {
-        margin-right: 0;
+
+    .back{
+        margin-right:0;
     }
 }
 </style>
@@ -255,147 +261,366 @@ header{
 
 <body>
 
-<!-- फ्लोटिंग टाइमर एलिमेंट -->
 <div class="timer-box" id="timerBox">⏱️ Time Left: 60:00</div>
 
 <header>
-<div class="brand">
-    <div class="logo">MPPSC</div>
-    <h2>MPPSC MCQ Hub V14</h2>
-</div>
-<a class="back" href="../index.html">
-    ← Back to Unit 1
-</a>
+    <div class="brand">
+        <div class="logo">MPPSC</div>
+        <h2>MPPSC MCQ Hub V14</h2>
+    </div>
+
+    <a class="back" href="../index.html">← Back to Unit 1</a>
 </header>
 
 <div class="container">
 
 <section class="hero">
-<h1>Paid Course MPPSC 2027</h1>
-<p><strong>Unit 1 — भारत का इतिहास / History of India</strong></p>
-<p><strong>Test 02 / परीक्षण 02</strong></p>
-<div class="code">P01T02</div>
+    <h1>Paid Course MPPSC 2027</h1>
+    <p><strong>Unit 1 — भारत का इतिहास / History of India</strong></p>
+    <p><strong>Test 02 / परीक्षण 02</strong></p>
+    <div class="code">P01T02</div>
 </section>
 
 <form id="quizForm" onsubmit="return false;">
 
-    <!-- QUESTION 1 -->
-    <div class="question" id="question_1">
+<!-- QUESTION 1 -->
+<div class="question" id="question_1">
     <h3>Q1. सिंधु घाटी सभ्यता का प्रमुख बंदरगाह कौन-सा था?</h3>
     <div class="eng"><b>Q1. Which was a major port of the Indus Valley Civilization?</b></div>
 
     <label class="option" id="opt_1_A">
-    <input type="radio" name="q1" value="A"> A. हड़प्पा / Harappa
+        <input type="radio" name="q1" value="A"> A. हड़प्पा / Harappa
     </label>
 
     <label class="option" id="opt_1_B">
-    <input type="radio" name="q1" value="B"> B. मोहनजोदड़ो / Mohenjo-daro
+        <input type="radio" name="q1" value="B"> B. मोहनजोदड़ो / Mohenjo-daro
     </label>
 
     <label class="option" id="opt_1_C">
-    <input type="radio" name="q1" value="C"> C. लोथल / Lothal
+        <input type="radio" name="q1" value="C"> C. लोथल / Lothal
     </label>
 
     <label class="option" id="opt_1_D">
-    <input type="radio" name="q1" value="D"> D. कालीबंगा / Kalibangan
+        <input type="radio" name="q1" value="D"> D. कालीबंगा / Kalibangan
     </label>
 
     <div class="explanation" id="e1">
-    <b class="correct">सही उत्तर / Correct Answer: C. लोथल / Lothal</b>
-    <br><br>
-    <b>हिंदी व्याख्या:</b> लोथल गुजरात में स्थित सिंधु घाटी सभ्यता का एक महत्वपूर्ण व्यापारिक केंद्र और बंदरगाह था। यहाँ से गोदीवाड़ा (Dockyard) और समुद्री व्यापार के अकाट्य प्रमाण मिले हैं।<br><br>
-    <b>English Explanation:</b> Lothal, located in Gujarat, was an important trading centre and port of the Indus Valley Civilization. Archaeological evidence of a dockyard indicates its connection with maritime trade.
+        <b class="correct">सही उत्तर / Correct Answer: C. लोथल / Lothal</b>
+        <br><br>
+        <b>हिंदी व्याख्या:</b> लोथल गुजरात में स्थित सिंधु घाटी सभ्यता का एक महत्वपूर्ण व्यापारिक केंद्र और बंदरगाह था। यहाँ से गोदीवाड़ा (Dockyard) और समुद्री व्यापार के अकाट्य प्रमाण मिले हैं।
+        <br><br>
+        <b>English Explanation:</b> Lothal, located in Gujarat, was an important trading centre and port of the Indus Valley Civilization. Archaeological evidence of a dockyard indicates its connection with maritime trade.
     </div>
-    </div>
+</div>
 
-    <!-- QUESTION 2 -->
-    <div class="question" id="question_2">
+<!-- QUESTION 2 -->
+<div class="question" id="question_2">
     <h3>Q2. गौतम बुद्ध ने अपना प्रथम उपदेश कहाँ दिया था?</h3>
     <div class="eng"><b>Q2. Where did Gautama Buddha deliver his first sermon?</b></div>
 
     <label class="option" id="opt_2_A">
-    <input type="radio" name="q2" value="A"> A. बोधगया / Bodh Gaya
+        <input type="radio" name="q2" value="A"> A. बोधगया / Bodh Gaya
     </label>
 
     <label class="option" id="opt_2_B">
-    <input type="radio" name="q2" value="B"> B. सारनाथ / Sarnath
+        <input type="radio" name="q2" value="B"> B. सारनाथ / Sarnath
     </label>
 
     <label class="option" id="opt_2_C">
-    <input type="radio" name="q2" value="C"> C. कुशीनगर / Kushinagar
+        <input type="radio" name="q2" value="C"> C. कुशीनगर / Kushinagar
     </label>
 
     <label class="option" id="opt_2_D">
-    <input type="radio" name="q2" value="D"> D. राजगीर / Rajgir
+        <input type="radio" name="q2" value="D"> D. राजगीर / Rajgir
     </label>
 
     <div class="explanation" id="e2">
-    <b class="correct">सही उत्तर / Correct Answer: B. सारनाथ / Sarnath</b>
-    <br><br>
-    <b>हिंदी व्याख्या:</b> ज्ञान प्राप्ति के बाद गौतम बुद्ध ने अपना प्रथम उपदेश सारनाथ के मृगदाव (ऋषिपत्तन) में अपने पांच शिष्यों को दिया। इस ऐतिहासिक घटना को बौद्ध ग्रंथों में 'धर्मचक्रप्रवर्तन' के नाम से जाना जाता है।<br><br>
-    <b>English Explanation:</b> After attaining enlightenment, Gautama Buddha delivered his first sermon at Sarnath. This event is canonically known as the setting in motion of the Wheel of Dharma.
+        <b class="correct">सही उत्तर / Correct Answer: B. सारनाथ / Sarnath</b>
+        <br><br>
+        <b>हिंदी व्याख्या:</b> ज्ञान प्राप्ति के बाद गौतम बुद्ध ने अपना प्रथम उपदेश सारनाथ के मृगदाव (ऋषिपत्तन) में अपने पांच शिष्यों को दिया। इस ऐतिहासिक घटना को बौद्ध ग्रंथों में 'धर्मचक्रप्रवर्तन' के नाम से जाना जाता है।
+        <br><br>
+        <b>English Explanation:</b> After attaining enlightenment, Gautama Buddha delivered his first sermon at Sarnath. This event is canonically known as the setting in motion of the Wheel of Dharma.
     </div>
-    </div>
+</div>
 
-    <!-- QUESTION 3 -->
-    <div class="question" id="question_3">
+<!-- QUESTION 3 -->
+<div class="question" id="question_3">
     <h3>Q3. मौर्य साम्राज्य की स्थापना किसने की थी?</h3>
     <div class="eng"><b>Q3. Who founded the Mauryan Empire?</b></div>
 
     <label class="option" id="opt_3_A">
-    <input type="radio" name="q3" value="A"> A. अशोक / Ashoka
+        <input type="radio" name="q3" value="A"> A. अशोक / Ashoka
     </label>
 
     <label class="option" id="opt_3_B">
-    <input type="radio" name="q3" value="B"> B. बिंदुसार / Bindusara
+        <input type="radio" name="q3" value="B"> B. बिंदुसार / Bindusara
     </label>
 
     <label class="option" id="opt_3_C">
-    <input type="radio" name="q3" value="C"> C. चंद्रगुप्त मौर्य / Chandragupta Maurya
+        <input type="radio" name="q3" value="C"> C. चंद्रगुप्त मौर्य / Chandragupta Maurya
     </label>
 
     <label class="option" id="opt_3_D">
-    <input type="radio" name="q3" value="D"> D. बृहद्रथ / Brihadratha
+        <input type="radio" name="q3" value="D"> D. बृहद्रथ / Brihadratha
     </label>
 
     <div class="explanation" id="e3">
-    <b class="correct">सही उत्तर / Correct Answer: C. चंद्रगुप्त मौर्य / Chandragupta Maurya</b>
-    <br><br>
-    <b>हिंदी व्याख्या:</b> चंद्रगुप्त मौर्य ने अपने गुरु चाणक्य (कौटिल्य) की सहायता से नंद वंश के अंतिम शासक घनानंद को पराजित कर लगभग 322 ईसा पूर्व मौर्य साम्राज्य की मजबूत स्थापना की थी।<br><br>
-    <b>English Explanation:</b> Chandragupta Maurya founded the Mauryan Empire around 322 BCE by defeating Dhana Nanda with the strategic assistance of his mentor Chanakya (Kautilya).
+        <b class="correct">सही उत्तर / Correct Answer: C. चंद्रगुप्त मौर्य / Chandragupta Maurya</b>
+        <br><br>
+        <b>हिंदी व्याख्या:</b> चंद्रगुप्त मौर्य ने अपने गुरु चाणक्य (कौटिल्य) की सहायता से नंद वंश के अंतिम शासक घनानंद को पराजित कर लगभग 322 ईसा पूर्व मौर्य साम्राज्य की मजबूत स्थापना की थी।
+        <br><br>
+        <b>English Explanation:</b> Chandragupta Maurya founded the Mauryan Empire around 322 BCE by defeating Dhana Nanda with the strategic assistance of his mentor Chanakya (Kautilya).
     </div>
-    </div>
+</div>
 
-    <!-- QUESTION 4 -->
-    <div class="question" id="question_4">
+<!-- QUESTION 4 -->
+<div class="question" id="question_4">
     <h3>Q4. ‘इंडिका’ नामक पुस्तक के लेखक कौन थे?</h3>
     <div class="eng"><b>Q4. Who was the author of the book ‘Indica’?</b></div>
 
     <label class="option" id="opt_4_A">
-    <input type="radio" name="q4" value="A"> A. कौटिल्य / Kautilya
+        <input type="radio" name="q4" value="A"> A. कौटिल्य / Kautilya
     </label>
 
     <label class="option" id="opt_4_B">
-    <input type="radio" name="q4" value="B"> B. मेगस्थनीज / Megasthenes
+        <input type="radio" name="q4" value="B"> B. मेगस्थनीज / Megasthenes
     </label>
 
     <label class="option" id="opt_4_C">
-    <input type="radio" name="q4" value="C"> C. अल-बरूनी / Al-Biruni
+        <input type="radio" name="q4" value="C"> C. अल-बरूनी / Al-Biruni
     </label>
 
     <label class="option" id="opt_4_D">
-    <input type="radio" name="q4" value="D"> D. फाहियान / Faxian
+        <input type="radio" name="q4" value="D"> D. फाहियान / Faxian
     </label>
 
     <div class="explanation" id="e4">
-    <b class="correct">सही उत्तर / Correct Answer: B. मेगस्थनीज / Megasthenes</b>
-    <br><br>
-    <b>हिंदी व्याख्या:</b> 'इंडिका' मौर्यकालीन भारत का एक महत्वपूर्ण स्रोत है, जिसे यूनानी राजदूत मेगस्थनीज ने लिखा था। वह चंद्रगुप्त मौर्य के दरबार में आया था।<br><br>
-    <b>English Explanation:</b> 'Indica' is a vital historical source for the Mauryan era, authored by the Greek ambassador Megasthenes, who visited the court of Chandrapugta Maurya.
+        <b class="correct">सही उत्तर / Correct Answer: B. मेगस्थनीज / Megasthenes</b>
+        <br><br>
+        <b>हिंदी व्याख्या:</b> 'इंडिका' मौर्यकालीन भारत का एक महत्वपूर्ण स्रोत है, जिसे यूनानी राजदूत मेगस्थनीज ने लिखा था। वह चंद्रगुप्त मौर्य के दरबार में आया था।
+        <br><br>
+        <b>English Explanation:</b> 'Indica' is a vital historical source for the Mauryan era, authored by the Greek ambassador Megasthenes, who visited the court of Chandragupta Maurya.
     </div>
-    </div>
+</div>
 
-    <!-- QUESTION 5 -->
-    <div class="question" id="question_5">
+<!-- QUESTION 5 -->
+<div class="question" id="question_5">
     <h3>Q5. कलिंग युद्ध के बाद सम्राट अशोक ने किस नीति को प्रमुखता दी?</h3>
-Use code with caution.Q5. Which policy did Emperor Ashoka emphasize after the Kalinga War?सही उत्तर / Correct Answer: B. धम्म / Dhammaहिंदी व्याख्या: 261 ईसा पूर्व में हुए कलिंग युद्ध के भीषण नरसंहार को देखकर सम्राट अशोक का हृदय परिवर्तन हुआ। उसने 'भेरीघोष' को पूरी तरह त्यागकर 'धम्मघोष' (धम्म) की नीति को अपनाया।English Explanation: Witnessing the horrific bloodshed of the Kalinga War (261 BCE), Emperor Ashoka abandoned the policy of physical expansion and formally embraced 'Dhamma'.Submit Test / उत्तर सबमिट करेंDownload Score PDF / रिपोर्ट डाउनलोड करें const correctAnswers = { q1: 'C', q2: 'B', q3: 'C', q4: 'B', q5: 'B' };let finalScore = 0;let userSelections = {};let isSubmitted = false;// 60 मिनट काउंटडाउन टाइमर लॉजिकlet totalTime = 60 * 60;const timerElement = document.getElementById('timerBox');const countdown = setInterval(() => {if (isSubmitted) {clearInterval(countdown);return;}let minutes = Math.floor(totalTime / 60);let seconds = totalTime % 60;seconds = seconds < 10 ? '0' + seconds : seconds;minutes = minutes < 10 ? '0' + minutes : minutes;timerElement.innerHTML = ⏱️ Time Left: ${minutes}:${seconds};if (totalTime <= 0) {clearInterval(countdown);timerElement.innerHTML = "⏰ Time Up!";alert("समय समाप्त हो गया है! आपका टेस्ट अपने आप सबमिट किया जा रहा है।");autoSubmit();}totalTime--;}, 1000);function calculateScore() {const totalQuestions = 5;let answeredCount = 0;finalScore = 0;for (let i = 1; i <= totalQuestions; i++) {const checkedOpt = document.querySelector(input[name="q${i}"]:checked);if (checkedOpt) {answeredCount++;userSelections[q${i}] = checkedOpt.value;}}if (answeredCount < totalQuestions) {alert("कृपया सभी प्रश्नों के उत्तर दें! / Please answer all questions before submitting!");return;}processSubmission(totalQuestions);}function autoSubmit() {const totalQuestions = 5;for (let i = 1; i <= totalQuestions; i++) {const checkedOpt = document.querySelector(input[name="q${i}"]:checked);userSelections[q${i}] = checkedOpt ? checkedOpt.value : 'None';}processSubmission(totalQuestions);}function processSubmission(totalQuestions) {isSubmitted = true;for (let i = 1; i <= totalQuestions; i++) {const correctVal = correctAnswers[q${i}];const userVal = userSelections[q${i}];document.getElementById(opt_${i}_${correctVal}).classList.add('option-correct');if (userVal === correctVal) {finalScore++;} else if (userVal !== 'None' && userVal) {document.getElementById(opt_${i}_${userVal}).classList.add('option-wrong');}const radios = document.getElementsByName(q${i});radios.forEach(radio => radio.disabled = true);document.getElementById(e${i}).style.display = 'block';}const resultBox = document.getElementById('resultBox');resultBox.style.display = 'block';resultBox.innerHTML = टेस्ट परिणाम (Test Result) <br><br> Score: ${finalScore} / ${totalQuestions};document.getElementById('submitBtn').style.display = 'none';document.getElementById('downloadBtn').style.display = 'block';resultBox.scrollIntoView({ behavior: 'smooth' });}function generatePDF() {const { jsPDF } = window.jspdf;const doc = new jsPDF();doc.setFont("Helvetica", "bold");doc.setFontSize(20);doc.setTextColor(18, 97, 160);doc.text("MPPSC Paid Prelims - Score Report", 14, 20);doc.setFontSize(12);doc.setTextColor(85, 85, 85);doc.setFont("Helvetica", "normal");doc.text("Unit 1: History of India (Test 02)", 14, 28);doc.text(Final Score: ${finalScore} / 5, 14, 35);doc.setDrawColor(18, 97, 160);doc.line(14, 40, 196, 40);let y = 50;const questionsText = ["Q1. Indus Valley Port? (Ans: C. Lothal)","Q2. Buddha's First Sermon? (Ans: B. Sarnath)","Q3. Mauryan Founder? (Ans: C. Chandragupta Maurya)","Q4. Author of Indica? (Ans: B. Megasthenes)","Q5. Ashoka's post-Kalinga policy? (Ans: B. Dhamma)"];questionsText.forEach((text) => {doc.text(text, 14, y);y += 10;});doc.save("MPPSC_Score_Report.pdf");}
+    <div class="eng"><b>Q5. Which policy did Emperor Ashoka emphasize after the Kalinga War?</b></div>
+
+    <label class="option" id="opt_5_A">
+        <input type="radio" name="q5" value="A"> A. सैन्य विस्तार / Military Expansion
+    </label>
+
+    <label class="option" id="opt_5_B">
+        <input type="radio" name="q5" value="B"> B. धम्म / Dhamma
+    </label>
+
+    <label class="option" id="opt_5_C">
+        <input type="radio" name="q5" value="C"> C. साम्राज्य विस्तार / Territorial Expansion
+    </label>
+
+    <label class="option" id="opt_5_D">
+        <input type="radio" name="q5" value="D"> D. कर वृद्धि / Increase in Taxes
+    </label>
+
+    <div class="explanation" id="e5">
+        <b class="correct">सही उत्तर / Correct Answer: B. धम्म / Dhamma</b>
+        <br><br>
+        <b>हिंदी व्याख्या:</b> 261 ईसा पूर्व में हुए कलिंग युद्ध के बाद सम्राट अशोक ने हिंसा और युद्ध की नीति से हटकर 'धम्म' की नीति को प्रमुखता दी। इसका उद्देश्य नैतिक आचरण, सहिष्णुता, अहिंसा और जनकल्याण को बढ़ावा देना था।
+        <br><br>
+        <b>English Explanation:</b> After the Kalinga War, Emperor Ashoka moved away from a policy of warfare and emphasized 'Dhamma', promoting ethical conduct, tolerance, non-violence and welfare.
+    </div>
+</div>
+
+<div class="action-buttons">
+    <button type="button" class="submit" id="submitBtn" onclick="calculateScore()">
+        Submit Test / उत्तर सबमिट करें
+    </button>
+
+    <button type="button" class="download-btn" id="downloadBtn" onclick="generatePDF()">
+        Download Score PDF / रिपोर्ट डाउनलोड करें
+    </button>
+</div>
+
+<div class="result" id="resultBox"></div>
+
+</form>
+</div>
+
+<script>
+const correctAnswers = {
+    q1: "C",
+    q2: "B",
+    q3: "C",
+    q4: "B",
+    q5: "B"
+};
+
+let finalScore = 0;
+let userSelections = {};
+let isSubmitted = false;
+
+const totalQuestions = Object.keys(correctAnswers).length;
+
+// 60 मिनट काउंटडाउन टाइमर
+let totalTime = 60 * 60;
+const timerElement = document.getElementById("timerBox");
+
+const countdown = setInterval(() => {
+    if (isSubmitted) {
+        clearInterval(countdown);
+        return;
+    }
+
+    let minutes = Math.floor(totalTime / 60);
+    let seconds = totalTime % 60;
+
+    minutes = String(minutes).padStart(2, "0");
+    seconds = String(seconds).padStart(2, "0");
+
+    timerElement.innerHTML = `⏱️ Time Left: ${minutes}:${seconds}`;
+
+    if (totalTime <= 0) {
+        clearInterval(countdown);
+        timerElement.innerHTML = "⏰ Time Up!";
+        alert("समय समाप्त हो गया है! आपका टेस्ट अपने आप सबमिट किया जा रहा है।");
+        autoSubmit();
+        return;
+    }
+
+    totalTime--;
+}, 1000);
+
+function calculateScore() {
+    if (isSubmitted) return;
+
+    let answeredCount = 0;
+    finalScore = 0;
+    userSelections = {};
+
+    for (let i = 1; i <= totalQuestions; i++) {
+        const checkedOpt = document.querySelector(`input[name="q${i}"]:checked`);
+
+        if (checkedOpt) {
+            answeredCount++;
+            userSelections[`q${i}`] = checkedOpt.value;
+        }
+    }
+
+    if (answeredCount < totalQuestions) {
+        alert("कृपया सभी प्रश्नों के उत्तर दें! / Please answer all questions before submitting!");
+        return;
+    }
+
+    processSubmission();
+}
+
+function autoSubmit() {
+    if (isSubmitted) return;
+
+    userSelections = {};
+
+    for (let i = 1; i <= totalQuestions; i++) {
+        const checkedOpt = document.querySelector(`input[name="q${i}"]:checked`);
+        userSelections[`q${i}`] = checkedOpt ? checkedOpt.value : "None";
+    }
+
+    processSubmission();
+}
+
+function processSubmission() {
+    isSubmitted = true;
+    finalScore = 0;
+
+    for (let i = 1; i <= totalQuestions; i++) {
+        const questionKey = `q${i}`;
+        const correctVal = correctAnswers[questionKey];
+        const userVal = userSelections[questionKey];
+
+        const correctOption = document.getElementById(`opt_${i}_${correctVal}`);
+
+        if (correctOption) {
+            correctOption.classList.add("option-correct");
+        }
+
+        if (userVal === correctVal) {
+            finalScore++;
+        } else if (userVal !== "None" && userVal) {
+            const wrongOption = document.getElementById(`opt_${i}_${userVal}`);
+
+            if (wrongOption) {
+                wrongOption.classList.add("option-wrong");
+            }
+        }
+
+        const radios = document.getElementsByName(questionKey);
+        radios.forEach(radio => {
+            radio.disabled = true;
+        });
+
+        const explanation = document.getElementById(`e${i}`);
+        if (explanation) {
+            explanation.style.display = "block";
+        }
+    }
+
+    const resultBox = document.getElementById("resultBox");
+
+    resultBox.style.display = "block";
+    resultBox.innerHTML = `
+        <div>टेस्ट परिणाम / Test Result</div>
+        <br>
+        <div>Score: ${finalScore} / ${totalQuestions}</div>
+        <br>
+        <div>Percentage: ${Math.round((finalScore / totalQuestions) * 100)}%</div>
+    `;
+
+    document.getElementById("submitBtn").style.display = "none";
+    document.getElementById("downloadBtn").style.display = "block";
+
+    resultBox.scrollIntoView({ behavior: "smooth" });
+}
+
+function generatePDF() {
+    if (!isSubmitted) return;
+
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    doc.setFont("Helvetica", "bold");
+    doc.setFontSize(20);
+    doc.setTextColor(18, 97, 160);
+    doc.text("MPPSC Paid Prelims - Score Report", 14, 20);
+
+    doc.setFontSize(12);
+    doc.setTextColor(85, 85, 85);
+    doc.setFont("Helvetica", "normal");
+
+    doc.text("Unit 1: History of India (Test 02)", 14, 28);
+    doc.text(`Final Score: ${finalScore} / ${totalQuestions}`, 14, 35);
+
+    doc.setDrawColor(18, 97, 160);
+    doc.line(14, 40, 196, 40);
+
+    let y = 50;
+
+    const questionsText = [
+        "Q1. Indus Valley Port? (Ans: C. Lothal)",
+        "Q2. Buddha's First Sermon? (Ans: B. Sarnath)",
+        "Q3. Mauryan Founder? (Ans: C. Chandragupta Maurya)",
+        "Q4. Author of Indica? (Ans: B. Megasthenes)",
+        "Q5. Ashoka's post-Kalinga policy? (Ans: B. Dhamma)"
+    ];
+
+    questionsText.forEach(text => {
+        doc.text(text, 14, y);
+        y += 10;
+    });
+
+    doc.save("MPPSC_Score_Report.pdf");
+}
+</script>
+
+</body>
+</html>
