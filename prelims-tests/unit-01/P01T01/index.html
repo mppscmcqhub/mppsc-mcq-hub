@@ -6,7 +6,7 @@
 
 <title>P01T02 - MPPSC Paid Prelims</title>
 
-<!-- PDF जनरेशन के लिए आवश्यक jsPDF लाइब्रेरी का समावेशन -->
+<!-- PDF जनरेशन के लिए आवश्यक jsPDF लाइब्रेरी -->
 <script src="https://cloudflare.com"></script>
 
 <style>
@@ -27,6 +27,7 @@ header{
     align-items:center;
     justify-content:space-between;
     flex-wrap:wrap;
+    position: relative;
 }
 
 .brand{
@@ -58,6 +59,25 @@ header{
     text-decoration:none;
     font-weight:bold;
     font-size:14px;
+    margin-right: 120px; /* टाइमर के लिए जगह */
+}
+
+/* 60 मिनट का फ्लोटिंग टाइमर स्टाइल */
+.timer-box {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    background: #ff4d4d;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .container{
@@ -163,7 +183,8 @@ header{
 .action-buttons {
     display: flex;
     gap: 15px;
-    margin-top: 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 .submit, .download-btn {
@@ -220,11 +241,22 @@ header{
     .action-buttons {
         flex-direction: column;
     }
+    .timer-box {
+        position: static;
+        margin: 10px auto;
+        width: fit-content;
+    }
+    .back {
+        margin-right: 0;
+    }
 }
 </style>
 </head>
 
 <body>
+
+<!-- फ्लोटिंग टाइमर -->
+<div class="timer-box" id="timerBox">⏱️ Time Left: 60:00</div>
 
 <header>
 <div class="brand">
@@ -366,21 +398,4 @@ header{
     <!-- QUESTION 5 -->
     <div class="question" id="question_5">
     <h3>Q5. कलिंग युद्ध के बाद सम्राट अशोक ने किस नीति को प्रमुखता दी?</h3>
-    <div class="eng"><b>Q5. Which policy did Emperor Ashoka emphasize after the Kalinga War?</b></div>
-
-    <label class="option" id="opt_5_A">
-    <input type="radio" name="q5" value="A"> A. दिग्विजय / Conquest by war
-    </label>
-
-    <label class="option" id="opt_5_B">
-    <input type="radio" name="q5" value="B"> B. धम्म / Dhamma
-    </label>
-
-    <label class="option" id="opt_5_C">
-    <input type="radio" name="q5" value="C"> C. साम्राज्य विस्तार / Imperial expansion
-    </label>
-
-    <div class="explanation" id="e5">
-    <b class="correct">सही उत्तर / Correct Answer: B. धम्म / Dhamma</b>
-    <br><br>
-हिंदी व्याख्या: 261 ईसा पूर्व में हुए कलिंग युद्ध के भीषण नरसंहार को देखकर सम्राट अशोक का हृदय परिवर्तन हुआ। उसने 'भेरीघोष' को पूरी तरह त्यागकर 'धम्मघोष' (धम्म) की नीति को अपनाया।English Explanation: Witnessing the horrific bloodshed of the Kalinga War (261 BCE), Emperor Ashoka abandoned the policy of physical expansion and formally embraced 'Dhamma'.Submit Test / उत्तर सबमिट करेंDownload Score PDF / रिपोर्ट डाउनलोड करें const correctAnswers = { q1: 'C', q2: 'B', q3: 'C', q4: 'B', q5: 'B' };let finalScore = 0;let userSelections = {};function calculateScore() {const totalQuestions = 5;let answeredCount = 0;finalScore = 0;for (let i = 1; i <= totalQuestions; i++) {const checkedOpt = document.querySelector(input[name="q${i}"]:checked);if (checkedOpt) {answeredCount++;userSelections[q${i}] = checkedOpt.value;}}if (answeredCount < totalQuestions) {alert("कृपया सभी प्रश्नों के उत्तर दें! / Please answer all questions before submitting!");return;}for (let i = 1; i <= totalQuestions; i++) {const correctVal = correctAnswers[q${i}];const userVal = userSelections[q${i}];document.getElementById(opt_${i}_${correctVal}).classList.add('option-correct');if (userVal === correctVal) {finalScore++;} else {document.getElementById(opt_${i}_${userVal}).classList.add('option-wrong');}const radios = document.getElementsByName(q${i});radios.forEach(radio => radio.disabled = true);document.getElementById(e${i}).style.display = 'block';}const resultBox = document.getElementById('resultBox');resultBox.style.display = 'block';resultBox.innerHTML = टेस्ट परिणाम (Test Result) <br><br> Score: ${finalScore} / ${totalQuestions};document.getElementById('submitBtn').style.display = 'none';document.getElementById('downloadBtn').style.display = 'block';resultBox.scrollIntoView({ behavior: 'smooth' });}function generatePDF() {const { jsPDF } = window.jspdf;const doc = new jsPDF();doc.setFont("Helvetica", "bold");doc.setFontSize(20);doc.setTextColor(18, 97, 160);doc.text("MPPSC Paid Prelims - Score Report", 14, 20);doc.setFontSize(12);doc.setTextColor(85, 85, 85);doc.setFont("Helvetica", "normal");doc.text("Unit 1: History of India (Test 02)", 14, 28);doc.text(Final Score: ${finalScore} / 5, 14, 35);doc.setDrawColor(18, 97, 160);doc.line(14, 40, 196, 40);let y = 50;const questionsText = ["Q1. Indus Valley Port? (Ans: C. Lothal)","Q2. Buddha's First Sermon? (Ans: B. Sarnath)","Q3. Mauryan Founder? (Ans: C. Chandragupta Maurya)","Q4. Author of Indica? (Ans: B. Megasthenes)","Q5. Ashoka's post-Kalinga policy? (Ans: B. Dhamma)"];questionsText.forEach((text) => {doc.text(text, 14, y);y += 10;});doc.save("MPPSC_Score_Report.pdf");}
+Q5. Which policy did Emperor Ashoka emphasize after the Kalinga War?सही उत्तर / Correct Answer: B. धम्म / Dhammaहिंदी व्याख्या: 261 ईसा पूर्व में हुए कलिंग युद्ध के भीषण नरसंहार को देखकर सम्राट अशोक का हृदय परिवर्तन हुआ। उसने 'भेरीघोष' को पूरी तरह त्यागकर 'धम्मघोष' (धम्म) की नीति को अपनाया।English Explanation: Witnessing the horrific bloodshed of the Kalinga War (261 BCE), Emperor Ashoka abandoned the policy of physical expansion and formally embraced 'Dhamma'.Submit Test / उत्तर सबमिट करेंDownload Score PDF / रिपोर्ट डाउनलोड करें const correctAnswers = { q1: 'C', q2: 'B', q3: 'C', q4: 'B', q5: 'B' };let finalScore = 0;let userSelections = {};let isSubmitted = false;// 60 मिनट का टाइमर लॉजिकlet totalTime = 60 * 60; // 3600 सेकंडconst timerElement = document.getElementById('timerBox');const countdown = setInterval(() => {if (isSubmitted) {clearInterval(countdown);return;}let minutes = Math.floor(totalTime / 60);let seconds = totalTime % 60;seconds = seconds < 10 ? '0' + seconds : seconds;minutes = minutes < 10 ? '0' + minutes : minutes;timerElement.innerHTML = ⏱️ Time Left: ${minutes}:${seconds};if (totalTime <= 0) {clearInterval(countdown);timerElement.innerHTML = "⏰ Time Up!";alert("समय समाप्त हो गया है! आपका टेस्ट अपने आप सबमिट किया जा रहा है।");autoSubmit();}totalTime--;}, 1000);function calculateScore() {const totalQuestions = 5;let answeredCount = 0;finalScore = 0;for (let i = 1; i <= totalQuestions; i++) {const checkedOpt = document.querySelector(input[name="q${i}"]:checked);if (checkedOpt) {answeredCount++;userSelections[q${i}] = checkedOpt.value;}}if (answeredCount < totalQuestions) {alert("कृपया सभी प्रश्नों के उत्तर दें! / Please answer all questions before submitting!");return;}processSubmission(totalQuestions);}function autoSubmit() {const totalQuestions = 5;for (let i = 1; i <= totalQuestions; i++) {const checkedOpt = document.querySelector(input[name="q${i}"]:checked);userSelections[q${i}] = checkedOpt ? checkedOpt.value : 'None';}processSubmission(totalQuestions);}function processSubmission(totalQuestions) {isSubmitted = true;for (let i = 1; i <= totalQuestions; i++) {const correctVal = correctAnswers[q${i}];const userVal = userSelections[q${i}];document.getElementById(opt_${i}_${correctVal}).classList.add('option-correct');if (userVal === correctVal) {finalScore++;} else if (userVal !== 'None' && userVal) {document.getElementById(opt_${i}_${userVal}).classList.add('option-wrong');}const radios = document.getElementsByName(q${i});radios.forEach(radio => radio.disabled = true);document.getElementById(e${i}).style.display = 'block';}const resultBox = document.getElementById('resultBox');resultBox.style.display = 'block';resultBox.innerHTML = टेस्ट परिणाम (Test Result) <br><br> Score: ${finalScore} / ${totalQuestions};document.getElementById('submitBtn').style.display = 'none';document.getElementById('downloadBtn').style.display = 'block';resultBox.scrollIntoView({ behavior: 'smooth' });}function generatePDF() {const { jsPDF } = window.jspdf;const doc = new jsPDF();doc.setFont("Helvetica", "bold");doc.setFontSize(20);doc.setTextColor(18, 97, 160);doc.text("MPPSC Paid Prelims - Score Report", 14, 20);doc.setFontSize(12);doc.setTextColor(85, 85, 85);doc.setFont("Helvetica", "normal");doc.text("Unit 1: History of India (Test 02)", 14, 28);doc.text(Final Score: ${finalScore} / 5, 14, 35);doc.setDrawColor(18, 97, 160);doc.line(14, 40, 196, 40);let y = 50;const questionsText = ["Q1. Indus Valley Port? (Ans: C. Lothal)","Q2. Buddha's First Sermon? (Ans: B. Sarnath)","Q3. Mauryan Founder? (Ans: C. Chandragupta Maurya)","Q4. Author of Indica? (Ans: B. Megasthenes)","Q5. Ashoka's post-Kalinga policy? (Ans: B. Dhamma)"];questionsText.forEach((text) => {doc.text(text, 14, y);y += 10;});doc.save("MPPSC_Score_Report.pdf");}
