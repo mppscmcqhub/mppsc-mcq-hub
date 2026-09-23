@@ -11,120 +11,23 @@
 
 <style>
 *{box-sizing:border-box}
-html{background:#d7d7d7}
-body{
-    margin:0;
-    font-family:Arial,"Noto Sans Devanagari",sans-serif;
-    background:#d7d7d7;
-    color:#111;
-    line-height:1.6;
-}
-header{
-    background:#fff;
-    color:#222;
-    padding:10px 22px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    border-bottom:1px solid #aaa;
-    position:relative;
-}
-.brand{display:flex;align-items:center;gap:10px}
-.logo{
-    width:38px;height:38px;border:1px solid #555;border-radius:50%;
-    background:#fff;color:#222;display:flex;align-items:center;
-    justify-content:center;font-weight:bold;font-size:10px;
-}
-.brand h2{margin:0;font-size:16px;font-weight:700}
-.back{color:#222;text-decoration:none;font-weight:bold;font-size:14px;margin-right:135px}
-.timer-box{
-    position:fixed;top:10px;right:18px;background:#fff;color:#111;
-    padding:7px 13px;border:1px solid #555;border-radius:3px;
-    font-weight:bold;font-size:14px;box-shadow:none;z-index:1000;
-}
-.container{
-    width:min(960px, calc(100% - 30px));
-    margin:22px auto 45px;
-    padding:0;
-}
-.hero{
-    background:#fff;
-    padding:42px 58px 32px;
-    border:1px solid #999;
-    border-bottom:3px double #333;
-    border-radius:0;
-    text-align:left;
-    box-shadow:none;
-    margin-bottom:18px;
-}
-.hero h1{margin:0 0 10px;color:#111;font-size:30px;line-height:1.3}
-.hero p{margin:5px 0;color:#222;font-size:17px}
-.code{
-    display:inline-block;margin-top:12px;padding:3px 12px;border-radius:0;
-    background:#fff;color:#111;font-weight:bold;border:1px solid #777;
-}
-.question{
-    background:#fff;
-    margin-bottom:16px;
-    padding:25px 58px 28px;
-    border:0;
-    border-top:1px solid #777;
-    border-bottom:1px solid #999;
-    border-radius:0;
-    box-shadow:none;
-    transition:none;
-}
-.question h3{
-    margin:0 0 7px;
-    color:#111;
-    line-height:1.5;
-    font-size:21px;
-    font-weight:700;
-}
-.eng{
-    color:#222;font-size:16px;margin-bottom:16px;line-height:1.5;
-    font-weight:600;
-}
-.option{
-    display:block;padding:8px 10px;margin:5px 0;
-    border:0;border-bottom:1px solid #ccc;border-radius:0;
-    cursor:pointer;line-height:1.55;transition:none;background:#fff;
-    font-size:16px;
-}
-.option:hover{background:#fafafa}
-.option input{margin-right:9px;transform:scale(1.05)}
-.explanation{
-    display:none;margin-top:18px;padding:16px 18px;
-    background:#fff;border:1px solid #999;border-left:4px solid #333;
-    border-radius:0;line-height:1.65;font-size:15.5px;
-}
-.correct{color:#111;font-weight:bold}
-.option-correct{background:#f1f1f1!important;border-color:#777!important;color:#111!important;font-weight:bold}
-.option-wrong{background:#f7f7f7!important;border-color:#777!important;color:#111!important;text-decoration:line-through}
-.action-buttons{
-    background:#fff;padding:22px 58px;margin:0 0 18px;
-    display:flex;gap:14px;border-top:1px solid #777;border-bottom:1px solid #777;
-}
-.submit,.download-btn{
-    flex:1;padding:12px;border:1px solid #333;border-radius:2px;
-    font-size:16px;font-weight:bold;cursor:pointer;text-align:center;
-    background:#fff;color:#111;transition:none;
-}
-.submit:hover,.download-btn:hover{background:#eee}
-.download-btn{display:none}
-.result{
-    margin-top:0;padding:20px 58px;background:#fff;border-radius:0;
-    text-align:left;font-size:18px;font-weight:bold;display:none;
-    box-shadow:none;border-top:2px solid #333;border-bottom:1px solid #999;
-}
-@media(max-width:700px){
-    .container{width:calc(100% - 12px);margin:8px auto}
-    header{gap:8px}.brand h2{font-size:14px}.back{margin-right:0;font-size:12px}
-    .timer-box{position:static;margin:7px auto;width:max-content}
-    .hero,.question,.action-buttons,.result{padding-left:20px;padding-right:20px}
-    .hero h1{font-size:24px}.question h3{font-size:19px}
-    .action-buttons{flex-direction:column}
-}
+html,body{margin:0;padding:0}
+body{font-family:Arial,"Noto Sans Devanagari",sans-serif;background:#eef4ff;color:#111;line-height:1.5}
+header{height:78px;background:#104bd6;color:#fff;padding:0 14px;display:flex;align-items:center;justify-content:space-between;border:0;position:relative;box-shadow:none}
+.brand{display:flex;align-items:center;gap:10px}.logo{display:none}.brand h2{margin:0;font-size:21px;font-weight:700;color:#fff}.back{display:none}
+.timer-box{position:fixed;top:88px;right:18px;background:#ff5252;color:#fff;padding:9px 15px;border:0;border-radius:22px;font-weight:700;font-size:14px;box-shadow:0 3px 9px rgba(0,0,0,.18);z-index:1000}
+.container{width:100%;max-width:none;margin:0;padding:20px 8px 45px}
+.hero{display:none}
+.question{background:#fff;margin:0 0 10px;padding:23px 14px 18px;border:0;border-radius:10px;box-shadow:0 2px 10px rgba(25,55,100,.08);transition:none}
+.question h3{margin:0 0 3px;color:#111;line-height:1.4;font-size:18px;font-weight:700}
+.eng{color:#111;font-size:16px;margin:0 0 15px;line-height:1.45;font-weight:700}
+.option{display:block;padding:8px 10px;margin:7px 0;border:1px solid #d5d5d5;border-radius:5px;cursor:pointer;line-height:1.45;transition:none;background:#fff;font-size:15.5px}
+.option:hover{background:#f8fbff}.option input{margin-right:8px;transform:scale(1.05)}
+.explanation{display:none;margin-top:18px;padding:14px 16px;background:#eef8ff;border:1px solid #b9d7ee;border-left:4px solid #1671b8;border-radius:5px;line-height:1.65;font-size:15px}
+.correct{color:#15803d;font-weight:bold}.option-correct{background:#eaf7ee!important;border-color:#54a66b!important;color:#137333!important;font-weight:bold}.option-wrong{background:#fdeceb!important;border-color:#e27b73!important;color:#c5221f!important;text-decoration:none}
+.action-buttons{background:transparent;padding:5px 0 20px;margin:0;display:flex;gap:12px;border:0}.submit,.download-btn{flex:1;padding:13px;border:0;border-radius:6px;font-size:16px;font-weight:700;cursor:pointer;text-align:center;background:#104bd6;color:#fff;transition:none}.submit:hover,.download-btn:hover{background:#0d3fb5}.download-btn{display:none}
+.result{margin-top:0;padding:20px 16px;background:#fff;border-radius:10px;text-align:left;font-size:18px;font-weight:bold;display:none;box-shadow:0 2px 10px rgba(25,55,100,.08);border:0}
+@media(max-width:700px){header{height:64px}.brand h2{font-size:18px}.timer-box{top:72px;right:10px;font-size:12px;padding:7px 11px}.container{padding:12px 6px 35px}.question{padding:17px 12px 14px}.question h3{font-size:17px}.eng{font-size:15px}.option{font-size:14px}}
 </style>
 </head>
 
@@ -455,129 +358,362 @@ async function generatePDF() {
     if (!isSubmitted) return;
 
     const { jsPDF } = window.jspdf;
-    const pdf = new jsPDF({orientation:"portrait", unit:"mm", format:"a4", compress:true});
-    pdf.setProperties({title:"MPPSC P01T02 Score Report", subject:"Questions Answers Explanations", author:"MPPSC MCQ Hub V14"});
 
-    const PW=210, PH=297, ML=14, MR=14, MT=17, MB=16, CW=PW-ML-MR;
-    const stage=document.createElement("div");
-    stage.style.position="absolute";
-    stage.style.left="-50000px";
-    stage.style.top="0";
-    stage.style.width="794px";
-    stage.style.background="#fff";
-    stage.style.color="#111";
-    stage.style.fontFamily='Arial,"Noto Sans Devanagari",sans-serif';
+    /*
+      PDF = TEST PAGE STYLE
+      ---------------------
+      PDF में वही visual language रखी गई है जो online test में है:
+      blue MPPSC header + light background + white question cards +
+      radio-style options + green/red answer indication + explanation.
+
+      कोई अलग cover page नहीं।
+      Questions को छोटे-छोटे अलग pages में नहीं तोड़ा जाएगा।
+      जितने complete question cards एक A4 page में आराम से आएँगे,
+      उतने उसी page पर रहेंगे।
+    */
+
+    const pdf = new jsPDF({
+        orientation: "portrait",
+        unit: "mm",
+        format: "a4",
+        compress: true
+    });
+
+    pdf.setProperties({
+        title: "MPPSC P01T02 - Test Style Score Report",
+        subject: "Questions, Answers and Explanations",
+        author: "MPPSC MCQ Hub V14"
+    });
+
+    const PW = 210;
+    const PH = 297;
+    const margin = 9;
+    const contentW = PW - (margin * 2);
+    const topSpace = 16;
+    const bottomSpace = 10;
+
+    const stage = document.createElement("div");
+    stage.style.position = "absolute";
+    stage.style.left = "-50000px";
+    stage.style.top = "0";
+    stage.style.width = "794px";
+    stage.style.background = "#eef3fb";
+    stage.style.fontFamily = 'Arial, "Noto Sans Devanagari", sans-serif';
+    stage.style.color = "#111";
+    stage.style.boxSizing = "border-box";
     document.body.appendChild(stage);
 
-    let page=0;
-    let y=MT;
+    function pageHeader(pageNo) {
+        // Same blue header style as the online test
+        pdf.setFillColor(16, 75, 214);
+        pdf.rect(0, 0, PW, 14, "F");
 
-    function header(){
-      pdf.setDrawColor(80,80,80);
-      pdf.setLineWidth(.3);
-      pdf.line(ML,11,PW-MR,11);
-      pdf.setFont("helvetica","bold");
-      pdf.setFontSize(8.5);
-      pdf.setTextColor(35,35,35);
-      pdf.text("MPPSC PAID PRELIMS",ML,8);
-      pdf.setFont("helvetica","normal");
-      pdf.text("P01T02 | Unit 1: History of India",PW-MR,8,{align:"right"});
-      pdf.line(ML,PH-11,PW-MR,PH-11);
-      pdf.setFontSize(8);
-      pdf.setTextColor(90,90,90);
-      pdf.text(`Score Report | Page ${page}`,PW/2,PH-6,{align:"center"});
+        pdf.setFont("helvetica", "bold");
+        pdf.setFontSize(8.5);
+        pdf.setTextColor(255, 255, 255);
+        pdf.text("MPPSC MCQ Hub V14", 8, 9);
+
+        pdf.setFont("helvetica", "normal");
+        pdf.setFontSize(7.5);
+        pdf.text(`P01T02 • Unit 1 • Test 02 • Page ${pageNo}`, PW - 8, 9, {
+            align: "right"
+        });
     }
 
-    function newPage(){
-      pdf.addPage();
-      page++;
-      header();
-      y=MT+2;
+    function wait() {
+        return new Promise(resolve => setTimeout(resolve, 100));
     }
 
-    async function renderStage(){
-      await new Promise(r=>setTimeout(r,60));
-      return await html2canvas(stage,{scale:2,useCORS:true,backgroundColor:"#fff",logging:false,width:794,height:stage.scrollHeight});
+    async function renderStage() {
+        await wait();
+        return await html2canvas(stage, {
+            scale: 2,
+            useCORS: true,
+            backgroundColor: "#eef3fb",
+            logging: false,
+            width: 794,
+            height: stage.scrollHeight
+        });
     }
 
-    function addCanvas(c, yy){
-      const w=CW;
-      const h=w*(c.height/c.width);
-      pdf.addImage(c.toDataURL("image/jpeg",.94),"JPEG",ML,yy,w,h,undefined,"FAST");
-      return h;
+    function addCanvas(canvas, yMm, maxHeightMm) {
+        let w = contentW;
+        let h = w * (canvas.height / canvas.width);
+
+        if (h > maxHeightMm) {
+            h = maxHeightMm;
+            w = h * (canvas.width / canvas.height);
+        }
+
+        const x = margin + (contentW - w) / 2;
+
+        pdf.addImage(
+            canvas.toDataURL("image/jpeg", 0.93),
+            "JPEG",
+            x,
+            yMm,
+            w,
+            h,
+            undefined,
+            "FAST"
+        );
+
+        return h;
     }
 
-    // First page starts directly with the report — no separate cover/blank page.
-    page=1;
-    pdf.addPage();
-    header();
+    // Create one question card in the exact visual style of the test.
+    function questionHTML(i) {
+        const box = document.getElementById(`question_${i}`);
+        const title = box.querySelector("h3")?.innerHTML || "";
+        const eng = box.querySelector(".eng")?.innerHTML || "";
 
-    stage.innerHTML=`<div style="width:794px;padding:0 42px 12px;background:#fff;color:#111;font-family:Arial,'Noto Sans Devanagari',sans-serif;">
-      <div style="border-bottom:2px solid #222;padding:3px 0 8px;margin-bottom:9px;text-align:center;">
-        <div style="font-size:22px;font-weight:bold;">MPPSC PAID PRELIMS — P01T02</div>
-        <div style="font-size:15px;margin-top:3px;">Unit 1: History of India / भारत का इतिहास</div>
-        <div style="font-size:14px;margin-top:3px;"><b>Final Score:</b> ${finalScore} / ${totalQuestions} &nbsp;&nbsp; <b>Percentage:</b> ${Math.round(finalScore/totalQuestions*100)}%</div>
-      </div>
-    </div>`;
-    let c=await renderStage();
-    y += addCanvas(c,y);
-    y += 3;
+        const correctVal = correctAnswers[`q${i}`];
+        const userVal = userSelections[`q${i}`];
 
-    for(let i=1;i<=totalQuestions;i++){
-      const box=document.getElementById(`question_${i}`);
-      const rawTitle=box.querySelector("h3")?.innerHTML||"";
-      const title=rawTitle.replace(/^\s*Q\.?\s*\d+\.?\s*/i,"");
-      const eng=box.querySelector(".eng")?.innerHTML||"";
-      const correctVal=correctAnswers[`q${i}`];
-      const userVal=userSelections[`q${i}`];
-      const correctLabel=document.getElementById(`opt_${i}_${correctVal}`);
-      const correctText=correctLabel?correctLabel.innerText.replace(/\s+/g," ").trim():correctVal;
-      const ex=document.getElementById(`e${i}`);
+        const correctLabel = document.getElementById(`opt_${i}_${correctVal}`);
+        const correctText = correctLabel
+            ? correctLabel.innerText.replace(/\s+/g, " ").trim()
+            : correctVal;
 
-      let opts="";
-      box.querySelectorAll("label.option").forEach(label=>{
-        const input=label.querySelector("input");
-        const value=input?input.value:"";
-        const text=label.innerText.replace(/\s+/g," ").trim();
-        const correct=value===correctVal;
-        const selected=value===userVal;
-        let mark="";
-        if(correct) mark=' <b>✓ सही उत्तर / Correct</b>';
-        else if(selected) mark=' <b>✗ आपका उत्तर / Your Answer</b>';
-        opts+=`<div style="padding:5px 7px;border-bottom:1px solid #ccc;font-size:13.2px;line-height:1.38;">${text}${mark}</div>`;
-      });
+        const explanation = document.getElementById(`e${i}`);
 
-      stage.innerHTML=`<div style="width:794px;padding:0 42px 11px;background:#fff;color:#111;font-family:Arial,'Noto Sans Devanagari',sans-serif;">
-        <div style="border-top:1.5px solid #222;border-bottom:1px solid #777;padding:6px 0 6px;margin-bottom:6px;">
-          <div style="font-size:16px;font-weight:bold;line-height:1.35;">Q${i}. ${title}</div>
-          <div style="font-size:12.7px;font-weight:bold;line-height:1.35;margin-top:2px;">${eng}</div>
-        </div>
-        <div style="font-size:13.5px;font-weight:bold;border-bottom:1px solid #777;padding-bottom:3px;">विकल्प / Options</div>
-        ${opts}
-        <div style="margin-top:6px;border-top:1px solid #555;border-bottom:1px solid #555;padding:5px 0;font-size:12.7px;line-height:1.42;">
-          <b>${userVal===correctVal?"✓ सही उत्तर / Correct":"✗ गलत उत्तर / Incorrect"}</b><br>
-          <b>सही उत्तर / Correct Answer:</b> ${correctText}<br>
-          <b>आपका उत्तर / Your Answer:</b> ${userVal==="None"?"उत्तर नहीं दिया / Not Answered":(userVal||"उत्तर नहीं दिया / Not Answered")}
-        </div>
-        <div style="margin-top:6px;border-top:1.5px solid #222;padding-top:4px;">
-          <div style="font-size:13.5px;font-weight:bold;margin-bottom:3px;">व्याख्या / Explanation</div>
-          <div style="border:1px solid #999;padding:6px 8px;font-size:12.2px;line-height:1.42;">${ex?ex.innerHTML:""}</div>
-        </div>
-      </div>`;
+        let options = "";
 
-      c=await renderStage();
-      const h=CW*(c.height/c.width);
+        box.querySelectorAll("label.option").forEach(label => {
+            const input = label.querySelector("input");
+            const value = input ? input.value : "";
+            const text = label.innerText.replace(/\s+/g, " ").trim();
 
-      // Keep each complete question together. If it doesn't fit, move the whole question.
-      if(y+h > PH-MB){
-        newPage();
-      }
-      y += addCanvas(c,y);
-      y += 2.5;
+            const selected = value === userVal;
+            const correct = value === correctVal;
+
+            let bg = "#ffffff";
+            let border = "#d7d7d7";
+            let color = "#222";
+            let extra = "";
+
+            if (correct) {
+                bg = "#e6f4ea";
+                border = "#57b87a";
+                color = "#137333";
+                extra = " ✓ सही उत्तर / Correct";
+            } else if (selected) {
+                bg = "#fce8e6";
+                border = "#f28b82";
+                color = "#c5221f";
+                extra = " ✗ आपका उत्तर / Your Answer";
+            }
+
+            options += `
+                <div style="
+                    display:block;
+                    padding:10px 12px;
+                    margin:7px 0;
+                    border:1px solid ${border};
+                    border-radius:7px;
+                    background:${bg};
+                    color:${color};
+                    line-height:1.5;
+                    font-size:16px;
+                    box-sizing:border-box;
+                ">
+                    <span style="
+                        display:inline-block;
+                        width:11px;
+                        height:11px;
+                        border:1.5px solid #777;
+                        border-radius:50%;
+                        margin-right:7px;
+                        vertical-align:-1px;
+                    "></span>${text}
+                    ${extra ? `<b>${extra}</b>` : ""}
+                </div>
+            `;
+        });
+
+        const correctState = userVal === correctVal;
+
+        return `
+            <div style="
+                width:100%;
+                box-sizing:border-box;
+                background:#ffffff;
+                border-radius:10px;
+                padding:17px 16px 16px;
+                margin:0 0 14px 0;
+                border:1px solid #e1e5eb;
+                box-shadow:0 2px 8px rgba(25,55,100,.08);
+                page-break-inside:avoid;
+            ">
+                <div style="
+                    font-size:18px;
+                    font-weight:700;
+                    line-height:1.5;
+                    margin-bottom:5px;
+                ">Q${i}. ${title}</div>
+
+                <div style="
+                    font-size:15.5px;
+                    font-weight:700;
+                    line-height:1.5;
+                    margin-bottom:12px;
+                ">${eng}</div>
+
+                ${options}
+
+                <div style="
+                    margin-top:10px;
+                    padding:12px 13px;
+                    border-radius:7px;
+                    background:${correctState ? "#e6f4ea" : "#fce8e6"};
+                    border:1px solid ${correctState ? "#57b87a" : "#f28b82"};
+                    color:${correctState ? "#137333" : "#c5221f"};
+                    font-size:15px;
+                    line-height:1.6;
+                ">
+                    <b>${correctState ? "✓ सही उत्तर / Correct Answer" : "✗ गलत उत्तर / Incorrect Answer"}</b><br>
+                    <b>सही उत्तर / Correct Answer:</b> ${correctText}<br>
+                    <b>आपका उत्तर / Your Answer:</b>
+                    ${userVal === "None"
+                        ? "उत्तर नहीं दिया / Not Answered"
+                        : (userVal || "उत्तर नहीं दिया / Not Answered")}
+                </div>
+
+                <div style="
+                    margin-top:12px;
+                    padding:13px 14px;
+                    border-radius:7px;
+                    background:#f0f8ff;
+                    border-left:4px solid #1261a0;
+                    font-size:15px;
+                    line-height:1.65;
+                    box-sizing:border-box;
+                ">
+                    <div style="
+                        font-size:17px;
+                        font-weight:700;
+                        color:#1261a0;
+                        margin-bottom:8px;
+                    ">
+                        व्याख्या / Explanation
+                    </div>
+                    ${explanation ? explanation.innerHTML : ""}
+                </div>
+            </div>
+        `;
+    }
+
+    // Build all cards. We will pack complete cards into A4 pages.
+    const cards = [];
+    for (let i = 1; i <= totalQuestions; i++) {
+        stage.innerHTML = questionHTML(i);
+        const c = await renderStage();
+        cards.push(c);
+    }
+
+    // We render cards together on each page so the PDF looks like the test,
+    // not like a Word document or separate answer sheets.
+    let pageNo = 1;
+    let pageCards = [];
+    let estimatedHeight = 0;
+
+    // Pixel-to-mm ratio based on the stage width.
+    const pxToMm = contentW / 794;
+    const usablePx = (PH - topSpace - bottomSpace) / pxToMm;
+
+    function makePageHTML(cardIndexes) {
+        let body = `
+            <div style="
+                width:794px;
+                min-height:${Math.round(usablePx)}px;
+                box-sizing:border-box;
+                padding:14px 14px 18px;
+                background:#eef3fb;
+                font-family:Arial,'Noto Sans Devanagari',sans-serif;
+            ">
+                <div style="
+                    background:#ffffff;
+                    border-radius:9px;
+                    padding:13px 15px;
+                    margin-bottom:12px;
+                    border:1px solid #e1e5eb;
+                    box-shadow:0 2px 8px rgba(25,55,100,.08);
+                    text-align:center;
+                ">
+                    <div style="
+                        font-size:21px;
+                        font-weight:700;
+                        color:#104bd6;
+                    ">Paid Course MPPSC 2027</div>
+                    <div style="font-size:15px;font-weight:700;margin-top:4px;">
+                        Unit 1 — भारत का इतिहास / History of India
+                    </div>
+                    <div style="font-size:14px;font-weight:700;margin-top:3px;">
+                        Test 02 / परीक्षण 02 • P01T02
+                    </div>
+                    <div style="
+                        margin-top:8px;
+                        font-size:13px;
+                        font-weight:700;
+                        color:#555;
+                    ">
+                        Score: ${finalScore}/${totalQuestions}
+                        &nbsp; | &nbsp;
+                        ${Math.round(finalScore / totalQuestions * 100)}%
+                    </div>
+                </div>
+        `;
+
+        cardIndexes.forEach(i => {
+            body += questionHTML(i);
+        });
+
+        body += `</div>`;
+        return body;
+    }
+
+    // First determine page groups by measuring combined cards.
+    let groups = [];
+    let current = [];
+
+    for (let i = 1; i <= totalQuestions; i++) {
+        const testGroup = current.concat(i);
+        stage.innerHTML = makePageHTML(testGroup);
+
+        const heightPx = stage.scrollHeight;
+
+        if (current.length > 0 && heightPx > usablePx) {
+            groups.push(current);
+            current = [i];
+        } else {
+            current = testGroup;
+        }
+    }
+
+    if (current.length) groups.push(current);
+
+    // Render each packed page.
+    for (const group of groups) {
+        stage.innerHTML = makePageHTML(group);
+        const canvas = await renderStage();
+
+        pdf.addPage();
+        pageHeader(pageNo);
+
+        const maxH = PH - topSpace - bottomSpace;
+        addCanvas(canvas, topSpace, maxH);
+
+        pageNo++;
+    }
+
+    // Remove the initial empty jsPDF page.
+    if (pdf.getNumberOfPages() > groups.length) {
+        pdf.deletePage(1);
     }
 
     document.body.removeChild(stage);
-    pdf.save("MPPSC_P01T02_FIXED_Questions_Answers_Explanations.pdf");
+
+    pdf.save("MPPSC_P01T02_TEST_STYLE_Score_Report.pdf");
 }
 </script>
 
