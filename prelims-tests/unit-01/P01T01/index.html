@@ -6,6 +6,9 @@
 
 <title>P01T02 - MPPSC Paid Prelims</title>
 
+<!-- PDF जनरेशन के लिए आवश्यक jsPDF लाइब्रेरी का विनियामक समावेशन -->
+<script src="https://cloudflare.com"></script>
+
 <style>
 *{box-sizing:border-box}
 
@@ -98,6 +101,7 @@ header{
     padding:20px;
     border-radius:12px;
     box-shadow:0 3px 10px rgba(0,0,0,.07);
+    transition: all 0.3s ease;
 }
 
 .question h3{
@@ -115,12 +119,13 @@ header{
 
 .option{
     display:block;
-    padding:10px 12px;
+    padding:11px 14px;
     margin:8px 0;
     border:1px solid #ddd;
     border-radius:7px;
     cursor:pointer;
     line-height:1.5;
+    transition: background 0.2s;
 }
 
 .option:hover{
@@ -142,20 +147,55 @@ header{
     font-weight:bold;
 }
 
-.submit{
-    width:100%;
-    padding:14px;
-    border:0;
-    border-radius:8px;
-    background:#1261a0;
-    color:white;
-    font-size:17px;
-    font-weight:bold;
-    cursor:pointer;
+/* सबमिट के बाद विकल्पों की विनियामक रंगीन कोडिंग */
+.option-correct {
+    background: #e6f4ea !important;
+    border-color: #57b87a !important;
+    color: #137333 !important;
+    font-weight: bold;
+}
+
+.option-wrong {
+    background: #fce8e6 !important;
+    border-color: #f28b82 !important;
+    color: #c5221f !important;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.submit, .download-btn {
+    flex: 1;
+    padding: 14px;
+    border: 0;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.2s;
+}
+
+.submit {
+    background: #1261a0;
+    color: white;
 }
 
 .submit:hover {
-    background:#0f4f82;
+    background: #0f4f82;
+}
+
+.download-btn {
+    background: #16833b;
+    color: white;
+    display: none; /* केवल सबमिशन के बाद दिखाई देगा */
+}
+
+.download-btn:hover {
+    background: #116229;
 }
 
 .result{
@@ -168,15 +208,18 @@ header{
     font-weight:bold;
     display:none;
     box-shadow:0 3px 10px rgba(0,0,0,.07);
+    border: 2px solid #1261a0;
 }
 
 @media(max-width:600px){
     header{
         gap:10px;
     }
-
     .brand h2{
         font-size:16px;
+    }
+    .action-buttons {
+        flex-direction: column;
     }
 }
 </style>
@@ -203,240 +246,140 @@ header{
 <div class="code">P01T02</div>
 </section>
 
-<!-- QUESTION 1 -->
-<div class="question">
-<h3>
-Q1. सिंधु घाटी सभ्यता का प्रमुख बंदरगाह कौन-सा था?
-</h3>
-<div class="eng">
-<b>Q1. Which was a major port of the Indus Valley Civilization?</b>
-</div>
+<form id="quizForm" onsubmit="return false;">
 
-<label class="option">
-<input type="radio" name="q1" value="A">
-A. हड़प्पा / Harappa
-</label>
+    <!-- QUESTION 1 -->
+    <div class="question" id="question_1">
+    <h3>Q1. सिंधु घाटी सभ्यता का प्रमुख बंदरगाह कौन-सा था?</h3>
+    <div class="eng"><b>Q1. Which was a major port of the Indus Valley Civilization?</b></div>
 
-<label class="option">
-<input type="radio" name="q1" value="B">
-B. मोहनजोदड़ो / Mohenjo-daro
-</label>
+    <label class="option" id="opt_1_A">
+    <input type="radio" name="q1" value="A"> A. हड़प्पा / Harappa
+    </label>
 
-<label class="option">
-<input type="radio" name="q1" value="C">
-C. लोथल / Lothal
-</label>
+    <label class="option" id="opt_1_B">
+    <input type="radio" name="q1" value="B"> B. मोहनजोदड़ो / Mohenjo-daro
+    </label>
 
-<label class="option">
-<input type="radio" name="q1" value="D">
-D. कालीबंगा / Kalibangan
-</label>
+    <label class="option" id="opt_1_C">
+    <input type="radio" name="q1" value="C"> C. लोथल / Lothal
+    </label>
 
-<div class="explanation" id="e1">
-<b class="correct">सही उत्तर / Correct Answer: C. लोथल / Lothal</b>
-<br><br>
-<b>हिंदी व्याख्या:</b><br>
-लोथल गुजरात में स्थित सिंधु घाटी सभ्यता का एक महत्वपूर्ण व्यापारिक केंद्र और बंदरगाह था। यहाँ से गोदीवाड़ा (Dockyard) और समुद्री व्यापार के अकाट्य प्रमाण मिले हैं।
-<br><br>
-<b>English Explanation:</b><br>
-Lothal, located in Gujarat, was an important trading centre and port of the Indus Valley Civilization. Archaeological evidence of a dockyard indicates its connection with maritime trade.
-</div>
-</div>
+    <label class="option" id="opt_1_D">
+    <input type="radio" name="q1" value="D"> D. कालीबंगा / Kalibangan
+    </label>
 
-<!-- QUESTION 2 -->
-<div class="question">
-<h3>
-Q2. गौतम बुद्ध ने अपना प्रथम उपदेश कहाँ दिया था?
-</h3>
-<div class="eng">
-<b>Q2. Where did Gautama Buddha deliver his first sermon?</b>
-</div>
+    <div class="explanation" id="e1">
+    <b class="correct">सही उत्तर / Correct Answer: C. लोथल / Lothal</b>
+    <br><br>
+    <b>हिंदी व्याख्या:</b> lochal gujarat mein sthit sindhu ghati sabhyata ka ek mahatvapurna vyaparik kendra aur bandargah tha. Yahan se godivada (Dockyard) aur samudri vyapar ke akatya praman mile hain.<br><br>
+    <b>English Explanation:</b> Lothal, located in Gujarat, was an important trading centre and port of the Indus Valley Civilization. Archaeological evidence of a dockyard indicates its connection with maritime trade.
+    </div>
+    </div>
 
-<label class="option">
-<input type="radio" name="q2" value="A">
-A. बोधगया / Bodh Gaya
-</label>
+    <!-- QUESTION 2 -->
+    <div class="question" id="question_2">
+    <h3>Q2. गौतम बुद्ध ने अपना प्रथम उपदेश कहाँ दिया था?</h3>
+    <div class="eng"><b>Q2. Where did Gautama Buddha deliver his first sermon?</b></div>
 
-<label class="option">
-<input type="radio" name="q2" value="B">
-B. सारनाथ / Sarnath
-</label>
+    <label class="option" id="opt_2_A">
+    <input type="radio" name="q2" value="A"> A. बोधगया / Bodh Gaya
+    </label>
 
-<label class="option">
-<input type="radio" name="q2" value="C">
-C. कुशीनगर / Kushinagar
-</label>
+    <label class="option" id="opt_2_B">
+    <input type="radio" name="q2" value="B"> B. सारनाथ / Sarnath
+    </label>
 
-<label class="option">
-<input type="radio" name="q2" value="D">
-D. राजगीर / Rajgir
-</label>
+    <label class="option" id="opt_2_C">
+    <input type="radio" name="q2" value="C"> C. कुशीनगर / Kushinagar
+    </label>
 
-<div class="explanation" id="e2">
-<b class="correct">सही उत्तर / Correct Answer: B. सारनाथ / Sarnath</b>
-<br><br>
-<b>हिंदी व्याख्या:</b><br>
-ज्ञान प्राप्ति के बाद गौतम बुद्ध ने अपना प्रथम उपदेश सारनाथ के मृगदाव (ऋषिपत्तन) में अपने पांच शिष्यों को दिया। इस ऐतिहासिक घटना को बौद्ध ग्रंथों में 'धर्मचक्रप्रवर्तन' के नाम से जाना जाता है।
-<br><br>
-<b>English Explanation:</b><br>
-After attaining enlightenment, Gautama Buddha delivered his first sermon at Sarnath (Migadaya). This historic event is canonically known as the setting in motion of the Wheel of Dharma (Dharmachakra Pravartana).
-</div>
-</div>
+    <label class="option" id="opt_2_D">
+    <input type="radio" name="q2" value="D"> D. राजगीर / Rajgir
+    </label>
 
-<!-- QUESTION 3 -->
-<div class="question">
-<h3>
-Q3. मौर्य साम्राज्य की स्थापना किसने की थी?
-</h3>
-<div class="eng">
-<b>Q3. Who founded the Mauryan Empire?</b>
-</div>
+    <div class="explanation" id="e2">
+    <b class="correct">सही उत्तर / Correct Answer: B. सारनाथ / Sarnath</b>
+    <br><br>
+    <b>हिंदी व्याख्या:</b> gyan prapti ke baad gautam buddh ne apna pratham updesh sarnath ke mrigadav (rishipattan) mein apne panch shishyon ko diya. Is aitihasik ghatna ko 'dharmachakrapravartan' kehte hain.<br><br>
+    <b>English Explanation:</b> After attaining enlightenment, Gautama Buddha delivered his first sermon at Sarnath. This event is canonically known as the setting in motion of the Wheel of Dharma.
+    </div>
+    </div>
 
-<label class="option">
-<input type="radio" name="q3" value="A">
-A. अशोक / Ashoka
-</label>
+    <!-- QUESTION 3 -->
+    <div class="question" id="question_3">
+    <h3>Q3. मौर्य साम्राज्य की स्थापना किसने की थी?</h3>
+    <div class="eng"><b>Q3. Who founded the Mauryan Empire?</b></div>
 
-<label class="option">
-<input type="radio" name="q3" value="B">
-B. बिंदुसार / Bindusara
-</label>
+    <label class="option" id="opt_3_A">
+    <input type="radio" name="q3" value="A"> A. अशोक / Ashoka
+    </label>
 
-<label class="option">
-<input type="radio" name="q3" value="C">
-C. चंद्रगुप्त मौर्य / Chandragupta Maurya
-</label>
+    <label class="option" id="opt_3_B">
+    <input type="radio" name="q3" value="B"> B. बिंदुसार / Bindusara
+    </label>
 
-<label class="option">
-<input type="radio" name="q3" value="D">
-D. बृहद्रथ / Brihadratha
-</label>
+    <label class="option" id="opt_3_C">
+    <input type="radio" name="q3" value="C"> C. चंद्रगुप्त मौर्य / Chandragupta Maurya
+    </label>
 
-<div class="explanation" id="e3">
-<b class="correct">सही उत्तर / Correct Answer: C. चंद्रगुप्त मौर्य / Chandragupta Maurya</b>
-<br><br>
-<b>हिंदी व्याख्या:</b><br>
-चंद्रगुप्त मौर्य ने अपने गुरु चाणक्य (कौटिल्य) की सहायता से नंद वंश के अंतिम शासक घनानंद को पराजित कर लगभग 322 ईसा पूर्व मौर्य साम्राज्य की मजबूत स्थापना की थी।
-<br><br>
-<b>English Explanation:</b><br>
-Chandragupta Maurya founded the Mauryan Empire around 322 BCE by defeating Dhana Nanda, the last ruler of the Nanda dynasty, with the strategic assistance of his mentor Chanakya (Kautilya).
-</div>
-</div>
+    <label class="option" id="opt_3_D">
+    <input type="radio" name="q3" value="D"> D. बृहद्रथ / Brihadratha
+    </label>
 
-<!-- QUESTION 4 -->
-<div class="question">
-<h3>
-Q4. ‘इंडिका’ नामक पुस्तक के लेखक कौन थे?
-</h3>
-<div class="eng">
-<b>Q4. Who was the author of the book ‘Indica’?</b>
-</div>
+    <div class="explanation" id="e3">
+    <b class="correct">सही उत्तर / Correct Answer: C. चंद्रगुप्त मौर्य / Chandragupta Maurya</b>
+    <br><br>
+    <b>हिंदी व्याख्या:</b> chandragupta maurya ne apne guru chanakya (kautilya) ki sahayata se nand vansh ke antim shasak ghananand ko parajit kar lagbhag 322 isa purv maurya samrajya ki sthapna ki thi.<br><br>
+    <b>English Explanation:</b> Chandragupta Maurya founded the Mauryan Empire around 322 BCE by defeating Dhana Nanda with the strategic assistance of his mentor Chanakya (Kautilya).
+    </div>
+    </div>
 
-<label class="option">
-<input type="radio" name="q4" value="A">
-A. फाह्यान / Fa-Hien
-</label>
+    <!-- QUESTION 4 -->
+    <div class="question" id="question_4">
+    <h3>Q4. ‘इंडिका’ नामक पुस्तक के लेखक कौन थे?</h3>
+    <div class="eng"><b>Q4. Who was the author of the book ‘Indica’?</b></div>
 
-<label class="option">
-<input type="radio" name="q4" value="B">
-B. मेगस्थनीज / Megasthenes
-</label>
+    <label class="option" id="opt_4_A">
+    <input type="radio" name="q4" value="A"> A. फाह्यान / Fa-Hien
+    </label>
 
-<label class="option">
-<input type="radio" name="q4" value="C">
-C. ह्वेनसांग / Xuanzang
-</label>
+    <label class="option" id="opt_4_B">
+    <input type="radio" name="q4" value="B"> B. मेगस्थनीज / Megasthenes
+    </label>
 
-<label class="option">
-<input type="radio" name="q4" value="D">
-D. अलबरूनी / Al-Biruni
-</label>
+    <label class="option" id="opt_4_C">
+    <input type="radio" name="q4" value="C"> C. ह्वेनसांग / Xuanzang
+    </label>
 
-<div class="explanation" id="e4">
-<b class="correct">सही उत्तर / Correct Answer: B. मेगस्थनीज / Megasthenes</b>
-<br><br>
-<b>हिंदी व्याख्या:</b><br>
-मेगस्थनीज एक यूनानी राजदूत था, जिसे सेल्यूकस निकेटर ने चंद्रगुप्त मौर्य के दरबार में भेजा था। उसने मौर्यकालीन भारतीय समाज को सात श्रेणियों में विभाजित करते हुए अपनी पुस्तक ‘इंडिका’ में इसका विस्तृत वर्णन किया।
-<br><br>
-<b>English Explanation:</b><br>
-Megasthenes was a Greek ambassador sent by Seleucus Nicator to the court of Chandragupta Maurya. He recorded his observations of contemporary Indian society and administration in his work ‘Indica’.
-</div>
-</div>
+    <label class="option" id="opt_4_D">
+    <input type="radio" name="q4" value="D"> D. अलबरूनी / Al-Biruni
+    </label>
 
-<!-- QUESTION 5 -->
-<div class="question">
-<h3>
-Q5. कलिंग युद्ध के बाद सम्राट अशोक ने किस नीति को प्रमुखता दी?
-</h3>
-<div class="eng">
-<b>Q5. Which policy did Emperor Ashoka emphasize after the Kalinga War?</b>
-</div>
+    <div class="explanation" id="e4">
+    <b class="correct">सही उत्तर / Correct Answer: B. मेगस्थनीज / Megasthenes</b>
+    <br><br>
+    <b>हिंदी व्याख्या:</b> megasthenes ek yunani rajdut tha, jise seleucus nicator ne chandragupta maurya ke darbar mein bheja tha. Usne apni pustak ‘indica’ mein iska varnan kiya.<br><br>
+    <b>English Explanation:</b> Megasthenes was a Greek ambassador sent by Seleucus Nicator to the court of Chandragupta Maurya. He recorded his observations in his work ‘Indica’.
+    </div>
+    </div>
 
-<label class="option">
-<input type="radio" name="q5" value="A">
-A. दिग्विजय / Conquest by war
-</label>
+    <!-- QUESTION 5 -->
+    <div class="question" id="question_5">
+    <h3>Q5. कलिंग युद्ध के बाद सम्राट अशोक ने किस नीति को प्रमुखता दी?</h3>
+    <div class="eng"><b>Q5. Which policy did Emperor Ashoka emphasize after the Kalinga War?</b></div>
 
-<label class="option">
-<input type="radio" name="q5" value="B">
-B. धम्म / Dhamma
-</label>
+    <label class="option" id="opt_5_A">
+    <input type="radio" name="q5" value="A"> A. दिग्विजय / Conquest by war
+    </label>
 
-<label class="option">
-<input type="radio" name="q5" value="C">
-C. साम्राज्य विस्तार / Imperial expansion
-</label>
+    <label class="option" id="opt_5_B">
+    <input type="radio" name="q5" value="B"> B. धम्म / Dhamma
+    </label>
 
-<label class="option">
-<input type="radio" name="q5" value="D">
-D. समुद्री विजय / Naval conquest
-</label>
+    <label class="option" id="opt_5_C">
+    <input type="radio" name="q5" value="C"> C. साम्राज्य विस्तार / Imperial expansion
+    </label>
 
-<div class="explanation" id="e5">
-<b class="correct">सही उत्तर / Correct Answer: B. धम्म / Dhamma</b>
-<br><br>
-<b>हिंदी व्याख्या:</b><br>
-261 ईसा पूर्व में हुए कलिंग युद्ध के भीषण नरसंहार को देखकर सम्राट अशोक का हृदय परिवर्तन हुआ। उसने 'भेरीघोष' (युद्ध की नीति) को पूरी तरह त्यागकर 'धम्मघोष' (सांस्कृतिक व धार्मिक विजय) की नीति को अपनाया।
-<br><br>
-<b>English Explanation:</b><br>
-Witnessing the horizontal bloodshed of the Kalinga War (261 BCE), Emperor Ashoka abandoned the policy of physical expansion (Bherighosh) and formally embraced 'Dhamma' (Dhammaghosh) rooted in Buddhist moral philosophies.
-</div>
-</div>
-
-<button class="submit" id="submitBtn" onclick="calculateScore()">Submit Test / उत्तर सबमिट करें</button>
-
-<div class="result" id="resultBox"></div>
-
-</div>
-
-<script>
-function calculateScore() {
-    const totalQuestions = 5;
-    const correctAnswers = {
-        q1: 'C',
-        q2: 'B',
-        q3: 'C',
-        q4: 'B',
-        q5: 'B'
-    };
-    
-    let score = 0;
-    let answeredCount = 0;
-
-    for (let i = 1; i <= totalQuestions; i++) {
-        const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
-        if (selectedOption) {
-            answeredCount++;
-            if (selectedOption.value === correctAnswers[`q${i}`]) {
-                score++;
-            }
-        }
-        
-        // Show explanation for each question
-        const expBox = document.getElementById(`e${i}`);
-        if (expBox) {
-            expBox.style.display = 'block';
-        }
-    }
-
-if (answeredCount < totalQuestions) {alert("कृपया सभी प्रश्नों के उत्तर दें! / Please answer all questions!");return;}// Display Result Boxconst resultBox = document.getElementById('resultBox');resultBox.style.display = 'block';resultBox.innerHTML = आपका स्कोर: ${score} / ${totalQuestions} <br> <span style="font-size:15px; color:#555;">Your Score: ${score} out of ${totalQuestions}</span>;// Smooth scroll to the score resultresultBox.scrollIntoView({ behavior: 'smooth' });// Disable submit button after tracking scoredocument.getElementById('submitBtn').disabled = true;document.getElementById('submitBtn').style.background = '#888';document.getElementById('submitBtn').innerText = 'Test Submitted / टेस्ट सबमिट हो चुका है';}
+    <label class="option" id="opt_5_D">
+D. समुद्री विजय / Naval conquestसही उत्तर / Correct Answer: B. धम्म / Dhammaहिंदी व्याख्या: kaling yuddh (261 isa purv) ke bhishan narsamhar ko dekhkar samrat ashok ne 'bherighosh' ko tyagkar 'dhammaghosh' ki niti ko apnaya.English Explanation: Witnessing the horizontal bloodshed of the Kalinga War (261 BCE), Emperor Ashoka abandoned the policy of physical expansion and formally embraced 'Dhamma'.Submit Test / उत्तर सबमिट करेंDownload Score PDF / रिपोर्ट डाउनलोड करेंconst correctAnswers = { q1: 'C', q2: 'B', q3: 'C', q4: 'B', q5: 'B' };let finalScore = 0;let userSelections = {};function calculateScore() {const totalQuestions = 5;let answeredCount = 0;finalScore = 0;// Validate if all inputs are checkedfor (let i = 1; i <= totalQuestions; i++) {const checkedOpt = document.querySelector(input[name="q${i}"]:checked);if (checkedOpt) {answeredCount++;userSelections[q${i}] = checkedOpt.value;}}if (answeredCount < totalQuestions) {alert("कृपया सभी प्रश्नों के उत्तर दें! / Please answer all questions before submitting!");return;}// Color code and unlock explanationfor (let i = 1; i <= totalQuestions; i++) {const correctVal = correctAnswers[q${i}];const userVal = userSelections[q${i}];// Apply correct style to the actual correct option boxdocument.getElementById(opt_${i}_${correctVal}).classList.add('option-correct');if (userVal === correctVal) {finalScore++;} else {// Apply wrong style if the user picked a wrong onedocument.getElementById(opt_${i}_${userVal}).classList.add('option-wrong');}// Disable radio buttons inputsconst radios = document.getElementsByName(q${i});radios.forEach(radio => radio.disabled = true);// Display explanation divdocument.getElementById(e${i}).style.display = 'block';}// Render result dashboardconst resultBox = document.getElementById('resultBox');resultBox.style.display = 'block';resultBox.innerHTML = टेस्ट परिणाम (Test Result)<br><span style="font-size:24px; color:#1261a0;">Score: ${finalScore} / ${totalQuestions}</span>;// Toggle button layoutsdocument.getElementById('submitBtn').style.display = 'none';document.getElementById('downloadBtn').style.display = 'block';resultBox.scrollIntoView({ behavior: 'smooth' });}function generatePDF() {const { jsPDF } = window.jspdf;const doc = new jsPDF();// Header sectiondoc.setFont("Helvetica", "bold");doc.setFontSize(20);doc.setTextColor(18, 97, 160); // #1261a0doc.text("MPPSC Paid Prelims - Score Report", 14, 20);doc.setFontSize(12);doc.setTextColor(85, 85, 85);doc.setFont("Helvetica", "normal");doc.text("Unit 1: History of India (Test 02)", 14, 28);doc.text(Final Score: ${finalScore} / 5, 14, 35);doc.setDrawColor(18, 97, 160);doc.line(14, 40, 196, 40);let y = 50;const questionsText = {q1: "Q1. Indus Valley Port? (Ans: C. Lothal)",q2: "Q2. Buddha's First Sermon? (Ans: B. Sarnath)",q3: "q3. Mauryan Founder? (Ans: C. Chandragupta Maurya)",q4: "Q4. Author of Indica? (Ans: B. Megasthenes)",q5: "Q5. Ashoka's post-Kalinga policy? (Ans: B. Dhamma)"};for (let i = 1; i <= 5; i++) {if (y > 260) { doc.addPage(); y = 20; }doc.setFont("Helvetica", "bold");doc.setTextColor(0, 0, 0);doc.text(questionsText[q${i}], 14, y);y += 7;doc.setFont("Helvetica", "normal");const userChoice = userSelections[q${i}] || "None";const correctChoice = correctAnswers[q${i}];if (userChoice === correctChoice) {doc.setTextColor(22, 131, 59); // Greendoc.text(Your Answer: ${userChoice} (Correct), 14, y);} else {doc.setTextColor(197, 34, 31); // Reddoc.text(Your Answer: ${userChoice} (Incorrect), 14, y);}y += 12;}// Footnote disclaimer inside the report sheetif (y > 270) { doc.addPage(); y = 20; }doc.setFontSize(10);doc.setTextColor(120, 120, 120);doc.text("Generated via MPPSC MCQ Hub automated tracking portal.", 14, y + 10);// Save/Download output filedoc.save("MPPSC_P01T02_Result.pdf");}
