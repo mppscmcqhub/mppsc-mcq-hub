@@ -7,6 +7,7 @@
 
 <!-- jsPDF: Score PDF बनाने के लिए -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 <style>
 *{box-sizing:border-box}
@@ -585,40 +586,196 @@ function processSubmission() {
 function generatePDF() {
     if (!isSubmitted) return;
 
+    /*
+      PDF में अब हर प्रश्न:
+      1. पूरा प्रश्न (Hindi + English)
+      2. सभी options
+      3. User का दिया हुआ answer
+      4. Correct answer
+      5. Hindi explanation
+      6. English explanation
+      दिखाया जाएगा।
+
+      html2canvas का उपयोग इसलिए किया गया है ताकि Hindi/Devanagari
+      अक्षर PDF में सही दिखाई दें।
+    */
+
     const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
 
-    doc.setFont("Helvetica", "bold");
-    doc.setFontSize(20);
-    doc.setTextColor(18, 97, 160);
-    doc.text("MPPSC Paid Prelims - Score Report", 14, 20);
+    const report = document.createElement("div");
 
-    doc.setFontSize(12);
-    doc.setTextColor(85, 85, 85);
-    doc.setFont("Helvetica", "normal");
+    report.style.position = "fixed";
+    report.style.left = "-10000px";
+    report.style.top = "0";
+    report.style.width = "794px";
+    report.style.background = "#ffffff";
+    report.style.color = "#222";
+    report.style.padding = "40px";
+    report.style.fontFamily = 'Arial, "Noto Sans Devanagari", sans-serif';
+    report.style.fontSize = "15px";
+    report.style.lineHeight = "1.55";
+    report.style.zIndex = "-1";
 
-    doc.text("Unit 1: History of India (Test 02)", 14, 28);
-    doc.text(`Final Score: ${finalScore} / ${totalQuestions}`, 14, 35);
+    let questionsHTML = "";
 
-    doc.setDrawColor(18, 97, 160);
-    doc.line(14, 40, 196, 40);
+    for (let i = 1; i <= totalQuestions; i++) {
+        const questionBox = document.getElementById(`question_${i}`);
+        const questionTitle = questionBox.querySelector("h3")?.innerHTML || "";
+        const englishQuestion = questionBox.querySelector(".eng")?.innerHTML || "";
 
-    let y = 50;
+        const options = Array.from(
+            questionBox.querySelectorAll('label.option')
+        ).map(label => {
+            const input = label.querySelector("input");
+            const value = input ? input.value : "";
+            const text = label.innerText.replace(/\s+/g, " ").trim();
+            const selected = userSelections[`q${i}`] === value;
 
-    const questionsText = [
-        "Q1. Indus Valley Port? (Ans: C. Lothal)",
-        "Q2. Buddha's First Sermon? (Ans: B. Sarnath)",
-        "Q3. Mauryan Founder? (Ans: C. Chandragupta Maurya)",
-        "Q4. Author of Indica? (Ans: B. Megasthenes)",
-        "Q5. Ashoka's post-Kalinga policy? (Ans: B. Dhamma)"
-    ];
+            return `
+                <div style="
+                    padding:8px 10px;
+                    margin:5px 0;
+                    border:1px solid #d9d9d9;
+                    border-radius:6px;
+                    ${selected ? "background:#fff3cd;" : ""}
+                ">
+                    ${selected ? "✓ " : ""}${text}
+                    ${selected ? " <b>(आपका उत्तर / Your Answer)</b>" : ""}
+                </div>
+            `;
+        }).join("");
 
-    questionsText.forEach(text => {
-        doc.text(text, 14, y);
-        y += 10;
+        const correctVal = correctAnswers[`q${i}`];
+        const correctLabel = document.getElementById(`opt_${i}_${correctVal}`);
+        const correctText = correctLabel
+            ? correctLabel.innerText.replace(/\s+/g, " ").trim()
+            : correctVal;
+
+        const explanation = document.getElementById(`e${i}`);
+        const explanationHTML = explanation ? explanation.innerHTML : "";
+
+        const userVal = userSelections[`q${i}`];
+        const isCorrect = userVal === correctVal;
+
+        questionsHTML += `
+            <div style="
+                border:1px solid #d7e3ef;
+                border-radius:10px;
+                padding:18px;
+                margin:0 0 18px 0;
+                page-break-inside:avoid;
+                background:#fff;
+            ">
+                <div style="
+                    font-size:18px;
+                    font-weight:bold;
+                    color:#1261a0;
+                    margin-bottom:7px;
+                ">
+                    ${questionTitle}
+                </div>
+
+                <div style="font-weight:bold; color:#444; margin-bottom:10px;">
+                    ${englishQuestion}
+                </div>
+
+                ${options}
+
+                <div style="
+                    margin-top:12px;
+                    padding:9px 12px;
+                    border-radius:6px;
+                    background:${isCorrect ? "#e6f4ea" : "#fce8e6"};
+                    color:${isCorrect ? "#137333" : "#c5221f"};
+                    font-weight:bold;
+                ">
+                    ${isCorrect ? "✓ सही उत्तर दिया / Correct Answer Given" : "✗ गलत उत्तर / Incorrect Answer"}
+                    <br>
+                    सही उत्तर / Correct Answer: ${correctText}
+                    <br>
+                    आपका उत्तर / Your Answer:
+                    ${userVal === "None" ? "उत्तर नहीं दिया / Not Answered" : (userVal || "उत्तर नहीं दिया / Not Answered")}
+                </div>
+
+                <div style="
+                    margin-top:12px;
+                    padding:12px;
+                    background:#f0f8ff;
+                    border-left:4px solid #1261a0;
+                    border-radius:6px;
+                ">
+                    ${explanationHTML}
+                </div>
+            </div>
+        `;
+    }
+
+    report.innerHTML = `
+        <div style="text-align:center; border-bottom:2px solid #1261a0; padding-bottom:15px; margin-bottom:20px;">
+            <div style="font-size:27px; font-weight:bold; color:#1261a0;">
+                MPPSC Paid Prelims - Score Report
+            </div>
+            <div style="font-size:16px; margin-top:8px;">
+                Unit 1: History of India (Test 02)
+            </div>
+            <div style="font-size:19px; font-weight:bold; margin-top:8px;">
+                Final Score: ${finalScore} / ${totalQuestions}
+            </div>
+            <div style="font-size:16px; margin-top:4px;">
+                Percentage: ${Math.round((finalScore / totalQuestions) * 100)}%
+            </div>
+        </div>
+
+        <div style="font-size:20px; font-weight:bold; color:#1261a0; margin-bottom:15px;">
+            सभी प्रश्न, उत्तर एवं व्याख्या / All Questions, Answers & Explanations
+        </div>
+
+        ${questionsHTML}
+
+        <div style="
+            margin-top:20px;
+            padding:12px;
+            border-radius:7px;
+            background:#e8f2ff;
+            color:#1261a0;
+            text-align:center;
+            font-weight:bold;
+        ">
+            MPPSC MCQ Hub V14 — P01T02
+        </div>
+    `;
+
+    document.body.appendChild(report);
+
+    const doc = new jsPDF({
+        orientation: "portrait",
+        unit: "mm",
+        format: "a4"
     });
 
-    doc.save("MPPSC_Score_Report.pdf");
+    doc.setProperties({
+        title: "MPPSC Paid Prelims - P01T02 Score Report",
+        subject: "Questions, Answers and Explanations",
+        author: "MPPSC MCQ Hub V14"
+    });
+
+    doc.html(report, {
+        x: 8,
+        y: 8,
+        width: 194,
+        windowWidth: 794,
+        autoPaging: "text",
+        margin: [8, 8, 8, 8],
+        html2canvas: {
+            scale: 0.8,
+            useCORS: true,
+            backgroundColor: "#ffffff"
+        },
+        callback: function(pdf) {
+            document.body.removeChild(report);
+            pdf.save("MPPSC_P01T02_Score_Report_With_Explanations.pdf");
+        }
+    });
 }
 </script>
 
