@@ -4,14 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>P01T01 - MPPSC Paid Prelims</title>
+<title>P01T01 - MPPSC Prelims 2027</title>
+
+<!-- PDF बनाने के लिए -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <style>
-*{box-sizing:border-box}
+*{
+    box-sizing:border-box;
+}
 
 body{
     margin:0;
-    font-family:Arial,"Noto Sans Devanagari",sans-serif;
+    font-family:Arial,"Noto Sans Devanagari","Mangal",sans-serif;
     background:#f4f7fb;
     color:#222;
 }
@@ -57,14 +63,14 @@ header{
 }
 
 .container{
-    max-width:900px;
+    max-width:950px;
     margin:25px auto;
     padding:0 15px;
 }
 
 .hero{
     background:white;
-    padding:22px;
+    padding:24px;
     border-radius:14px;
     text-align:center;
     box-shadow:0 3px 12px rgba(0,0,0,.08);
@@ -77,24 +83,33 @@ header{
 }
 
 .hero p{
-    margin:5px;
+    margin:6px;
     color:#666;
 }
 
 .code{
     display:inline-block;
     margin-top:10px;
-    padding:7px 14px;
+    padding:7px 15px;
     border-radius:20px;
     background:#e8f2ff;
     color:#1261a0;
     font-weight:bold;
 }
 
+.info{
+    background:#fff8e1;
+    border-left:5px solid #ff9800;
+    padding:14px;
+    border-radius:8px;
+    margin-bottom:20px;
+    line-height:1.6;
+}
+
 .question{
     background:white;
     margin-bottom:18px;
-    padding:20px;
+    padding:22px;
     border-radius:12px;
     box-shadow:0 3px 10px rgba(0,0,0,.07);
 }
@@ -102,42 +117,138 @@ header{
 .question h3{
     margin-top:0;
     color:#1261a0;
+    line-height:1.6;
+}
+
+.statement{
+    background:#f7f9fc;
+    border-left:4px solid #1261a0;
+    padding:13px;
+    margin:12px 0;
+    border-radius:5px;
+    line-height:1.65;
 }
 
 .option{
     display:block;
-    padding:10px 12px;
-    margin:8px 0;
+    padding:12px;
+    margin:9px 0;
     border:1px solid #ddd;
-    border-radius:7px;
+    border-radius:8px;
     cursor:pointer;
+    transition:.2s;
+    line-height:1.5;
 }
 
 .option:hover{
     background:#f0f7ff;
+    border-color:#1261a0;
+}
+
+.option input{
+    margin-right:8px;
 }
 
 .submit{
     width:100%;
-    padding:14px;
+    padding:15px;
     border:0;
     border-radius:8px;
     background:#1261a0;
     color:white;
-    font-size:17px;
+    font-size:18px;
     font-weight:bold;
     cursor:pointer;
 }
 
+.submit:hover{
+    background:#0d4f84;
+}
+
 .result{
     margin-top:20px;
-    padding:18px;
+    padding:22px;
     background:white;
     border-radius:12px;
-    text-align:center;
-    font-size:18px;
-    font-weight:bold;
     display:none;
+    box-shadow:0 3px 10px rgba(0,0,0,.07);
+}
+
+.score{
+    text-align:center;
+    font-size:25px;
+    font-weight:bold;
+    color:#1261a0;
+    margin-bottom:20px;
+}
+
+.review{
+    margin-top:18px;
+    padding:18px;
+    border-radius:10px;
+    border:1px solid #ddd;
+}
+
+.correct{
+    background:#e9f8ee;
+    border-left:5px solid #20a05a;
+}
+
+.wrong{
+    background:#fff0f0;
+    border-left:5px solid #d93025;
+}
+
+.answer{
+    font-weight:bold;
+    color:#1261a0;
+}
+
+.explanation{
+    margin-top:12px;
+    line-height:1.7;
+}
+
+.pdf-btn{
+    width:100%;
+    padding:15px;
+    border:0;
+    border-radius:8px;
+    background:#198754;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:20px;
+}
+
+.pdf-btn:hover{
+    background:#146c43;
+}
+
+.note{
+    text-align:center;
+    color:#777;
+    font-size:13px;
+    margin-top:20px;
+}
+
+@media(max-width:600px){
+    header{
+        padding:10px;
+    }
+
+    .brand h2{
+        font-size:15px;
+    }
+
+    .back{
+        font-size:12px;
+    }
+
+    .question{
+        padding:16px;
+    }
 }
 </style>
 </head>
@@ -146,56 +257,100 @@ header{
 
 <header>
 
-    <div class="brand">
-        <div class="logo">MPPSC</div>
-        <h2>MPPSC MCQ Hub V14</h2>
-    </div>
+<div class="brand">
+    <div class="logo">MPPSC</div>
+    <h2>MPPSC MCQ Hub</h2>
+</div>
 
-    <a class="back" href="../index.html">
-        ← Back to Unit 1
-    </a>
+<a class="back" href="../index.html">
+    ← Unit 1
+</a>
 
 </header>
+
 
 <div class="container">
 
 <section class="hero">
 
-    <h1>Paid Course MPPSC 2027</h1>
+<h1>MPPSC Prelims 2027</h1>
 
-    <p>Unit 1 — भारत का इतिहास</p>
+<p><strong>Unit 1 — भारत का इतिहास | History of India</strong></p>
 
-    <p><strong>Test 01</strong></p>
+<p><strong>Test 01 — Hard Level</strong></p>
 
-    <div class="code">P01T01</div>
+<div class="code">P01T01</div>
 
 </section>
+
+
+<div class="info">
+
+<strong>निर्देश / Instructions:</strong><br>
+
+यह एक Hard-level practice test है।
+सभी प्रश्नों को ध्यानपूर्वक पढ़ें।
+सही विकल्प चुनने के बाद <strong>Submit Test</strong> दबाएँ।
+<br><br>
+
+<strong>महत्वपूर्ण:</strong>
+सही उत्तर और Explanation केवल Test Submit करने के बाद दिखाई देंगे।
+
+</div>
 
 
 <!-- QUESTION 1 -->
 
 <div class="question">
 
-<h3>Q1. अंतर्राज्यीय नदी जल विवादों के संबंध में संविधान का कौन-सा अनुच्छेद है?</h3>
+<h3>
+Q1. निम्नलिखित कथनों पर विचार कीजिए:
+<br>
+Consider the following statements:
+</h3>
+
+<div class="statement">
+
+<strong>1.</strong> अशोक के अधिकांश शिलालेख प्राकृत भाषा में ब्राह्मी लिपि में लिखे गए थे।
+<br>
+Most of Ashoka's inscriptions were written in Prakrit using the Brahmi script.
+
+<br><br>
+
+<strong>2.</strong> उत्तर-पश्चिमी क्षेत्रों में अशोक के कुछ अभिलेख खरोष्ठी लिपि में भी मिले हैं।
+<br>
+Some of Ashoka's inscriptions in the north-western regions were also written in the Kharosthi script.
+
+<br><br>
+
+<strong>3.</strong> अशोक के सभी अभिलेख केवल धार्मिक उपदेशों तक सीमित थे।
+<br>
+All of Ashoka's inscriptions were confined exclusively to religious teachings.
+
+</div>
+
+<strong>उपरोक्त में से कौन-से कथन सही हैं?</strong>
+<br>
+Which of the statements given above are correct?
 
 <label class="option">
 <input type="radio" name="q1" value="A">
-A. अनुच्छेद 261
+A. केवल 1 और 2 / 1 and 2 only
 </label>
 
 <label class="option">
 <input type="radio" name="q1" value="B">
-B. अनुच्छेद 262
+केवल 2 और 3 / 2 and 3 only
 </label>
 
 <label class="option">
 <input type="radio" name="q1" value="C">
-C. अनुच्छेद 263
+केवल 1 और 3 / 1 and 3 only
 </label>
 
 <label class="option">
 <input type="radio" name="q1" value="D">
-D. अनुच्छेद 264
+1, 2 और 3 / 1, 2 and 3
 </label>
 
 </div>
@@ -205,26 +360,38 @@ D. अनुच्छेद 264
 
 <div class="question">
 
-<h3>Q2. मध्यप्रदेश लोक सेवाओं के प्रदान की गारंटी अधिनियम किस वर्ष लागू हुआ?</h3>
+<h3>
+Q2. भारतीय राष्ट्रीय आंदोलन के संदर्भ में निम्नलिखित में से कौन-सा युग्म सही सुमेलित है?
+<br>
+With reference to the Indian National Movement, which of the following pairs is correctly matched?
+</h3>
 
 <label class="option">
 <input type="radio" name="q2" value="A">
-A. 2008
+A. स्वदेशी आंदोलन — बंगाल विभाजन के विरोध से संबंधित
+<br>
+Swadeshi Movement — Associated with opposition to the Partition of Bengal
 </label>
 
 <label class="option">
 <input type="radio" name="q2" value="B">
-B. 2009
+B. होमरूल आंदोलन — 1857 के विद्रोह के तुरंत बाद प्रारंभ
+<br>
+Home Rule Movement — Started immediately after the Revolt of 1857
 </label>
 
 <label class="option">
 <input type="radio" name="q2" value="C">
-C. 2010
+C. असहयोग आंदोलन — साइमन कमीशन के विरोध में प्रारंभ
+<br>
+Non-Cooperation Movement — Started in opposition to the Simon Commission
 </label>
 
 <label class="option">
 <input type="radio" name="q2" value="D">
-D. 2011
+D. भारत छोड़ो आंदोलन — रॉलेट एक्ट के विरोध में प्रारंभ
+<br>
+Quit India Movement — Started in opposition to the Rowlatt Act
 </label>
 
 </div>
@@ -234,26 +401,52 @@ D. 2011
 
 <div class="question">
 
-<h3>Q3. पंचायती राज संस्थाओं से संबंधित विषय किस अनुसूची में दिए गए हैं?</h3>
+<h3>
+Q3. निम्नलिखित कथनों पर विचार कीजिए:
+<br>
+Consider the following statements regarding the Gupta period:
+</h3>
+
+<div class="statement">
+
+<strong>1.</strong> गुप्त काल में संस्कृत साहित्य और विज्ञान के क्षेत्र में महत्वपूर्ण विकास हुआ।
+<br>
+The Gupta period witnessed significant developments in Sanskrit literature and sciences.
+
+<br><br>
+
+<strong>2.</strong> आर्यभट का संबंध इसी व्यापक कालखंड से माना जाता है।
+<br>
+Aryabhata is associated with this broad historical period.
+
+<br><br>
+
+<strong>3.</strong> गुप्त शासकों ने भारत में पहली बार सिक्कों का प्रयोग शुरू किया।
+<br>
+The Gupta rulers introduced coinage in India for the first time.
+
+</div>
+
+<strong>सही उत्तर चुनिए / Choose the correct answer:</strong>
 
 <label class="option">
 <input type="radio" name="q3" value="A">
-A. 9वीं अनुसूची
+A. केवल 1 / 1 only
 </label>
 
 <label class="option">
 <input type="radio" name="q3" value="B">
-B. 10वीं अनुसूची
+केवल 1 और 2 / 1 and 2 only
 </label>
 
 <label class="option">
 <input type="radio" name="q3" value="C">
-C. 11वीं अनुसूची
+केवल 2 और 3 / 2 and 3 only
 </label>
 
 <label class="option">
 <input type="radio" name="q3" value="D">
-D. 12वीं अनुसूची
+1, 2 और 3 / 1, 2 and 3
 </label>
 
 </div>
@@ -263,26 +456,38 @@ D. 12वीं अनुसूची
 
 <div class="question">
 
-<h3>Q4. मध्यप्रदेश के छठे लोकायुक्त के रूप में किसे नियुक्त किया गया था?</h3>
+<h3>
+Q4. मध्यकालीन भारत के संदर्भ में निम्नलिखित में से कौन-सा कथन सही है?
+<br>
+With reference to Medieval India, which of the following statements is correct?
+</h3>
 
 <label class="option">
 <input type="radio" name="q4" value="A">
-A. न्यायमूर्ति आर. डी. शुक्ला
+A. इक्ता व्यवस्था मुख्यतः प्रशासनिक एवं राजस्व व्यवस्था से संबंधित थी।
+<br>
+The Iqta system was primarily associated with administrative and revenue arrangements.
 </label>
 
 <label class="option">
 <input type="radio" name="q4" value="B">
-B. न्यायमूर्ति नरेश कुमार गुप्ता
+B. इक्ता व्यवस्था केवल धार्मिक संस्थाओं के प्रबंधन के लिए बनाई गई थी।
+<br>
+The Iqta system was created exclusively for managing religious institutions.
 </label>
 
 <label class="option">
 <input type="radio" name="q4" value="C">
-C. न्यायमूर्ति ए. के. पटनायक
+C. इक्ता व्यवस्था का दिल्ली सल्तनत से कोई संबंध नहीं था।
+<br>
+The Iqta system had no connection with the Delhi Sultanate.
 </label>
 
 <label class="option">
 <input type="radio" name="q4" value="D">
-D. न्यायमूर्ति दीपक वर्मा
+D. इक्ता व्यवस्था केवल मुगल काल में शुरू हुई।
+<br>
+The Iqta system originated only during the Mughal period.
 </label>
 
 </div>
@@ -292,80 +497,412 @@ D. न्यायमूर्ति दीपक वर्मा
 
 <div class="question">
 
-<h3>Q5. राज्य में मुख्यमंत्री की नियुक्ति कौन करता है?</h3>
+<h3>
+Q5. निम्नलिखित में से कौन-सा युग्म गलत सुमेलित है?
+<br>
+Which of the following pairs is incorrectly matched?
+</h3>
 
 <label class="option">
 <input type="radio" name="q5" value="A">
-A. राष्ट्रपति
+A. हड़प्पा सभ्यता — नगरीय नियोजन
+<br>
+Harappan Civilization — Urban planning
 </label>
 
 <label class="option">
 <input type="radio" name="q5" value="B">
-B. राज्यपाल
+B. बौद्ध धर्म — अष्टांगिक मार्ग
+<br>
+Buddhism — Eightfold Path
 </label>
 
 <label class="option">
 <input type="radio" name="q5" value="C">
-C. विधानसभा अध्यक्ष
+C. जैन धर्म — त्रिरत्न
+<br>
+Jainism — Three Jewels
 </label>
 
 <label class="option">
 <input type="radio" name="q5" value="D">
-D. मुख्य न्यायाधीश
+D. संगम साहित्य — फारसी भाषा में रचित
+<br>
+Sangam Literature — Written in the Persian language
 </label>
 
 </div>
 
 
-<button class="submit" onclick="checkAnswers()">
+<button class="submit" id="submitBtn" onclick="checkAnswers()">
 Submit Test
 </button>
 
-<div class="result" id="result"></div>
+
+<div class="result" id="result">
+
+<div class="score" id="score"></div>
+
+<div id="review"></div>
+
+<button class="pdf-btn" onclick="generatePDF()">
+📄 Download Result PDF
+</button>
+
+<p class="note">
+PDF केवल Test Submit करने के बाद उपलब्ध है।
+</p>
+
+</div>
 
 </div>
 
 
 <script>
 
+const questions = [
+
+{
+    id:"q1",
+    answer:"A",
+    correctText:"A. केवल 1 और 2 / 1 and 2 only",
+    explanationHindi:
+    "कथन 1 और 2 सही हैं। अशोक के अभिलेखों में ब्राह्मी का व्यापक प्रयोग हुआ था तथा उत्तर-पश्चिमी क्षेत्रों में खरोष्ठी लिपि के उदाहरण मिलते हैं। कथन 3 गलत है क्योंकि अशोक के अभिलेखों में प्रशासन, नैतिक आचरण, प्रजा-कल्याण और धम्म से संबंधित विभिन्न विषय मिलते हैं।",
+    explanationEnglish:
+    "Statements 1 and 2 are correct. Brahmi was widely used in Ashoka's inscriptions, while Kharosthi was used in the north-western regions. Statement 3 is incorrect because Ashokan inscriptions covered administration, welfare, ethical conduct and Dhamma, and were not restricted exclusively to religious teachings."
+},
+
+{
+    id:"q2",
+    answer:"A",
+    correctText:"A. स्वदेशी आंदोलन — बंगाल विभाजन के विरोध से संबंधित / Swadeshi Movement — Opposition to Partition of Bengal",
+    explanationHindi:
+    "स्वदेशी आंदोलन 1905 में बंगाल विभाजन के विरोध से जुड़ा था। इसका प्रमुख उद्देश्य विदेशी वस्तुओं के बहिष्कार और स्वदेशी वस्तुओं के प्रोत्साहन के माध्यम से औपनिवेशिक आर्थिक व्यवस्था का विरोध करना था। अन्य विकल्पों में आंदोलनों और घटनाओं का गलत काल-संबंध दिया गया है।",
+    explanationEnglish:
+    "The Swadeshi Movement was closely associated with the opposition to the Partition of Bengal in 1905. It emphasized boycott of foreign goods and promotion of indigenous products. The other options incorrectly associate movements with events from different periods."
+},
+
+{
+    id:"q3",
+    answer:"B",
+    correctText:"B. केवल 1 और 2 / 1 and 2 only",
+    explanationHindi:
+    "कथन 1 और 2 सही हैं। गुप्त काल में संस्कृत साहित्य, गणित और खगोल विज्ञान में महत्वपूर्ण प्रगति हुई तथा आर्यभट इसी व्यापक ऐतिहासिक कालखंड से संबंधित हैं। कथन 3 गलत है क्योंकि भारत में सिक्कों का प्रयोग गुप्तों से बहुत पहले विभिन्न प्राचीन राज्यों और विशेष रूप से मौर्य-पूर्व एवं मौर्य काल में भी मिलता है।",
+    explanationEnglish:
+    "Statements 1 and 2 are correct. The Gupta period witnessed important developments in Sanskrit literature, mathematics and astronomy, and Aryabhata belongs broadly to this historical period. Statement 3 is incorrect because coinage was used in India much before the Guptas, including during earlier historical periods."
+},
+
+{
+    id:"q4",
+    answer:"A",
+    correctText:"A. इक्ता व्यवस्था प्रशासनिक एवं राजस्व व्यवस्था से संबंधित थी / Iqta system was associated with administration and revenue",
+    explanationHindi:
+    "इक्ता व्यवस्था दिल्ली सल्तनत की प्रशासनिक और राजस्व व्यवस्था का एक महत्वपूर्ण हिस्सा थी। इक्तादार को किसी क्षेत्र से राजस्व प्राप्त करने तथा प्रशासनिक दायित्व निभाने का अधिकार दिया जाता था। इसे आधुनिक अर्थ में निजी भूमि-स्वामित्व समझना उचित नहीं है।",
+    explanationEnglish:
+    "The Iqta system formed an important part of the administrative and revenue structure of the Delhi Sultanate. An Iqtadar was assigned revenue rights over a territory along with administrative responsibilities. It should not be understood simply as modern private ownership of land."
+},
+
+{
+    id:"q5",
+    answer:"D",
+    correctText:"D. संगम साहित्य — फारसी भाषा में रचित / Sangam Literature — Written in Persian",
+    explanationHindi:
+    "विकल्प D गलत सुमेलित है। संगम साहित्य प्राचीन दक्षिण भारत, विशेषकर तमिल क्षेत्र की साहित्यिक परंपरा से संबंधित है और इसका प्रमुख माध्यम तमिल भाषा थी। इसलिए इसे फारसी भाषा में रचित बताना गलत है।",
+    explanationEnglish:
+    "Option D is incorrectly matched. Sangam literature belongs to the ancient literary tradition of South India, particularly the Tamil region, and was primarily composed in Tamil. Therefore, associating it with the Persian language is incorrect."
+}
+
+];
+
+
+let submitted = false;
+
+
 function checkAnswers(){
 
-    const answers = {
-        q1:"B",
-        q2:"C",
-        q3:"C",
-        q4:"B",
-        q5:"B"
-    };
-
-    let score = 0;
-
-    for(let q in answers){
-
-        const selected =
-            document.querySelector(
-                'input[name="'+q+'"]:checked'
-            );
-
-        if(selected && selected.value === answers[q]){
-            score++;
-        }
+    if(submitted){
+        return;
     }
 
+    let score = 0;
+    let unanswered = [];
+
+    questions.forEach((q,index)=>{
+
+        const selected =
+        document.querySelector(
+            'input[name="'+q.id+'"]:checked'
+        );
+
+        if(!selected){
+
+            unanswered.push(index+1);
+
+        }else if(selected.value === q.answer){
+
+            score++;
+
+        }
+
+    });
+
+
+    if(unanswered.length > 0){
+
+        alert(
+            "कृपया सभी प्रश्नों के उत्तर दें।\n\n" +
+            "Please answer all questions.\n\n" +
+            "अनुत्तरित प्रश्न / Unanswered Questions: " +
+            unanswered.join(", ")
+        );
+
+        return;
+    }
+
+
+    submitted = true;
+
+    document.querySelectorAll("input").forEach(input=>{
+        input.disabled = true;
+    });
+
+    document.getElementById("submitBtn").disabled = true;
+    document.getElementById("submitBtn").style.opacity = "0.6";
+
+
     const result =
-        document.getElementById("result");
+    document.getElementById("result");
 
-    result.style.display="block";
+    const scoreBox =
+    document.getElementById("score");
 
-    result.innerHTML =
-        "आपका Score: " +
-        score +
-        " / 5";
+    scoreBox.innerHTML =
+    "आपका Score / Your Score: " +
+    score +
+    " / 5";
+
+
+    let reviewHTML = "";
+
+
+    questions.forEach((q,index)=>{
+
+        const selected =
+        document.querySelector(
+            'input[name="'+q.id+'"]:checked'
+        );
+
+        const isCorrect =
+        selected.value === q.answer;
+
+
+        reviewHTML += `
+
+        <div class="review ${isCorrect ? 'correct' : 'wrong'}">
+
+            <h3>
+            Q${index+1}.
+            ${isCorrect ? "✅ सही / Correct" : "❌ गलत / Incorrect"}
+            </h3>
+
+            <p>
+            <strong>आपका उत्तर / Your Answer:</strong>
+            ${selected.value}
+            </p>
+
+            <p class="answer">
+            सही उत्तर / Correct Answer:
+            ${q.correctText}
+            </p>
+
+            <div class="explanation">
+
+            <strong>हिन्दी Explanation:</strong><br>
+            ${q.explanationHindi}
+
+            <br><br>
+
+            <strong>English Explanation:</strong><br>
+            ${q.explanationEnglish}
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+
+    document.getElementById("review").innerHTML =
+    reviewHTML;
+
+    result.style.display = "block";
+
 
     window.scrollTo({
         top:document.body.scrollHeight,
         behavior:"smooth"
     });
+
+}
+
+
+/* PDF GENERATION */
+
+async function generatePDF(){
+
+    if(!submitted){
+
+        alert(
+            "पहले Test Submit करें।\n\n" +
+            "Please submit the test first."
+        );
+
+        return;
+    }
+
+
+    const result =
+    document.getElementById("result");
+
+
+    const pdfButton =
+    document.querySelector(".pdf-btn");
+
+
+    pdfButton.innerText =
+    "PDF तैयार हो रही है...";
+
+
+    pdfButton.disabled = true;
+
+
+    try{
+
+        const canvas =
+        await html2canvas(result,{
+            scale:2,
+            useCORS:true,
+            backgroundColor:"#ffffff"
+        });
+
+
+        const imgData =
+        canvas.toDataURL("image/png");
+
+
+        const {
+            jsPDF
+        } = window.jspdf;
+
+
+        const pdf =
+        new jsPDF(
+            "p",
+            "mm",
+            "a4"
+        );
+
+
+        const pageWidth =
+        pdf.internal.pageSize.getWidth();
+
+
+        const pageHeight =
+        pdf.internal.pageSize.getHeight();
+
+
+        const margin = 8;
+
+
+        const imgWidth =
+        pageWidth - (margin * 2);
+
+
+        const imgHeight =
+        canvas.height *
+        imgWidth /
+        canvas.width;
+
+
+        let heightLeft =
+        imgHeight;
+
+
+        let position = margin;
+
+
+        pdf.setFontSize(16);
+
+        pdf.text(
+            "MPPSC Prelims 2027 - P01T01",
+            margin,
+            8
+        );
+
+
+        position = 12;
+
+
+        pdf.addImage(
+            imgData,
+            "PNG",
+            margin,
+            position,
+            imgWidth,
+            imgHeight
+        );
+
+
+        heightLeft -=
+        pageHeight - position;
+
+
+        while(heightLeft > 0){
+
+            position =
+            heightLeft -
+            imgHeight;
+
+            pdf.addPage();
+
+            pdf.addImage(
+                imgData,
+                "PNG",
+                margin,
+                position,
+                imgWidth,
+                imgHeight
+            );
+
+            heightLeft -=
+            pageHeight;
+
+        }
+
+
+        pdf.save(
+            "MPPSC_P01T01_Result.pdf"
+        );
+
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(
+            "PDF बनाने में समस्या हुई। कृपया Internet connection check करें और फिर कोशिश करें।"
+        );
+
+    }
+
+
+    pdfButton.innerText =
+    "📄 Download Result PDF";
+
+    pdfButton.disabled = false;
+
 }
 
 </script>
