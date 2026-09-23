@@ -6,7 +6,7 @@
 
 <title>P01T02 - MPPSC Paid Prelims</title>
 
-<!-- PDF जनरेशन के लिए आवश्यक jsPDF लाइब्रेरी का विनियामक समावेशन -->
+<!-- PDF जनरेशन के लिए आवश्यक jsPDF लाइब्रेरी का समावेशन -->
 <script src="https://cloudflare.com"></script>
 
 <style>
@@ -147,7 +147,6 @@ header{
     font-weight:bold;
 }
 
-/* सबमिट के बाद सही और गलत विकल्पों की रंगीन कोडिंग */
 .option-correct {
     background: #e6f4ea !important;
     border-color: #57b87a !important;
@@ -191,7 +190,7 @@ header{
 .download-btn {
     background: #16833b;
     color: white;
-    display: none; /* केवल सबमिशन के बाद दिखाई देगा */
+    display: none;
 }
 
 .download-btn:hover {
@@ -341,7 +340,7 @@ header{
     <div class="eng"><b>Q4. Who was the author of the book ‘Indica’?</b></div>
 
     <label class="option" id="opt_4_A">
-    <input type="radio" name="q4" value="A"> A. फाह्यान / Fa-Hien
+    <input type="radio" name="q4" value="A"> A. कौटिल्य / Kautilya
     </label>
 
     <label class="option" id="opt_4_B">
@@ -349,18 +348,18 @@ header{
     </label>
 
     <label class="option" id="opt_4_C">
-    <input type="radio" name="q4" value="C"> C. ह्वेनसांग / Xuanzang
+    <input type="radio" name="q4" value="C"> C. अल-बरूनी / Al-Biruni
     </label>
 
     <label class="option" id="opt_4_D">
-    <input type="radio" name="q4" value="D"> D. अलबरूनी / Al-Biruni
+    <input type="radio" name="q4" value="D"> D. फाहियान / Faxian
     </label>
 
     <div class="explanation" id="e4">
     <b class="correct">सही उत्तर / Correct Answer: B. मेगस्थनीज / Megasthenes</b>
     <br><br>
-    <b>हिंदी व्याख्या:</b> मेगस्थनीज एक यूनानी राजदूत था, जिसे सेल्यूकस निकेटर ने चंद्रगुप्त मौर्य के दरबार में भेजा था। उसने भारत के बारे में अपने अनुभवों को अपनी प्रसिद्ध पुस्तक ‘इंडिका’ में वर्णित किया।<br><br>
-    <b>English Explanation:</b> Megasthenes was a Greek ambassador sent by Seleucus Nicator to the court of Chandragupta Maurya. He recorded his observations in his work ‘Indica’.
+    <b>हिंदी व्याख्या:</b> 'इंडिका' मौर्यकालीन भारत का एक महत्वपूर्ण स्रोत है, जिसे यूनानी राजदूत मेगस्थनीज ने लिखा था। वह चंद्रगुप्त मौर्य के दरबार में आया था।<br><br>
+    <b>English Explanation:</b> 'Indica' is a vital historical source for the Mauryan era, authored by the Greek ambassador Megasthenes, who visited the court of Chandrapugta Maurya.
     </div>
     </div>
 
@@ -381,5 +380,7 @@ header{
     <input type="radio" name="q5" value="C"> C. साम्राज्य विस्तार / Imperial expansion
     </label>
 
-    <label class="option" id="opt_5_D">
-B. धम्म / Dhammaसही उत्तर / Correct Answer: B. धम्म / Dhammaहिंदी व्याख्या: 261 ईसा पूर्व में हुए कलिंग युद्ध के भीषण नरसंहार को देखकर सम्राट अशोक का हृदय परिवर्तन हुआ। उसने 'भेरीघोष' को पूरी तरह त्यागकर 'धम्मघोष' (धम्म) की नीति को अपनाया।English Explanation: Witnessing the horizontal bloodshed of the Kalinga War (261 BCE), Emperor Ashoka abandoned the policy of physical expansion and formally embraced 'Dhamma'.Submit Test / उत्तर सबमिट करेंDownload Score PDF / रिपोर्ट डाउनलोड करेंconst correctAnswers = { q1: 'C', q2: 'B', q3: 'C', q4: 'B', q5: 'B' };let finalScore = 0;let userSelections = {};function calculateScore() {const totalQuestions = 5;let answeredCount = 0;finalScore = 0;// Validate selectionsfor (let i = 1; i <= totalQuestions; i++) {const checkedOpt = document.querySelector(input[name="q${i}"]:checked);if (checkedOpt) {answeredCount++;userSelections[q${i}] = checkedOpt.value;}}if (answeredCount < totalQuestions) {alert("कृपया सभी प्रश्नों के उत्तर दें! / Please answer all questions before submitting!");return;}// Color code outputs and show boxfor (let i = 1; i <= totalQuestions; i++) {const correctVal = correctAnswers[q${i}];const userVal = userSelections[q${i}];document.getElementById(opt_${i}_${correctVal}).classList.add('option-correct');if (userVal === correctVal) {finalScore++;} else {document.getElementById(opt_${i}_${userVal}).classList.add('option-wrong');}const radios = document.getElementsByName(q${i});radios.forEach(radio => radio.disabled = true);document.getElementById(e${i}).style.display = 'block';}const resultBox = document.getElementById('resultBox');resultBox.style.display = 'block';resultBox.innerHTML = टेस्ट परिणाम (Test Result)<br><span style="font-size:24px; color:#1261a0;">Score: ${finalScore} / ${totalQuestions}</span>;document.getElementById('submitBtn').style.display = 'none';document.getElementById('downloadBtn').style.display = 'block';resultBox.scrollIntoView({ behavior: 'smooth' });}function generatePDF() {const { jsPDF } = window.jspdf;const doc = new jsPDF();doc.setFont("Helvetica", "bold");doc.setFontSize(20);doc.setTextColor(18, 97, 160);doc.text("MPPSC Paid Prelims - Score Report", 14, 20);doc.setFontSize(12);doc.setTextColor(85, 85, 85);doc.setFont("Helvetica", "normal");doc.text("Unit 1: History of India (Test 02)", 14, 28);doc.text(Final Score: ${finalScore} / 5, 14, 35);doc.setDrawColor(18, 97, 160);doc.line(14, 40, 196, 40);let y = 50;const questionsText = {q1: "Q1. Indus Valley Port? (Ans: C. Lothal)",q2: "Q2. Buddha's First Sermon? (Ans: B. Sarnath)",q3: "q3. Mauryan Founder? (Ans: C. Chandragupta Maurya)",q4: "Q4. Author of Indica? (Ans: B. Megasthenes)",q5: "Q5. Ashoka's post-Kalinga policy? (Ans: B. Dhamma)"};for (let i = 1; i <= 5; i++) {if (y > 260) { doc.addPage(); y = 20; }doc.setFont("Helvetica", "bold");doc.setTextColor(0, 0, 0);doc.text(questionsText[q${i}], 14, y);y += 7;doc.setFont("Helvetica", "normal");const userChoice = userSelections[q${i}] || "None";const correctChoice = correctAnswers[q${i}];if (userChoice === correctChoice) {doc.setTextColor(22, 131, 59);doc.text(Your Answer: ${userChoice} (Correct), 14, y);} else {doc.setTextColor(197, 34, 31);doc.text(Your Answer: ${userChoice} (Incorrect), 14, y);}y += 12;}doc.save("MPPSC_P01T02_Result.pdf");}
+    <div class="explanation" id="e5">
+    <b class="correct">सही उत्तर / Correct Answer: B. धम्म / Dhamma</b>
+    <br><br>
+हिंदी व्याख्या: 261 ईसा पूर्व में हुए कलिंग युद्ध के भीषण नरसंहार को देखकर सम्राट अशोक का हृदय परिवर्तन हुआ। उसने 'भेरीघोष' को पूरी तरह त्यागकर 'धम्मघोष' (धम्म) की नीति को अपनाया।English Explanation: Witnessing the horrific bloodshed of the Kalinga War (261 BCE), Emperor Ashoka abandoned the policy of physical expansion and formally embraced 'Dhamma'.Submit Test / उत्तर सबमिट करेंDownload Score PDF / रिपोर्ट डाउनलोड करें const correctAnswers = { q1: 'C', q2: 'B', q3: 'C', q4: 'B', q5: 'B' };let finalScore = 0;let userSelections = {};function calculateScore() {const totalQuestions = 5;let answeredCount = 0;finalScore = 0;for (let i = 1; i <= totalQuestions; i++) {const checkedOpt = document.querySelector(input[name="q${i}"]:checked);if (checkedOpt) {answeredCount++;userSelections[q${i}] = checkedOpt.value;}}if (answeredCount < totalQuestions) {alert("कृपया सभी प्रश्नों के उत्तर दें! / Please answer all questions before submitting!");return;}for (let i = 1; i <= totalQuestions; i++) {const correctVal = correctAnswers[q${i}];const userVal = userSelections[q${i}];document.getElementById(opt_${i}_${correctVal}).classList.add('option-correct');if (userVal === correctVal) {finalScore++;} else {document.getElementById(opt_${i}_${userVal}).classList.add('option-wrong');}const radios = document.getElementsByName(q${i});radios.forEach(radio => radio.disabled = true);document.getElementById(e${i}).style.display = 'block';}const resultBox = document.getElementById('resultBox');resultBox.style.display = 'block';resultBox.innerHTML = टेस्ट परिणाम (Test Result) <br><br> Score: ${finalScore} / ${totalQuestions};document.getElementById('submitBtn').style.display = 'none';document.getElementById('downloadBtn').style.display = 'block';resultBox.scrollIntoView({ behavior: 'smooth' });}function generatePDF() {const { jsPDF } = window.jspdf;const doc = new jsPDF();doc.setFont("Helvetica", "bold");doc.setFontSize(20);doc.setTextColor(18, 97, 160);doc.text("MPPSC Paid Prelims - Score Report", 14, 20);doc.setFontSize(12);doc.setTextColor(85, 85, 85);doc.setFont("Helvetica", "normal");doc.text("Unit 1: History of India (Test 02)", 14, 28);doc.text(Final Score: ${finalScore} / 5, 14, 35);doc.setDrawColor(18, 97, 160);doc.line(14, 40, 196, 40);let y = 50;const questionsText = ["Q1. Indus Valley Port? (Ans: C. Lothal)","Q2. Buddha's First Sermon? (Ans: B. Sarnath)","Q3. Mauryan Founder? (Ans: C. Chandragupta Maurya)","Q4. Author of Indica? (Ans: B. Megasthenes)","Q5. Ashoka's post-Kalinga policy? (Ans: B. Dhamma)"];questionsText.forEach((text) => {doc.text(text, 14, y);y += 10;});doc.save("MPPSC_Score_Report.pdf");}
