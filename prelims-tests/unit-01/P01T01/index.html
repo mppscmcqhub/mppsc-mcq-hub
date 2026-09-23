@@ -583,69 +583,38 @@ function processSubmission() {
     resultBox.scrollIntoView({ behavior: "smooth" });
 }
 
-function generatePDF() {
+async function generatePDF() {
     if (!isSubmitted) return;
-
-    /*
-      PDF में अब हर प्रश्न:
-      1. पूरा प्रश्न (Hindi + English)
-      2. सभी options
-      3. User का दिया हुआ answer
-      4. Correct answer
-      5. Hindi explanation
-      6. English explanation
-      दिखाया जाएगा।
-
-      html2canvas का उपयोग इसलिए किया गया है ताकि Hindi/Devanagari
-      अक्षर PDF में सही दिखाई दें।
-    */
 
     const { jsPDF } = window.jspdf;
 
+    // PDF report container
     const report = document.createElement("div");
 
-    report.style.position = "fixed";
-    report.style.left = "-10000px";
+    report.style.position = "absolute";
+    report.style.left = "0";
     report.style.top = "0";
     report.style.width = "794px";
     report.style.background = "#ffffff";
     report.style.color = "#222";
-    report.style.padding = "40px";
+    report.style.padding = "36px";
     report.style.fontFamily = 'Arial, "Noto Sans Devanagari", sans-serif';
     report.style.fontSize = "15px";
     report.style.lineHeight = "1.55";
-    report.style.zIndex = "-1";
+    report.style.boxSizing = "border-box";
+    report.style.zIndex = "999999";
+    report.style.display = "block";
 
     let questionsHTML = "";
 
     for (let i = 1; i <= totalQuestions; i++) {
-        const questionBox = document.getElementById(`question_${i}`);
-        const questionTitle = questionBox.querySelector("h3")?.innerHTML || "";
-        const englishQuestion = questionBox.querySelector(".eng")?.innerHTML || "";
-
-        const options = Array.from(
-            questionBox.querySelectorAll('label.option')
-        ).map(label => {
-            const input = label.querySelector("input");
-            const value = input ? input.value : "";
-            const text = label.innerText.replace(/\s+/g, " ").trim();
-            const selected = userSelections[`q${i}`] === value;
-
-            return `
-                <div style="
-                    padding:8px 10px;
-                    margin:5px 0;
-                    border:1px solid #d9d9d9;
-                    border-radius:6px;
-                    ${selected ? "background:#fff3cd;" : ""}
-                ">
-                    ${selected ? "✓ " : ""}${text}
-                    ${selected ? " <b>(आपका उत्तर / Your Answer)</b>" : ""}
-                </div>
-            `;
-        }).join("");
+        const box = document.getElementById(`question_${i}`);
+        const title = box.querySelector("h3")?.innerHTML || "";
+        const eng = box.querySelector(".eng")?.innerHTML || "";
 
         const correctVal = correctAnswers[`q${i}`];
+        const userVal = userSelections[`q${i}`];
+
         const correctLabel = document.getElementById(`opt_${i}_${correctVal}`);
         const correctText = correctLabel
             ? correctLabel.innerText.replace(/\s+/g, " ").trim()
@@ -654,35 +623,70 @@ function generatePDF() {
         const explanation = document.getElementById(`e${i}`);
         const explanationHTML = explanation ? explanation.innerHTML : "";
 
-        const userVal = userSelections[`q${i}`];
         const isCorrect = userVal === correctVal;
+
+        let optionsHTML = "";
+
+        box.querySelectorAll("label.option").forEach(label => {
+            const input = label.querySelector("input");
+            const value = input ? input.value : "";
+            const text = label.innerText.replace(/\s+/g, " ").trim();
+            const selected = userVal === value;
+            const correct = correctVal === value;
+
+            let bg = "#ffffff";
+            let border = "#d9d9d9";
+            let extra = "";
+
+            if (correct) {
+                bg = "#e6f4ea";
+                border = "#57b87a";
+                extra = " <b>✓ सही उत्तर</b>";
+            } else if (selected) {
+                bg = "#fce8e6";
+                border = "#f28b82";
+                extra = " <b>✗ आपका उत्तर</b>";
+            }
+
+            optionsHTML += `
+                <div style="
+                    padding:8px 10px;
+                    margin:5px 0;
+                    border:1px solid ${border};
+                    border-radius:6px;
+                    background:${bg};
+                ">
+                    ${text}${extra}
+                </div>
+            `;
+        });
 
         questionsHTML += `
             <div style="
                 border:1px solid #d7e3ef;
                 border-radius:10px;
-                padding:18px;
-                margin:0 0 18px 0;
-                page-break-inside:avoid;
+                padding:16px;
+                margin-bottom:18px;
                 background:#fff;
+                page-break-inside:avoid;
             ">
                 <div style="
                     font-size:18px;
                     font-weight:bold;
                     color:#1261a0;
-                    margin-bottom:7px;
-                ">
-                    ${questionTitle}
-                </div>
-
-                <div style="font-weight:bold; color:#444; margin-bottom:10px;">
-                    ${englishQuestion}
-                </div>
-
-                ${options}
+                    margin-bottom:6px;
+                ">${title}</div>
 
                 <div style="
-                    margin-top:12px;
+                    font-weight:bold;
+                    color:#444;
+                    margin-bottom:10px;
+                ">${eng}</div>
+
+                ${optionsHTML}
+
+                <div style="
+                    margin-top:10px;
                     padding:9px 12px;
                     border-radius:6px;
                     background:${isCorrect ? "#e6f4ea" : "#fce8e6"};
@@ -711,30 +715,48 @@ function generatePDF() {
     }
 
     report.innerHTML = `
-        <div style="text-align:center; border-bottom:2px solid #1261a0; padding-bottom:15px; margin-bottom:20px;">
-            <div style="font-size:27px; font-weight:bold; color:#1261a0;">
-                MPPSC Paid Prelims - Score Report
-            </div>
-            <div style="font-size:16px; margin-top:8px;">
+        <div style="
+            text-align:center;
+            border-bottom:2px solid #1261a0;
+            padding-bottom:14px;
+            margin-bottom:18px;
+        ">
+            <div style="
+                font-size:27px;
+                font-weight:bold;
+                color:#1261a0;
+            ">MPPSC Paid Prelims - Score Report</div>
+
+            <div style="font-size:16px; margin-top:7px;">
                 Unit 1: History of India (Test 02)
             </div>
-            <div style="font-size:19px; font-weight:bold; margin-top:8px;">
-                Final Score: ${finalScore} / ${totalQuestions}
-            </div>
+
+            <div style="
+                font-size:19px;
+                font-weight:bold;
+                margin-top:7px;
+            ">Final Score: ${finalScore} / ${totalQuestions}</div>
+
             <div style="font-size:16px; margin-top:4px;">
                 Percentage: ${Math.round((finalScore / totalQuestions) * 100)}%
             </div>
         </div>
 
-        <div style="font-size:20px; font-weight:bold; color:#1261a0; margin-bottom:15px;">
-            सभी प्रश्न, उत्तर एवं व्याख्या / All Questions, Answers & Explanations
+        <div style="
+            font-size:20px;
+            font-weight:bold;
+            color:#1261a0;
+            margin-bottom:14px;
+        ">
+            सभी प्रश्न, सभी उत्तर एवं व्याख्या<br>
+            All Questions, Answers & Explanations
         </div>
 
         ${questionsHTML}
 
         <div style="
-            margin-top:20px;
-            padding:12px;
+            margin-top:12px;
+            padding:10px;
             border-radius:7px;
             background:#e8f2ff;
             color:#1261a0;
@@ -747,35 +769,97 @@ function generatePDF() {
 
     document.body.appendChild(report);
 
-    const doc = new jsPDF({
-        orientation: "portrait",
-        unit: "mm",
-        format: "a4"
+    // Browser-rendered screenshot method:
+    // यह तरीका Hindi/Devanagari को blank होने से बचाता है।
+    await new Promise(resolve => setTimeout(resolve, 300));
+
+    const canvas = await html2canvas(report, {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: "#ffffff",
+        logging: false,
+        width: report.offsetWidth,
+        height: report.scrollHeight,
+        windowWidth: report.offsetWidth,
+        windowHeight: report.scrollHeight
     });
 
-    doc.setProperties({
+    document.body.removeChild(report);
+
+    const pageWidth = 210;
+    const pageHeight = 297;
+    const margin = 7;
+    const usableWidth = pageWidth - (margin * 2);
+    const usableHeight = pageHeight - (margin * 2);
+
+    const pdf = new jsPDF({
+        orientation: "portrait",
+        unit: "mm",
+        format: "a4",
+        compress: true
+    });
+
+    const imageWidthPx = canvas.width;
+    const imageHeightPx = Math.floor(
+        imageWidthPx * (usableHeight / usableWidth)
+    );
+
+    let sourceY = 0;
+    let pageNumber = 0;
+
+    while (sourceY < canvas.height) {
+        if (pageNumber > 0) {
+            pdf.addPage();
+        }
+
+        const sliceHeight = Math.min(
+            imageHeightPx,
+            canvas.height - sourceY
+        );
+
+        const pageCanvas = document.createElement("canvas");
+        pageCanvas.width = imageWidthPx;
+        pageCanvas.height = sliceHeight;
+
+        const ctx = pageCanvas.getContext("2d");
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(0, 0, pageCanvas.width, pageCanvas.height);
+
+        ctx.drawImage(
+            canvas,
+            0, sourceY,
+            imageWidthPx, sliceHeight,
+            0, 0,
+            imageWidthPx, sliceHeight
+        );
+
+        const imgData = pageCanvas.toDataURL("image/jpeg", 0.92);
+
+        const renderedHeight =
+            (sliceHeight / imageWidthPx) * usableWidth;
+
+        pdf.addImage(
+            imgData,
+            "JPEG",
+            margin,
+            margin,
+            usableWidth,
+            renderedHeight,
+            undefined,
+            "FAST"
+        );
+
+        sourceY += sliceHeight;
+        pageNumber++;
+    }
+
+    pdf.setProperties({
         title: "MPPSC Paid Prelims - P01T02 Score Report",
-        subject: "Questions, Answers and Explanations",
+        subject: "All Questions, Answers and Explanations",
         author: "MPPSC MCQ Hub V14"
     });
 
-    doc.html(report, {
-        x: 8,
-        y: 8,
-        width: 194,
-        windowWidth: 794,
-        autoPaging: "text",
-        margin: [8, 8, 8, 8],
-        html2canvas: {
-            scale: 0.8,
-            useCORS: true,
-            backgroundColor: "#ffffff"
-        },
-        callback: function(pdf) {
-            document.body.removeChild(report);
-            pdf.save("MPPSC_P01T02_Score_Report_With_Explanations.pdf");
-        }
-    });
+    pdf.save("MPPSC_P01T02_Score_Report_With_Explanations.pdf");
 }
 </script>
 
