@@ -589,15 +589,14 @@ async function generatePDF() {
     const { jsPDF } = window.jspdf;
 
     /*
-      BOOK-STYLE PDF
-      ----------------
-      अब पूरा report एक लंबे canvas में नहीं बनाया जाएगा।
-      हर प्रश्न को अलग page/card में render किया जाएगा।
-      इससे:
-      - कोई question बीच से cut नहीं होगा
-      - options/explanation अलग page पर नहीं टूटेंगे
-      - साफ horizontal lines रहेंगी
-      - PDF किताब/answer-book जैसा दिखाई देगा
+      PRINT / WORD-BOOK STYLE PDF
+      ---------------------------
+      उद्देश्य:
+      • Student आसानी से print निकाल सके
+      • Question, options, answer और explanation साफ पढ़ सके
+      • एक question को बीच से page पर न काटा जाए
+      • रंग कम रखे जाएँ ताकि B/W printer पर भी अच्छा निकले
+      • एक page पर जितने questions आराम से आ सकें, उतने ही रखें
     */
 
     const pdf = new jsPDF({
@@ -608,192 +607,196 @@ async function generatePDF() {
     });
 
     pdf.setProperties({
-        title: "MPPSC Paid Prelims - P01T02 Score Report",
-        subject: "All Questions, Answers and Explanations",
+        title: "MPPSC P01T02 - Questions Answers Explanations",
+        subject: "Printable Answer Book",
         author: "MPPSC MCQ Hub V14"
     });
 
-    const pageWidth = 210;
-    const pageHeight = 297;
-    const margin = 12;
-    const contentWidth = pageWidth - (margin * 2);
-    const contentHeight = pageHeight - 34;
+    const PAGE_W = 210;
+    const PAGE_H = 297;
+    const LEFT = 15;
+    const RIGHT = 15;
+    const TOP = 20;
+    const BOTTOM = 18;
+    const CONTENT_W = PAGE_W - LEFT - RIGHT;
+    const CONTENT_H = PAGE_H - TOP - BOTTOM;
 
-    // Temporary rendering area
-    const report = document.createElement("div");
-    report.style.position = "absolute";
-    report.style.left = "-20000px";
-    report.style.top = "0";
-    report.style.width = "794px";
-    report.style.background = "#fff";
-    report.style.color = "#222";
-    report.style.fontFamily = 'Arial, "Noto Sans Devanagari", sans-serif';
-    report.style.boxSizing = "border-box";
-    report.style.padding = "0";
-    document.body.appendChild(report);
+    const renderBox = document.createElement("div");
+    renderBox.style.position = "absolute";
+    renderBox.style.left = "-30000px";
+    renderBox.style.top = "0";
+    renderBox.style.width = "794px";
+    renderBox.style.background = "#fff";
+    renderBox.style.color = "#111";
+    renderBox.style.fontFamily = 'Arial, "Noto Sans Devanagari", sans-serif';
+    renderBox.style.boxSizing = "border-box";
+    document.body.appendChild(renderBox);
 
-    function addPageHeader(pdfDoc, pageNo, totalPagesText) {
-        pdfDoc.setDrawColor(18, 97, 160);
-        pdfDoc.setLineWidth(0.7);
-        pdfDoc.line(margin, 13, pageWidth - margin, 13);
+    function pageHeader(pageNo) {
+        pdf.setDrawColor(80, 80, 80);
+        pdf.setLineWidth(0.35);
+        pdf.line(LEFT, 11, PAGE_W - RIGHT, 11);
 
-        pdfDoc.setFont("helvetica", "bold");
-        pdfDoc.setFontSize(9);
-        pdfDoc.setTextColor(18, 97, 160);
-        pdfDoc.text("MPPSC MCQ HUB V14", margin, 9);
+        pdf.setFont("helvetica", "bold");
+        pdf.setFontSize(8.5);
+        pdf.setTextColor(45, 45, 45);
+        pdf.text("MPPSC PAID PRELIMS", LEFT, 8);
 
-        pdfDoc.setFont("helvetica", "normal");
-        pdfDoc.setTextColor(90, 90, 90);
-        pdfDoc.text("P01T02 • Unit 1 • History of India", pageWidth - margin, 9, {
+        pdf.setFont("helvetica", "normal");
+        pdf.text("P01T02  |  Unit 1: History of India", PAGE_W - RIGHT, 8, {
             align: "right"
         });
 
-        pdfDoc.setDrawColor(180, 180, 180);
-        pdfDoc.setLineWidth(0.3);
-        pdfDoc.line(margin, pageHeight - 15, pageWidth - margin, pageHeight - 15);
+        pdf.line(LEFT, PAGE_H - 12, PAGE_W - RIGHT, PAGE_H - 12);
 
-        pdfDoc.setFontSize(8);
-        pdfDoc.setTextColor(100, 100, 100);
-        pdfDoc.text(
-            `MPPSC Paid Prelims • Score Report • Page ${pageNo} / ${totalPagesText}`,
-            pageWidth / 2,
-            pageHeight - 8,
+        pdf.setFontSize(8);
+        pdf.setTextColor(90, 90, 90);
+        pdf.text(
+            `Printable Question & Answer Book  |  Page ${pageNo}`,
+            PAGE_W / 2,
+            PAGE_H - 7,
             { align: "center" }
         );
     }
 
-    // ---------- COVER / SUMMARY PAGE ----------
-    report.innerHTML = `
+    function addCanvasToPage(canvas, y, maxHeightMm) {
+        const maxWidthMm = CONTENT_W;
+        let w = maxWidthMm;
+        let h = w * (canvas.height / canvas.width);
+
+        if (h > maxHeightMm) {
+            h = maxHeightMm;
+            w = h * (canvas.width / canvas.height);
+        }
+
+        const x = LEFT + (CONTENT_W - w) / 2;
+
+        pdf.addImage(
+            canvas.toDataURL("image/jpeg", 0.94),
+            "JPEG",
+            x,
+            y,
+            w,
+            h,
+            undefined,
+            "FAST"
+        );
+
+        return h;
+    }
+
+    // ---------- TITLE / SUMMARY PAGE ----------
+    renderBox.innerHTML = `
         <div style="
             width:794px;
             min-height:1050px;
             box-sizing:border-box;
-            padding:65px 55px;
-            border:2px solid #1261a0;
+            padding:65px 60px;
             background:#fff;
             font-family:Arial,'Noto Sans Devanagari',sans-serif;
         ">
             <div style="
                 text-align:center;
-                border-bottom:3px solid #1261a0;
-                padding-bottom:25px;
+                border:2px solid #222;
+                padding:28px 25px;
             ">
                 <div style="
-                    font-size:36px;
+                    font-size:34px;
                     font-weight:bold;
-                    color:#1261a0;
+                    letter-spacing:.5px;
                 ">MPPSC PAID PRELIMS</div>
 
                 <div style="
-                    font-size:22px;
+                    font-size:23px;
                     margin-top:12px;
-                    color:#333;
-                ">Score Report & Answer Book</div>
+                    font-weight:bold;
+                ">Question & Answer Book</div>
 
                 <div style="
                     font-size:18px;
-                    margin-top:22px;
-                    color:#555;
-                ">Unit 1 — भारत का इतिहास / History of India</div>
+                    margin-top:18px;
+                ">Unit 1: History of India</div>
 
                 <div style="
                     font-size:18px;
-                    margin-top:8px;
-                    color:#555;
-                ">Test 02 • P01T02</div>
+                    margin-top:6px;
+                ">Test 02 (P01T02)</div>
             </div>
 
             <div style="
                 margin-top:55px;
-                padding:28px;
-                border:1px solid #b9cfe2;
-                border-radius:12px;
-                background:#f5f9fd;
                 text-align:center;
+                border-bottom:1px solid #777;
+                padding-bottom:25px;
             ">
-                <div style="
-                    font-size:24px;
-                    font-weight:bold;
-                    color:#1261a0;
-                ">FINAL SCORE</div>
-
-                <div style="
-                    font-size:42px;
-                    font-weight:bold;
-                    margin-top:15px;
-                    color:#222;
-                ">${finalScore} / ${totalQuestions}</div>
-
-                <div style="
-                    font-size:20px;
-                    margin-top:8px;
-                    color:#555;
-                ">${Math.round((finalScore / totalQuestions) * 100)}%</div>
-            </div>
-
-            <div style="
-                margin-top:50px;
-                font-size:18px;
-                line-height:1.8;
-                color:#333;
-            ">
-                <div style="font-weight:bold;color:#1261a0;margin-bottom:8px;">
-                    इस रिपोर्ट में शामिल है:
+                <div style="font-size:19px;font-weight:bold;">Final Score</div>
+                <div style="font-size:38px;font-weight:bold;margin-top:8px;">
+                    ${finalScore} / ${totalQuestions}
                 </div>
-                <div>✓ सभी प्रश्न</div>
-                <div>✓ सभी विकल्प</div>
-                <div>✓ आपका उत्तर</div>
-                <div>✓ सही उत्तर</div>
-                <div>✓ हिंदी व्याख्या</div>
-                <div>✓ English Explanation</div>
-                <div>✓ सही / गलत स्थिति</div>
+                <div style="font-size:17px;margin-top:5px;">
+                    Percentage: ${Math.round((finalScore / totalQuestions) * 100)}%
+                </div>
             </div>
 
             <div style="
-                margin-top:65px;
-                border-top:1px solid #bbb;
-                padding-top:18px;
+                margin-top:40px;
+                font-size:18px;
+                line-height:1.9;
+            ">
+                <div style="font-weight:bold;font-size:21px;border-bottom:1px solid #777;padding-bottom:7px;">
+                    इस पुस्तक में / This Book Contains
+                </div>
+                <div style="margin-top:12px;">1. सभी प्रश्न / All Questions</div>
+                <div>2. सभी विकल्प / All Options</div>
+                <div>3. आपका उत्तर / Your Answer</div>
+                <div>4. सही उत्तर / Correct Answer</div>
+                <div>5. हिंदी व्याख्या / Hindi Explanation</div>
+                <div>6. English Explanation</div>
+            </div>
+
+            <div style="
+                margin-top:70px;
+                border-top:1px solid #777;
+                padding-top:15px;
                 text-align:center;
-                color:#777;
                 font-size:14px;
             ">
-                MPPSC MCQ Hub V14
+                Student Printable Copy • MPPSC MCQ Hub V14
             </div>
         </div>
     `;
 
-    await new Promise(resolve => setTimeout(resolve, 200));
+    await new Promise(r => setTimeout(r, 150));
 
-    const coverCanvas = await html2canvas(report, {
+    const coverCanvas = await html2canvas(renderBox, {
         scale: 2,
         useCORS: true,
-        backgroundColor: "#ffffff",
+        backgroundColor: "#fff",
         logging: false,
         width: 794,
-        height: report.scrollHeight
+        height: renderBox.scrollHeight
     });
 
-    pdf.addImage(
-        coverCanvas.toDataURL("image/jpeg", 0.95),
-        "JPEG",
-        margin,
-        20,
-        contentWidth,
-        contentWidth * (coverCanvas.height / coverCanvas.width)
-    );
+    pdf.addPage();
+    pageHeader(1);
+    addCanvasToPage(coverCanvas, TOP + 3, CONTENT_H - 3);
 
-    // ---------- QUESTION PAGES ----------
+    // ---------- QUESTION BLOCKS ----------
+    let currentPage = 2;
+    let currentY = TOP + 2;
+
+    pageHeader(currentPage);
+
     for (let i = 1; i <= totalQuestions; i++) {
-        pdf.addPage();
-
         const box = document.getElementById(`question_${i}`);
+
         const title = box.querySelector("h3")?.innerHTML || "";
         const eng = box.querySelector(".eng")?.innerHTML || "";
 
         const correctVal = correctAnswers[`q${i}`];
         const userVal = userSelections[`q${i}`];
-        const correctLabel = document.getElementById(`opt_${i}_${correctVal}`);
 
+        const correctLabel = document.getElementById(`opt_${i}_${correctVal}`);
         const correctText = correctLabel
             ? correctLabel.innerText.replace(/\s+/g, " ").trim()
             : correctVal;
@@ -813,85 +816,65 @@ async function generatePDF() {
             const selected = userVal === value;
             const correct = correctVal === value;
 
-            let bg = "#ffffff";
-            let border = "#cfcfcf";
-            let status = "";
+            let suffix = "";
 
             if (correct) {
-                bg = "#eaf7ee";
-                border = "#55a86d";
-                status = `<span style="color:#137333;font-weight:bold;"> ✓ सही उत्तर</span>`;
+                suffix = `<b> — सही उत्तर / Correct</b>`;
             } else if (selected) {
-                bg = "#fdeceb";
-                border = "#df7770";
-                status = `<span style="color:#c5221f;font-weight:bold;"> ✗ आपका उत्तर</span>`;
+                suffix = `<b> — आपका उत्तर / Your Answer</b>`;
             }
 
             optionsHTML += `
                 <div style="
-                    padding:9px 12px;
-                    margin:6px 0;
-                    border:1px solid ${border};
-                    border-radius:5px;
-                    background:${bg};
-                    font-size:16px;
+                    padding:7px 10px;
+                    margin:4px 0;
+                    border:1px solid #999;
+                    border-radius:3px;
+                    background:#fff;
+                    font-size:15px;
                     line-height:1.45;
                 ">
-                    ${text}${status}
+                    ${text}${suffix}
                 </div>
             `;
         });
 
-        report.innerHTML = `
+        renderBox.innerHTML = `
             <div style="
                 width:794px;
                 box-sizing:border-box;
-                padding:24px 35px 30px;
+                padding:0 32px 18px 32px;
                 background:#fff;
+                color:#111;
                 font-family:Arial,'Noto Sans Devanagari',sans-serif;
             ">
                 <div style="
-                    border-bottom:2px solid #1261a0;
-                    padding-bottom:10px;
-                    margin-bottom:17px;
+                    border-top:2px solid #222;
+                    border-bottom:1px solid #777;
+                    padding:9px 0 10px;
+                    margin-bottom:12px;
                 ">
                     <div style="
-                        font-size:24px;
+                        font-size:21px;
                         font-weight:bold;
-                        color:#1261a0;
                         line-height:1.35;
-                    ">
-                        प्रश्न ${i} / Question ${i}
-                    </div>
+                    ">Q${i}. ${title}</div>
 
                     <div style="
-                        font-size:19px;
+                        font-size:15px;
                         font-weight:bold;
-                        color:#222;
-                        margin-top:8px;
-                        line-height:1.5;
-                    ">
-                        ${title}
-                    </div>
-
-                    <div style="
-                        font-size:16px;
-                        font-weight:bold;
-                        color:#555;
-                        margin-top:5px;
-                        line-height:1.5;
-                    ">
-                        ${eng}
-                    </div>
+                        color:#333;
+                        margin-top:4px;
+                        line-height:1.45;
+                    ">${eng}</div>
                 </div>
 
                 <div style="
-                    font-size:18px;
+                    font-size:16px;
                     font-weight:bold;
-                    color:#1261a0;
-                    border-bottom:1px solid #d5d5d5;
-                    padding-bottom:7px;
-                    margin-bottom:9px;
+                    margin-bottom:7px;
+                    border-bottom:1px solid #aaa;
+                    padding-bottom:5px;
                 ">
                     विकल्प / Options
                 </div>
@@ -899,16 +882,14 @@ async function generatePDF() {
                 ${optionsHTML}
 
                 <div style="
-                    margin-top:14px;
-                    padding:11px 13px;
-                    border:1px solid ${isCorrect ? "#76b98a" : "#e18b84"};
-                    border-radius:6px;
-                    background:${isCorrect ? "#eaf7ee" : "#fdeceb"};
-                    font-size:16px;
-                    line-height:1.6;
-                    color:${isCorrect ? "#137333" : "#c5221f"};
+                    margin-top:10px;
+                    padding:9px 11px;
+                    border-top:1px solid #555;
+                    border-bottom:1px solid #555;
+                    font-size:15px;
+                    line-height:1.55;
                 ">
-                    <b>${isCorrect ? "✓ सही उत्तर दिया / Correct Answer Given" : "✗ गलत उत्तर / Incorrect Answer"}</b>
+                    <b>${isCorrect ? "✓ सही उत्तर / Correct" : "✗ गलत उत्तर / Incorrect"}</b>
                     <br>
                     <b>सही उत्तर / Correct Answer:</b> ${correctText}
                     <br>
@@ -919,86 +900,60 @@ async function generatePDF() {
                 </div>
 
                 <div style="
-                    margin-top:16px;
-                    border-top:2px solid #1261a0;
-                    padding-top:11px;
+                    margin-top:12px;
+                    border-top:2px solid #222;
+                    padding-top:8px;
                 ">
                     <div style="
-                        font-size:18px;
+                        font-size:17px;
                         font-weight:bold;
-                        color:#1261a0;
-                        margin-bottom:9px;
+                        margin-bottom:7px;
                     ">
                         व्याख्या / Explanation
                     </div>
 
                     <div style="
-                        padding:13px;
-                        border:1px solid #c9ddeb;
-                        border-radius:6px;
-                        background:#f6fbff;
-                        font-size:15.5px;
-                        line-height:1.65;
+                        border:1px solid #aaa;
+                        padding:10px 12px;
+                        font-size:15px;
+                        line-height:1.6;
+                        background:#fff;
                     ">
                         ${explanationHTML}
                     </div>
                 </div>
-
-                <div style="
-                    margin-top:18px;
-                    border-top:1px solid #bbb;
-                    padding-top:8px;
-                    text-align:center;
-                    color:#777;
-                    font-size:12px;
-                ">
-                    P01T02 • MPPSC Paid Prelims • Unit 1
-                </div>
             </div>
         `;
 
-        await new Promise(resolve => setTimeout(resolve, 150));
+        await new Promise(r => setTimeout(r, 80));
 
-        const canvas = await html2canvas(report, {
+        const qCanvas = await html2canvas(renderBox, {
             scale: 2,
             useCORS: true,
-            backgroundColor: "#ffffff",
+            backgroundColor: "#fff",
             logging: false,
             width: 794,
-            height: report.scrollHeight
+            height: renderBox.scrollHeight
         });
 
-        addPageHeader(pdf, i + 1, totalQuestions + 1);
+        const blockW = CONTENT_W;
+        const blockH = blockW * (qCanvas.height / qCanvas.width);
 
-        const maxImageHeight = contentHeight;
-        let imageWidth = contentWidth;
-        let imageHeight = imageWidth * (canvas.height / canvas.width);
-
-        // यदि किसी प्रश्न का content ज्यादा लंबा हो तो पूरा question
-        // एक ही page में fit करने के लिए proportionally छोटा करें।
-        if (imageHeight > maxImageHeight) {
-            imageHeight = maxImageHeight;
-            imageWidth = imageHeight * (canvas.width / canvas.height);
+        // Question पूरा fit नहीं होगा तो नया page.
+        if (currentY + blockH > PAGE_H - BOTTOM) {
+            pdf.addPage();
+            currentPage++;
+            pageHeader(currentPage);
+            currentY = TOP + 2;
         }
 
-        const x = (pageWidth - imageWidth) / 2;
-        const y = 18;
-
-        pdf.addImage(
-            canvas.toDataURL("image/jpeg", 0.95),
-            "JPEG",
-            x,
-            y,
-            imageWidth,
-            imageHeight,
-            undefined,
-            "FAST"
-        );
+        addCanvasToPage(qCanvas, currentY, blockH);
+        currentY += blockH + 5;
     }
 
-    document.body.removeChild(report);
+    document.body.removeChild(renderBox);
 
-    pdf.save("MPPSC_P01T02_BOOK_STYLE_Score_Report.pdf");
+    pdf.save("MPPSC_P01T02_PRINT_BOOK_Questions_Answers.pdf");
 }
 </script>
 
