@@ -449,6 +449,8 @@ function loadPaymentRequests(){
             <td>
                 ${req.status === "approved"
                     ? '<span style="color:#2e7d32;font-weight:bold">✓ Approved</span>'
+                    : req.status === "duplicate"
+                    ? '<span style="color:#c62828;font-weight:bold">⚠ Duplicate UTR</span>'
                     : `<button style="background:#4caf50;color:white;border:none;padding:5px 10px;border-radius:4px;cursor:pointer;font-weight:bold" onclick="approvePayment(${index})">Approve</button>`}
             </td>
 
@@ -492,6 +494,29 @@ function approvePayment(index){
 
     let approvedReq =
         pendingPayments[index];
+
+    // One UTR represents one payment. Never allow the same UTR to
+    // activate a different course (e.g. MAINS payment activating PRELIMS).
+    const normalizedUtr = String(approvedReq.utr || '').trim().toUpperCase();
+    const duplicateApproved = pendingPayments.find((r, i) =>
+        i !== index &&
+        r.status === "approved" &&
+        String(r.utr || '').trim().toUpperCase() === normalizedUtr &&
+        String(r.course || '').toLowerCase() !== String(approvedReq.course || '').toLowerCase()
+    );
+
+    if (normalizedUtr && duplicateApproved) {
+        approvedReq.status = "duplicate";
+        approvedReq.duplicateOf = duplicateApproved.id || "approved-payment";
+        localStorage.setItem("mppsc_pending_payments", JSON.stringify(pendingPayments));
+        alert(
+            "❌ यह UTR पहले ही " + String(duplicateApproved.course || '').toUpperCase() +
+            " course के लिए approve हो चुका है।\n\n" +
+            "एक ही UTR से दूसरा course activate नहीं किया जा सकता।"
+        );
+        loadPaymentRequests();
+        return;
+    }
 
     const studentPassword =
         "MPPSC-" +

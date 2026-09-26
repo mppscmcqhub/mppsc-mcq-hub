@@ -857,6 +857,14 @@ function submitReceiptDetails() {
         ? "199"
         : "99";
 
+    // Course access is tied to this exact payment selection.
+    // The Admin can approve only the course represented by this request.
+    if (!['prelims','mains'].includes(courseType)) {
+        alert("Invalid course selection. Please open the correct payment page.");
+        window.location.href = "student-login.html";
+        return;
+    }
+
 
 
     /* FILE */
