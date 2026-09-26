@@ -584,7 +584,7 @@ th{
 
     <div class="section-main-title mains-title">
 
-        📝 Paid MAINS — 600 Total Boxes (Paper 1 to 6)
+        📝 Paid MAINS — 600 Total Questions (Paper 1 to 6)
 
     </div>
 
@@ -910,7 +910,6 @@ function renderPrelims200Boxes(){
 
             <h2>
                 Unit ${u} - ${preUnits[u-1]}
-                <button type="button" class="section-toggle" onclick="toggleSection(this)">▼ Tests छिपाएँ</button>
             </h2>
 
             <div class="section-content">
@@ -943,7 +942,7 @@ function renderPrelims200Boxes(){
 
                 <div class="card">
                     <div class="card-title">📝 Test ${t}</div>
-                    <div class="card-meta">20 Questions • MCQ</div>
+                    <div class="card-meta">50 Questions • MCQ</div>
                     <a
                         class="open-btn pre-btn"
                         href="prelims-tests/unit-${padU}/${code}/index.html">
@@ -1060,7 +1059,7 @@ function renderMains600Boxes(){
 
             <div class="group-title">
 
-                5 अंक वाले प्रश्न — 40 Boxes
+                5 अंक वाले प्रश्न — 40 Questions
                 (001 से 040)
 
             </div>
@@ -1085,9 +1084,9 @@ function renderMains600Boxes(){
             mainsHtml += `
 
                 <div class="card">
-                    <div class="card-title">📄 Box ${b}</div>
+                    <div class="card-title">📄 Question ${b}</div>
                     <div class="card-meta">5 Marks • Mains</div>
-                    <a class="open-btn mains-btn" href="${folder}/5-marks/${code}/index.html">Open Box</a>
+                    <a class="open-btn mains-btn" href="${folder}/5-marks/${code}/index.html">Open Questions</a>
                     <span class="code">${code}</span>
                 </div>
 
@@ -1112,7 +1111,7 @@ function renderMains600Boxes(){
 
             <div class="group-title">
 
-                10 अंक वाले प्रश्न — 40 Boxes
+                10 अंक वाले प्रश्न — 40 Questions
                 (041 से 080)
 
             </div>
@@ -1135,9 +1134,9 @@ function renderMains600Boxes(){
             mainsHtml += `
 
                 <div class="card">
-                    <div class="card-title">📄 Box ${b}</div>
+                    <div class="card-title">📄 Question ${b}</div>
                     <div class="card-meta">10 Marks • Mains</div>
-                    <a class="open-btn mains-btn" href="${folder}/10-marks/${code}/index.html">Open Box</a>
+                    <a class="open-btn mains-btn" href="${folder}/10-marks/${code}/index.html">Open Questions</a>
                     <span class="code">${code}</span>
                 </div>
 
@@ -1162,7 +1161,7 @@ function renderMains600Boxes(){
 
             <div class="group-title">
 
-                15 अंक वाले प्रश्न — 20 Boxes
+                15 अंक वाले प्रश्न — 20 Questions
                 (081 से 100)
 
             </div>
@@ -1187,9 +1186,9 @@ function renderMains600Boxes(){
             mainsHtml += `
 
                 <div class="card">
-                    <div class="card-title">📄 Box ${b}</div>
+                    <div class="card-title">📄 Question ${b}</div>
                     <div class="card-meta">15 Marks • Mains</div>
-                    <a class="open-btn mains-btn" href="${folder}/15-marks/${code}/index.html">Open Box</a>
+                    <a class="open-btn mains-btn" href="${folder}/15-marks/${code}/index.html">Open Questions</a>
                     <span class="code">${code}</span>
                 </div>
 
@@ -1201,7 +1200,7 @@ function renderMains600Boxes(){
         mainsHtml += `
 
             </div>
-            <div class="no-results">इस Paper में खोजा गया Box नहीं मिला।</div>
+            <div class="no-results">इस Paper में खोजा गया Question नहीं मिला।</div>
             </div>
 
         </section>
