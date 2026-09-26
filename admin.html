@@ -271,6 +271,110 @@ th{
 }
 </style>
 
+<style>
+/* ===== Admin test navigation / finder ===== */
+.admin-finder{
+    position:sticky;
+    top:0;
+    z-index:900;
+    background:#f3f6fa;
+    padding:10px 0 12px;
+}
+.finder-box{
+    background:#fff;
+    border:1px solid #d7e1ec;
+    border-radius:12px;
+    padding:12px 14px;
+    box-shadow:0 2px 9px rgba(0,0,0,.06);
+    display:flex;
+    gap:10px;
+    align-items:center;
+    flex-wrap:wrap;
+}
+.finder-box label{
+    font-weight:800;
+    color:#082b57;
+    white-space:nowrap;
+}
+#test-search{
+    flex:1 1 320px;
+    min-width:220px;
+    padding:10px 12px;
+    border:1px solid #b8c7d9;
+    border-radius:7px;
+    font-size:14px;
+    outline:none;
+}
+#test-search:focus{border-color:#147dcc;box-shadow:0 0 0 2px rgba(20,125,204,.12);}
+.finder-btn{
+    border:0;
+    border-radius:7px;
+    padding:10px 13px;
+    font-weight:800;
+    cursor:pointer;
+    background:#082b57;
+    color:#fff;
+}
+.finder-count{
+    color:#667085;
+    font-size:13px;
+    font-weight:700;
+    width:100%;
+}
+.unit-sec,.paper{
+    overflow:hidden;
+}
+.section-toggle{
+    border:0;
+    background:transparent;
+    color:#082b57;
+    font:inherit;
+    font-weight:800;
+    cursor:pointer;
+    float:right;
+    padding:5px 9px;
+    border-radius:6px;
+    background:#eef4fb;
+}
+.section-toggle:hover{background:#dfeaf7;}
+.section-content{clear:both;}
+.section-collapsed .section-content{display:none;}
+.unit-sec h2,.paper h2{min-height:32px;}
+.card.is-hidden{display:none;}
+.no-results{
+    display:none;
+    margin-top:10px;
+    padding:12px;
+    text-align:center;
+    background:#fff8e1;
+    border:1px solid #ffe082;
+    border-radius:7px;
+    color:#7a5a00;
+    font-weight:700;
+}
+.jump-row{
+    display:flex;
+    gap:7px;
+    flex-wrap:wrap;
+    margin-top:9px;
+}
+.jump-btn{
+    border:1px solid #c9d7e6;
+    background:#fff;
+    color:#082b57;
+    border-radius:6px;
+    padding:5px 8px;
+    font-size:12px;
+    font-weight:700;
+    cursor:pointer;
+}
+.jump-btn:hover{background:#eef4fb;}
+@media(max-width:600px){
+    .finder-box{padding:10px;}
+    #test-search{min-width:100%;}
+    .finder-btn{flex:1;}
+}
+</style>
 </head>
 
 <body>
@@ -307,6 +411,22 @@ th{
             </b>
         </p>
 
+    </div>
+
+    <!-- ================= TEST FINDER ================= -->
+    <div class="admin-finder">
+        <div class="finder-box">
+            <label for="test-search">🔎 Test/Box खोजें</label>
+            <input id="test-search" type="search"
+                   placeholder="जैसे P01T15, Unit 1, GS1-10M-045..."
+                   autocomplete="off">
+            <button class="finder-btn" type="button" onclick="clearTestSearch()">साफ करें</button>
+            <div id="finder-count" class="finder-count">सभी Tests/Boxes दिख रहे हैं।</div>
+            <div class="jump-row">
+                <button class="jump-btn" type="button" onclick="jumpToSection('prelims-master-container')">PRELIMS Units</button>
+                <button class="jump-btn" type="button" onclick="jumpToSection('mains-master-container')">MAINS Papers</button>
+            </div>
+        </div>
     </div>
 
 
@@ -760,12 +880,14 @@ function renderPrelims200Boxes(){
 
         preHtml += `
 
-        <section class="unit-sec">
+        <section class="unit-sec" data-section-title="Unit ${u} - ${preUnits[u-1]}">
 
             <h2>
                 Unit ${u} - ${preUnits[u-1]}
+                <button type="button" class="section-toggle" onclick="toggleSection(this)">▼ Tests छिपाएँ</button>
             </h2>
 
+            <div class="section-content">
             <div class="grid">
 
         `;
@@ -816,6 +938,8 @@ function renderPrelims200Boxes(){
 
         preHtml += `
 
+            </div>
+            <div class="no-results">इस Unit में खोजे गए Test नहीं मिला।</div>
             </div>
 
         </section>
@@ -894,11 +1018,14 @@ function renderMains600Boxes(){
 
         mainsHtml += `
 
-        <section class="paper">
+        <section class="paper" data-section-title="Paper ${pNum} - ${paperName}">
 
             <h2>
                 Paper ${pNum} - ${paperName}
+                <button type="button" class="section-toggle" onclick="toggleSection(this)">▼ Boxes छिपाएँ</button>
             </h2>
+
+            <div class="section-content">
 
         `;
 
@@ -1080,6 +1207,8 @@ function renderMains600Boxes(){
         mainsHtml += `
 
             </div>
+            <div class="no-results">इस Paper में खोजा गया Box नहीं मिला।</div>
+            </div>
 
         </section>
 
@@ -1092,6 +1221,72 @@ function renderMains600Boxes(){
         mainsHtml;
 
 }
+
+/* =========================================================
+   TEST FINDER + UNIT/PAPER TOGGLES
+========================================================= */
+function toggleSection(button){
+    const section = button.closest(".unit-sec, .paper");
+    if(!section) return;
+    const collapsed = section.classList.toggle("section-collapsed");
+    button.textContent = collapsed
+        ? "▶ Tests/Boxes खोलें"
+        : (section.classList.contains("unit-sec") ? "▼ Tests छिपाएँ" : "▼ Boxes छिपाएँ");
+}
+
+function jumpToSection(id){
+    const el=document.getElementById(id);
+    if(el) el.scrollIntoView({behavior:"smooth", block:"start"});
+}
+
+function clearTestSearch(){
+    const input=document.getElementById("test-search");
+    if(input){
+        input.value="";
+        filterTests("");
+        input.focus();
+    }
+}
+
+function filterTests(query){
+    query=String(query||"").trim().toLowerCase();
+    const cards=document.querySelectorAll("#prelims-master-container .card, #mains-master-container .card");
+    let visible=0;
+    cards.forEach(card=>{
+        const text=card.textContent.toLowerCase();
+        const match=!query || text.includes(query);
+        card.classList.toggle("is-hidden",!match);
+        if(match) visible++;
+    });
+
+    document.querySelectorAll("#prelims-master-container .unit-sec, #mains-master-container .paper")
+      .forEach(section=>{
+        const sectionCards=section.querySelectorAll(".card");
+        const shown=section.querySelectorAll(".card:not(.is-hidden)").length;
+        const empty=section.querySelector(".no-results");
+        section.style.display = query && shown===0 ? "none" : "";
+        if(empty) empty.style.display = query && shown===0 ? "block" : "none";
+        if(query && shown>0 && section.classList.contains("section-collapsed")){
+            section.classList.remove("section-collapsed");
+            const btn=section.querySelector(".section-toggle");
+            if(btn) btn.textContent=section.classList.contains("unit-sec") ? "▼ Tests छिपाएँ" : "▼ Boxes छिपाएँ";
+        }
+      });
+
+    const count=document.getElementById("finder-count");
+    if(count){
+        count.textContent=query
+          ? `${visible} matching Test/Box दिखाई दे रहे हैं।`
+          : "सभी Tests/Boxes दिख रहे हैं।";
+    }
+}
+
+document.addEventListener("DOMContentLoaded",function(){
+    const input=document.getElementById("test-search");
+    if(input){
+        input.addEventListener("input",function(){ filterTests(this.value); });
+    }
+});
 
 </script>
 
