@@ -1,153 +1,133 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Portal - Login & Change Password</title>
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: Arial, Helvetica, sans-serif; background-color: #f4f7fc; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 15px; }
-        .login-container { background: white; padding: 35px 30px; border-radius: 12px; box-shadow: 0 4px 25px rgba(0,0,0,0.1); width: 100%; max-width: 380px; text-align: center; border-top: 5px solid #082b57; }
-        .logo-title { color: #082b57; font-size: 24px; font-weight: bold; margin-bottom: 5px; }
-        .sub-title { color: #667085; font-size: 13px; margin-bottom: 25px; }
-        .form-group { text-align: left; margin-bottom: 15px; }
-        .form-group label { font-weight: bold; display: block; margin-bottom: 5px; font-size: 13px; color: #333; }
-        input { width: 100%; padding: 11px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 14px; }
-        input:focus { border-color: #147dcc; outline: none; }
-        button { width: 100%; padding: 12px; background: #082b57; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold; margin-top: 10px; transition: background 0.2s; }
-        button:hover { background: #051d3b; }
-        .switch-link { color: #147dcc; cursor: pointer; display: block; margin-top: 20px; font-size: 13px; font-weight: bold; text-decoration: none; }
-        .switch-link:hover { text-decoration: underline; }
-        .error-alert { color: #d32f2f; font-size: 13px; font-weight: bold; margin-top: 10px; display: none; background: #ffebee; padding: 8px; border-radius: 4px; border-left: 4px solid #d32f2f; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MPPSC Portal - Student Login</title>
+  <style>
+    *{box-sizing:border-box}
+    body{
+      margin:0;font-family:Arial,Helvetica,sans-serif;
+      min-height:100vh;display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(135deg,#0d47a1,#eaf1ff);
+    }
+    .card{
+      width:min(430px,92vw);background:#fff;border-radius:18px;padding:30px;
+      box-shadow:0 15px 45px rgba(0,0,0,.18);
+    }
+    .logo{display:block;margin:0 auto 12px;width:72px;height:72px;border-radius:50%;object-fit:cover}
+    h1{text-align:center;color:#0d47a1;margin:8px 0 3px;font-size:25px}
+    .sub{text-align:center;color:#666;margin:0 0 24px;font-size:14px}
+    label{display:block;font-weight:700;margin:12px 0 6px;color:#222}
+    input{
+      width:100%;padding:13px 14px;border:1px solid #ccc;border-radius:10px;
+      font-size:16px;outline:none;
+    }
+    input:focus{border-color:#0d47a1;box-shadow:0 0 0 3px rgba(13,71,161,.10)}
+    button{
+      width:100%;padding:13px;border:0;border-radius:10px;font-size:16px;
+      font-weight:700;cursor:pointer;margin-top:18px;
+    }
+    .login{background:#0d47a1;color:#fff}
+    .signup{background:#f2f5fa;color:#0d47a1}
+    .msg{margin-top:14px;padding:10px;border-radius:8px;display:none;font-size:14px}
+    .info{background:#eef5ff;color:#164b88}
+    .error{background:#ffecec;color:#a40000}
+    .success{background:#ecfff1;color:#137333}
+    .back{text-align:center;margin-top:18px}
+    .back a{color:#0d47a1;text-decoration:none;font-weight:700}
+  </style>
 </head>
 <body>
+  <div class="card">
+    <img class="logo" src="mppsc-logo.jpg" alt="MPPSC">
+    <h1>Student Login</h1>
+    <p class="sub">MPPSC Portal • Paid Course Access</p>
 
-<!-- 🔑 सेक्शन 1: छात्र लॉगिन फ़ॉर्म -->
-<div class="login-container" id="login-section">
-    <div class="logo-title">MPPSC MCQ Hub</div>
-    <div class="sub-title">Paid Student Portal Login</div>
-    
-    <div class="form-group">
-        <label>यूजर आईडी (आपका मोबाइल नंबर):</label>
-        <input type="number" id="login-user" placeholder="10 अंकों का मोबाइल नंबर दर्ज करें">
-    </div>
-    
-    <div class="form-group">
-        <label>पासवर्ड (SMS पर आया हुआ):</label>
-        <input type="password" id="login-pass" placeholder="अपना पासवर्ड दर्ज करें">
-    </div>
-    
-    <div class="error-alert" id="login-error">गलत मोबाइल नंबर या पासवर्ड!</div>
-    
-    <button onclick="handleStudentLogin()">लॉगिन करें (Login & Study)</button>
-    <span class="switch-link" onclick="toggleSections(false)">🔐 प्राप्त पासवर्ड बदलें (Change Password)</span>
-</div>
+    <label for="email">Email / ई-मेल</label>
+    <input id="email" type="email" placeholder="student@example.com" autocomplete="email">
 
-<!-- 🛠️ सेक्शन 2: पासवर्ड बदलने का फ़ॉर्म (डिफ़ॉल्ट रूप से छुपा रहेगा) -->
-<div class="login-container" id="change-section" style="display: none;">
-    <div class="logo-title">पासवर्ड बदलें</div>
-    <div class="sub-title">अपना नया परमानेंट पासवर्ड सेट करें</div>
-    
-    <div class="form-group">
-        <label>आपका पंजीकृत मोबाइल नंबर:</label>
-        <input type="number" id="change-user" placeholder="10 अंकों का मोबाइल नंबर">
-    </div>
-    
-    <div class="form-group">
-        <label>पुराना पासवर्ड (SMS वाला):</label>
-        <input type="password" id="old-pass" placeholder="पुराना पासवर्ड दर्ज करें">
-    </div>
-    
-    <div class="form-group">
-        <label>नया मनपसंद पासवर्ड बनाएं:</label>
-        <input type="password" id="new-pass" placeholder="नया पासवर्ड दर्ज करें">
-    </div>
-    
-    <div class="error-alert" id="change-error">विवरण मैच नहीं हुआ! पासवर्ड नहीं बदला गया।</div>
-    
-    <button onclick="handlePasswordChange()" style="background: #147dcc;">अपडेट करें (Update Password)</button>
-    <span class="switch-link" onclick="toggleSections(true)">⬅ वापस लॉगिन पेज पर जाएँ</span>
-</div>
+    <label for="password">Password / पासवर्ड</label>
+    <input id="password" type="password" placeholder="Enter password" autocomplete="current-password">
 
-<script>
-    // दोनों फ़ॉर्म्स के बीच स्विच करने का फंक्शन
-    function toggleSections(showLogin) {
-        document.getElementById("login-error").style.display = "none";
-        document.getElementById("change-error").style.display = "none";
-        document.getElementById("login-section").style.display = showLogin ? "block" : "none";
-        document.getElementById("change-section").style.display = showLogin ? "none" : "block";
+    <button class="login" id="loginBtn">🔐 Login / लॉगिन</button>
+    <button class="signup" id="signupBtn">📝 Create Account / नया खाता</button>
+
+    <div id="msg" class="msg"></div>
+
+    <div class="back"><a href="index.html">← Back to Home / होम</a></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    // ====== अपने Supabase Project की values यहाँ डालें ======
+    const SUPABASE_URL = "PASTE_YOUR_SUPABASE_URL";
+    const SUPABASE_ANON_KEY = "PASTE_YOUR_SUPABASE_ANON_KEY";
+    // =====================================================
+
+    const msg = document.getElementById("msg");
+    const email = document.getElementById("email");
+    const password = document.getElementById("password");
+
+    function showMsg(text, type="info"){
+      msg.textContent = text;
+      msg.className = "msg " + type;
+      msg.style.display = "block";
     }
 
-    // 🎯 1. छात्र लॉगिन प्रोसेस हैंडलर
-    function handleStudentLogin() {
-        const user = document.getElementById("login-user").value;
-        const pass = document.getElementById("login-pass").value;
-        const errorBox = document.getElementById("login-error");
-        
-        errorBox.style.display = "none";
-
-        if (!user || !pass) {
-            alert("कृपया सभी फ़ील्ड भरें!");
-            return;
-        }
-        
-        // लोकल डेटाबेस से छात्रों की लिस्ट निकालना
-        let users = JSON.parse(localStorage.getItem("mppsc_students")) || [];
-        
-        // छात्र क्रेडेंशियल मैच करना
-        let foundUser = users.find(u => u.username === user && u.password === pass);
-
-        if (foundUser) {
-            alert("🎉 लॉगिन सफल! आपको आपके कोर्स पोर्टल पर भेजा जा रहा है।");
-            
-            // छात्र को उसके खरीदे गए सही कोर्स टाइप (prelims या mains) के अनुसार भेजना
-            if (foundUser.type === "mains") {
-                window.location.href = "mains.html?v=mppsc2027";
-            } else {
-                window.location.href = "prelims.html?v=mppsc2027";
-            }
-        } else {
-            errorBox.style.display = "block";
-        }
+    if (
+      SUPABASE_URL.includes("PASTE_") ||
+      SUPABASE_ANON_KEY.includes("PASTE_")
+    ) {
+      showMsg("Supabase URL और Anon Key डालने के बाद login चालू होगा।", "info");
     }
 
-    // 🎯 2. पासवर्ड रीसेट/चेंज प्रोसेस हैंडलर
-    function handlePasswordChange() {
-        const user = document.getElementById("change-user").value;
-        const oldPass = document.getElementById("old-pass").value;
-        const newPass = document.getElementById("new-pass").value;
-        const errorBox = document.getElementById("change-error");
+    const supabaseClient = supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_ANON_KEY
+    );
 
-        errorBox.style.display = "none";
+    document.getElementById("signupBtn").addEventListener("click", async () => {
+      const e = email.value.trim();
+      const p = password.value;
 
-        if (!user || !oldPass || !newPass) {
-            alert("कृपया सभी विवरण भरें!");
-            return;
+      if (!e || !p) return showMsg("Email और password भरें।", "error");
+      if (p.length < 6) return showMsg("Password कम से कम 6 characters का रखें।", "error");
+
+      const { error } = await supabaseClient.auth.signUp({
+        email: e,
+        password: p,
+        options: {
+          emailRedirectTo: window.location.origin + "/student-login.html"
         }
+      });
 
-        if (newPass.length < 4) {
-            alert("नया पासवर्ड कम से कम 4 अक्षरों या अंकों का होना चाहिए!");
-            return;
-        }
+      if (error) return showMsg(error.message, "error");
+      showMsg("Account बन गया। Email verification माँगी जाए तो email verify करें, फिर login करें।", "success");
+    });
 
-        let users = JSON.parse(localStorage.getItem("mppsc_students")) || [];
-        // पुराने यूजर और उसके पुराने पासवर्ड का मिलान इंडेक्स खोजना
-        let userIndex = users.findIndex(u => u.username === user && u.password === oldPass);
+    document.getElementById("loginBtn").addEventListener("click", async () => {
+      const e = email.value.trim();
+      const p = password.value;
 
-        if (userIndex !== -1) {
-            // पासवर्ड को नए पासवर्ड से अपडेट करना
-            users[userIndex].password = newPass;
-            localStorage.setItem("mppsc_students", JSON.stringify(users));
-            
-            alert("✓ पासवर्ड सफलतापूर्वक बदल दिया गया है! अब आप नए पासवर्ड से लॉगिन कर सकते हैं।");
-            toggleSections(true); // वापस लॉगिन स्क्रीन पर रीडायरेक्ट करें
-            document.getElementById("login-user").value = user;
-            document.getElementById("login-pass").value = "";
-        } else {
-            errorBox.style.display = "block";
-        }
-    }
-</script>
+      if (!e || !p) return showMsg("Email और password भरें।", "error");
+
+      const { data, error } = await supabaseClient.auth.signInWithPassword({
+        email: e,
+        password: p
+      });
+
+      if (error) return showMsg(error.message, "error");
+
+      showMsg("Login successful. Paid course access check किया जा रहा है...", "success");
+
+      // अभी केवल login के बाद page खोल रहा है.
+      // Payment verification को secure बनाने के लिए इस redirect से पहले
+      // आपकी Supabase payment/access table या Edge Function से paid status check करें.
+      setTimeout(() => {
+        window.location.href = "prelims-paid.html";
+      }, 700);
+    });
+  </script>
 </body>
 </html>

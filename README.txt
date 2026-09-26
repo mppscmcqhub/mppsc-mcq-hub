@@ -1,26 +1,19 @@
-MPPSC MAINS 600 MARKS-WISE PRACTICE BOXES
+MPPSC Portal Student Login
+===========================
 
-6 papers × 100 boxes = 600
+Files:
+1. student-login.html  -> Student login/register page
+2. button-snippet.html  -> Homepage/paid-course button code
 
-हर paper:
-- 40 boxes × 5 marks
-- 40 boxes × 10 marks
-- 20 boxes × 15 marks
+Setup:
+1. दोनों files अपने GitHub Pages repository में upload करें.
+2. student-login.html में:
+   SUPABASE_URL
+   SUPABASE_ANON_KEY
+   अपनी Supabase values से replace करें.
+3. Homepage में button-snippet.html का code लगाएँ.
+4. Paid course page का वास्तविक payment protection server/database check से करें.
+   केवल JavaScript hide/show पर paid course secure नहीं होता.
 
-Total per paper = 100
-Total all papers = 600
-
-Main page:
-mains-600.html
-
-Paper folders:
-paper-01-general-studies-i
-paper-02-general-studies-ii
-paper-03-general-studies-iii
-paper-04-general-studies-iv
-paper-05-general-hindi-grammar
-paper-06-hindi-essay-draft
-
-Note:
-यह website के practice-bank के लिए requested marks-wise organization है।
-Actual exam pattern के exact question counts को इससे अलग रखा जाना चाहिए जब तक official syllabus/paper scheme से verify न किया जाए.
+Expected links:
+https://mppscportal.in/student-login.html
