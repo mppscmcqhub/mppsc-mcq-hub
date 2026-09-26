@@ -262,57 +262,44 @@ th{
 
     <!-- ================= PAYMENT VERIFICATION ================= -->
 
-    <section class="table-sec">
-
-        <h2 style="color:#4caf50;margin:0 0 5px 0;">
-            📥 छात्रों के पेंडिंग पेमेंट और रसीदें (Verification Requests)
-        </h2>
-
-        <div style="overflow-x:auto;">
-
-            <table>
-
-                <thead>
-
-                    <tr>
-
-                        <th>दिनांक</th>
-
-                        <th>मोबाइल नंबर</th>
-
-                        <th>कोर्स टाइप</th>
-
-                        <th>UTR ID</th>
-
-                        <th>रसीद (Screenshot)</th>
-
-                        <th>एक्शन</th>
-
-                    </tr>
-
-                </thead>
-
-                <tbody id="payment-requests-table">
-
-                    <tr>
-
-                        <td colspan="6"
-                            style="text-align:center;color:#667085;font-weight:bold;">
-
-                            वर्तमान में कोई पेंडिंग पेमेंट रिक्वेस्ट नहीं है।
-
-                        </td>
-
-                    </tr>
-
-                </tbody>
-
-            </table>
-
+    <section class="table-sec" style="border-top-color:#4caf50;">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;">
+            <div>
+                <h2 style="color:#2e7d32;margin:0 0 5px 0;">📥 पेंडिंग पेमेंट / Verification Requests</h2>
+                <p style="color:#667085;margin:0;">जो payment अभी approve नहीं हुए हैं, वे यहाँ दिखेंगे।</p>
+            </div>
+            <button onclick="loadAllStudentData()" style="background:#082b57;color:#fff;border:0;border-radius:6px;padding:9px 14px;font-weight:bold;cursor:pointer;">↻ Refresh</button>
         </div>
-
+        <div style="overflow-x:auto;">
+            <table>
+                <thead><tr>
+                    <th>दिनांक</th><th>मोबाइल</th><th>कोर्स</th><th>UTR ID</th><th>रसीद</th><th>स्थिति / एक्शन</th>
+                </tr></thead>
+                <tbody id="payment-pending-table"></tbody>
+            </table>
+        </div>
     </section>
 
+    <section class="table-sec" style="border-top-color:#147dcc;">
+        <h2 style="color:#0b69b1;margin:0 0 5px 0;">✅ Approved Payments / Login Details</h2>
+        <p style="color:#667085;margin:0;">Approve किए गए सभी students, mobile, password और course यहाँ हमेशा दिखेंगे।</p>
+        <div style="overflow-x:auto;">
+            <table>
+                <thead><tr>
+                    <th>Approve Date</th><th>Mobile</th><th>Password</th><th>Course</th><th>UTR ID</th><th>Status</th>
+                </tr></thead>
+                <tbody id="payment-approved-table"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="table-sec" style="border-top-color:#7c3aed;">
+        <h2 style="margin:0;color:#082b57;">🎓 Student Accounts</h2>
+        <p style="color:#667085;margin:6px 0 10px;">सभी approved students, उनके courses और login password</p>
+        <div style="overflow-x:auto;">
+            <table><thead><tr><th>Mobile</th><th>Password</th><th>Courses</th><th>Status</th><th>Created / Updated</th></tr></thead><tbody id="student-accounts-table"></tbody></table>
+        </div>
+    </section>
 
     <!-- ================= PRELIMS ================= -->
 
@@ -352,8 +339,7 @@ th{
 
 document.addEventListener("DOMContentLoaded", function(){
 
-    loadPaymentRequests();
-    loadStudentAccounts();
+    loadAllStudentData();
 
     renderPrelims200Boxes();
 
@@ -363,114 +349,88 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 /* =========================================================
-   PAYMENT REQUESTS
+   PAYMENT / STUDENT DATA
 ========================================================= */
 
-function loadPaymentRequests(){
-
-    const tableBody =
-        document.getElementById("payment-requests-table");
-
-    if(!tableBody) return;
-
-    let pendingPayments =
-        JSON.parse(
-            localStorage.getItem("mppsc_pending_payments")
-        ) || [];
-
-    if(pendingPayments.length === 0){
-
-        return;
-
-    }
-
-    let html = "";
-
-    pendingPayments.forEach(function(req,index){
-
-        html += `
-
-        <tr>
-
-            <td>
-                ${req.date || ""}
-            </td>
-
-            <td style="font-weight:bold;">
-                ${req.phone || ""}
-            </td>
-
-            <td>
-
-                <span
-                    style="
-                    padding:4px 8px;
-                    border-radius:4px;
-                    font-weight:bold;
-                    font-size:12px;
-                    background:${req.course === "mains"
-                        ? "#e1f5fe"
-                        : "#ffebee"};
-                    color:${req.course === "mains"
-                        ? "#0288d1"
-                        : "#c62828"};
-                    ">
-
-                    ${(req.course || "").toUpperCase()}
-
-                </span>
-
-            </td>
-
-            <td style="font-family:monospace;font-weight:bold;">
-                ${req.utr || ""}
-            </td>
-
-            <td>
-
-                ${
-                    req.screenshot
-                    ?
-                    `<img
-                        src="${req.screenshot}"
-                        style="
-                        width:40px;
-                        height:40px;
-                        object-fit:cover;
-                        border-radius:4px;
-                        "
-                    >`
-                    :
-                    "No Screenshot"
-                }
-
-            </td>
-
-            <td>
-                ${req.status === "approved"
-                    ? '<span style="color:#2e7d32;font-weight:bold">✓ Approved</span>'
-                    : req.status === "duplicate"
-                    ? '<span style="color:#c62828;font-weight:bold">⚠ Duplicate UTR</span>'
-                    : `<button style="background:#4caf50;color:white;border:none;padding:5px 10px;border-radius:4px;cursor:pointer;font-weight:bold" onclick="approvePayment(${index})">Approve</button>`}
-            </td>
-
-        </tr>
-
-        `;
-
-    });
-
-    tableBody.innerHTML = html;
-
+function getPayments(){
+    try { return JSON.parse(localStorage.getItem("mppsc_pending_payments")) || []; }
+    catch(e){ return []; }
 }
 
+function getStudents(){
+    try { return JSON.parse(localStorage.getItem("mppsc_students")) || []; }
+    catch(e){ return []; }
+}
+
+function esc(v){
+    return String(v ?? "").replace(/[&<>'"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));
+}
+
+function courseBadge(course){
+    const c=String(course||'').toLowerCase();
+    const bg=c==='mains'?'#e1f5fe':'#ffebee';
+    const fg=c==='mains'?'#0288d1':'#c62828';
+    return `<span style="display:inline-block;padding:4px 8px;border-radius:12px;background:${bg};color:${fg};font-weight:bold;font-size:11px">${esc(c.toUpperCase())}</span>`;
+}
+
+function loadAllStudentData(){
+    loadPaymentRequests();
+    loadStudentAccounts();
+}
+
+function loadPaymentRequests(){
+    const payments=getPayments();
+    const pendingBody=document.getElementById('payment-pending-table');
+    const approvedBody=document.getElementById('payment-approved-table');
+
+    const pending=payments.filter(r => String(r.status||'pending').toLowerCase()==='pending');
+    const approved=payments.filter(r => ['approved','duplicate'].includes(String(r.status||'').toLowerCase()));
+
+    if(!pending.length){
+        pendingBody.innerHTML='<tr><td colspan="6" style="text-align:center;color:#667085;font-weight:bold;padding:18px">अभी कोई pending payment नहीं है।</td></tr>';
+    } else {
+        pendingBody.innerHTML=pending.map(req=>{
+            const idx=payments.indexOf(req);
+            return `<tr>
+                <td>${esc(req.date)}</td>
+                <td><b>${esc(req.phone)}</b></td>
+                <td>${courseBadge(req.course)}</td>
+                <td style="font-family:monospace;font-weight:bold">${esc(req.utr)}</td>
+                <td>${req.screenshot ? `<img src="${req.screenshot}" style="width:45px;height:45px;object-fit:cover;border-radius:5px;cursor:pointer" onclick="window.open(this.src,'_blank')">` : 'No Screenshot'}</td>
+                <td><button style="background:#4caf50;color:white;border:0;padding:7px 12px;border-radius:5px;cursor:pointer;font-weight:bold" onclick="approvePayment(${idx})">✓ Approve</button></td>
+            </tr>`;
+        }).join('');
+    }
+
+    if(!approved.length){
+        approvedBody.innerHTML='<tr><td colspan="6" style="text-align:center;color:#667085;font-weight:bold;padding:18px">अभी कोई approved payment नहीं है।</td></tr>';
+    } else {
+        approvedBody.innerHTML=approved.map(req=>`<tr>
+            <td>${esc(req.approvedAt || req.date)}</td>
+            <td><b>${esc(req.phone)}</b></td>
+            <td><span style="font-family:monospace;background:#fff8e1;padding:5px 9px;border-radius:5px;font-weight:bold">${esc(req.password || '—')}</span></td>
+            <td>${courseBadge(req.course)}</td>
+            <td style="font-family:monospace;font-weight:bold">${esc(req.utr)}</td>
+            <td>${String(req.status).toLowerCase()==='approved' ? '<span style="color:#2e7d32;font-weight:bold">✓ Approved</span>' : '<span style="color:#c62828;font-weight:bold">⚠ Duplicate</span>'}</td>
+        </tr>`).join('');
+    }
+}
 
 function loadStudentAccounts(){
-    const body=document.getElementById("student-accounts-table");
+    const body=document.getElementById('student-accounts-table');
     if(!body) return;
-    const users=JSON.parse(localStorage.getItem("mppsc_students"))||[];
-    if(!users.length){ body.innerHTML='<tr><td colspan="4" style="text-align:center;color:#777">अभी कोई approved student नहीं है।</td></tr>'; return; }
-    body.innerHTML=users.map(u=>`<tr><td><b>${u.username||""}</b></td><td>${(u.courses||[]).map(c=>`<span style="display:inline-block;padding:4px 7px;margin:2px;border-radius:12px;background:${c==='mains'?'#e1f5fe':'#ffebee'};font-weight:bold;font-size:11px">${c.toUpperCase()}</span>`).join('')}</td><td style="color:#2e7d32;font-weight:bold">${u.active===false?'Blocked':'Active'}</td><td>${u.createdAt||u.updatedAt||''}</td></tr>`).join('');
+    const users=getStudents();
+    if(!users.length){
+        body.innerHTML='<tr><td colspan="5" style="text-align:center;color:#777;padding:18px">अभी कोई approved student account नहीं है।</td></tr>';
+        return;
+    }
+    body.innerHTML=users.map(u=>`<tr>
+        <td><b>${esc(u.username)}</b></td>
+        <td><span style="font-family:monospace;background:#fff8e1;padding:5px 9px;border-radius:5px;font-weight:bold">${esc(u.password)}</span></td>
+        <td>${(Array.isArray(u.courses)?u.courses:[]).map(courseBadge).join(' ') || '—'}</td>
+        <td style="color:${u.active===false?'#c62828':'#2e7d32'};font-weight:bold">${u.active===false?'Blocked':'Active'}</td>
+        <td>${esc(u.updatedAt || u.createdAt || '')}</td>
+    </tr>`).join('');
 }
 
 /* =========================================================
