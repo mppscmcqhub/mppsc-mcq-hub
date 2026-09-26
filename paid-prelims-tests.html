@@ -27,7 +27,7 @@
         .c-set-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; }
         .c-test-box { background:#f7f3ff; border:1px solid #c4b5fd; border-radius:10px; padding:14px 10px; text-align:center; text-decoration:none; color:#4c1d95; font-weight:800; transition:.2s; }
         .c-test-box:hover { transform:translateY(-2px); background:#ede9fe; box-shadow:0 4px 10px rgba(91,33,182,.12); }
-        .c-test-box small { display:block; margin-top:5px; color:#666; font-weight:600; font-size:.75rem; }
+        .c-test-disabled{opacity:.58;cursor:not-allowed}.c-test-box small { display:block; margin-top:5px; color:#666; font-weight:600; font-size:.75rem; }
         @media(max-width:900px){.c-set-grid{grid-template-columns:repeat(4,1fr)}}
         @media(max-width:650px){.c-set-grid{grid-template-columns:repeat(2,1fr)}}
 
@@ -75,29 +75,59 @@
         </div>
 
         <section class="c-set-section">
-            <div class="c-set-title">🟣 C SET — 20 Paid Prelims Tests</div>
-            <div class="c-set-subtitle">C Set के लिए 20 अलग टेस्ट बॉक्स — किसी भी टेस्ट पर क्लिक करें।</div>
+            <div class="c-set-title">🟣 C SET — 50 Paid Prelims Tests</div>
+            <div class="c-set-subtitle">C Set में 50 test boxes हैं। Test 1–20 अभी उपलब्ध हैं; 21–50 के प्रश्न बाद में जोड़ने पर वे सीधे खुलेंगे।</div>
             <div class="c-set-grid">
-                <a class="c-test-box" href="prelims-tests/unit-03/P03T01/index.html">C Set Test 1<small>Open Test →</small></a>
-                <a class="c-test-box" href="prelims-tests/unit-03/P03T02/index.html">C Set Test 2<small>Open Test →</small></a>
-                <a class="c-test-box" href="prelims-tests/unit-03/P03T03/index.html">C Set Test 3<small>Open Test →</small></a>
-                <a class="c-test-box" href="prelims-tests/unit-03/P03T04/index.html">C Set Test 4<small>Open Test →</small></a>
-                <a class="c-test-box" href="prelims-tests/unit-03/P03T05/index.html">C Set Test 5<small>Open Test →</small></a>
-                <a class="c-test-box" href="prelims-tests/unit-03/P03T06/index.html">C Set Test 6<small>Open Test →</small></a>
-                <a class="c-test-box" href="prelims-tests/unit-03/P03T07/index.html">C Set Test 7<small>Open Test →</small></a>
-                <a class="c-test-box" href="prelims-tests/unit-03/P03T08/index.html">C Set Test 8<small>Open Test →</small></a>
-                <a class="c-test-box" href="prelims-tests/unit-03/P03T09/index.html">C Set Test 9<small>Open Test →</small></a>
-                <a class="c-test-box" href="prelims-tests/unit-03/P03T10/index.html">C Set Test 10<small>Open Test →</small></a>
-                <a class="c-test-box" href="prelims-tests/unit-03/P03T11/index.html">C Set Test 11<small>Open Test →</small></a>
-                <a class="c-test-box" href="prelims-tests/unit-03/P03T12/index.html">C Set Test 12<small>Open Test →</small></a>
-                <a class="c-test-box" href="prelims-tests/unit-03/P03T13/index.html">C Set Test 13<small>Open Test →</small></a>
-                <a class="c-test-box" href="prelims-tests/unit-03/P03T14/index.html">C Set Test 14<small>Open Test →</small></a>
-                <a class="c-test-box" href="prelims-tests/unit-03/P03T15/index.html">C Set Test 15<small>Open Test →</small></a>
-                <a class="c-test-box" href="prelims-tests/unit-03/P03T16/index.html">C Set Test 16<small>Open Test →</small></a>
-                <a class="c-test-box" href="prelims-tests/unit-03/P03T17/index.html">C Set Test 17<small>Open Test →</small></a>
-                <a class="c-test-box" href="prelims-tests/unit-03/P03T18/index.html">C Set Test 18<small>Open Test →</small></a>
-                <a class="c-test-box" href="prelims-tests/unit-03/P03T19/index.html">C Set Test 19<small>Open Test →</small></a>
-                <a class="c-test-box" href="prelims-tests/unit-03/P03T20/index.html">C Set Test 20<small>Open Test →</small></a>
+<a class="c-test-box" href="prelims-tests/unit-03/P03T01/index.html">C Set Test 1<small>Open Test →</small></a>
+<a class="c-test-box" href="prelims-tests/unit-03/P03T02/index.html">C Set Test 2<small>Open Test →</small></a>
+<a class="c-test-box" href="prelims-tests/unit-03/P03T03/index.html">C Set Test 3<small>Open Test →</small></a>
+<a class="c-test-box" href="prelims-tests/unit-03/P03T04/index.html">C Set Test 4<small>Open Test →</small></a>
+<a class="c-test-box" href="prelims-tests/unit-03/P03T05/index.html">C Set Test 5<small>Open Test →</small></a>
+<a class="c-test-box" href="prelims-tests/unit-03/P03T06/index.html">C Set Test 6<small>Open Test →</small></a>
+<a class="c-test-box" href="prelims-tests/unit-03/P03T07/index.html">C Set Test 7<small>Open Test →</small></a>
+<a class="c-test-box" href="prelims-tests/unit-03/P03T08/index.html">C Set Test 8<small>Open Test →</small></a>
+<a class="c-test-box" href="prelims-tests/unit-03/P03T09/index.html">C Set Test 9<small>Open Test →</small></a>
+<a class="c-test-box" href="prelims-tests/unit-03/P03T10/index.html">C Set Test 10<small>Open Test →</small></a>
+<a class="c-test-box" href="prelims-tests/unit-03/P03T11/index.html">C Set Test 11<small>Open Test →</small></a>
+<a class="c-test-box" href="prelims-tests/unit-03/P03T12/index.html">C Set Test 12<small>Open Test →</small></a>
+<a class="c-test-box" href="prelims-tests/unit-03/P03T13/index.html">C Set Test 13<small>Open Test →</small></a>
+<a class="c-test-box" href="prelims-tests/unit-03/P03T14/index.html">C Set Test 14<small>Open Test →</small></a>
+<a class="c-test-box" href="prelims-tests/unit-03/P03T15/index.html">C Set Test 15<small>Open Test →</small></a>
+<a class="c-test-box" href="prelims-tests/unit-03/P03T16/index.html">C Set Test 16<small>Open Test →</small></a>
+<a class="c-test-box" href="prelims-tests/unit-03/P03T17/index.html">C Set Test 17<small>Open Test →</small></a>
+<a class="c-test-box" href="prelims-tests/unit-03/P03T18/index.html">C Set Test 18<small>Open Test →</small></a>
+<a class="c-test-box" href="prelims-tests/unit-03/P03T19/index.html">C Set Test 19<small>Open Test →</small></a>
+<a class="c-test-box" href="prelims-tests/unit-03/P03T20/index.html">C Set Test 20<small>Open Test →</small></a>
+<span class="c-test-box c-test-disabled">C Set Test 21<small>Coming Soon</small></span>
+<span class="c-test-box c-test-disabled">C Set Test 22<small>Coming Soon</small></span>
+<span class="c-test-box c-test-disabled">C Set Test 23<small>Coming Soon</small></span>
+<span class="c-test-box c-test-disabled">C Set Test 24<small>Coming Soon</small></span>
+<span class="c-test-box c-test-disabled">C Set Test 25<small>Coming Soon</small></span>
+<span class="c-test-box c-test-disabled">C Set Test 26<small>Coming Soon</small></span>
+<span class="c-test-box c-test-disabled">C Set Test 27<small>Coming Soon</small></span>
+<span class="c-test-box c-test-disabled">C Set Test 28<small>Coming Soon</small></span>
+<span class="c-test-box c-test-disabled">C Set Test 29<small>Coming Soon</small></span>
+<span class="c-test-box c-test-disabled">C Set Test 30<small>Coming Soon</small></span>
+<span class="c-test-box c-test-disabled">C Set Test 31<small>Coming Soon</small></span>
+<span class="c-test-box c-test-disabled">C Set Test 32<small>Coming Soon</small></span>
+<span class="c-test-box c-test-disabled">C Set Test 33<small>Coming Soon</small></span>
+<span class="c-test-box c-test-disabled">C Set Test 34<small>Coming Soon</small></span>
+<span class="c-test-box c-test-disabled">C Set Test 35<small>Coming Soon</small></span>
+<span class="c-test-box c-test-disabled">C Set Test 36<small>Coming Soon</small></span>
+<span class="c-test-box c-test-disabled">C Set Test 37<small>Coming Soon</small></span>
+<span class="c-test-box c-test-disabled">C Set Test 38<small>Coming Soon</small></span>
+<span class="c-test-box c-test-disabled">C Set Test 39<small>Coming Soon</small></span>
+<span class="c-test-box c-test-disabled">C Set Test 40<small>Coming Soon</small></span>
+<span class="c-test-box c-test-disabled">C Set Test 41<small>Coming Soon</small></span>
+<span class="c-test-box c-test-disabled">C Set Test 42<small>Coming Soon</small></span>
+<span class="c-test-box c-test-disabled">C Set Test 43<small>Coming Soon</small></span>
+<span class="c-test-box c-test-disabled">C Set Test 44<small>Coming Soon</small></span>
+<span class="c-test-box c-test-disabled">C Set Test 45<small>Coming Soon</small></span>
+<span class="c-test-box c-test-disabled">C Set Test 46<small>Coming Soon</small></span>
+<span class="c-test-box c-test-disabled">C Set Test 47<small>Coming Soon</small></span>
+<span class="c-test-box c-test-disabled">C Set Test 48<small>Coming Soon</small></span>
+<span class="c-test-box c-test-disabled">C Set Test 49<small>Coming Soon</small></span>
+<span class="c-test-box c-test-disabled">C Set Test 50<small>Coming Soon</small></span>
             </div>
         </section>
 
