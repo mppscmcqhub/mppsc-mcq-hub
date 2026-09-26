@@ -32,12 +32,22 @@ a{text-decoration:none;color:inherit}
 @media(max-width:600px){.grid,.testgrid{grid-template-columns:1fr}.wrap{padding:14px 9px}}
 
 </style>
-<style>.loginbox{max-width:430px;margin:55px auto;background:#fff;padding:28px;border-radius:18px;box-shadow:0 8px 28px rgba(0,0,0,.12)}.loginbox h1{margin-top:0}.loginbox input{width:100%;box-sizing:border-box;padding:13px;margin:8px 0 14px;border:1px solid #d5dce5;border-radius:10px;font-size:16px}.loginbox button{width:100%;border:0;cursor:pointer}.err{color:#d32f2f;min-height:22px;margin:4px 0}.note{font-size:13px;color:#667085;margin-top:15px}</style></head>
-<body><header class="top"><div class="topin"><div class="logo" aria-label="MPPSC logo"><div class="logo-main">MP</div><div class="logo-sub">PSC</div></div><div class="title">MPPSC MCQ Hub V14 · ADMIN</div><a class="login" href="index.html">Home</a></div></header>
-<main class="wrap"><div class="loginbox"><h1>🔐 Admin Login</h1><p>Paid PRELIMS के 200 Tests और Paid MAINS के 600 Questions manage करने के लिए login करें।</p>
+<style>.loginbox{max-width:430px;margin:55px auto;background:#fff;padding:28px;border-radius:18px;box-shadow:0 8px 28px rgba(0,0,0,.12)}.loginbox h1{margin-top:0}.loginbox input{width:100%;box-sizing:border-box;padding:13px;margin:8px 0 14px;border:1px solid #d5dce5;border-radius:10px;font-size:16px}.loginbox button{width:100%;border:0;cursor:pointer}.err{color:#d32f2f;min-height:22px;margin:4px 0}.note{font-size:13px;color:#667085;margin-top:15px}</style>
+<style id="site-logo-global-css">
+.site-brand-bar{width:100%;background:#0d47a1;color:#fff;display:flex;align-items:center;gap:12px;padding:8px 16px;min-height:64px;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif;position:relative;z-index:1000;box-shadow:0 2px 6px rgba(0,0,0,.12)}
+.site-brand-bar img{width:48px;height:48px;border-radius:50%;object-fit:cover;background:#fff;border:2px solid #fff;flex:0 0 auto}
+.site-brand-bar .site-brand-title{font-size:1.12rem;font-weight:800;line-height:1.2}
+@media(max-width:600px){.site-brand-bar{padding:7px 10px;min-height:58px}.site-brand-bar img{width:42px;height:42px}.site-brand-bar .site-brand-title{font-size:.98rem}}
+</style>
+
+</head>
+<body>
+<div class="site-brand-bar"><img src="MPPSC-MCQ-Hub-Logo.png" alt="MPPSC MCQ Hub Logo"><div class="site-brand-title">MPPSC MCQ Hub</div></div>
+<header class="top"><div class="topin"><div class="logo" aria-label="MPPSC logo"><div class="logo-main">MP</div><div class="logo-sub">PSC</div></div><div class="title">MPPSC MCQ Hub V14 · ADMIN</div><a class="login" href="index.html">Home</a></div></header>
+<main class="wrap"><div class="loginbox"><h1>🔐 Admin Login</h1><p>Paid PRELIMS के 200 Test Boxes देखने के लिए login करें।</p>
 <label>Username</label><input id="u" autocomplete="username" placeholder="Admin username">
 <label>Password</label><input id="p" type="password" autocomplete="current-password" placeholder="Admin password">
 <div id="err" class="err"></div><button class="btn" onclick="login()">Login</button>
 <p class="note">Demo credentials: <b>admin</b> / <b>MPPSC2027</b><br>नोट: GitHub Pages पर यह client-side demo login है; असली सुरक्षित admin authentication के लिए backend आवश्यक है।</p></div></main>
-<script>function login(){const u=document.getElementById('u').value.trim(),p=document.getElementById('p').value; if(u==='admin'&&p==='MPPSC2027'){sessionStorage.setItem('mppsc_admin','1');sessionStorage.setItem('mppsc_admin_authenticated','true');location.href='admin.html'}else document.getElementById('err').textContent='Username या password गलत है।'}document.addEventListener('keydown',e=>{if(e.key==='Enter')login()});</script>
+<script>function login(){const u=document.getElementById('u').value.trim(),p=document.getElementById('p').value; if(u==='admin'&&p==='MPPSC2027'){sessionStorage.setItem('mppsc_admin','1');location.href='admin-dashboard.html'}else document.getElementById('err').textContent='Username या password गलत है।'}document.addEventListener('keydown',e=>{if(e.key==='Enter')login()});</script>
 </body></html>
