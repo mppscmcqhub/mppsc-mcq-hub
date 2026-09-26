@@ -1,8 +1,1112 @@
-<!DOCTYPE html><html><head><meta charset='UTF-8'><title>Admin</title>
-<script src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2'></script><script src='js/supabase.js'></script><script src='js/admin.js'></script></head>
-<body style='font-family:Arial;padding:30px'><h1>MPPSC Admin Approval</h1>
-<table border=1 cellpadding=8><tr><th>Student ID</th><th>PRELIMS</th><th>MAINS</th></tr>
-<tr><td><input id=sid placeholder='Paste Student ID'></td>
-<td><button onclick="approvePrelims(sid.value)">Approve</button></td>
-<td><button onclick="approveMains(sid.value)">Approve</button></td></tr></table>
-<p>Replace this table with your pending requests list.</p></body></html>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MPPSC MCQ Hub V14 - Full Admin Master Dashboard</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f3f6fa;
+    color:#102a43;
+    padding-bottom:50px;
+}
+
+.header{
+    background:#082b57;
+    color:#fff;
+    padding:15px 20px;
+    font-size:19px;
+    font-weight:700;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    min-height:60px;
+}
+
+.wrap{
+    max-width:1500px;
+    margin:22px auto;
+    padding:0 15px;
+}
+
+.top{
+    background:#fff;
+    border-radius:12px;
+    padding:18px 20px;
+    margin-bottom:18px;
+    box-shadow:0 2px 9px rgba(0,0,0,0.05);
+}
+
+.top h1{
+    margin:0 0 6px;
+    font-size:24px;
+}
+
+.top p{
+    margin:5px 0;
+    color:#667085;
+}
+
+.section-main-title{
+    font-size:24px;
+    font-weight:800;
+    color:#082b57;
+    margin:40px 0 15px;
+    padding-left:10px;
+    display:block;
+}
+
+.pre-title{
+    border-left:6px solid #e53e3e;
+}
+
+.mains-title{
+    border-left:6px solid #147dcc;
+}
+
+.paper,
+.unit-sec{
+    background:#fff;
+    border-radius:12px;
+    padding:16px;
+    margin-bottom:25px;
+    box-shadow:0 2px 9px rgba(0,0,0,0.05);
+    display:block;
+}
+
+.unit-sec{
+    border-top:4px solid #e53e3e;
+}
+
+.paper{
+    border-top:4px solid #147dcc;
+}
+
+.paper h2,
+.unit-sec h2{
+    margin:0 0 14px;
+    font-size:20px;
+    color:#082b57;
+    border-bottom:2px solid #eaf2fb;
+    padding-bottom:8px;
+}
+
+.group-title{
+    background:#eaf2fb;
+    border-radius:7px;
+    padding:8px 10px;
+    margin:20px 0 10px;
+    font-size:14px;
+    font-weight:700;
+    color:#082b57;
+}
+
+/* 10 Column Grid */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(10,1fr);
+    gap:6px;
+    margin-top:10px;
+}
+
+.card{
+    background:#fff;
+    border:1px solid #d7e1ec;
+    border-radius:6px;
+    padding:8px 2px;
+    text-align:center;
+    box-shadow:0 1px 2px rgba(0,0,0,0.02);
+}
+
+.code{
+    font-size:11px;
+    font-weight:700;
+    display:block;
+    margin-bottom:5px;
+    color:#334e68;
+}
+
+.open-btn{
+    display:block;
+    color:#fff;
+    text-decoration:none;
+    border-radius:4px;
+    padding:4px 2px;
+    font-size:10px;
+    font-weight:bold;
+    text-align:center;
+}
+
+.pre-btn{
+    background:#e53e3e;
+}
+
+.pre-btn:hover{
+    background:#c53030;
+}
+
+.mains-btn{
+    background:#147dcc;
+}
+
+.mains-btn:hover{
+    background:#0b69b1;
+}
+
+.home-btn{
+    background:#fff;
+    color:#082b57;
+    border:none;
+    padding:8px 16px;
+    border-radius:6px;
+    font-weight:bold;
+    cursor:pointer;
+    font-size:14px;
+    text-decoration:none;
+}
+
+.table-sec{
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:30px;
+    box-shadow:0 2px 9px rgba(0,0,0,0.05);
+    border-top:4px solid #4caf50;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+
+th,
+td{
+    border:1px solid #d7e1ec;
+    padding:12px;
+    text-align:left;
+    font-size:14px;
+}
+
+th{
+    background:#f0f5ff;
+    color:#082b57;
+    font-weight:bold;
+}
+
+@media(max-width:1400px){
+    .grid{
+        grid-template-columns:repeat(8,1fr);
+    }
+}
+
+@media(max-width:1100px){
+    .grid{
+        grid-template-columns:repeat(6,1fr);
+    }
+}
+
+@media(max-width:800px){
+    .grid{
+        grid-template-columns:repeat(4,1fr);
+    }
+}
+
+@media(max-width:500px){
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+</style>
+</head>
+
+<body>
+<!-- MPPSC MCQ Hub site header -->
+<style>
+  .mppsc-site-header { background:#1450a3; color:#fff; display:flex; align-items:center; gap:12px; padding:10px 16px; margin:0 0 16px 0; box-sizing:border-box; width:100%; }
+  .mppsc-site-header img { width:42px; height:42px; object-fit:contain; border-radius:50%; background:#fff; }
+  .mppsc-site-header .site-title { font-size:20px; font-weight:700; line-height:1.2; }
+  @media (max-width:600px) { .mppsc-site-header .site-title { font-size:17px; } .mppsc-site-header img { width:36px; height:36px; } }
+</style>
+<header class="mppsc-site-header">
+  <img src="MPPSC-MCQ-Hub-Logo.png" alt="MPPSC MCQ Hub Logo">
+  <div class="site-title">MPPSC MCQ Hub V14</div>
+</header>
+
+
+<div class="header">
+
+    <span>
+        MPPSC MCQ Hub V14 — Full Admin Master Dashboard
+    </span>
+
+    <a href="index.html" class="home-btn">
+        मुख्य वेबसाइट पर जाएँ
+    </a>
+
+</div>
+
+
+<div class="wrap">
+
+    <div class="top">
+
+        <h1>
+            MPPSC Complete Control Board
+        </h1>
+
+        <p>
+            <b>
+                Paid PRELIMS (200 Tests) + Paid MAINS (600 Boxes) Control Dashboard
+            </b>
+        </p>
+
+    </div>
+
+
+    <!-- ================= PAYMENT VERIFICATION ================= -->
+
+    <section class="table-sec">
+
+        <h2 style="color:#4caf50;margin:0 0 5px 0;">
+            📥 छात्रों के पेंडिंग पेमेंट और रसीदें (Verification Requests)
+        </h2>
+
+        <div style="overflow-x:auto;">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>दिनांक</th>
+
+                        <th>मोबाइल नंबर</th>
+
+                        <th>कोर्स टाइप</th>
+
+                        <th>UTR ID</th>
+
+                        <th>रसीद (Screenshot)</th>
+
+                        <th>एक्शन</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="payment-requests-table">
+
+                    <tr>
+
+                        <td colspan="6"
+                            style="text-align:center;color:#667085;font-weight:bold;">
+
+                            वर्तमान में कोई पेंडिंग पेमेंट रिक्वेस्ट नहीं है।
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PRELIMS ================= -->
+
+    <div class="section-main-title pre-title">
+
+        🏆 Paid PRELIMS — 200 Total Tests (Unit 1 to 10)
+
+    </div>
+
+    <div id="prelims-master-container"></div>
+
+
+    <!-- ================= MAINS ================= -->
+
+    <div class="section-main-title mains-title">
+
+        📝 Paid MAINS — 600 Total Boxes (Paper 1 to 6)
+
+    </div>
+
+    <div id="mains-master-container"></div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   PAGE LOAD
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    loadPaymentRequests();
+
+    renderPrelims200Boxes();
+
+    renderMains600Boxes();
+
+});
+
+
+/* =========================================================
+   PAYMENT REQUESTS
+========================================================= */
+
+function loadPaymentRequests(){
+
+    const tableBody =
+        document.getElementById("payment-requests-table");
+
+    if(!tableBody) return;
+
+    let pendingPayments =
+        JSON.parse(
+            localStorage.getItem("mppsc_pending_payments")
+        ) || [];
+
+    if(pendingPayments.length === 0){
+
+        return;
+
+    }
+
+    let html = "";
+
+    pendingPayments.forEach(function(req,index){
+
+        html += `
+
+        <tr>
+
+            <td>
+                ${req.date || ""}
+            </td>
+
+            <td style="font-weight:bold;">
+                ${req.phone || ""}
+            </td>
+
+            <td>
+
+                <span
+                    style="
+                    padding:4px 8px;
+                    border-radius:4px;
+                    font-weight:bold;
+                    font-size:12px;
+                    background:${req.course === "mains"
+                        ? "#e1f5fe"
+                        : "#ffebee"};
+                    color:${req.course === "mains"
+                        ? "#0288d1"
+                        : "#c62828"};
+                    ">
+
+                    ${(req.course || "").toUpperCase()}
+
+                </span>
+
+            </td>
+
+            <td style="font-family:monospace;font-weight:bold;">
+                ${req.utr || ""}
+            </td>
+
+            <td>
+
+                ${
+                    req.screenshot
+                    ?
+                    `<img
+                        src="${req.screenshot}"
+                        style="
+                        width:40px;
+                        height:40px;
+                        object-fit:cover;
+                        border-radius:4px;
+                        "
+                    >`
+                    :
+                    "No Screenshot"
+                }
+
+            </td>
+
+            <td>
+
+                <button
+                    style="
+                    background:#4caf50;
+                    color:white;
+                    border:none;
+                    padding:5px 10px;
+                    border-radius:4px;
+                    cursor:pointer;
+                    font-weight:bold;
+                    "
+                    onclick="approvePayment(${index})">
+
+                    Approve
+
+                </button>
+
+            </td>
+
+        </tr>
+
+        `;
+
+    });
+
+    tableBody.innerHTML = html;
+
+}
+
+
+/* =========================================================
+   APPROVE PAYMENT
+========================================================= */
+
+function approvePayment(index){
+
+    let pendingPayments =
+        JSON.parse(
+            localStorage.getItem("mppsc_pending_payments")
+        ) || [];
+
+    if(!pendingPayments[index]){
+
+        alert("Payment request नहीं मिली।");
+
+        return;
+
+    }
+
+    let approvedReq =
+        pendingPayments[index];
+
+    const studentPassword =
+        "MPPSC-" +
+        Math.floor(
+            1000 +
+            Math.random() * 9000
+        );
+
+    let users =
+        JSON.parse(
+            localStorage.getItem("mppsc_students")
+        ) || [];
+
+    users.push({
+
+        username:approvedReq.phone,
+
+        password:studentPassword,
+
+        type:approvedReq.course
+
+    });
+
+    localStorage.setItem(
+        "mppsc_students",
+        JSON.stringify(users)
+    );
+
+    alert(
+        "✓ Credentials Activated!\n\n" +
+        "Mobile: " +
+        approvedReq.phone +
+        "\n\nPassword: " +
+        studentPassword
+    );
+
+    pendingPayments.splice(index,1);
+
+    localStorage.setItem(
+        "mppsc_pending_payments",
+        JSON.stringify(pendingPayments)
+    );
+
+    loadPaymentRequests();
+
+}
+
+
+/* =========================================================
+   PRELIMS — 200 BOXES
+   10 UNITS × 20 TESTS
+========================================================= */
+
+function renderPrelims200Boxes(){
+
+    const container =
+        document.getElementById(
+            "prelims-master-container"
+        );
+
+    if(!container) return;
+
+
+    const preUnits = [
+
+        "भारत का इतिहास",
+
+        "म.प्र. का इतिहास, संस्कृति",
+
+        "भारत का भूगोल",
+
+        "मध्यप्रदेश का भूगोल",
+
+        "संवैधानिक व्यवस्था",
+
+        "भारत एवं म.प्र. की अर्थव्यवस्था",
+
+        "विज्ञान, पर्यावरण व स्वास्थ्य",
+
+        "राष्ट्रीय व प्रादेशिक घटनाएं",
+
+        "सूचना एवं संचार (ICT)",
+
+        "म.प्र. की जनजातियां व संस्कृति"
+
+    ];
+
+
+    let preHtml = "";
+
+
+    for(let u = 1; u <= 10; u++){
+
+        let padU =
+            u < 10
+            ? "0" + u
+            : String(u);
+
+
+        preHtml += `
+
+        <section class="unit-sec">
+
+            <h2>
+                Unit ${u} - ${preUnits[u-1]}
+            </h2>
+
+            <div class="grid">
+
+        `;
+
+
+        for(let t = 1; t <= 20; t++){
+
+            let padT =
+                t < 10
+                ? "0" + t
+                : String(t);
+
+
+            /*
+                Example:
+                P01T01
+                P01T02
+                ...
+                P10T20
+            */
+
+            let code =
+                `P${padU}T${padT}`;
+
+
+            preHtml += `
+
+                <div class="card">
+
+                    <span class="code">
+                        ${code}
+                    </span>
+
+                    <a
+                        class="open-btn pre-btn"
+                        href="prelims-tests/unit-${padU}/${code}/index.html">
+
+                        Open
+
+                    </a>
+
+                </div>
+
+            `;
+
+        }
+
+
+        preHtml += `
+
+            </div>
+
+        </section>
+
+        `;
+
+    }
+
+
+    container.innerHTML =
+        preHtml;
+
+}
+
+
+/* =========================================================
+   MAINS — 600 BOXES
+   6 PAPERS × 100 BOXES
+========================================================= */
+
+function renderMains600Boxes(){
+
+    const container =
+        document.getElementById(
+            "mains-master-container"
+        );
+
+    if(!container) return;
+
+
+    const mainsPapers = [
+
+        "General Studies-I",
+
+        "General Studies-II",
+
+        "General Studies-III",
+
+        "General Studies-IV",
+
+        "General Studies-V",
+
+        "General Studies-VI"
+
+    ];
+
+
+    const mainsFolders = [
+
+        "paper-01-general-studies-i",
+
+        "paper-02-general-studies-ii",
+
+        "paper-03-general-studies-iii",
+
+        "paper-04-general-studies-iv",
+
+        "paper-05-general hindi grammar",
+
+        "paper-06-hindi-essay-draft"
+
+    ];
+
+
+    let mainsHtml = "";
+
+
+    mainsPapers.forEach(function(paperName,index){
+
+        let pNum =
+            index + 1;
+
+        let folder =
+            mainsFolders[index];
+
+
+        mainsHtml += `
+
+        <section class="paper">
+
+            <h2>
+                Paper ${pNum} - ${paperName}
+            </h2>
+
+        `;
+
+
+        /* =================================================
+           5 MARKS — 40 BOXES
+           001 TO 040
+        ================================================= */
+
+        mainsHtml += `
+
+            <div class="group-title">
+
+                5 अंक वाले प्रश्न — 40 Boxes
+                (001 से 040)
+
+            </div>
+
+            <div class="grid">
+
+        `;
+
+
+        for(let b = 1; b <= 40; b++){
+
+            let boxStr =
+                b < 10
+                ? "00" + b
+                : "0" + b;
+
+
+            let code =
+                `GS${pNum}-5M-${boxStr}`;
+
+
+            mainsHtml += `
+
+                <div class="card">
+
+                    <span class="code">
+                        ${code}
+                    </span>
+
+                    <a
+                        class="open-btn mains-btn"
+                        href="${folder}/5-marks/${code}/index.html">
+
+                        Open
+
+                    </a>
+
+                </div>
+
+            `;
+
+        }
+
+
+        mainsHtml += `
+
+            </div>
+
+        `;
+
+
+        /* =================================================
+           10 MARKS — 40 BOXES
+           041 TO 080
+        ================================================= */
+
+        mainsHtml += `
+
+            <div class="group-title">
+
+                10 अंक वाले प्रश्न — 40 Boxes
+                (041 से 080)
+
+            </div>
+
+            <div class="grid">
+
+        `;
+
+
+        for(let b = 41; b <= 80; b++){
+
+            let boxStr =
+                "0" + b;
+
+
+            let code =
+                `GS${pNum}-10M-${boxStr}`;
+
+
+            mainsHtml += `
+
+                <div class="card">
+
+                    <span class="code">
+                        ${code}
+                    </span>
+
+                    <a
+                        class="open-btn mains-btn"
+                        href="${folder}/10-marks/${code}/index.html">
+
+                        Open
+
+                    </a>
+
+                </div>
+
+            `;
+
+        }
+
+
+        mainsHtml += `
+
+            </div>
+
+        `;
+
+
+        /* =================================================
+           15 MARKS — 20 BOXES
+           081 TO 100
+        ================================================= */
+
+        mainsHtml += `
+
+            <div class="group-title">
+
+                15 अंक वाले प्रश्न — 20 Boxes
+                (081 से 100)
+
+            </div>
+
+            <div class="grid">
+
+        `;
+
+
+        for(let b = 81; b <= 100; b++){
+
+            let boxStr =
+                b === 100
+                ? "100"
+                : "0" + b;
+
+
+            let code =
+                `GS${pNum}-15M-${boxStr}`;
+
+
+            mainsHtml += `
+
+                <div class="card">
+
+                    <span class="code">
+                        ${code}
+                    </span>
+
+                    <a
+                        class="open-btn mains-btn"
+                        href="${folder}/15-marks/${code}/index.html">
+
+                        Open
+
+                    </a>
+
+                </div>
+
+            `;
+
+        }
+
+
+        mainsHtml += `
+
+            </div>
+
+        </section>
+
+        `;
+
+    });
+
+
+    container.innerHTML =
+        mainsHtml;
+
+}
+
+</script>
+
+</body>
+</html>
+<!-- ================= ADMIN PASSWORD LOCK ================= -->
+
+<div id="admin-password-lock"
+     style="
+        position:fixed;
+        inset:0;
+        z-index:999999;
+        background:#eef4ff;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        padding:20px;
+     ">
+
+    <div style="
+        width:100%;
+        max-width:380px;
+        background:#fff;
+        padding:30px;
+        border-radius:15px;
+        box-shadow:0 5px 25px rgba(0,0,0,0.15);
+        text-align:center;
+    ">
+
+        <div style="
+            font-size:45px;
+            margin-bottom:10px;
+        ">
+            🔐
+        </div>
+
+        <h2 style="
+            color:#082b57;
+            margin-bottom:8px;
+        ">
+            Admin Login
+        </h2>
+
+        <p style="
+            color:#667085;
+            margin-bottom:20px;
+        ">
+            MPPSC MCQ Hub Admin Panel
+        </p>
+
+        <input
+            type="password"
+            id="admin-password-input"
+            placeholder="Admin Password"
+            autocomplete="off"
+            style="
+                width:100%;
+                padding:12px;
+                border:1px solid #ccd6e0;
+                border-radius:7px;
+                font-size:16px;
+                outline:none;
+                margin-bottom:12px;
+            "
+        >
+
+        <button
+            onclick="checkAdminPassword()"
+            style="
+                width:100%;
+                padding:12px;
+                border:none;
+                border-radius:7px;
+                background:#0d47a1;
+                color:#fff;
+                font-size:16px;
+                font-weight:bold;
+                cursor:pointer;
+            "
+        >
+            🔓 Login
+        </button>
+
+        <div
+            id="admin-password-error"
+            style="
+                display:none;
+                color:#d32f2f;
+                font-weight:bold;
+                margin-top:12px;
+            "
+        >
+            ❌ गलत Password
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   ADMIN PASSWORD
+   ===================================================== */
+
+const ADMIN_PASSWORD = "MPPSC@2027";
+
+
+function checkAdminPassword(){
+
+    const input =
+        document.getElementById("admin-password-input").value;
+
+    const error =
+        document.getElementById("admin-password-error");
+
+    if(input === ADMIN_PASSWORD){
+
+        sessionStorage.setItem(
+            "mppsc_admin_authenticated",
+            "true"
+        );
+
+        document.getElementById(
+            "admin-password-lock"
+        ).style.display = "none";
+
+    }else{
+
+        error.style.display = "block";
+
+        document.getElementById(
+            "admin-password-input"
+        ).value = "";
+
+    }
+
+}
+
+
+/* Already logged in during this browser session */
+document.addEventListener("DOMContentLoaded", function(){
+
+    if(
+        sessionStorage.getItem(
+            "mppsc_admin_authenticated"
+        ) === "true"
+    ){
+
+        document.getElementById(
+            "admin-password-lock"
+        ).style.display = "none";
+
+    }
+
+});
+
+
+/* Enter key से भी Login */
+document.addEventListener("keydown", function(e){
+
+    if(
+        e.key === "Enter" &&
+        document.activeElement.id === "admin-password-input"
+    ){
+
+        checkAdminPassword();
+
+    }
+
+});
+
+</script>
