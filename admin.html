@@ -316,6 +316,12 @@ th{
 
     <!-- ================= PRELIMS ================= -->
 
+    <section class="table-sec" style="border-top-color:#7c3aed;">
+        <h2 style="margin:0;color:#082b57;">🎓 Student Accounts</h2>
+        <p style="color:#667085;margin:6px 0 10px;">Approved students और उनके active courses</p>
+        <table><thead><tr><th>Mobile</th><th>Courses</th><th>Status</th><th>Created</th></tr></thead><tbody id="student-accounts-table"></tbody></table>
+    </section>
+
     <div class="section-main-title pre-title">
 
         🏆 Paid PRELIMS — 200 Total Tests (Unit 1 to 10)
@@ -347,6 +353,7 @@ th{
 document.addEventListener("DOMContentLoaded", function(){
 
     loadPaymentRequests();
+    loadStudentAccounts();
 
     renderPrelims200Boxes();
 
@@ -440,23 +447,9 @@ function loadPaymentRequests(){
             </td>
 
             <td>
-
-                <button
-                    style="
-                    background:#4caf50;
-                    color:white;
-                    border:none;
-                    padding:5px 10px;
-                    border-radius:4px;
-                    cursor:pointer;
-                    font-weight:bold;
-                    "
-                    onclick="approvePayment(${index})">
-
-                    Approve
-
-                </button>
-
+                ${req.status === "approved"
+                    ? '<span style="color:#2e7d32;font-weight:bold">✓ Approved</span>'
+                    : `<button style="background:#4caf50;color:white;border:none;padding:5px 10px;border-radius:4px;cursor:pointer;font-weight:bold" onclick="approvePayment(${index})">Approve</button>`}
             </td>
 
         </tr>
@@ -469,6 +462,14 @@ function loadPaymentRequests(){
 
 }
 
+
+function loadStudentAccounts(){
+    const body=document.getElementById("student-accounts-table");
+    if(!body) return;
+    const users=JSON.parse(localStorage.getItem("mppsc_students"))||[];
+    if(!users.length){ body.innerHTML='<tr><td colspan="4" style="text-align:center;color:#777">अभी कोई approved student नहीं है।</td></tr>'; return; }
+    body.innerHTML=users.map(u=>`<tr><td><b>${u.username||""}</b></td><td>${(u.courses||[]).map(c=>`<span style="display:inline-block;padding:4px 7px;margin:2px;border-radius:12px;background:${c==='mains'?'#e1f5fe':'#ffebee'};font-weight:bold;font-size:11px">${c.toUpperCase()}</span>`).join('')}</td><td style="color:#2e7d32;font-weight:bold">${u.active===false?'Blocked':'Active'}</td><td>${u.createdAt||u.updatedAt||''}</td></tr>`).join('');
+}
 
 /* =========================================================
    APPROVE PAYMENT
@@ -500,34 +501,40 @@ function approvePayment(index){
         );
 
     let users =
-        JSON.parse(
-            localStorage.getItem("mppsc_students")
-        ) || [];
+        JSON.parse(localStorage.getItem("mppsc_students")) || [];
 
-    users.push({
+    let existing = users.find(u => u.username === approvedReq.phone);
+    let finalPassword = studentPassword;
 
-        username:approvedReq.phone,
+    if(existing){
+        finalPassword = existing.password;
+        existing.courses = Array.isArray(existing.courses) ? existing.courses : (existing.type ? [existing.type] : []);
+        if(!existing.courses.includes(approvedReq.course)) existing.courses.push(approvedReq.course);
+        existing.active = true;
+        existing.updatedAt = new Date().toLocaleString("hi-IN");
+    }else{
+        users.push({
+            username: approvedReq.phone,
+            password: studentPassword,
+            courses: [approvedReq.course],
+            active: true,
+            createdAt: new Date().toLocaleString("hi-IN")
+        });
+    }
 
-        password:studentPassword,
+    localStorage.setItem("mppsc_students", JSON.stringify(users));
 
-        type:approvedReq.course
-
-    });
-
-    localStorage.setItem(
-        "mppsc_students",
-        JSON.stringify(users)
-    );
+    approvedReq.status = "approved";
+    approvedReq.approvedAt = new Date().toLocaleString("hi-IN");
+    approvedReq.password = finalPassword;
 
     alert(
-        "✓ Credentials Activated!\n\n" +
-        "Mobile: " +
-        approvedReq.phone +
-        "\n\nPassword: " +
-        studentPassword
+        "✓ Student Account Activated!\n\n" +
+        "Mobile: " + approvedReq.phone +
+        "\nCourse: " + approvedReq.course.toUpperCase() +
+        "\nPassword: " + finalPassword +
+        "\n\nStudent Login: student-login.html"
     );
-
-    pendingPayments.splice(index,1);
 
     localStorage.setItem(
         "mppsc_pending_payments",
