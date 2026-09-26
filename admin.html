@@ -220,6 +220,12 @@ th{
     }
 }
 
+@media(max-width:700px){
+    .table-sec > div[style*="grid-template-columns"]{
+        grid-template-columns:1fr !important;
+    }
+}
+
 @media(max-width:500px){
     .grid{
         grid-template-columns:repeat(2,1fr);
@@ -358,6 +364,65 @@ th{
     </section>
 
 
+    <!-- ================= APPROVED STUDENTS ================= -->
+
+    <section class="table-sec" style="border-top-color:#147dcc;">
+
+        <h2 style="color:#082b57;margin:0 0 5px 0;">
+            👨‍🎓 Approved Students — Course Wise Login Details
+        </h2>
+
+        <p style="color:#667085;margin:6px 0 12px;">
+            Approve करने के बाद student का mobile number, password और course यहाँ अपने-आप दिखाई देगा।
+        </p>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+
+            <div style="border:1px solid #ffcdd2;border-radius:10px;overflow:hidden;">
+                <div style="background:#ffebee;color:#c62828;padding:10px 12px;font-weight:800;">
+                    📕 PRELIMS Students
+                </div>
+                <div style="overflow-x:auto;">
+                    <table style="margin-top:0;">
+                        <thead>
+                            <tr>
+                                <th>मोबाइल नंबर</th>
+                                <th>Password</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="approved-prelims-students">
+                            <tr><td colspan="3" style="text-align:center;color:#667085;">कोई PRELIMS student नहीं है।</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div style="border:1px solid #b3e5fc;border-radius:10px;overflow:hidden;">
+                <div style="background:#e1f5fe;color:#0277bd;padding:10px 12px;font-weight:800;">
+                    📘 MAINS Students
+                </div>
+                <div style="overflow-x:auto;">
+                    <table style="margin-top:0;">
+                        <thead>
+                            <tr>
+                                <th>मोबाइल नंबर</th>
+                                <th>Password</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="approved-mains-students">
+                            <tr><td colspan="3" style="text-align:center;color:#667085;">कोई MAINS student नहीं है।</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
     <!-- ================= PRELIMS ================= -->
 
     <div class="section-main-title pre-title">
@@ -391,6 +456,7 @@ th{
 document.addEventListener("DOMContentLoaded", function(){
 
     loadPaymentRequests();
+    loadApprovedStudents();
 
     renderPrelims200Boxes();
 
@@ -518,6 +584,55 @@ function loadPaymentRequests(){
    APPROVE PAYMENT
 ========================================================= */
 
+function loadApprovedStudents(){
+
+    const users = JSON.parse(localStorage.getItem("mppsc_students")) || [];
+
+    renderStudentGroup(
+        users.filter(u => u.type === "prelims"),
+        "approved-prelims-students",
+        "PRELIMS"
+    );
+
+    renderStudentGroup(
+        users.filter(u => u.type === "mains"),
+        "approved-mains-students",
+        "MAINS"
+    );
+}
+
+
+function renderStudentGroup(students, elementId, courseName){
+
+    const tbody = document.getElementById(elementId);
+    if(!tbody) return;
+
+    if(students.length === 0){
+        tbody.innerHTML = `<tr><td colspan="3" style="text-align:center;color:#667085;">कोई ${courseName} student नहीं है।</td></tr>`;
+        return;
+    }
+
+    tbody.innerHTML = students.map((student) => `
+        <tr>
+            <td style="font-weight:700;">${escapeHtml(student.username || "")}</td>
+            <td style="font-family:monospace;font-weight:700;">${escapeHtml(student.password || "")}</td>
+            <td>
+                <span style="color:${student.active ? "#2e7d32" : "#c62828"};font-weight:700;">
+                    ${student.active ? "Active" : "Disabled"}
+                </span>
+            </td>
+        </tr>
+    `).join("");
+}
+
+
+function escapeHtml(value){
+    return String(value).replace(/[&<>'"]/g, function(ch){
+        return ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;","\"":"&quot;"})[ch];
+    });
+}
+
+
 function approvePayment(index){
 
     let pendingPayments =
@@ -587,6 +702,7 @@ function approvePayment(index){
     );
 
     loadPaymentRequests();
+    loadApprovedStudents();
 
 }
 
