@@ -20,19 +20,51 @@
         .switch-link:hover { text-decoration: underline; }
         .error-alert { color: #d32f2f; font-size: 13px; font-weight: bold; margin-top: 10px; display: none; background: #ffebee; padding: 8px; border-radius: 4px; border-left: 4px solid #d32f2f; }
     </style>
+
+<style data-mppsc-site-logo-bar>
+.mppsc-site-logo-bar {
+  width:100%;
+  background:#0d47a1;
+  color:#fff;
+  min-height:64px;
+  padding:8px 16px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  box-sizing:border-box;
+  font-family:Arial,Helvetica,sans-serif;
+  position:relative;
+  z-index:999;
+  box-shadow:0 2px 7px rgba(0,0,0,.12);
+}
+.mppsc-site-logo-bar img {
+  width:48px;
+  height:48px;
+  object-fit:contain;
+  border-radius:50%;
+  background:#fff;
+  padding:2px;
+  box-sizing:border-box;
+  flex:0 0 auto;
+}
+.mppsc-site-logo-bar .mppsc-site-name {
+  font-size:18px;
+  font-weight:700;
+  line-height:1.2;
+}
+@media (max-width:600px) {
+  .mppsc-site-logo-bar { min-height:56px; padding:6px 10px; }
+  .mppsc-site-logo-bar img { width:42px; height:42px; }
+  .mppsc-site-logo-bar .mppsc-site-name { font-size:15px; }
+}
+</style>
+
 </head>
 <body>
-<!-- MPPSC MCQ Hub site header -->
-<style>
-  .mppsc-site-header { background:#1450a3; color:#fff; display:flex; align-items:center; gap:12px; padding:10px 16px; margin:0 0 16px 0; box-sizing:border-box; width:100%; }
-  .mppsc-site-header img { width:42px; height:42px; object-fit:contain; border-radius:50%; background:#fff; }
-  .mppsc-site-header .site-title { font-size:20px; font-weight:700; line-height:1.2; }
-  @media (max-width:600px) { .mppsc-site-header .site-title { font-size:17px; } .mppsc-site-header img { width:36px; height:36px; } }
-</style>
-<header class="mppsc-site-header">
+<div class="mppsc-site-logo-bar" data-mppsc-site-logo-bar>
   <img src="MPPSC-MCQ-Hub-Logo.png" alt="MPPSC MCQ Hub Logo">
-  <div class="site-title">MPPSC MCQ Hub V14</div>
-</header>
+  <div class="mppsc-site-name">MPPSC MCQ Hub</div>
+</div>
 
 
 <!-- 🔑 सेक्शन 1: छात्र लॉगिन फ़ॉर्म -->
@@ -108,16 +140,23 @@
         let users = JSON.parse(localStorage.getItem("mppsc_students")) || [];
         
         // छात्र क्रेडेंशियल मैच करना
-        let foundUser = users.find(u => u.username === user && u.password === pass);
+        let foundUser = users.find(u => u.username === user && u.password === pass && u.active !== false);
 
-        if (foundUser) {
-            alert("🎉 लॉगिन सफल! आपको आपके कोर्स पोर्टल पर भेजा जा रहा है।");
-            
-            // छात्र को उसके खरीदे गए सही कोर्स टाइप (prelims या mains) के अनुसार भेजना
+        if (foundUser && (foundUser.type === "prelims" || foundUser.type === "mains")) {
+            // Course-bound session: हर protected page इसी session को verify करेगा।
+            sessionStorage.setItem("mppsc_student_authenticated", "true");
+            localStorage.setItem("mppsc_student_session", JSON.stringify({
+                username: foundUser.username,
+                type: foundUser.type,
+                loginAt: Date.now()
+            }));
+
+            alert("🎉 लॉगिन सफल! आपको आपके खरीदे गए कोर्स पर भेजा जा रहा है।");
+
             if (foundUser.type === "mains") {
-                window.location.href = "mains.html?v=mppsc2027";
+                window.location.href = "mains.html";
             } else {
-                window.location.href = "prelims.html?v=mppsc2027";
+                window.location.href = "prelims.html";
             }
         } else {
             errorBox.style.display = "block";

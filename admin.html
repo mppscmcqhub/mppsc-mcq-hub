@@ -226,20 +226,52 @@ th{
     }
 }
 </style>
+
+<style data-mppsc-site-logo-bar>
+.mppsc-site-logo-bar {
+  width:100%;
+  background:#0d47a1;
+  color:#fff;
+  min-height:64px;
+  padding:8px 16px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  box-sizing:border-box;
+  font-family:Arial,Helvetica,sans-serif;
+  position:relative;
+  z-index:999;
+  box-shadow:0 2px 7px rgba(0,0,0,.12);
+}
+.mppsc-site-logo-bar img {
+  width:48px;
+  height:48px;
+  object-fit:contain;
+  border-radius:50%;
+  background:#fff;
+  padding:2px;
+  box-sizing:border-box;
+  flex:0 0 auto;
+}
+.mppsc-site-logo-bar .mppsc-site-name {
+  font-size:18px;
+  font-weight:700;
+  line-height:1.2;
+}
+@media (max-width:600px) {
+  .mppsc-site-logo-bar { min-height:56px; padding:6px 10px; }
+  .mppsc-site-logo-bar img { width:42px; height:42px; }
+  .mppsc-site-logo-bar .mppsc-site-name { font-size:15px; }
+}
+</style>
+
 </head>
 
 <body>
-<!-- MPPSC MCQ Hub site header -->
-<style>
-  .mppsc-site-header { background:#1450a3; color:#fff; display:flex; align-items:center; gap:12px; padding:10px 16px; margin:0 0 16px 0; box-sizing:border-box; width:100%; }
-  .mppsc-site-header img { width:42px; height:42px; object-fit:contain; border-radius:50%; background:#fff; }
-  .mppsc-site-header .site-title { font-size:20px; font-weight:700; line-height:1.2; }
-  @media (max-width:600px) { .mppsc-site-header .site-title { font-size:17px; } .mppsc-site-header img { width:36px; height:36px; } }
-</style>
-<header class="mppsc-site-header">
+<div class="mppsc-site-logo-bar" data-mppsc-site-logo-bar>
   <img src="MPPSC-MCQ-Hub-Logo.png" alt="MPPSC MCQ Hub Logo">
-  <div class="site-title">MPPSC MCQ Hub V14</div>
-</header>
+  <div class="mppsc-site-name">MPPSC MCQ Hub</div>
+</div>
 
 
 <div class="header">
@@ -516,15 +548,23 @@ function approvePayment(index){
             localStorage.getItem("mppsc_students")
         ) || [];
 
-    users.push({
+    // Same mobile + same course को दोबारा duplicate account न बनाएं।
+    const existingIndex = users.findIndex(
+        u => u.username === approvedReq.phone && u.type === approvedReq.course
+    );
 
-        username:approvedReq.phone,
+    const studentRecord = {
+        username: approvedReq.phone,
+        password: studentPassword,
+        type: approvedReq.course,
+        active: true
+    };
 
-        password:studentPassword,
-
-        type:approvedReq.course
-
-    });
+    if (existingIndex !== -1) {
+        users[existingIndex] = studentRecord;
+    } else {
+        users.push(studentRecord);
+    }
 
     localStorage.setItem(
         "mppsc_students",
