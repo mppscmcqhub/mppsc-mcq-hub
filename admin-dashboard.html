@@ -1,43 +1,232 @@
-<!doctype html><html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Admin Dashboard · 200 PRELIMS Tests</title><style>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MPPSC MCQ Hub V14 — Complete Admin Dashboard</title>
 
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#edf3ff;color:#111}
-a{text-decoration:none;color:inherit}
-.top{height:64px;background:#1551a5;color:#fff;display:flex;align-items:center;padding:0 18px}
-.topin{width:100%;display:flex;align-items:center;gap:12px}
-.logo{width:42px;height:42px;border-radius:50%;background:#fff;display:grid;place-items:center;color:#1551a5;font-weight:900}
-.title{font-size:18px;font-weight:800}
-.login{margin-left:auto;background:#fff;color:#111;padding:7px 15px;border-radius:4px;font-weight:700}
-.wrap{padding:25px 10px;max-width:1650px;margin:auto}
-.heading{border-left:4px solid #1551a5;padding-left:9px;color:#0d3e85;margin:0 0 10px}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.card{background:#fff;border:1px solid #dce3ee;border-radius:9px;min-height:205px;padding:15px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 2px 7px rgba(0,0,0,.05)}
-.unitno{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;margin:auto}
-.card h3{text-align:center;margin:8px 0;font-size:14px}.card p{text-align:center;font-size:12px;color:#555}
-.btn{background:#1551a5;color:#fff;text-align:center;padding:8px 12px;border-radius:20px;font-size:12px;font-weight:800}
-.pre{border:1px dashed #ff6b6b;background:#fff8f8}.pre .btn{background:#ef3f3f}
-.main{border:1px dashed #7da9e8;background:#f6f9ff}.main .btn{background:#3489cf}
-.hero{background:#1551a5;color:#fff;border-radius:10px;padding:22px;margin-bottom:20px}
-.testgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.testcard{background:#fff;border:1px solid #dce3ee;border-radius:9px;padding:16px;min-height:145px;display:flex;flex-direction:column;justify-content:space-between}
-.badge{display:inline-block;background:#e5efff;color:#1551a5;padding:5px 8px;border-radius:12px;font-weight:800;font-size:11px}
-.question{background:#fff;border:1px solid #dce3ee;border-radius:10px;padding:18px;margin:14px 0}
-.option{display:block;border:1px solid #ccd6e3;border-radius:8px;padding:10px;margin:7px 0}
-.submit{border:0;background:#16a34a;color:#fff;padding:11px 20px;border-radius:8px;font-weight:800;cursor:pointer}
-.result{margin-top:18px;background:#ecfdf5;border:1px solid #86efac;border-radius:10px;padding:18px}
-.back{display:inline-block;color:#1551a5;font-weight:800;margin-bottom:14px}
-@media(max-width:1050px){.grid,.testgrid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.grid,.testgrid{grid-template-columns:1fr}.wrap{padding:14px 9px}}
-
-</style>
 <style>
-.adminbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0 26px}.stat{background:#fff;border-radius:14px;padding:16px;text-align:center;box-shadow:0 3px 14px rgba(0,0,0,.08)}.stat b{font-size:26px;display:block}
-.unitsec{background:#fff;border-radius:18px;padding:18px;margin:18px 0;box-shadow:0 4px 18px rgba(0,0,0,.08)}.unithead{display:flex;align-items:center;gap:14px;margin-bottom:15px}.unithead h2{margin:0 0 4px}.unithead p{margin:0;color:#667085}.unithead>strong{margin-left:auto;background:#eef5ff;padding:8px 12px;border-radius:10px}
-.tests{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.test{text-decoration:none;color:#172033;border:1px solid #e1e7ef;border-radius:12px;padding:11px 8px;text-align:center;background:#fafcff;transition:.15s}.test:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.1)}.test span{display:block;font-size:18px;font-weight:800}.test b{display:block;font-size:13px;margin:4px 0}.test small{color:#667085}.logout{background:#d32f2f!important}
-@media(max-width:800px){.tests{grid-template-columns:repeat(4,1fr)}.stats{grid-template-columns:1fr 1fr}}@media(max-width:520px){.tests{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:1fr}}
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f3f6fa;
+    color:#102a43;
+    padding-bottom:50px;
+}
+
+.header{
+    background:#082b57;
+    color:#fff;
+    padding:15px 20px;
+    font-size:19px;
+    font-weight:700;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    min-height:60px;
+}
+
+.wrap{
+    max-width:1500px;
+    margin:22px auto;
+    padding:0 15px;
+}
+
+.top{
+    background:#fff;
+    border-radius:12px;
+    padding:18px 20px;
+    margin-bottom:18px;
+    box-shadow:0 2px 9px rgba(0,0,0,0.05);
+}
+
+.top h1{
+    margin:0 0 6px;
+    font-size:24px;
+}
+
+.top p{
+    margin:5px 0;
+    color:#667085;
+}
+
+.section-main-title{
+    font-size:24px;
+    font-weight:800;
+    color:#082b57;
+    margin:40px 0 15px;
+    padding-left:10px;
+    display:block;
+}
+
+.pre-title{
+    border-left:6px solid #e53e3e;
+}
+
+.mains-title{
+    border-left:6px solid #147dcc;
+}
+
+.paper,
+.unit-sec{
+    background:#fff;
+    border-radius:12px;
+    padding:16px;
+    margin-bottom:25px;
+    box-shadow:0 2px 9px rgba(0,0,0,0.05);
+    display:block;
+}
+
+.unit-sec{
+    border-top:4px solid #e53e3e;
+}
+
+.paper{
+    border-top:4px solid #147dcc;
+}
+
+.paper h2,
+.unit-sec h2{
+    margin:0 0 14px;
+    font-size:20px;
+    color:#082b57;
+    border-bottom:2px solid #eaf2fb;
+    padding-bottom:8px;
+}
+
+.group-title{
+    background:#eaf2fb;
+    border-radius:7px;
+    padding:8px 10px;
+    margin:20px 0 10px;
+    font-size:14px;
+    font-weight:700;
+    color:#082b57;
+}
+
+/* 10 Column Grid */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(10,1fr);
+    gap:6px;
+    margin-top:10px;
+}
+
+.card{
+    background:#fff;
+    border:1px solid #d7e1ec;
+    border-radius:6px;
+    padding:8px 2px;
+    text-align:center;
+    box-shadow:0 1px 2px rgba(0,0,0,0.02);
+}
+
+.code{
+    font-size:11px;
+    font-weight:700;
+    display:block;
+    margin-bottom:5px;
+    color:#334e68;
+}
+
+.open-btn{
+    display:block;
+    color:#fff;
+    text-decoration:none;
+    border-radius:4px;
+    padding:4px 2px;
+    font-size:10px;
+    font-weight:bold;
+    text-align:center;
+}
+
+.pre-btn{
+    background:#e53e3e;
+}
+
+.pre-btn:hover{
+    background:#c53030;
+}
+
+.mains-btn{
+    background:#147dcc;
+}
+
+.mains-btn:hover{
+    background:#0b69b1;
+}
+
+.home-btn{
+    background:#fff;
+    color:#082b57;
+    border:none;
+    padding:8px 16px;
+    border-radius:6px;
+    font-weight:bold;
+    cursor:pointer;
+    font-size:14px;
+    text-decoration:none;
+}
+
+.table-sec{
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:30px;
+    box-shadow:0 2px 9px rgba(0,0,0,0.05);
+    border-top:4px solid #4caf50;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+
+th,
+td{
+    border:1px solid #d7e1ec;
+    padding:12px;
+    text-align:left;
+    font-size:14px;
+}
+
+th{
+    background:#f0f5ff;
+    color:#082b57;
+    font-weight:bold;
+}
+
+@media(max-width:1400px){
+    .grid{
+        grid-template-columns:repeat(8,1fr);
+    }
+}
+
+@media(max-width:1100px){
+    .grid{
+        grid-template-columns:repeat(6,1fr);
+    }
+}
+
+@media(max-width:800px){
+    .grid{
+        grid-template-columns:repeat(4,1fr);
+    }
+}
+
+@media(max-width:500px){
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
 </style>
+
 <style id="site-logo-global-css">
 .site-brand-bar{width:100%;background:#0d47a1;color:#fff;display:flex;align-items:center;gap:12px;padding:8px 16px;min-height:64px;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif;position:relative;z-index:1000;box-shadow:0 2px 6px rgba(0,0,0,.12)}
 .site-brand-bar img{width:48px;height:48px;border-radius:50%;object-fit:cover;background:#fff;border:2px solid #fff;flex:0 0 auto}
@@ -45,9 +234,711 @@ a{text-decoration:none;color:inherit}
 @media(max-width:600px){.site-brand-bar{padding:7px 10px;min-height:58px}.site-brand-bar img{width:42px;height:42px}.site-brand-bar .site-brand-title{font-size:.98rem}}
 </style>
 
-</head><body>
+</head>
+
+<body>
 <div class="site-brand-bar"><img src="MPPSC-MCQ-Hub-Logo.png" alt="MPPSC MCQ Hub Logo"><div class="site-brand-title">MPPSC MCQ Hub</div></div>
-<header class="top"><div class="topin"><div class="logo" aria-label="MPPSC logo"><div class="logo-main">MP</div><div class="logo-sub">PSC</div></div><div class="title">MPPSC MCQ Hub V14 · ADMIN DASHBOARD</div><a class="login" href="index.html">Home</a></div></header>
-<main class="wrap"><div class="adminbar"><div><h1 style="margin-bottom:5px">Paid PRELIMS – 200 Tests</h1><p style="margin:0;color:#667085">Admin को सभी 10 Units के सभी Test Boxes दिखाई देंगे।</p></div><button class="btn logout" onclick="logout()">Logout</button></div>
-<div class="stats"><div class="stat"><b>10</b>Units</div><div class="stat"><b>200</b>Test Boxes</div><div class="stat"><b>20</b>Tests / Unit</div></div><section class="unitsec"><div class="unithead"><div class="unitno" style="background:#2196f3">1</div><div><h2>Unit 1</h2><p>भारत का इतिहास</p></div><strong>20 Tests</strong></div><div class="tests"><a class="test" href="prelims-tests/unit-01/P01T01/index.html"><span>01</span><b>P01T01</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-01/P01T02/index.html"><span>02</span><b>P01T02</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-01/P01T03/index.html"><span>03</span><b>P01T03</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-01/P01T04/index.html"><span>04</span><b>P01T04</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-01/P01T05/index.html"><span>05</span><b>P01T05</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-01/P01T06/index.html"><span>06</span><b>P01T06</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-01/P01T07/index.html"><span>07</span><b>P01T07</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-01/P01T08/index.html"><span>08</span><b>P01T08</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-01/P01T09/index.html"><span>09</span><b>P01T09</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-01/P01T10/index.html"><span>10</span><b>P01T10</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-01/P01T11/index.html"><span>11</span><b>P01T11</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-01/P01T12/index.html"><span>12</span><b>P01T12</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-01/P01T13/index.html"><span>13</span><b>P01T13</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-01/P01T14/index.html"><span>14</span><b>P01T14</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-01/P01T15/index.html"><span>15</span><b>P01T15</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-01/P01T16/index.html"><span>16</span><b>P01T16</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-01/P01T17/index.html"><span>17</span><b>P01T17</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-01/P01T18/index.html"><span>18</span><b>P01T18</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-01/P01T19/index.html"><span>19</span><b>P01T19</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-01/P01T20/index.html"><span>20</span><b>P01T20</b><small>Open Test</small></a></div></section><section class="unitsec"><div class="unithead"><div class="unitno" style="background:#45b657">2</div><div><h2>Unit 2</h2><p>मध्यप्रदेश का इतिहास, संस्कृति एवं साहित्य</p></div><strong>20 Tests</strong></div><div class="tests"><a class="test" href="prelims-tests/unit-02/P02T01/index.html"><span>01</span><b>P02T01</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-02/P02T02/index.html"><span>02</span><b>P02T02</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-02/P02T03/index.html"><span>03</span><b>P02T03</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-02/P02T04/index.html"><span>04</span><b>P02T04</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-02/P02T05/index.html"><span>05</span><b>P02T05</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-02/P02T06/index.html"><span>06</span><b>P02T06</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-02/P02T07/index.html"><span>07</span><b>P02T07</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-02/P02T08/index.html"><span>08</span><b>P02T08</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-02/P02T09/index.html"><span>09</span><b>P02T09</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-02/P02T10/index.html"><span>10</span><b>P02T10</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-02/P02T11/index.html"><span>11</span><b>P02T11</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-02/P02T12/index.html"><span>12</span><b>P02T12</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-02/P02T13/index.html"><span>13</span><b>P02T13</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-02/P02T14/index.html"><span>14</span><b>P02T14</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-02/P02T15/index.html"><span>15</span><b>P02T15</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-02/P02T16/index.html"><span>16</span><b>P02T16</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-02/P02T17/index.html"><span>17</span><b>P02T17</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-02/P02T18/index.html"><span>18</span><b>P02T18</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-02/P02T19/index.html"><span>19</span><b>P02T19</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-02/P02T20/index.html"><span>20</span><b>P02T20</b><small>Open Test</small></a></div></section><section class="unitsec"><div class="unithead"><div class="unitno" style="background:#6b42bd">3</div><div><h2>Unit 3</h2><p>भारत का भूगोल</p></div><strong>20 Tests</strong></div><div class="tests"><a class="test" href="prelims-tests/unit-03/P03T01/index.html"><span>01</span><b>P03T01</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-03/P03T02/index.html"><span>02</span><b>P03T02</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-03/P03T03/index.html"><span>03</span><b>P03T03</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-03/P03T04/index.html"><span>04</span><b>P03T04</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-03/P03T05/index.html"><span>05</span><b>P03T05</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-03/P03T06/index.html"><span>06</span><b>P03T06</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-03/P03T07/index.html"><span>07</span><b>P03T07</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-03/P03T08/index.html"><span>08</span><b>P03T08</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-03/P03T09/index.html"><span>09</span><b>P03T09</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-03/P03T10/index.html"><span>10</span><b>P03T10</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-03/P03T11/index.html"><span>11</span><b>P03T11</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-03/P03T12/index.html"><span>12</span><b>P03T12</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-03/P03T13/index.html"><span>13</span><b>P03T13</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-03/P03T14/index.html"><span>14</span><b>P03T14</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-03/P03T15/index.html"><span>15</span><b>P03T15</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-03/P03T16/index.html"><span>16</span><b>P03T16</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-03/P03T17/index.html"><span>17</span><b>P03T17</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-03/P03T18/index.html"><span>18</span><b>P03T18</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-03/P03T19/index.html"><span>19</span><b>P03T19</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-03/P03T20/index.html"><span>20</span><b>P03T20</b><small>Open Test</small></a></div></section><section class="unitsec"><div class="unithead"><div class="unitno" style="background:#ff8a00">4</div><div><h2>Unit 4</h2><p>मध्यप्रदेश का भूगोल</p></div><strong>20 Tests</strong></div><div class="tests"><a class="test" href="prelims-tests/unit-04/P04T01/index.html"><span>01</span><b>P04T01</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-04/P04T02/index.html"><span>02</span><b>P04T02</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-04/P04T03/index.html"><span>03</span><b>P04T03</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-04/P04T04/index.html"><span>04</span><b>P04T04</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-04/P04T05/index.html"><span>05</span><b>P04T05</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-04/P04T06/index.html"><span>06</span><b>P04T06</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-04/P04T07/index.html"><span>07</span><b>P04T07</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-04/P04T08/index.html"><span>08</span><b>P04T08</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-04/P04T09/index.html"><span>09</span><b>P04T09</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-04/P04T10/index.html"><span>10</span><b>P04T10</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-04/P04T11/index.html"><span>11</span><b>P04T11</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-04/P04T12/index.html"><span>12</span><b>P04T12</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-04/P04T13/index.html"><span>13</span><b>P04T13</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-04/P04T14/index.html"><span>14</span><b>P04T14</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-04/P04T15/index.html"><span>15</span><b>P04T15</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-04/P04T16/index.html"><span>16</span><b>P04T16</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-04/P04T17/index.html"><span>17</span><b>P04T17</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-04/P04T18/index.html"><span>18</span><b>P04T18</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-04/P04T19/index.html"><span>19</span><b>P04T19</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-04/P04T20/index.html"><span>20</span><b>P04T20</b><small>Open Test</small></a></div></section><section class="unitsec"><div class="unithead"><div class="unitno" style="background:#00a89c">5</div><div><h2>Unit 5</h2><p>भारत एवं म.प्र. की संवैधानिक व्यवस्था</p></div><strong>20 Tests</strong></div><div class="tests"><a class="test" href="prelims-tests/unit-05/P05T01/index.html"><span>01</span><b>P05T01</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-05/P05T02/index.html"><span>02</span><b>P05T02</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-05/P05T03/index.html"><span>03</span><b>P05T03</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-05/P05T04/index.html"><span>04</span><b>P05T04</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-05/P05T05/index.html"><span>05</span><b>P05T05</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-05/P05T06/index.html"><span>06</span><b>P05T06</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-05/P05T07/index.html"><span>07</span><b>P05T07</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-05/P05T08/index.html"><span>08</span><b>P05T08</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-05/P05T09/index.html"><span>09</span><b>P05T09</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-05/P05T10/index.html"><span>10</span><b>P05T10</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-05/P05T11/index.html"><span>11</span><b>P05T11</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-05/P05T12/index.html"><span>12</span><b>P05T12</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-05/P05T13/index.html"><span>13</span><b>P05T13</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-05/P05T14/index.html"><span>14</span><b>P05T14</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-05/P05T15/index.html"><span>15</span><b>P05T15</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-05/P05T16/index.html"><span>16</span><b>P05T16</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-05/P05T17/index.html"><span>17</span><b>P05T17</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-05/P05T18/index.html"><span>18</span><b>P05T18</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-05/P05T19/index.html"><span>19</span><b>P05T19</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-05/P05T20/index.html"><span>20</span><b>P05T20</b><small>Open Test</small></a></div></section><section class="unitsec"><div class="unithead"><div class="unitno" style="background:#ef2560">6</div><div><h2>Unit 6</h2><p>भारत एवं म.प्र. की अर्थव्यवस्था</p></div><strong>20 Tests</strong></div><div class="tests"><a class="test" href="prelims-tests/unit-06/P06T01/index.html"><span>01</span><b>P06T01</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-06/P06T02/index.html"><span>02</span><b>P06T02</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-06/P06T03/index.html"><span>03</span><b>P06T03</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-06/P06T04/index.html"><span>04</span><b>P06T04</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-06/P06T05/index.html"><span>05</span><b>P06T05</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-06/P06T06/index.html"><span>06</span><b>P06T06</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-06/P06T07/index.html"><span>07</span><b>P06T07</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-06/P06T08/index.html"><span>08</span><b>P06T08</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-06/P06T09/index.html"><span>09</span><b>P06T09</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-06/P06T10/index.html"><span>10</span><b>P06T10</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-06/P06T11/index.html"><span>11</span><b>P06T11</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-06/P06T12/index.html"><span>12</span><b>P06T12</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-06/P06T13/index.html"><span>13</span><b>P06T13</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-06/P06T14/index.html"><span>14</span><b>P06T14</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-06/P06T15/index.html"><span>15</span><b>P06T15</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-06/P06T16/index.html"><span>16</span><b>P06T16</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-06/P06T17/index.html"><span>17</span><b>P06T17</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-06/P06T18/index.html"><span>18</span><b>P06T18</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-06/P06T19/index.html"><span>19</span><b>P06T19</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-06/P06T20/index.html"><span>20</span><b>P06T20</b><small>Open Test</small></a></div></section><section class="unitsec"><div class="unithead"><div class="unitno" style="background:#10b7cc">7</div><div><h2>Unit 7</h2><p>विज्ञान, पर्यावरण एवं स्वास्थ्य</p></div><strong>20 Tests</strong></div><div class="tests"><a class="test" href="prelims-tests/unit-07/P07T01/index.html"><span>01</span><b>P07T01</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-07/P07T02/index.html"><span>02</span><b>P07T02</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-07/P07T03/index.html"><span>03</span><b>P07T03</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-07/P07T04/index.html"><span>04</span><b>P07T04</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-07/P07T05/index.html"><span>05</span><b>P07T05</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-07/P07T06/index.html"><span>06</span><b>P07T06</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-07/P07T07/index.html"><span>07</span><b>P07T07</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-07/P07T08/index.html"><span>08</span><b>P07T08</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-07/P07T09/index.html"><span>09</span><b>P07T09</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-07/P07T10/index.html"><span>10</span><b>P07T10</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-07/P07T11/index.html"><span>11</span><b>P07T11</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-07/P07T12/index.html"><span>12</span><b>P07T12</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-07/P07T13/index.html"><span>13</span><b>P07T13</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-07/P07T14/index.html"><span>14</span><b>P07T14</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-07/P07T15/index.html"><span>15</span><b>P07T15</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-07/P07T16/index.html"><span>16</span><b>P07T16</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-07/P07T17/index.html"><span>17</span><b>P07T17</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-07/P07T18/index.html"><span>18</span><b>P07T18</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-07/P07T19/index.html"><span>19</span><b>P07T19</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-07/P07T20/index.html"><span>20</span><b>P07T20</b><small>Open Test</small></a></div></section><section class="unitsec"><div class="unithead"><div class="unitno" style="background:#f04d23">8</div><div><h2>Unit 8</h2><p>अंतर्राष्ट्रीय, राष्ट्रीय एवं प्रादेशिक घटनाएं</p></div><strong>20 Tests</strong></div><div class="tests"><a class="test" href="prelims-tests/unit-08/P08T01/index.html"><span>01</span><b>P08T01</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-08/P08T02/index.html"><span>02</span><b>P08T02</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-08/P08T03/index.html"><span>03</span><b>P08T03</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-08/P08T04/index.html"><span>04</span><b>P08T04</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-08/P08T05/index.html"><span>05</span><b>P08T05</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-08/P08T06/index.html"><span>06</span><b>P08T06</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-08/P08T07/index.html"><span>07</span><b>P08T07</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-08/P08T08/index.html"><span>08</span><b>P08T08</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-08/P08T09/index.html"><span>09</span><b>P08T09</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-08/P08T10/index.html"><span>10</span><b>P08T10</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-08/P08T11/index.html"><span>11</span><b>P08T11</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-08/P08T12/index.html"><span>12</span><b>P08T12</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-08/P08T13/index.html"><span>13</span><b>P08T13</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-08/P08T14/index.html"><span>14</span><b>P08T14</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-08/P08T15/index.html"><span>15</span><b>P08T15</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-08/P08T16/index.html"><span>16</span><b>P08T16</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-08/P08T17/index.html"><span>17</span><b>P08T17</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-08/P08T18/index.html"><span>18</span><b>P08T18</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-08/P08T19/index.html"><span>19</span><b>P08T19</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-08/P08T20/index.html"><span>20</span><b>P08T20</b><small>Open Test</small></a></div></section><section class="unitsec"><div class="unithead"><div class="unitno" style="background:#8c24b9">9</div><div><h2>Unit 9</h2><p>सूचना एवं संचार प्रौद्योगिकी (ICT)</p></div><strong>20 Tests</strong></div><div class="tests"><a class="test" href="prelims-tests/unit-09/P09T01/index.html"><span>01</span><b>P09T01</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-09/P09T02/index.html"><span>02</span><b>P09T02</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-09/P09T03/index.html"><span>03</span><b>P09T03</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-09/P09T04/index.html"><span>04</span><b>P09T04</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-09/P09T05/index.html"><span>05</span><b>P09T05</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-09/P09T06/index.html"><span>06</span><b>P09T06</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-09/P09T07/index.html"><span>07</span><b>P09T07</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-09/P09T08/index.html"><span>08</span><b>P09T08</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-09/P09T09/index.html"><span>09</span><b>P09T09</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-09/P09T10/index.html"><span>10</span><b>P09T10</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-09/P09T11/index.html"><span>11</span><b>P09T11</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-09/P09T12/index.html"><span>12</span><b>P09T12</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-09/P09T13/index.html"><span>13</span><b>P09T13</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-09/P09T14/index.html"><span>14</span><b>P09T14</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-09/P09T15/index.html"><span>15</span><b>P09T15</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-09/P09T16/index.html"><span>16</span><b>P09T16</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-09/P09T17/index.html"><span>17</span><b>P09T17</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-09/P09T18/index.html"><span>18</span><b>P09T18</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-09/P09T19/index.html"><span>19</span><b>P09T19</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-09/P09T20/index.html"><span>20</span><b>P09T20</b><small>Open Test</small></a></div></section><section class="unitsec"><div class="unithead"><div class="unitno" style="background:#4354bd">10</div><div><h2>Unit 10</h2><p>म.प्र. की जनजातियाँ: विरासत व लोक संस्कृति</p></div><strong>20 Tests</strong></div><div class="tests"><a class="test" href="prelims-tests/unit-10/P10T01/index.html"><span>01</span><b>P10T01</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-10/P10T02/index.html"><span>02</span><b>P10T02</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-10/P10T03/index.html"><span>03</span><b>P10T03</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-10/P10T04/index.html"><span>04</span><b>P10T04</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-10/P10T05/index.html"><span>05</span><b>P10T05</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-10/P10T06/index.html"><span>06</span><b>P10T06</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-10/P10T07/index.html"><span>07</span><b>P10T07</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-10/P10T08/index.html"><span>08</span><b>P10T08</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-10/P10T09/index.html"><span>09</span><b>P10T09</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-10/P10T10/index.html"><span>10</span><b>P10T10</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-10/P10T11/index.html"><span>11</span><b>P10T11</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-10/P10T12/index.html"><span>12</span><b>P10T12</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-10/P10T13/index.html"><span>13</span><b>P10T13</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-10/P10T14/index.html"><span>14</span><b>P10T14</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-10/P10T15/index.html"><span>15</span><b>P10T15</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-10/P10T16/index.html"><span>16</span><b>P10T16</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-10/P10T17/index.html"><span>17</span><b>P10T17</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-10/P10T18/index.html"><span>18</span><b>P10T18</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-10/P10T19/index.html"><span>19</span><b>P10T19</b><small>Open Test</small></a><a class="test" href="prelims-tests/unit-10/P10T20/index.html"><span>20</span><b>P10T20</b><small>Open Test</small></a></div></section></main>
-<script>if(sessionStorage.getItem('mppsc_admin')!=='1')location.replace('admin-login.html');function logout(){sessionStorage.removeItem('mppsc_admin');location.replace('admin-login.html')}</script></body></html>
+
+
+<div class="header">
+
+    <span>
+        MPPSC MCQ Hub V14 — Complete Admin Dashboard
+    </span>
+
+    <a href="student-login.html" class="home-btn" style="margin-right:8px">🎓 Student Login</a><a href="index.html" class="home-btn">
+        मुख्य वेबसाइट पर जाएँ
+    </a>
+
+</div>
+
+
+<div class="wrap">
+
+    <div class="top">
+
+        <h1>
+            MPPSC Complete Control Board
+        </h1>
+
+        <p>
+            <b>
+                Paid PRELIMS (200 Tests) + Paid MAINS (600 Boxes) Control Dashboard<br><span style="font-size:13px;color:#667085">Pending Payment → Approve → Mobile + Password → Course Access</span>
+            </b>
+        </p>
+
+    </div>
+
+
+    <!-- ================= PAYMENT VERIFICATION ================= -->
+
+    <section class="table-sec" style="border-top-color:#4caf50;">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;">
+            <div>
+                <h2 style="color:#2e7d32;margin:0 0 5px 0;">📥 पेंडिंग पेमेंट / Verification Requests</h2>
+                <p style="color:#667085;margin:0;">जो payment अभी approve नहीं हुए हैं, वे यहाँ दिखेंगे।</p>
+            </div>
+            <button onclick="loadAllStudentData()" style="background:#082b57;color:#fff;border:0;border-radius:6px;padding:9px 14px;font-weight:bold;cursor:pointer;">↻ Refresh</button>
+        </div>
+        <div style="overflow-x:auto;">
+            <table>
+                <thead><tr>
+                    <th>दिनांक</th><th>मोबाइल</th><th>कोर्स</th><th>UTR ID</th><th>रसीद</th><th>स्थिति / एक्शन</th>
+                </tr></thead>
+                <tbody id="payment-pending-table"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="table-sec" style="border-top-color:#147dcc;">
+        <h2 style="color:#0b69b1;margin:0 0 5px 0;">✅ Approved Payments / Login Details</h2>
+        <p style="color:#667085;margin:0;">Approve किए गए सभी students, mobile, password और course यहाँ हमेशा दिखेंगे।</p>
+        <div style="overflow-x:auto;">
+            <table>
+                <thead><tr>
+                    <th>Approve Date</th><th>Mobile</th><th>Password</th><th>Course</th><th>UTR ID</th><th>Status</th>
+                </tr></thead>
+                <tbody id="payment-approved-table"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="table-sec" style="border-top-color:#7c3aed;">
+        <h2 style="margin:0;color:#082b57;">🎓 Student Accounts</h2>
+        <p style="color:#667085;margin:6px 0 10px;">सभी approved students, उनके courses और login password</p>
+        <div style="overflow-x:auto;">
+            <table><thead><tr><th>Mobile</th><th>Password</th><th>Courses</th><th>Status</th><th>Created / Updated</th></tr></thead><tbody id="student-accounts-table"></tbody></table>
+        </div>
+    </section>
+
+    <!-- ================= PRELIMS ================= -->
+
+    <div class="section-main-title pre-title">
+
+        🏆 Paid PRELIMS — 200 Total Tests (Unit 1 to 10)
+
+    </div>
+
+    <div id="prelims-master-container"></div>
+
+
+    <!-- ================= MAINS ================= -->
+
+    <section class="table-sec" style="border-top-color:#7c3aed;margin-top:18px"><h2 style="margin:0;color:#5b21b6">🟣 C SET — 50 Paid PRELIMS Tests</h2><p style="color:#667085">Admin panel में C Set के सभी 50 boxes</p><div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px"><a href="prelims-tests/unit-03/P03T01/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C1</a><a href="prelims-tests/unit-03/P03T02/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C2</a><a href="prelims-tests/unit-03/P03T03/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C3</a><a href="prelims-tests/unit-03/P03T04/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C4</a><a href="prelims-tests/unit-03/P03T05/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C5</a><a href="prelims-tests/unit-03/P03T06/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C6</a><a href="prelims-tests/unit-03/P03T07/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C7</a><a href="prelims-tests/unit-03/P03T08/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C8</a><a href="prelims-tests/unit-03/P03T09/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C9</a><a href="prelims-tests/unit-03/P03T10/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C10</a><a href="prelims-tests/unit-03/P03T11/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C11</a><a href="prelims-tests/unit-03/P03T12/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C12</a><a href="prelims-tests/unit-03/P03T13/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C13</a><a href="prelims-tests/unit-03/P03T14/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C14</a><a href="prelims-tests/unit-03/P03T15/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C15</a><a href="prelims-tests/unit-03/P03T16/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C16</a><a href="prelims-tests/unit-03/P03T17/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C17</a><a href="prelims-tests/unit-03/P03T18/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C18</a><a href="prelims-tests/unit-03/P03T19/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C19</a><a href="prelims-tests/unit-03/P03T20/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C20</a><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C21<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C22<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C23<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C24<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C25<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C26<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C27<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C28<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C29<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C30<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C31<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C32<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C33<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C34<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C35<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C36<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C37<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C38<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C39<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C40<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C41<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C42<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C43<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C44<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C45<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C46<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C47<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C48<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C49<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C50<small style="display:block;color:#777">Soon</small></div></div></section>
+
+    <div class="section-main-title mains-title">
+
+        📝 Paid MAINS — 600 Total Boxes (Paper 1 to 6)
+
+    </div>
+
+    <div id="mains-master-container"></div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   PAGE LOAD
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    loadAllStudentData();
+
+    renderPrelims200Boxes();
+
+    renderMains600Boxes();
+
+});
+
+
+/* =========================================================
+   PAYMENT / STUDENT DATA
+========================================================= */
+
+function getPayments(){
+    try { return JSON.parse(localStorage.getItem("mppsc_pending_payments")) || []; }
+    catch(e){ return []; }
+}
+
+function getStudents(){
+    try { return JSON.parse(localStorage.getItem("mppsc_students")) || []; }
+    catch(e){ return []; }
+}
+
+function esc(v){
+    return String(v ?? "").replace(/[&<>'"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));
+}
+
+function courseBadge(course){
+    const c=String(course||'').toLowerCase();
+    const bg=c==='mains'?'#e1f5fe':'#ffebee';
+    const fg=c==='mains'?'#0288d1':'#c62828';
+    return `<span style="display:inline-block;padding:4px 8px;border-radius:12px;background:${bg};color:${fg};font-weight:bold;font-size:11px">${esc(c.toUpperCase())}</span>`;
+}
+
+function loadAllStudentData(){
+    loadPaymentRequests();
+    loadStudentAccounts();
+}
+
+function loadPaymentRequests(){
+    const payments=getPayments();
+    const pendingBody=document.getElementById('payment-pending-table');
+    const approvedBody=document.getElementById('payment-approved-table');
+
+    const pending=payments.filter(r => String(r.status||'pending').toLowerCase()==='pending');
+    const approved=payments.filter(r => ['approved','duplicate'].includes(String(r.status||'').toLowerCase()));
+
+    if(!pending.length){
+        pendingBody.innerHTML='<tr><td colspan="6" style="text-align:center;color:#667085;font-weight:bold;padding:18px">अभी कोई pending payment नहीं है।</td></tr>';
+    } else {
+        pendingBody.innerHTML=pending.map(req=>{
+            const idx=payments.indexOf(req);
+            return `<tr>
+                <td>${esc(req.date)}</td>
+                <td><b>${esc(req.phone)}</b></td>
+                <td>${courseBadge(req.course)}</td>
+                <td style="font-family:monospace;font-weight:bold">${esc(req.utr)}</td>
+                <td>${req.screenshot ? `<img src="${req.screenshot}" style="width:45px;height:45px;object-fit:cover;border-radius:5px;cursor:pointer" onclick="window.open(this.src,'_blank')">` : 'No Screenshot'}</td>
+                <td><button style="background:#4caf50;color:white;border:0;padding:7px 12px;border-radius:5px;cursor:pointer;font-weight:bold" onclick="approvePayment(${idx})">✓ Approve</button></td>
+            </tr>`;
+        }).join('');
+    }
+
+    if(!approved.length){
+        approvedBody.innerHTML='<tr><td colspan="6" style="text-align:center;color:#667085;font-weight:bold;padding:18px">अभी कोई approved payment नहीं है।</td></tr>';
+    } else {
+        approvedBody.innerHTML=approved.map(req=>`<tr>
+            <td>${esc(req.approvedAt || req.date)}</td>
+            <td><b>${esc(req.phone)}</b></td>
+            <td><span style="font-family:monospace;background:#fff8e1;padding:5px 9px;border-radius:5px;font-weight:bold">${esc(req.password || '—')}</span></td>
+            <td>${courseBadge(req.course)}</td>
+            <td style="font-family:monospace;font-weight:bold">${esc(req.utr)}</td>
+            <td>${String(req.status).toLowerCase()==='approved' ? '<span style="color:#2e7d32;font-weight:bold">✓ Approved</span>' : '<span style="color:#c62828;font-weight:bold">⚠ Duplicate</span>'}</td>
+        </tr>`).join('');
+    }
+}
+
+function loadStudentAccounts(){
+    const body=document.getElementById('student-accounts-table');
+    if(!body) return;
+    const users=getStudents();
+    if(!users.length){
+        body.innerHTML='<tr><td colspan="5" style="text-align:center;color:#777;padding:18px">अभी कोई approved student account नहीं है।</td></tr>';
+        return;
+    }
+    body.innerHTML=users.map(u=>`<tr>
+        <td><b>${esc(u.username)}</b></td>
+        <td><span style="font-family:monospace;background:#fff8e1;padding:5px 9px;border-radius:5px;font-weight:bold">${esc(u.password)}</span></td>
+        <td>${(Array.isArray(u.courses)?u.courses:[]).map(courseBadge).join(' ') || '—'}</td>
+        <td style="color:${u.active===false?'#c62828':'#2e7d32'};font-weight:bold">${u.active===false?'Blocked':'Active'}</td>
+        <td>${esc(u.updatedAt || u.createdAt || '')}</td>
+    </tr>`).join('');
+}
+
+/* =========================================================
+   APPROVE PAYMENT
+========================================================= */
+
+function approvePayment(index){
+
+    let pendingPayments =
+        JSON.parse(
+            localStorage.getItem("mppsc_pending_payments")
+        ) || [];
+
+    if(!pendingPayments[index]){
+
+        alert("Payment request नहीं मिली।");
+
+        return;
+
+    }
+
+    let approvedReq =
+        pendingPayments[index];
+
+    // One UTR represents one payment. Never allow the same UTR to
+    // activate a different course (e.g. MAINS payment activating PRELIMS).
+    const normalizedUtr = String(approvedReq.utr || '').trim().toUpperCase();
+    const duplicateApproved = pendingPayments.find((r, i) =>
+        i !== index &&
+        r.status === "approved" &&
+        String(r.utr || '').trim().toUpperCase() === normalizedUtr &&
+        String(r.course || '').toLowerCase() !== String(approvedReq.course || '').toLowerCase()
+    );
+
+    if (normalizedUtr && duplicateApproved) {
+        approvedReq.status = "duplicate";
+        approvedReq.duplicateOf = duplicateApproved.id || "approved-payment";
+        localStorage.setItem("mppsc_pending_payments", JSON.stringify(pendingPayments));
+        alert(
+            "❌ यह UTR पहले ही " + String(duplicateApproved.course || '').toUpperCase() +
+            " course के लिए approve हो चुका है।\n\n" +
+            "एक ही UTR से दूसरा course activate नहीं किया जा सकता।"
+        );
+        loadPaymentRequests();
+        return;
+    }
+
+    const studentPassword =
+        "MPPSC-" +
+        Math.floor(
+            1000 +
+            Math.random() * 9000
+        );
+
+    let users =
+        JSON.parse(localStorage.getItem("mppsc_students")) || [];
+
+    let existing = users.find(u => u.username === approvedReq.phone);
+    let finalPassword = studentPassword;
+
+    if(existing){
+        finalPassword = existing.password;
+        existing.courses = Array.isArray(existing.courses) ? existing.courses : (existing.type ? [existing.type] : []);
+        if(!existing.courses.includes(approvedReq.course)) existing.courses.push(approvedReq.course);
+        existing.active = true;
+        existing.updatedAt = new Date().toLocaleString("hi-IN");
+    }else{
+        users.push({
+            username: approvedReq.phone,
+            password: studentPassword,
+            courses: [approvedReq.course],
+            active: true,
+            createdAt: new Date().toLocaleString("hi-IN")
+        });
+    }
+
+    localStorage.setItem("mppsc_students", JSON.stringify(users));
+
+    approvedReq.status = "approved";
+    approvedReq.approvedAt = new Date().toLocaleString("hi-IN");
+    approvedReq.password = finalPassword;
+
+    alert(
+        "✓ Student Account Activated!\n\n" +
+        "Mobile: " + approvedReq.phone +
+        "\nCourse: " + approvedReq.course.toUpperCase() +
+        "\nPassword: " + finalPassword +
+        "\n\nStudent Login: student-login.html"
+    );
+
+    localStorage.setItem(
+        "mppsc_pending_payments",
+        JSON.stringify(pendingPayments)
+    );
+
+    loadPaymentRequests();
+
+}
+
+
+/* =========================================================
+   PRELIMS — 200 BOXES
+   10 UNITS × 20 TESTS
+========================================================= */
+
+function renderPrelims200Boxes(){
+
+    const container =
+        document.getElementById(
+            "prelims-master-container"
+        );
+
+    if(!container) return;
+
+
+    const preUnits = [
+
+        "भारत का इतिहास",
+
+        "म.प्र. का इतिहास, संस्कृति",
+
+        "भारत का भूगोल",
+
+        "मध्यप्रदेश का भूगोल",
+
+        "संवैधानिक व्यवस्था",
+
+        "भारत एवं म.प्र. की अर्थव्यवस्था",
+
+        "विज्ञान, पर्यावरण व स्वास्थ्य",
+
+        "राष्ट्रीय व प्रादेशिक घटनाएं",
+
+        "सूचना एवं संचार (ICT)",
+
+        "म.प्र. की जनजातियां व संस्कृति"
+
+    ];
+
+
+    let preHtml = "";
+
+
+    for(let u = 1; u <= 10; u++){
+
+        let padU =
+            u < 10
+            ? "0" + u
+            : String(u);
+
+
+        preHtml += `
+
+        <section class="unit-sec">
+
+            <h2>
+                Unit ${u} - ${preUnits[u-1]}
+            </h2>
+
+            <div class="grid">
+
+        `;
+
+
+        for(let t = 1; t <= 20; t++){
+
+            let padT =
+                t < 10
+                ? "0" + t
+                : String(t);
+
+
+            /*
+                Example:
+                P01T01
+                P01T02
+                ...
+                P10T20
+            */
+
+            let code =
+                `P${padU}T${padT}`;
+
+
+            preHtml += `
+
+                <div class="card">
+
+                    <span class="code">
+                        ${code}
+                    </span>
+
+                    <a
+                        class="open-btn pre-btn"
+                        href="prelims-tests/unit-${padU}/${code}/index.html">
+
+                        Open
+
+                    </a>
+
+                </div>
+
+            `;
+
+        }
+
+
+        preHtml += `
+
+            </div>
+
+        </section>
+
+        `;
+
+    }
+
+
+    container.innerHTML =
+        preHtml;
+
+}
+
+
+/* =========================================================
+   MAINS — 600 BOXES
+   6 PAPERS × 100 BOXES
+========================================================= */
+
+function renderMains600Boxes(){
+
+    const container =
+        document.getElementById(
+            "mains-master-container"
+        );
+
+    if(!container) return;
+
+
+    const mainsPapers = [
+
+        "General Studies-I",
+
+        "General Studies-II",
+
+        "General Studies-III",
+
+        "General Studies-IV",
+
+        "General Studies-V",
+
+        "General Studies-VI"
+
+    ];
+
+
+    const mainsFolders = [
+
+        "paper-01-general-studies-i",
+
+        "paper-02-general-studies-ii",
+
+        "paper-03-general-studies-iii",
+
+        "paper-04-general-studies-iv",
+
+        "paper-05-general hindi grammar",
+
+        "paper-06-hindi-essay-draft"
+
+    ];
+
+
+    let mainsHtml = "";
+
+
+    mainsPapers.forEach(function(paperName,index){
+
+        let pNum =
+            index + 1;
+
+        let folder =
+            mainsFolders[index];
+
+
+        mainsHtml += `
+
+        <section class="paper">
+
+            <h2>
+                Paper ${pNum} - ${paperName}
+            </h2>
+
+        `;
+
+
+        /* =================================================
+           5 MARKS — 40 BOXES
+           001 TO 040
+        ================================================= */
+
+        mainsHtml += `
+
+            <div class="group-title">
+
+                5 अंक वाले प्रश्न — 40 Boxes
+                (001 से 040)
+
+            </div>
+
+            <div class="grid">
+
+        `;
+
+
+        for(let b = 1; b <= 40; b++){
+
+            let boxStr =
+                b < 10
+                ? "00" + b
+                : "0" + b;
+
+
+            let code =
+                `GS${pNum}-5M-${boxStr}`;
+
+
+            mainsHtml += `
+
+                <div class="card">
+
+                    <span class="code">
+                        ${code}
+                    </span>
+
+                    <a
+                        class="open-btn mains-btn"
+                        href="${folder}/5-marks/${code}/index.html">
+
+                        Open
+
+                    </a>
+
+                </div>
+
+            `;
+
+        }
+
+
+        mainsHtml += `
+
+            </div>
+
+        `;
+
+
+        /* =================================================
+           10 MARKS — 40 BOXES
+           041 TO 080
+        ================================================= */
+
+        mainsHtml += `
+
+            <div class="group-title">
+
+                10 अंक वाले प्रश्न — 40 Boxes
+                (041 से 080)
+
+            </div>
+
+            <div class="grid">
+
+        `;
+
+
+        for(let b = 41; b <= 80; b++){
+
+            let boxStr =
+                "0" + b;
+
+
+            let code =
+                `GS${pNum}-10M-${boxStr}`;
+
+
+            mainsHtml += `
+
+                <div class="card">
+
+                    <span class="code">
+                        ${code}
+                    </span>
+
+                    <a
+                        class="open-btn mains-btn"
+                        href="${folder}/10-marks/${code}/index.html">
+
+                        Open
+
+                    </a>
+
+                </div>
+
+            `;
+
+        }
+
+
+        mainsHtml += `
+
+            </div>
+
+        `;
+
+
+        /* =================================================
+           15 MARKS — 20 BOXES
+           081 TO 100
+        ================================================= */
+
+        mainsHtml += `
+
+            <div class="group-title">
+
+                15 अंक वाले प्रश्न — 20 Boxes
+                (081 से 100)
+
+            </div>
+
+            <div class="grid">
+
+        `;
+
+
+        for(let b = 81; b <= 100; b++){
+
+            let boxStr =
+                b === 100
+                ? "100"
+                : "0" + b;
+
+
+            let code =
+                `GS${pNum}-15M-${boxStr}`;
+
+
+            mainsHtml += `
+
+                <div class="card">
+
+                    <span class="code">
+                        ${code}
+                    </span>
+
+                    <a
+                        class="open-btn mains-btn"
+                        href="${folder}/15-marks/${code}/index.html">
+
+                        Open
+
+                    </a>
+
+                </div>
+
+            `;
+
+        }
+
+
+        mainsHtml += `
+
+            </div>
+
+        </section>
+
+        `;
+
+    });
+
+
+    container.innerHTML =
+        mainsHtml;
+
+}
+
+</script>
+
+</body>
+</html>
+
+<script>
+/* Admin login compatibility: admin-login.html sets mppsc_admin=1.
+   Keep the dashboard usable from the existing login flow. */
+(function(){
+  const ok = sessionStorage.getItem('mppsc_admin') === '1' ||
+             sessionStorage.getItem('mppsc_admin_authenticated') === 'true';
+  if(!ok){ location.replace('admin-login.html'); return; }
+  window.addEventListener('load', function(){
+    try { loadAllStudentData(); renderPrelims200Boxes(); renderMains600Boxes(); } catch(e) {}
+  });
+})();
+</script>
+</body>
+</html>
