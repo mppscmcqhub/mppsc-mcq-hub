@@ -1,24 +1,153 @@
-<!doctype html>
-<html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Student Login · MPPSC MCQ Hub</title>
-<style>body{margin:0;font-family:Arial,sans-serif;background:#edf3ff;color:#102a43}.top{background:#082b57;color:#fff;padding:16px 20px;font-weight:800;font-size:19px}.box{max-width:430px;margin:55px auto;background:#fff;padding:28px;border-radius:16px;box-shadow:0 8px 28px #0002}.box h1{margin-top:0}.box input{width:100%;padding:13px;margin:7px 0 14px;border:1px solid #ccd6e3;border-radius:9px;box-sizing:border-box;font-size:16px}.btn{width:100%;padding:13px;border:0;border-radius:9px;background:#0d47a1;color:#fff;font-weight:800;font-size:16px;cursor:pointer}.err{color:#c62828;font-weight:bold;min-height:24px;margin:5px 0}.note{font-size:13px;color:#667085;line-height:1.5}.links{text-align:center;margin-top:18px}.links a{color:#0d47a1;font-weight:700;text-decoration:none}</style>
-<style id="site-logo-global-css">
-.site-brand-bar{width:100%;background:#0d47a1;color:#fff;display:flex;align-items:center;gap:12px;padding:8px 16px;min-height:64px;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif;position:relative;z-index:1000;box-shadow:0 2px 6px rgba(0,0,0,.12)}
-.site-brand-bar img{width:48px;height:48px;border-radius:50%;object-fit:cover;background:#fff;border:2px solid #fff;flex:0 0 auto}
-.site-brand-bar .site-brand-title{font-size:1.12rem;font-weight:800;line-height:1.2}
-@media(max-width:600px){.site-brand-bar{padding:7px 10px;min-height:58px}.site-brand-bar img{width:42px;height:42px}.site-brand-bar .site-brand-title{font-size:.98rem}}
-</style>
-
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal - Login & Change Password</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, Helvetica, sans-serif; background-color: #f4f7fc; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 15px; }
+        .login-container { background: white; padding: 35px 30px; border-radius: 12px; box-shadow: 0 4px 25px rgba(0,0,0,0.1); width: 100%; max-width: 380px; text-align: center; border-top: 5px solid #082b57; }
+        .logo-title { color: #082b57; font-size: 24px; font-weight: bold; margin-bottom: 5px; }
+        .sub-title { color: #667085; font-size: 13px; margin-bottom: 25px; }
+        .form-group { text-align: left; margin-bottom: 15px; }
+        .form-group label { font-weight: bold; display: block; margin-bottom: 5px; font-size: 13px; color: #333; }
+        input { width: 100%; padding: 11px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 14px; }
+        input:focus { border-color: #147dcc; outline: none; }
+        button { width: 100%; padding: 12px; background: #082b57; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold; margin-top: 10px; transition: background 0.2s; }
+        button:hover { background: #051d3b; }
+        .switch-link { color: #147dcc; cursor: pointer; display: block; margin-top: 20px; font-size: 13px; font-weight: bold; text-decoration: none; }
+        .switch-link:hover { text-decoration: underline; }
+        .error-alert { color: #d32f2f; font-size: 13px; font-weight: bold; margin-top: 10px; display: none; background: #ffebee; padding: 8px; border-radius: 4px; border-left: 4px solid #d32f2f; }
+    </style>
 </head>
 <body>
-<div class="site-brand-bar"><img src="MPPSC-MCQ-Hub-Logo.png" alt="MPPSC MCQ Hub Logo"><div class="site-brand-title">MPPSC MCQ Hub</div></div>
-<div class="top">🎓 MPPSC MCQ Hub — Student Login</div><div class="box"><h1>Student Login</h1><p>Admin द्वारा payment approve होने के बाद मिला Mobile और Password दर्ज करें।</p><label>Mobile Number</label><input id="u" inputmode="numeric" maxlength="10" placeholder="10 अंकों का मोबाइल नंबर"><label>Password</label><input id="p" type="password" placeholder="MPPSC-XXXX"><div id="err" class="err"></div><button class="btn" onclick="login()">🔓 Login</button><div class="links"><a href="index.html">← Home</a> &nbsp; | &nbsp;<a href="payment.html?type=prelims">PRELIMS ₹99</a> &nbsp; | &nbsp; <a href="payment.html?type=mains">MAINS ₹199</a></div><p class="note">Payment भेजने के बाद Admin verification आवश्यक है। Verification से पहले course access नहीं मिलेगा।</p></div>
-<script>function login(){
-const u=document.getElementById('u').value.trim();
-const p=document.getElementById('p').value.trim();
-const users=JSON.parse(localStorage.getItem('mppsc_students')||'[]');
-const user=users.find(x=>String(x.username||'').trim()===u && String(x.password||'').trim()===p && x.active!==false);
-if(!user){document.getElementById('err').textContent='Mobile या Password गलत है, या payment अभी approve नहीं हुआ है।';return;}
-user.courses=Array.from(new Set((Array.isArray(user.courses)?user.courses:(user.type?[user.type]:[])).map(c=>String(c).toLowerCase()).filter(c=>c==='prelims'||c==='mains')));
-localStorage.setItem('mppsc_current_student',JSON.stringify(user));
-location.href='student-dashboard.html';
-}document.addEventListener('keydown',e=>{if(e.key==='Enter')login()});if(new URLSearchParams(location.search).get('submitted'))document.getElementById('err').style.color='#2e7d32',document.getElementById('err').textContent='✓ Payment request भेज दी गई है। Admin approval के बाद login करें।';</script></body></html>
+
+<!-- 🔑 सेक्शन 1: छात्र लॉगिन फ़ॉर्म -->
+<div class="login-container" id="login-section">
+    <div class="logo-title">MPPSC MCQ Hub</div>
+    <div class="sub-title">Paid Student Portal Login</div>
+    
+    <div class="form-group">
+        <label>यूजर आईडी (आपका मोबाइल नंबर):</label>
+        <input type="number" id="login-user" placeholder="10 अंकों का मोबाइल नंबर दर्ज करें">
+    </div>
+    
+    <div class="form-group">
+        <label>पासवर्ड (SMS पर आया हुआ):</label>
+        <input type="password" id="login-pass" placeholder="अपना पासवर्ड दर्ज करें">
+    </div>
+    
+    <div class="error-alert" id="login-error">गलत मोबाइल नंबर या पासवर्ड!</div>
+    
+    <button onclick="handleStudentLogin()">लॉगिन करें (Login & Study)</button>
+    <span class="switch-link" onclick="toggleSections(false)">🔐 प्राप्त पासवर्ड बदलें (Change Password)</span>
+</div>
+
+<!-- 🛠️ सेक्शन 2: पासवर्ड बदलने का फ़ॉर्म (डिफ़ॉल्ट रूप से छुपा रहेगा) -->
+<div class="login-container" id="change-section" style="display: none;">
+    <div class="logo-title">पासवर्ड बदलें</div>
+    <div class="sub-title">अपना नया परमानेंट पासवर्ड सेट करें</div>
+    
+    <div class="form-group">
+        <label>आपका पंजीकृत मोबाइल नंबर:</label>
+        <input type="number" id="change-user" placeholder="10 अंकों का मोबाइल नंबर">
+    </div>
+    
+    <div class="form-group">
+        <label>पुराना पासवर्ड (SMS वाला):</label>
+        <input type="password" id="old-pass" placeholder="पुराना पासवर्ड दर्ज करें">
+    </div>
+    
+    <div class="form-group">
+        <label>नया मनपसंद पासवर्ड बनाएं:</label>
+        <input type="password" id="new-pass" placeholder="नया पासवर्ड दर्ज करें">
+    </div>
+    
+    <div class="error-alert" id="change-error">विवरण मैच नहीं हुआ! पासवर्ड नहीं बदला गया।</div>
+    
+    <button onclick="handlePasswordChange()" style="background: #147dcc;">अपडेट करें (Update Password)</button>
+    <span class="switch-link" onclick="toggleSections(true)">⬅ वापस लॉगिन पेज पर जाएँ</span>
+</div>
+
+<script>
+    // दोनों फ़ॉर्म्स के बीच स्विच करने का फंक्शन
+    function toggleSections(showLogin) {
+        document.getElementById("login-error").style.display = "none";
+        document.getElementById("change-error").style.display = "none";
+        document.getElementById("login-section").style.display = showLogin ? "block" : "none";
+        document.getElementById("change-section").style.display = showLogin ? "none" : "block";
+    }
+
+    // 🎯 1. छात्र लॉगिन प्रोसेस हैंडलर
+    function handleStudentLogin() {
+        const user = document.getElementById("login-user").value;
+        const pass = document.getElementById("login-pass").value;
+        const errorBox = document.getElementById("login-error");
+        
+        errorBox.style.display = "none";
+
+        if (!user || !pass) {
+            alert("कृपया सभी फ़ील्ड भरें!");
+            return;
+        }
+        
+        // लोकल डेटाबेस से छात्रों की लिस्ट निकालना
+        let users = JSON.parse(localStorage.getItem("mppsc_students")) || [];
+        
+        // छात्र क्रेडेंशियल मैच करना
+        let foundUser = users.find(u => u.username === user && u.password === pass);
+
+        if (foundUser) {
+            alert("🎉 लॉगिन सफल! आपको आपके कोर्स पोर्टल पर भेजा जा रहा है।");
+            
+            // छात्र को उसके खरीदे गए सही कोर्स टाइप (prelims या mains) के अनुसार भेजना
+            if (foundUser.type === "mains") {
+                window.location.href = "mains.html?v=mppsc2027";
+            } else {
+                window.location.href = "prelims.html?v=mppsc2027";
+            }
+        } else {
+            errorBox.style.display = "block";
+        }
+    }
+
+    // 🎯 2. पासवर्ड रीसेट/चेंज प्रोसेस हैंडलर
+    function handlePasswordChange() {
+        const user = document.getElementById("change-user").value;
+        const oldPass = document.getElementById("old-pass").value;
+        const newPass = document.getElementById("new-pass").value;
+        const errorBox = document.getElementById("change-error");
+
+        errorBox.style.display = "none";
+
+        if (!user || !oldPass || !newPass) {
+            alert("कृपया सभी विवरण भरें!");
+            return;
+        }
+
+        if (newPass.length < 4) {
+            alert("नया पासवर्ड कम से कम 4 अक्षरों या अंकों का होना चाहिए!");
+            return;
+        }
+
+        let users = JSON.parse(localStorage.getItem("mppsc_students")) || [];
+        // पुराने यूजर और उसके पुराने पासवर्ड का मिलान इंडेक्स खोजना
+        let userIndex = users.findIndex(u => u.username === user && u.password === oldPass);
+
+        if (userIndex !== -1) {
+            // पासवर्ड को नए पासवर्ड से अपडेट करना
+            users[userIndex].password = newPass;
+            localStorage.setItem("mppsc_students", JSON.stringify(users));
+            
+            alert("✓ पासवर्ड सफलतापूर्वक बदल दिया गया है! अब आप नए पासवर्ड से लॉगिन कर सकते हैं।");
+            toggleSections(true); // वापस लॉगिन स्क्रीन पर रीडायरेक्ट करें
+            document.getElementById("login-user").value = user;
+            document.getElementById("login-pass").value = "";
+        } else {
+            errorBox.style.display = "block";
+        }
+    }
+</script>
+</body>
+</html>
