@@ -1,0 +1,60 @@
+MPPSC MCQ Hub — Separate Coding Patch
+======================================
+
+इस ZIP में पूरी website नहीं है। केवल नई/बदली हुई files हैं।
+
+PRELIMS
+-------
+- questions1.js से questions200.js पहले से आपकी site में अलग-अलग हैं।
+- इस patch में questions201.js से questions250.js जोड़े गए हैं।
+- हर नया JS file एक अलग test/CET का प्रश्न data रखता है।
+- हर file में 50 editable question objects हैं।
+- Prelims के 250 paid test pages अलग-अलग index.html में हैं।
+- CET01 से CET50 अलग-अलग test pages हैं।
+- prelims.html को 250 tests + Unit/CET hide/show button के साथ ठीक किया गया है।
+
+PRELIMS TEST DATA EDIT
+----------------------
+उदाहरण:
+questions201.js = CET01
+questions202.js = CET02
+...
+questions250.js = CET50
+
+MAINS
+-----
+कुल 600 अलग-अलग question pages:
+- Paper 1: GS1 — 100
+- Paper 2: GS2 — 100
+- Paper 3: GS3 — 100
+- Paper 4: GS4 — 100
+- Paper 5: GH5 — 100
+- Paper 6: HD6 — 100
+
+हर question की अपनी index.html file है।
+उदाहरण:
+paper-01-general-studies-i/5-marks/GS1-5M-001/index.html
+paper-01-general-studies-i/10-marks/GS1-10M-001/index.html
+paper-01-general-studies-i/15-marks/GS1-15M-001/index.html
+
+MAINS में 5/10/15 marks के प्रश्न अलग-अलग folders में हैं:
+- 5 marks = 40 questions
+- 10 marks = 40 questions
+- 15 marks = 20 questions
+कुल = 100 per paper × 6 = 600
+
+admin.html
+----------
+Admin में Paper 1–6 के सभी 600 Questions के सही links हैं।
+Paper 5 = GH5
+Paper 6 = HD6
+और "Questions छिपाएँ / खोलें" button दिया गया है।
+
+mains-600.html
+--------------
+अब सभी 6 papers और सभी 600 individual question files के links दिखाता है।
+
+IMPORTANT
+---------
+Patch को आपकी existing website के ऊपर merge/replace करें।
+यह ZIP पूरी site का replacement ZIP नहीं है।

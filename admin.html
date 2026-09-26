@@ -1029,242 +1029,79 @@ function renderPrelims200Boxes(){
 
 function renderMains600Boxes(){
 
-    const container =
-        document.getElementById(
-            "mains-master-container"
-        );
-
+    const container = document.getElementById("mains-master-container");
     if(!container) return;
 
-
     const mainsPapers = [
-
-        "General Studies-I",
-
-        "General Studies-II",
-
-        "General Studies-III",
-
-        "General Studies-IV",
-
-        "General Studies-V",
-
-        "General Studies-VI"
-
+        {name:"General Studies-I", prefix:"GS1", folder:"paper-01-general-studies-i"},
+        {name:"General Studies-II", prefix:"GS2", folder:"paper-02-general-studies-ii"},
+        {name:"General Studies-III", prefix:"GS3", folder:"paper-03-general-studies-iii"},
+        {name:"General Studies-IV", prefix:"GS4", folder:"paper-04-general-studies-iv"},
+        {name:"General Hindi & Grammar", prefix:"GH5", folder:"paper-05-general-hindi-grammar"},
+        {name:"Hindi Essay Draft", prefix:"HD6", folder:"paper-06-hindi-essay-draft"}
     ];
 
-
-    const mainsFolders = [
-
-        "paper-01-general-studies-i",
-
-        "paper-02-general-studies-ii",
-
-        "paper-03-general-studies-iii",
-
-        "paper-04-general-studies-iv",
-
-        "paper-05-general hindi grammar",
-
-        "paper-06-hindi-essay-draft"
-
+    const groups = [
+        {marks:5, count:40},
+        {marks:10, count:40},
+        {marks:15, count:20}
     ];
-
 
     let mainsHtml = "";
 
+    mainsPapers.forEach(function(paper, index){
 
-    mainsPapers.forEach(function(paperName,index){
-
-        let pNum =
-            index + 1;
-
-        let folder =
-            mainsFolders[index];
-
+        const pNum = index + 1;
 
         mainsHtml += `
-
-        <section class="paper" data-section-title="Paper ${pNum} - ${paperName}">
-
+        <section class="paper" data-section-title="Paper ${pNum} - ${paper.name}">
             <h2>
-                Paper ${pNum} - ${paperName}
-                <button type="button" class="section-toggle" onclick="toggleSection(this)">▼ Boxes छिपाएँ</button>
+                Paper ${pNum} - ${paper.name}
+                <button type="button" class="section-toggle" onclick="toggleSection(this)">▼ Questions छिपाएँ</button>
             </h2>
-
             <div class="section-content">
-
         `;
 
-
-        /* =================================================
-           5 MARKS — 40 BOXES
-           001 TO 040
-        ================================================= */
-
-        mainsHtml += `
-
-            <div class="group-title">
-
-                5 अंक वाले प्रश्न — 40 Questions
-                (001 से 040)
-
-            </div>
-
-            <div class="grid">
-
-        `;
-
-
-        for(let b = 1; b <= 40; b++){
-
-            let boxStr =
-                b < 10
-                ? "00" + b
-                : "0" + b;
-
-
-            let code =
-                `GS${pNum}-5M-${boxStr}`;
-
+        groups.forEach(function(group){
 
             mainsHtml += `
-
-                <div class="card">
-                    <div class="card-title">📄 Question ${b}</div>
-                    <div class="card-meta">5 Marks • Mains</div>
-                    <a class="open-btn mains-btn" href="${folder}/5-marks/${code}/index.html">Open Questions</a>
-                    <span class="code">${code}</span>
+                <div class="group-title">
+                    ${group.marks} अंक वाले प्रश्न — ${group.count} Questions
                 </div>
-
+                <div class="grid">
             `;
 
-        }
+            for(let q = 1; q <= group.count; q++){
 
+                const qStr = String(q).padStart(3,"0");
+                const code = `${paper.prefix}-${group.marks}M-${qStr}`;
 
-        mainsHtml += `
+                mainsHtml += `
+                    <div class="card">
+                        <div class="card-title">📄 Question ${q}</div>
+                        <div class="card-meta">${group.marks} Marks • Mains</div>
+                        <a class="open-btn mains-btn"
+                           href="${paper.folder}/${group.marks}-marks/${code}/index.html">
+                           Open Questions
+                        </a>
+                        <span class="code">${code}</span>
+                    </div>
+                `;
+            }
 
-            </div>
-
-        `;
-
-
-        /* =================================================
-           10 MARKS — 40 BOXES
-           041 TO 080
-        ================================================= */
-
-        mainsHtml += `
-
-            <div class="group-title">
-
-                10 अंक वाले प्रश्न — 40 Questions
-                (041 से 080)
-
-            </div>
-
-            <div class="grid">
-
-        `;
-
-
-        for(let b = 41; b <= 80; b++){
-
-            let boxStr =
-                "0" + b;
-
-
-            let code =
-                `GS${pNum}-10M-${boxStr}`;
-
-
-            mainsHtml += `
-
-                <div class="card">
-                    <div class="card-title">📄 Question ${b}</div>
-                    <div class="card-meta">10 Marks • Mains</div>
-                    <a class="open-btn mains-btn" href="${folder}/10-marks/${code}/index.html">Open Questions</a>
-                    <span class="code">${code}</span>
-                </div>
-
-            `;
-
-        }
-
+            mainsHtml += `</div>`;
+        });
 
         mainsHtml += `
-
-            </div>
-
-        `;
-
-
-        /* =================================================
-           15 MARKS — 20 BOXES
-           081 TO 100
-        ================================================= */
-
-        mainsHtml += `
-
-            <div class="group-title">
-
-                15 अंक वाले प्रश्न — 20 Questions
-                (081 से 100)
-
-            </div>
-
-            <div class="grid">
-
-        `;
-
-
-        for(let b = 81; b <= 100; b++){
-
-            let boxStr =
-                b === 100
-                ? "100"
-                : "0" + b;
-
-
-            let code =
-                `GS${pNum}-15M-${boxStr}`;
-
-
-            mainsHtml += `
-
-                <div class="card">
-                    <div class="card-title">📄 Question ${b}</div>
-                    <div class="card-meta">15 Marks • Mains</div>
-                    <a class="open-btn mains-btn" href="${folder}/15-marks/${code}/index.html">Open Questions</a>
-                    <span class="code">${code}</span>
-                </div>
-
-            `;
-
-        }
-
-
-        mainsHtml += `
-
-            </div>
             <div class="no-results">इस Paper में खोजा गया Question नहीं मिला।</div>
             </div>
-
         </section>
-
         `;
-
     });
 
-
-    container.innerHTML =
-        mainsHtml;
-
+    container.innerHTML = mainsHtml;
 }
 
-/* =========================================================
-   TEST FINDER + UNIT/PAPER TOGGLES
-========================================================= */
 function toggleSection(button){
     const section = button.closest(".unit-sec, .paper");
     if(!section) return;
