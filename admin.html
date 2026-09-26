@@ -109,40 +109,72 @@ body{
     color:#082b57;
 }
 
-/* 10 Column Grid */
+/* Clean card layout like the Student Unit/Test page */
 .grid{
     display:grid;
-    grid-template-columns:repeat(10,1fr);
-    gap:6px;
+    grid-template-columns:repeat(6,minmax(0,1fr));
+    gap:12px;
     margin-top:10px;
 }
 
 .card{
     background:#fff;
-    border:1px solid #d7e1ec;
-    border-radius:6px;
-    padding:8px 2px;
+    border:1px solid #dfe7f1;
+    border-radius:10px;
+    padding:14px 10px;
+    min-height:112px;
     text-align:center;
-    box-shadow:0 1px 2px rgba(0,0,0,0.02);
+    box-shadow:0 2px 7px rgba(0,0,0,0.06);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:stretch;
+}
+
+.card-title{
+    font-size:14px;
+    font-weight:800;
+    color:#082b57;
+    margin-bottom:7px;
+}
+
+.card-meta{
+    font-size:11px;
+    color:#667085;
+    margin-bottom:10px;
 }
 
 .code{
-    font-size:11px;
+    font-size:10px;
     font-weight:700;
     display:block;
-    margin-bottom:5px;
-    color:#334e68;
+    margin-top:7px;
+    color:#667085;
+    order:3;
 }
 
 .open-btn{
     display:block;
     color:#fff;
     text-decoration:none;
-    border-radius:4px;
-    padding:4px 2px;
-    font-size:10px;
-    font-weight:bold;
+    border-radius:6px;
+    padding:8px 6px;
+    font-size:12px;
+    font-weight:800;
     text-align:center;
+    order:2;
+}
+
+.section-toggle{
+    float:right;
+    border:0;
+    background:#eef4ff;
+    color:#082b57;
+    padding:6px 10px;
+    border-radius:6px;
+    font-size:13px;
+    font-weight:800;
+    cursor:pointer;
 }
 
 .pre-btn{
@@ -202,21 +234,15 @@ th{
     font-weight:bold;
 }
 
-@media(max-width:1400px){
+@media(max-width:1200px){
     .grid{
-        grid-template-columns:repeat(8,1fr);
-    }
-}
-
-@media(max-width:1100px){
-    .grid{
-        grid-template-columns:repeat(6,1fr);
+        grid-template-columns:repeat(4,1fr);
     }
 }
 
 @media(max-width:800px){
     .grid{
-        grid-template-columns:repeat(4,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 }
 
@@ -916,19 +942,14 @@ function renderPrelims200Boxes(){
             preHtml += `
 
                 <div class="card">
-
-                    <span class="code">
-                        ${code}
-                    </span>
-
+                    <div class="card-title">📝 Test ${t}</div>
+                    <div class="card-meta">20 Questions • MCQ</div>
                     <a
                         class="open-btn pre-btn"
                         href="prelims-tests/unit-${padU}/${code}/index.html">
-
-                        Open
-
+                        Open Test
                     </a>
-
+                    <span class="code">${code}</span>
                 </div>
 
             `;
@@ -1064,19 +1085,10 @@ function renderMains600Boxes(){
             mainsHtml += `
 
                 <div class="card">
-
-                    <span class="code">
-                        ${code}
-                    </span>
-
-                    <a
-                        class="open-btn mains-btn"
-                        href="${folder}/5-marks/${code}/index.html">
-
-                        Open
-
-                    </a>
-
+                    <div class="card-title">📄 Box ${b}</div>
+                    <div class="card-meta">5 Marks • Mains</div>
+                    <a class="open-btn mains-btn" href="${folder}/5-marks/${code}/index.html">Open Box</a>
+                    <span class="code">${code}</span>
                 </div>
 
             `;
@@ -1123,19 +1135,10 @@ function renderMains600Boxes(){
             mainsHtml += `
 
                 <div class="card">
-
-                    <span class="code">
-                        ${code}
-                    </span>
-
-                    <a
-                        class="open-btn mains-btn"
-                        href="${folder}/10-marks/${code}/index.html">
-
-                        Open
-
-                    </a>
-
+                    <div class="card-title">📄 Box ${b}</div>
+                    <div class="card-meta">10 Marks • Mains</div>
+                    <a class="open-btn mains-btn" href="${folder}/10-marks/${code}/index.html">Open Box</a>
+                    <span class="code">${code}</span>
                 </div>
 
             `;
@@ -1184,19 +1187,10 @@ function renderMains600Boxes(){
             mainsHtml += `
 
                 <div class="card">
-
-                    <span class="code">
-                        ${code}
-                    </span>
-
-                    <a
-                        class="open-btn mains-btn"
-                        href="${folder}/15-marks/${code}/index.html">
-
-                        Open
-
-                    </a>
-
+                    <div class="card-title">📄 Box ${b}</div>
+                    <div class="card-meta">15 Marks • Mains</div>
+                    <a class="open-btn mains-btn" href="${folder}/15-marks/${code}/index.html">Open Box</a>
+                    <span class="code">${code}</span>
                 </div>
 
             `;
