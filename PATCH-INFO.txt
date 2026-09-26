@@ -1,0 +1,8 @@
+Paid PRELIMS test display fix
+- Raw window.questions code is no longer the page itself.
+- Each supplied prelims test now has index.html + separate q01.js, q02.js... files.
+- index.html renders the actual quiz UI and loads the local question files.
+- Paid Prelims listing now points to the corresponding prelims-tests/unit-XX/PXXTYY/index.html path.
+- Only tests actually present in the uploaded ZIP were transformed; no missing question content was invented.
+- Student course authentication is checked before the test UI opens.
+- 60-minute timer, navigation, submit/result, and browser Print/PDF button are included.

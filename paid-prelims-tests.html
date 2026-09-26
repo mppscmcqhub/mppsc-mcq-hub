@@ -93,7 +93,7 @@
     <div id="protected-content">
         <div><a href="index.html" class="btn-back">← मुख्य पेज पर जाएं</a></div>
         <div class="header-section">
-            <h1>MPPSC 2027 - Paid Prelims 100 Tests</h1>
+            <h1>MPPSC 2027 - Paid Prelims Tests</h1>
             <p>🎯 किसी भी टेस्ट पर क्लिक करके उसका ऑनलाइन क्विज़ और PDF डाउनलोड पेज खोलें</p>
         </div>
         <div class="tests-grid" id="prelimsTestsGrid"></div>
@@ -135,7 +135,7 @@
                 for (let t = 1; t <= 10; t++) {
                     
                     // हर बॉक्स के लिए फ़ाइल का लिंक ऑटोमैटिक सेट होगा
-                    let targetUrl = `paid-prelims-test-${globalTestCounter}.html`;
+                    let targetUrl = `prelims-tests/unit-${String(u).padStart(2,"0")}/P${String(u).padStart(2,"0")}T${String(t).padStart(2,"0")}/index.html`;
                     
                     let badge = '<span class="status-badge status-live">● Active Now</span>';
                     let actionBtn = `<a href="${targetUrl}" class="btn-action btn-open-test">Open Test Page</a>`;
