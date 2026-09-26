@@ -226,19 +226,9 @@ th{
     }
 }
 </style>
-
-<style id="site-logo-global-css">
-.site-brand-bar{width:100%;background:#0d47a1;color:#fff;display:flex;align-items:center;gap:12px;padding:8px 16px;min-height:64px;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif;position:relative;z-index:1000;box-shadow:0 2px 6px rgba(0,0,0,.12)}
-.site-brand-bar img{width:48px;height:48px;border-radius:50%;object-fit:cover;background:#fff;border:2px solid #fff;flex:0 0 auto}
-.site-brand-bar .site-brand-title{font-size:1.12rem;font-weight:800;line-height:1.2}
-@media(max-width:600px){.site-brand-bar{padding:7px 10px;min-height:58px}.site-brand-bar img{width:42px;height:42px}.site-brand-bar .site-brand-title{font-size:.98rem}}
-</style>
-
 </head>
 
 <body>
-<div class="site-brand-bar"><img src="MPPSC-MCQ-Hub-Logo.png" alt="MPPSC MCQ Hub Logo"><div class="site-brand-title">MPPSC MCQ Hub</div></div>
-
 
 <div class="header">
 
@@ -246,7 +236,7 @@ th{
         MPPSC MCQ Hub V14 — Full Admin Master Dashboard
     </span>
 
-    <a href="student-login.html" class="home-btn" style="margin-right:8px">🎓 Student Login</a><a href="index.html" class="home-btn">
+    <a href="index.html" class="home-btn">
         मुख्य वेबसाइट पर जाएँ
     </a>
 
@@ -272,44 +262,57 @@ th{
 
     <!-- ================= PAYMENT VERIFICATION ================= -->
 
-    <section class="table-sec" style="border-top-color:#4caf50;">
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;">
-            <div>
-                <h2 style="color:#2e7d32;margin:0 0 5px 0;">📥 पेंडिंग पेमेंट / Verification Requests</h2>
-                <p style="color:#667085;margin:0;">जो payment अभी approve नहीं हुए हैं, वे यहाँ दिखेंगे।</p>
-            </div>
-            <button onclick="loadAllStudentData()" style="background:#082b57;color:#fff;border:0;border-radius:6px;padding:9px 14px;font-weight:bold;cursor:pointer;">↻ Refresh</button>
-        </div>
+    <section class="table-sec">
+
+        <h2 style="color:#4caf50;margin:0 0 5px 0;">
+            📥 छात्रों के पेंडिंग पेमेंट और रसीदें (Verification Requests)
+        </h2>
+
         <div style="overflow-x:auto;">
+
             <table>
-                <thead><tr>
-                    <th>दिनांक</th><th>मोबाइल</th><th>कोर्स</th><th>UTR ID</th><th>रसीद</th><th>स्थिति / एक्शन</th>
-                </tr></thead>
-                <tbody id="payment-pending-table"></tbody>
+
+                <thead>
+
+                    <tr>
+
+                        <th>दिनांक</th>
+
+                        <th>मोबाइल नंबर</th>
+
+                        <th>कोर्स टाइप</th>
+
+                        <th>UTR ID</th>
+
+                        <th>रसीद (Screenshot)</th>
+
+                        <th>एक्शन</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="payment-requests-table">
+
+                    <tr>
+
+                        <td colspan="6"
+                            style="text-align:center;color:#667085;font-weight:bold;">
+
+                            वर्तमान में कोई पेंडिंग पेमेंट रिक्वेस्ट नहीं है।
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
             </table>
+
         </div>
+
     </section>
 
-    <section class="table-sec" style="border-top-color:#147dcc;">
-        <h2 style="color:#0b69b1;margin:0 0 5px 0;">✅ Approved Payments / Login Details</h2>
-        <p style="color:#667085;margin:0;">Approve किए गए सभी students, mobile, password और course यहाँ हमेशा दिखेंगे।</p>
-        <div style="overflow-x:auto;">
-            <table>
-                <thead><tr>
-                    <th>Approve Date</th><th>Mobile</th><th>Password</th><th>Course</th><th>UTR ID</th><th>Status</th>
-                </tr></thead>
-                <tbody id="payment-approved-table"></tbody>
-            </table>
-        </div>
-    </section>
-
-    <section class="table-sec" style="border-top-color:#7c3aed;">
-        <h2 style="margin:0;color:#082b57;">🎓 Student Accounts</h2>
-        <p style="color:#667085;margin:6px 0 10px;">सभी approved students, उनके courses और login password</p>
-        <div style="overflow-x:auto;">
-            <table><thead><tr><th>Mobile</th><th>Password</th><th>Courses</th><th>Status</th><th>Created / Updated</th></tr></thead><tbody id="student-accounts-table"></tbody></table>
-        </div>
-    </section>
 
     <!-- ================= PRELIMS ================= -->
 
@@ -323,8 +326,6 @@ th{
 
 
     <!-- ================= MAINS ================= -->
-
-    <section class="table-sec" style="border-top-color:#7c3aed;margin-top:18px"><h2 style="margin:0;color:#5b21b6">🟣 C SET — 50 Paid PRELIMS Tests</h2><p style="color:#667085">Admin panel में C Set के सभी 50 boxes</p><div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px"><a href="prelims-tests/unit-03/P03T01/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C1</a><a href="prelims-tests/unit-03/P03T02/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C2</a><a href="prelims-tests/unit-03/P03T03/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C3</a><a href="prelims-tests/unit-03/P03T04/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C4</a><a href="prelims-tests/unit-03/P03T05/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C5</a><a href="prelims-tests/unit-03/P03T06/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C6</a><a href="prelims-tests/unit-03/P03T07/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C7</a><a href="prelims-tests/unit-03/P03T08/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C8</a><a href="prelims-tests/unit-03/P03T09/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C9</a><a href="prelims-tests/unit-03/P03T10/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C10</a><a href="prelims-tests/unit-03/P03T11/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C11</a><a href="prelims-tests/unit-03/P03T12/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C12</a><a href="prelims-tests/unit-03/P03T13/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C13</a><a href="prelims-tests/unit-03/P03T14/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C14</a><a href="prelims-tests/unit-03/P03T15/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C15</a><a href="prelims-tests/unit-03/P03T16/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C16</a><a href="prelims-tests/unit-03/P03T17/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C17</a><a href="prelims-tests/unit-03/P03T18/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C18</a><a href="prelims-tests/unit-03/P03T19/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C19</a><a href="prelims-tests/unit-03/P03T20/index.html" style="display:block;background:#5b21b6;color:#fff;padding:9px;border-radius:7px;text-align:center;text-decoration:none;font-weight:800">C20</a><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C21<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C22<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C23<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C24<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C25<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C26<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C27<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C28<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C29<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C30<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C31<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C32<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C33<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C34<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C35<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C36<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C37<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C38<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C39<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C40<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C41<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C42<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C43<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C44<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C45<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C46<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C47<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C48<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C49<small style="display:block;color:#777">Soon</small></div><div style="background:#ede9fe;color:#5b21b6;padding:9px;border-radius:7px;text-align:center;font-weight:800">C50<small style="display:block;color:#777">Soon</small></div></div></section>
 
     <div class="section-main-title mains-title">
 
@@ -345,7 +346,7 @@ th{
 
 document.addEventListener("DOMContentLoaded", function(){
 
-    loadAllStudentData();
+    loadPaymentRequests();
 
     renderPrelims200Boxes();
 
@@ -355,89 +356,119 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 /* =========================================================
-   PAYMENT / STUDENT DATA
+   PAYMENT REQUESTS
 ========================================================= */
 
-function getPayments(){
-    try { return JSON.parse(localStorage.getItem("mppsc_pending_payments")) || []; }
-    catch(e){ return []; }
-}
-
-function getStudents(){
-    try { return JSON.parse(localStorage.getItem("mppsc_students")) || []; }
-    catch(e){ return []; }
-}
-
-function esc(v){
-    return String(v ?? "").replace(/[&<>'"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));
-}
-
-function courseBadge(course){
-    const c=String(course||'').toLowerCase();
-    const bg=c==='mains'?'#e1f5fe':'#ffebee';
-    const fg=c==='mains'?'#0288d1':'#c62828';
-    return `<span style="display:inline-block;padding:4px 8px;border-radius:12px;background:${bg};color:${fg};font-weight:bold;font-size:11px">${esc(c.toUpperCase())}</span>`;
-}
-
-function loadAllStudentData(){
-    loadPaymentRequests();
-    loadStudentAccounts();
-}
-
 function loadPaymentRequests(){
-    const payments=getPayments();
-    const pendingBody=document.getElementById('payment-pending-table');
-    const approvedBody=document.getElementById('payment-approved-table');
 
-    const pending=payments.filter(r => String(r.status||'pending').toLowerCase()==='pending');
-    const approved=payments.filter(r => ['approved','duplicate'].includes(String(r.status||'').toLowerCase()));
+    const tableBody =
+        document.getElementById("payment-requests-table");
 
-    if(!pending.length){
-        pendingBody.innerHTML='<tr><td colspan="6" style="text-align:center;color:#667085;font-weight:bold;padding:18px">अभी कोई pending payment नहीं है।</td></tr>';
-    } else {
-        pendingBody.innerHTML=pending.map(req=>{
-            const idx=payments.indexOf(req);
-            return `<tr>
-                <td>${esc(req.date)}</td>
-                <td><b>${esc(req.phone)}</b></td>
-                <td>${courseBadge(req.course)}</td>
-                <td style="font-family:monospace;font-weight:bold">${esc(req.utr)}</td>
-                <td>${req.screenshot ? `<img src="${req.screenshot}" style="width:45px;height:45px;object-fit:cover;border-radius:5px;cursor:pointer" onclick="window.open(this.src,'_blank')">` : 'No Screenshot'}</td>
-                <td><button style="background:#4caf50;color:white;border:0;padding:7px 12px;border-radius:5px;cursor:pointer;font-weight:bold" onclick="approvePayment(${idx})">✓ Approve</button></td>
-            </tr>`;
-        }).join('');
-    }
+    if(!tableBody) return;
 
-    if(!approved.length){
-        approvedBody.innerHTML='<tr><td colspan="6" style="text-align:center;color:#667085;font-weight:bold;padding:18px">अभी कोई approved payment नहीं है।</td></tr>';
-    } else {
-        approvedBody.innerHTML=approved.map(req=>`<tr>
-            <td>${esc(req.approvedAt || req.date)}</td>
-            <td><b>${esc(req.phone)}</b></td>
-            <td><span style="font-family:monospace;background:#fff8e1;padding:5px 9px;border-radius:5px;font-weight:bold">${esc(req.password || '—')}</span></td>
-            <td>${courseBadge(req.course)}</td>
-            <td style="font-family:monospace;font-weight:bold">${esc(req.utr)}</td>
-            <td>${String(req.status).toLowerCase()==='approved' ? '<span style="color:#2e7d32;font-weight:bold">✓ Approved</span>' : '<span style="color:#c62828;font-weight:bold">⚠ Duplicate</span>'}</td>
-        </tr>`).join('');
-    }
-}
+    let pendingPayments =
+        JSON.parse(
+            localStorage.getItem("mppsc_pending_payments")
+        ) || [];
 
-function loadStudentAccounts(){
-    const body=document.getElementById('student-accounts-table');
-    if(!body) return;
-    const users=getStudents();
-    if(!users.length){
-        body.innerHTML='<tr><td colspan="5" style="text-align:center;color:#777;padding:18px">अभी कोई approved student account नहीं है।</td></tr>';
+    if(pendingPayments.length === 0){
+
         return;
+
     }
-    body.innerHTML=users.map(u=>`<tr>
-        <td><b>${esc(u.username)}</b></td>
-        <td><span style="font-family:monospace;background:#fff8e1;padding:5px 9px;border-radius:5px;font-weight:bold">${esc(u.password)}</span></td>
-        <td>${(Array.isArray(u.courses)?u.courses:[]).map(courseBadge).join(' ') || '—'}</td>
-        <td style="color:${u.active===false?'#c62828':'#2e7d32'};font-weight:bold">${u.active===false?'Blocked':'Active'}</td>
-        <td>${esc(u.updatedAt || u.createdAt || '')}</td>
-    </tr>`).join('');
+
+    let html = "";
+
+    pendingPayments.forEach(function(req,index){
+
+        html += `
+
+        <tr>
+
+            <td>
+                ${req.date || ""}
+            </td>
+
+            <td style="font-weight:bold;">
+                ${req.phone || ""}
+            </td>
+
+            <td>
+
+                <span
+                    style="
+                    padding:4px 8px;
+                    border-radius:4px;
+                    font-weight:bold;
+                    font-size:12px;
+                    background:${req.course === "mains"
+                        ? "#e1f5fe"
+                        : "#ffebee"};
+                    color:${req.course === "mains"
+                        ? "#0288d1"
+                        : "#c62828"};
+                    ">
+
+                    ${(req.course || "").toUpperCase()}
+
+                </span>
+
+            </td>
+
+            <td style="font-family:monospace;font-weight:bold;">
+                ${req.utr || ""}
+            </td>
+
+            <td>
+
+                ${
+                    req.screenshot
+                    ?
+                    `<img
+                        src="${req.screenshot}"
+                        style="
+                        width:40px;
+                        height:40px;
+                        object-fit:cover;
+                        border-radius:4px;
+                        "
+                    >`
+                    :
+                    "No Screenshot"
+                }
+
+            </td>
+
+            <td>
+
+                <button
+                    style="
+                    background:#4caf50;
+                    color:white;
+                    border:none;
+                    padding:5px 10px;
+                    border-radius:4px;
+                    cursor:pointer;
+                    font-weight:bold;
+                    "
+                    onclick="approvePayment(${index})">
+
+                    Approve
+
+                </button>
+
+            </td>
+
+        </tr>
+
+        `;
+
+    });
+
+    tableBody.innerHTML = html;
+
 }
+
 
 /* =========================================================
    APPROVE PAYMENT
@@ -461,29 +492,6 @@ function approvePayment(index){
     let approvedReq =
         pendingPayments[index];
 
-    // One UTR represents one payment. Never allow the same UTR to
-    // activate a different course (e.g. MAINS payment activating PRELIMS).
-    const normalizedUtr = String(approvedReq.utr || '').trim().toUpperCase();
-    const duplicateApproved = pendingPayments.find((r, i) =>
-        i !== index &&
-        r.status === "approved" &&
-        String(r.utr || '').trim().toUpperCase() === normalizedUtr &&
-        String(r.course || '').toLowerCase() !== String(approvedReq.course || '').toLowerCase()
-    );
-
-    if (normalizedUtr && duplicateApproved) {
-        approvedReq.status = "duplicate";
-        approvedReq.duplicateOf = duplicateApproved.id || "approved-payment";
-        localStorage.setItem("mppsc_pending_payments", JSON.stringify(pendingPayments));
-        alert(
-            "❌ यह UTR पहले ही " + String(duplicateApproved.course || '').toUpperCase() +
-            " course के लिए approve हो चुका है।\n\n" +
-            "एक ही UTR से दूसरा course activate नहीं किया जा सकता।"
-        );
-        loadPaymentRequests();
-        return;
-    }
-
     const studentPassword =
         "MPPSC-" +
         Math.floor(
@@ -492,40 +500,34 @@ function approvePayment(index){
         );
 
     let users =
-        JSON.parse(localStorage.getItem("mppsc_students")) || [];
+        JSON.parse(
+            localStorage.getItem("mppsc_students")
+        ) || [];
 
-    let existing = users.find(u => u.username === approvedReq.phone);
-    let finalPassword = studentPassword;
+    users.push({
 
-    if(existing){
-        finalPassword = existing.password;
-        existing.courses = Array.isArray(existing.courses) ? existing.courses : (existing.type ? [existing.type] : []);
-        if(!existing.courses.includes(approvedReq.course)) existing.courses.push(approvedReq.course);
-        existing.active = true;
-        existing.updatedAt = new Date().toLocaleString("hi-IN");
-    }else{
-        users.push({
-            username: approvedReq.phone,
-            password: studentPassword,
-            courses: [approvedReq.course],
-            active: true,
-            createdAt: new Date().toLocaleString("hi-IN")
-        });
-    }
+        username:approvedReq.phone,
 
-    localStorage.setItem("mppsc_students", JSON.stringify(users));
+        password:studentPassword,
 
-    approvedReq.status = "approved";
-    approvedReq.approvedAt = new Date().toLocaleString("hi-IN");
-    approvedReq.password = finalPassword;
+        type:approvedReq.course
+
+    });
+
+    localStorage.setItem(
+        "mppsc_students",
+        JSON.stringify(users)
+    );
 
     alert(
-        "✓ Student Account Activated!\n\n" +
-        "Mobile: " + approvedReq.phone +
-        "\nCourse: " + approvedReq.course.toUpperCase() +
-        "\nPassword: " + finalPassword +
-        "\n\nStudent Login: student-login.html"
+        "✓ Credentials Activated!\n\n" +
+        "Mobile: " +
+        approvedReq.phone +
+        "\n\nPassword: " +
+        studentPassword
     );
+
+    pendingPayments.splice(index,1);
 
     localStorage.setItem(
         "mppsc_pending_payments",

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MPPSC Prelims Paid Test Series</title>
+    <title>MPPSC Prelims 100 Test Series</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: #eef4ff; font-family: 'Segoe UI', sans-serif; color: #333; line-height: 1.5; padding: 20px; }
@@ -20,17 +20,6 @@
         .header-section h1 { color: #b91c1c; font-size: 2rem; font-weight: 900; margin-bottom: 10px; }
         .header-section p { color: #555; font-size: 1.1rem; font-weight: 600; }
         
-
-        .c-set-section { background:#fff; border:2px solid #7c3aed; border-radius:14px; padding:22px; margin:0 0 35px 0; box-shadow:0 4px 10px rgba(0,0,0,.05); }
-        .c-set-title { color:#5b21b6; font-size:1.45rem; font-weight:900; margin-bottom:6px; }
-        .c-set-subtitle { color:#666; font-weight:600; margin-bottom:18px; }
-        .c-set-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; }
-        .c-test-box { background:#f7f3ff; border:1px solid #c4b5fd; border-radius:10px; padding:14px 10px; text-align:center; text-decoration:none; color:#4c1d95; font-weight:800; transition:.2s; }
-        .c-test-box:hover { transform:translateY(-2px); background:#ede9fe; box-shadow:0 4px 10px rgba(91,33,182,.12); }
-        .c-test-box small { display:block; margin-top:5px; color:#666; font-weight:600; font-size:.75rem; }
-        @media(max-width:900px){.c-set-grid{grid-template-columns:repeat(4,1fr)}}
-        @media(max-width:650px){.c-set-grid{grid-template-columns:repeat(2,1fr)}}
-
         .tests-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; margin-bottom: 50px; }
         .test-card { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.03); border: 1px solid #e2e8f0; display: flex; flex-direction: column; justify-content: space-between; min-height: 180px; transition: transform 0.2s; }
         .test-card:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.08); }
@@ -44,39 +33,86 @@
         .btn-open-test:hover { background-color: #0a3980; }
         .btn-back { display: inline-block; margin-bottom: 20px; color: #0d47a1; text-decoration: none; font-weight: bold; font-size: 1rem; }
     </style>
-
-<style id="site-logo-global-css">
-.site-brand-bar{width:100%;background:#0d47a1;color:#fff;display:flex;align-items:center;gap:12px;padding:8px 16px;min-height:64px;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif;position:relative;z-index:1000;box-shadow:0 2px 6px rgba(0,0,0,.12)}
-.site-brand-bar img{width:48px;height:48px;border-radius:50%;object-fit:cover;background:#fff;border:2px solid #fff;flex:0 0 auto}
-.site-brand-bar .site-brand-title{font-size:1.12rem;font-weight:800;line-height:1.2}
-@media(max-width:600px){.site-brand-bar{padding:7px 10px;min-height:58px}.site-brand-bar img{width:42px;height:42px}.site-brand-bar .site-brand-title{font-size:.98rem}}
-</style>
-
 </head>
 <body>
-<div class="site-brand-bar"><img src="MPPSC-MCQ-Hub-Logo.png" alt="MPPSC MCQ Hub Logo"><div class="site-brand-title">MPPSC MCQ Hub</div></div>
 
-
-    <!-- Student Login access -->
+    <!-- पासवर्ड लॉक स्क्रीन बॉक्स -->
     <div id="lock-screen" class="lock-container">
-        <h2>🔒 Paid PRELIMS Access</h2>
-        <p style="margin-bottom:15px;color:#666;font-weight:600">Admin-approved Student Login के बाद यह course खुलेगा।</p>
-        <a href="student-login.html" style="display:inline-block;background:#0d47a1;color:#fff;padding:11px 18px;border-radius:8px;text-decoration:none;font-weight:800">🎓 Student Login</a>
+        <h2>🔒 Paid Course Lock</h2>
+        <p style="margin-bottom: 15px; color: #666; font-weight: 600;">आगे बढ़ने के लिए प्रीलिम्स एक्सेस पासवर्ड डालें:</p>
+        <input type="password" id="password-input" placeholder="यहाँ पासवर्ड टाइप करें...">
+        <button onclick="checkPassword()">पेज अनलॉक करें</button>
+        <div id="error" class="error-msg">गलत पासवर्ड! कृपया सही पासवर्ड डालें।</div>
     </div>
 
-    <!-- Login के बाद दिखने वाला असली कंटेंट -->
+    <!-- पासवर्ड के बाद दिखने वाला असली कंटेंट -->
     <div id="protected-content">
         <div><a href="index.html" class="btn-back">← मुख्य पेज पर जाएं</a></div>
         <div class="header-section">
-            <h1>MPPSC 2027 - Paid Prelims Test Series</h1>
+            <h1>MPPSC 2027 - Paid Prelims 100 Tests</h1>
             <p>🎯 किसी भी टेस्ट पर क्लिक करके उसका ऑनलाइन क्विज़ और PDF डाउनलोड पेज खोलें</p>
         </div>
-
-        <section class="c-set-section"><div class="c-set-title">🟣 C SET — 50 Paid Prelims Tests</div><div class="c-set-subtitle">C Set के 50 अलग test boxes</div><div class="c-set-grid"><a class="c-test-box" href="prelims-tests/unit-03/P03T01/index.html">C Set Test 1<small>Open Test →</small></a><a class="c-test-box" href="prelims-tests/unit-03/P03T02/index.html">C Set Test 2<small>Open Test →</small></a><a class="c-test-box" href="prelims-tests/unit-03/P03T03/index.html">C Set Test 3<small>Open Test →</small></a><a class="c-test-box" href="prelims-tests/unit-03/P03T04/index.html">C Set Test 4<small>Open Test →</small></a><a class="c-test-box" href="prelims-tests/unit-03/P03T05/index.html">C Set Test 5<small>Open Test →</small></a><a class="c-test-box" href="prelims-tests/unit-03/P03T06/index.html">C Set Test 6<small>Open Test →</small></a><a class="c-test-box" href="prelims-tests/unit-03/P03T07/index.html">C Set Test 7<small>Open Test →</small></a><a class="c-test-box" href="prelims-tests/unit-03/P03T08/index.html">C Set Test 8<small>Open Test →</small></a><a class="c-test-box" href="prelims-tests/unit-03/P03T09/index.html">C Set Test 9<small>Open Test →</small></a><a class="c-test-box" href="prelims-tests/unit-03/P03T10/index.html">C Set Test 10<small>Open Test →</small></a><a class="c-test-box" href="prelims-tests/unit-03/P03T11/index.html">C Set Test 11<small>Open Test →</small></a><a class="c-test-box" href="prelims-tests/unit-03/P03T12/index.html">C Set Test 12<small>Open Test →</small></a><a class="c-test-box" href="prelims-tests/unit-03/P03T13/index.html">C Set Test 13<small>Open Test →</small></a><a class="c-test-box" href="prelims-tests/unit-03/P03T14/index.html">C Set Test 14<small>Open Test →</small></a><a class="c-test-box" href="prelims-tests/unit-03/P03T15/index.html">C Set Test 15<small>Open Test →</small></a><a class="c-test-box" href="prelims-tests/unit-03/P03T16/index.html">C Set Test 16<small>Open Test →</small></a><a class="c-test-box" href="prelims-tests/unit-03/P03T17/index.html">C Set Test 17<small>Open Test →</small></a><a class="c-test-box" href="prelims-tests/unit-03/P03T18/index.html">C Set Test 18<small>Open Test →</small></a><a class="c-test-box" href="prelims-tests/unit-03/P03T19/index.html">C Set Test 19<small>Open Test →</small></a><a class="c-test-box" href="prelims-tests/unit-03/P03T20/index.html">C Set Test 20<small>Open Test →</small></a><div class="c-test-box" style="opacity:.65;cursor:not-allowed">C Set Test 21<small>Coming Soon</small></div><div class="c-test-box" style="opacity:.65;cursor:not-allowed">C Set Test 22<small>Coming Soon</small></div><div class="c-test-box" style="opacity:.65;cursor:not-allowed">C Set Test 23<small>Coming Soon</small></div><div class="c-test-box" style="opacity:.65;cursor:not-allowed">C Set Test 24<small>Coming Soon</small></div><div class="c-test-box" style="opacity:.65;cursor:not-allowed">C Set Test 25<small>Coming Soon</small></div><div class="c-test-box" style="opacity:.65;cursor:not-allowed">C Set Test 26<small>Coming Soon</small></div><div class="c-test-box" style="opacity:.65;cursor:not-allowed">C Set Test 27<small>Coming Soon</small></div><div class="c-test-box" style="opacity:.65;cursor:not-allowed">C Set Test 28<small>Coming Soon</small></div><div class="c-test-box" style="opacity:.65;cursor:not-allowed">C Set Test 29<small>Coming Soon</small></div><div class="c-test-box" style="opacity:.65;cursor:not-allowed">C Set Test 30<small>Coming Soon</small></div><div class="c-test-box" style="opacity:.65;cursor:not-allowed">C Set Test 31<small>Coming Soon</small></div><div class="c-test-box" style="opacity:.65;cursor:not-allowed">C Set Test 32<small>Coming Soon</small></div><div class="c-test-box" style="opacity:.65;cursor:not-allowed">C Set Test 33<small>Coming Soon</small></div><div class="c-test-box" style="opacity:.65;cursor:not-allowed">C Set Test 34<small>Coming Soon</small></div><div class="c-test-box" style="opacity:.65;cursor:not-allowed">C Set Test 35<small>Coming Soon</small></div><div class="c-test-box" style="opacity:.65;cursor:not-allowed">C Set Test 36<small>Coming Soon</small></div><div class="c-test-box" style="opacity:.65;cursor:not-allowed">C Set Test 37<small>Coming Soon</small></div><div class="c-test-box" style="opacity:.65;cursor:not-allowed">C Set Test 38<small>Coming Soon</small></div><div class="c-test-box" style="opacity:.65;cursor:not-allowed">C Set Test 39<small>Coming Soon</small></div><div class="c-test-box" style="opacity:.65;cursor:not-allowed">C Set Test 40<small>Coming Soon</small></div><div class="c-test-box" style="opacity:.65;cursor:not-allowed">C Set Test 41<small>Coming Soon</small></div><div class="c-test-box" style="opacity:.65;cursor:not-allowed">C Set Test 42<small>Coming Soon</small></div><div class="c-test-box" style="opacity:.65;cursor:not-allowed">C Set Test 43<small>Coming Soon</small></div><div class="c-test-box" style="opacity:.65;cursor:not-allowed">C Set Test 44<small>Coming Soon</small></div><div class="c-test-box" style="opacity:.65;cursor:not-allowed">C Set Test 45<small>Coming Soon</small></div><div class="c-test-box" style="opacity:.65;cursor:not-allowed">C Set Test 46<small>Coming Soon</small></div><div class="c-test-box" style="opacity:.65;cursor:not-allowed">C Set Test 47<small>Coming Soon</small></div><div class="c-test-box" style="opacity:.65;cursor:not-allowed">C Set Test 48<small>Coming Soon</small></div><div class="c-test-box" style="opacity:.65;cursor:not-allowed">C Set Test 49<small>Coming Soon</small></div><div class="c-test-box" style="opacity:.65;cursor:not-allowed">C Set Test 50<small>Coming Soon</small></div></div></section>
-
         <div class="tests-grid" id="prelimsTestsGrid"></div>
     </div>
 
-    <script>(function(){const user=JSON.parse(localStorage.getItem('mppsc_current_student')||'null');const ok=user&&Array.isArray(user.courses)&&user.courses.map(String).map(x=>x.toLowerCase()).includes('prelims');if(ok){document.getElementById('lock-screen').style.display='none';document.getElementById('protected-content').style.display='block';renderPaidTests();}else{document.getElementById('protected-content').style.display='none';}})();function renderPaidTests(){const grid=document.getElementById('prelimsTestsGrid');if(!grid)return;const unitNames={1:'भारत का इतिहास',2:'म.प्र. का इतिहास',3:'भारत का भूगोल',4:'म.प्र. का भूगोल',5:'संवैधानिक व्यवस्था',6:'अर्थव्यवस्था',7:'विज्ञान व पर्यावरण',8:'करंट अफेयर्स',9:'ICT',10:'म.प्र. जनजातियां'};let html='';let n=1;for(let u=1;u<=10;u++){for(let t=1;t<=20;t++){const targetUrl=`prelims-tests/unit-${String(u).padStart(2,'0')}/P${String(u).padStart(2,'0')}T${String(t).padStart(2,'0')}/index.html`;html+=`<div class="test-card"><div><div class="test-number">Mock Test - ${n}</div><div class="test-info">Unit ${u}: ${unitNames[u]} (Test ${t})</div><span class="status-badge status-live">● Active</span></div><a href="${targetUrl}" class="btn-action btn-open-test">Open Test</a></div>`;n++;}}grid.innerHTML=html;}</script>
+    <script>
+        const CORRECT_PASSWORD = "mppsc2027";
+
+        function checkPassword() {
+            if (document.getElementById("password-input").value === CORRECT_PASSWORD) {
+                document.getElementById("lock-screen").style.display = "none";
+                document.getElementById("protected-content").style.display = "block";
+                renderPaidTests();
+            } else {
+                document.getElementById("error").style.display = "block";
+                document.getElementById("password-input").value = "";
+            }
+        }
+
+        document.getElementById("password-input").addEventListener("keyup", function(e) {
+            if (e.key === "Enter") checkPassword();
+        });
+
+        function renderPaidTests() {
+            const grid = document.getElementById("prelimsTestsGrid");
+            grid.innerHTML = "";
+            
+            const unitNames = {
+                1: "भारत का इतिहास", 2: "म.प्र. का इतिहास", 3: "भारत का भूगोल", 
+                4: "म.प्र. का भूगोल", 5: "संवैधानिक व्यवस्था", 6: "अर्थव्यवस्था", 
+                7: "विज्ञान व पर्यावरण", 8: "करंट अफेयर्स", 9: "ICT", 10: "म.प्र. जनजातियां"
+            };
+
+            let html = "";
+            let globalTestCounter = 1;
+
+            // 10 यूनिट और हर यूनिट में 10 टेस्ट = कुल 100 टेस्ट ऑटोमैटिक जनरेट होंगे
+            for (let u = 1; u <= 10; u++) {
+                for (let t = 1; t <= 10; t++) {
+                    
+                    // हर बॉक्स के लिए फ़ाइल का लिंक ऑटोमैटिक सेट होगा
+                    let targetUrl = `paid-prelims-test-${globalTestCounter}.html`;
+                    
+                    let badge = '<span class="status-badge status-live">● Active Now</span>';
+                    let actionBtn = `<a href="${targetUrl}" class="btn-action btn-open-test">Open Test Page</a>`;
+
+                    html += `
+                        <div class="test-card">
+                            <div>
+                                <div class="test-number">Mock Test - ${globalTestCounter}</div>
+                                <div class="test-info">Unit ${u}: ${unitNames[u]} (Test ${t})</div>
+                                ${badge}
+                            </div>
+                            <div>
+                                ${actionBtn}
+                            </div>
+                        </div>
+                    `;
+                    globalTestCounter++;
+                }
+            }
+            grid.innerHTML = html;
+        }
+    </script>
 </body>
 </html>
