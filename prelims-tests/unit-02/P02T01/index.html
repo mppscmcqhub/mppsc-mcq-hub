@@ -1,538 +1,143 @@
-<!DOCTYPE html>
-<html lang="hi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>P02T01 - MPPSC Paid Prelims</title>
-
-<style>
-*{box-sizing:border-box}
-
-body{
-    margin:0;
-    font-family:Arial,"Noto Sans Devanagari",sans-serif;
-    background:#f4f7fb;
-    color:#222;
-}
-
-header{
-    background:#1261a0;
-    color:white;
-    padding:14px 20px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    flex-wrap:wrap;
-}
-
-.brand{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
-.logo{
-    width:48px;
-    height:48px;
-    border-radius:50%;
-    background:white;
-    color:#1261a0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:bold;
-    font-size:12px;
-}
-
-.brand h2{
-    margin:0;
-    font-size:19px;
-}
-
-.back{
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-    font-size:14px;
-}
-
-.container{
-    max-width:900px;
-    margin:25px auto;
-    padding:0 15px;
-}
-
-.hero{
-    background:white;
-    padding:22px;
-    border-radius:14px;
-    text-align:center;
-    box-shadow:0 3px 12px rgba(0,0,0,.08);
-    margin-bottom:20px;
-}
-
-.hero h1{
-    margin:0 0 8px;
-    color:#1261a0;
-}
-
-.hero p{
-    margin:6px;
-    color:#555;
-}
-
-.code{
-    display:inline-block;
-    margin-top:10px;
-    padding:7px 15px;
-    border-radius:20px;
-    background:#e8f2ff;
-    color:#1261a0;
-    font-weight:bold;
-}
-
-.question{
-    background:white;
-    margin-bottom:18px;
-    padding:20px;
-    border-radius:12px;
-    box-shadow:0 3px 10px rgba(0,0,0,.07);
-}
-
-.question h3{
-    margin-top:0;
-    color:#1261a0;
-    line-height:1.6;
-}
-
-.eng{
-    color:#444;
-    font-size:15px;
-    margin-bottom:15px;
-    line-height:1.5;
-}
-
-.option{
-    display:block;
-    padding:10px 12px;
-    margin:8px 0;
-    border:1px solid #ddd;
-    border-radius:7px;
-    cursor:pointer;
-    line-height:1.5;
-}
-
-.option:hover{
-    background:#f0f7ff;
-}
-
-.explanation{
-    display:none;
-    margin-top:15px;
-    padding:15px;
-    background:#f0f8ff;
-    border-left:4px solid #1261a0;
-    border-radius:7px;
-    line-height:1.6;
-}
-
-.correct{
-    color:#16833b;
-    font-weight:bold;
-}
-
-.submit{
-    width:100%;
-    padding:14px;
-    border:0;
-    border-radius:8px;
-    background:#1261a0;
-    color:white;
-    font-size:17px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.result{
-    margin-top:20px;
-    padding:18px;
-    background:white;
-    border-radius:12px;
-    text-align:center;
-    font-size:18px;
-    font-weight:bold;
-    display:none;
-}
-
-@media(max-width:600px){
-    .brand h2{font-size:16px}
-}
-</style>
-</head>
-
-<body>
-
-<header>
-
-<div class="brand">
-    <div class="logo">MPPSC</div>
-    <h2>MPPSC MCQ Hub V14</h2>
-</div>
-
-<a class="back" href="../index.html">
-    ← Back to Unit 2
-</a>
-
-</header>
-
-<div class="container">
-
-<section class="hero">
-
-<h1>Paid Course MPPSC 2027</h1>
-
-<p>
-<strong>Unit 2 — मध्यप्रदेश का इतिहास, संस्कृति एवं साहित्य</strong>
-</p>
-
-<p><strong>Test 01 / परीक्षण 01</strong></p>
-
-<div class="code">P02T01</div>
-
-</section>
-
-
-<!-- QUESTION 1 -->
-
-<div class="question">
-
-<h3>
-Q1. मध्यप्रदेश में स्थित खजुराहो के मंदिर किस वंश के शासनकाल में बनाए गए थे?
-</h3>
-
-<div class="eng">
-<b>
-Q1. The temples of Khajuraho in Madhya Pradesh were built during the rule of which dynasty?
-</b>
-</div>
-
-<label class="option">
-<input type="radio" name="q1" value="A">
-A. परमार वंश / Paramara Dynasty
-</label>
-
-<label class="option">
-<input type="radio" name="q1" value="B">
-B. चंदेल वंश / Chandela Dynasty
-</label>
-
-<label class="option">
-<input type="radio" name="q1" value="C">
-C. कलचुरी वंश / Kalachuri Dynasty
-</label>
-
-<label class="option">
-<input type="radio" name="q1" value="D">
-D. होलकर वंश / Holkar Dynasty
-</label>
-
-<div class="explanation" id="e1">
-
-<b class="correct">
-सही उत्तर / Correct Answer: B. चंदेल वंश / Chandela Dynasty
-</b>
-
-<br><br>
-
-<b>हिंदी व्याख्या:</b><br>
-खजुराहो के प्रसिद्ध मंदिरों का निर्माण मुख्य रूप से चंदेल शासकों के शासनकाल में लगभग 9वीं से 12वीं शताब्दी के बीच हुआ। खजुराहो मध्यप्रदेश के छतरपुर जिले में स्थित है।
-
-<br><br>
-
-<b>English Explanation:</b><br>
-The famous temples of Khajuraho were mainly built under the Chandela rulers between approximately the 9th and 12th centuries. Khajuraho is located in Chhatarpur district of Madhya Pradesh.
-
-</div>
-
-</div>
-
-
-<!-- QUESTION 2 -->
-
-<div class="question">
-
-<h3>
-Q2. मध्यप्रदेश का कौन-सा शहर राजा भोज से विशेष रूप से संबंधित है?
-</h3>
-
-<div class="eng">
-<b>
-Q2. Which city of Madhya Pradesh is particularly associated with Raja Bhoj?
-</b>
-</div>
-
-<label class="option">
-<input type="radio" name="q2" value="A">
-A. भोपाल / Bhopal
-</label>
-
-<label class="option">
-<input type="radio" name="q2" value="B">
-B. इंदौर / Indore
-</label>
-
-<label class="option">
-<input type="radio" name="q2" value="C">
-C. ग्वालियर / Gwalior
-</label>
-
-<label class="option">
-<input type="radio" name="q2" value="D">
-D. जबलपुर / Jabalpur
-</label>
-
-<div class="explanation" id="e2">
-
-<b class="correct">
-सही उत्तर / Correct Answer: A. भोपाल / Bhopal
-</b>
-
-<br><br>
-
-<b>हिंदी व्याख्या:</b><br>
-राजा भोज परमार वंश के प्रसिद्ध शासक थे। भोजपाल नाम से जुड़ी ऐतिहासिक परंपरा के कारण भोपाल का संबंध राजा भोज से माना जाता है।
-
-<br><br>
-
-<b>English Explanation:</b><br>
-Raja Bhoj was a famous ruler of the Paramara dynasty. Bhopal is traditionally associated with him through the historical name Bhojpal.
-
-</div>
-
-</div>
-
-
-<!-- QUESTION 3 -->
-
-<div class="question">
-
-<h3>
-Q3. मध्यप्रदेश का प्रसिद्ध लोकनृत्य ‘राई’ मुख्य रूप से किस क्षेत्र से संबंधित है?
-</h3>
-
-<div class="eng">
-<b>
-Q3. The famous folk dance ‘Rai’ of Madhya Pradesh is mainly associated with which region?
-</b>
-</div>
-
-<label class="option">
-<input type="radio" name="q3" value="A">
-A. बुंदेलखंड / Bundelkhand
-</label>
-
-<label class="option">
-<input type="radio" name="q3" value="B">
-B. मालवा / Malwa
-</label>
-
-<label class="option">
-<input type="radio" name="q3" value="C">
-C. निमाड़ / Nimar
-</label>
-
-<label class="option">
-<input type="radio" name="q3" value="D">
-D. बघेलखंड / Baghelkhand
-</label>
-
-<div class="explanation" id="e3">
-
-<b class="correct">
-सही उत्तर / Correct Answer: A. बुंदेलखंड / Bundelkhand
-</b>
-
-<br><br>
-
-<b>हिंदी व्याख्या:</b><br>
-राई मध्यप्रदेश का प्रसिद्ध लोकनृत्य है, जो विशेष रूप से बुंदेलखंड क्षेत्र की लोक संस्कृति से जुड़ा हुआ है। इसमें पारंपरिक संगीत और नृत्य की विशेष शैली दिखाई देती है।
-
-<br><br>
-
-<b>English Explanation:</b><br>
-Rai is a famous folk dance of Madhya Pradesh, particularly associated with the folk culture of the Bundelkhand region. It is performed with traditional music and a distinctive dance style.
-
-</div>
-
-</div>
-
-
-<!-- QUESTION 4 -->
-
-<div class="question">
-
-<h3>
-Q4. तानसेन समारोह का आयोजन मध्यप्रदेश के किस शहर में किया जाता है?
-</h3>
-
-<div class="eng">
-<b>
-Q4. The Tansen Music Festival is held in which city of Madhya Pradesh?
-</b>
-</div>
-
-<label class="option">
-<input type="radio" name="q4" value="A">
-A. उज्जैन / Ujjain
-</label>
-
-<label class="option">
-<input type="radio" name="q4" value="B">
-B. ग्वालियर / Gwalior
-</label>
-
-<label class="option">
-<input type="radio" name="q4" value="C">
-C. भोपाल / Bhopal
-</label>
-
-<label class="option">
-<input type="radio" name="q4" value="D">
-D. सागर / Sagar
-</label>
-
-<div class="explanation" id="e4">
-
-<b class="correct">
-सही उत्तर / Correct Answer: B. ग्वालियर / Gwalior
-</b>
-
-<br><br>
-
-<b>हिंदी व्याख्या:</b><br>
-तानसेन समारोह का आयोजन ग्वालियर में किया जाता है। यह महान संगीतज्ञ तानसेन की स्मृति में आयोजित होने वाला प्रसिद्ध संगीत समारोह है।
-
-<br><br>
-
-<b>English Explanation:</b><br>
-The Tansen Music Festival is held in Gwalior. It is a renowned music festival organized in memory of the great Indian musician Tansen.
-
-</div>
-
-</div>
-
-
-<!-- QUESTION 5 -->
-
-<div class="question">
-
-<h3>
-Q5. मध्यप्रदेश की प्रसिद्ध ‘भगोरिया’ परंपरा मुख्य रूप से किन जनजातीय क्षेत्रों से जुड़ी है?
-</h3>
-
-<div class="eng">
-<b>
-Q5. The famous ‘Bhagoria’ tradition of Madhya Pradesh is mainly associated with which tribal regions?
-</b>
-</div>
-
-<label class="option">
-<input type="radio" name="q5" value="A">
-A. पश्चिमी मध्यप्रदेश / Western Madhya Pradesh
-</label>
-
-<label class="option">
-<input type="radio" name="q5" value="B">
-B. पूर्वी मध्यप्रदेश / Eastern Madhya Pradesh
-</label>
-
-<label class="option">
-<input type="radio" name="q5" value="C">
-C. उत्तरी मध्यप्रदेश / Northern Madhya Pradesh
-</label>
-
-<label class="option">
-<input type="radio" name="q5" value="D">
-D. मध्य मध्यप्रदेश / Central Madhya Pradesh
-</label>
-
-<div class="explanation" id="e5">
-
-<b class="correct">
-सही उत्तर / Correct Answer: A. पश्चिमी मध्यप्रदेश / Western Madhya Pradesh
-</b>
-
-<br><br>
-
-<b>हिंदी व्याख्या:</b><br>
-भगोरिया मध्यप्रदेश के पश्चिमी आदिवासी क्षेत्रों की प्रसिद्ध लोक परंपरा है। यह विशेष रूप से भील और संबंधित जनजातीय समुदायों की सांस्कृतिक परंपराओं से जुड़ी मानी जाती है।
-
-<br><br>
-
-<b>English Explanation:</b><br>
-Bhagoria is a well-known folk tradition of the tribal areas of western Madhya Pradesh. It is particularly associated with the cultural traditions of the Bhil and related tribal communities.
-
-</div>
-
-</div>
-
-
-<button class="submit" onclick="checkAnswers()">
-Submit Test / टेस्ट जमा करें
-</button>
-
-<div class="result" id="result"></div>
-
-</div>
-
-
-<script>
-
-function checkAnswers(){
-
-    const answers = {
-        q1:"B",
-        q2:"A",
-        q3:"A",
-        q4:"B",
-        q5:"A"
-    };
-
-    let score = 0;
-
-    for(let q in answers){
-
-        const selected =
-            document.querySelector(
-                'input[name="'+q+'"]:checked'
-            );
-
-        if(selected && selected.value === answers[q]){
-            score++;
-        }
-    }
-
-    for(let i=1;i<=5;i++){
-        document.getElementById("e"+i).style.display="block";
-    }
-
-    const result =
-        document.getElementById("result");
-
-    result.style.display="block";
-
-    result.innerHTML =
-        "आपका Score / Your Score: " +
-        score +
-        " / 5";
-
-    window.scrollTo({
-        top:document.body.scrollHeight,
-        behavior:"smooth"
-    });
-}
-
-</script>
-
-</body>
-</html>
+window.questions = [
+  {
+    question: "1. मध्य प्रदेश के रायसेन जिले में स्थित प्रसिद्ध 'भीमबैठका' (Bhimbetka) शैलचित्रों की खोज वर्ष 1957-58 में किस महान पुरातत्वविद् द्वारा की गई थी, जिसे यूनेस्को (UNESCO) द्वारा विश्व धरोहर स्थल घोषित किया गया है? / Which prominent archaeologist discovered the famous Bhimbetka rock shelters in Raisen district of MP during 1957-58?",
+    options: [
+      "A. डॉ. विष्णु श्रीधर वाकणकर (Dr. V.S. Wakankar)",
+      "B. डॉ. एच.डी. सांकलिया",
+      "C. प्रो. जी.आर. शर्मा",
+      "D. अलेक्जेंडर कनिंघम"
+    ],
+    answer: "A",
+    explanation: "विक्रम विश्वविद्यालय उज्जैन के पुरातत्वविद् डॉ. विष्णु श्रीधर वाकणकर ने भीमबैठका की खोज की थी। वर्ष 2003 में इसे यूनेस्को द्वारा विश्व धरोहर स्थल (World Heritage Site) घोषित किया गया। यह पुरापाषाण काल से मध्यपाषाण काल के मानव जीवन के सबसे जीवंत शैलचित्रों का साक्ष्य है।"
+  },
+  {
+    question: "2. मध्य प्रदेश का वह कौन सा प्रसिद्ध ताम्रपाषाणिक (Chalcolithic) स्थल है जो वराहमिहिर की जन्मस्थली माना जाता है और जिसकी खोज डॉ. वी.एस. वाकणकर ने उज्जैन के निकट छोटी कालीसिंध नदी के तट पर की थी? / Which famous Chalcolithic site of MP is considered the birthplace of Varahamihira, discovered near Ujjain on the banks of Choti Kalisindh river?",
+    options: [
+      "A. कायथा (Kayatha)",
+      "B. नवदाटोली",
+      "C. एरन (Eran)",
+      "D. आवरा"
+    ],
+    answer: "A",
+    explanation: "कायथा मध्य प्रदेश का पहला खोजा गया ताम्रपाषाणिक स्थल है। उज्जैन जिले में स्थित यह स्थल प्राचीन काल में 'कपित्थक' के नाम से जाना जाता था, जो महान खगोलशास्त्री वराहमिहिर की जन्मभूमि है। यहाँ से तांबे की चूड़ियाँ और कुल्हाड़ियाँ मिली हैं।"
+  },
+  {
+    question: "3. मध्य प्रदेश के किस ऐतिहासिक स्थल से 'सती प्रथा का प्रथम लिखित साक्ष्य' (First Inscriptional Evidence of Sati) 510 ई. के भानुगुप्त के अभिलेख के रूप में प्राप्त हुआ है? / From which historical site of MP was the earliest inscriptional evidence of Sati (510 AD) discovered in Bhanugupta's pillar inscription?",
+    options: [
+      "A. एरन, सागर जिला (Eran - Sagar District)",
+      "B. सांची, रायसेन जिला",
+      "C. तिघरा, जबलपुर जिला",
+      "D. तुमैन, अशोकनगर जिला"
+    ],
+    answer: "A",
+    explanation: "सागर जिले में बीना नदी के तट पर स्थित प्राचीन 'ऐरिकिण' (आधुनिक एरन) से गुप्त शासक भानुगुप्त का 510 ई. का स्तंभ लेख मिला है। इसमें उनके सेनापति 'गोपराज' के हूणों के खिलाफ युद्ध में वीरगति प्राप्त करने पर उनकी पत्नी के सती होने का लिखित साक्ष्य दर्ज है।"
+  },
+  {
+    question: "4. महाजनपद काल के दौरान बौद्ध ग्रंथ 'अंगुत्तर निकाय' में वर्णित 16 महाजनपदों में से मध्य प्रदेश के भौगोलिक क्षेत्र में कौन से दो महाजनपद स्थित थे? / Out of the 16 Mahajanapadas, which two were located in the geographical region of modern Madhya Pradesh?",
+    options: [
+      "A. अवंती और चेदि (Avanti and Chedi)",
+      "B. मगध और अंग",
+      "C. कुरु और पांचाल",
+      "D. मत्स्य और अश्मक"
+    ],
+    answer: "A",
+    explanation: "महाजनपद काल (छठी शताब्दी ई.पू.) में मध्य प्रदेश में दो शक्तिशाली राज्य थे: 1. अवंती (मालवा क्षेत्र जिसकी राजधानियाँ उज्जैनी और महिष्मती थीं) और 2. चेदि (बुंदेलखंड क्षेत्र जिसकी राजधानी सुक्तिमती थी)।"
+  },
+  {
+    question: "5. अवंती महाजनपद के उस प्रतापी राजा का क्या नाम था जो महात्मा बुद्ध के समकालीन थे और जिनके इलाज के लिए मगध के सम्राट बिम्बिसार ने अपने राजवैद्य जीवक को उज्जैन भेजा था? / Name the powerful king of Avanti Mahajanapada who was a contemporary of Buddha, for whose treatment King Bimbisara sent royal physician Jivaka.",
+    options: [
+      "A. चंड प्रद्योत (Chanda Pradyota)",
+      "B. राजा उदयिन",
+      "C. राजा कीर्तिवीर्य अर्जुन",
+      "D. शिशुनाग"
+    ],
+    answer: "A",
+    explanation: "अवंती के राजा प्रद्योत अपने उग्र स्वभाव के कारण 'चंड प्रद्योत' कहलाते थे। जब वे 'पाण्डु रोग' (पीलिया/Jaundice) से गंभीर रूप से ग्रसित हुए, तो मगध राज बिम्बिसार ने कूटनीतिक मित्रता बढ़ाते हुए अपने प्रसिद्ध राजवैद्य जीवक को उनके इलाज के लिए भेजा था।"
+  },
+  {
+    question: "6. नर्मदा नदी के तट पर स्थित प्रसिद्ध प्राचीन नगर 'महिष्मती' (Mahishmati) की स्थापना अवंती महाजनपद के काल में किस महान हैहयवंशी राजा द्वारा की गई थी, जिसे वर्तमान में महेश्वर कहा जाता है? / Which Haihaya dynasty ruler founded the ancient city of Mahishmati (modern-day Maheshwar) on the banks of Narmada river?",
+    options: [
+      "A. माहिष्मंत (Mahishmant)",
+      "B. कीर्तिवीर्य अर्जुन",
+      "C. राजा भोज",
+      "D. मुंज परमार"
+    ],
+    answer: "A",
+    explanation: "पौराणिक कथाओं और यदुवंशी हैहय राजाओं के इतिहास के अनुसार, राजा यदु के वंशज 'माहिष्मंत' ने नर्मदा नदी के किनारे इस खूबसूरत और सामरिक रूप से महत्वपूर्ण नगर की स्थापना की थी और इसका नाम अपने नाम पर 'महिष्मती' रखा था जो दक्षिण अवंती की राजधानी बना।"
+  },
+  {
+    question: "7. मध्य प्रदेश के खरगोन जिले में नर्मदा नदी के दक्षिणी तट पर स्थित 'नवदाटोली' (Navdatoli) नामक ताम्रपाषाणिक स्थल का विस्तृत उत्खनन किस प्रसिद्ध पुरातत्वविद् के नेतृत्व में किया गया था? / Which prominent archaeologist led the extensive excavation of the Chalcolithic site 'Navdatoli' located in Khargone district of MP?",
+    options: [
+      "A. डॉ. एच.डी. सांकलिया (Dr. H.D. Sankalia)",
+      "B. डॉ. वी.एस. वाकणकर",
+      "C. मैके और मार्शल",
+      "D. डॉ. आर.बी. सिंह"
+    ],
+    answer: "A",
+    explanation: "डेक्कन कॉलेज पूना के प्रोफेसर डॉ. हसमुख धीरजलाल सांकलिया (H.D. Sankalia) के मार्गदर्शन में नवदाटोली और महेश्वर का विस्तृत उत्खनन हुआ। यहाँ से भारत में ताम्रपाषाण काल के सबसे बड़े पैमाने पर अनाज (गेहूं, चना, मटर, मसूर) के दाने और विशिष्ट झोपड़ियों के साक्ष्य मिले हैं।"
+  },
+  {
+    question: "8. मौर्य सम्राट बनने से पहले राजकुमार अशोक ने मध्य प्रदेश के किस क्षेत्र के प्रांतीय गवर्नर (Viceroy) के रूप में लगभग 11 वर्षों तक कुशलतापूर्वक कार्य किया था? / Before ascending the Mauryan throne, Prince Ashoka served as the Viceroy/Governor of which region in Madhya Pradesh?",
+    options: [
+      "A. अवंती / उज्जैनी (Avanti / Ujjaini)",
+      "B. चेदि / सुक्तिमती",
+      "C. दमोह / तुंडीकेर",
+      "D. महाकोशल / जबलपुर"
+    ],
+    answer: "A",
+    explanation: "बिन्दुसार के शासनकाल में राजकुमार अशोक को अवंती राष्ट्र (उज्जैनी) का प्रांतीय गवर्नर नियुक्त किया गया था। अपने कार्यकाल के दौरान उन्होंने विदिशा के एक श्रेष्ठी (व्यापारी) की पुत्री 'देवी' (महादेवी) से विवाह किया, जिनसे उनके पुत्र महेंद्र और पुत्री संघमित्रा का जन्म हुआ था।"
+  },
+  {
+    question: "9. मौर्य सम्राट अशोक का वह कौन सा लघु शिलालेख (Minor Rock Edict) मध्य प्रदेश के सीहोर जिले से प्राप्त हुआ है, जिसमें उनके नाम का स्पष्ट उल्लेख मिलता है और राजकुमार के रूप में उनकी यात्रा दर्ज है? / Which minor rock edict of Ashoka discovered in Sehore district of MP explicitly mentions his name and journey?",
+    options: [
+      "A. पानगुराड़िया (Panguraria)",
+      "B. रूपनाथ",
+      "C. गुर्जरा",
+      "D. सारो-मारो"
+    ],
+    answer: "A",
+    explanation: "सीहोर जिले के पानगुराड़िया से अशोक का लघु शिलालेख मिला है। इसके अतिरिक्त दतिया के 'गुर्जरा' (Gurjarra) से मिले शिलालेख में भी अशोक का वास्तविक नाम 'देवनामप्रिय प्रियदसी अशोकराजा' स्पष्ट रूप से उत्कीर्ण मिलता है।"
+  },
+  {
+    question: "10. मध्य प्रदेश के शहडोल और अनूपपुर क्षेत्र में प्राचीन काल में विस्तृत 'मेकल' (Mekal) अमरकंटक पहाड़ी क्षेत्र पर तीसरी शताब्दी में किस स्थानीय राजवंश ने शासन किया था, जिसके सिक्के और ताम्रपत्र प्राप्त हुए हैं? / Which local dynasty ruled the Mekal (Amarkantak) region of MP during the 3rd century AD?",
+    options: [
+      "A. मेकल के पाण्डु वंश (Panduvamsis of Mekal)",
+      "B. माघ राजवंश",
+      "C. बोधि राजवंश",
+      "D. नाग राजवंश"
+    ],
+    answer: "A",
+    explanation: "तीसरी-चौथी शताब्दी के दौरान शहडोल और अमरकंटक के पहाड़ी बेल्ट (मेकल देश) पर पाण्डु राजवंश का शासन था। इस वंश के प्रमुख राजा जयबल, वत्सराज और नागबल थे, जिनकी जानकारी बहमनी ताम्रपत्रों से मिलती है।"
+  },
+  {
+    question: "11. मौर्यकालीन वास्तुकला का सर्वोत्कृष्ट विश्व प्रसिद्ध प्रतीक 'सांची का स्तूप' (Sanchi Stupa) मध्य प्रदेश के किस जिले में स्थित है और इसे किस वर्ष यूनेस्को द्वारा विश्व धरोहर सूची में शामिल किया गया था? / Sanchi Stupa is located in which district of MP and in which year was it designated as a UNESCO World Heritage Site?",
+    options: [
+      "A. रायसेन जिला - 1989 (Raisen District - 1989)",
+      "B. विदिशा जिला - 1986",
+      "C. भोपाल जिला - 1993",
+      "D. सीहोर जिला - 2003"
+    ],
+    answer: "A",
+    explanation: "सांची का महान स्तूप (स्तूप संख्या-1) रायसेन जिले में स्थित है। इसका निर्माण मूल रूप से सम्राट अशोक ने ईंटों से करवाया था। वर्ष 1989 में इसे यूनेस्को द्वारा विश्व धरोहर सूची में शामिल किया गया। (खजुराहो 1986 में और भीमबैठका 2003 में शामिल हुए थे)।"
+  },
+  {
+    question: "12. मध्य प्रदेश के सतना जिले में स्थित प्रसिद्ध 'भरहुत स्तूप' (Bharhut Stupa) की खोज वर्ष 1873 में किस प्रसिद्ध ब्रिटिश पुरातत्वविद् द्वारा की गई थी, जिसके अवशेष वर्तमान में कलकत्ता संग्रहालय में सुरक्षित हैं? / Who discovered the famous Bharhut Stupa in Satna district of MP in the year 1873?",
+    options: [
+      "A. अलेक्जेंडर कनिंघम (Alexander Cunningham)",
+      "B. जॉन मार्शल",
+      "C. जेम्स प्रिंसेप",
+      "D. विंसेंट स्मिथ"
+    ],
+    answer: "A",
+    explanation: "भारतीय पुरातत्व सर्वेक्षण (ASI) के प्रथम महानिदेशक सर अलेक्जेंडर कनिंघम ने 1873 में भरहुत स्तूप के अवशेषों को खोजा था। यह स्तूप भी मूल रूप से मौर्यकाल का था, लेकिन शुंग काल (Pushyamitra Shunga के समय) में इसकी लाल बलुआ पत्थर की वेदिका और तोरण द्वारों का भव्य विस्तार किया गया था।"
+  },
+  {
+    question: "13. यूनानी राजदूत हेलियोडोरस (Heliodorus) ने मध्य प्रदेश के विदिशा (बेसनगर) में प्रसिद्ध 'गरुड़ स्तंभ' (Garuda Pillar) की स्थापना की थी। वह किस शुंग शासक के दरबार में तक्षशिला के यवन राजा अंतियालकीदास का दूत बनकर आया था? / Greek ambassador Heliodorus erected the Garuda Pillar at Vidisha during the reign of which Shunga ruler?",
+    options: [
+      "A. भागभद्र / काशीपुत्र भागवत (Bhagabhadra)",
+      "B. पुष्यमित्र शुंग",
+      "C. अग्निमित्र शुंग",
+      "D. देवभूति"
+    ],
+    answer: "A",
+explanation: "हेलियोडोरस शुंग वंश के 9वें शासक 'भागभद्र' के शासनकाल के 14वें वर्ष में विदिशा आया था। उसने भागवत धर्म (वैष्णव मत) स्वीकार किया और वासुदेव (विष्णु) के सम्मान में बेसनगर में गरुड़ ध्वज स्तंभ बनवाया, जिस पर उसे 'परम भागवत' कहा गया है। स्थानीय लोग इसे 'खाम बाबा' कहते हैं।"},{question: "14. कुषाण वंश के सबसे प्रतापी सम्राट कनिष्क (Kanishka) के काल के सोने और तांबे के सिक्के तथा बौद्ध धर्म से संबंधित साक्ष्य मध्य प्रदेश के किस मुख्य क्षेत्र से प्रचुर मात्रा में प्राप्त हुए हैं? / Coins and inscriptions of Kushana emperor Kanishka have been discovered in large numbers from which region of MP?",options: ["A. शहडोल और हार्ड (Shahdol and Harda / महाकोशल क्षेत्र)","B. मुरैना और भिंड","C. मंदसौर और नीमच","D. झाबुआ और अलीराजपुर"],answer: "A",explanation: "कुषाण शासकों के सिक्के मध्य प्रदेश के शहडोल जिले से बड़ी मात्रा में मिले हैं (लगभग 757 कुषाण सिक्के)। इसके अलावा कनिष्क का एक प्रसिद्ध सिक्का जबलपुर (महाकोशल) से भी मिला है, जो दर्शाता है कि कुषाणों का प्रभाव पूर्वी मध्य प्रदेश तक फैला हुआ था।"},{question: "15. मध्य प्रदेश के मंदसौर जिले का प्राचीन नाम क्या था, जहाँ से ओलिकर राजवंश के राजा यशोधर्मन का प्रसिद्ध 'विजय स्तंभ' (Mandsaur Pillar Inscription) प्राप्त हुआ है? / What was the ancient name of Mandsaur district from where the victory pillar inscription of King Yashodharman was discovered?",options: ["A. दशपुर (Dashapura)","B. अवंतिका","C. तुंडीकर","D. वत्स देश"],answer: "A",explanation: "मंदसौर का प्राचीन नाम 'दशपुर' था। यहाँ से ओलिकर वंश के शक्तिशाली शासक यशोधर्मन का 532 ई. का प्रसिद्ध रेशम बुनकरों की श्रेणी वाला मंदसौर शिलालेख मिला है। यशोधर्मन ने क्रूर हूण आक्रांता 'मिहिरकुल' को बुरी तरह पराजित करके मालवा में अपनी विजय का स्तंभ स्थापित किया था।"},{question: "16. गुप्त काल के दौरान मध्य प्रदेश के जबलपुर जिले के बहोरीबंद के निकट स्थित 'तिगवा' (Tigawa) क्यों प्रसिद्ध है और यहाँ किस प्राचीन वास्तुकला का साक्ष्य मिलता है? / Why is 'Tigawa' in Jabalpur district famous regarding Gupta period architecture?",options: ["A. गुप्तकालीन प्रसिद्ध विष्णु मंदिर (Gupta period Vishnu Temple)","B. चट्टानों को काटकर बनाई गई जैन गुफाएँ","C. मौर्यकालीन लोहे का स्तूप","D. सती प्रथा का शिलालेख"],answer: "A",explanation: "तिगवा अपने गुप्तकालीन विष्णु मंदिर के लिए प्रसिद्ध है। यह प्रारंभिक गुप्त मंदिर वास्तुकला का एक बेहतरीन उदाहरण है, जिसकी छत चपटी है और प्रवेश द्वार पर गंगा और यमुना की मूर्तियां अंकित हैं। (मप्र में गुप्त काल का 'भूमरा का शिव मंदिर' सतना में और 'नचना कुठारा का पार्वती मंदिर' पन्ना में स्थित है)।"},{question: "17. मध्य प्रदेश के धार जिले में स्थित प्रसिद्ध 'बाघ की गुफाएँ' (Bagh Caves) किस काल की चित्रकला और वास्तुकला का सर्वोत्कृष्ट उदाहरण प्रस्तुत करती हैं, जिनकी तुलना अजंता की गुफाओं से की जाती है? / The famous Bagh Caves in Dhar district of MP represent the art and architecture of which period?",options: ["A. गुप्त काल (Gupta Period)","B. मौर्य काल","C. परमार काल","D. चंदेल काल"],answer: "A",explanation: "बाघ नदी के किनारे विंध्याचल पहाड़ियों को काटकर बनाई गई ये 9 गुफाएँ बौद्ध धर्म (महायान शाखा) से संबंधित हैं। इनका निर्माण गुप्त काल (5वीं-6ठी शताब्दी) में हुआ था। इनके भित्तिचित्रों (Fresco Paintings) के कारण इन्हें 'मप्र की अजंता' भी कहा जाता है।"},{question: "18. चीनी बौद्ध यात्री ह्वेनसांग (Hiuen Tsang) ने अपनी भारत यात्रा के दौरान मध्य प्रदेश के किस बौद्ध शिक्षा और व्यापारिक केंद्र का विस्तृत वर्णन अपने यात्रा वृत्तांत 'सी-यू-की' में किया था? / Which major city of MP was extensively described by Chinese traveler Hiuen Tsang in his travelogue 'Si-Yu-Ki'?",options: ["A. महिष्मती और उज्जैनी (Mahishmati and Ujjaini)","B. खजुराहो केवल","C. ग्वालियर का किला","D. त्रिपुरी नगर"],answer: "A",explanation: "ह्वेनसांग 7वीं शताब्दी में सम्राट हर्षवर्धन के समय भारत आया था। उसने अवंती की राजधानी उज्जैनी की समृद्धि, वहां के राजा (जो क्षत्रिय जाति का था) और बौद्ध विहारों का आंखों देखा सुंदर वर्णन अपने ग्रंथ में किया था।"},{question: "19. मध्य प्रदेश के सीहोर जिले के 'बुधनी' के पास स्थित 'सारो-मारो' (Saro Maro) क्यों प्रसिद्ध है और यहाँ से किस प्राचीन काल के अवशेष प्राप्त हुए हैं? / Why is 'Saro Maro' near Budhni in Sehore district of MP famous in ancient history?",options: ["A. मौर्यकालीन बौद्ध गुफाएँ और स्तूप (Mauryan Buddhist caves and stupas)","B. गुप्तकालीन सोने के सिक्के","C. चंदेल राजाओं का किला","D. पाषाणकालीन मानव कंकाल"],answer: "A",explanation: "सारो-मारो (सीहोर) एक प्राचीन बौद्ध मठ परिसर है। यहाँ से चट्टानों को काटकर बनाई गई भिक्षुओं की गुफाएँ और स्तूप मिले हैं। साथ ही यहाँ सम्राट अशोक के लघु शिलालेख भी मिले हैं, जो यह साबित करते हैं कि यह मौर्य काल में बौद्ध धर्म का एक मुख्य केंद्र था।"},{question: "20. सातवाहन वंश के किस प्रतापी राजा का उत्कीर्ण शिलालेख मध्य प्रदेश के विदिशा (बेसनगर) से और उसके सिक्के त्रिपुरी (जबलपुर) से मिले हैं, जो मालवा पर उनके आधिपत्य को दर्शाते हैं? / Inscriptions and coins of which Satavahana king have been discovered from Vidisha and Tripuri in MP?",options: ["A. गौतमीपुत्र शातकर्णी (Gautamiputra Satakarni)","B. वशिष्ठीपुत्र पुलुमावी","C. यज्ञश्री शातकर्णी","D. राजा सिमुक"],answer: "A",explanation: "सातवाहन वंश के सबसे महान शासक गौतमीपुत्र शातकर्णी के सिक्के और उनके उत्तराधिकारी 'यज्ञश्री शातकर्णी' के सिक्के विदिशा, तेवर (त्रिपुरी) और उज्जैन से बड़ी मात्रा में मिले हैं। सातवाहन राजा 'शातकर्णी प्रथम' के साक्ष्य सांची स्तूप के तोरण द्वार के शिलालेख से भी प्राप्त होते हैं।"}];
