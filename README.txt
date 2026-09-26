@@ -1,9 +1,8 @@
-MPPSC MCQ Hub — Prelims Test UI Patch
+IMPORTANT:
+Live page URL uses this exact GitHub path:
+prelims-tests/unit-01/P01T01/index.html
 
-1) Every P01T01–P10T20 test now has its own index.html and loads only its own questionsN.js file.
-2) CET01–CET50 each has its own index.html and questions201.js–questions250.js file.
-3) Every test has a 60-minute timer, Submit Test, score/explanation, and Download Test PDF button.
-4) The PDF is generated in-browser from the visible test page, so Hindi text is preserved as an image.
-5) Existing questions1.js–questions200.js are not duplicated in this patch; they remain in the current website.
-6) New questions201.js–questions250.js are included because those are the separate CET test coding files.
-7) Apply/merge this patch into the current website root.
+Replace/upload the index.html and q01.js ... q20.js from this ZIP at that exact path.
+The old GitHub path unit-01/P01T01/index.html is a different file and does NOT control the live URL.
+The q files keep the requested format: window.questions = [ { ... } ];
+index.html collects one question from each q file and displays a proper test UI.
