@@ -433,7 +433,7 @@ th{
 
         <p>
             <b>
-                Paid PRELIMS (200 Tests) + Paid MAINS (600 Boxes) Control Dashboard
+                Paid PRELIMS (250 Tests) + Paid MAINS (600 Boxes) Control Dashboard
             </b>
         </p>
 
@@ -573,7 +573,7 @@ th{
 
     <div class="section-main-title pre-title">
 
-        🏆 Paid PRELIMS — 200 Total Tests (Unit 1 to 10)
+        🏆 Paid PRELIMS — 250 Total Tests (Unit 1 to 10 + CET)
 
     </div>
 
@@ -854,7 +854,7 @@ function approvePayment(index){
 
 
 /* =========================================================
-   PRELIMS — 200 BOXES
+   PRELIMS — 250 TESTS (10 UNITS + CET)
    10 UNITS × 20 TESTS
 ========================================================= */
 
@@ -910,6 +910,7 @@ function renderPrelims200Boxes(){
 
             <h2>
                 Unit ${u} - ${preUnits[u-1]}
+                <button type="button" class="section-toggle" onclick="toggleSection(this)">▼ Tests छिपाएँ</button>
             </h2>
 
             <div class="section-content">
@@ -968,6 +969,52 @@ function renderPrelims200Boxes(){
 
     }
 
+
+    // CET — 50 additional tests, included in the same Paid PRELIMS course
+    preHtml += `
+
+        <section class="unit-sec" data-section-title="CET - 50 Tests">
+
+            <h2>
+                CET - 50 Tests
+                <button type="button" class="section-toggle" onclick="toggleSection(this)">▼ Tests छिपाएँ</button>
+            </h2>
+
+            <div class="section-content">
+            <div class="grid">
+
+    `;
+
+    for(let t = 1; t <= 50; t++){
+
+        let padT = t < 10 ? "0" + t : String(t);
+        let code = `CET${padT}`;
+
+        preHtml += `
+
+                <div class="card">
+                    <div class="card-title">📝 CET Test ${t}</div>
+                    <div class="card-meta">50 Questions • MCQ</div>
+                    <a
+                        class="open-btn pre-btn"
+                        href="prelims-tests/cet/${code}/index.html">
+                        Open Test
+                    </a>
+                    <span class="code">${code}</span>
+                </div>
+
+        `;
+    }
+
+    preHtml += `
+
+            </div>
+            <div class="no-results">CET में खोजा गया Test नहीं मिला।</div>
+            </div>
+
+        </section>
+
+    `;
 
     container.innerHTML =
         preHtml;
