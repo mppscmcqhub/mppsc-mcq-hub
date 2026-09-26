@@ -7,7 +7,8 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: Arial, Helvetica, sans-serif; background-color: #f4f7fc; min-height: 100vh; padding: 0; margin: 0; }
-        .login-container { background: white; padding: 35px 30px; border-radius: 12px; box-shadow: 0 4px 25px rgba(0,0,0,0.1); width: calc(100% - 30px); max-width: 380px; text-align: center; border-top: 5px solid #082b57; margin: 80px auto 30px auto; }
+        .login-page { min-height: calc(100vh - 64px); display: flex; justify-content: center; align-items: center; padding: 30px 15px 40px; }
+        .login-container { background: white; padding: 35px 30px; border-radius: 12px; box-shadow: 0 4px 25px rgba(0,0,0,0.1); width: calc(100% - 30px); max-width: 380px; text-align: center; border-top: 5px solid #082b57; margin: 0; }
         .logo-title { color: #082b57; font-size: 24px; font-weight: bold; margin-bottom: 5px; }
         .sub-title { color: #667085; font-size: 13px; margin-bottom: 25px; }
         .form-group { text-align: left; margin-bottom: 15px; }
@@ -34,6 +35,7 @@
   box-sizing:border-box;
   font-family:Arial,Helvetica,sans-serif;
   position:relative;
+  margin:0;
   z-index:999;
   box-shadow:0 2px 7px rgba(0,0,0,.12);
 }
@@ -55,7 +57,7 @@
 @media (max-width:600px) {
   .mppsc-site-logo-bar { min-height:56px; padding:6px 10px; }
   .mppsc-site-logo-bar img { width:42px; height:42px; }
-  .login-container { margin-top: 45px; }
+  .login-page { min-height: calc(100vh - 56px); padding: 20px 10px 30px; }
   .mppsc-site-logo-bar .mppsc-site-name { font-size:15px; }
 }
 </style>
@@ -67,7 +69,7 @@
   <div class="mppsc-site-name">MPPSC MCQ Hub</div>
 </div>
 
-
+<div class="login-page">
 <!-- 🔑 सेक्शन 1: छात्र लॉगिन फ़ॉर्म -->
 <div class="login-container" id="login-section">
     <div class="logo-title">MPPSC MCQ Hub</div>
@@ -113,6 +115,7 @@
     
     <button onclick="handlePasswordChange()" style="background: #147dcc;">अपडेट करें (Update Password)</button>
     <span class="switch-link" onclick="toggleSections(true)">⬅ वापस लॉगिन पेज पर जाएँ</span>
+</div>
 </div>
 
 <script>
