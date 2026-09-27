@@ -3,248 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MPPSC अभ्यास प्रश्नोत्तरी (Quiz)</title>
-    <!-- PDF जनरेट करने के लिए लाइब्रेरी -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <title>MPPSC MCQ Hub V14</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
-            margin: 0;
-            padding: 20px;
-            color: #333;
-        }
-        .quiz-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
-        }
-        .action-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 30px;
-        }
-        .btn {
-            padding: 10px 20px;
-            font-size: 1rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-        .btn-submit { background-color: #2ecc71; color: white; }
-        .btn-submit:hover { background-color: #27ae60; }
-        .btn-pdf { background-color: #e74c3c; color: white; }
-        .btn-pdf:hover { background-color: #c0392b; }
-        .btn-toggle-exp { background-color: #3498db; color: white; margin-top: 10px; }
-        .btn-toggle-exp:hover { background-color: #2980b9; }
-
-        .question-block {
-            margin-bottom: 35px;
-            padding-bottom: 20px;
-            border-bottom: 1px dashed #ccc;
-        }
-        .question-text {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #2c3e50;
-            white-space: pre-line;
-            margin-bottom: 15px;
-        }
-        .options-list {
-            list-style-type: none;
-            padding: 0;
-        }
-        .option-item {
-            background: #f9f9f9;
-            padding: 12px 15px;
-            margin: 8px 0;
-            border-left: 4px solid #3498db;
-            border-radius: 4px;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .option-item:hover { background: #f0f0f0; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: #eef4ff; font-family: 'Segoe UI', sans-serif; color: #333; line-height: 1.5; }
+        .navbar-custom { background-color: #0d47a1; color: white; padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; min-height: 80px; }
+        .navbar-brand { font-size: 1.4rem; font-weight: bold; text-decoration: none; color: white; }
+        .btn-login { background-color: white; color: #0d47a1; border: none; padding: 6px 15px; border-radius: 4px; font-weight: bold; text-decoration: none; font-size: 0.9rem; transition: background 0.2s; }
+        .btn-login:hover { background-color: #e1e7ef; }
+        .container-fluid { width: 100%; padding: 15px; margin: 0 auto; }
+        .section-title { font-size: 1.3rem; font-weight: bold; color: #1a237e; margin: 25px 0 15px 0; border-left: 5px solid #0d47a1; padding-left: 10px; }
         
-        /* ऑप्शन सेलेक्ट होने पर */
-        .option-item.selected {
-            background-color: #dae7f5;
-            border-left-color: #2980b9;
-            font-weight: bold;
-        }
+        /* ग्रिड सिस्टम */
+        .units-grid { display: flex !important; flex-wrap: wrap !important; margin: -12px !important; width: 100% !important; }
+        .unit-col { width: 25% !important; padding: 12px !important; }
+        @media (max-width: 992px) { .unit-col { width: 33.33% !important; } }
+        @media (max-width: 768px) { .unit-col { width: 50% !important; } }
+        @media (max-width: 480px) { .unit-col { width: 100% !important; } }
+        
+        /* मुख्य कार्ड डिज़ाइन */
+        .unit-card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; height: 320px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #eaeaea; }
+        .unit-icon { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px auto; color: white; font-size: 1.2rem; font-weight: bold; }
+        .unit-title { font-size: 1.05rem; font-weight: bold; color: #111; }
+        .unit-desc { color: #666; font-size: 0.85rem; min-height: 50px; display: flex; align-items: center; justify-content: center; text-align: center; }
+        
+        /* बटन्स का डिज़ाइन */
+        .btn-open { background-color: #0d47a1; color: white; padding: 10px 0; width: 100%; border-radius: 20px; font-weight: 600; font-size: 0.95rem; text-decoration: none; display: block; text-align: center; transition: background 0.2s; }
+        .btn-open:hover { background-color: #0a3980; }
+        
+        /* पेड कोर्स के स्पेशल रंग */
+        .prelims-card { background-color: #fff5f5 !important; border: 2px dashed #f56565 !important; }
+        .prelims-title { color: #c53030 !important; font-size: 1.2rem !important; font-weight: 900 !important; }
+        .btn-prelims-paid { background-color: #e53e3e !important; }
+        .btn-prelims-paid:hover { background-color: #c53030 !important; }
+        
+        .mains-card { background-color: #f0f5ff !important; border: 2px dashed #4299e1 !important; }
+        .mains-title { color: #2b6cb0 !important; font-size: 1.2rem !important; font-weight: 900 !important; }
+        .btn-mains-paid { background-color: #3182ce !important; }
+        .btn-mains-paid:hover { background-color: #2b6cb0 !important; }
 
-        /* व्याख्या और रिजल्ट पैनल */
-        .answer-panel {
-            display: none; /* शुरू में छुपा रहेगा, सबमिट या बटन क्लिक पर दिखेगा */
-            margin-top: 12px;
-            padding: 15px;
-            background-color: #e8f8f5;
-            border-left: 4px solid #2ecc71;
-            border-radius: 4px;
-        }
-        .ans-title { font-weight: bold; color: #27ae60; margin-bottom: 5px; }
-        .exp-text { font-size: 0.95rem; color: #555; line-height: 1.5; }
-
-        #result-box {
-            display: none;
-            background: #f1c40f;
-            color: #2c3e50;
-            padding: 20px;
-            border-radius: 6px;
-            text-align: center;
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 25px;
-        }
+        /* फ्री यूनिट्स के बैकग्राउंड कलर्स */
+        .u1 { background-color: #2196f3; } .u2 { background-color: #4caf50; } .u3 { background-color: #673ab7; } .u4 { background-color: #ff9800; } .u5 { background-color: #009688; }
+        .u6 { background-color: #e91e63; } .u7 { background-color: #00bcd4; } .u8 { background-color: #ff5722; } .u9 { background-color: #9c27b0; } .u10 { background-color: #3f51b5; }
     </style>
 </head>
 <body>
-
-<div class="quiz-container" id="quiz-content">
-    <h1>MPPSC अभ्यास प्रश्नोत्तरी (Quiz)</h1>
-    
-    <!-- स्कोर दिखाने के लिए बॉक्स -->
-    <div id="result-box"></div>
-
-    <!-- सबमिट और पीडीएफ बटन्स -->
-    <div class="action-buttons">
-        <button class="btn btn-submit" onclick="submitQuiz()">टेस्ट सबमिट करें (Submit)</button>
-        <button class="btn btn-pdf" onclick="downloadPDF()">PDF डाउनलोड करें</button>
+    <div class="navbar-custom">
+        <a class="navbar-brand" href="#" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: white;">
+            <img src="my-logo.jpg" alt="MPPSC MCQ Hub Logo" style="height: 65px; width: 65px; border-radius: 50%; object-fit: cover; border: 2px solid white; display: inline-block;">
+            <span>MPPSC MCQ Hub V14</span>
+        </a>
+        <a href="admin.html" class="btn-login">🔑 Login</a>
     </div>
 
-    <!-- सवाल यहाँ लोड होंगे -->
-    <div id="quiz-box"></div>
-</div>
+    <div class="container-fluid">
+        <div class="section-title">Select Unit / इकाई चुनें</div>
+        <div class="units-grid">
+            <!-- 10 फ्री यूनिट्स के कार्ड्स -->
+            <div class="unit-col"><div class="unit-card"><div><div class="unit-icon u1">1</div><div class="unit-title">Unit 1</div><div class="unit-desc">भारत का इतिहास</div></div><div><a href="unit1.html" class="btn-open">Open Unit</a></div></div></div>
+            <div class="unit-col"><div class="unit-card"><div><div class="unit-icon u2">2</div><div class="unit-title">Unit 2</div><div class="unit-desc">मध्यप्रदेश का इतिहास, संस्कृति एवं साहित्य</div></div><div><a href="unit2.html" class="btn-open">Open Unit</a></div></div></div>
+            <div class="unit-col"><div class="unit-card"><div><div class="unit-icon u3">3</div><div class="unit-title">Unit 3</div><div class="unit-desc">भारत का भूगोल</div></div><div><a href="unit3.html" class="btn-open">Open Unit</a></div></div></div>
+            <div class="unit-col"><div class="unit-card"><div><div class="unit-icon u4">4</div><div class="unit-title">Unit 4</div><div class="unit-desc">मध्यप्रदेश का भूगोल</div></div><div><a href="unit4.html" class="btn-open">Open Unit</a></div></div></div>
+            <div class="unit-col"><div class="unit-card"><div><div class="unit-icon u5">5</div><div class="unit-title">Unit 5</div><div class="unit-desc">भारत एवं म.प्र. की संवैधानिक व्यवस्था</div></div><div><a href="unit5.html" class="btn-open">Open Unit</a></div></div></div>
+            <div class="unit-col"><div class="unit-card"><div><div class="unit-icon u6">6</div><div class="unit-title">Unit 6</div><div class="unit-desc">भारत एवं म.प्र. की अर्थव्यवस्था</div></div><div><a href="unit6.html" class="btn-open">Open Unit</a></div></div></div>
+            <div class="unit-col"><div class="unit-card"><div><div class="unit-icon u7">7</div><div class="unit-title">Unit 7</div><div class="unit-desc">विज्ञान, पर्यावरण एवं स्वास्थ्य</div></div><div><a href="unit7.html" class="btn-open">Open Unit</a></div></div></div>
+            <div class="unit-col"><div class="unit-card"><div><div class="unit-icon u8">8</div><div class="unit-title">Unit 8</div><div class="unit-desc">अंतर्राष्ट्रीय, राष्ट्रीय एवं प्रादेशिक घटनाएं</div></div><div><a href="unit8.html" class="btn-open">Open Unit</a></div></div></div>
+            <div class="unit-col"><div class="unit-card"><div><div class="unit-icon u9">9</div><div class="unit-title">Unit 9</div><div class="unit-desc">सूचना एवं संचार प्रौद्योगिकी (ICT)</div></div><div><a href="unit9.html" class="btn-open">Open Unit</a></div></div></div>
+            <div class="unit-col"><div class="unit-card"><div><div class="unit-icon u10">10</div><div class="unit-title">Unit 10</div><div class="unit-desc">म.प्र. की जनजातियां: विरासत व लोक संस्कृति</div></div><div><a href="unit10.html" class="btn-open">Open Unit</a></div></div></div>
 
-<script>
-// आपका प्रश्न डेटा
-window.questions = [
-  {
-    question: "1. भारतीय संविधान के अनुच्छेद 262 के तहत गठित होने वाले 'नदी जल विवाद न्यायाधिकरणों' (River Water Disputes Tribunals) के क्षेत्राधिकार के संदर्भ में कौन-सा संवैधानिक उपबंध सत्य है?\n\nUnder Article 262 of the Indian Constitution, which constitutional provision is TRUE regarding the jurisdiction of River Water Disputes Tribunals established by Parliament?",
-    options: ["A", "B", "C", "D"], // नोट: यहाँ मैंने शॉर्ट किया है, आप अपने पूरे ऑप्शंस डाल लें
-    optionsText: [
-      "A. न्यायाधिकरण के निर्णयों के विरुद्ध केवल संबंधित राज्यों के उच्च न्यायालयों में अपील की जा सकती है। / An appeal against the decisions of the tribunal can be made only in the High Courts of the concerned states.",
-      "B. संसद विधि द्वारा यह उपबंध कर सकती है कि उच्चतम न्यायालय या कोई अन्य न्यायालय ऐसे किसी विवाद के संबंध में क्षेत्राधिकार का प्रयोग नहीं करेगा। / Parliament may by law provide that neither the Supreme Court nor any other court shall exercise jurisdiction in respect of any such dispute.",
-      "C. इन न्यायाधिकरणों के सभी वित्तीय खर्चों का वहन पूर्णतः भारत के राष्ट्रपति के विवेकाधीन कोष से होता है। / All financial expenses of these tribunals are borne entirely by the discretionary fund of the President of India.",
-      "D. इस न्यायाधिकरण की शक्तियां पूरी तरह से केंद्रीय प्रशासनिक अधिकरण (CAT) के अधीन विनियमित होती हैं। / The powers of this tribunal are completely regulated under the Central Administrative Tribunal (CAT)."
-    ],
-    answer: "B",
-    explanation: "अनुच्छेद 262(2) के अनुसार, संसद कानून बनाकर यह व्यवस्था दे सकती है कि अंतर-राज्यीय नदी जल विवादों के संदर्भ में न तो सर्वोच्च न्यायालय और न ही कोई अन्य न्यायालय किसी भी प्रकार के क्षेत्राधिकार का प्रयोग करेगा।"
-  },
-  {
-    question: "2. मध्य प्रदेश में प्रशासनिक जवाबदेही और सुशासन को सुदृढ़ करने के लिए 'मध्य प्रदेश लोक सेवाओं के प्रदान की गारंटी अधिनियम' किस वर्ष लागू किया गया था और ऐसा करने वाला मध्य प्रदेश देश का कौन-सा राज्य बना?\n\nTo strengthen administrative accountability and good governance, in which year was the 'Madhya Pradesh Public Services Guarantee Act' enacted, and what was MP's national rank in implementing such legislation?",
-    options: ["A", "B", "C", "D"],
-    optionsText: [
-      "A. वर्ष 1993; प्रथम राज्य / Year 1993; First state",
-      "B. वर्ष 2005; द्वितीय राज्य / Year 2005; Second state",
-      "C. वर्ष 2010; देश का पहला राज्य (First State in India) / Year 2010; First State in India",
-      "D. वर्ष 2018; तृतीय राज्य / Year 2018; Third state"
-    ],
-    answer: "C",
-    explanation: "मध्य प्रदेश लोक सेवाओं के प्रदान की गारंटी अधिनियम, 2010 को राज्य में 18 अगस्त 2010 को लागू किया गया था। नागरिकों को नियत समय सीमा में लोक सेवाएं प्रदान करने की कानूनी गारंटी देने वाला मध्य प्रदेश देश का पहला राज्य बना था।"
-  }
-];
+            <!-- 11वां कार्ड: PRELIMS Paid Course (₹99) -->
+            <div class="unit-col">
+                <div class="unit-card prelims-card">
+                    <div>
+                        <div class="prelims-title" style="margin-top: 15px;">PRELIMS</div>
+                        <div class="unit-desc" style="font-weight: bold; color: #444;">Paid Course<br>MPPSC 2027</div>
+                    </div>
+                    <div>
+                        <a href="student-login.html" class="btn-open student-login-paid" style="margin-bottom:8px;background:#0d47a1;">🔑 Student Login</a>
+                        <a href="payment.html?type=prelims" class="btn-open btn-prelims-paid">Join Paid Pre (₹99)</a>
+                    </div>
+                </div>
+            </div>
 
-const quizBox = document.getElementById('quiz-box');
-let userAnswers = {};
-
-// क्विज़ रेंडर करना
-window.questions.forEach((q, qIndex) => {
-    let optionsHtml = '';
-    q.optionsText.forEach((optText, oIndex) => {
-        const optLetter = q.options[oIndex];
-        optionsHtml += `<li class="option-item" id="q-${qIndex}-opt-${optLetter}" onclick="selectOption(${qIndex}, '${optLetter}')">${optText}</li>`;
-    });
-
-    const qBlock = document.createElement('div');
-    qBlock.className = 'question-block';
-    qBlock.innerHTML = `
-        <div class="question-text">${q.question}</div>
-        <ul class="options-list">${optionsHtml}</ul>
-        <button class="btn btn-toggle-exp" onclick="toggleAnswer(${qIndex})">व्याख्या देखें / छुपायें</button>
-        <div class="answer-panel" id="ans-${qIndex}">
-            <div class="ans-title">सही उत्तर: ${q.answer}</div>
-            <div class="exp-text"><strong>व्याख्या:</strong> ${q.explanation}</div>
+            <!-- 12वां कार्ड: MAINS Paid Course (₹199 फिक्स कोड बंद किया गया) -->
+            <div class="unit-col">
+                <div class="unit-card mains-card">
+                    <div>
+                        <div class="mains-title" style="margin-top: 15px;">MAINS</div>
+                        <div class="unit-desc" style="font-weight: bold; color: #444;">Paid Course<br>MPPSC 2027</div>
+                    </div>
+                    <div>
+                        <a href="student-login.html" class="btn-open student-login-paid" style="margin-bottom:8px;background:#0d47a1;">🔑 Student Login</a>
+                        <a href="payment.html?type=mains" class="btn-open btn-mains-paid">Join Paid Mains (₹199)</a>
+                    </div>
+                </div>
+            </div>
         </div>
-    `;
-    quizBox.appendChild(qBlock);
-});
-
-// ऑप्शन सेलेक्ट करने का फंक्शन
-function selectOption(qIndex, optLetter) {
-    // पुराने सिलेक्शन को हटाना
-    window.questions[qIndex].options.forEach(letter => {
-        document.getElementById(`q-${qIndex}-opt-${letter}`).classList.remove('selected');
-    });
-    // नए सिलेक्शन को जोड़ना
-    document.getElementById(`q-${qIndex}-opt-${optLetter}`).classList.add('selected');
-    userAnswers[qIndex] = optLetter;
-}
-
-// उत्तर देखने/छुपाने का फंक्शन
-function toggleAnswer(index) {
-    const panel = document.getElementById(`ans-${index}`);
-    panel.style.display = (panel.style.display === 'block') ? 'none' : 'block';
-}
-
-// टेस्ट सबमिट करने का फंक्शन
-function submitQuiz() {
-    let score = 0;
-    window.questions.forEach((q, index) => {
-        // सभी व्याख्याओं को एक साथ खोल देना
-        document.getElementById(`ans-${index}`).style.display = 'block';
-        
-        // स्कोर चेक करना
-        if (userAnswers[index] === q.answer) {
-            score++;
-        }
-    });
-
-    // रिजल्ट बॉक्स दिखाना
-    const resultBox = document.getElementById('result-box');
-    resultBox.style.display = 'block';
-    resultBox.innerHTML = `आपका स्कोर: ${score} / ${window.questions.length}`;
-    window.scrollTo({top: 0, behavior: 'smooth'});
-}
-
-// PDF डाउनलोड करने का फंक्शन
-function downloadPDF() {
-    if (typeof html2pdf === "undefined") {
-        alert("PDF library load नहीं हुई। इंटरनेट कनेक्शन चेक करके फिर कोशिश करें।");
-        return;
-    }
-    const element = document.getElementById('quiz-content');
-    
-    // PDF डाउनलोड के समय बटन छुपाना ताकि वे PDF में न आएं
-    const buttons = document.querySelectorAll('.btn');
-    buttons.forEach(btn => btn.style.display = 'none');
-
-    const opt = {
-        margin:       10,
-        filename:     'MPPSC_Quiz.pdf',
-        image:        { type: 'jpeg', quality: 0.98 },
-        html2canvas:  { scale: 2 },
-        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
-    };
-
-    html2pdf().set(opt).from(element).save().then(() => {
-        // PDF बनने के बाद बटन्स को वापस दिखाना
-        buttons.forEach(btn => btn.style.display = 'inline-block');
-    });
-}
-</script>
-
+    </div>
 </body>
 </html>
