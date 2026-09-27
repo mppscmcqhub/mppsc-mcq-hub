@@ -1,447 +1,256 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="hi">
-
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPPSC अभ्यास प्रश्नोत्तरी (Quiz)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        /* टाइमर और हेडर फिक्स */
+        .quiz-header-status {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #34495e;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        #timer { color: #f1c40f; }
 
-<title>Paid PRELIMS - Unit 1</title>
+        .action-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        .btn {
+            padding: 12px 24px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn-submit { background-color: #2ecc71; color: white; }
+        .btn-submit:hover { background-color: #27ae60; }
+        .btn-pdf { background-color: #e74c3c; color: white; }
+        .btn-pdf:hover { background-color: #c0392b; }
 
-<style>
+        .question-block {
+            margin-bottom: 35px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #ccc;
+            page-break-inside: avoid; /* PDF प्रिंटिंग के लिए */
+        }
+        .question-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            white-space: pre-line;
+            margin-bottom: 15px;
+        }
+        .options-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .option-item {
+            background: #f9f9f9;
+            padding: 12px 15px;
+            margin: 8px 0;
+            border-left: 4px solid #bdc3c7;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .option-item:hover { background: #f0f0f0; border-left-color: #3498db; }
+        
+        /* स्टूडेंट द्वारा सेलेक्ट करने पर */
+        .option-item.selected {
+            background-color: #e8f4fd;
+            border-left-color: #3498db;
+            font-weight: bold;
+        }
 
-*{
-  box-sizing:border-box;
-}
+        /* सबमिट के बाद सही/गलत का रंग */
+        .option-item.correct-ans {
+            background-color: #d4edda !important;
+            border-left-color: #28a745 !important;
+            color: #155724;
+        }
+        .option-item.wrong-ans {
+            background-color: #f8d7da !important;
+            border-left-color: #dc3545 !important;
+            color: #721c24;
+        }
 
-body{
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:#edf3ff;
-  color:#111;
-}
+        /* व्याख्या पैनल (शुरू में पूरी तरह लॉक) */
+        .answer-panel {
+            display: none; 
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #e8f8f5;
+            border-left: 4px solid #2ecc71;
+            border-radius: 4px;
+        }
+        .ans-title { font-weight: bold; color: #27ae60; margin-bottom: 5px; }
+        .exp-text { font-size: 0.95rem; color: #555; line-height: 1.5; }
 
-a{
-  text-decoration:none;
-  color:inherit;
-}
+        #result-box {
+            display: none;
+            background: #2ecc71;
+            color: white;
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
 
-.top{
-  min-height:64px;
-  background:#1551a5;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  padding:0 18px;
-}
-
-.topin{
-  width:100%;
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-.logo{
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  background:#fff;
-  color:#1551a5;
-  display:grid;
-  place-items:center;
-  font-weight:900;
-}
-
-.title{
-  font-size:18px;
-  font-weight:800;
-}
-
-.back{
-  margin-left:auto;
-  background:#fff;
-  color:#1551a5;
-  padding:8px 15px;
-  border-radius:5px;
-  font-weight:800;
-  font-size:13px;
-}
-
-.wrap{
-  max-width:1500px;
-  margin:auto;
-  padding:25px 15px;
-}
-
-.hero{
-  background:#1551a5;
-  color:#fff;
-  border-radius:12px;
-  padding:25px;
-  margin-bottom:22px;
-}
-
-.hero h1{
-  margin:0 0 8px;
-  font-size:25px;
-}
-
-.hero p{
-  margin:5px 0;
-  font-size:14px;
-}
-
-.testgrid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:16px;
-}
-
-.testcard{
-  background:#fff;
-  border:1px solid #d8e1ef;
-  border-radius:10px;
-  padding:17px;
-  min-height:170px;
-  box-shadow:0 2px 7px rgba(0,0,0,.06);
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-}
-
-.testno{
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  background:#1551a5;
-  color:#fff;
-  display:grid;
-  place-items:center;
-  font-weight:900;
-  font-size:15px;
-}
-
-.testtitle{
-  color:#0d3e85;
-  font-weight:800;
-  margin-top:10px;
-  font-size:15px;
-}
-
-.code{
-  display:inline-block;
-  background:#eaf2ff;
-  color:#1551a5;
-  padding:5px 8px;
-  border-radius:12px;
-  font-size:11px;
-  font-weight:800;
-  margin-top:7px;
-}
-
-.open{
-  display:block;
-  background:#1551a5;
-  color:#fff;
-  text-align:center;
-  padding:9px;
-  border-radius:20px;
-  font-size:12px;
-  font-weight:800;
-  margin-top:14px;
-}
-
-@media(max-width:1050px){
-  .testgrid{
-    grid-template-columns:repeat(3,1fr);
-  }
-}
-
-@media(max-width:750px){
-  .testgrid{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-
-@media(max-width:500px){
-  .testgrid{
-    grid-template-columns:1fr;
-  }
-}
-
-</style>
+        /* प्रिंट और PDF डाउनलोड के लिए स्पेशल CSS */
+        @media print {
+            body { background: #white; padding: 0; }
+            .quiz-container { box-shadow: none; padding: 0; max-width: 100%; }
+            .action-buttons, .quiz-header-status { display: none !important; }
+            .answer-panel { display: block !important; } /* PDF में उत्तर दिखेगा */
+        }
+    </style>
 </head>
-
 <body>
 
-<header class="top">
+<div class="quiz-container">
+    <h1>MPPSC अभ्यास प्रश्नोत्तरी (Quiz)</h1>
+    
+    <!-- टाइमर स्टेटस बार -->
+    <div class="quiz-header-status">
+        <div>कुल प्रश्न: <span id="total-q-count">0</span></div>
+        <div>शेष समय: <span id="timer">60:00</span></div>
+    </div>
+    
+    <!-- स्कोर बॉक्स -->
+    <div id="result-box"></div>
 
-<div class="topin">
+    <!-- सबमिट और पीडीएफ बटन्स -->
+    <div class="action-buttons">
+        <button class="btn btn-submit" id="submit-btn" onclick="submitQuiz()">टेस्ट सबमिट करें (Submit)</button>
+        <button class="btn btn-pdf" onclick="downloadPDF()">PDF डाउनलोड करें</button>
+    </div>
 
-<div class="logo">
-MP
+    <!-- सवाल यहाँ लोड होंगे -->
+    <div id="quiz-box"></div>
 </div>
 
-<div class="title">
-MPPSC MCQ Hub V14
-</div>
+<script>
+// आपका मुख्य प्रश्न डेटा
+window.questions = [
+  {
+    question: "1. भारतीय संविधान के अनुच्छेद 262 के तहत गठित होने वाले 'नदी जल विवाद न्यायाधिकरणों' (River Water Disputes Tribunals) के क्षेत्राधिकार के संदर्भ में कौन-सा संवैधानिक उपबंध सत्य है?\n\nUnder Article 262 of the Indian Constitution, which constitutional provision is TRUE regarding the jurisdiction of River Water Disputes Tribunals established by Parliament?",
+    options: ["A", "B", "C", "D"],
+    optionsText: [
+      "A. न्यायाधिकरण के निर्णयों के विरुद्ध केवल संबंधित राज्यों के उच्च न्यायालयों में अपील की जा सकती है। / An appeal against the decisions of the tribunal can be made only in the High Courts of the concerned states.",
+      "B. संसद विधि द्वारा यह उपबंध कर सकती है कि उच्चतम न्यायालय या कोई अन्य न्यायालय ऐसे किसी विवाद के संबंध में क्षेत्राधिकार का प्रयोग नहीं करेगा। / Parliament may by law provide that neither the Supreme Court nor any other court shall exercise jurisdiction in respect of any such dispute.",
+      "C. इन न्यायाधिकरणों के सभी वित्तीय खर्चों का वहन पूर्णतः भारत के राष्ट्रपति के विवेकाधीन कोष से होता है। / All financial expenses of these tribunals are borne entirely by the discretionary fund of the President of India.",
+      "D. इस न्यायाधिकरण की शक्तियां पूरी तरह से केंद्रीय प्रशासनिक अधिकरण (CAT) के अधीन विनियमित होती हैं। / The powers of this tribunal are completely regulated under the Central Administrative Tribunal (CAT)."
+    ],
+    answer: "B",
+    explanation: "अनुच्छेद 262(2) के अनुसार, संसद कानून बनाकर यह व्यवस्था दे सकती है कि अंतर-राज्यीय नदी जल विवादों के संदर्भ में न तो सर्वोच्च न्यायालय और न ही कोई अन्य न्यायालय किसी भी प्रकार के क्षेत्राधिकार का प्रयोग करेगा।"
+  },
+  {
+    question: "2. मध्य प्रदेश में प्रशासनिक जवाबदेही और सुशासन को सुदृढ़ करने के लिए 'मध्य प्रदेश लोक सेवाओं के प्रदान की गारंटी अधिनियम' किस वर्ष लागू किया गया था और ऐसा करने वाला मध्य प्रदेश देश का कौन-सा राज्य बना?\n\nTo strengthen administrative accountability and good governance, in which year was the 'Madhya Pradesh Public Services Guarantee Act' enacted, and what was MP's national rank in implementing such legislation?",
+    options: ["A", "B", "C", "D"],
+    optionsText: [
+      "A. वर्ष 1993; प्रथम राज्य / Year 1993; First state",
+      "B. वर्ष 2005; द्वितीय राज्य / Year 2005; Second state",
+      "C. वर्ष 2010; देश का पहला राज्य (First State in India) / Year 2010; First State in India",
+      "D. वर्ष 2018; तृतीय राज्य / Year 2018; Third state"
+    ],
+    answer: "C",
+    explanation: "मध्य प्रदेश लोक सेवाओं के प्रदान की गारंटी अधिनियम, 2010 को राज्य में 18 अगस्त 2010 को लागू किया गया था। नागरिकों को नियत समय सीमा में लोक सेवाएं प्रदान करने की कानूनी गारंटी देने वाला मध्य प्रदेश देश का पहला राज्य बना था।"
+  }
+];
 
-<a class="back" href="../../prelims.html">
-← Paid PRELIMS
-</a>
+const quizBox = document.getElementById('quiz-box');
+let userAnswers = {};
+let isSubmitted = false;
+let totalTime = 60 * 60; // 60 मिनट सेकंड में
 
-</div>
+document.getElementById('total-q-count').innerText = window.questions.length;
 
-</header>
+// 60 मिनट का टाइमर चालू करना
+const timerInterval = setInterval(function() {
+    if (isSubmitted) {
+        clearInterval(timerInterval);
+        return;
+    }
+    
+    let minutes = Math.floor(totalTime / 60);
+    let seconds = totalTime % 60;
+    
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    
+    document.getElementById('timer').innerHTML = minutes + ":" + seconds;
+    totalTime--;
 
-<main class="wrap">
+    if (totalTime < 0) {
+        clearInterval(timerInterval);
+        alert("समय समाप्त हो गया है! आपका टेस्ट ऑटोमैटिक सबमिट किया जा रहा है।");
+        submitQuiz();
+    }
+}, 1000);
 
-<section class="hero">
+// क्विज़ स्क्रीन पर रेंडर करना
+window.questions.forEach((q, qIndex) => {
+    let optionsHtml = '';
+    q.optionsText.forEach((optText, oIndex) => {
+        const optLetter = q.options[oIndex];
+        optionsHtml += `<li class="option-item" id="q-${qIndex}-opt-${optLetter}" onclick="selectOption(${qIndex}, '${optLetter}')">${optText}</li>`;
+    });
 
-<h1>
-Paid Course MPPSC 2027
-</h1>
+    const qBlock = document.createElement('div');
+    qBlock.className = 'question-block';
+    qBlock.innerHTML = `
+        <div class="question-text">${q.question}</div>
+        <ul class="options-list">${optionsHtml}</ul>
+        <div class="answer-panel" id="ans-${qIndex}">
+            <div class="ans-title">सही उत्तर: ${q.answer}</div>
+            <div class="exp-text"><strong>व्याख्या:</strong> ${q.explanation}</div>
+        </div>
+    `;
+    quizBox.appendChild(qBlock);
+});
 
-<p>
-PRELIMS — Unit 1
-</p>
+// स्टूडेंट द्वारा ऑप्शन चुनने पर
+function selectOption(qIndex, optLetter) {
+    if (isSubmitted) return; // सबमिट होने के बाद ऑप्शन चेंज नहीं हो सकते
 
-<p>
-भारत का इतिहास
-</p>
-
-<p>
-कुल 20 Tests
-</p>
-
-</section>
-
-<div class="testgrid">
-
-
-<!-- TEST 01 -->
-<div class="testcard">
-<div>
-<div class="testno">01</div>
-<div class="testtitle">Test 01</div>
-<span class="code">P01T01</span>
-</div>
-<a class="open" href="P01T01/index.html">Open Test</a>
-</div>
-
-
-<!-- TEST 02 -->
-<div class="testcard">
-<div>
-<div class="testno">02</div>
-<div class="testtitle">Test 02</div>
-<span class="code">P01T02</span>
-</div>
-<a class="open" href="P01T02/index.html">Open Test</a>
-</div>
-
-
-<!-- TEST 03 -->
-<div class="testcard">
-<div>
-<div class="testno">03</div>
-<div class="testtitle">Test 03</div>
-<span class="code">P01T03</span>
-</div>
-<a class="open" href="P01T03/index.html">Open Test</a>
-</div>
-
-
-<!-- TEST 04 -->
-<div class="testcard">
-<div>
-<div class="testno">04</div>
-<div class="testtitle">Test 04</div>
-<span class="code">P01T04</span>
-</div>
-<a class="open" href="P01T04/index.html">Open Test</a>
-</div>
-
-
-<!-- TEST 05 -->
-<div class="testcard">
-<div>
-<div class="testno">05</div>
-<div class="testtitle">Test 05</div>
-<span class="code">P01T05</span>
-</div>
-<a class="open" href="P01T05/index.html">Open Test</a>
-</div>
-
-
-<!-- TEST 06 -->
-<div class="testcard">
-<div>
-<div class="testno">06</div>
-<div class="testtitle">Test 06</div>
-<span class="code">P01T06</span>
-</div>
-<a class="open" href="P01T06/index.html">Open Test</a>
-</div>
-
-
-<!-- TEST 07 -->
-<div class="testcard">
-<div>
-<div class="testno">07</div>
-<div class="testtitle">Test 07</div>
-<span class="code">P01T07</span>
-</div>
-<a class="open" href="P01T07/index.html">Open Test</a>
-</div>
-
-
-<!-- TEST 08 -->
-<div class="testcard">
-<div>
-<div class="testno">08</div>
-<div class="testtitle">Test 08</div>
-<span class="code">P01T08</span>
-</div>
-<a class="open" href="P01T08/index.html">Open Test</a>
-</div>
-
-
-<!-- TEST 09 -->
-<div class="testcard">
-<div>
-<div class="testno">09</div>
-<div class="testtitle">Test 09</div>
-<span class="code">P01T09</span>
-</div>
-<a class="open" href="P01T09/index.html">Open Test</a>
-</div>
-
-
-<!-- TEST 10 -->
-<div class="testcard">
-<div>
-<div class="testno">10</div>
-<div class="testtitle">Test 10</div>
-<span class="code">P01T10</span>
-</div>
-<a class="open" href="P01T10/index.html">Open Test</a>
-</div>
-
-
-<!-- TEST 11 -->
-<div class="testcard">
-<div>
-<div class="testno">11</div>
-<div class="testtitle">Test 11</div>
-<span class="code">P01T11</span>
-</div>
-<a class="open" href="P01T11/index.html">Open Test</a>
-</div>
-
-
-<!-- TEST 12 -->
-<div class="testcard">
-<div>
-<div class="testno">12</div>
-<div class="testtitle">Test 12</div>
-<span class="code">P01T12</span>
-</div>
-<a class="open" href="P01T12/index.html">Open Test</a>
-</div>
-
-
-<!-- TEST 13 -->
-<div class="testcard">
-<div>
-<div class="testno">13</div>
-<div class="testtitle">Test 13</div>
-<span class="code">P01T13</span>
-</div>
-<a class="open" href="P01T13/index.html">Open Test</a>
-</div>
-
-
-<!-- TEST 14 -->
-<div class="testcard">
-<div>
-<div class="testno">14</div>
-<div class="testtitle">Test 14</div>
-<span class="code">P01T14</span>
-</div>
-<a class="open" href="P01T14/index.html">Open Test</a>
-</div>
-
-
-<!-- TEST 15 -->
-<div class="testcard">
-<div>
-<div class="testno">15</div>
-<div class="testtitle">Test 15</div>
-<span class="code">P01T15</span>
-</div>
-<a class="open" href="P01T15/index.html">Open Test</a>
-</div>
-
-
-<!-- TEST 16 -->
-<div class="testcard">
-<div>
-<div class="testno">16</div>
-<div class="testtitle">Test 16</div>
-<span class="code">P01T16</span>
-</div>
-<a class="open" href="P01T16/index.html">Open Test</a>
-</div>
-
-
-<!-- TEST 17 -->
-<div class="testcard">
-<div>
-<div class="testno">17</div>
-<div class="testtitle">Test 17</div>
-<span class="code">P01T17</span>
-</div>
-<a class="open" href="P01T17/index.html">Open Test</a>
-</div>
-
-
-<!-- TEST 18 -->
-<div class="testcard">
-<div>
-<div class="testno">18</div>
-<div class="testtitle">Test 18</div>
-<span class="code">P01T18</span>
-</div>
-<a class="open" href="P01T18/index.html">Open Test</a>
-</div>
-
-
-<!-- TEST 19 -->
-<div class="testcard">
-<div>
-<div class="testno">19</div>
-<div class="testtitle">Test 19</div>
-<span class="code">P01T19</span>
-</div>
-<a class="open" href="P01T19/index.html">Open Test</a>
-</div>
-
-
-<!-- TEST 20 -->
-<div class="testcard">
-<div>
-<div class="testno">20</div>
-<div class="testtitle">Test 20</div>
-<span class="code">P01T20</span>
-</div>
-<a class="open" href="P01T20/index.html">Open Test</a>
-</div>
-
-
-</div>
-
-</main>
-
-</body>
-</html>
+    window.questions[qIndex].options.forEach(letter => {
+        document.getElementById(`q-${qIndex}-opt-${letter}`).classList.remove('selected');
+});document.getElementById(q-${qIndex}-opt-${optLetter}).classList.add('selected');userAnswers[qIndex] = optLetter;}// टेस्ट सबमिट करने का लॉजिकfunction submitQuiz() {if (isSubmitted) return;isSubmitted = true;clearInterval(timerInterval);let score = 0;window.questions.forEach((q, index) => {const selectedAns = userAnswers[index];const correctAns = q.answer;// सभी व्याख्याएं खोलेंdocument.getElementById(ans-${index}).style.display = 'block';// सही/गलत का कलर विजुअल दिखानाif (selectedAns === correctAns) {score++;document.getElementById(q-${index}-opt-${correctAns}).classList.add('correct-ans');} else {if (selectedAns) {document.getElementById(q-${index}-opt-${selectedAns}).classList.add('wrong-ans');}document.getElementById(q-${index}-opt-${correctAns}).classList.add('correct-ans');}});// रिजल्ट दिखानाconst resultBox = document.getElementById('result-box');resultBox.style.display = 'block';resultBox.innerHTML = टेस्ट समाप्त! आपका स्कोर: ${score} / ${window.questions.length};document.getElementById('submit-btn').disabled = true;document.getElementById('submit-btn').style.background = '#bdc3c7';window.scrollTo({top: 0, behavior: 'smooth'});}// 100% वर्किंग इन-बिल्ट PDF डाउनलोडर फ़ंक्शनfunction downloadPDF() {// अगर सबमिट नहीं हुआ है तो भी PDF में आंसर दिखाने के लिए टेम्परेरी ओपन करनाwindow.questions.forEach((q, index) => {document.getElementById(ans-${index}).style.display = 'block';});// ब्राउज़र का प्रिंट डायलॉग खोलना (Save as PDF विकल्प के साथ)window.print();}
