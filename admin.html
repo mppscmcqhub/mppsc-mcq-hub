@@ -1377,15 +1377,12 @@ window.googleLogin = async function() {
     button.textContent =
       "⏳ Login हो रहा है...";
 
-
     const provider =
       new firebase.auth.GoogleAuthProvider();
-
 
     provider.setCustomParameters({
       prompt: "select_account"
     });
-
 
     await auth.signInWithPopup(provider);
 
@@ -1393,10 +1390,21 @@ window.googleLogin = async function() {
 
   catch(error) {
 
-    console.error(error);
+    console.error("Google Login Error:", error);
+
+    if (
+      error.code ===
+      "auth/multi-factor-auth-required"
+    ) {
+
+      await handleMFA(error);
+
+      return;
+    }
 
     showAccessDenied(
-      "Google Login failed: " + error.message
+      "Google Login failed: " +
+      (error.message || error.code)
     );
 
   }
@@ -1411,7 +1419,6 @@ window.googleLogin = async function() {
   }
 
 };
-
 
 /* =========================================================
    ACCESS DENIED
