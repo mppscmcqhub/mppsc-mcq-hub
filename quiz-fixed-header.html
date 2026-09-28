@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MPPSC MCQ Hub</title>
+<style>
+body{font-family:Arial,sans-serif;background:#eef4ff;margin:0}
+header{background:#0645d8;color:#fff;padding:15px}
+#quiz{padding:10px}
+.qbox{background:#fff;margin:12px 0;padding:15px;border-radius:10px}
+.option{display:block;padding:10px;margin:8px 0;border:1px solid #ccc;border-radius:6px;cursor:pointer}
+.option.correct{background:#8ee98e}
+.option.wrong{background:#ffb3b3}
+.exp{display:none;background:#fff8dc;padding:10px;margin-top:10px;border-left:4px solid orange;border-radius:6px}
+.box{background:#fff;margin:15px;padding:15px;border-radius:10px}
+button{background:#0645d8;color:#fff;border:none;padding:10px 20px;border-radius:6px;cursor:pointer}
+textarea{width:100%}
+</style>
+</head>
+<body>
+<!-- MPPSC MCQ Hub site header -->
+<style>
+  .mppsc-site-header { background:#1450a3; color:#fff; display:flex; align-items:center; gap:12px; padding:8px 16px; margin:0 0 16px 0; box-sizing:border-box; width:100%; }
+  .mppsc-site-header img { width:46px; height:46px; object-fit:cover; border-radius:50%; border:2px solid #fff; background:#fff; display:block; }
+  .mppsc-site-header .site-title { font-size:20px; font-weight:700; line-height:1.2; }
+  @media (max-width:600px) { .mppsc-site-header .site-title { font-size:17px; } .mppsc-site-header img { width:36px; height:36px; } }
+</style>
+<header class="mppsc-site-header">
+  <img src="my-logo.jpg" alt="MPPSC MCQ Hub Logo">
+  <div class="site-title">MPPSC MCQ Hub V14</div>
+</header>
+
+<div id="quiz">🎯 टेस्ट लोड हो रहा है, कृपया प्रतीक्षा करें...</div>
+<div class="box">
+<button onclick="submitQuiz()">Submit Test</button>
+<h2 id="scoreBox"></h2>
+<h3>Student Comment</h3>
+<textarea rows="4" placeholder="अपनी राय लिखें..."></textarea>
+</div>
+<script>
+const params = new URLSearchParams(window.location.search);
+const unit = Number(params.get("unit")) || 1;
+const test = Number(params.get("test")) || 1;
+const fileNo = (unit - 1) * 20 + test;
+window.questions = null;
+const script = document.createElement("script");
+script.src = `questions${fileNo}.js?v=${new Date().getTime()}`;
+script.onload = () => {
+    if (window.questions && Array.isArray(window.questions)) {
+        window.questions.forEach(q => {
+            try {
+                let correctText = q.options.find(opt => opt.trim().startsWith(q.answer + ".")).replace(/^[A-D]\.\s*/, "");
+                let cleanOptions = q.options.map(opt => opt.replace(/^[A-D]\.\s*/, ""));
+                for (let i = cleanOptions.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [cleanOptions[i], cleanOptions[j]] = [cleanOptions[j], cleanOptions[i]];
+                }
+                const prefixes = ["A. ", "B. ", "C. ", "D. "];
+                q.options = cleanOptions.map((opt, index) => prefixes[index] + opt);
+                let newIndex = cleanOptions.indexOf(correctText);
+                if (newIndex !== -1) { q.answer = String.fromCharCode(65 + newIndex); }
+            } catch (e) { console.log("Error shuffling options", e); }
+        });
+        loadQuiz();
+    } else {
+        document.getElementById("quiz").innerHTML = `<h2 style='color:red'>त्रुटि: डेटा नहीं मिला!</h2>`;
+    }
+};
+script.onerror = () => {
+    document.getElementById("quiz").innerHTML = `<h2 style='color:red'>त्रुटि: questions${fileNo}.js फाइल नहीं मिली!</h2>`;
+};
+document.body.appendChild(script);
+function loadQuiz(){
+    const quiz = document.getElementById("quiz");
+    quiz.innerHTML = "";
+    window.questions.forEach((q, i) => {
+        let html = `<div class="qbox"><h3>${i + 1}. ${q.question}</h3>`;
+        q.options.forEach((op, index) => {
+            html += `<label class="option" id="q${i}o${index}"><input type="radio" name="q${i}" value="${String.fromCharCode(65 + index)}"> ${op}</label>`;
+        });
+        html += `<div id="exp${i}" class="exp"></div></div>`;
+        quiz.innerHTML += html;
+    });
+}
+function submitQuiz(){
+    if (!window.questions) return;
+    let score = 0;
+    window.questions.forEach((q, i) => {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        q.options.forEach((op, index) => {
+            const box = document.getElementById(`q${i}o${index}`);
+            if (box) {
+                box.classList.remove("correct", "wrong");
+                if (String.fromCharCode(65 + index) === q.answer) { box.classList.add("correct"); }
+            }
+        });
+        if (selected) {
+            if (selected.value === q.answer) { score++; } 
+            else {
+                const wrongIndex = selected.value.charCodeAt(0) - 65;
+                const wrongBox = document.getElementById(`q${i}o${wrongIndex}`);
+                if (wrongBox) wrongBox.classList.add("wrong");
+            }
+        }
+        const exp = document.getElementById(`exp${i}`);
+        if (exp) {
+            exp.style.display = "block";
+            exp.innerHTML = `<b>Correct Answer:</b> ${q.answer}. ${q.options[q.answer.charCodeAt(0) - 65]}<br><br><b>Detailed Explanation:</b><br>${q.explanation}`;
+        }
+    });
+    document.getElementById("scoreBox").innerHTML = `🎯 Score : ${score}/${window.questions.length}`;
+}
+</script>
+</body>
+</html>
