@@ -1167,174 +1167,128 @@ document.addEventListener("DOMContentLoaded",function(){
 
 </script>
 
-</body>
-</html>
-<!-- ================= ADMIN PASSWORD LOCK ================= -->
-
-<div id="admin-password-lock"
-     style="
-        position:fixed;
-        inset:0;
-        z-index:999999;
-        background:#eef4ff;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        padding:20px;
-     ">
-
-    <div style="
-        width:100%;
-        max-width:380px;
-        background:#fff;
-        padding:30px;
-        border-radius:15px;
-        box-shadow:0 5px 25px rgba(0,0,0,0.15);
-        text-align:center;
-    ">
-
-        <div style="
-            font-size:45px;
-            margin-bottom:10px;
-        ">
-            🔐
-        </div>
-
-        <h2 style="
-            color:#082b57;
-            margin-bottom:8px;
-        ">
-            Admin Login
-        </h2>
-
-        <p style="
-            color:#667085;
-            margin-bottom:20px;
-        ">
-            MPPSC MCQ Hub Admin Panel
-        </p>
-
-        <input
-            type="password"
-            id="admin-password-input"
-            placeholder="Admin Password"
-            autocomplete="off"
-            style="
-                width:100%;
-                padding:12px;
-                border:1px solid #ccd6e0;
-                border-radius:7px;
-                font-size:16px;
-                outline:none;
-                margin-bottom:12px;
-            "
-        >
-
-        <button
-            onclick="checkAdminPassword()"
-            style="
-                width:100%;
-                padding:12px;
-                border:none;
-                border-radius:7px;
-                background:#0d47a1;
-                color:#fff;
-                font-size:16px;
-                font-weight:bold;
-                cursor:pointer;
-            "
-        >
-            🔓 Login
-        </button>
-
-        <div
-            id="admin-password-error"
-            style="
-                display:none;
-                color:#d32f2f;
-                font-weight:bold;
-                margin-top:12px;
-            "
-        >
-            ❌ गलत Password
-        </div>
-
+<!-- ================= GOOGLE + TOTP ADMIN AUTH ================= -->
+<div id="admin-auth-lock" style="position:fixed;inset:0;z-index:999999;background:#eef4ff;display:flex;align-items:center;justify-content:center;padding:20px;overflow:auto;">
+  <div style="width:100%;max-width:430px;background:#fff;border-radius:18px;padding:28px;box-shadow:0 8px 28px rgba(0,0,0,.14);font-family:Arial,Helvetica,sans-serif;">
+    <div style="text-align:center;font-size:42px;margin-bottom:8px">🔐</div>
+    <h2 style="text-align:center;color:#082b57;margin:0 0 8px">Admin Login</h2>
+    <p style="text-align:center;color:#667085;margin:0 0 18px">MPPSC MCQ Hub Admin Panel</p>
+    <button id="google-login-btn" type="button" style="width:100%;padding:12px;border:0;border-radius:8px;background:#fff;color:#222;border:1px solid #ccd6e3;font-size:15px;font-weight:700;cursor:pointer">🔐 Continue with Google</button>
+    <div id="auth-message" style="min-height:22px;margin-top:12px;text-align:center;color:#d32f2f;font-weight:700"></div>
+    <div id="totp-enroll" style="display:none">
+      <hr style="border:0;border-top:1px solid #e5e7eb;margin:18px 0">
+      <h3 style="color:#082b57;margin:0 0 8px">Google Authenticator सेट करें</h3>
+      <p style="color:#667085;font-size:13px">QR को Google Authenticator में scan करें, फिर 6-digit code डालें।</p>
+      <div id="totp-qr" style="display:flex;justify-content:center;margin:14px 0"></div>
+      <div id="totp-secret" style="font-size:12px;color:#667085;word-break:break-all"></div>
+      <input id="totp-enroll-code" inputmode="numeric" maxlength="6" placeholder="6-digit code" style="width:100%;padding:12px;margin:12px 0;border:1px solid #ccd6e3;border-radius:8px;font-size:16px;text-align:center;letter-spacing:4px">
+      <button id="totp-enroll-btn" type="button" style="width:100%;padding:12px;border:0;border-radius:8px;background:#1551a5;color:#fff;font-weight:800;cursor:pointer">Authenticator जोड़ें</button>
     </div>
-
+    <div id="totp-login" style="display:none">
+      <hr style="border:0;border-top:1px solid #e5e7eb;margin:18px 0">
+      <h3 style="color:#082b57;margin:0 0 8px">2-Step Verification</h3>
+      <p style="color:#667085;font-size:13px">Google Authenticator से 6-digit code डालें।</p>
+      <input id="totp-code" inputmode="numeric" maxlength="6" placeholder="6-digit code" style="width:100%;padding:12px;margin:12px 0;border:1px solid #ccd6e3;border-radius:8px;font-size:16px;text-align:center;letter-spacing:4px">
+      <button id="totp-login-btn" type="button" style="width:100%;padding:12px;border:0;border-radius:8px;background:#1551a5;color:#fff;font-weight:800;cursor:pointer">Verify & Login</button>
+    </div>
+    <p style="font-size:12px;color:#667085;margin-top:16px;line-height:1.5">Google Sign-In + TOTP MFA Firebase Authentication से चलता है। Firebase Console में Google provider और TOTP MFA enable करें।</p>
+  </div>
 </div>
 
+<script type="module">
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js';
+import {
+  getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged,
+  multiFactor, TotpMultiFactorGenerator, getMultiFactorResolver
+} from 'https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js';
 
-<script>
+/* Firebase Console की वास्तविक config यहाँ डालें */
+const firebaseConfig = {
+  apiKey: 'PASTE_FIREBASE_API_KEY',
+  authDomain: 'PASTE_PROJECT_ID.firebaseapp.com',
+  projectId: 'PASTE_PROJECT_ID',
+  storageBucket: 'PASTE_PROJECT_ID.firebasestorage.app',
+  messagingSenderId: 'PASTE_MESSAGING_SENDER_ID',
+  appId: 'PASTE_APP_ID'
+};
 
-/* =====================================================
-   ADMIN PASSWORD
-   ===================================================== */
+/* केवल आपके admin Google account को अनुमति दें */
+const ALLOWED_ADMIN_EMAIL = 'PASTE_YOUR_ADMIN_GMAIL';
 
-const ADMIN_PASSWORD = "MPPSC@2027";
-
-
-function checkAdminPassword(){
-
-    const input =
-        document.getElementById("admin-password-input").value;
-
-    const error =
-        document.getElementById("admin-password-error");
-
-    if(input === ADMIN_PASSWORD){
-
-        sessionStorage.setItem(
-            "mppsc_admin_authenticated",
-            "true"
-        );
-
-        document.getElementById(
-            "admin-password-lock"
-        ).style.display = "none";
-
-    }else{
-
-        error.style.display = "block";
-
-        document.getElementById(
-            "admin-password-input"
-        ).value = "";
-
-    }
-
+const auth = getAuth(initializeApp(firebaseConfig));
+const provider = new GoogleAuthProvider();
+provider.setCustomParameters({prompt:'select_account'});
+const $ = id => document.getElementById(id);
+function message(text, ok=false){ const el=$('auth-message'); el.textContent=text||''; el.style.color=ok?'#087f23':'#d32f2f'; }
+function allowed(user){ return user?.email && user.email.toLowerCase()===ALLOWED_ADMIN_EMAIL.toLowerCase(); }
+function unlock(user){
+  if(!allowed(user)){ message('यह Google account Admin के लिए authorized नहीं है।'); return; }
+  sessionStorage.setItem('mppsc_admin_authenticated','true');
+  sessionStorage.setItem('mppsc_admin_email',user.email);
+  $('admin-auth-lock').style.display='none';
 }
 
+async function enrollTotp(user){
+  try{
+    const session=await multiFactor(user).getSession();
+    const secret=await TotpMultiFactorGenerator.generateSecret(session);
+    const uri=secret.generateQrCodeUrl(user.email,'MPPSC MCQ Hub Admin');
+    const qr=$('totp-qr'); qr.innerHTML='';
+    const img=document.createElement('img'); img.width=190; img.height=190; img.alt='Google Authenticator QR';
+    img.src='https://quickchart.io/qr?text='+encodeURIComponent(uri)+'&size=190'; qr.appendChild(img);
+    $('totp-secret').textContent='Manual key: '+secret.secretKey;
+    $('totp-enroll').style.display='block';
+    $('totp-enroll-btn').onclick=async()=>{
+      const code=$('totp-enroll-code').value.trim();
+      if(!/^\d{6}$/.test(code)){message('6 अंकों का सही code डालें।');return;}
+      try{
+        const assertion=TotpMultiFactorGenerator.assertionForEnrollment(secret,code);
+        await multiFactor(user).enroll(assertion,'Google Authenticator');
+        message('Authenticator सफलतापूर्वक जुड़ गया।',true); unlock(user);
+      }catch(e){message(e.message||'Authenticator code गलत है।');}
+    };
+  }catch(e){message(e.message||'Authenticator setup शुरू नहीं हो सका।');}
+}
 
-/* Already logged in during this browser session */
-document.addEventListener("DOMContentLoaded", function(){
+async function signIn(){
+  message('');
+  try{
+    const result=await signInWithPopup(auth,provider);
+    const user=result.user;
+    if(!allowed(user)){message('यह Google account authorized नहीं है।');return;}
+    const factors=multiFactor(user).enrolledFactors;
+    if(!factors.length){ message('Google login सफल। Authenticator पहली बार सेट करें।',true); await enrollTotp(user); }
+    else { unlock(user); }
+  }catch(e){
+    if(e.code==='auth/multi-factor-auth-required'){
+      try{
+        const resolver=getMultiFactorResolver(auth,e);
+        const hint=resolver.hints.find(h=>h.factorId===TotpMultiFactorGenerator.FACTOR_ID);
+        if(!hint){message('TOTP Authenticator factor उपलब्ध नहीं है।');return;}
+        $('totp-login').style.display='block';
+        $('totp-login-btn').onclick=async()=>{
+          const code=$('totp-code').value.trim();
+          if(!/^\d{6}$/.test(code)){message('6 अंकों का सही code डालें।');return;}
+          try{
+            const assertion=TotpMultiFactorGenerator.assertionForSignIn(hint.uid,code);
+            const cred=await resolver.resolveSignIn(assertion);
+            if(!allowed(cred.user)){message('यह Google account authorized नहीं है।');return;}
+            message('2-Step Verification सफल।',true); unlock(cred.user);
+          }catch(x){message(x.message||'Authenticator code गलत/expired है।');}
+        };
+      }catch(x){message(x.message||'2-Step Verification शुरू नहीं हो सकी।');}
+    }else message(e.message||'Google authentication failed.');
+  }
+}
 
-    if(
-        sessionStorage.getItem(
-            "mppsc_admin_authenticated"
-        ) === "true"
-    ){
+$('google-login-btn').addEventListener('click',signIn);
 
-        document.getElementById(
-            "admin-password-lock"
-        ).style.display = "none";
-
-    }
-
+/* Page खुलने पर पहले से authenticated Firebase session को देखें */
+onAuthStateChanged(auth, async user=>{
+  if(!user) return;
+  if(!allowed(user)){return;}
+  const factors=multiFactor(user).enrolledFactors;
+  if(factors.length){ unlock(user); }
 });
-
-
-/* Enter key से भी Login */
-document.addEventListener("keydown", function(e){
-
-    if(
-        e.key === "Enter" &&
-        document.activeElement.id === "admin-password-input"
-    ){
-
-        checkAdminPassword();
-
-    }
-
-});
-
 </script>
+</body></html>
