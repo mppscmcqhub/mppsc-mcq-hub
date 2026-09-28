@@ -529,7 +529,9 @@
 </div>
 
 
-<!-- QR CODE LIBRARY -->
+<!-- =========================
+     QR CODE LIBRARY
+========================== -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
 
@@ -900,7 +902,7 @@ function friendlyFirebaseError(error) {
   ) {
 
     return (
-      "Security के लिए दोबारा Google login करना जरूरी है।"
+      "Security verification के लिए दोबारा Google login करना जरूरी है।"
     );
 
   }
@@ -961,6 +963,18 @@ function friendlyFirebaseError(error) {
 
     return (
       "TOTP enrollment नहीं मिला। कृपया दोबारा setup करें।"
+    );
+
+  }
+
+
+  if (
+    code ===
+    "auth/user-mismatch"
+  ) {
+
+    return (
+      "कृपया वही Admin Google account इस्तेमाल करें।"
     );
 
   }
@@ -1072,6 +1086,8 @@ function generateQRCode(uri) {
 
 /* =========================================================
    CREATE TOTP SETUP
+   IMPORTANT:
+   RECENT LOGIN / REAUTHENTICATION FIX
 ========================================================= */
 
 async function createTotpSetup(user) {
@@ -1088,20 +1104,110 @@ async function createTotpSetup(user) {
       "message info";
 
     totpStatus.textContent =
-      "⏳ Authenticator setup तैयार हो रहा है...";
+      "⏳ Security verification हो रही है...";
 
 
     /*
-     * Firebase TOTP MFA session
+     * IMPORTANT:
+     *
+     * Firebase TOTP enrollment के लिए
+     * recent authentication जरूरी है।
+     *
+     * इसलिए पहले Google account को
+     * re-authenticate करते हैं।
+     */
+
+    try {
+
+      await reauthenticateWithPopup(
+        user,
+        provider
+      );
+
+    } catch (reauthError) {
+
+      console.error(
+        "Reauthentication Error:",
+        reauthError
+      );
+
+
+      if (
+        reauthError.code ===
+        "auth/popup-closed-by-user"
+      ) {
+
+        throw new Error(
+          "Security verification के लिए Google login popup पूरा करना जरूरी है।"
+        );
+
+      }
+
+
+      if (
+        reauthError.code ===
+        "auth/user-mismatch"
+      ) {
+
+        throw new Error(
+          "कृपया वही Admin Google account इस्तेमाल करें।"
+        );
+
+      }
+
+
+      throw reauthError;
+
+    }
+
+
+    /*
+     * Reauthentication के बाद
+     * current authenticated user लें
+     */
+
+    const freshUser =
+      auth.currentUser;
+
+
+    if (!freshUser) {
+
+      throw new Error(
+        "Admin authentication session उपलब्ध नहीं है।"
+      );
+
+    }
+
+
+    /*
+     * Admin account verify करें
+     */
+
+    if (
+      !isAllowedAdmin(
+        freshUser
+      )
+    ) {
+
+      throw new Error(
+        "यह Google account Admin के लिए authorized नहीं है।"
+      );
+
+    }
+
+
+    /*
+     * Fresh MFA session
      */
 
     const session =
-      await multiFactor(user)
-        .getSession();
+      await multiFactor(
+        freshUser
+      ).getSession();
 
 
     /*
-     * Generate TOTP secret
+     * Generate TOTP Secret
      */
 
     const secret =
@@ -1116,7 +1222,7 @@ async function createTotpSetup(user) {
 
 
     /*
-     * Secret key display
+     * Manual Secret Key
      */
 
     totpSecret.textContent =
@@ -1129,19 +1235,23 @@ async function createTotpSetup(user) {
 
     const qrUri =
       secret.generateQrCodeUrl(
-        user.email,
+        freshUser.email,
         "MPPSC MCQ Hub"
       );
 
 
     /*
-     * Draw QR
+     * Generate QR
      */
 
     generateQRCode(
       qrUri
     );
 
+
+    /*
+     * Show enrollment box
+     */
 
     totpStatus.style.display =
       "none";
@@ -1227,7 +1337,10 @@ async function checkTotpStatus(user) {
 
 
       /*
-       * Generate QR immediately
+       * TOTP setup
+       *
+       * createTotpSetup() के अंदर
+       * recent-login reauthentication होगी।
        */
 
       await createTotpSetup(
@@ -1686,7 +1799,7 @@ verifyTotpBtn.addEventListener(
     try {
 
       /*
-       * Create enrollment assertion
+       * Create TOTP enrollment assertion
        */
 
       const assertion =
