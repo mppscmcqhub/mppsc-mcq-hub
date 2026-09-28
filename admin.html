@@ -26,14 +26,18 @@
       font-family: inherit;
     }
 
+    button {
+      cursor: pointer;
+    }
+
     .topbar {
-      height: 70px;
+      min-height: 70px;
       background: #ffffff;
       border-bottom: 1px solid #e5e7eb;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 28px;
+      padding: 12px 28px;
       position: sticky;
       top: 0;
       z-index: 100;
@@ -96,7 +100,6 @@
       color: white;
       padding: 10px 17px;
       border-radius: 7px;
-      cursor: pointer;
       font-weight: bold;
     }
 
@@ -142,7 +145,7 @@
 
     .dashboard-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 18px;
       margin-bottom: 25px;
     }
@@ -271,7 +274,6 @@
       border: none;
       border-radius: 8px;
       padding: 11px 18px;
-      cursor: pointer;
       font-weight: bold;
       font-size: 13px;
     }
@@ -306,6 +308,17 @@
     .btn-edit {
       background: #dbeafe;
       color: #1d4ed8;
+    }
+
+    .btn-login {
+      background: #2563eb;
+      color: white;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .btn-login:hover {
+      background: #1d4ed8;
     }
 
     .search-box {
@@ -401,7 +414,6 @@
       border: none;
       padding: 8px 10px;
       border-radius: 6px;
-      cursor: pointer;
       font-size: 11px;
       font-weight: bold;
     }
@@ -443,6 +455,13 @@
       color: #b91c1c;
     }
 
+    .message.info {
+      display: block;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1d4ed8;
+    }
+
     .hidden {
       display: none !important;
     }
@@ -458,7 +477,7 @@
 
     .login-card {
       width: 100%;
-      max-width: 420px;
+      max-width: 430px;
       background: white;
       border-radius: 15px;
       padding: 30px;
@@ -489,6 +508,13 @@
       border-radius: 8px;
       color: #166534;
       font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .security-box.error {
+      background: #fef2f2;
+      border-color: #fecaca;
+      color: #991b1b;
     }
 
     .footer {
@@ -498,7 +524,15 @@
       padding: 15px;
     }
 
+    .firebase-info {
+      margin-top: 15px;
+      font-size: 11px;
+      color: #64748b;
+      line-height: 1.5;
+    }
+
     @media (max-width: 800px) {
+
       .dashboard-grid {
         grid-template-columns: 1fr;
       }
@@ -512,7 +546,6 @@
       }
 
       .topbar {
-        height: auto;
         min-height: 70px;
         padding: 12px 15px;
         gap: 10px;
@@ -542,55 +575,82 @@
       .small-btn {
         flex: 1;
       }
+
+      .search-box {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<!-- =========================
-     LOGIN / LOADING SCREEN
-========================= -->
+<!-- =====================================================
+     LOADING SCREEN
+===================================================== -->
 
 <div id="loadingScreen" class="login-screen">
+
   <div class="login-card">
+
     <div class="login-icon">🔐</div>
+
     <h2>Admin Authentication</h2>
-    <p>Firebase authentication verify हो रही है...</p>
+
+    <p>
+      Firebase authentication verify हो रही है...
+    </p>
+
   </div>
+
 </div>
 
 
-<!-- =========================
+<!-- =====================================================
      ACCESS DENIED
-========================= -->
+===================================================== -->
 
 <div id="accessDenied" class="login-screen hidden">
+
   <div class="login-card">
+
     <div class="login-icon">🚫</div>
 
     <h2>Access Denied</h2>
 
     <p id="deniedMessage">
-      इस page को access करने के लिए verified admin account आवश्यक है।
+      इस page को access करने के लिए authorized admin account आवश्यक है।
     </p>
 
-    <div class="security-box">
+    <div id="deniedBox" class="security-box error">
       🔒 केवल authorized administrator को MCQ database में बदलाव करने की अनुमति है।
     </div>
 
-    <br>
+    <button
+      id="googleLoginBtn"
+      class="btn btn-login"
+      onclick="googleLogin()"
+    >
+      🔵 Google से Admin Login
+    </button>
 
-    <button class="btn btn-danger" onclick="logout()">
+    <br><br>
+
+    <button
+      class="btn btn-danger"
+      onclick="logout()"
+    >
       Logout
     </button>
+
   </div>
+
 </div>
 
 
-<!-- =========================
+<!-- =====================================================
      MAIN ADMIN PANEL
-========================= -->
+===================================================== -->
 
 <div id="adminPanel" class="hidden">
 
@@ -605,25 +665,43 @@
       </div>
 
       <div class="brand-text">
+
         <h1>MPPSC MCQ Hub</h1>
-        <p>Admin Control Panel</p>
+
+        <p>
+          Admin Control Panel
+        </p>
+
       </div>
 
     </div>
 
+
     <div class="admin-area">
 
       <div class="admin-info">
-        <div id="adminName" class="admin-name">
+
+        <div
+          id="adminName"
+          class="admin-name"
+        >
           Admin
         </div>
 
-        <div id="adminEmail" class="admin-email">
+        <div
+          id="adminEmail"
+          class="admin-email"
+        >
           -
         </div>
+
       </div>
 
-      <button class="logout-btn" onclick="logout()">
+
+      <button
+        class="logout-btn"
+        onclick="logout()"
+      >
         Logout
       </button>
 
@@ -638,7 +716,9 @@
 
     <section class="welcome">
 
-      <h2>👋 Admin Dashboard</h2>
+      <h2>
+        👋 Admin Dashboard
+      </h2>
 
       <p>
         MPPSC MCQ Hub के questions को यहाँ से manage करें।
@@ -653,7 +733,10 @@
 
     <!-- MESSAGE -->
 
-    <div id="messageBox" class="message"></div>
+    <div
+      id="messageBox"
+      class="message"
+    ></div>
 
 
     <!-- STATISTICS -->
@@ -661,37 +744,51 @@
     <section class="dashboard-grid">
 
       <div class="stat-card">
+
         <div class="stat-title">
           Total Questions
         </div>
 
-        <div id="totalQuestions" class="stat-number">
+        <div
+          id="totalQuestions"
+          class="stat-number"
+        >
           0
         </div>
+
       </div>
 
 
       <div class="stat-card">
+
         <div class="stat-title">
           Current Collection
         </div>
 
-        <div class="stat-number" style="font-size:20px;">
-          questions
+        <div
+          class="stat-number"
+          style="font-size:20px;"
+        >
+          mcqs
         </div>
+
       </div>
 
 
       <div class="stat-card">
+
         <div class="stat-title">
           Database Status
         </div>
 
-        <div id="databaseStatus"
-             class="stat-number"
-             style="font-size:18px;color:#059669;">
-          Connected
+        <div
+          id="databaseStatus"
+          class="stat-number"
+          style="font-size:18px;color:#64748b;"
+        >
+          Connecting...
         </div>
+
       </div>
 
     </section>
@@ -704,6 +801,7 @@
       <div class="panel-header">
 
         <div>
+
           <h3 id="formTitle">
             ➕ नया MCQ जोड़ें
           </h3>
@@ -711,6 +809,7 @@
           <p>
             Question की जानकारी भरकर Firestore में save करें।
           </p>
+
         </div>
 
       </div>
@@ -719,7 +818,6 @@
       <form id="questionForm">
 
         <div class="form-grid">
-
 
           <!-- QUESTION -->
 
@@ -850,7 +948,10 @@
               Correct Answer *
             </label>
 
-            <select id="answer" required>
+            <select
+              id="answer"
+              required
+            >
 
               <option value="">
                 -- सही उत्तर चुनें --
@@ -946,7 +1047,10 @@
                 Easy
               </option>
 
-              <option value="Medium" selected>
+              <option
+                value="Medium"
+                selected
+              >
                 Medium
               </option>
 
@@ -973,7 +1077,6 @@
             ></textarea>
 
           </div>
-
 
         </div>
 
@@ -1018,7 +1121,7 @@
           </h3>
 
           <p>
-            Firestore में saved questions यहाँ दिखाई देंगे।
+            Firestore के <b>mcqs</b> collection में saved questions यहाँ दिखाई देंगे।
           </p>
 
         </div>
@@ -1035,10 +1138,11 @@
         >
 
         <button
+          type="button"
           class="btn btn-primary"
           onclick="renderQuestions()"
         >
-          Search
+          🔍 Search
         </button>
 
       </div>
@@ -1064,9 +1168,9 @@
 </div>
 
 
-<!-- =========================
+<!-- =====================================================
      FIREBASE SDK
-========================= -->
+===================================================== -->
 
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 
@@ -1077,960 +1181,1297 @@
 
 <script>
 
-  /* =========================================================
-     FIREBASE CONFIG
-     
-     IMPORTANT:
-     नीचे अपने पुराने admin.html वाला EXACT Firebase config
-     paste करें।
-  ========================================================= */
+/* =========================================================
+   FIREBASE CONFIG
 
-  const firebaseConfig = {
+   IMPORTANT:
+   नीचे वाली 3 values अपने Firebase Web App की
+   EXACT values से replace करें।
 
-    apiKey: "PASTE_YOUR_API_KEY_HERE",
+   Project ID पहले से:
+   mppsc-mcq-hub
+========================================================= */
 
-    authDomain: "mppsc-mcq-hub.firebaseapp.com",
+const firebaseConfig = {
 
-    projectId: "mppsc-mcq-hub",
+  apiKey: "PASTE_YOUR_API_KEY_HERE",
 
-    storageBucket: "mppsc-mcq-hub.firebasestorage.app",
+  authDomain: "mppsc-mcq-hub.firebaseapp.com",
 
-    messagingSenderId: "PASTE_YOUR_MESSAGING_SENDER_ID_HERE",
+  projectId: "mppsc-mcq-hub",
 
-    appId: "PASTE_YOUR_APP_ID_HERE"
+  storageBucket: "mppsc-mcq-hub.firebasestorage.app",
 
-  };
+  messagingSenderId: "PASTE_YOUR_MESSAGING_SENDER_ID_HERE",
 
+  appId: "PASTE_YOUR_APP_ID_HERE"
 
-  /* =========================================================
-     ADMIN EMAIL
-  ========================================================= */
-
-  const ADMIN_EMAIL = "ajay.com1989@gmail.com";
+};
 
 
-  /* =========================================================
-     FIREBASE INITIALIZE
-  ========================================================= */
+/* =========================================================
+   ADMIN EMAIL
+========================================================= */
 
-  firebase.initializeApp(firebaseConfig);
-
-  const auth = firebase.auth();
-
-  const db = firebase.firestore();
+const ADMIN_EMAIL = "ajay.com1989@gmail.com";
 
 
-  /* =========================================================
-     GLOBAL VARIABLES
-  ========================================================= */
+/* =========================================================
+   COLLECTION NAME
 
-  let allQuestions = [];
+   Firebase Rules में भी mcqs है।
+========================================================= */
 
-  let editingId = null;
-
-
-  /* =========================================================
-     DOM ELEMENTS
-  ========================================================= */
-
-  const loadingScreen =
-    document.getElementById("loadingScreen");
-
-  const accessDenied =
-    document.getElementById("accessDenied");
-
-  const adminPanel =
-    document.getElementById("adminPanel");
-
-  const adminName =
-    document.getElementById("adminName");
-
-  const adminEmail =
-    document.getElementById("adminEmail");
-
-  const questionForm =
-    document.getElementById("questionForm");
-
-  const questionsContainer =
-    document.getElementById("questionsContainer");
-
-  const totalQuestions =
-    document.getElementById("totalQuestions");
-
-  const databaseStatus =
-    document.getElementById("databaseStatus");
-
-  const messageBox =
-    document.getElementById("messageBox");
+const COLLECTION_NAME = "mcqs";
 
 
-  /* =========================================================
-     AUTHENTICATION CHECK
-  ========================================================= */
+/* =========================================================
+   FIREBASE INITIALIZE
+========================================================= */
 
-  auth.onAuthStateChanged(async function(user) {
+firebase.initializeApp(firebaseConfig);
 
-    loadingScreen.classList.add("hidden");
+const auth = firebase.auth();
 
-    if (!user) {
+const db = firebase.firestore();
 
-      showAccessDenied(
-        "आप login नहीं हैं। पहले Google Authentication से login करें।"
+
+/* =========================================================
+   GLOBAL VARIABLES
+========================================================= */
+
+let allQuestions = [];
+
+let editingId = null;
+
+
+/* =========================================================
+   DOM
+========================================================= */
+
+const loadingScreen =
+  document.getElementById("loadingScreen");
+
+const accessDenied =
+  document.getElementById("accessDenied");
+
+const adminPanel =
+  document.getElementById("adminPanel");
+
+const adminName =
+  document.getElementById("adminName");
+
+const adminEmail =
+  document.getElementById("adminEmail");
+
+const questionForm =
+  document.getElementById("questionForm");
+
+const questionsContainer =
+  document.getElementById("questionsContainer");
+
+const totalQuestions =
+  document.getElementById("totalQuestions");
+
+const databaseStatus =
+  document.getElementById("databaseStatus");
+
+const messageBox =
+  document.getElementById("messageBox");
+
+
+/* =========================================================
+   AUTH STATE
+========================================================= */
+
+auth.onAuthStateChanged(async function(user) {
+
+  loadingScreen.classList.add("hidden");
+
+
+  /* -----------------------------------------------
+     USER NOT LOGGED IN
+  ------------------------------------------------ */
+
+  if (!user) {
+
+    showAccessDenied(
+      "आप login नहीं हैं। नीचे दिए Google Login button से login करें।"
+    );
+
+    return;
+  }
+
+
+  /* -----------------------------------------------
+     EMAIL
+  ------------------------------------------------ */
+
+  const email =
+    (user.email || "")
+      .toLowerCase()
+      .trim();
+
+
+  /* -----------------------------------------------
+     ADMIN EMAIL CHECK
+  ------------------------------------------------ */
+
+  if (email !== ADMIN_EMAIL.toLowerCase()) {
+
+    showAccessDenied(
+      "यह Google account authorized administrator नहीं है।"
+    );
+
+    return;
+  }
+
+
+  /* -----------------------------------------------
+     EMAIL VERIFIED CHECK
+  ------------------------------------------------ */
+
+  if (!user.emailVerified) {
+
+    showAccessDenied(
+      "Admin account का email अभी verified नहीं है।"
+    );
+
+    return;
+  }
+
+
+  /* -----------------------------------------------
+     ADMIN ACCESS
+  ------------------------------------------------ */
+
+  accessDenied.classList.add("hidden");
+
+  adminPanel.classList.remove("hidden");
+
+
+  adminName.textContent =
+    user.displayName || "Admin";
+
+
+  adminEmail.textContent =
+    user.email;
+
+
+  /* -----------------------------------------------
+     LOAD FIRESTORE
+  ------------------------------------------------ */
+
+  startQuestionsListener();
+
+});
+
+
+/* =========================================================
+   GOOGLE LOGIN
+========================================================= */
+
+window.googleLogin = async function() {
+
+  const button =
+    document.getElementById("googleLoginBtn");
+
+  try {
+
+    button.disabled = true;
+
+    button.textContent =
+      "⏳ Login हो रहा है...";
+
+
+    const provider =
+      new firebase.auth.GoogleAuthProvider();
+
+
+    provider.setCustomParameters({
+      prompt: "select_account"
+    });
+
+
+    await auth.signInWithPopup(provider);
+
+  }
+
+  catch(error) {
+
+    console.error(error);
+
+    showAccessDenied(
+      "Google Login failed: " + error.message
+    );
+
+  }
+
+  finally {
+
+    button.disabled = false;
+
+    button.textContent =
+      "🔵 Google से Admin Login";
+
+  }
+
+};
+
+
+/* =========================================================
+   ACCESS DENIED
+========================================================= */
+
+function showAccessDenied(message) {
+
+  accessDenied.classList.remove("hidden");
+
+  adminPanel.classList.add("hidden");
+
+  document.getElementById("deniedMessage")
+    .textContent = message;
+
+}
+
+
+/* =========================================================
+   FIRESTORE LISTENER
+=========================================================
+
+   IMPORTANT:
+   यहाँ questions नहीं बल्कि mcqs collection है।
+========================================================= */
+
+function startQuestionsListener() {
+
+  databaseStatus.textContent =
+    "Connecting...";
+
+  databaseStatus.style.color =
+    "#d97706";
+
+
+  db.collection(COLLECTION_NAME)
+    .onSnapshot(
+
+      function(snapshot) {
+
+        allQuestions = [];
+
+
+        snapshot.forEach(function(doc) {
+
+          allQuestions.push({
+
+            id: doc.id,
+
+            ...doc.data()
+
+          });
+
+        });
+
+
+        /* -----------------------------------------
+           CLIENT SIDE SORT
+        ----------------------------------------- */
+
+        allQuestions.sort(function(a, b) {
+
+          const aTime =
+            getTimeValue(a.createdAt);
+
+          const bTime =
+            getTimeValue(b.createdAt);
+
+          return bTime - aTime;
+
+        });
+
+
+        totalQuestions.textContent =
+          allQuestions.length;
+
+
+        databaseStatus.textContent =
+          "Connected";
+
+        databaseStatus.style.color =
+          "#059669";
+
+
+        renderQuestions();
+
+      },
+
+
+      function(error) {
+
+        console.error(error);
+
+
+        databaseStatus.textContent =
+          "Error";
+
+        databaseStatus.style.color =
+          "#dc2626";
+
+
+        showMessage(
+          "❌ Firestore error: " + error.message,
+          "error"
+        );
+
+      }
+
+    );
+
+}
+
+
+/* =========================================================
+   TIMESTAMP HELPER
+========================================================= */
+
+function getTimeValue(value) {
+
+  if (!value) {
+    return 0;
+  }
+
+
+  try {
+
+    if (
+      value &&
+      typeof value.toMillis === "function"
+    ) {
+
+      return value.toMillis();
+
+    }
+
+
+    if (
+      value &&
+      value.seconds
+    ) {
+
+      return value.seconds * 1000;
+
+    }
+
+
+    const date =
+      new Date(value);
+
+    const time =
+      date.getTime();
+
+
+    return isNaN(time)
+      ? 0
+      : time;
+
+  }
+
+  catch(error) {
+
+    return 0;
+
+  }
+
+}
+
+
+/* =========================================================
+   ADD / UPDATE QUESTION
+========================================================= */
+
+questionForm.addEventListener(
+  "submit",
+  async function(event) {
+
+    event.preventDefault();
+
+
+    const question =
+      document.getElementById("question")
+        .value
+        .trim();
+
+
+    const optionA =
+      document.getElementById("optionA")
+        .value
+        .trim();
+
+
+    const optionB =
+      document.getElementById("optionB")
+        .value
+        .trim();
+
+
+    const optionC =
+      document.getElementById("optionC")
+        .value
+        .trim();
+
+
+    const optionD =
+      document.getElementById("optionD")
+        .value
+        .trim();
+
+
+    const answer =
+      document.getElementById("answer")
+        .value;
+
+
+    const subject =
+      document.getElementById("subject")
+        .value
+        .trim();
+
+
+    const exam =
+      document.getElementById("exam")
+        .value
+        .trim();
+
+
+    const year =
+      document.getElementById("year")
+        .value;
+
+
+    const difficulty =
+      document.getElementById("difficulty")
+        .value;
+
+
+    const explanation =
+      document.getElementById("explanation")
+        .value
+        .trim();
+
+
+    /* -----------------------------------------
+       VALIDATION
+    ----------------------------------------- */
+
+    if (
+      !question ||
+      !optionA ||
+      !optionB ||
+      !optionC ||
+      !optionD ||
+      !answer ||
+      !subject ||
+      !exam
+    ) {
+
+      showMessage(
+        "कृपया सभी जरूरी fields भरें।",
+        "error"
       );
 
       return;
+
+    }
+
+
+    /* -----------------------------------------
+       AUTH CHECK
+    ----------------------------------------- */
+
+    const user =
+      auth.currentUser;
+
+
+    if (!user) {
+
+      showMessage(
+        "Authentication expired. कृपया फिर से login करें।",
+        "error"
+      );
+
+      return;
+
     }
 
 
     const email =
-      (user.email || "").toLowerCase().trim();
-
-
-    /*
-      केवल authorized email
-    */
-
-    if (email !== ADMIN_EMAIL.toLowerCase()) {
-
-      showAccessDenied(
-        "यह Google account authorized administrator नहीं है।"
-      );
-
-      return;
-    }
-
-
-    /*
-      Email verification check
-    */
-
-    if (!user.emailVerified) {
-
-      showAccessDenied(
-        "Admin account का email अभी verified नहीं है।"
-      );
-
-      return;
-    }
-
-
-    /*
-      ADMIN ACCESS
-    */
-
-    adminPanel.classList.remove("hidden");
-
-    adminName.textContent =
-      user.displayName || "Admin";
-
-    adminEmail.textContent =
-      user.email;
-
-
-    /*
-      Firestore listener शुरू
-    */
-
-    startQuestionsListener();
-
-  });
-
-
-  /* =========================================================
-     ACCESS DENIED
-  ========================================================= */
-
-  function showAccessDenied(message) {
-
-    accessDenied.classList.remove("hidden");
-
-    document.getElementById("deniedMessage")
-      .textContent = message;
-
-  }
-
-
-  /* =========================================================
-     FIRESTORE REAL-TIME LISTENER
-  ========================================================= */
-
-  function startQuestionsListener() {
-
-    databaseStatus.textContent = "Connecting...";
-
-    db.collection("questions")
-      .orderBy("createdAt", "desc")
-      .onSnapshot(
-
-        function(snapshot) {
-
-          allQuestions = [];
-
-          snapshot.forEach(function(doc) {
-
-            allQuestions.push({
-
-              id: doc.id,
-
-              ...doc.data()
-
-            });
-
-          });
-
-
-          totalQuestions.textContent =
-            allQuestions.length;
-
-          databaseStatus.textContent =
-            "Connected";
-
-          databaseStatus.style.color =
-            "#059669";
-
-
-          renderQuestions();
-
-        },
-
-        function(error) {
-
-          console.error(error);
-
-          databaseStatus.textContent =
-            "Error";
-
-          databaseStatus.style.color =
-            "#dc2626";
-
-
-          showMessage(
-            "Firestore error: " + error.message,
-            "error"
-          );
-
-        }
-
-      );
-
-  }
-
-
-  /* =========================================================
-     ADD / UPDATE QUESTION
-  ========================================================= */
-
-  questionForm.addEventListener(
-    "submit",
-    async function(event) {
-
-      event.preventDefault();
-
-
-      const question =
-        document.getElementById("question")
-          .value.trim();
-
-      const optionA =
-        document.getElementById("optionA")
-          .value.trim();
-
-      const optionB =
-        document.getElementById("optionB")
-          .value.trim();
-
-      const optionC =
-        document.getElementById("optionC")
-          .value.trim();
-
-      const optionD =
-        document.getElementById("optionD")
-          .value.trim();
-
-      const answer =
-        document.getElementById("answer")
-          .value;
-
-      const subject =
-        document.getElementById("subject")
-          .value.trim();
-
-      const exam =
-        document.getElementById("exam")
-          .value.trim();
-
-      const year =
-        document.getElementById("year")
-          .value;
-
-      const difficulty =
-        document.getElementById("difficulty")
-          .value;
-
-      const explanation =
-        document.getElementById("explanation")
-          .value.trim();
-
-
-      if (
-        !question ||
-        !optionA ||
-        !optionB ||
-        !optionC ||
-        !optionD ||
-        !answer ||
-        !subject ||
-        !exam
-      ) {
-
-        showMessage(
-          "कृपया सभी जरूरी fields भरें।",
-          "error"
-        );
-
-        return;
-      }
-
-
-      const user =
-        auth.currentUser;
-
-
-      if (!user) {
-
-        showMessage(
-          "Authentication expired. कृपया फिर से login करें।",
-          "error"
-        );
-
-        return;
-      }
-
-
-      if (
-        user.email.toLowerCase() !==
-        ADMIN_EMAIL.toLowerCase()
-      ) {
-
-        showMessage(
-          "आपके account को database में बदलाव करने की अनुमति नहीं है।",
-          "error"
-        );
-
-        return;
-      }
-
-
-      const data = {
-
-        question: question,
-
-        options: {
-
-          A: optionA,
-
-          B: optionB,
-
-          C: optionC,
-
-          D: optionD
-
-        },
-
-        answer: answer,
-
-        explanation: explanation,
-
-        subject: subject,
-
-        exam: exam,
-
-        year: year
-          ? Number(year)
-          : null,
-
-        difficulty: difficulty,
-
-        updatedAt:
-          firebase.firestore.FieldValue.serverTimestamp()
-
-      };
-
-
-      const saveBtn =
-        document.getElementById("saveBtn");
-
-
-      saveBtn.disabled = true;
-
-      saveBtn.textContent =
-        "Saving...";
-
-
-      try {
-
-        if (editingId) {
-
-          await db
-            .collection("questions")
-            .doc(editingId)
-            .update(data);
-
-
-          showMessage(
-            "✅ Question successfully updated.",
-            "success"
-          );
-
-        } else {
-
-          data.createdAt =
-            firebase.firestore.FieldValue.serverTimestamp();
-
-
-          await db
-            .collection("questions")
-            .add(data);
-
-
-          showMessage(
-            "✅ नया MCQ successfully save हो गया।",
-            "success"
-          );
-
-        }
-
-
-        resetForm();
-
-      }
-
-      catch(error) {
-
-        console.error(error);
-
-        showMessage(
-          "❌ Save failed: " + error.message,
-          "error"
-        );
-
-      }
-
-      finally {
-
-        saveBtn.disabled = false;
-
-        saveBtn.textContent =
-          editingId
-            ? "💾 Update Question"
-            : "💾 Save Question";
-
-      }
-
-    }
-  );
-
-
-  /* =========================================================
-     RENDER QUESTIONS
-  ========================================================= */
-
-  function renderQuestions() {
-
-    const search =
-      document.getElementById("searchInput")
-        .value
+      (user.email || "")
         .toLowerCase()
         .trim();
 
 
-    let filtered =
-      allQuestions.filter(function(item) {
+    if (
+      email !==
+      ADMIN_EMAIL.toLowerCase()
+    ) {
 
-        if (!search) {
-          return true;
-        }
-
-
-        const text = [
-
-          item.question || "",
-
-          item.subject || "",
-
-          item.exam || "",
-
-          item.explanation || "",
-
-          item.difficulty || ""
-
-        ]
-          .join(" ")
-          .toLowerCase();
-
-
-        return text.includes(search);
-
-      });
-
-
-    if (filtered.length === 0) {
-
-      questionsContainer.innerHTML = `
-
-        <div class="empty">
-
-          <div style="font-size:35px;margin-bottom:10px;">
-            📭
-          </div>
-
-          <strong>
-            कोई question नहीं मिला।
-          </strong>
-
-          <div style="margin-top:7px;font-size:12px;">
-            नया MCQ जोड़ने के लिए ऊपर वाला form इस्तेमाल करें।
-          </div>
-
-        </div>
-
-      `;
+      showMessage(
+        "आपके account को database में बदलाव करने की अनुमति नहीं है।",
+        "error"
+      );
 
       return;
+
     }
 
 
-    questionsContainer.innerHTML = "";
+    if (!user.emailVerified) {
 
+      showMessage(
+        "Admin email verified नहीं है।",
+        "error"
+      );
 
-    filtered.forEach(function(item, index) {
+      return;
 
-      const card =
-        document.createElement("div");
+    }
 
-      card.className =
-        "question-card";
 
+    /* -----------------------------------------
+       DATA
+    ----------------------------------------- */
 
-      const options =
-        item.options || {};
+    const data = {
 
+      question: question,
 
-      const answerText =
-        options[item.answer] || "";
+      options: {
 
+        A: optionA,
 
-      card.innerHTML = `
+        B: optionB,
 
-        <div class="question-top">
+        C: optionC,
 
-          <div style="flex:1;">
+        D: optionD
 
-            <div class="question-number">
-              Question ${index + 1}
-            </div>
+      },
 
-            <div class="question-text">
-              ${escapeHtml(item.question || "")}
-            </div>
+      answer: answer,
 
-          </div>
+      explanation: explanation,
 
+      subject: subject,
 
-          <div class="question-actions">
+      exam: exam,
 
-            <button
-              class="small-btn btn-edit"
-              onclick="editQuestion('${item.id}')"
-            >
-              ✏️ Edit
-            </button>
+      year:
+        year
+          ? Number(year)
+          : null,
 
-            <button
-              class="small-btn btn-danger"
-              onclick="deleteQuestion('${item.id}')"
-            >
-              🗑️ Delete
-            </button>
+      difficulty: difficulty,
 
-          </div>
+      updatedAt:
+        firebase.firestore.FieldValue.serverTimestamp(),
 
-        </div>
-
-
-        <div style="margin-top:15px;display:grid;gap:7px;font-size:12px;">
-
-          <div>
-            <strong>A:</strong>
-            ${escapeHtml(options.A || "")}
-          </div>
-
-          <div>
-            <strong>B:</strong>
-            ${escapeHtml(options.B || "")}
-          </div>
-
-          <div>
-            <strong>C:</strong>
-            ${escapeHtml(options.C || "")}
-          </div>
-
-          <div>
-            <strong>D:</strong>
-            ${escapeHtml(options.D || "")}
-          </div>
-
-        </div>
-
-
-        <div class="answer-box">
-
-          ✅ Correct Answer:
-          ${escapeHtml(item.answer || "")}
-
-          —
-          ${escapeHtml(answerText)}
-
-        </div>
-
-
-        <div class="question-meta">
-
-          <span class="badge">
-            📚 ${escapeHtml(item.subject || "-")}
-          </span>
-
-          <span class="badge">
-            📝 ${escapeHtml(item.exam || "-")}
-          </span>
-
-          <span class="badge">
-            📅 ${escapeHtml(String(item.year || "-"))}
-          </span>
-
-          <span class="badge">
-            🎯 ${escapeHtml(item.difficulty || "-")}
-          </span>
-
-        </div>
-
-
-        ${
-          item.explanation
-            ? `
-              <div class="explanation">
-
-                <strong>Explanation:</strong><br>
-
-                ${escapeHtml(item.explanation)}
-
-              </div>
-            `
-            : ""
-        }
-
-      `;
-
-
-      questionsContainer.appendChild(card);
-
-    });
-
-  }
-
-
-  /* =========================================================
-     EDIT QUESTION
-  ========================================================= */
-
-  window.editQuestion =
-    function(id) {
-
-      const item =
-        allQuestions.find(
-          function(q) {
-            return q.id === id;
-          }
-        );
-
-
-      if (!item) {
-
-        showMessage(
-          "Question नहीं मिला।",
-          "error"
-        );
-
-        return;
-      }
-
-
-      editingId = id;
-
-
-      document.getElementById("question").value =
-        item.question || "";
-
-
-      document.getElementById("optionA").value =
-        (item.options && item.options.A) || "";
-
-
-      document.getElementById("optionB").value =
-        (item.options && item.options.B) || "";
-
-
-      document.getElementById("optionC").value =
-        (item.options && item.options.C) || "";
-
-
-      document.getElementById("optionD").value =
-        (item.options && item.options.D) || "";
-
-
-      document.getElementById("answer").value =
-        item.answer || "";
-
-
-      document.getElementById("subject").value =
-        item.subject || "";
-
-
-      document.getElementById("exam").value =
-        item.exam || "";
-
-
-      document.getElementById("year").value =
-        item.year || "";
-
-
-      document.getElementById("difficulty").value =
-        item.difficulty || "Medium";
-
-
-      document.getElementById("explanation").value =
-        item.explanation || "";
-
-
-      document.getElementById("formTitle").textContent =
-        "✏️ MCQ Edit करें";
-
-
-      document.getElementById("saveBtn").textContent =
-        "💾 Update Question";
-
-
-      document
-        .getElementById("cancelEditBtn")
-        .classList.remove("hidden");
-
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
+      updatedBy:
+        user.email
 
     };
 
 
-  /* =========================================================
-     CANCEL EDIT
-  ========================================================= */
-
-  window.cancelEdit =
-    function() {
-
-      editingId = null;
-
-      resetForm();
-
-    };
+    const saveBtn =
+      document.getElementById("saveBtn");
 
 
-  /* =========================================================
-     RESET FORM
-  ========================================================= */
+    saveBtn.disabled = true;
 
-  function resetForm() {
-
-    questionForm.reset();
-
-    document.getElementById("difficulty").value =
-      "Medium";
-
-    document.getElementById("formTitle").textContent =
-      "➕ नया MCQ जोड़ें";
-
-    document.getElementById("saveBtn").textContent =
-      "💾 Save Question";
-
-    document
-      .getElementById("cancelEditBtn")
-      .classList.add("hidden");
-
-    editingId = null;
-
-  }
+    saveBtn.textContent =
+      editingId
+        ? "Updating..."
+        : "Saving...";
 
 
-  /* =========================================================
-     DELETE QUESTION
-  ========================================================= */
+    try {
 
-  window.deleteQuestion =
-    async function(id) {
+      /* ---------------------------------------
+         UPDATE
+      --------------------------------------- */
 
-      const item =
-        allQuestions.find(
-          function(q) {
-            return q.id === id;
-          }
-        );
-
-
-      if (!item) {
-        return;
-      }
-
-
-      const confirmed =
-        confirm(
-          "क्या आप इस question को delete करना चाहते हैं?\n\n" +
-          (item.question || "")
-        );
-
-
-      if (!confirmed) {
-        return;
-      }
-
-
-      try {
+      if (editingId) {
 
         await db
-          .collection("questions")
-          .doc(id)
-          .delete();
+          .collection(COLLECTION_NAME)
+          .doc(editingId)
+          .update(data);
 
 
         showMessage(
-          "🗑️ Question successfully delete हो गया।",
+          "✅ Question successfully updated.",
           "success"
         );
 
       }
 
-      catch(error) {
 
-        console.error(error);
+      /* ---------------------------------------
+         NEW QUESTION
+      --------------------------------------- */
+
+      else {
+
+        data.createdAt =
+          firebase.firestore.FieldValue.serverTimestamp();
+
+
+        data.createdBy =
+          user.email;
+
+
+        await db
+          .collection(COLLECTION_NAME)
+          .add(data);
+
 
         showMessage(
-          "❌ Delete failed: " + error.message,
-          "error"
+          "✅ नया MCQ successfully save हो गया।",
+          "success"
         );
 
       }
 
-    };
+
+      resetForm();
+
+    }
 
 
-  /* =========================================================
-     LOGOUT
-  ========================================================= */
+    catch(error) {
 
-  window.logout =
-    async function() {
+      console.error(error);
 
-      try {
+      showMessage(
+        "❌ Save failed: " + error.message,
+        "error"
+      );
 
-        await auth.signOut();
+    }
 
-        window.location.reload();
 
+    finally {
+
+      saveBtn.disabled = false;
+
+      saveBtn.textContent =
+        editingId
+          ? "💾 Update Question"
+          : "💾 Save Question";
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   RENDER QUESTIONS
+========================================================= */
+
+function renderQuestions() {
+
+  const search =
+    document.getElementById("searchInput")
+      .value
+      .toLowerCase()
+      .trim();
+
+
+  let filtered =
+    allQuestions.filter(function(item) {
+
+      if (!search) {
+        return true;
       }
 
-      catch(error) {
 
-        console.error(error);
+      const text = [
 
-        alert(
-          "Logout failed: " + error.message
-        );
+        item.question || "",
 
-      }
+        item.subject || "",
 
-    };
+        item.exam || "",
+
+        item.explanation || "",
+
+        item.difficulty || "",
+
+        item.answer || "",
+
+        item.options
+          ? item.options.A || ""
+          : "",
+
+        item.options
+          ? item.options.B || ""
+          : "",
+
+        item.options
+          ? item.options.C || ""
+          : "",
+
+        item.options
+          ? item.options.D || ""
+          : ""
+
+      ]
+        .join(" ")
+        .toLowerCase();
 
 
-  /* =========================================================
-     MESSAGE
-  ========================================================= */
+      return text.includes(search);
 
-  function showMessage(text, type) {
-
-    messageBox.textContent =
-      text;
-
-    messageBox.className =
-      "message " + type;
-
-
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
     });
 
 
-    setTimeout(function() {
+  /* -----------------------------------------
+     EMPTY
+  ----------------------------------------- */
 
-      messageBox.className =
-        "message";
+  if (filtered.length === 0) {
 
-    }, 5000);
+    questionsContainer.innerHTML = `
+
+      <div class="empty">
+
+        <div style="font-size:35px;margin-bottom:10px;">
+          📭
+        </div>
+
+        <strong>
+          कोई question नहीं मिला।
+        </strong>
+
+        <div style="margin-top:7px;font-size:12px;">
+          नया MCQ जोड़ने के लिए ऊपर वाला form इस्तेमाल करें।
+        </div>
+
+      </div>
+
+    `;
+
+    return;
 
   }
 
 
-  /* =========================================================
-     HTML ESCAPE
-  ========================================================= */
-
-  function escapeHtml(value) {
-
-    return String(value)
-
-      .replace(/&/g, "&amp;")
-
-      .replace(/</g, "&lt;")
-
-      .replace(/>/g, "&gt;")
-
-      .replace(/"/g, "&quot;")
-
-      .replace(/'/g, "&#039;");
-
-  }
+  questionsContainer.innerHTML = "";
 
 
-  /* =========================================================
-     SEARCH ON ENTER
-  ========================================================= */
+  /* -----------------------------------------
+     QUESTIONS
+  ----------------------------------------- */
+
+  filtered.forEach(function(item, index) {
+
+    const card =
+      document.createElement("div");
+
+
+    card.className =
+      "question-card";
+
+
+    const options =
+      item.options || {};
+
+
+    const answerText =
+      options[item.answer] || "";
+
+
+    card.innerHTML = `
+
+      <div class="question-top">
+
+        <div style="flex:1;">
+
+          <div class="question-number">
+            Question ${index + 1}
+          </div>
+
+          <div class="question-text">
+            ${escapeHtml(item.question || "")}
+          </div>
+
+        </div>
+
+
+        <div class="question-actions">
+
+          <button
+            class="small-btn btn-edit"
+            onclick="editQuestion('${escapeAttribute(item.id)}')"
+          >
+            ✏️ Edit
+          </button>
+
+          <button
+            class="small-btn btn-danger"
+            onclick="deleteQuestion('${escapeAttribute(item.id)}')"
+          >
+            🗑️ Delete
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div
+        style="
+          margin-top:15px;
+          display:grid;
+          gap:7px;
+          font-size:12px;
+        "
+      >
+
+        <div>
+          <strong>A:</strong>
+          ${escapeHtml(options.A || "")}
+        </div>
+
+        <div>
+          <strong>B:</strong>
+          ${escapeHtml(options.B || "")}
+        </div>
+
+        <div>
+          <strong>C:</strong>
+          ${escapeHtml(options.C || "")}
+        </div>
+
+        <div>
+          <strong>D:</strong>
+          ${escapeHtml(options.D || "")}
+        </div>
+
+      </div>
+
+
+      <div class="answer-box">
+
+        ✅ Correct Answer:
+        ${escapeHtml(item.answer || "")}
+
+        —
+        ${escapeHtml(answerText)}
+
+      </div>
+
+
+      <div class="question-meta">
+
+        <span class="badge">
+          📚 ${escapeHtml(item.subject || "-")}
+        </span>
+
+        <span class="badge">
+          📝 ${escapeHtml(item.exam || "-")}
+        </span>
+
+        <span class="badge">
+          📅 ${escapeHtml(String(item.year || "-"))}
+        </span>
+
+        <span class="badge">
+          🎯 ${escapeHtml(item.difficulty || "-")}
+        </span>
+
+      </div>
+
+
+      ${
+        item.explanation
+          ? `
+
+            <div class="explanation">
+
+              <strong>
+                Explanation:
+              </strong>
+
+              <br>
+
+              ${escapeHtml(item.explanation)}
+
+            </div>
+
+          `
+          : ""
+      }
+
+    `;
+
+
+    questionsContainer.appendChild(card);
+
+  });
+
+}
+
+
+/* =========================================================
+   EDIT QUESTION
+========================================================= */
+
+window.editQuestion =
+  function(id) {
+
+    const item =
+      allQuestions.find(
+        function(q) {
+          return q.id === id;
+        }
+      );
+
+
+    if (!item) {
+
+      showMessage(
+        "Question नहीं मिला।",
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    editingId =
+      id;
+
+
+    document.getElementById("question").value =
+      item.question || "";
+
+
+    document.getElementById("optionA").value =
+      item.options &&
+      item.options.A
+        ? item.options.A
+        : "";
+
+
+    document.getElementById("optionB").value =
+      item.options &&
+      item.options.B
+        ? item.options.B
+        : "";
+
+
+    document.getElementById("optionC").value =
+      item.options &&
+      item.options.C
+        ? item.options.C
+        : "";
+
+
+    document.getElementById("optionD").value =
+      item.options &&
+      item.options.D
+        ? item.options.D
+        : "";
+
+
+    document.getElementById("answer").value =
+      item.answer || "";
+
+
+    document.getElementById("subject").value =
+      item.subject || "";
+
+
+    document.getElementById("exam").value =
+      item.exam || "";
+
+
+    document.getElementById("year").value =
+      item.year || "";
+
+
+    document.getElementById("difficulty").value =
+      item.difficulty || "Medium";
+
+
+    document.getElementById("explanation").value =
+      item.explanation || "";
+
+
+    document.getElementById("formTitle").textContent =
+      "✏️ MCQ Edit करें";
+
+
+    document.getElementById("saveBtn").textContent =
+      "💾 Update Question";
+
+
+    document
+      .getElementById("cancelEditBtn")
+      .classList.remove("hidden");
+
+
+    window.scrollTo({
+
+      top: 0,
+
+      behavior: "smooth"
+
+    });
+
+  };
+
+
+/* =========================================================
+   CANCEL EDIT
+========================================================= */
+
+window.cancelEdit =
+  function() {
+
+    editingId = null;
+
+    resetForm();
+
+  };
+
+
+/* =========================================================
+   RESET FORM
+========================================================= */
+
+function resetForm() {
+
+  questionForm.reset();
+
+
+  document.getElementById("difficulty").value =
+    "Medium";
+
+
+  document.getElementById("formTitle").textContent =
+    "➕ नया MCQ जोड़ें";
+
+
+  document.getElementById("saveBtn").textContent =
+    "💾 Save Question";
+
 
   document
-    .getElementById("searchInput")
-    .addEventListener(
-      "keyup",
-      function(event) {
+    .getElementById("cancelEditBtn")
+    .classList.add("hidden");
 
-        if (event.key === "Enter") {
 
-          renderQuestions();
+  editingId = null;
 
+}
+
+
+/* =========================================================
+   DELETE QUESTION
+========================================================= */
+
+window.deleteQuestion =
+  async function(id) {
+
+    const item =
+      allQuestions.find(
+        function(q) {
+          return q.id === id;
         }
+      );
+
+
+    if (!item) {
+      return;
+    }
+
+
+    const confirmed =
+      confirm(
+        "क्या आप इस question को delete करना चाहते हैं?\n\n" +
+        (item.question || "")
+      );
+
+
+    if (!confirmed) {
+      return;
+    }
+
+
+    const user =
+      auth.currentUser;
+
+
+    if (!user) {
+
+      showMessage(
+        "Authentication expired. फिर से login करें।",
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    try {
+
+      await db
+        .collection(COLLECTION_NAME)
+        .doc(id)
+        .delete();
+
+
+      showMessage(
+        "🗑️ Question successfully delete हो गया।",
+        "success"
+      );
+
+    }
+
+
+    catch(error) {
+
+      console.error(error);
+
+      showMessage(
+        "❌ Delete failed: " + error.message,
+        "error"
+      );
+
+    }
+
+  };
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+window.logout =
+  async function() {
+
+    try {
+
+      await auth.signOut();
+
+      window.location.reload();
+
+    }
+
+    catch(error) {
+
+      console.error(error);
+
+      alert(
+        "Logout failed: " + error.message
+      );
+
+    }
+
+  };
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+function showMessage(text, type) {
+
+  messageBox.textContent =
+    text;
+
+
+  messageBox.className =
+    "message " + type;
+
+
+  window.scrollTo({
+
+    top: 0,
+
+    behavior: "smooth"
+
+  });
+
+
+  setTimeout(function() {
+
+    messageBox.className =
+      "message";
+
+  }, 6000);
+
+}
+
+
+/* =========================================================
+   HTML ESCAPE
+========================================================= */
+
+function escapeHtml(value) {
+
+  return String(value)
+
+    .replace(/&/g, "&amp;")
+
+    .replace(/</g, "&lt;")
+
+    .replace(/>/g, "&gt;")
+
+    .replace(/"/g, "&quot;")
+
+    .replace(/'/g, "&#039;");
+
+}
+
+
+/* =========================================================
+   ATTRIBUTE ESCAPE
+========================================================= */
+
+function escapeAttribute(value) {
+
+  return String(value)
+
+    .replace(/\\/g, "\\\\")
+
+    .replace(/'/g, "\\'");
+
+}
+
+
+/* =========================================================
+   SEARCH ENTER
+========================================================= */
+
+document
+  .getElementById("searchInput")
+  .addEventListener(
+    "keyup",
+    function(event) {
+
+      if (event.key === "Enter") {
+
+        renderQuestions();
 
       }
-    );
 
+    }
+  );
 
 </script>
 
