@@ -6,7 +6,7 @@
 <title>MPPSC MCQ Hub</title>
 <style>
 body{font-family:Arial,sans-serif;background:#eef4ff;margin:0}
-header{background:#0645d8;color:#fff;padding:15px}
+header:not(.mppsc-site-header){display:none !important}
 #quiz{padding:10px}
 .qbox{background:#fff;margin:12px 0;padding:15px;border-radius:10px}
 .option{display:block;padding:10px;margin:8px 0;border:1px solid #ccc;border-radius:6px;cursor:pointer}
@@ -21,13 +21,18 @@ textarea{width:100%}
 <body>
 <!-- MPPSC MCQ Hub site header -->
 <style>
-  .mppsc-site-header { background:#1450a3; color:#fff; display:flex; align-items:center; gap:12px; padding:8px 16px; margin:0 0 16px 0; box-sizing:border-box; width:100%; }
-  .mppsc-site-header img { width:46px; height:46px; object-fit:cover; border-radius:50%; border:2px solid #fff; background:#fff; display:block; }
+  .mppsc-site-header { background:#1450a3; color:#fff; display:flex; align-items:center; gap:10px; padding:7px 14px; margin:0 0 0 0; box-sizing:border-box; width:100%; min-height:58px; }
+  .mppsc-site-header img { width:46px; height:46px; object-fit:contain; border-radius:50%; border:0; background:transparent; display:block; flex:0 0 46px; }
   .mppsc-site-header .site-title { font-size:20px; font-weight:700; line-height:1.2; }
   @media (max-width:600px) { .mppsc-site-header .site-title { font-size:17px; } .mppsc-site-header img { width:36px; height:36px; } }
 </style>
+<style>
+  /* केवल यही header दिखाई देगा; पुराना/अतिरिक्त header छिपा दें */
+  body > header:not(.mppsc-site-header), body > .header, body > .page-title { display:none !important; }
+  .mppsc-site-header + header { display:none !important; }
+</style>
 <header class="mppsc-site-header">
-  <img src="my-logo.jpg" alt="MPPSC MCQ Hub Logo">
+  <img src="my-logo.jpg" alt="MPPSC MCQ Hub Logo" width="46" height="46">
   <div class="site-title">MPPSC MCQ Hub V14</div>
 </header>
 
