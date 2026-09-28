@@ -1,625 +1,607 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>MPPSC MCQ Hub - Admin Login</title>
+<title>MPPSC MCQ Hub - Admin Login</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      min-height: 100vh;
-      background: #eef4ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #172033;
-      padding: 20px;
-    }
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  min-height:100vh;
+  background:#eef4ff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#172033;
+  padding:20px;
+}
 
-    .container {
-      width: 100%;
-      max-width: 480px;
-    }
+.container{
+  width:100%;
+  max-width:480px;
+}
 
-    .card {
-      background: #ffffff;
-      border-radius: 18px;
-      padding: 32px;
-      box-shadow: 0 10px 35px rgba(0, 0, 0, .12);
-    }
+.card{
+  background:#fff;
+  border-radius:18px;
+  padding:32px;
+  box-shadow:0 10px 35px rgba(0,0,0,.12);
+}
 
-    .logo {
-      text-align: center;
-      font-size: 48px;
-      margin-bottom: 8px;
-    }
+.logo{
+  text-align:center;
+  font-size:48px;
+  margin-bottom:8px;
+}
 
-    h1 {
-      text-align: center;
-      font-size: 25px;
-      margin-bottom: 8px;
-      color: #18233a;
-    }
+h1{
+  text-align:center;
+  font-size:25px;
+  margin-bottom:8px;
+  color:#18233a;
+}
 
-    .subtitle {
-      text-align: center;
-      color: #6b7280;
-      font-size: 14px;
-      margin-bottom: 25px;
-    }
+.subtitle{
+  text-align:center;
+  color:#6b7280;
+  font-size:14px;
+  margin-bottom:25px;
+}
 
-    button {
-      width: 100%;
-      border: none;
-      border-radius: 10px;
-      padding: 13px 16px;
-      font-size: 15px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: .2s;
-    }
+button{
+  width:100%;
+  border:none;
+  border-radius:10px;
+  padding:13px 16px;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.2s;
+}
 
-    button:hover {
-      opacity: .92;
-    }
+button:hover{
+  opacity:.92;
+}
 
-    button:disabled {
-      opacity: .6;
-      cursor: not-allowed;
-    }
+button:disabled{
+  opacity:.6;
+  cursor:not-allowed;
+}
 
-    .google-btn {
-      background: #ffffff;
-      border: 1px solid #cfd5df;
-      color: #202124;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, .06);
-    }
+.google-btn{
+  background:#fff;
+  border:1px solid #cfd5df;
+  color:#202124;
+  box-shadow:0 2px 8px rgba(0,0,0,.06);
+}
 
-    .google-btn:hover {
-      background: #f8f9fa;
-    }
+.google-btn:hover{
+  background:#f8f9fa;
+}
 
-    .primary-btn {
-      background: #2864d7;
-      color: #ffffff;
-      margin-top: 12px;
-    }
+.primary-btn{
+  background:#2864d7;
+  color:#fff;
+  margin-top:12px;
+}
 
-    .danger-btn {
-      background: #dc3545;
-      color: #ffffff;
-      margin-top: 10px;
-    }
+.danger-btn{
+  background:#dc3545;
+  color:#fff;
+  margin-top:10px;
+}
 
-    .secondary-btn {
-      background: #eef2f7;
-      color: #26364d;
-      margin-top: 10px;
-    }
+.secondary-btn{
+  background:#eef2f7;
+  color:#26364d;
+  margin-top:10px;
+}
 
-    input {
-      width: 100%;
-      padding: 13px;
-      border: 1px solid #cbd5e1;
-      border-radius: 9px;
-      outline: none;
-      font-size: 18px;
-      margin-top: 8px;
-      text-align: center;
-      letter-spacing: 4px;
-    }
+input{
+  width:100%;
+  padding:13px;
+  border:1px solid #cbd5e1;
+  border-radius:9px;
+  outline:none;
+  font-size:18px;
+  margin-top:8px;
+  text-align:center;
+  letter-spacing:4px;
+}
 
-    input:focus {
-      border-color: #2864d7;
-      box-shadow: 0 0 0 3px rgba(40, 100, 215, .12);
-    }
+input:focus{
+  border-color:#2864d7;
+  box-shadow:0 0 0 3px rgba(40,100,215,.12);
+}
 
-    label {
-      display: block;
-      margin-top: 15px;
-      font-weight: 700;
-      font-size: 14px;
-      color: #334155;
-    }
+label{
+  display:block;
+  margin-top:15px;
+  font-weight:700;
+  font-size:14px;
+  color:#334155;
+}
 
-    .message {
-      margin-top: 15px;
-      padding: 12px;
-      border-radius: 9px;
-      font-size: 14px;
-      line-height: 1.5;
-      display: none;
-    }
+.message{
+  margin-top:15px;
+  padding:12px;
+  border-radius:9px;
+  font-size:14px;
+  line-height:1.5;
+  display:none;
+}
 
-    .error {
-      background: #fff0f0;
-      color: #c62828;
-      border: 1px solid #ffcaca;
-    }
+.error{
+  background:#fff0f0;
+  color:#c62828;
+  border:1px solid #ffcaca;
+}
 
-    .success {
-      background: #effaf2;
-      color: #1b7d38;
-      border: 1px solid #bce7c7;
-    }
+.success{
+  background:#effaf2;
+  color:#1b7d38;
+  border:1px solid #bce7c7;
+}
 
-    .info {
-      background: #eef5ff;
-      color: #2457a6;
-      border: 1px solid #c9dcff;
-    }
+.info{
+  background:#eef5ff;
+  color:#2457a6;
+  border:1px solid #c9dcff;
+}
 
-    .hidden {
-      display: none !important;
-    }
+.hidden{
+  display:none !important;
+}
 
-    .user-box {
-      background: #f7f9fc;
-      border-radius: 12px;
-      padding: 15px;
-      margin-bottom: 20px;
-    }
+.user-box{
+  background:#f7f9fc;
+  border-radius:12px;
+  padding:15px;
+  margin-bottom:20px;
+}
 
-    .user-name {
-      font-weight: 700;
-      font-size: 16px;
-    }
+.user-name{
+  font-weight:700;
+  font-size:16px;
+}
 
-    .user-email {
-      color: #64748b;
-      font-size: 13px;
-      margin-top: 4px;
-      word-break: break-all;
-    }
+.user-email{
+  color:#64748b;
+  font-size:13px;
+  margin-top:4px;
+  word-break:break-all;
+}
 
-    .section {
-      border-top: 1px solid #e5e7eb;
-      margin-top: 20px;
-      padding-top: 20px;
-    }
+.section{
+  border-top:1px solid #e5e7eb;
+  margin-top:20px;
+  padding-top:20px;
+}
 
-    .section h2 {
-      font-size: 18px;
-      margin-bottom: 8px;
-    }
+.section h2{
+  font-size:18px;
+  margin-bottom:8px;
+}
 
-    .section p {
-      font-size: 13px;
-      color: #64748b;
-      line-height: 1.6;
-    }
+.section p{
+  font-size:13px;
+  color:#64748b;
+  line-height:1.6;
+}
 
-    .qr-box {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #ffffff;
-      padding: 15px;
-      margin: 15px 0;
-      border-radius: 10px;
-      border: 1px solid #e2e8f0;
-      min-height: 250px;
-    }
+.qr-box{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#fff;
+  padding:15px;
+  margin:15px 0;
+  border-radius:10px;
+  border:1px solid #e2e8f0;
+  min-height:240px;
+}
 
-    #qr-canvas {
-      width: 220px;
-      height: 220px;
-      display: block;
-    }
+#qr-canvas{
+  width:220px;
+  height:220px;
+  display:block;
+}
 
-    .secret-box {
-      background: #f1f5f9;
-      padding: 12px;
-      border-radius: 8px;
-      font-family: monospace;
-      word-break: break-all;
-      font-size: 13px;
-      margin-top: 10px;
-      user-select: all;
-    }
+.secret-box{
+  background:#f1f5f9;
+  padding:12px;
+  border-radius:8px;
+  font-family:monospace;
+  word-break:break-all;
+  font-size:13px;
+  margin-top:10px;
+  user-select:all;
+}
 
-    .footer {
-      text-align: center;
-      margin-top: 20px;
-      color: #94a3b8;
-      font-size: 12px;
-    }
+.footer{
+  text-align:center;
+  margin-top:20px;
+  color:#94a3b8;
+  font-size:12px;
+}
 
-    .step {
-      background: #f8fafc;
-      border-left: 4px solid #2864d7;
-      padding: 12px;
-      margin-top: 12px;
-      border-radius: 6px;
-      font-size: 13px;
-      line-height: 1.6;
-    }
+.step{
+  background:#f8fafc;
+  border-left:4px solid #2864d7;
+  padding:12px;
+  margin-top:12px;
+  border-radius:6px;
+  font-size:13px;
+  line-height:1.6;
+}
 
-    .code-input {
-      font-size: 22px;
-      letter-spacing: 6px;
-    }
+.code-input{
+  font-size:22px;
+  letter-spacing:6px;
+}
 
-    .small-note {
-      margin-top: 8px;
-      color: #64748b;
-      font-size: 12px;
-      line-height: 1.5;
-    }
+.small-note{
+  margin-top:8px;
+  color:#64748b;
+  font-size:12px;
+  line-height:1.5;
+}
 
-    .mfa-title {
-      color: #18233a;
-    }
+.mfa-title{
+  color:#18233a;
+}
 
-    .security-badge {
-      display: inline-block;
-      background: #fff3cd;
-      color: #856404;
-      border: 1px solid #ffe69c;
-      border-radius: 6px;
-      padding: 4px 8px;
-      font-size: 12px;
-      margin-top: 8px;
-    }
+.security-badge{
+  display:inline-block;
+  background:#fff3cd;
+  color:#856404;
+  border:1px solid #ffe69c;
+  border-radius:6px;
+  padding:4px 8px;
+  font-size:12px;
+  margin-top:8px;
+}
 
-    .loading-box {
-      text-align: center;
-      padding: 20px 0;
-      color: #64748b;
-      font-size: 14px;
-    }
-  </style>
+.status-dot{
+  display:inline-block;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#22c55e;
+  margin-right:6px;
+}
+</style>
 </head>
 
 <body>
 
 <div class="container">
 
-  <div class="card">
+<div class="card">
 
-    <div class="logo">🔐</div>
+<div class="logo">🔐</div>
 
-    <h1>Admin Login</h1>
+<h1>Admin Login</h1>
 
-    <div class="subtitle">
-      MPPSC MCQ Hub Admin Panel
-    </div>
+<div class="subtitle">
+MPPSC MCQ Hub Admin Panel
+</div>
 
 
-    <!-- =====================================================
-         LOGIN
-    ====================================================== -->
+<!-- =====================================================
+     LOGIN
+===================================================== -->
 
-    <div id="login-section">
+<div id="login-section">
 
-      <button
-        id="google-login-btn"
-        class="google-btn">
+<button
+id="google-login-btn"
+class="google-btn">
 
-        🔑 Continue with Google
+🔑 Continue with Google
 
-      </button>
+</button>
 
-      <div
-        id="login-message"
-        class="message">
-      </div>
+<div
+id="login-message"
+class="message">
+</div>
 
-      <div class="footer">
-        केवल अधिकृत Admin Google Account से login करें।
-      </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         MFA
-    ====================================================== -->
-
-    <div
-      id="mfa-section"
-      class="hidden">
-
-      <div class="section">
-
-        <h2 class="mfa-title">
-          🔐 2-Step Verification
-        </h2>
-
-        <p>
-          आपके Admin Google account पर
-          Google Authenticator enabled है।
-          Authenticator app से वर्तमान
-          6-digit code डालें।
-        </p>
-
-        <div class="security-badge">
-          🛡️ MFA Verification Required
-        </div>
-
-
-        <label for="mfa-code">
-          Authenticator Code
-        </label>
-
-        <input
-          id="mfa-code"
-          class="code-input"
-          type="text"
-          inputmode="numeric"
-          maxlength="6"
-          placeholder="000000"
-          autocomplete="one-time-code"
-        >
-
-
-        <button
-          id="verify-mfa-btn"
-          class="primary-btn">
-
-          Verify Code
-
-        </button>
-
-
-        <div
-          id="mfa-message"
-          class="message">
-        </div>
-
-
-        <button
-          id="mfa-cancel-btn"
-          class="secondary-btn">
-
-          Cancel
-
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         ADMIN
-    ====================================================== -->
-
-    <div
-      id="admin-section"
-      class="hidden">
-
-      <div class="user-box">
-
-        <div
-          class="user-name"
-          id="user-name">
-
-          MPPSC Admin
-
-        </div>
-
-        <div
-          class="user-email"
-          id="user-email">
-        </div>
-
-      </div>
-
-
-      <!-- =================================================
-           TOTP
-      ================================================== -->
-
-      <div id="totp-section">
-
-        <div class="section">
-
-          <h2>
-            🛡️ Google Authenticator
-          </h2>
-
-          <p>
-            Admin account की security के लिए
-            Google Authenticator TOTP enable करें।
-          </p>
-
-          <div
-            id="totp-status"
-            class="message info">
-
-            TOTP status check हो रहा है...
-
-          </div>
-
-        </div>
-
-
-        <!-- =================================================
-             TOTP SETUP
-        ================================================== -->
-
-        <div
-          id="totp-enroll-box"
-          class="hidden">
-
-          <div class="section">
-
-            <h2>
-              2-Step Verification Setup
-            </h2>
-
-            <div class="step">
-
-              <b>Step 1:</b>
-              नीचे दिए गए QR code को
-              Google Authenticator app से scan करें।
-
-            </div>
-
-
-            <div class="qr-box">
-
-              <canvas
-                id="qr-canvas"
-                width="220"
-                height="220">
-              </canvas>
-
-            </div>
-
-
-            <div class="step">
-
-              <b>Step 2:</b>
-              अगर QR scan नहीं हो रहा है तो नीचे दिया गया
-              Manual Secret Key Google Authenticator में
-              manually add करें।
-
-            </div>
-
-
-            <label>
-              Manual Secret Key
-            </label>
-
-            <div
-              id="totp-secret"
-              class="secret-box">
-
-              Secret generate हो रहा है...
-
-            </div>
-
-
-            <div class="step">
-
-              <b>Step 3:</b>
-              Google Authenticator में दिखाई दे रहा
-              6-digit code नीचे डालें।
-
-            </div>
-
-
-            <label for="totp-code">
-              Authenticator Code
-            </label>
-
-            <input
-              id="totp-code"
-              class="code-input"
-              type="text"
-              inputmode="numeric"
-              maxlength="6"
-              placeholder="000000"
-              autocomplete="one-time-code"
-            >
-
-
-            <button
-              id="verify-totp-btn"
-              class="primary-btn">
-
-              ✅ Verify & Enable TOTP
-
-            </button>
-
-
-            <div
-              id="totp-enroll-message"
-              class="message">
-            </div>
-
-
-            <div class="small-note">
-
-              ध्यान दें: QR/Secret को किसी दूसरे व्यक्ति
-              के साथ share न करें।
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- =================================================
-             TOTP ENABLED
-        ================================================== -->
-
-        <div
-          id="totp-enabled-box"
-          class="hidden">
-
-          <div class="section">
-
-            <div
-              class="message success"
-              style="display:block;">
-
-              ✅ Google Authenticator TOTP पहले से enabled है।
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- =================================================
-             LOGOUT
-        ================================================== -->
-
-        <div class="section">
-
-          <button
-            id="logout-btn"
-            class="danger-btn">
-
-            Logout
-
-          </button>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
+<div class="footer">
+केवल अधिकृत Admin Google Account से login करें।
+</div>
 
 </div>
 
 
-<!-- =========================================================
+<!-- =====================================================
+     MFA
+===================================================== -->
+
+<div id="mfa-section" class="hidden">
+
+<div class="section">
+
+<h2 class="mfa-title">
+🔐 2-Step Verification
+</h2>
+
+<p>
+आपके Admin Google account पर
+Google Authenticator enabled है।
+<br><br>
+Authenticator app से वर्तमान
+6-digit code डालें।
+</p>
+
+<div class="security-badge">
+🛡️ MFA Verification Required
+</div>
+
+<label for="mfa-code">
+Authenticator Code
+</label>
+
+<input
+id="mfa-code"
+class="code-input"
+type="text"
+inputmode="numeric"
+maxlength="6"
+placeholder="000000"
+autocomplete="one-time-code">
+
+<button
+id="verify-mfa-btn"
+class="primary-btn">
+
+Verify Code
+
+</button>
+
+<div
+id="mfa-message"
+class="message">
+</div>
+
+<button
+id="mfa-cancel-btn"
+class="secondary-btn">
+
+Cancel
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     ADMIN PANEL
+===================================================== -->
+
+<div id="admin-section" class="hidden">
+
+<div class="user-box">
+
+<div
+class="user-name"
+id="user-name">
+
+MPPSC Admin
+
+</div>
+
+<div
+class="user-email"
+id="user-email">
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     TOTP
+===================================================== -->
+
+<div id="totp-section">
+
+<div class="section">
+
+<h2>🛡️ Google Authenticator</h2>
+
+<p>
+Admin account की security के लिए
+Google Authenticator TOTP enable करें।
+</p>
+
+<div
+id="totp-status"
+class="message info">
+
+TOTP status check हो रहा है...
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     TOTP ENROLLMENT
+===================================================== -->
+
+<div
+id="totp-enroll-box"
+class="hidden">
+
+<div class="section">
+
+<h2>
+2-Step Verification Setup
+</h2>
+
+<div class="step">
+
+<b>Step 1:</b><br>
+
+नीचे दिए गए QR code को
+Google Authenticator app से scan करें।
+
+</div>
+
+<div class="qr-box">
+
+<canvas
+id="qr-canvas"
+width="220"
+height="220">
+</canvas>
+
+</div>
+
+<div class="step">
+
+<b>Step 2:</b><br>
+
+अगर QR scan नहीं हो रहा है तो नीचे दिया गया
+Manual Secret Key Google Authenticator में
+manually add करें।
+
+</div>
+
+<label>
+Manual Secret Key
+</label>
+
+<div
+id="totp-secret"
+class="secret-box">
+
+Secret generate हो रहा है...
+
+</div>
+
+<div class="step">
+
+<b>Step 3:</b><br>
+
+Google Authenticator में दिखाई दे रहा
+6-digit code नीचे डालें।
+
+</div>
+
+<label for="totp-code">
+Authenticator Code
+</label>
+
+<input
+id="totp-code"
+class="code-input"
+type="text"
+inputmode="numeric"
+maxlength="6"
+placeholder="000000"
+autocomplete="one-time-code">
+
+<button
+id="verify-totp-btn"
+class="primary-btn">
+
+✅ Verify & Enable TOTP
+
+</button>
+
+<div
+id="totp-enroll-message"
+class="message">
+</div>
+
+<div class="small-note">
+
+ध्यान दें: QR/Secret को किसी दूसरे व्यक्ति
+के साथ share न करें।
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     TOTP ENABLED
+===================================================== -->
+
+<div
+id="totp-enabled-box"
+class="hidden">
+
+<div class="section">
+
+<div
+class="message success"
+style="display:block;">
+
+<span class="status-dot"></span>
+Google Authenticator TOTP पहले से enabled है।
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     LOGOUT
+===================================================== -->
+
+<div class="section">
+
+<button
+id="logout-btn"
+class="danger-btn">
+
+Logout
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
      QR LIBRARY
-========================================================= -->
+===================================================== -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
 
 
-<!-- =========================================================
-     FIREBASE
-========================================================= -->
-
 <script type="module">
 
 /* =========================================================
-   FIREBASE IMPORTS
+   FIREBASE
 ========================================================= */
 
 import {
   initializeApp
 } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
-
 
 import {
   getAuth,
@@ -672,38 +654,23 @@ const ALLOWED_ADMIN_EMAIL =
 
 
 /* =========================================================
-   FIREBASE INITIALIZE
+   FIREBASE INIT
 ========================================================= */
 
-let app;
-let auth;
-let provider;
-
-try {
-
-  app = initializeApp(
+const app =
+  initializeApp(
     firebaseConfig
   );
 
-  auth = getAuth(
-    app
-  );
+const auth =
+  getAuth(app);
 
-  provider =
-    new GoogleAuthProvider();
+const provider =
+  new GoogleAuthProvider();
 
-  provider.setCustomParameters({
-    prompt: "select_account"
-  });
-
-} catch (error) {
-
-  console.error(
-    "Firebase initialization error:",
-    error
-  );
-
-}
+provider.setCustomParameters({
+  prompt:"select_account"
+});
 
 
 /* =========================================================
@@ -725,7 +692,6 @@ const mfaSection =
     "mfa-section"
   );
 
-
 const googleLoginBtn =
   document.getElementById(
     "google-login-btn"
@@ -735,7 +701,6 @@ const logoutBtn =
   document.getElementById(
     "logout-btn"
   );
-
 
 const verifyMfaBtn =
   document.getElementById(
@@ -747,12 +712,10 @@ const mfaCancelBtn =
     "mfa-cancel-btn"
   );
 
-
 const verifyTotpBtn =
   document.getElementById(
     "verify-totp-btn"
   );
-
 
 const userName =
   document.getElementById(
@@ -763,7 +726,6 @@ const userEmail =
   document.getElementById(
     "user-email"
   );
-
 
 const totpStatus =
   document.getElementById(
@@ -780,24 +742,20 @@ const totpEnabledBox =
     "totp-enabled-box"
   );
 
-
 const totpSecret =
   document.getElementById(
     "totp-secret"
   );
-
 
 const totpCode =
   document.getElementById(
     "totp-code"
   );
 
-
 const mfaCode =
   document.getElementById(
     "mfa-code"
   );
-
 
 const qrCanvas =
   document.getElementById(
@@ -806,40 +764,35 @@ const qrCanvas =
 
 
 /* =========================================================
-   AUTH FLOW STATE
+   SECURITY STATE
 ========================================================= */
 
 /*
- * IMPORTANT:
- *
- * इन variables का काम authentication race condition
- * को रोकना है।
- */
+  बहुत महत्वपूर्ण:
 
-let currentMfaResolver = null;
-
-let currentTotpSecret = null;
+  Firebase MFA popup के दौरान auth state बदल सकता है।
+  इसलिए केवल onAuthStateChanged(user) देखकर Admin Panel
+  नहीं खोलेंगे।
+*/
 
 let mfaPending = false;
 
+let mfaResolver = null;
+
 let loginInProgress = false;
 
-let initialAuthCheck = true;
+let mfaVerifiedInThisFlow = false;
 
-let authFlowId = 0;
+let currentTotpSecret = null;
 
 
 /* =========================================================
    UI
 ========================================================= */
 
-function showOnlyLogin() {
+function showLogin(){
 
   loginSection.classList.remove(
-    "hidden"
-  );
-
-  adminSection.classList.add(
     "hidden"
   );
 
@@ -847,16 +800,16 @@ function showOnlyLogin() {
     "hidden"
   );
 
-}
-
-
-function showOnlyMfa() {
-
-  loginSection.classList.add(
+  adminSection.classList.add(
     "hidden"
   );
 
-  adminSection.classList.add(
+}
+
+
+function showMfa(){
+
+  loginSection.classList.add(
     "hidden"
   );
 
@@ -864,10 +817,14 @@ function showOnlyMfa() {
     "hidden"
   );
 
+  adminSection.classList.add(
+    "hidden"
+  );
+
 }
 
 
-function showOnlyAdmin() {
+function showAdmin(){
 
   loginSection.classList.add(
     "hidden"
@@ -889,42 +846,40 @@ function showOnlyAdmin() {
 ========================================================= */
 
 function showMessage(
-  elementId,
+  id,
   text,
-  type = "info"
-) {
+  type="info"
+){
 
-  const element =
+  const el =
     document.getElementById(
-      elementId
+      id
     );
 
-  if (!element) return;
+  if(!el) return;
 
-  element.className =
+  el.className =
     "message " + type;
 
-  element.textContent =
+  el.textContent =
     text;
 
-  element.style.display =
+  el.style.display =
     "block";
 
 }
 
 
-function hideMessage(
-  elementId
-) {
+function hideMessage(id){
 
-  const element =
+  const el =
     document.getElementById(
-      elementId
+      id
     );
 
-  if (!element) return;
+  if(!el) return;
 
-  element.style.display =
+  el.style.display =
     "none";
 
 }
@@ -934,12 +889,12 @@ function hideMessage(
    ADMIN CHECK
 ========================================================= */
 
-function isAllowedAdmin(user) {
+function isAllowedAdmin(user){
 
-  if (
+  if(
     !user ||
     !user.email
-  ) {
+  ){
 
     return false;
 
@@ -957,7 +912,7 @@ function isAllowedAdmin(user) {
    FIREBASE ERROR
 ========================================================= */
 
-function friendlyFirebaseError(error) {
+function firebaseError(error){
 
   console.error(
     "Firebase Error:",
@@ -971,17 +926,7 @@ function friendlyFirebaseError(error) {
     error?.message || "";
 
 
-  switch (code) {
-
-    case "auth/api-key-not-valid-please-pass-a-valid-api-key":
-
-      return "Firebase API Key गलत है।";
-
-
-    case "auth/operation-not-allowed":
-
-      return "Google Sign-In Firebase Console में enabled नहीं है।";
-
+  switch(code){
 
     case "auth/popup-closed-by-user":
 
@@ -998,6 +943,11 @@ function friendlyFirebaseError(error) {
       return "mppscportal.in Firebase Authentication के Authorized Domains में add नहीं है।";
 
 
+    case "auth/operation-not-allowed":
+
+      return "Firebase Console में Google Sign-In enable नहीं है।";
+
+
     case "auth/multi-factor-auth-required":
 
       return "Google Authenticator verification required है।";
@@ -1005,7 +955,7 @@ function friendlyFirebaseError(error) {
 
     case "auth/invalid-verification-code":
 
-      return "Authenticator code गलत है।";
+      return "Authenticator code गलत है या expire हो गया है। नया 6-digit code डालें।";
 
 
     case "auth/code-expired":
@@ -1013,34 +963,34 @@ function friendlyFirebaseError(error) {
       return "Authenticator code expire हो गया। नया code डालें।";
 
 
+    case "auth/invalid-multi-factor-session":
+
+      return "MFA session expire हो गया। दोबारा Google login करें।";
+
+
+    case "auth/multi-factor-enrollment-not-found":
+
+      return "MFA enrollment नहीं मिला।";
+
+
+    case "auth/second-factor-already-in-use":
+
+      return "यह Authenticator पहले से enabled है।";
+
+
+    case "auth/multi-factor-info-already-in-use":
+
+      return "यह authentication factor पहले से registered है।";
+
+
     case "auth/requires-recent-login":
 
       return "Security के लिए दोबारा Google login करना जरूरी है।";
 
 
-    case "auth/second-factor-already-in-use":
+    case "auth/api-key-not-valid-please-pass-a-valid-api-key":
 
-      return "यह Authenticator पहले से account में enabled है।";
-
-
-    case "auth/missing-multi-factor-info":
-
-      return "MFA configuration उपलब्ध नहीं है। Firebase Console में TOTP MFA enable करें।";
-
-
-    case "auth/multi-factor-info-already-in-use":
-
-      return "यह दूसरा authentication factor पहले से registered है।";
-
-
-    case "auth/invalid-multi-factor-session":
-
-      return "MFA session expire हो गया। कृपया दोबारा login करें।";
-
-
-    case "auth/multi-factor-enrollment-not-found":
-
-      return "TOTP enrollment नहीं मिला।";
+      return "Firebase API Key गलत है।";
 
 
     default:
@@ -1056,10 +1006,31 @@ function friendlyFirebaseError(error) {
 
 
 /* =========================================================
+   RESET MFA
+========================================================= */
+
+function resetMfa(){
+
+  mfaPending =
+    false;
+
+  mfaResolver =
+    null;
+
+  mfaVerifiedInThisFlow =
+    false;
+
+  mfaCode.value =
+    "";
+
+}
+
+
+/* =========================================================
    RESET TOTP
 ========================================================= */
 
-function resetTotpSetup() {
+function resetTotp(){
 
   currentTotpSecret =
     null;
@@ -1070,7 +1041,7 @@ function resetTotpSetup() {
   totpCode.value =
     "";
 
-  try {
+  try{
 
     const ctx =
       qrCanvas.getContext(
@@ -1084,11 +1055,9 @@ function resetTotpSetup() {
       qrCanvas.height
     );
 
-  } catch (error) {
+  }catch(error){
 
-    console.error(
-      error
-    );
+    console.error(error);
 
   }
 
@@ -1096,18 +1065,18 @@ function resetTotpSetup() {
 
 
 /* =========================================================
-   QR CODE
+   QR
 ========================================================= */
 
-function generateQRCode(uri) {
+function generateQR(uri){
 
-  if (
+  if(
     typeof QRious ===
     "undefined"
-  ) {
+  ){
 
     throw new Error(
-      "QR Code library load नहीं हुई।"
+      "QR library load नहीं हुई।"
     );
 
   }
@@ -1132,18 +1101,14 @@ function generateQRCode(uri) {
 
 
 /* =========================================================
-   CREATE TOTP SETUP
+   TOTP SETUP
 ========================================================= */
 
-async function createTotpSetup(user) {
+async function createTotpSetup(user){
 
-  const thisFlow =
-    authFlowId;
+  try{
 
-
-  try {
-
-    resetTotpSetup();
+    resetTotp();
 
     totpStatus.style.display =
       "block";
@@ -1161,34 +1126,11 @@ async function createTotpSetup(user) {
       ).getSession();
 
 
-    /*
-     * अगर इस बीच authentication flow बदल गया
-     * तो पुराना operation रोक दो।
-     */
-
-    if (
-      thisFlow !== authFlowId
-    ) {
-
-      return;
-
-    }
-
-
     const secret =
       await TotpMultiFactorGenerator
         .generateSecret(
           session
         );
-
-
-    if (
-      thisFlow !== authFlowId
-    ) {
-
-      return;
-
-    }
 
 
     currentTotpSecret =
@@ -1199,21 +1141,20 @@ async function createTotpSetup(user) {
       secret.secretKey;
 
 
-    const qrUri =
+    const uri =
       secret.generateQrCodeUrl(
         user.email,
         "MPPSC MCQ Hub"
       );
 
 
-    generateQRCode(
-      qrUri
+    generateQR(
+      uri
     );
 
 
     totpStatus.style.display =
       "none";
-
 
     totpEnrollBox.classList.remove(
       "hidden"
@@ -1223,16 +1164,17 @@ async function createTotpSetup(user) {
       "hidden"
     );
 
-  } catch (error) {
+
+  }catch(error){
 
     console.error(
-      "TOTP Setup Error:",
+      "TOTP setup error:",
       error
     );
 
     showMessage(
       "totp-enroll-message",
-      friendlyFirebaseError(error),
+      firebaseError(error),
       "error"
     );
 
@@ -1245,19 +1187,19 @@ async function createTotpSetup(user) {
    CHECK TOTP
 ========================================================= */
 
-async function checkTotpStatus(user) {
+async function checkTotp(user){
 
-  try {
+  try{
 
-    const enrolledFactors =
+    const factors =
       multiFactor(
         user
       ).enrolledFactors || [];
 
 
-    if (
-      enrolledFactors.length > 0
-    ) {
+    if(
+      factors.length > 0
+    ){
 
       totpStatus.style.display =
         "none";
@@ -1270,14 +1212,10 @@ async function checkTotpStatus(user) {
         "hidden"
       );
 
-      return;
+      return true;
 
     }
 
-
-    /*
-     * TOTP अभी enabled नहीं है।
-     */
 
     totpStatus.style.display =
       "block";
@@ -1302,18 +1240,23 @@ async function checkTotpStatus(user) {
       user
     );
 
-  } catch (error) {
+
+    return false;
+
+  }catch(error){
 
     console.error(
-      "TOTP status error:",
+      "TOTP check error:",
       error
     );
 
     showMessage(
       "totp-enroll-message",
-      friendlyFirebaseError(error),
+      firebaseError(error),
       "error"
     );
+
+    return false;
 
   }
 
@@ -1324,55 +1267,28 @@ async function checkTotpStatus(user) {
    OPEN ADMIN
 ========================================================= */
 
-async function openAdminPanel(user) {
+async function openAdmin(user){
 
   /*
-   * सबसे important security gate.
-   */
+    MFA pending होने पर कभी Admin panel नहीं।
+  */
 
-  if (
-    mfaPending
-  ) {
+  if(mfaPending){
 
     console.warn(
-      "MFA pending - Admin panel blocked."
+      "MFA pending -> Admin blocked"
     );
 
-    showOnlyMfa();
+    showMfa();
 
-    return false;
+    return;
 
   }
 
 
-  /*
-   * MFA resolver मौजूद है तो भी Admin नहीं खोलना।
-   */
+  if(!isAllowedAdmin(user)){
 
-  if (
-    currentMfaResolver
-  ) {
-
-    console.warn(
-      "MFA resolver exists - Admin panel blocked."
-    );
-
-    showOnlyMfa();
-
-    return false;
-
-  }
-
-
-  /*
-   * Admin email check.
-   */
-
-  if (
-    !isAllowedAdmin(user)
-  ) {
-
-    showOnlyLogin();
+    showLogin();
 
     showMessage(
       "login-message",
@@ -1380,59 +1296,43 @@ async function openAdminPanel(user) {
       "error"
     );
 
-    try {
+    try{
 
       await signOut(
         auth
       );
 
-    } catch (error) {
+    }catch(error){
 
-      console.error(
-        error
-      );
+      console.error(error);
 
     }
 
-    return false;
+    return;
 
   }
 
 
   /*
-   * Final MFA check.
-   */
+    केवल MFA successful flow के बाद
+    या पहले से Firebase द्वारा authenticated
+    session होने पर Admin panel।
+  */
 
-  if (
-    mfaPending ||
-    currentMfaResolver
-  ) {
-
-    showOnlyMfa();
-
-    return false;
-
-  }
-
-
-  showOnlyAdmin();
+  showAdmin();
 
 
   userName.textContent =
     user.displayName ||
     "MPPSC Admin";
 
-
   userEmail.textContent =
     user.email;
 
 
-  await checkTotpStatus(
+  await checkTotp(
     user
   );
-
-
-  return true;
 
 }
 
@@ -1443,26 +1343,13 @@ async function openAdminPanel(user) {
 
 googleLoginBtn.addEventListener(
   "click",
-  async () => {
+  async function(){
 
-    if (
-      loginInProgress
-    ) {
+    if(loginInProgress){
 
       return;
 
     }
-
-
-    /*
-     * नया authentication flow.
-     */
-
-    authFlowId++;
-
-
-    const thisFlow =
-      authFlowId;
 
 
     loginInProgress =
@@ -1471,15 +1358,12 @@ googleLoginBtn.addEventListener(
     mfaPending =
       false;
 
-    currentMfaResolver =
+    mfaResolver =
       null;
 
+    mfaVerifiedInThisFlow =
+      false;
 
-    /*
-     * Login शुरू होते ही पुराने UI को बंद करो।
-     */
-
-    showOnlyLogin();
 
     hideMessage(
       "login-message"
@@ -1497,26 +1381,31 @@ googleLoginBtn.addEventListener(
       "⏳ Google Login हो रहा है...";
 
 
-    try {
+    /*
+      पहले UI को login state में रखो।
+    */
+
+    showLogin();
+
+
+    try{
 
       /*
-       * पुराना Firebase session साफ करो।
-       */
+        पुराने session को clear करना।
+      */
 
-      if (
-        auth.currentUser
-      ) {
+      if(auth.currentUser){
 
-        try {
+        try{
 
           await signOut(
             auth
           );
 
-        } catch (error) {
+        }catch(error){
 
           console.warn(
-            "Previous session signOut warning:",
+            "Old session signOut:",
             error
           );
 
@@ -1526,8 +1415,8 @@ googleLoginBtn.addEventListener(
 
 
       /*
-       * Google login.
-       */
+        Google popup
+      */
 
       const result =
         await signInWithPopup(
@@ -1536,30 +1425,19 @@ googleLoginBtn.addEventListener(
         );
 
 
-      /*
-       * अगर flow बदल चुका है तो ignore.
-       */
-
-      if (
-        thisFlow !== authFlowId
-      ) {
-
-        return;
-
-      }
-
-
       const user =
         result.user;
 
 
       /*
-       * Admin email check.
-       */
+        Email authorization
+      */
 
-      if (
-        !isAllowedAdmin(user)
-      ) {
+      if(
+        !isAllowedAdmin(
+          user
+        )
+      ){
 
         await signOut(
           auth
@@ -1573,26 +1451,33 @@ googleLoginBtn.addEventListener(
 
 
       /*
-       * Normal authentication successful.
-       */
+        अगर यहां पहुंच गए तो Google auth successful है।
+      */
 
       mfaPending =
         false;
 
-      currentMfaResolver =
+      mfaResolver =
         null;
 
 
       /*
-       * MFA pending नहीं है इसलिए Admin खोल सकते हैं।
-       */
+        IMPORTANT:
 
-      await openAdminPanel(
+        अगर account में TOTP पहले से enrolled है,
+        तो Firebase normally ऊपर ही
+        auth/multi-factor-auth-required throw करेगा।
+
+        इसलिए यहां पहुंचना तभी possible है जब
+        MFA required नहीं था / enrollment setup हो रहा है।
+      */
+
+      await openAdmin(
         user
       );
 
 
-    } catch (error) {
+    }catch(error){
 
       console.error(
         "Google Sign-In Error:",
@@ -1601,21 +1486,22 @@ googleLoginBtn.addEventListener(
 
 
       /*
-       * =================================================
+       * ===============================================
        * MFA REQUIRED
-       * =================================================
+       * ===============================================
        */
 
-      if (
+      if(
         error?.code ===
         "auth/multi-factor-auth-required"
-      ) {
+      ){
 
-        try {
+        console.log(
+          "MFA required."
+        );
 
-          /*
-           * MFA resolver.
-           */
+
+        try{
 
           const resolver =
             getMultiFactorResolver(
@@ -1624,84 +1510,57 @@ googleLoginBtn.addEventListener(
             );
 
 
-          currentMfaResolver =
+          mfaResolver =
             resolver;
 
           mfaPending =
             true;
 
+          mfaVerifiedInThisFlow =
+            false;
+
 
           /*
-           * VERY IMPORTANT:
-           * Admin हमेशा hide रहेगा।
-           */
+            Admin panel हमेशा hide।
+          */
 
-          showOnlyMfa();
+          showMfa();
 
 
           mfaCode.value =
             "";
 
-
-          /*
-           * केवल TOTP factor check.
-           */
-
-          const totpHint =
-            resolver.hints.find(
-              hint =>
-                hint.factorId ===
-                TotpMultiFactorGenerator.FACTOR_ID
-            );
-
-
-          if (
-            !totpHint
-          ) {
-
-            throw new Error(
-              "Google Authenticator TOTP factor नहीं मिला।"
-            );
-
-          }
-
-
           showMessage(
             "mfa-message",
-            "🔐 Google Authenticator का 6-digit code डालें।",
+            "🔐 Google Authenticator का वर्तमान 6-digit code डालें।",
             "info"
           );
 
 
-          /*
-           * Login flow अभी भी active है।
-           * इसलिए onAuthStateChanged Admin नहीं खोलेगा।
-           */
+          setTimeout(
+            function(){
 
-          mfaCode.focus();
+              mfaCode.focus();
 
-
-        } catch (resolverError) {
-
-          console.error(
-            "MFA Resolver Error:",
-            resolverError
+            },
+            100
           );
 
 
-          mfaPending =
-            false;
+        }catch(resolverError){
 
-          currentMfaResolver =
-            null;
+          console.error(
+            "Resolver error:",
+            resolverError
+          );
 
+          resetMfa();
 
-          showOnlyLogin();
-
+          showLogin();
 
           showMessage(
             "login-message",
-            friendlyFirebaseError(
+            firebaseError(
               resolverError
             ),
             "error"
@@ -1709,25 +1568,16 @@ googleLoginBtn.addEventListener(
 
         }
 
-      } else {
 
-        /*
-         * Normal login error.
-         */
+      }else{
 
-        mfaPending =
-          false;
+        resetMfa();
 
-        currentMfaResolver =
-          null;
-
-
-        showOnlyLogin();
-
+        showLogin();
 
         showMessage(
           "login-message",
-          friendlyFirebaseError(
+          firebaseError(
             error
           ),
           "error"
@@ -1735,7 +1585,7 @@ googleLoginBtn.addEventListener(
 
       }
 
-    } finally {
+    }finally{
 
       loginInProgress =
         false;
@@ -1758,15 +1608,17 @@ googleLoginBtn.addEventListener(
 
 verifyMfaBtn.addEventListener(
   "click",
-  async () => {
+  async function(){
 
     const code =
       mfaCode.value.trim();
 
 
-    if (
-      !/^\d{6}$/.test(code)
-    ) {
+    if(
+      !/^\d{6}$/.test(
+        code
+      )
+    ){
 
       showMessage(
         "mfa-message",
@@ -1779,33 +1631,19 @@ verifyMfaBtn.addEventListener(
     }
 
 
-    const resolver =
-      currentMfaResolver;
-
-
-    if (
-      !resolver ||
-      !mfaPending
-    ) {
+    if(
+      !mfaResolver
+    ){
 
       showMessage(
         "mfa-message",
-        "MFA session उपलब्ध नहीं है। दोबारा login करें।",
+        "MFA session उपलब्ध नहीं है। दोबारा Google login करें।",
         "error"
       );
 
       return;
 
     }
-
-
-    /*
-     * MFA verification के दौरान auth state callback
-     * को Admin खोलने की permission नहीं।
-     */
-
-    loginInProgress =
-      true;
 
 
     verifyMfaBtn.disabled =
@@ -1820,23 +1658,23 @@ verifyMfaBtn.addEventListener(
     );
 
 
-    try {
+    try{
 
       /*
-       * TOTP factor.
+       * TOTP hint
        */
 
       const totpHint =
-        resolver.hints.find(
+        mfaResolver.hints.find(
           hint =>
             hint.factorId ===
             TotpMultiFactorGenerator.FACTOR_ID
         );
 
 
-      if (
+      if(
         !totpHint
-      ) {
+      ){
 
         throw new Error(
           "TOTP Authenticator factor नहीं मिला।"
@@ -1846,7 +1684,7 @@ verifyMfaBtn.addEventListener(
 
 
       /*
-       * TOTP assertion.
+       * TOTP assertion
        */
 
       const assertion =
@@ -1858,63 +1696,67 @@ verifyMfaBtn.addEventListener(
 
 
       /*
-       * MFA resolve.
+       * Firebase MFA resolve
        */
 
-      const userCredential =
-        await resolver.resolveSignIn(
+      const credential =
+        await mfaResolver.resolveSignIn(
           assertion
         );
 
 
       /*
-       * अब MFA complete है।
+       * ==========================================
+       * MFA SUCCESS
+       * ==========================================
        */
 
-      currentMfaResolver =
-        null;
+      console.log(
+        "MFA verification successful."
+      );
+
+
+      /*
+        पहले state बदलें।
+        ताकि onAuthStateChanged Admin panel
+        को गलत तरीके से block न करे।
+      */
+
+      mfaVerifiedInThisFlow =
+        true;
 
       mfaPending =
         false;
 
-
-      const user =
-        userCredential.user;
-
-
-      /*
-       * Final admin email check.
-       */
-
-      if (
-        !isAllowedAdmin(user)
-      ) {
-
-        await signOut(
-          auth
-        );
-
-        throw new Error(
-          "यह account Admin के लिए authorized नहीं है।"
-        );
-
-      }
+      mfaResolver =
+        null;
 
 
       /*
-       * MFA complete होने के बाद ही Admin.
-       */
-
-      await openAdminPanel(
-        user
-      );
-
+        Code clear
+      */
 
       mfaCode.value =
         "";
 
 
-    } catch (error) {
+      /*
+        अब Admin खोलें।
+      */
+
+      await openAdmin(
+        credential.user
+      );
+
+
+      showMessage(
+        "login-message",
+        "✅ MFA verification successful.",
+        "success"
+      );
+
+
+    }catch(error){
 
       console.error(
         "MFA Verification Error:",
@@ -1923,30 +1765,36 @@ verifyMfaBtn.addEventListener(
 
 
       /*
-       * गलत code पर MFA pending रहेगा।
-       */
+        गलत code पर MFA pending ही रहेगा।
+      */
 
       mfaPending =
         true;
 
+      mfaVerifiedInThisFlow =
+        false;
 
-      currentMfaResolver =
-        resolver;
 
-
-      showOnlyMfa();
+      showMfa();
 
 
       showMessage(
         "mfa-message",
-        friendlyFirebaseError(error),
+        firebaseError(
+          error
+        ),
         "error"
       );
 
-    } finally {
 
-      loginInProgress =
-        false;
+      /*
+        गलत code के बाद input select
+      */
+
+      mfaCode.select();
+
+
+    }finally{
 
       verifyMfaBtn.disabled =
         false;
@@ -1961,82 +1809,51 @@ verifyMfaBtn.addEventListener(
 
 
 /* =========================================================
-   CANCEL MFA
+   MFA CANCEL
 ========================================================= */
 
 mfaCancelBtn.addEventListener(
   "click",
-  async () => {
+  async function(){
 
-    authFlowId++;
-
-
-    currentMfaResolver =
-      null;
-
-    currentTotpSecret =
-      null;
-
-    mfaPending =
-      false;
-
-    loginInProgress =
-      false;
+    resetMfa();
 
 
-    mfaCode.value =
-      "";
-
-
-    try {
+    try{
 
       await signOut(
         auth
       );
 
-    } catch (error) {
+    }catch(error){
 
       console.error(
-        "MFA cancel error:",
+        "MFA cancel:",
         error
       );
 
     }
 
 
-    showOnlyLogin();
-
-
-    hideMessage(
-      "mfa-message"
-    );
-
-
-    showMessage(
-      "login-message",
-      "Login cancel कर दिया गया।",
-      "info"
-    );
+    showLogin();
 
   }
 );
 
 
 /* =========================================================
-   ENABLE TOTP
+   TOTP ENABLE
 ========================================================= */
 
 verifyTotpBtn.addEventListener(
   "click",
-  async () => {
+  async function(){
 
     const user =
       auth.currentUser;
 
 
-    if (
-      !user
-    ) {
+    if(!user){
 
       showMessage(
         "totp-enroll-message",
@@ -2049,28 +1866,11 @@ verifyTotpBtn.addEventListener(
     }
 
 
-    if (
-      !isAllowedAdmin(user)
-    ) {
+    if(!currentTotpSecret){
 
       showMessage(
         "totp-enroll-message",
-        "यह account Admin के लिए authorized नहीं है।",
-        "error"
-      );
-
-      return;
-
-    }
-
-
-    if (
-      !currentTotpSecret
-    ) {
-
-      showMessage(
-        "totp-enroll-message",
-        "TOTP secret उपलब्ध नहीं है। Page refresh करके दोबारा setup करें।",
+        "TOTP secret उपलब्ध नहीं है। Page refresh करके setup दोबारा करें।",
         "error"
       );
 
@@ -2083,9 +1883,11 @@ verifyTotpBtn.addEventListener(
       totpCode.value.trim();
 
 
-    if (
-      !/^\d{6}$/.test(code)
-    ) {
+    if(
+      !/^\d{6}$/.test(
+        code
+      )
+    ){
 
       showMessage(
         "totp-enroll-message",
@@ -2110,11 +1912,7 @@ verifyTotpBtn.addEventListener(
     );
 
 
-    try {
-
-      /*
-       * TOTP enrollment assertion.
-       */
+    try{
 
       const assertion =
         TotpMultiFactorGenerator
@@ -2124,10 +1922,6 @@ verifyTotpBtn.addEventListener(
           );
 
 
-      /*
-       * Firebase MFA enrollment.
-       */
-
       await multiFactor(
         user
       ).enroll(
@@ -2136,19 +1930,17 @@ verifyTotpBtn.addEventListener(
       );
 
 
-      /*
-       * Success.
-       */
-
-      showMessage(
-        "totp-enroll-message",
-        "✅ Google Authenticator successfully enable हो गया।",
-        "success"
+      console.log(
+        "TOTP enrollment successful."
       );
 
 
       currentTotpSecret =
         null;
+
+
+      totpCode.value =
+        "";
 
 
       totpEnrollBox.classList.add(
@@ -2163,26 +1955,31 @@ verifyTotpBtn.addEventListener(
         "none";
 
 
-      totpCode.value =
-        "";
+      showMessage(
+        "totp-enroll-message",
+        "✅ Google Authenticator successfully enable हो गया। अगली login से MFA required होगा।",
+        "success"
+      );
 
 
-    } catch (error) {
+    }catch(error){
 
       console.error(
-        "TOTP Enrollment Error:",
+        "TOTP enrollment error:",
         error
       );
 
 
       showMessage(
         "totp-enroll-message",
-        friendlyFirebaseError(error),
+        firebaseError(
+          error
+        ),
         "error"
       );
 
 
-    } finally {
+    }finally{
 
       verifyTotpBtn.disabled =
         false;
@@ -2202,31 +1999,37 @@ verifyTotpBtn.addEventListener(
 
 logoutBtn.addEventListener(
   "click",
-  async () => {
+  async function(){
 
-    authFlowId++;
+    try{
 
+      resetMfa();
 
-    mfaPending =
-      false;
-
-    loginInProgress =
-      false;
-
-    currentMfaResolver =
-      null;
-
-    currentTotpSecret =
-      null;
+      resetTotp();
 
 
-    try {
+      hideMessage(
+        "login-message"
+      );
+
+      hideMessage(
+        "mfa-message"
+      );
+
+      hideMessage(
+        "totp-enroll-message"
+      );
+
 
       await signOut(
         auth
       );
 
-    } catch (error) {
+
+      showLogin();
+
+
+    }catch(error){
 
       console.error(
         "Logout error:",
@@ -2234,32 +2037,6 @@ logoutBtn.addEventListener(
       );
 
     }
-
-
-    resetTotpSetup();
-
-
-    hideMessage(
-      "login-message"
-    );
-
-    hideMessage(
-      "mfa-message"
-    );
-
-    hideMessage(
-      "totp-enroll-message"
-    );
-
-
-    showOnlyLogin();
-
-
-    showMessage(
-      "login-message",
-      "✅ Logout successful.",
-      "success"
-    );
 
   }
 );
@@ -2271,39 +2048,34 @@ logoutBtn.addEventListener(
 
 onAuthStateChanged(
   auth,
-  async (user) => {
+  async function(user){
 
     console.log(
       "Auth State:",
       user?.email || "No user",
-      "| MFA:",
+      "| MFA pending:",
       mfaPending,
       "| Login:",
       loginInProgress,
-      "| Initial:",
-      initialAuthCheck
+      "| MFA verified:",
+      mfaVerifiedInThisFlow
     );
 
 
     /*
-     * =====================================================
-     * MFA PENDING
-     * =====================================================
+     * सबसे important rule:
      *
-     * इस स्थिति में user object हो या न हो,
-     * Admin panel कभी नहीं खोलना।
+     * MFA pending है तो Auth State Admin
+     * panel नहीं खोल सकता।
      */
 
-    if (
-      mfaPending ||
-      currentMfaResolver
-    ) {
+    if(mfaPending){
 
       console.warn(
-        "MFA pending - Admin panel BLOCKED."
+        "MFA pending - Admin panel blocked."
       );
 
-      showOnlyMfa();
+      showMfa();
 
       return;
 
@@ -2311,87 +2083,14 @@ onAuthStateChanged(
 
 
     /*
-     * =====================================================
-     * INITIAL PAGE LOAD
-     * =====================================================
-     *
-     * Firebase persistence से अगर पुराना user आया है,
-     * तो उसे सीधे Admin Panel नहीं देना है।
-     *
-     * पहले signOut करेंगे।
-     * फिर user को fresh Google login करना होगा।
+     * Login popup/MFA flow चल रहा है तो
+     * AuthState UI को touch नहीं करेगा।
      */
 
-    if (
-      initialAuthCheck
-    ) {
-
-      initialAuthCheck =
-        false;
-
-
-      if (
-        user
-      ) {
-
-        console.log(
-          "Old persisted session found. Clearing it..."
-        );
-
-
-        try {
-
-          await signOut(
-            auth
-          );
-
-        } catch (error) {
-
-          console.error(
-            "Initial session clear error:",
-            error
-          );
-
-        }
-
-
-        showOnlyLogin();
-
-
-        showMessage(
-          "login-message",
-          "पुराना login session clear किया गया। कृपया दोबारा Google से login करें।",
-          "info"
-        );
-
-
-        return;
-
-      }
-
-
-      showOnlyLogin();
-
-      return;
-
-    }
-
-
-    /*
-     * =====================================================
-     * LOGIN / MFA FLOW RUNNING
-     * =====================================================
-     *
-     * Auth state callback के कारण Admin Panel
-     * accidentally नहीं खुलना चाहिए।
-     */
-
-    if (
-      loginInProgress
-    ) {
+    if(loginInProgress){
 
       console.log(
-        "Authentication flow active - waiting."
+        "Login in progress - AuthState ignored."
       );
 
       return;
@@ -2400,16 +2099,12 @@ onAuthStateChanged(
 
 
     /*
-     * =====================================================
-     * NO USER
-     * =====================================================
+     * User नहीं है
      */
 
-    if (
-      !user
-    ) {
+    if(!user){
 
-      showOnlyLogin();
+      showLogin();
 
       return;
 
@@ -2417,48 +2112,28 @@ onAuthStateChanged(
 
 
     /*
-     * =====================================================
-     * USER EXISTS
-     * =====================================================
+     * Unauthorized account
      */
 
-    if (
-      isAllowedAdmin(user)
-    ) {
-
-      /*
-       * यहाँ केवल fully authenticated user आएगा।
-       */
-
-      await openAdminPanel(
+    if(
+      !isAllowedAdmin(
         user
-      );
+      )
+    ){
 
-    } else {
-
-      console.warn(
-        "Unauthorized user:",
-        user.email
-      );
-
-
-      try {
+      try{
 
         await signOut(
           auth
         );
 
-      } catch (error) {
+      }catch(error){
 
-        console.error(
-          error
-        );
+        console.error(error);
 
       }
 
-
-      showOnlyLogin();
-
+      showLogin();
 
       showMessage(
         "login-message",
@@ -2466,41 +2141,74 @@ onAuthStateChanged(
         "error"
       );
 
+      return;
+
     }
+
+
+    /*
+     * यदि MFA अभी इसी flow में successfully
+     * verify हुआ है, तो Admin खोलना safe है।
+     */
+
+    if(
+      mfaVerifiedInThisFlow
+    ){
+
+      console.log(
+        "Verified MFA session -> Admin allowed."
+      );
+
+      return;
+
+    }
+
+
+    /*
+     * यहां दो possibilities हैं:
+     *
+     * 1. Firebase ने पहले से authenticated session
+     *    restore किया है।
+     *
+     * 2. TOTP अभी enrolled नहीं है।
+     *
+     * अगर TOTP enrolled है और Firebase ने session
+     * restore किया है तो user already authenticated है।
+     */
+
+    await openAdmin(
+      user
+    );
 
   }
 );
 
 
 /* =========================================================
-   TOTP INPUT
+   INPUT FILTER
 ========================================================= */
 
 totpCode.addEventListener(
   "input",
-  () => {
+  function(){
 
     totpCode.value =
       totpCode.value
-        .replace(/\D/g, "")
-        .slice(0, 6);
+        .replace(/\D/g,"")
+        .slice(0,6);
 
   }
 );
 
 
-/* =========================================================
-   MFA INPUT
-========================================================= */
-
 mfaCode.addEventListener(
   "input",
-  () => {
+  function(){
 
     mfaCode.value =
       mfaCode.value
-        .replace(/\D/g, "")
-        .slice(0, 6);
+        .replace(/\D/g,"")
+        .slice(0,6);
 
   }
 );
@@ -2512,11 +2220,12 @@ mfaCode.addEventListener(
 
 totpCode.addEventListener(
   "keydown",
-  event => {
+  function(event){
 
-    if (
-      event.key === "Enter"
-    ) {
+    if(
+      event.key ===
+      "Enter"
+    ){
 
       verifyTotpBtn.click();
 
@@ -2532,11 +2241,12 @@ totpCode.addEventListener(
 
 mfaCode.addEventListener(
   "keydown",
-  event => {
+  function(event){
 
-    if (
-      event.key === "Enter"
-    ) {
+    if(
+      event.key ===
+      "Enter"
+    ){
 
       verifyMfaBtn.click();
 
@@ -2547,31 +2257,31 @@ mfaCode.addEventListener(
 
 
 /* =========================================================
-   INITIAL UI
+   INITIAL
 ========================================================= */
 
-showOnlyLogin();
-
+showLogin();
 
 console.log(
-  "===================================="
+  "================================="
 );
 
 console.log(
-  "MPPSC MCQ Hub Admin Authentication"
+  "MPPSC MCQ Hub Admin Auth Loaded"
 );
 
 console.log(
-  "Authentication system loaded."
-);
-
-console.log(
-  "Allowed Admin:",
+  "Admin:",
   ALLOWED_ADMIN_EMAIL
 );
 
 console.log(
-  "===================================="
+  "Firebase:",
+  "OK"
+);
+
+console.log(
+  "================================="
 );
 
 </script>
