@@ -1,23 +1,32 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>MPPSC MCQ Hub - Admin Panel</title>
 
+
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: #f1f5f9;
       color: #172033;
     }
+
 
     button,
     input,
@@ -26,22 +35,28 @@
       font-family: inherit;
     }
 
+
     button {
       cursor: pointer;
     }
+
 
     .topbar {
       min-height: 70px;
       background: #ffffff;
       border-bottom: 1px solid #e5e7eb;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       padding: 12px 28px;
+
       position: sticky;
       top: 0;
       z-index: 100;
     }
+
 
     .brand {
       display: flex;
@@ -49,23 +64,30 @@
       gap: 12px;
     }
 
+
     .brand-icon {
       width: 42px;
       height: 42px;
+
       background: #2563eb;
       color: white;
+
       border-radius: 10px;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       font-size: 21px;
       font-weight: bold;
     }
+
 
     .brand-text h1 {
       font-size: 19px;
       color: #111827;
     }
+
 
     .brand-text p {
       font-size: 12px;
@@ -73,20 +95,24 @@
       margin-top: 2px;
     }
 
+
     .admin-area {
       display: flex;
       align-items: center;
       gap: 15px;
     }
 
+
     .admin-info {
       text-align: right;
     }
+
 
     .admin-name {
       font-size: 14px;
       font-weight: bold;
     }
+
 
     .admin-email {
       font-size: 11px;
@@ -94,442 +120,778 @@
       margin-top: 3px;
     }
 
+
     .logout-btn {
       border: none;
       background: #dc2626;
       color: white;
+
       padding: 10px 17px;
+
       border-radius: 7px;
+
       font-weight: bold;
     }
+
 
     .logout-btn:hover {
       background: #b91c1c;
     }
 
+
     .container {
       max-width: 1250px;
+
       margin: 28px auto;
+
       padding: 0 20px 50px;
     }
 
+
     .welcome {
-      background: linear-gradient(135deg, #1d4ed8, #2563eb);
+      background:
+        linear-gradient(
+          135deg,
+          #1d4ed8,
+          #2563eb
+        );
+
       color: white;
+
       padding: 25px;
+
       border-radius: 14px;
+
       margin-bottom: 25px;
-      box-shadow: 0 8px 25px rgba(37, 99, 235, 0.18);
+
+      box-shadow:
+        0 8px 25px
+        rgba(37, 99, 235, 0.18);
     }
+
 
     .welcome h2 {
       font-size: 25px;
       margin-bottom: 7px;
     }
 
+
     .welcome p {
       font-size: 14px;
       opacity: 0.92;
     }
 
+
     .status {
       margin-top: 15px;
+
       display: inline-flex;
       align-items: center;
+
       gap: 7px;
-      background: rgba(255,255,255,0.15);
+
+      background:
+        rgba(255,255,255,0.15);
+
       padding: 8px 12px;
+
       border-radius: 7px;
+
       font-size: 12px;
     }
 
+
     .dashboard-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
       gap: 18px;
+
       margin-bottom: 25px;
     }
+
 
     .stat-card {
       background: white;
+
       border: 1px solid #e5e7eb;
+
       border-radius: 12px;
+
       padding: 20px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+
+      box-shadow:
+        0 3px 12px
+        rgba(0,0,0,0.04);
     }
+
 
     .stat-title {
       color: #64748b;
+
       font-size: 13px;
+
       margin-bottom: 10px;
     }
 
+
     .stat-number {
       font-size: 29px;
+
       font-weight: bold;
+
       color: #1d4ed8;
     }
 
+
     .panel {
       background: white;
+
       border: 1px solid #e5e7eb;
+
       border-radius: 14px;
+
       padding: 25px;
+
       margin-bottom: 25px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+
+      box-shadow:
+        0 3px 12px
+        rgba(0,0,0,0.04);
     }
+
 
     .panel-header {
       display: flex;
+
       align-items: center;
+
       justify-content: space-between;
+
       margin-bottom: 20px;
+
       gap: 15px;
     }
+
 
     .panel-header h3 {
       font-size: 20px;
     }
 
+
     .panel-header p {
       color: #64748b;
+
       font-size: 12px;
+
       margin-top: 4px;
     }
 
+
     .form-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+
+      grid-template-columns:
+        1fr 1fr;
+
       gap: 17px;
     }
 
+
     .form-group {
       display: flex;
+
       flex-direction: column;
     }
+
 
     .form-group.full {
       grid-column: 1 / -1;
     }
 
+
     label {
       font-size: 13px;
+
       font-weight: bold;
+
       margin-bottom: 7px;
+
       color: #334155;
     }
+
 
     input,
     textarea,
     select {
       width: 100%;
-      border: 1px solid #cbd5e1;
+
+      border:
+        1px solid #cbd5e1;
+
       border-radius: 8px;
+
       padding: 11px 12px;
+
       font-size: 14px;
+
       outline: none;
+
       background: white;
+
       color: #172033;
     }
+
 
     input:focus,
     textarea:focus,
     select:focus {
       border-color: #2563eb;
-      box-shadow: 0 0 0 3px rgba(37,99,235,0.10);
+
+      box-shadow:
+        0 0 0 3px
+        rgba(37,99,235,0.10);
     }
+
 
     textarea {
       min-height: 100px;
+
       resize: vertical;
     }
 
+
     .option-row {
       display: grid;
+
       grid-template-columns: 42px 1fr;
+
       gap: 10px;
+
       align-items: center;
     }
+
 
     .option-label {
       width: 42px;
       height: 42px;
+
       border-radius: 8px;
+
       background: #eff6ff;
+
       color: #1d4ed8;
+
       display: flex;
+
       align-items: center;
+
       justify-content: center;
+
       font-weight: bold;
     }
+
 
     .form-actions {
       display: flex;
+
       gap: 10px;
+
       margin-top: 22px;
+
       flex-wrap: wrap;
     }
 
+
     .btn {
       border: none;
+
       border-radius: 8px;
+
       padding: 11px 18px;
+
       font-weight: bold;
+
       font-size: 13px;
     }
 
+
     .btn-primary {
       background: #2563eb;
+
       color: white;
     }
+
 
     .btn-primary:hover {
       background: #1d4ed8;
     }
 
+
+    .btn-primary:disabled {
+      opacity: 0.65;
+
+      cursor: not-allowed;
+    }
+
+
     .btn-secondary {
       background: #e2e8f0;
+
       color: #334155;
     }
+
 
     .btn-secondary:hover {
       background: #cbd5e1;
     }
 
+
     .btn-danger {
       background: #fee2e2;
+
       color: #b91c1c;
     }
+
 
     .btn-danger:hover {
       background: #fecaca;
     }
 
+
     .btn-edit {
       background: #dbeafe;
+
       color: #1d4ed8;
     }
 
+
     .btn-login {
       background: #2563eb;
+
       color: white;
+
       width: 100%;
+
       margin-top: 20px;
     }
+
 
     .btn-login:hover {
       background: #1d4ed8;
     }
 
+
     .search-box {
       display: flex;
+
       gap: 10px;
+
       margin-bottom: 20px;
     }
+
 
     .search-box input {
       flex: 1;
     }
 
+
     .questions-list {
       display: flex;
+
       flex-direction: column;
+
       gap: 15px;
     }
 
+
     .question-card {
-      border: 1px solid #e2e8f0;
+      border:
+        1px solid #e2e8f0;
+
       border-radius: 11px;
+
       padding: 18px;
+
       background: #fff;
     }
 
+
     .question-top {
       display: flex;
+
       justify-content: space-between;
+
       gap: 15px;
+
       align-items: flex-start;
     }
 
+
     .question-number {
       display: inline-flex;
+
       background: #eff6ff;
+
       color: #1d4ed8;
+
       border-radius: 6px;
+
       padding: 5px 8px;
+
       font-size: 11px;
+
       font-weight: bold;
+
       margin-bottom: 8px;
     }
 
+
     .question-text {
       font-size: 15px;
+
       line-height: 1.55;
+
       font-weight: bold;
+
       color: #1e293b;
     }
 
+
     .question-meta {
       display: flex;
+
       flex-wrap: wrap;
+
       gap: 6px;
+
       margin-top: 12px;
     }
 
+
     .badge {
       background: #f1f5f9;
+
       color: #475569;
+
       padding: 5px 8px;
+
       border-radius: 5px;
+
       font-size: 10px;
     }
 
+
     .answer-box {
       margin-top: 13px;
+
       padding: 10px;
+
       border-radius: 7px;
+
       background: #ecfdf5;
+
       color: #047857;
+
       font-size: 12px;
+
       font-weight: bold;
     }
+
 
     .explanation {
       margin-top: 10px;
+
       background: #f8fafc;
+
       padding: 10px;
+
       border-radius: 7px;
+
       font-size: 12px;
+
       color: #475569;
+
       line-height: 1.5;
     }
+
 
     .question-actions {
       display: flex;
+
       gap: 7px;
+
       flex-shrink: 0;
     }
 
+
     .small-btn {
       border: none;
+
       padding: 8px 10px;
+
       border-radius: 6px;
+
       font-size: 11px;
+
       font-weight: bold;
     }
 
+
     .empty {
       text-align: center;
+
       padding: 45px 20px;
+
       color: #64748b;
-      border: 1px dashed #cbd5e1;
+
+      border:
+        1px dashed #cbd5e1;
+
       border-radius: 10px;
     }
 
+
     .loading {
       text-align: center;
+
       padding: 30px;
+
       color: #64748b;
     }
 
+
     .message {
       display: none;
+
       padding: 12px 14px;
+
       border-radius: 8px;
+
       margin-bottom: 18px;
+
       font-size: 13px;
+
       line-height: 1.5;
     }
 
+
     .message.success {
       display: block;
+
       background: #ecfdf5;
+
       border: 1px solid #bbf7d0;
+
       color: #047857;
     }
 
+
     .message.error {
       display: block;
+
       background: #fef2f2;
+
       border: 1px solid #fecaca;
+
       color: #b91c1c;
     }
 
+
     .message.info {
       display: block;
+
       background: #eff6ff;
+
       border: 1px solid #bfdbfe;
+
       color: #1d4ed8;
     }
+
 
     .hidden {
       display: none !important;
     }
 
+
     .login-screen {
       min-height: 100vh;
+
       display: flex;
+
       align-items: center;
+
       justify-content: center;
+
       padding: 20px;
-      background: linear-gradient(135deg, #eff6ff, #dbeafe);
+
+      background:
+        linear-gradient(
+          135deg,
+          #eff6ff,
+          #dbeafe
+        );
     }
+
 
     .login-card {
       width: 100%;
+
       max-width: 430px;
+
       background: white;
+
       border-radius: 15px;
+
       padding: 30px;
+
       text-align: center;
-      box-shadow: 0 15px 45px rgba(15,23,42,0.12);
+
+      box-shadow:
+        0 15px 45px
+        rgba(15,23,42,0.12);
     }
+
 
     .login-icon {
       font-size: 45px;
+
       margin-bottom: 10px;
     }
+
 
     .login-card h2 {
       margin-bottom: 8px;
     }
 
+
     .login-card p {
       color: #64748b;
+
       font-size: 13px;
+
       line-height: 1.6;
     }
 
+
     .security-box {
       margin-top: 20px;
+
       padding: 13px;
+
       background: #f0fdf4;
-      border: 1px solid #bbf7d0;
+
+      border:
+        1px solid #bbf7d0;
+
       border-radius: 8px;
+
       color: #166534;
+
       font-size: 12px;
+
       line-height: 1.5;
     }
+
 
     .security-box.error {
       background: #fef2f2;
+
       border-color: #fecaca;
+
       color: #991b1b;
     }
 
+
+    .mfa-box {
+      margin-top: 20px;
+
+      padding: 18px;
+
+      background: #f8fafc;
+
+      border:
+        1px solid #cbd5e1;
+
+      border-radius: 10px;
+
+      text-align: left;
+    }
+
+
+    .mfa-title {
+      font-size: 17px;
+
+      font-weight: bold;
+
+      color: #1e293b;
+
+      margin-bottom: 7px;
+    }
+
+
+    .mfa-description {
+      font-size: 12px;
+
+      color: #64748b;
+
+      line-height: 1.5;
+
+      margin-bottom: 14px;
+    }
+
+
+    .mfa-phone {
+      background: #eff6ff;
+
+      border:
+        1px solid #bfdbfe;
+
+      color: #1d4ed8;
+
+      border-radius: 7px;
+
+      padding: 9px 10px;
+
+      font-size: 12px;
+
+      margin-bottom: 12px;
+    }
+
+
+    .mfa-actions {
+      display: flex;
+
+      gap: 8px;
+
+      margin-top: 10px;
+    }
+
+
+    .mfa-actions button {
+      flex: 1;
+    }
+
+
+    #recaptcha-container {
+      margin-top: 10px;
+
+      min-height: 10px;
+    }
+
+
     .footer {
       text-align: center;
+
       color: #94a3b8;
+
       font-size: 11px;
+
       padding: 15px;
     }
 
-    .firebase-info {
-      margin-top: 15px;
-      font-size: 11px;
-      color: #64748b;
-      line-height: 1.5;
-    }
 
     @media (max-width: 800px) {
 
@@ -537,65 +899,95 @@
         grid-template-columns: 1fr;
       }
 
+
       .form-grid {
         grid-template-columns: 1fr;
       }
+
 
       .form-group.full {
         grid-column: auto;
       }
 
+
       .topbar {
         min-height: 70px;
+
         padding: 12px 15px;
+
         gap: 10px;
       }
+
 
       .admin-info {
         display: none;
       }
 
+
       .container {
         padding: 0 12px 40px;
+
         margin-top: 15px;
       }
+
 
       .panel {
         padding: 17px;
       }
 
+
       .question-top {
         flex-direction: column;
       }
+
 
       .question-actions {
         width: 100%;
       }
 
+
       .small-btn {
         flex: 1;
       }
 
+
       .search-box {
         flex-direction: column;
       }
+
+
+      .mfa-actions {
+        flex-direction: column;
+      }
+
     }
+
   </style>
+
 </head>
+
 
 <body>
 
+
 <!-- =====================================================
-     LOADING SCREEN
+     LOADING
 ===================================================== -->
 
-<div id="loadingScreen" class="login-screen">
+<div
+  id="loadingScreen"
+  class="login-screen"
+>
 
   <div class="login-card">
 
-    <div class="login-icon">🔐</div>
+    <div class="login-icon">
+      🔐
+    </div>
 
-    <h2>Admin Authentication</h2>
+    <h2>
+      Admin Authentication
+    </h2>
 
     <p>
       Firebase authentication verify हो रही है...
@@ -607,24 +999,47 @@
 
 
 <!-- =====================================================
-     ACCESS DENIED
+     ACCESS DENIED / LOGIN
 ===================================================== -->
 
-<div id="accessDenied" class="login-screen hidden">
+<div
+  id="accessDenied"
+  class="login-screen hidden"
+>
 
   <div class="login-card">
 
-    <div class="login-icon">🚫</div>
+    <div
+      id="accessIcon"
+      class="login-icon"
+    >
+      🚫
+    </div>
 
-    <h2>Access Denied</h2>
+
+    <h2 id="accessTitle">
+      Access Denied
+    </h2>
+
 
     <p id="deniedMessage">
-      इस page को access करने के लिए authorized admin account आवश्यक है।
+      इस page को access करने के लिए
+      authorized admin account आवश्यक है।
     </p>
 
-    <div id="deniedBox" class="security-box error">
-      🔒 केवल authorized administrator को MCQ database में बदलाव करने की अनुमति है।
+
+    <!-- NORMAL SECURITY MESSAGE -->
+
+    <div
+      id="deniedBox"
+      class="security-box error"
+    >
+      🔒 केवल authorized administrator को
+      MCQ database में बदलाव करने की अनुमति है।
     </div>
+
+
+    <!-- GOOGLE LOGIN -->
 
     <button
       id="googleLoginBtn"
@@ -634,7 +1049,83 @@
       🔵 Google से Admin Login
     </button>
 
-    <br><br>
+
+    <!-- =================================================
+         MFA OTP BOX
+    ================================================== -->
+
+    <div
+      id="mfaBox"
+      class="mfa-box hidden"
+    >
+
+      <div class="mfa-title">
+        📱 OTP Verification
+      </div>
+
+
+      <div class="mfa-description">
+        आपके Admin Google account पर
+        Firebase Multi-Factor Authentication
+        enabled है।
+        SMS से प्राप्त OTP नीचे डालें।
+      </div>
+
+
+      <div
+        id="mfaPhone"
+        class="mfa-phone"
+      >
+        📱 Registered phone पर OTP भेजा जाएगा।
+      </div>
+
+
+      <label for="mfaCode">
+        SMS OTP
+      </label>
+
+
+      <input
+        id="mfaCode"
+        type="text"
+        inputmode="numeric"
+        autocomplete="one-time-code"
+        maxlength="6"
+        placeholder="6 digit OTP"
+      >
+
+
+      <div
+        id="recaptcha-container"
+      ></div>
+
+
+      <div class="mfa-actions">
+
+        <button
+          id="verifyMfaBtn"
+          class="btn btn-primary"
+          onclick="verifyMFA()"
+        >
+          ✅ Verify OTP
+        </button>
+
+
+        <button
+          id="resendMfaBtn"
+          class="btn btn-secondary"
+          onclick="sendMFAOTP()"
+        >
+          🔄 Resend OTP
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <br>
+
 
     <button
       class="btn btn-danger"
@@ -652,7 +1143,11 @@
      MAIN ADMIN PANEL
 ===================================================== -->
 
-<div id="adminPanel" class="hidden">
+<div
+  id="adminPanel"
+  class="hidden"
+>
+
 
   <!-- TOP BAR -->
 
@@ -664,9 +1159,13 @@
         M
       </div>
 
+
       <div class="brand-text">
 
-        <h1>MPPSC MCQ Hub</h1>
+        <h1>
+          MPPSC MCQ Hub
+        </h1>
+
 
         <p>
           Admin Control Panel
@@ -687,6 +1186,7 @@
         >
           Admin
         </div>
+
 
         <div
           id="adminEmail"
@@ -712,6 +1212,7 @@
 
   <main class="container">
 
+
     <!-- WELCOME -->
 
     <section class="welcome">
@@ -720,9 +1221,12 @@
         👋 Admin Dashboard
       </h2>
 
+
       <p>
-        MPPSC MCQ Hub के questions को यहाँ से manage करें।
+        MPPSC MCQ Hub के questions को
+        यहाँ से manage करें।
       </p>
+
 
       <div class="status">
         🛡️ Admin Authentication Verified
@@ -743,11 +1247,13 @@
 
     <section class="dashboard-grid">
 
+
       <div class="stat-card">
 
         <div class="stat-title">
           Total Questions
         </div>
+
 
         <div
           id="totalQuestions"
@@ -765,6 +1271,7 @@
           Current Collection
         </div>
 
+
         <div
           class="stat-number"
           style="font-size:20px;"
@@ -781,20 +1288,27 @@
           Database Status
         </div>
 
+
         <div
           id="databaseStatus"
           class="stat-number"
-          style="font-size:18px;color:#64748b;"
+          style="
+            font-size:18px;
+            color:#64748b;
+          "
         >
           Connecting...
         </div>
 
       </div>
 
+
     </section>
 
 
-    <!-- ADD / EDIT QUESTION -->
+    <!-- =================================================
+         ADD / EDIT
+    ================================================== -->
 
     <section class="panel">
 
@@ -806,8 +1320,10 @@
             ➕ नया MCQ जोड़ें
           </h3>
 
+
           <p>
-            Question की जानकारी भरकर Firestore में save करें।
+            Question की जानकारी भरकर
+            Firestore में save करें।
           </p>
 
         </div>
@@ -819,6 +1335,7 @@
 
         <div class="form-grid">
 
+
           <!-- QUESTION -->
 
           <div class="form-group full">
@@ -826,6 +1343,7 @@
             <label>
               Question *
             </label>
+
 
             <textarea
               id="question"
@@ -836,7 +1354,7 @@
           </div>
 
 
-          <!-- OPTION A -->
+          <!-- A -->
 
           <div class="form-group">
 
@@ -844,11 +1362,13 @@
               Option A *
             </label>
 
+
             <div class="option-row">
 
               <div class="option-label">
                 A
               </div>
+
 
               <input
                 type="text"
@@ -862,7 +1382,7 @@
           </div>
 
 
-          <!-- OPTION B -->
+          <!-- B -->
 
           <div class="form-group">
 
@@ -870,11 +1390,13 @@
               Option B *
             </label>
 
+
             <div class="option-row">
 
               <div class="option-label">
                 B
               </div>
+
 
               <input
                 type="text"
@@ -888,7 +1410,7 @@
           </div>
 
 
-          <!-- OPTION C -->
+          <!-- C -->
 
           <div class="form-group">
 
@@ -896,11 +1418,13 @@
               Option C *
             </label>
 
+
             <div class="option-row">
 
               <div class="option-label">
                 C
               </div>
+
 
               <input
                 type="text"
@@ -914,7 +1438,7 @@
           </div>
 
 
-          <!-- OPTION D -->
+          <!-- D -->
 
           <div class="form-group">
 
@@ -922,11 +1446,13 @@
               Option D *
             </label>
 
+
             <div class="option-row">
 
               <div class="option-label">
                 D
               </div>
+
 
               <input
                 type="text"
@@ -948,6 +1474,7 @@
               Correct Answer *
             </label>
 
+
             <select
               id="answer"
               required
@@ -957,17 +1484,21 @@
                 -- सही उत्तर चुनें --
               </option>
 
+
               <option value="A">
                 A
               </option>
+
 
               <option value="B">
                 B
               </option>
 
+
               <option value="C">
                 C
               </option>
+
 
               <option value="D">
                 D
@@ -985,6 +1516,7 @@
             <label>
               Subject *
             </label>
+
 
             <input
               type="text"
@@ -1004,6 +1536,7 @@
               Exam *
             </label>
 
+
             <input
               type="text"
               id="exam"
@@ -1021,6 +1554,7 @@
             <label>
               Year
             </label>
+
 
             <input
               type="number"
@@ -1041,11 +1575,13 @@
               Difficulty
             </label>
 
+
             <select id="difficulty">
 
               <option value="Easy">
                 Easy
               </option>
+
 
               <option
                 value="Medium"
@@ -1053,6 +1589,7 @@
               >
                 Medium
               </option>
+
 
               <option value="Hard">
                 Hard
@@ -1070,6 +1607,7 @@
             <label>
               Explanation
             </label>
+
 
             <textarea
               id="explanation"
@@ -1108,7 +1646,9 @@
     </section>
 
 
-    <!-- QUESTION LIST -->
+    <!-- =================================================
+         QUESTIONS
+    ================================================== -->
 
     <section class="panel">
 
@@ -1120,8 +1660,12 @@
             📚 सभी Questions
           </h3>
 
+
           <p>
-            Firestore के <b>mcqs</b> collection में saved questions यहाँ दिखाई देंगे।
+            Firestore के
+            <b>mcqs</b>
+            collection में saved questions
+            यहाँ दिखाई देंगे।
           </p>
 
         </div>
@@ -1136,6 +1680,7 @@
           id="searchInput"
           placeholder="Question, subject या exam से search करें..."
         >
+
 
         <button
           type="button"
@@ -1169,7 +1714,7 @@
 
 
 <!-- =====================================================
-     FIREBASE SDK
+     FIREBASE
 ===================================================== -->
 
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
@@ -1181,53 +1726,64 @@
 
 <script>
 
+
 /* =========================================================
    FIREBASE CONFIG
-
-   IMPORTANT:
-   नीचे वाली 3 values अपने Firebase Web App की
-   EXACT values से replace करें।
-
-   Project ID पहले से:
-   mppsc-mcq-hub
 ========================================================= */
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyAowKOyJ_6Upx0z5VcU_2fM2jk8M6A2dUk",
-  authDomain: "mppsc-mcq-hub.firebaseapp.com",
-  projectId: "mppsc-mcq-hub",
-  storageBucket: "mppsc-mcq-hub.firebasestorage.app",
-  messagingSenderId: "709069054485",
-  appId: "1:709069054485:web:578a8908ae9f0741c3a41c",
-  measurementId: "G-W0YRPE35L2"
+
+  apiKey:
+    "AIzaSyAowKOyJ6Upx0z5VcU_2fM2jk8M6A2dUk",
+
+  authDomain:
+    "mppsc-mcq-hub.firebaseapp.com",
+
+  projectId:
+    "mppsc-mcq-hub",
+
+  storageBucket:
+    "mppsc-mcq-hub.firebasestorage.app",
+
+  messagingSenderId:
+    "709069054485",
+
+  appId:
+    "1:709069054485:web:578a8908ae9f0741c3a41c",
+
+  measurementId:
+    "G-W0YRPE35L2"
+
 };
 
-/* =========================================================
-   ADMIN EMAIL
-========================================================= */
-
-const ADMIN_EMAIL = "ajay.com1989@gmail.com";
-
 
 /* =========================================================
-   COLLECTION NAME
-
-   Firebase Rules में भी mcqs है।
+   ADMIN
 ========================================================= */
 
-const COLLECTION_NAME = "mcqs";
+const ADMIN_EMAIL =
+  "ajay.com1989@gmail.com";
+
+
+const COLLECTION_NAME =
+  "mcqs";
 
 
 /* =========================================================
-   FIREBASE INITIALIZE
+   FIREBASE INIT
 ========================================================= */
 
-firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(
+  firebaseConfig
+);
 
-const auth = firebase.auth();
 
-const db = firebase.firestore();
+const auth =
+  firebase.auth();
+
+
+const db =
+  firebase.firestore();
 
 
 /* =========================================================
@@ -1239,186 +1795,893 @@ let allQuestions = [];
 let editingId = null;
 
 
+/*
+  MFA VARIABLES
+*/
+
+let multiFactorResolver = null;
+
+let mfaVerificationId = null;
+
+let recaptchaVerifier = null;
+
+let mfaPhoneAuthProvider = null;
+
+
 /* =========================================================
    DOM
 ========================================================= */
 
 const loadingScreen =
-  document.getElementById("loadingScreen");
+  document.getElementById(
+    "loadingScreen"
+  );
+
 
 const accessDenied =
-  document.getElementById("accessDenied");
+  document.getElementById(
+    "accessDenied"
+  );
+
 
 const adminPanel =
-  document.getElementById("adminPanel");
+  document.getElementById(
+    "adminPanel"
+  );
+
 
 const adminName =
-  document.getElementById("adminName");
+  document.getElementById(
+    "adminName"
+  );
+
 
 const adminEmail =
-  document.getElementById("adminEmail");
+  document.getElementById(
+    "adminEmail"
+  );
+
 
 const questionForm =
-  document.getElementById("questionForm");
+  document.getElementById(
+    "questionForm"
+  );
+
 
 const questionsContainer =
-  document.getElementById("questionsContainer");
+  document.getElementById(
+    "questionsContainer"
+  );
+
 
 const totalQuestions =
-  document.getElementById("totalQuestions");
+  document.getElementById(
+    "totalQuestions"
+  );
+
 
 const databaseStatus =
-  document.getElementById("databaseStatus");
+  document.getElementById(
+    "databaseStatus"
+  );
+
 
 const messageBox =
-  document.getElementById("messageBox");
+  document.getElementById(
+    "messageBox"
+  );
 
 
 /* =========================================================
    AUTH STATE
 ========================================================= */
 
-auth.onAuthStateChanged(async function(user) {
+auth.onAuthStateChanged(
+  async function(user) {
 
-  loadingScreen.classList.add("hidden");
+    /*
+      IMPORTANT:
+
+      अगर MFA login के बीच में है,
+      तब Firebase user अभी final state में
+      नहीं आया होगा।
+    */
+
+    if (!user) {
+
+      loadingScreen.classList.add(
+        "hidden"
+      );
+
+      /*
+        अगर MFA resolver मौजूद है,
+        तो OTP screen को रहने दें।
+      */
+
+      if (!multiFactorResolver) {
+
+        showAccessDenied(
+          "आप login नहीं हैं। नीचे दिए Google Login button से login करें।"
+        );
+
+      }
+
+      return;
+
+    }
 
 
-  /* -----------------------------------------------
-     USER NOT LOGGED IN
-  ------------------------------------------------ */
-
-  if (!user) {
-
-    showAccessDenied(
-      "आप login नहीं हैं। नीचे दिए Google Login button से login करें।"
+    loadingScreen.classList.add(
+      "hidden"
     );
 
-    return;
-  }
+
+    const email =
+      (user.email || "")
+        .toLowerCase()
+        .trim();
 
 
-  /* -----------------------------------------------
-     EMAIL
-  ------------------------------------------------ */
+    /*
+      ADMIN EMAIL
+    */
 
-  const email =
-    (user.email || "")
-      .toLowerCase()
-      .trim();
+    if (
+      email !==
+      ADMIN_EMAIL.toLowerCase()
+    ) {
+
+      await auth.signOut();
+
+      showAccessDenied(
+        "यह Google account authorized administrator नहीं है।"
+      );
+
+      return;
+
+    }
 
 
-  /* -----------------------------------------------
-     ADMIN EMAIL CHECK
-  ------------------------------------------------ */
+    /*
+      EMAIL VERIFIED
+    */
 
-  if (email !== ADMIN_EMAIL.toLowerCase()) {
+    if (!user.emailVerified) {
 
-    showAccessDenied(
-      "यह Google account authorized administrator नहीं है।"
+      showAccessDenied(
+        "Admin account का email अभी verified नहीं है।"
+      );
+
+      return;
+
+    }
+
+
+    /*
+      ADMIN PANEL
+    */
+
+    accessDenied.classList.add(
+      "hidden"
     );
 
-    return;
-  }
 
-
-  /* -----------------------------------------------
-     EMAIL VERIFIED CHECK
-  ------------------------------------------------ */
-
-  if (!user.emailVerified) {
-
-    showAccessDenied(
-      "Admin account का email अभी verified नहीं है।"
+    adminPanel.classList.remove(
+      "hidden"
     );
 
-    return;
+
+    adminName.textContent =
+      user.displayName ||
+      "Admin";
+
+
+    adminEmail.textContent =
+      user.email;
+
+
+    /*
+      MFA UI cleanup
+    */
+
+    hideMFA();
+
+
+    /*
+      FIRESTORE
+    */
+
+    startQuestionsListener();
+
   }
-
-
-  /* -----------------------------------------------
-     ADMIN ACCESS
-  ------------------------------------------------ */
-
-  accessDenied.classList.add("hidden");
-
-  adminPanel.classList.remove("hidden");
-
-
-  adminName.textContent =
-    user.displayName || "Admin";
-
-
-  adminEmail.textContent =
-    user.email;
-
-
-  /* -----------------------------------------------
-     LOAD FIRESTORE
-  ------------------------------------------------ */
-
-  startQuestionsListener();
-
-});
+);
 
 
 /* =========================================================
    GOOGLE LOGIN
 ========================================================= */
 
-window.googleLogin = async function() {
+window.googleLogin =
+  async function() {
 
-  const button =
-    document.getElementById("googleLoginBtn");
+    const button =
+      document.getElementById(
+        "googleLoginBtn"
+      );
 
-  try {
 
-    button.disabled = true;
+    try {
 
-    button.textContent =
-      "⏳ Login हो रहा है...";
+      button.disabled = true;
 
-    const provider =
-      new firebase.auth.GoogleAuthProvider();
+      button.textContent =
+        "⏳ Google Login हो रहा है...";
 
-    provider.setCustomParameters({
-      prompt: "select_account"
-    });
 
-    await auth.signInWithPopup(provider);
+      /*
+        पुराने MFA resolver को clear करें
+      */
 
-  }
+      multiFactorResolver = null;
 
-  catch(error) {
+      mfaVerificationId = null;
 
-    console.error("Google Login Error:", error);
 
-    if (
-      error.code ===
-      "auth/multi-factor-auth-required"
-    ) {
+      const provider =
+        new firebase.auth.GoogleAuthProvider();
 
-      await handleMFA(error);
 
-      return;
+      provider.setCustomParameters({
+
+        prompt:
+          "select_account"
+
+      });
+
+
+      await auth.signInWithPopup(
+        provider
+      );
+
+
     }
 
-    showAccessDenied(
-      "Google Login failed: " +
-      (error.message || error.code)
+    catch(error) {
+
+      console.error(
+        "Google Login Error:",
+        error
+      );
+
+
+      /*
+        ==================================================
+        MFA REQUIRED
+        ==================================================
+      */
+
+      if (
+        error.code ===
+        "auth/multi-factor-auth-required"
+      ) {
+
+        try {
+
+          multiFactorResolver =
+            firebase.auth.getMultiFactorResolver(
+              auth,
+              error
+            );
+
+
+            /*
+              Check MFA hints
+            */
+
+            if (
+              !multiFactorResolver.hints ||
+              multiFactorResolver.hints.length === 0
+            ) {
+
+              showAccessDenied(
+                "इस Admin account के लिए MFA factor मिला नहीं। Firebase Console में MFA configuration check करें।"
+              );
+
+              return;
+
+            }
+
+
+            /*
+              पहली enrolled factor
+            */
+
+            const hint =
+              multiFactorResolver.hints[0];
+
+
+            showMFA(hint);
+
+
+            /*
+              OTP automatically भेजें
+            */
+
+            await sendMFAOTP();
+
+        }
+
+        catch(mfaError) {
+
+          console.error(
+            "MFA Setup Error:",
+            mfaError
+          );
+
+
+          showAccessDenied(
+            "MFA verification शुरू नहीं हो सकी: " +
+            mfaError.message
+          );
+
+        }
+
+
+        return;
+
+      }
+
+
+      /*
+        अन्य Google errors
+      */
+
+      showAccessDenied(
+        "Google Login failed: " +
+        getFirebaseErrorMessage(error)
+      );
+
+    }
+
+    finally {
+
+      button.disabled = false;
+
+      button.textContent =
+        "🔵 Google से Admin Login";
+
+    }
+
+  };
+
+
+/* =========================================================
+   SHOW MFA
+========================================================= */
+
+function showMFA(hint) {
+
+  accessDenied.classList.remove(
+    "hidden"
+  );
+
+
+  adminPanel.classList.add(
+    "hidden"
+  );
+
+
+  document.getElementById(
+    "accessIcon"
+  ).textContent =
+    "📱";
+
+
+  document.getElementById(
+    "accessTitle"
+  ).textContent =
+    "OTP Verification";
+
+
+  document.getElementById(
+    "deniedMessage"
+  ).textContent =
+    "Admin login पूरा करने के लिए SMS OTP verify करें।";
+
+
+  document.getElementById(
+    "deniedBox"
+  ).classList.add(
+    "hidden"
+  );
+
+
+  document.getElementById(
+    "googleLoginBtn"
+  ).classList.add(
+    "hidden"
+  );
+
+
+  const mfaBox =
+    document.getElementById(
+      "mfaBox"
     );
 
+
+  mfaBox.classList.remove(
+    "hidden"
+  );
+
+
+  /*
+    Phone hint
+  */
+
+  if (
+    hint &&
+    hint.phoneNumber
+  ) {
+
+    document.getElementById(
+      "mfaPhone"
+    ).textContent =
+      "📱 OTP registered number " +
+      hint.phoneNumber +
+      " पर भेजा जाएगा।";
+
   }
 
-  finally {
+}
 
-    button.disabled = false;
 
-    button.textContent =
-      "🔵 Google से Admin Login";
+/* =========================================================
+   HIDE MFA
+========================================================= */
+
+function hideMFA() {
+
+  document.getElementById(
+    "mfaBox"
+  ).classList.add(
+    "hidden"
+  );
+
+
+  document.getElementById(
+    "googleLoginBtn"
+  ).classList.remove(
+    "hidden"
+  );
+
+
+  document.getElementById(
+    "deniedBox"
+  ).classList.remove(
+    "hidden"
+  );
+
+
+  document.getElementById(
+    "accessIcon"
+  ).textContent =
+    "🚫";
+
+
+  document.getElementById(
+    "accessTitle"
+  ).textContent =
+    "Access Denied";
+
+
+  multiFactorResolver = null;
+
+  mfaVerificationId = null;
+
+
+  /*
+    reCAPTCHA cleanup
+  */
+
+  if (recaptchaVerifier) {
+
+    try {
+
+      recaptchaVerifier.clear();
+
+    }
+
+    catch(error) {
+
+      console.log(
+        "reCAPTCHA clear:",
+        error
+      );
+
+    }
+
+    recaptchaVerifier = null;
 
   }
 
-};
+}
+
+
+/* =========================================================
+   SEND MFA OTP
+========================================================= */
+
+window.sendMFAOTP =
+  async function() {
+
+    if (!multiFactorResolver) {
+
+      showAccessDenied(
+        "MFA session समाप्त हो गई। कृपया फिर से Google Login करें।"
+      );
+
+      return;
+
+    }
+
+
+    const resendButton =
+      document.getElementById(
+        "resendMfaBtn"
+      );
+
+
+    try {
+
+      resendButton.disabled = true;
+
+      resendButton.textContent =
+        "⏳ OTP भेजा जा रहा है...";
+
+
+      /*
+        ==================================================
+        RECAPTCHA
+        ==================================================
+      */
+
+      if (recaptchaVerifier) {
+
+        try {
+
+          recaptchaVerifier.clear();
+
+        }
+
+        catch(error) {
+
+          console.log(
+            "Old reCAPTCHA clear:",
+            error
+          );
+
+        }
+
+        recaptchaVerifier = null;
+
+      }
+
+
+      recaptchaVerifier =
+        new firebase.auth.RecaptchaVerifier(
+          "recaptcha-container",
+          {
+
+            size: "invisible",
+
+            callback:
+              function() {
+
+                console.log(
+                  "reCAPTCHA verified"
+                );
+
+              },
+
+            "expired-callback":
+              function() {
+
+                console.log(
+                  "reCAPTCHA expired"
+                );
+
+              }
+
+          },
+
+          auth
+        );
+
+
+      await recaptchaVerifier.render();
+
+
+      /*
+        ==================================================
+        MFA PHONE PROVIDER
+        ==================================================
+      */
+
+      mfaPhoneAuthProvider =
+        new firebase.auth.PhoneAuthProvider(
+          auth
+        );
+
+
+      const hint =
+        multiFactorResolver.hints[0];
+
+
+      const phoneInfoOptions = {
+
+        multiFactorHint:
+          hint,
+
+        session:
+          multiFactorResolver.session
+
+      };
+
+
+      /*
+        SEND OTP
+      */
+
+      mfaVerificationId =
+        await mfaPhoneAuthProvider
+          .verifyPhoneNumber(
+            phoneInfoOptions,
+            recaptchaVerifier
+          );
+
+
+      document.getElementById(
+        "mfaCode"
+      ).focus();
+
+
+      document.getElementById(
+        "mfaPhone"
+      ).textContent =
+        "✅ OTP भेज दिया गया है। SMS में आया 6 digit OTP डालें।";
+
+
+    }
+
+    catch(error) {
+
+      console.error(
+        "Send MFA OTP Error:",
+        error
+      );
+
+
+      showMessage(
+        "❌ OTP भेजने में समस्या: " +
+        getFirebaseErrorMessage(error),
+        "error"
+      );
+
+
+      /*
+        reCAPTCHA reset
+      */
+
+      if (recaptchaVerifier) {
+
+        try {
+
+          recaptchaVerifier.clear();
+
+        }
+
+        catch(e) {}
+
+        recaptchaVerifier = null;
+
+      }
+
+    }
+
+    finally {
+
+      resendButton.disabled = false;
+
+      resendButton.textContent =
+        "🔄 Resend OTP";
+
+    }
+
+  };
+
+
+/* =========================================================
+   VERIFY MFA
+========================================================= */
+
+window.verifyMFA =
+  async function() {
+
+    if (!multiFactorResolver) {
+
+      showAccessDenied(
+        "MFA session उपलब्ध नहीं है। कृपया फिर से Google Login करें।"
+      );
+
+      return;
+
+    }
+
+
+    if (!mfaVerificationId) {
+
+      showMessage(
+        "पहले OTP भेजें।",
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    const code =
+      document.getElementById(
+        "mfaCode"
+      )
+        .value
+        .trim();
+
+
+    /*
+      OTP validation
+    */
+
+    if (
+      !/^[0-9]{6}$/.test(code)
+    ) {
+
+      showMessage(
+        "कृपया 6 digit OTP डालें।",
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    const verifyButton =
+      document.getElementById(
+        "verifyMfaBtn"
+      );
+
+
+    try {
+
+      verifyButton.disabled = true;
+
+      verifyButton.textContent =
+        "⏳ OTP verify हो रहा है...";
+
+
+      /*
+        Phone credential
+      */
+
+      const phoneCredential =
+        firebase.auth.PhoneAuthProvider
+          .credential(
+            mfaVerificationId,
+            code
+          );
+
+
+      /*
+        MFA assertion
+      */
+
+      const multiFactorAssertion =
+        firebase.auth.PhoneMultiFactorGenerator
+          .assertion(
+            phoneCredential
+          );
+
+
+      /*
+        COMPLETE LOGIN
+      */
+
+      const userCredential =
+        await multiFactorResolver
+          .resolveSignIn(
+            multiFactorAssertion
+          );
+
+
+      console.log(
+        "MFA Login successful:",
+        userCredential.user
+      );
+
+
+      /*
+        onAuthStateChanged automatically
+        admin panel दिखा देगा
+      */
+
+      showMessage(
+        "✅ MFA verification successful.",
+        "success"
+      );
+
+
+    }
+
+    catch(error) {
+
+      console.error(
+        "Verify MFA Error:",
+        error
+      );
+
+
+      /*
+        Wrong OTP
+      */
+
+      if (
+        error.code ===
+        "auth/invalid-verification-code"
+      ) {
+
+        showMessage(
+          "❌ OTP गलत है। कृपया SMS वाला सही OTP डालें।",
+          "error"
+        );
+
+      }
+
+      else if (
+        error.code ===
+        "auth/code-expired"
+      ) {
+
+        showMessage(
+          "❌ OTP expire हो गया है। नया OTP भेजें।",
+          "error"
+        );
+
+      }
+
+      else {
+
+        showMessage(
+          "❌ MFA verification failed: " +
+          getFirebaseErrorMessage(error),
+          "error"
+        );
+
+      }
+
+    }
+
+    finally {
+
+      verifyButton.disabled = false;
+
+      verifyButton.textContent =
+        "✅ Verify OTP";
+
+    }
+
+  };
+
 
 /* =========================================================
    ACCESS DENIED
@@ -1426,22 +2689,67 @@ window.googleLogin = async function() {
 
 function showAccessDenied(message) {
 
-  accessDenied.classList.remove("hidden");
+  accessDenied.classList.remove(
+    "hidden"
+  );
 
-  adminPanel.classList.add("hidden");
 
-  document.getElementById("deniedMessage")
-    .textContent = message;
+  adminPanel.classList.add(
+    "hidden"
+  );
+
+
+  document.getElementById(
+    "deniedMessage"
+  ).textContent =
+    message;
+
+
+  document.getElementById(
+    "accessIcon"
+  ).textContent =
+    "🚫";
+
+
+  document.getElementById(
+    "accessTitle"
+  ).textContent =
+    "Access Denied";
+
+
+  /*
+    MFA box hide only when no MFA resolver
+  */
+
+  if (!multiFactorResolver) {
+
+    document.getElementById(
+      "mfaBox"
+    ).classList.add(
+      "hidden"
+    );
+
+
+    document.getElementById(
+      "googleLoginBtn"
+    ).classList.remove(
+      "hidden"
+    );
+
+
+    document.getElementById(
+      "deniedBox"
+    ).classList.remove(
+      "hidden"
+    );
+
+  }
 
 }
 
 
 /* =========================================================
    FIRESTORE LISTENER
-=========================================================
-
-   IMPORTANT:
-   यहाँ questions नहीं बल्कि mcqs collection है।
 ========================================================= */
 
 function startQuestionsListener() {
@@ -1449,11 +2757,14 @@ function startQuestionsListener() {
   databaseStatus.textContent =
     "Connecting...";
 
+
   databaseStatus.style.color =
     "#d97706";
 
 
-  db.collection(COLLECTION_NAME)
+  db.collection(
+    COLLECTION_NAME
+  )
     .onSnapshot(
 
       function(snapshot) {
@@ -1461,34 +2772,45 @@ function startQuestionsListener() {
         allQuestions = [];
 
 
-        snapshot.forEach(function(doc) {
+        snapshot.forEach(
+          function(doc) {
 
-          allQuestions.push({
+            allQuestions.push({
 
-            id: doc.id,
+              id:
+                doc.id,
 
-            ...doc.data()
+              ...doc.data()
 
-          });
+            });
 
-        });
+          }
+        );
 
 
-        /* -----------------------------------------
-           CLIENT SIDE SORT
-        ----------------------------------------- */
+        /*
+          SORT
+        */
 
-        allQuestions.sort(function(a, b) {
+        allQuestions.sort(
+          function(a, b) {
 
-          const aTime =
-            getTimeValue(a.createdAt);
+            const aTime =
+              getTimeValue(
+                a.createdAt
+              );
 
-          const bTime =
-            getTimeValue(b.createdAt);
 
-          return bTime - aTime;
+            const bTime =
+              getTimeValue(
+                b.createdAt
+              );
 
-        });
+
+            return bTime - aTime;
+
+          }
+        );
 
 
         totalQuestions.textContent =
@@ -1497,6 +2819,7 @@ function startQuestionsListener() {
 
         databaseStatus.textContent =
           "Connected";
+
 
         databaseStatus.style.color =
           "#059669";
@@ -1509,18 +2832,23 @@ function startQuestionsListener() {
 
       function(error) {
 
-        console.error(error);
+        console.error(
+          "Firestore Error:",
+          error
+        );
 
 
         databaseStatus.textContent =
           "Error";
+
 
         databaseStatus.style.color =
           "#dc2626";
 
 
         showMessage(
-          "❌ Firestore error: " + error.message,
+          "❌ Firestore error: " +
+          getFirebaseErrorMessage(error),
           "error"
         );
 
@@ -1532,13 +2860,15 @@ function startQuestionsListener() {
 
 
 /* =========================================================
-   TIMESTAMP HELPER
+   TIMESTAMP
 ========================================================= */
 
 function getTimeValue(value) {
 
   if (!value) {
+
     return 0;
+
   }
 
 
@@ -1546,7 +2876,8 @@ function getTimeValue(value) {
 
     if (
       value &&
-      typeof value.toMillis === "function"
+      typeof value.toMillis ===
+      "function"
     ) {
 
       return value.toMillis();
@@ -1566,6 +2897,7 @@ function getTimeValue(value) {
 
     const date =
       new Date(value);
+
 
     const time =
       date.getTime();
@@ -1598,71 +2930,93 @@ questionForm.addEventListener(
 
 
     const question =
-      document.getElementById("question")
+      document.getElementById(
+        "question"
+      )
         .value
         .trim();
 
 
     const optionA =
-      document.getElementById("optionA")
+      document.getElementById(
+        "optionA"
+      )
         .value
         .trim();
 
 
     const optionB =
-      document.getElementById("optionB")
+      document.getElementById(
+        "optionB"
+      )
         .value
         .trim();
 
 
     const optionC =
-      document.getElementById("optionC")
+      document.getElementById(
+        "optionC"
+      )
         .value
         .trim();
 
 
     const optionD =
-      document.getElementById("optionD")
+      document.getElementById(
+        "optionD"
+      )
         .value
         .trim();
 
 
     const answer =
-      document.getElementById("answer")
+      document.getElementById(
+        "answer"
+      )
         .value;
 
 
     const subject =
-      document.getElementById("subject")
+      document.getElementById(
+        "subject"
+      )
         .value
         .trim();
 
 
     const exam =
-      document.getElementById("exam")
+      document.getElementById(
+        "exam"
+      )
         .value
         .trim();
 
 
     const year =
-      document.getElementById("year")
+      document.getElementById(
+        "year"
+      )
         .value;
 
 
     const difficulty =
-      document.getElementById("difficulty")
+      document.getElementById(
+        "difficulty"
+      )
         .value;
 
 
     const explanation =
-      document.getElementById("explanation")
+      document.getElementById(
+        "explanation"
+      )
         .value
         .trim();
 
 
-    /* -----------------------------------------
-       VALIDATION
-    ----------------------------------------- */
+    /*
+      VALIDATION
+    */
 
     if (
       !question ||
@@ -1685,9 +3039,9 @@ questionForm.addEventListener(
     }
 
 
-    /* -----------------------------------------
-       AUTH CHECK
-    ----------------------------------------- */
+    /*
+      AUTH
+    */
 
     const user =
       auth.currentUser;
@@ -1738,43 +3092,64 @@ questionForm.addEventListener(
     }
 
 
-    /* -----------------------------------------
-       DATA
-    ----------------------------------------- */
+    /*
+      DATA
+    */
 
     const data = {
 
-      question: question,
+      question:
+        question,
+
 
       options: {
 
-        A: optionA,
+        A:
+          optionA,
 
-        B: optionB,
+        B:
+          optionB,
 
-        C: optionC,
+        C:
+          optionC,
 
-        D: optionD
+        D:
+          optionD
 
       },
 
-      answer: answer,
 
-      explanation: explanation,
+      answer:
+        answer,
 
-      subject: subject,
 
-      exam: exam,
+      explanation:
+        explanation,
+
+
+      subject:
+        subject,
+
+
+      exam:
+        exam,
+
 
       year:
         year
           ? Number(year)
           : null,
 
-      difficulty: difficulty,
+
+      difficulty:
+        difficulty,
+
 
       updatedAt:
-        firebase.firestore.FieldValue.serverTimestamp(),
+        firebase.firestore
+          .FieldValue
+          .serverTimestamp(),
+
 
       updatedBy:
         user.email
@@ -1783,10 +3158,14 @@ questionForm.addEventListener(
 
 
     const saveBtn =
-      document.getElementById("saveBtn");
+      document.getElementById(
+        "saveBtn"
+      );
 
 
-    saveBtn.disabled = true;
+    saveBtn.disabled =
+      true;
+
 
     saveBtn.textContent =
       editingId
@@ -1796,16 +3175,22 @@ questionForm.addEventListener(
 
     try {
 
-      /* ---------------------------------------
-         UPDATE
-      --------------------------------------- */
+      /*
+        UPDATE
+      */
 
       if (editingId) {
 
         await db
-          .collection(COLLECTION_NAME)
-          .doc(editingId)
-          .update(data);
+          .collection(
+            COLLECTION_NAME
+          )
+          .doc(
+            editingId
+          )
+          .update(
+            data
+          );
 
 
         showMessage(
@@ -1816,14 +3201,16 @@ questionForm.addEventListener(
       }
 
 
-      /* ---------------------------------------
-         NEW QUESTION
-      --------------------------------------- */
+      /*
+        NEW
+      */
 
       else {
 
         data.createdAt =
-          firebase.firestore.FieldValue.serverTimestamp();
+          firebase.firestore
+            .FieldValue
+            .serverTimestamp();
 
 
         data.createdBy =
@@ -1831,8 +3218,12 @@ questionForm.addEventListener(
 
 
         await db
-          .collection(COLLECTION_NAME)
-          .add(data);
+          .collection(
+            COLLECTION_NAME
+          )
+          .add(
+            data
+          );
 
 
         showMessage(
@@ -1847,22 +3238,27 @@ questionForm.addEventListener(
 
     }
 
-
     catch(error) {
 
-      console.error(error);
+      console.error(
+        "Save Error:",
+        error
+      );
+
 
       showMessage(
-        "❌ Save failed: " + error.message,
+        "❌ Save failed: " +
+        getFirebaseErrorMessage(error),
         "error"
       );
 
     }
 
-
     finally {
 
-      saveBtn.disabled = false;
+      saveBtn.disabled =
+        false;
+
 
       saveBtn.textContent =
         editingId
@@ -1882,71 +3278,86 @@ questionForm.addEventListener(
 function renderQuestions() {
 
   const search =
-    document.getElementById("searchInput")
+    document.getElementById(
+      "searchInput"
+    )
       .value
       .toLowerCase()
       .trim();
 
 
   let filtered =
-    allQuestions.filter(function(item) {
+    allQuestions.filter(
+      function(item) {
 
-      if (!search) {
-        return true;
+        if (!search) {
+
+          return true;
+
+        }
+
+
+        const text = [
+
+          item.question || "",
+
+          item.subject || "",
+
+          item.exam || "",
+
+          item.explanation || "",
+
+          item.difficulty || "",
+
+          item.answer || "",
+
+          item.options
+            ? item.options.A || ""
+            : "",
+
+          item.options
+            ? item.options.B || ""
+            : "",
+
+          item.options
+            ? item.options.C || ""
+            : "",
+
+          item.options
+            ? item.options.D || ""
+            : ""
+
+        ]
+          .join(" ")
+          .toLowerCase();
+
+
+        return text.includes(
+          search
+        );
+
       }
+    );
 
 
-      const text = [
+  /*
+    EMPTY
+  */
 
-        item.question || "",
-
-        item.subject || "",
-
-        item.exam || "",
-
-        item.explanation || "",
-
-        item.difficulty || "",
-
-        item.answer || "",
-
-        item.options
-          ? item.options.A || ""
-          : "",
-
-        item.options
-          ? item.options.B || ""
-          : "",
-
-        item.options
-          ? item.options.C || ""
-          : "",
-
-        item.options
-          ? item.options.D || ""
-          : ""
-
-      ]
-        .join(" ")
-        .toLowerCase();
-
-
-      return text.includes(search);
-
-    });
-
-
-  /* -----------------------------------------
-     EMPTY
-  ----------------------------------------- */
-
-  if (filtered.length === 0) {
+  if (
+    filtered.length === 0
+  ) {
 
     questionsContainer.innerHTML = `
 
       <div class="empty">
 
-        <div style="font-size:35px;margin-bottom:10px;">
+        <div
+          style="
+            font-size:35px;
+            margin-bottom:10px;
+          "
+        >
           📭
         </div>
 
@@ -1954,8 +3365,14 @@ function renderQuestions() {
           कोई question नहीं मिला।
         </strong>
 
-        <div style="margin-top:7px;font-size:12px;">
-          नया MCQ जोड़ने के लिए ऊपर वाला form इस्तेमाल करें।
+        <div
+          style="
+            margin-top:7px;
+            font-size:12px;
+          "
+        >
+          नया MCQ जोड़ने के लिए
+          ऊपर वाला form इस्तेमाल करें।
         </div>
 
       </div>
@@ -1967,159 +3384,219 @@ function renderQuestions() {
   }
 
 
-  questionsContainer.innerHTML = "";
+  questionsContainer.innerHTML =
+    "";
 
 
-  /* -----------------------------------------
-     QUESTIONS
-  ----------------------------------------- */
+  /*
+    QUESTIONS
+  */
 
-  filtered.forEach(function(item, index) {
+  filtered.forEach(
+    function(item, index) {
 
-    const card =
-      document.createElement("div");
-
-
-    card.className =
-      "question-card";
-
-
-    const options =
-      item.options || {};
+      const card =
+        document.createElement(
+          "div"
+        );
 
 
-    const answerText =
-      options[item.answer] || "";
+      card.className =
+        "question-card";
 
 
-    card.innerHTML = `
-
-      <div class="question-top">
-
-        <div style="flex:1;">
-
-          <div class="question-number">
-            Question ${index + 1}
-          </div>
-
-          <div class="question-text">
-            ${escapeHtml(item.question || "")}
-          </div>
-
-        </div>
+      const options =
+        item.options || {};
 
 
-        <div class="question-actions">
-
-          <button
-            class="small-btn btn-edit"
-            onclick="editQuestion('${escapeAttribute(item.id)}')"
-          >
-            ✏️ Edit
-          </button>
-
-          <button
-            class="small-btn btn-danger"
-            onclick="deleteQuestion('${escapeAttribute(item.id)}')"
-          >
-            🗑️ Delete
-          </button>
-
-        </div>
-
-      </div>
+      const answerText =
+        options[item.answer] || "";
 
 
-      <div
-        style="
-          margin-top:15px;
-          display:grid;
-          gap:7px;
-          font-size:12px;
-        "
-      >
+      card.innerHTML = `
 
-        <div>
-          <strong>A:</strong>
-          ${escapeHtml(options.A || "")}
-        </div>
+        <div class="question-top">
 
-        <div>
-          <strong>B:</strong>
-          ${escapeHtml(options.B || "")}
-        </div>
+          <div style="flex:1;">
 
-        <div>
-          <strong>C:</strong>
-          ${escapeHtml(options.C || "")}
-        </div>
+            <div class="question-number">
 
-        <div>
-          <strong>D:</strong>
-          ${escapeHtml(options.D || "")}
-        </div>
-
-      </div>
-
-
-      <div class="answer-box">
-
-        ✅ Correct Answer:
-        ${escapeHtml(item.answer || "")}
-
-        —
-        ${escapeHtml(answerText)}
-
-      </div>
-
-
-      <div class="question-meta">
-
-        <span class="badge">
-          📚 ${escapeHtml(item.subject || "-")}
-        </span>
-
-        <span class="badge">
-          📝 ${escapeHtml(item.exam || "-")}
-        </span>
-
-        <span class="badge">
-          📅 ${escapeHtml(String(item.year || "-"))}
-        </span>
-
-        <span class="badge">
-          🎯 ${escapeHtml(item.difficulty || "-")}
-        </span>
-
-      </div>
-
-
-      ${
-        item.explanation
-          ? `
-
-            <div class="explanation">
-
-              <strong>
-                Explanation:
-              </strong>
-
-              <br>
-
-              ${escapeHtml(item.explanation)}
+              Question
+              ${index + 1}
 
             </div>
 
-          `
-          : ""
-      }
 
-    `;
+            <div class="question-text">
+
+              ${escapeHtml(
+                item.question || ""
+              )}
+
+            </div>
+
+          </div>
 
 
-    questionsContainer.appendChild(card);
+          <div class="question-actions">
 
-  });
+            <button
+              class="small-btn btn-edit"
+              onclick="
+                editQuestion(
+                  '${escapeAttribute(item.id)}'
+                )
+              "
+            >
+              ✏️ Edit
+            </button>
+
+
+            <button
+              class="small-btn btn-danger"
+              onclick="
+                deleteQuestion(
+                  '${escapeAttribute(item.id)}'
+                )
+              "
+            >
+              🗑️ Delete
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div
+          style="
+            margin-top:15px;
+            display:grid;
+            gap:7px;
+            font-size:12px;
+          "
+        >
+
+          <div>
+            <strong>A:</strong>
+            ${escapeHtml(
+              options.A || ""
+            )}
+          </div>
+
+
+          <div>
+            <strong>B:</strong>
+            ${escapeHtml(
+              options.B || ""
+            )}
+          </div>
+
+
+          <div>
+            <strong>C:</strong>
+            ${escapeHtml(
+              options.C || ""
+            )}
+          </div>
+
+
+          <div>
+            <strong>D:</strong>
+            ${escapeHtml(
+              options.D || ""
+            )}
+          </div>
+
+        </div>
+
+
+        <div class="answer-box">
+
+          ✅ Correct Answer:
+
+          ${escapeHtml(
+            item.answer || ""
+          )}
+
+          —
+
+          ${escapeHtml(
+            answerText
+          )}
+
+        </div>
+
+
+        <div class="question-meta">
+
+          <span class="badge">
+            📚
+            ${escapeHtml(
+              item.subject || "-"
+            )}
+          </span>
+
+
+          <span class="badge">
+            📝
+            ${escapeHtml(
+              item.exam || "-"
+            )}
+          </span>
+
+
+          <span class="badge">
+            📅
+            ${escapeHtml(
+              String(
+                item.year || "-"
+              )
+            )}
+          </span>
+
+
+          <span class="badge">
+            🎯
+            ${escapeHtml(
+              item.difficulty || "-"
+            )}
+          </span>
+
+        </div>
+
+
+        ${
+          item.explanation
+            ? `
+
+              <div class="explanation">
+
+                <strong>
+                  Explanation:
+                </strong>
+
+                <br>
+
+                ${escapeHtml(
+                  item.explanation
+                )}
+
+              </div>
+
+            `
+            : ""
+        }
+
+      `;
+
+
+      questionsContainer.appendChild(
+        card
+      );
+
+    }
+  );
 
 }
 
@@ -2134,7 +3611,9 @@ window.editQuestion =
     const item =
       allQuestions.find(
         function(q) {
+
           return q.id === id;
+
         }
       );
 
@@ -2155,73 +3634,104 @@ window.editQuestion =
       id;
 
 
-    document.getElementById("question").value =
+    document.getElementById(
+      "question"
+    ).value =
       item.question || "";
 
 
-    document.getElementById("optionA").value =
+    document.getElementById(
+      "optionA"
+    ).value =
       item.options &&
       item.options.A
         ? item.options.A
         : "";
 
 
-    document.getElementById("optionB").value =
+    document.getElementById(
+      "optionB"
+    ).value =
       item.options &&
       item.options.B
         ? item.options.B
         : "";
 
 
-    document.getElementById("optionC").value =
+    document.getElementById(
+      "optionC"
+    ).value =
       item.options &&
       item.options.C
         ? item.options.C
         : "";
 
 
-    document.getElementById("optionD").value =
+    document.getElementById(
+      "optionD"
+    ).value =
       item.options &&
       item.options.D
         ? item.options.D
         : "";
 
 
-    document.getElementById("answer").value =
+    document.getElementById(
+      "answer"
+    ).value =
       item.answer || "";
 
 
-    document.getElementById("subject").value =
+    document.getElementById(
+      "subject"
+    ).value =
       item.subject || "";
 
 
-    document.getElementById("exam").value =
+    document.getElementById(
+      "exam"
+    ).value =
       item.exam || "";
 
 
-    document.getElementById("year").value =
+    document.getElementById(
+      "year"
+    ).value =
       item.year || "";
 
 
-    document.getElementById("difficulty").value =
-      item.difficulty || "Medium";
+    document.getElementById(
+      "difficulty"
+    ).value =
+      item.difficulty ||
+      "Medium";
 
 
-    document.getElementById("explanation").value =
+    document.getElementById(
+      "explanation"
+    ).value =
       item.explanation || "";
 
 
-    document.getElementById("formTitle").textContent =
+    document.getElementById(
+      "formTitle"
+    ).textContent =
       "✏️ MCQ Edit करें";
 
 
-    document.getElementById("saveBtn").textContent =
+    document.getElementById(
+      "saveBtn"
+    ).textContent =
       "💾 Update Question";
 
 
     document
-      .getElementById("cancelEditBtn")
-      .classList.remove("hidden");
+      .getElementById(
+        "cancelEditBtn"
+      )
+      .classList.remove(
+        "hidden"
+      );
 
 
     window.scrollTo({
@@ -2258,30 +3768,41 @@ function resetForm() {
   questionForm.reset();
 
 
-  document.getElementById("difficulty").value =
+  document.getElementById(
+    "difficulty"
+  ).value =
     "Medium";
 
 
-  document.getElementById("formTitle").textContent =
+  document.getElementById(
+    "formTitle"
+  ).textContent =
     "➕ नया MCQ जोड़ें";
 
 
-  document.getElementById("saveBtn").textContent =
+  document.getElementById(
+    "saveBtn"
+  ).textContent =
     "💾 Save Question";
 
 
   document
-    .getElementById("cancelEditBtn")
-    .classList.add("hidden");
+    .getElementById(
+      "cancelEditBtn"
+    )
+    .classList.add(
+      "hidden"
+    );
 
 
-  editingId = null;
+  editingId =
+    null;
 
 }
 
 
 /* =========================================================
-   DELETE QUESTION
+   DELETE
 ========================================================= */
 
 window.deleteQuestion =
@@ -2290,25 +3811,33 @@ window.deleteQuestion =
     const item =
       allQuestions.find(
         function(q) {
+
           return q.id === id;
+
         }
       );
 
 
     if (!item) {
+
       return;
+
     }
 
 
     const confirmed =
       confirm(
         "क्या आप इस question को delete करना चाहते हैं?\n\n" +
-        (item.question || "")
+        (
+          item.question || ""
+        )
       );
 
 
     if (!confirmed) {
+
       return;
+
     }
 
 
@@ -2328,10 +3857,33 @@ window.deleteQuestion =
     }
 
 
+    const email =
+      (user.email || "")
+        .toLowerCase()
+        .trim();
+
+
+    if (
+      email !==
+      ADMIN_EMAIL.toLowerCase()
+    ) {
+
+      showMessage(
+        "आपके account को delete की अनुमति नहीं है।",
+        "error"
+      );
+
+      return;
+
+    }
+
+
     try {
 
       await db
-        .collection(COLLECTION_NAME)
+        .collection(
+          COLLECTION_NAME
+        )
         .doc(id)
         .delete();
 
@@ -2343,13 +3895,17 @@ window.deleteQuestion =
 
     }
 
-
     catch(error) {
 
-      console.error(error);
+      console.error(
+        "Delete Error:",
+        error
+      );
+
 
       showMessage(
-        "❌ Delete failed: " + error.message,
+        "❌ Delete failed: " +
+        getFirebaseErrorMessage(error),
         "error"
       );
 
@@ -2367,7 +3923,32 @@ window.logout =
 
     try {
 
+      multiFactorResolver =
+        null;
+
+
+      mfaVerificationId =
+        null;
+
+
+      if (recaptchaVerifier) {
+
+        try {
+
+          recaptchaVerifier.clear();
+
+        }
+
+        catch(error) {}
+
+        recaptchaVerifier =
+          null;
+
+      }
+
+
       await auth.signOut();
+
 
       window.location.reload();
 
@@ -2375,10 +3956,15 @@ window.logout =
 
     catch(error) {
 
-      console.error(error);
+      console.error(
+        "Logout Error:",
+        error
+      );
+
 
       alert(
-        "Logout failed: " + error.message
+        "Logout failed: " +
+        getFirebaseErrorMessage(error)
       );
 
     }
@@ -2390,7 +3976,10 @@ window.logout =
    MESSAGE
 ========================================================= */
 
-function showMessage(text, type) {
+function showMessage(
+  text,
+  type
+) {
 
   messageBox.textContent =
     text;
@@ -2399,6 +3988,11 @@ function showMessage(text, type) {
   messageBox.className =
     "message " + type;
 
+
+  /*
+    अगर admin panel visible है
+    तो ऊपर scroll
+  */
 
   window.scrollTo({
 
@@ -2409,12 +4003,75 @@ function showMessage(text, type) {
   });
 
 
-  setTimeout(function() {
+  setTimeout(
+    function() {
 
-    messageBox.className =
-      "message";
+      messageBox.className =
+        "message";
 
-  }, 6000);
+    },
+    6000
+  );
+
+}
+
+
+/* =========================================================
+   FIREBASE ERROR MESSAGE
+========================================================= */
+
+function getFirebaseErrorMessage(
+  error
+) {
+
+  if (!error) {
+
+    return "Unknown error";
+
+  }
+
+
+  const code =
+    error.code || "";
+
+
+  const messages = {
+
+    "auth/popup-closed-by-user":
+      "Login popup बंद कर दिया गया।",
+
+    "auth/popup-blocked":
+      "Browser ने popup block कर दिया।",
+
+    "auth/cancelled-popup-request":
+      "Login request cancel हो गई।",
+
+    "auth/unauthorized-domain":
+      "यह domain Firebase Authentication में authorized नहीं है।",
+
+    "auth/invalid-verification-code":
+      "OTP गलत है।",
+
+    "auth/code-expired":
+      "OTP expire हो गया है।",
+
+    "auth/too-many-requests":
+      "बहुत अधिक attempts हो गए हैं। कुछ समय बाद फिर कोशिश करें।",
+
+    "auth/quota-exceeded":
+      "SMS quota limit पूरी हो गई है।",
+
+    "auth/invalid-phone-number":
+      "Phone number invalid है।"
+
+  };
+
+
+  return (
+    messages[code] ||
+    error.message ||
+    "Firebase error"
+  );
 
 }
 
@@ -2427,15 +4084,30 @@ function escapeHtml(value) {
 
   return String(value)
 
-    .replace(/&/g, "&amp;")
+    .replace(
+      /&/g,
+      "&amp;"
+    )
 
-    .replace(/</g, "&lt;")
+    .replace(
+      /</g,
+      "&lt;"
+    )
 
-    .replace(/>/g, "&gt;")
+    .replace(
+      />/g,
+      "&gt;"
+    )
 
-    .replace(/"/g, "&quot;")
+    .replace(
+      /"/g,
+      "&quot;"
+    )
 
-    .replace(/'/g, "&#039;");
+    .replace(
+      /'/g,
+      "&#039;"
+    );
 
 }
 
@@ -2448,9 +4120,15 @@ function escapeAttribute(value) {
 
   return String(value)
 
-    .replace(/\\/g, "\\\\")
+    .replace(
+      /\\/g,
+      "\\\\"
+    )
 
-    .replace(/'/g, "\\'");
+    .replace(
+      /'/g,
+      "\\'"
+    );
 
 }
 
@@ -2460,12 +4138,16 @@ function escapeAttribute(value) {
 ========================================================= */
 
 document
-  .getElementById("searchInput")
+  .getElementById(
+    "searchInput"
+  )
   .addEventListener(
     "keyup",
     function(event) {
 
-      if (event.key === "Enter") {
+      if (
+        event.key === "Enter"
+      ) {
 
         renderQuestions();
 
@@ -2473,6 +4155,31 @@ document
 
     }
   );
+
+
+/* =========================================================
+   OTP ENTER
+========================================================= */
+
+document
+  .getElementById(
+    "mfaCode"
+  )
+  .addEventListener(
+    "keyup",
+    function(event) {
+
+      if (
+        event.key === "Enter"
+      ) {
+
+        verifyMFA();
+
+      }
+
+    }
+  );
+
 
 </script>
 
