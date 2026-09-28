@@ -26,14 +26,14 @@
 
     .container {
       width: 100%;
-      max-width: 460px;
+      max-width: 480px;
     }
 
     .card {
-      background: #ffffff;
+      background: #fff;
       border-radius: 18px;
       padding: 32px;
-      box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+      box-shadow: 0 10px 35px rgba(0,0,0,.12);
     }
 
     .logo {
@@ -64,18 +64,23 @@
       font-size: 15px;
       font-weight: 700;
       cursor: pointer;
-      transition: 0.2s;
+      transition: .2s;
     }
 
     button:hover {
-      opacity: 0.92;
+      opacity: .92;
+    }
+
+    button:disabled {
+      opacity: .6;
+      cursor: not-allowed;
     }
 
     .google-btn {
-      background: #ffffff;
+      background: #fff;
       border: 1px solid #cfd5df;
       color: #202124;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
     }
 
     .google-btn:hover {
@@ -84,13 +89,13 @@
 
     .primary-btn {
       background: #2864d7;
-      color: #ffffff;
+      color: #fff;
       margin-top: 12px;
     }
 
     .danger-btn {
       background: #dc3545;
-      color: white;
+      color: #fff;
       margin-top: 10px;
     }
 
@@ -106,13 +111,15 @@
       border: 1px solid #cbd5e1;
       border-radius: 9px;
       outline: none;
-      font-size: 16px;
+      font-size: 18px;
       margin-top: 8px;
+      text-align: center;
+      letter-spacing: 4px;
     }
 
     input:focus {
       border-color: #2864d7;
-      box-shadow: 0 0 0 3px rgba(40,100,215,0.12);
+      box-shadow: 0 0 0 3px rgba(40,100,215,.12);
     }
 
     label {
@@ -194,16 +201,18 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: white;
+      background: #fff;
       padding: 15px;
       margin: 15px 0;
       border-radius: 10px;
       border: 1px solid #e2e8f0;
+      min-height: 240px;
     }
 
-    .qr-box img {
-      width: 210px;
-      height: 210px;
+    #qr-canvas {
+      width: 220px;
+      height: 220px;
+      display: block;
     }
 
     .secret-box {
@@ -214,6 +223,7 @@
       word-break: break-all;
       font-size: 13px;
       margin-top: 10px;
+      user-select: all;
     }
 
     .footer {
@@ -228,6 +238,28 @@
       padding: 10px;
       color: #64748b;
       font-size: 14px;
+    }
+
+    .step {
+      background: #f8fafc;
+      border-left: 4px solid #2864d7;
+      padding: 12px;
+      margin-top: 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .code-input {
+      font-size: 22px;
+      letter-spacing: 6px;
+    }
+
+    .small-note {
+      margin-top: 8px;
+      color: #64748b;
+      font-size: 12px;
+      line-height: 1.5;
     }
   </style>
 </head>
@@ -246,7 +278,11 @@
       MPPSC MCQ Hub Admin Panel
     </div>
 
-    <!-- LOGIN -->
+
+    <!-- =========================
+         LOGIN SECTION
+    ========================== -->
+
     <div id="login-section">
 
       <button id="google-login-btn" class="google-btn">
@@ -262,16 +298,27 @@
     </div>
 
 
-    <!-- ADMIN PANEL -->
+    <!-- =========================
+         ADMIN SECTION
+    ========================== -->
+
     <div id="admin-section" class="hidden">
 
       <div class="user-box">
-        <div class="user-name" id="user-name">Admin</div>
+
+        <div class="user-name" id="user-name">
+          MPPSC Admin
+        </div>
+
         <div class="user-email" id="user-email"></div>
+
       </div>
 
 
-      <!-- TOTP SECTION -->
+      <!-- =========================
+           TOTP SECTION
+      ========================== -->
+
       <div id="totp-section">
 
         <div class="section">
@@ -279,8 +326,8 @@
           <h2>🛡️ Google Authenticator</h2>
 
           <p>
-            Admin account की सुरक्षा के लिए Google Authenticator
-            TOTP verification enable करें।
+            Admin account की security के लिए
+            Google Authenticator TOTP enable करें।
           </p>
 
           <div id="totp-status" class="message info">
@@ -290,19 +337,38 @@
         </div>
 
 
-        <!-- TOTP ENROLL -->
+        <!-- =========================
+             TOTP ENROLLMENT
+        ========================== -->
+
         <div id="totp-enroll-box" class="hidden">
 
           <div class="section">
 
             <h2>2-Step Verification Setup</h2>
 
-            <p>
-              नीचे दिया गया QR code Google Authenticator app से scan करें।
-            </p>
+            <div class="step">
+              <b>Step 1:</b>
+              नीचे दिए गए QR code को Google Authenticator
+              app से scan करें।
+            </div>
 
-            <div id="qr-container" class="qr-box">
-              <img id="qr-image" src="" alt="Google Authenticator QR">
+            <div class="qr-box">
+
+              <canvas
+                id="qr-canvas"
+                width="220"
+                height="220">
+              </canvas>
+
+            </div>
+
+
+            <div class="step">
+              <b>Step 2:</b>
+              अगर QR scan नहीं हो रहा है तो नीचे दिया गया
+              Manual Secret Key Google Authenticator में
+              manually add करें।
             </div>
 
             <label>
@@ -310,42 +376,46 @@
             </label>
 
             <div id="totp-secret" class="secret-box">
-              -
+              Secret generate हो रहा है...
+            </div>
+
+
+            <div class="step">
+              <b>Step 3:</b>
+              Google Authenticator में दिखाई दे रहा
+              6-digit code नीचे डालें।
             </div>
 
             <label for="totp-code">
-              6-Digit Authenticator Code
+              Authenticator Code
             </label>
 
             <input
               id="totp-code"
+              class="code-input"
               type="text"
               inputmode="numeric"
               maxlength="6"
-              placeholder="6-digit code"
+              placeholder="000000"
               autocomplete="one-time-code"
             >
+
 
             <button
               id="verify-totp-btn"
               class="primary-btn">
-              Verify & Enable TOTP
+              ✅ Verify & Enable TOTP
             </button>
 
-            <div id="totp-enroll-message" class="message"></div>
 
-          </div>
+            <div
+              id="totp-enroll-message"
+              class="message">
+            </div>
 
-        </div>
-
-
-        <!-- TOTP ALREADY ENABLED -->
-        <div id="totp-enabled-box" class="hidden">
-
-          <div class="section">
-
-            <div class="message success" style="display:block;">
-              ✅ Google Authenticator TOTP पहले से enabled है।
+            <div class="small-note">
+              ध्यान दें: QR/Secret को किसी दूसरे व्यक्ति के साथ
+              share न करें।
             </div>
 
           </div>
@@ -353,13 +423,39 @@
         </div>
 
 
-        <!-- LOGOUT -->
+        <!-- =========================
+             TOTP ENABLED
+        ========================== -->
+
+        <div id="totp-enabled-box" class="hidden">
+
+          <div class="section">
+
+            <div
+              class="message success"
+              style="display:block;">
+
+              ✅ Google Authenticator TOTP पहले से enabled है।
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =========================
+             LOGOUT
+        ========================== -->
+
         <div class="section">
 
           <button
             id="logout-btn"
             class="danger-btn">
+
             Logout
+
           </button>
 
         </div>
@@ -369,7 +465,10 @@
     </div>
 
 
-    <!-- MFA VERIFICATION -->
+    <!-- =========================
+         MFA LOGIN SECTION
+    ========================== -->
+
     <div id="mfa-section" class="hidden">
 
       <div class="section">
@@ -377,9 +476,11 @@
         <h2>🔐 2-Step Verification</h2>
 
         <p>
-          आपके Google account पर Authenticator enabled है।
-          Google Authenticator से वर्तमान 6-digit code डालें।
+          आपके Admin Google account पर Google Authenticator
+          enabled है। Authenticator app से वर्तमान
+          6-digit code डालें।
         </p>
+
 
         <label for="mfa-code">
           Authenticator Code
@@ -387,468 +488,1260 @@
 
         <input
           id="mfa-code"
+          class="code-input"
           type="text"
           inputmode="numeric"
           maxlength="6"
-          placeholder="6-digit code"
+          placeholder="000000"
           autocomplete="one-time-code"
         >
+
 
         <button
           id="verify-mfa-btn"
           class="primary-btn">
+
           Verify Code
+
         </button>
 
-        <div id="mfa-message" class="message"></div>
+
+        <div
+          id="mfa-message"
+          class="message">
+        </div>
+
 
         <button
           id="mfa-cancel-btn"
           class="secondary-btn">
+
           Cancel
+
         </button>
 
       </div>
 
     </div>
 
-
   </div>
 
 </div>
 
 
+<!-- QR CODE LIBRARY -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+
+
 <script type="module">
 
-  /* =========================================================
-     FIREBASE IMPORTS
-     ========================================================= */
+/* =========================================================
+   FIREBASE IMPORTS
+========================================================= */
 
-  import { initializeApp }
-    from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
-
-  import {
-    getAuth,
-    GoogleAuthProvider,
-    signInWithPopup,
-    onAuthStateChanged,
-    signOut,
-    multiFactor,
-    TotpMultiFactorGenerator,
-    getMultiFactorResolver
-  } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
 
 
-  /* =========================================================
-     FIREBASE CONFIG
-     =========================================================
-     
-     IMPORTANT:
-     नीचे apiKey में Firebase Console से EXACT API KEY paste करें।
-
-     Firebase Console:
-     Project Settings
-     -> General
-     -> Your apps
-     -> MPPSC MCQ Hub Web
-     -> SDK setup and configuration
-     -> Config
-
-  ========================================================= */
-
-  const firebaseConfig = {
-
-    apiKey: "PASTE_YOUR_REAL_FIREBASE_API_KEY_HERE",
-
-    authDomain:
-      "mppsc-mcq-hub.firebaseapp.com",
-
-    projectId:
-      "mppsc-mcq-hub",
-
-    storageBucket:
-      "mppsc-mcq-hub.firebasestorage.app",
-
-    messagingSenderId:
-      "709069054485",
-
-    appId:
-      "1:709069054485:web:578a8908ae9f0741c3a41c",
-
-    measurementId:
-      "G-WQERPE35L2"
-  };
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+  onAuthStateChanged,
+  signOut,
+  multiFactor,
+  TotpMultiFactorGenerator,
+  getMultiFactorResolver,
+  reauthenticateWithPopup
+} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
 
 
-  /* =========================================================
-     ADMIN EMAIL
-     ========================================================= */
+/* =========================================================
+   FIREBASE CONFIG
+========================================================= */
 
-  const ALLOWED_ADMIN_EMAIL =
-    "ajay.com1989@gmail.com";
+const firebaseConfig = {
+
+  apiKey:
+    "AIzaSyAowKOyJ_6Upx0z5VcU_2fM2jk8M6A2dUk",
+
+  authDomain:
+    "mppsc-mcq-hub.firebaseapp.com",
+
+  projectId:
+    "mppsc-mcq-hub",
+
+  storageBucket:
+    "mppsc-mcq-hub.firebasestorage.app",
+
+  messagingSenderId:
+    "709069054485",
+
+  appId:
+    "1:709069054485:web:578a8908ae9f0741c3a41c",
+
+  measurementId:
+    "G-W0YRPE35L2"
+
+};
 
 
-  /* =========================================================
-     INITIALIZE FIREBASE
-     ========================================================= */
+/* =========================================================
+   ADMIN EMAIL
+========================================================= */
 
-  let app;
-  let auth;
-  let provider;
+const ALLOWED_ADMIN_EMAIL =
+  "ajay.com1989@gmail.com";
+
+
+/* =========================================================
+   INITIALIZE FIREBASE
+========================================================= */
+
+let app;
+let auth;
+let provider;
+
+try {
+
+  app =
+    initializeApp(firebaseConfig);
+
+  auth =
+    getAuth(app);
+
+  provider =
+    new GoogleAuthProvider();
+
+  provider.setCustomParameters({
+    prompt: "select_account"
+  });
+
+} catch (error) {
+
+  console.error(
+    "Firebase initialization error:",
+    error
+  );
+
+}
+
+
+/* =========================================================
+   DOM
+========================================================= */
+
+const loginSection =
+  document.getElementById(
+    "login-section"
+  );
+
+const adminSection =
+  document.getElementById(
+    "admin-section"
+  );
+
+const mfaSection =
+  document.getElementById(
+    "mfa-section"
+  );
+
+
+const googleLoginBtn =
+  document.getElementById(
+    "google-login-btn"
+  );
+
+const logoutBtn =
+  document.getElementById(
+    "logout-btn"
+  );
+
+
+const verifyMfaBtn =
+  document.getElementById(
+    "verify-mfa-btn"
+  );
+
+const mfaCancelBtn =
+  document.getElementById(
+    "mfa-cancel-btn"
+  );
+
+
+const verifyTotpBtn =
+  document.getElementById(
+    "verify-totp-btn"
+  );
+
+
+const userName =
+  document.getElementById(
+    "user-name"
+  );
+
+const userEmail =
+  document.getElementById(
+    "user-email"
+  );
+
+
+const totpStatus =
+  document.getElementById(
+    "totp-status"
+  );
+
+const totpEnrollBox =
+  document.getElementById(
+    "totp-enroll-box"
+  );
+
+const totpEnabledBox =
+  document.getElementById(
+    "totp-enabled-box"
+  );
+
+
+const totpSecret =
+  document.getElementById(
+    "totp-secret"
+  );
+
+
+const totpCode =
+  document.getElementById(
+    "totp-code"
+  );
+
+
+const mfaCode =
+  document.getElementById(
+    "mfa-code"
+  );
+
+
+const qrCanvas =
+  document.getElementById(
+    "qr-canvas"
+  );
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+let currentTotpSecret = null;
+
+window.currentMfaResolver = null;
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+function showMessage(
+  elementId,
+  text,
+  type = "info"
+) {
+
+  const element =
+    document.getElementById(
+      elementId
+    );
+
+  if (!element) return;
+
+  element.className =
+    "message " + type;
+
+  element.textContent =
+    text;
+
+  element.style.display =
+    "block";
+}
+
+
+function hideMessage(elementId) {
+
+  const element =
+    document.getElementById(
+      elementId
+    );
+
+  if (!element) return;
+
+  element.style.display =
+    "none";
+}
+
+
+/* =========================================================
+   FRIENDLY FIREBASE ERROR
+========================================================= */
+
+function friendlyFirebaseError(error) {
+
+  console.error(
+    "Firebase Error:",
+    error
+  );
+
+  const code =
+    error?.code || "";
+
+  const message =
+    error?.message || "";
+
+
+  if (
+    code ===
+    "auth/api-key-not-valid-please-pass-a-valid-api-key"
+  ) {
+
+    return (
+      "Firebase API Key गलत है। " +
+      "Firebase Console से exact Web App config इस्तेमाल करें।"
+    );
+
+  }
+
+
+  if (
+    code ===
+    "auth/operation-not-allowed"
+  ) {
+
+    return (
+      "Google Sign-In enabled नहीं है। " +
+      "Firebase Console → Authentication → Sign-in method → Google को Enable करें।"
+    );
+
+  }
+
+
+  if (
+    code ===
+    "auth/popup-closed-by-user"
+  ) {
+
+    return "Google login popup बंद कर दिया गया।";
+
+  }
+
+
+  if (
+    code ===
+    "auth/popup-blocked"
+  ) {
+
+    return (
+      "Browser ने Google popup block कर दिया। " +
+      "इस website के लिए popup allow करें।"
+    );
+
+  }
+
+
+  if (
+    code ===
+    "auth/unauthorized-domain"
+  ) {
+
+    return (
+      "mppscportal.in Firebase Authentication में Authorized Domain के रूप में add नहीं है।"
+    );
+
+  }
+
+
+  if (
+    code ===
+    "auth/multi-factor-auth-required"
+  ) {
+
+    return (
+      "Authenticator verification required है।"
+    );
+
+  }
+
+
+  if (
+    code ===
+    "auth/invalid-verification-code"
+  ) {
+
+    return (
+      "Authenticator code गलत है।"
+    );
+
+  }
+
+
+  if (
+    code ===
+    "auth/code-expired"
+  ) {
+
+    return (
+      "Authenticator code expire हो गया। नया code डालें।"
+    );
+
+  }
+
+
+  if (
+    code ===
+    "auth/requires-recent-login"
+  ) {
+
+    return (
+      "Security के लिए दोबारा Google login करना जरूरी है।"
+    );
+
+  }
+
+
+  if (
+    code ===
+    "auth/second-factor-already-in-use"
+  ) {
+
+    return (
+      "यह Authenticator पहले से account में enabled है।"
+    );
+
+  }
+
+
+  if (
+    code ===
+    "auth/missing-multi-factor-info"
+  ) {
+
+    return (
+      "MFA configuration उपलब्ध नहीं है। Firebase Console में TOTP MFA enable करें।"
+    );
+
+  }
+
+
+  if (
+    code ===
+    "auth/multi-factor-info-already-in-use"
+  ) {
+
+    return (
+      "यह दूसरा authentication factor पहले से registered है।"
+    );
+
+  }
+
+
+  if (
+    code ===
+    "auth/invalid-multi-factor-session"
+  ) {
+
+    return (
+      "MFA session expire हो गया। कृपया दोबारा login करें।"
+    );
+
+  }
+
+
+  if (
+    code ===
+    "auth/multi-factor-enrollment-not-found"
+  ) {
+
+    return (
+      "TOTP enrollment नहीं मिला। कृपया दोबारा setup करें।"
+    );
+
+  }
+
+
+  return (
+    message ||
+    "Authentication में समस्या आई।"
+  );
+
+}
+
+
+/* =========================================================
+   ADMIN CHECK
+========================================================= */
+
+function isAllowedAdmin(user) {
+
+  if (
+    !user ||
+    !user.email
+  ) {
+
+    return false;
+
+  }
+
+  return (
+    user.email.toLowerCase() ===
+    ALLOWED_ADMIN_EMAIL.toLowerCase()
+  );
+
+}
+
+
+/* =========================================================
+   RESET TOTP SETUP
+========================================================= */
+
+function resetTotpSetup() {
+
+  currentTotpSecret =
+    null;
+
+  totpSecret.textContent =
+    "-";
+
+  totpCode.value =
+    "";
 
   try {
 
-    app = initializeApp(firebaseConfig);
+    const ctx =
+      qrCanvas.getContext("2d");
 
-    auth = getAuth(app);
+    ctx.clearRect(
+      0,
+      0,
+      qrCanvas.width,
+      qrCanvas.height
+    );
 
-    provider = new GoogleAuthProvider();
+  } catch (e) {
 
-    provider.setCustomParameters({
-      prompt: "select_account"
-    });
+    console.error(e);
+
+  }
+
+}
+
+
+/* =========================================================
+   GENERATE QR CODE
+========================================================= */
+
+function generateQRCode(uri) {
+
+  if (
+    typeof QRious ===
+    "undefined"
+  ) {
+
+    throw new Error(
+      "QR Code library load नहीं हुई।"
+    );
+
+  }
+
+
+  new QRious({
+
+    element:
+      qrCanvas,
+
+    value:
+      uri,
+
+    size:
+      220,
+
+    level:
+      "H"
+
+  });
+
+}
+
+
+/* =========================================================
+   CREATE TOTP SETUP
+========================================================= */
+
+async function createTotpSetup(user) {
+
+  try {
+
+    resetTotpSetup();
+
+
+    totpStatus.style.display =
+      "block";
+
+    totpStatus.className =
+      "message info";
+
+    totpStatus.textContent =
+      "⏳ Authenticator setup तैयार हो रहा है...";
+
+
+    /*
+     * Firebase TOTP MFA session
+     */
+
+    const session =
+      await multiFactor(user)
+        .getSession();
+
+
+    /*
+     * Generate TOTP secret
+     */
+
+    const secret =
+      await TotpMultiFactorGenerator
+        .generateSecret(
+          session
+        );
+
+
+    currentTotpSecret =
+      secret;
+
+
+    /*
+     * Secret key display
+     */
+
+    totpSecret.textContent =
+      secret.secretKey;
+
+
+    /*
+     * Generate QR URI
+     */
+
+    const qrUri =
+      secret.generateQrCodeUrl(
+        user.email,
+        "MPPSC MCQ Hub"
+      );
+
+
+    /*
+     * Draw QR
+     */
+
+    generateQRCode(
+      qrUri
+    );
+
+
+    totpStatus.style.display =
+      "none";
+
+
+    totpEnrollBox.classList.remove(
+      "hidden"
+    );
+
+
+    totpEnabledBox.classList.add(
+      "hidden"
+    );
+
 
   } catch (error) {
 
-    console.error("Firebase initialization error:", error);
+    console.error(
+      "TOTP Setup Error:",
+      error
+    );
+
 
     showMessage(
-      "login-message",
-      "Firebase configuration error: " + error.message,
+      "totp-enroll-message",
+      friendlyFirebaseError(error),
       "error"
     );
 
   }
 
-
-  /* =========================================================
-     DOM ELEMENTS
-     ========================================================= */
-
-  const loginSection =
-    document.getElementById("login-section");
-
-  const adminSection =
-    document.getElementById("admin-section");
-
-  const mfaSection =
-    document.getElementById("mfa-section");
-
-  const googleLoginBtn =
-    document.getElementById("google-login-btn");
-
-  const logoutBtn =
-    document.getElementById("logout-btn");
-
-  const verifyMfaBtn =
-    document.getElementById("verify-mfa-btn");
-
-  const mfaCancelBtn =
-    document.getElementById("mfa-cancel-btn");
-
-  const verifyTotpBtn =
-    document.getElementById("verify-totp-btn");
-
-  const userName =
-    document.getElementById("user-name");
-
-  const userEmail =
-    document.getElementById("user-email");
-
-  const totpStatus =
-    document.getElementById("totp-status");
-
-  const totpEnrollBox =
-    document.getElementById("totp-enroll-box");
-
-  const totpEnabledBox =
-    document.getElementById("totp-enabled-box");
-
-  const totpSecret =
-    document.getElementById("totp-secret");
-
-  const qrImage =
-    document.getElementById("qr-image");
-
-  const totpCode =
-    document.getElementById("totp-code");
-
-  const mfaCode =
-    document.getElementById("mfa-code");
+}
 
 
-  /* =========================================================
-     MESSAGE FUNCTION
-     ========================================================= */
+/* =========================================================
+   CHECK TOTP STATUS
+========================================================= */
 
-  function showMessage(elementId, text, type = "info") {
+async function checkTotpStatus(user) {
 
-    const element =
-      document.getElementById(elementId);
+  try {
 
-    if (!element) return;
-
-    element.className =
-      "message " + type;
-
-    element.textContent =
-      text;
-
-    element.style.display =
-      "block";
-  }
-
-
-  function hideMessage(elementId) {
-
-    const element =
-      document.getElementById(elementId);
-
-    if (!element) return;
-
-    element.style.display =
-      "none";
-  }
-
-
-  /* =========================================================
-     ERROR TRANSLATION
-     ========================================================= */
-
-  function friendlyFirebaseError(error) {
-
-    console.error(error);
-
-    const code =
-      error?.code || "";
-
-    const message =
-      error?.message || "";
+    const enrolledFactors =
+      multiFactor(user)
+        .enrolledFactors || [];
 
 
     if (
-      code ===
-      "auth/api-key-not-valid-please-pass-a-valid-api-key"
+      enrolledFactors.length > 0
     ) {
 
-      return (
-        "Firebase API Key गलत है। " +
-        "Firebase Console से exact apiKey copy करके code में paste करें।"
+      totpStatus.style.display =
+        "none";
+
+      totpEnrollBox.classList.add(
+        "hidden"
+      );
+
+      totpEnabledBox.classList.remove(
+        "hidden"
+      );
+
+
+    } else {
+
+      totpStatus.style.display =
+        "block";
+
+      totpStatus.className =
+        "message info";
+
+      totpStatus.textContent =
+        "⚠️ Google Authenticator अभी enabled नहीं है।";
+
+
+      totpEnrollBox.classList.remove(
+        "hidden"
+      );
+
+      totpEnabledBox.classList.add(
+        "hidden"
+      );
+
+
+      /*
+       * Generate QR immediately
+       */
+
+      await createTotpSetup(
+        user
       );
 
     }
 
+  } catch (error) {
 
-    if (
-      code ===
-      "auth/operation-not-allowed"
-    ) {
-
-      return (
-        "Firebase Authentication में Google Sign-In अभी enabled नहीं है। " +
-        "Firebase Console → Authentication → Sign-in method → Google को Enable करें।"
-      );
-
-    }
+    console.error(
+      "TOTP Status Error:",
+      error
+    );
 
 
-    if (
-      code ===
-      "auth/popup-closed-by-user"
-    ) {
-
-      return "Google login popup बंद कर दिया गया।";
-
-    }
-
-
-    if (
-      code ===
-      "auth/popup-blocked"
-    ) {
-
-      return (
-        "Browser ने Google popup block कर दिया। " +
-        "इस website के लिए popups allow करें।"
-      );
-
-    }
-
-
-    if (
-      code ===
-      "auth/unauthorized-domain"
-    ) {
-
-      return (
-        "यह domain Firebase Authentication में authorized नहीं है। " +
-        "Firebase Console → Authentication → Settings → Authorized domains में website domain जोड़ें।"
-      );
-
-    }
-
-
-    if (
-      code ===
-      "auth/multi-factor-auth-required"
-    ) {
-
-      return (
-        "Authenticator verification required है।"
-      );
-
-    }
-
-
-    if (
-      code ===
-      "auth/invalid-verification-code"
-    ) {
-
-      return "Authenticator code गलत है।";
-
-    }
-
-
-    if (
-      code ===
-      "auth/code-expired"
-    ) {
-
-      return "Authenticator code expire हो गया। नया code डालें।";
-
-    }
-
-
-    if (
-      code ===
-      "auth/requires-recent-login"
-    ) {
-
-      return (
-        "Security के लिए दोबारा Google login करना जरूरी है।"
-      );
-
-    }
-
-
-    return message ||
-      "Authentication में समस्या आई।";
-
-
-  }
-
-
-  /* =========================================================
-     CHECK ADMIN EMAIL
-     ========================================================= */
-
-  function isAllowedAdmin(user) {
-
-    if (!user || !user.email) {
-      return false;
-    }
-
-    return (
-      user.email.toLowerCase() ===
-      ALLOWED_ADMIN_EMAIL.toLowerCase()
+    showMessage(
+      "totp-enroll-message",
+      friendlyFirebaseError(error),
+      "error"
     );
 
   }
 
+}
 
-  /* =========================================================
-     SHOW ADMIN
-     ========================================================= */
 
-  async function openAdminPanel(user) {
+/* =========================================================
+   OPEN ADMIN PANEL
+========================================================= */
 
-    if (!isAllowedAdmin(user)) {
+async function openAdminPanel(user) {
 
-      showMessage(
-        "login-message",
-        "यह Google account Admin के लिए authorized नहीं है।",
-        "error"
+  if (
+    !isAllowedAdmin(user)
+  ) {
+
+    showMessage(
+      "login-message",
+      "यह Google account Admin के लिए authorized नहीं है।",
+      "error"
+    );
+
+    await signOut(auth);
+
+    return;
+
+  }
+
+
+  loginSection.classList.add(
+    "hidden"
+  );
+
+  mfaSection.classList.add(
+    "hidden"
+  );
+
+  adminSection.classList.remove(
+    "hidden"
+  );
+
+
+  userName.textContent =
+    user.displayName ||
+    "MPPSC Admin";
+
+
+  userEmail.textContent =
+    user.email;
+
+
+  await checkTotpStatus(
+    user
+  );
+
+}
+
+
+/* =========================================================
+   GOOGLE LOGIN
+========================================================= */
+
+googleLoginBtn.addEventListener(
+  "click",
+  async () => {
+
+    hideMessage(
+      "login-message"
+    );
+
+
+    googleLoginBtn.disabled =
+      true;
+
+    googleLoginBtn.textContent =
+      "⏳ Google Login हो रहा है...";
+
+
+    try {
+
+      const result =
+        await signInWithPopup(
+          auth,
+          provider
+        );
+
+
+      const user =
+        result.user;
+
+
+      if (
+        !isAllowedAdmin(user)
+      ) {
+
+        await signOut(auth);
+
+        throw new Error(
+          "यह Google account Admin के लिए authorized नहीं है।"
+        );
+
+      }
+
+
+      await openAdminPanel(
+        user
       );
 
-      await signOut(auth);
+
+    } catch (error) {
+
+      console.error(
+        "Google Sign-In Error:",
+        error
+      );
+
+
+      /*
+       * MFA REQUIRED
+       */
+
+      if (
+        error.code ===
+        "auth/multi-factor-auth-required"
+      ) {
+
+        try {
+
+          const resolver =
+            getMultiFactorResolver(
+              auth,
+              error
+            );
+
+
+          window.currentMfaResolver =
+            resolver;
+
+
+          loginSection.classList.add(
+            "hidden"
+          );
+
+          adminSection.classList.add(
+            "hidden"
+          );
+
+          mfaSection.classList.remove(
+            "hidden"
+          );
+
+
+          mfaCode.value =
+            "";
+
+          mfaCode.focus();
+
+
+        } catch (resolverError) {
+
+          showMessage(
+            "login-message",
+            friendlyFirebaseError(
+              resolverError
+            ),
+            "error"
+          );
+
+        }
+
+      } else {
+
+        showMessage(
+          "login-message",
+          friendlyFirebaseError(error),
+          "error"
+        );
+
+      }
+
+
+    } finally {
+
+      googleLoginBtn.disabled =
+        false;
+
+      googleLoginBtn.textContent =
+        "🔑 Continue with Google";
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   MFA VERIFY
+========================================================= */
+
+verifyMfaBtn.addEventListener(
+  "click",
+  async () => {
+
+    const code =
+      mfaCode.value.trim();
+
+
+    if (
+      !/^\d{6}$/.test(code)
+    ) {
+
+      showMessage(
+        "mfa-message",
+        "कृपया 6 digit Authenticator code डालें।",
+        "error"
+      );
 
       return;
 
     }
 
 
-    loginSection.classList.add("hidden");
-
-    mfaSection.classList.add("hidden");
-
-    adminSection.classList.remove("hidden");
+    const resolver =
+      window.currentMfaResolver;
 
 
-    userName.textContent =
-      user.displayName ||
-      "MPPSC Admin";
+    if (!resolver) {
+
+      showMessage(
+        "mfa-message",
+        "MFA session उपलब्ध नहीं है। दोबारा login करें।",
+        "error"
+      );
+
+      return;
+
+    }
 
 
-    userEmail.textContent =
-      user.email;
+    verifyMfaBtn.disabled =
+      true;
 
+    verifyMfaBtn.textContent =
+      "⏳ Verify हो रहा है...";
 
-    await checkTotpStatus(user);
-
-  }
-
-
-  /* =========================================================
-     CHECK TOTP STATUS
-     ========================================================= */
-
-  async function checkTotpStatus(user) {
 
     try {
 
-      const enrolledFactors =
-        multiFactor(user).enrolledFactors || [];
-
-
-      if (enrolledFactors.length > 0) {
-
-        totpStatus.style.display =
-          "none";
-
-        totpEnrollBox.classList.add(
-          "hidden"
+      const totpHint =
+        resolver.hints.find(
+          hint =>
+            hint.factorId ===
+            TotpMultiFactorGenerator.FACTOR_ID
         );
 
-        totpEnabledBox.classList.remove(
-          "hidden"
-        );
 
-      } else {
+      if (!totpHint) {
 
-        totpStatus.style.display =
-          "block";
-
-        totpStatus.className =
-          "message info";
-
-        totpStatus.textContent =
-          "⚠️ Google Authenticator अभी enabled नहीं है। नीचे setup करें।";
-
-
-        totpEnrollBox.classList.remove(
-          "hidden"
-        );
-
-        totpEnabledBox.classList.add(
-          "hidden"
+        throw new Error(
+          "TOTP Authenticator factor नहीं मिला।"
         );
 
       }
 
+
+      const assertion =
+        TotpMultiFactorGenerator
+          .assertionForSignIn(
+            totpHint.uid,
+            code
+          );
+
+
+      const userCredential =
+        await resolver.resolveSignIn(
+          assertion
+        );
+
+
+      window.currentMfaResolver =
+        null;
+
+
+      mfaSection.classList.add(
+        "hidden"
+      );
+
+
+      await openAdminPanel(
+        userCredential.user
+      );
+
+
     } catch (error) {
 
-      console.error(error);
+      console.error(
+        "MFA Error:",
+        error
+      );
+
+
+      showMessage(
+        "mfa-message",
+        friendlyFirebaseError(error),
+        "error"
+      );
+
+
+    } finally {
+
+      verifyMfaBtn.disabled =
+        false;
+
+      verifyMfaBtn.textContent =
+        "Verify Code";
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   CANCEL MFA
+========================================================= */
+
+mfaCancelBtn.addEventListener(
+  "click",
+  async () => {
+
+    window.currentMfaResolver =
+      null;
+
+
+    mfaSection.classList.add(
+      "hidden"
+    );
+
+    loginSection.classList.remove(
+      "hidden"
+    );
+
+
+    mfaCode.value =
+      "";
+
+
+    try {
+
+      await signOut(auth);
+
+    } catch (error) {
+
+      console.error(
+        error
+      );
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   ENABLE TOTP
+========================================================= */
+
+verifyTotpBtn.addEventListener(
+  "click",
+  async () => {
+
+    const user =
+      auth.currentUser;
+
+
+    if (!user) {
+
+      showMessage(
+        "totp-enroll-message",
+        "पहले Admin login करें।",
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    if (
+      !currentTotpSecret
+    ) {
+
+      showMessage(
+        "totp-enroll-message",
+        "TOTP secret उपलब्ध नहीं है। Page refresh करके दोबारा setup करें।",
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    const code =
+      totpCode.value.trim();
+
+
+    if (
+      !/^\d{6}$/.test(code)
+    ) {
+
+      showMessage(
+        "totp-enroll-message",
+        "कृपया 6 digit Authenticator code डालें।",
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    verifyTotpBtn.disabled =
+      true;
+
+    verifyTotpBtn.textContent =
+      "⏳ TOTP enable हो रहा है...";
+
+
+    hideMessage(
+      "totp-enroll-message"
+    );
+
+
+    try {
+
+      /*
+       * Create enrollment assertion
+       */
+
+      const assertion =
+        TotpMultiFactorGenerator
+          .assertionForEnrollment(
+            currentTotpSecret,
+            code
+          );
+
+
+      /*
+       * Enroll TOTP
+       */
+
+      await multiFactor(user)
+        .enroll(
+          assertion,
+          "MPPSC Admin Authenticator"
+        );
+
+
+      showMessage(
+        "totp-enroll-message",
+        "✅ Google Authenticator successfully enable हो गया।",
+        "success"
+      );
+
+
+      currentTotpSecret =
+        null;
+
+
+      totpEnrollBox.classList.add(
+        "hidden"
+      );
+
+      totpEnabledBox.classList.remove(
+        "hidden"
+      );
+
+      totpStatus.style.display =
+        "none";
+
+
+      totpCode.value =
+        "";
+
+
+    } catch (error) {
+
+      console.error(
+        "TOTP Enrollment Error:",
+        error
+      );
+
 
       showMessage(
         "totp-enroll-message",
@@ -856,286 +1749,39 @@
         "error"
       );
 
+
+    } finally {
+
+      verifyTotpBtn.disabled =
+        false;
+
+      verifyTotpBtn.textContent =
+        "✅ Verify & Enable TOTP";
+
     }
 
   }
+);
 
 
-  /* =========================================================
-     GOOGLE LOGIN
-     ========================================================= */
+/* =========================================================
+   LOGOUT
+========================================================= */
 
-  googleLoginBtn.addEventListener(
-    "click",
-    async () => {
+logoutBtn.addEventListener(
+  "click",
+  async () => {
 
-      hideMessage("login-message");
+    try {
 
-      googleLoginBtn.disabled = true;
+      await signOut(
+        auth
+      );
 
-      googleLoginBtn.textContent =
-        "⏳ Google Login हो रहा है...";
 
-
-      try {
-
-        const result =
-          await signInWithPopup(
-            auth,
-            provider
-          );
-
-
-        const user =
-          result.user;
-
-
-        if (!isAllowedAdmin(user)) {
-
-          await signOut(auth);
-
-          throw new Error(
-            "यह Google account Admin के लिए authorized नहीं है।"
-          );
-
-        }
-
-
-        await openAdminPanel(user);
-
-
-      } catch (error) {
-
-        console.error(
-          "Google Sign-In Error:",
-          error
-        );
-
-
-        /*
-         * Firebase MFA REQUIRED
-         */
-
-        if (
-          error.code ===
-          "auth/multi-factor-auth-required"
-        ) {
-
-          try {
-
-            const resolver =
-              getMultiFactorResolver(
-                auth,
-                error
-              );
-
-
-            window.currentMfaResolver =
-              resolver;
-
-
-            loginSection.classList.add(
-              "hidden"
-            );
-
-            adminSection.classList.add(
-              "hidden"
-            );
-
-            mfaSection.classList.remove(
-              "hidden"
-            );
-
-
-            mfaCode.value = "";
-
-            mfaCode.focus();
-
-
-          } catch (resolverError) {
-
-            showMessage(
-              "login-message",
-              friendlyFirebaseError(
-                resolverError
-              ),
-              "error"
-            );
-
-          }
-
-
-        } else {
-
-          showMessage(
-            "login-message",
-            friendlyFirebaseError(error),
-            "error"
-          );
-
-        }
-
-      } finally {
-
-        googleLoginBtn.disabled =
-          false;
-
-        googleLoginBtn.textContent =
-          "🔑 Continue with Google";
-
-      }
-
-    }
-  );
-
-
-  /* =========================================================
-     MFA VERIFICATION
-     ========================================================= */
-
-  verifyMfaBtn.addEventListener(
-    "click",
-    async () => {
-
-      const code =
-        mfaCode.value.trim();
-
-
-      if (!/^\d{6}$/.test(code)) {
-
-        showMessage(
-          "mfa-message",
-          "कृपया 6 digit Authenticator code डालें।",
-          "error"
-        );
-
-        return;
-
-      }
-
-
-      const resolver =
-        window.currentMfaResolver;
-
-
-      if (!resolver) {
-
-        showMessage(
-          "mfa-message",
-          "MFA session उपलब्ध नहीं है। दोबारा login करें।",
-          "error"
-        );
-
-        return;
-
-      }
-
-
-      verifyMfaBtn.disabled =
-        true;
-
-      verifyMfaBtn.textContent =
-        "⏳ Verify हो रहा है...";
-
-
-      try {
-
-        /*
-         * Find TOTP factor
-         */
-
-        const totpHint =
-          resolver.hints.find(
-            hint =>
-              hint.factorId ===
-              TotpMultiFactorGenerator.FACTOR_ID
-          );
-
-
-        if (!totpHint) {
-
-          throw new Error(
-            "TOTP Authenticator factor नहीं मिला।"
-          );
-
-        }
-
-
-        /*
-         * Create TOTP assertion
-         */
-
-        const assertion =
-          TotpMultiFactorGenerator
-            .assertionForSignIn(
-              totpHint.uid,
-              code
-            );
-
-
-        /*
-         * Complete MFA login
-         */
-
-        const userCredential =
-          await resolver.resolveSignIn(
-            assertion
-          );
-
-
-        window.currentMfaResolver =
-          null;
-
-
-        mfaSection.classList.add(
-          "hidden"
-        );
-
-
-        await openAdminPanel(
-          userCredential.user
-        );
-
-
-      } catch (error) {
-
-        console.error(
-          "MFA Error:",
-          error
-        );
-
-
-        showMessage(
-          "mfa-message",
-          friendlyFirebaseError(error),
-          "error"
-        );
-
-
-      } finally {
-
-        verifyMfaBtn.disabled =
-          false;
-
-        verifyMfaBtn.textContent =
-          "Verify Code";
-
-      }
-
-    }
-  );
-
-
-  /* =========================================================
-     CANCEL MFA
-     ========================================================= */
-
-  mfaCancelBtn.addEventListener(
-    "click",
-    async () => {
-
-      window.currentMfaResolver =
-        null;
+      adminSection.classList.add(
+        "hidden"
+      );
 
       mfaSection.classList.add(
         "hidden"
@@ -1145,268 +1791,143 @@
         "hidden"
       );
 
-      mfaCode.value = "";
 
-      try {
-        await signOut(auth);
-      } catch (e) {
-        console.error(e);
-      }
-
-    }
-  );
+      hideMessage(
+        "login-message"
+      );
 
 
-  /* =========================================================
-     ENABLE TOTP
-     ========================================================= */
-
-  verifyTotpBtn.addEventListener(
-    "click",
-    async () => {
-
-      const user =
-        auth.currentUser;
+      resetTotpSetup();
 
 
-      if (!user) {
+    } catch (error) {
 
-        showMessage(
-          "totp-enroll-message",
-          "पहले Admin login करें।",
-          "error"
-        );
-
-        return;
-
-      }
-
-
-      const code =
-        totpCode.value.trim();
-
-
-      if (!/^\d{6}$/.test(code)) {
-
-        showMessage(
-          "totp-enroll-message",
-          "कृपया 6 digit Authenticator code डालें।",
-          "error"
-        );
-
-        return;
-
-      }
-
-
-      verifyTotpBtn.disabled =
-        true;
-
-      verifyTotpBtn.textContent =
-        "⏳ TOTP enable हो रहा है...";
-
-
-      try {
-
-        /*
-         * Get MFA session
-         */
-
-        const session =
-          await multiFactor(user)
-            .getSession();
-
-
-        /*
-         * Generate TOTP secret
-         */
-
-        const secret =
-          await TotpMultiFactorGenerator
-            .generateSecret(
-              session
-            );
-
-
-        /*
-         * Create TOTP assertion
-         */
-
-        const assertion =
-          TotpMultiFactorGenerator
-            .assertionForEnrollment(
-              secret,
-              code
-            );
-
-
-        /*
-         * Enroll factor
-         */
-
-        await multiFactor(user)
-          .enroll(
-            assertion,
-            "MPPSC Admin Authenticator"
-          );
-
-
-        showMessage(
-          "totp-enroll-message",
-          "✅ Google Authenticator successfully enable हो गया।",
-          "success"
-        );
-
-
-        totpEnrollBox.classList.add(
-          "hidden"
-        );
-
-        totpEnabledBox.classList.remove(
-          "hidden"
-        );
-
-        totpStatus.style.display =
-          "none";
-
-
-      } catch (error) {
-
-        console.error(
-          "TOTP Enrollment Error:",
-          error
-        );
-
-
-        showMessage(
-          "totp-enroll-message",
-          friendlyFirebaseError(error),
-          "error"
-        );
-
-      } finally {
-
-        verifyTotpBtn.disabled =
-          false;
-
-        verifyTotpBtn.textContent =
-          "Verify & Enable TOTP";
-
-      }
+      console.error(
+        "Logout error:",
+        error
+      );
 
     }
-  );
+
+  }
+);
 
 
-  /* =========================================================
-     LOGOUT
-     ========================================================= */
+/* =========================================================
+   AUTH STATE
+========================================================= */
 
-  logoutBtn.addEventListener(
-    "click",
-    async () => {
+onAuthStateChanged(
+  auth,
+  async (user) => {
 
-      try {
+    if (!user) {
 
-        await signOut(auth);
+      loginSection.classList.remove(
+        "hidden"
+      );
 
-        adminSection.classList.add(
-          "hidden"
-        );
+      adminSection.classList.add(
+        "hidden"
+      );
 
-        mfaSection.classList.add(
-          "hidden"
-        );
+      mfaSection.classList.add(
+        "hidden"
+      );
 
-        loginSection.classList.remove(
-          "hidden"
-        );
-
-        hideMessage(
-          "login-message"
-        );
-
-      } catch (error) {
-
-        console.error(
-          "Logout error:",
-          error
-        );
-
-      }
+      return;
 
     }
-  );
 
 
-  /* =========================================================
-     AUTH STATE
-     ========================================================= */
+    if (
+      isAllowedAdmin(user)
+    ) {
 
-  onAuthStateChanged(
-    auth,
-    async (user) => {
+      await openAdminPanel(
+        user
+      );
 
-      if (!user) {
+    } else {
 
-        loginSection.classList.remove(
-          "hidden"
-        );
-
-        adminSection.classList.add(
-          "hidden"
-        );
-
-        return;
-
-      }
-
-
-      if (isAllowedAdmin(user)) {
-
-        await openAdminPanel(
-          user
-        );
-
-      } else {
-
-        await signOut(auth);
-
-      }
+      await signOut(
+        auth
+      );
 
     }
-  );
+
+  }
+);
 
 
-  /* =========================================================
-     AUTO FORMAT TOTP INPUT
-     ========================================================= */
+/* =========================================================
+   TOTP INPUT
+========================================================= */
 
-  totpCode.addEventListener(
-    "input",
-    () => {
+totpCode.addEventListener(
+  "input",
+  () => {
 
-      totpCode.value =
-        totpCode.value
-          .replace(/\D/g, "")
-          .slice(0, 6);
+    totpCode.value =
+      totpCode.value
+        .replace(/\D/g, "")
+        .slice(0, 6);
+
+  }
+);
+
+
+/* =========================================================
+   MFA INPUT
+========================================================= */
+
+mfaCode.addEventListener(
+  "input",
+  () => {
+
+    mfaCode.value =
+      mfaCode.value
+        .replace(/\D/g, "")
+        .slice(0, 6);
+
+  }
+);
+
+
+/* =========================================================
+   ENTER KEY
+========================================================= */
+
+totpCode.addEventListener(
+  "keydown",
+  event => {
+
+    if (
+      event.key === "Enter"
+    ) {
+
+      verifyTotpBtn.click();
 
     }
-  );
+
+  }
+);
 
 
-  mfaCode.addEventListener(
-    "input",
-    () => {
+mfaCode.addEventListener(
+  "keydown",
+  event => {
 
-      mfaCode.value =
-        mfaCode.value
-          .replace(/\D/g, "")
-          .slice(0, 6);
+    if (
+      event.key === "Enter"
+    ) {
+
+      verifyMfaBtn.click();
 
     }
-  );
 
+  }
+);
 
 </script>
 
