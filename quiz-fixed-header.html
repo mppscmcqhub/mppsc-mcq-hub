@@ -6,7 +6,7 @@
 <title>MPPSC MCQ Hub</title>
 <style>
 body{font-family:Arial,sans-serif;background:#eef4ff;margin:0}
-header:not(.mppsc-site-header){display:none !important}
+header{background:#0645d8;color:#fff;padding:15px}
 #quiz{padding:10px}
 .qbox{background:#fff;margin:12px 0;padding:15px;border-radius:10px}
 .option{display:block;padding:10px;margin:8px 0;border:1px solid #ccc;border-radius:6px;cursor:pointer}
@@ -19,22 +19,54 @@ textarea{width:100%}
 </style>
 </head>
 <body>
-<!-- MPPSC MCQ Hub site header -->
+<!-- Single MPPSC MCQ Hub header -->
 <style>
-  .mppsc-site-header { background:#1450a3; color:#fff; display:flex; align-items:center; gap:10px; padding:7px 14px; margin:0 0 0 0; box-sizing:border-box; width:100%; min-height:58px; }
-  .mppsc-site-header img { width:46px; height:46px; object-fit:contain; border-radius:50%; border:0; background:transparent; display:block; flex:0 0 46px; }
-  .mppsc-site-header .site-title { font-size:20px; font-weight:700; line-height:1.2; }
-  @media (max-width:600px) { .mppsc-site-header .site-title { font-size:17px; } .mppsc-site-header img { width:36px; height:36px; } }
+  /* Hide any accidental/legacy second header on this page */
+  body > header:not(.mppsc-site-header),
+  body > .page-title,
+  body > .site-title-bar,
+  body > .header2,
+  body > .second-header { display:none !important; }
+
+  .mppsc-site-header {
+    width:100%;
+    height:64px;
+    margin:0 !important;
+    padding:8px 16px;
+    box-sizing:border-box;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:#1559a6;
+    color:#fff;
+    overflow:hidden;
+  }
+  .mppsc-site-header img {
+    width:46px;
+    height:46px;
+    flex:0 0 46px;
+    object-fit:contain;
+    border-radius:50%;
+    border:2px solid #fff;
+    background:#fff;
+    display:block;
+  }
+  .mppsc-site-header .site-title {
+    font-size:16px;
+    font-weight:700;
+    line-height:1.2;
+    color:#fff;
+  }
+  @media (max-width:600px) {
+    .mppsc-site-header { height:58px; padding:7px 10px; }
+    .mppsc-site-header img { width:40px; height:40px; flex-basis:40px; }
+    .mppsc-site-header .site-title { font-size:15px; }
+  }
 </style>
-<style>
-  /* केवल यही header दिखाई देगा; पुराना/अतिरिक्त header छिपा दें */
-  body > header:not(.mppsc-site-header), body > .header, body > .page-title { display:none !important; }
-  .mppsc-site-header + header { display:none !important; }
-</style>
-<header class="mppsc-site-header">
-  <img src="my-logo.jpg" alt="MPPSC MCQ Hub Logo" width="46" height="46">
+<div class="mppsc-site-header">
+  <img src="my-logo.jpg" alt="MPPSC MCQ Hub Logo">
   <div class="site-title">MPPSC MCQ Hub V14</div>
-</header>
+</div>
 
 <div id="quiz">🎯 टेस्ट लोड हो रहा है, कृपया प्रतीक्षा करें...</div>
 <div class="box">
