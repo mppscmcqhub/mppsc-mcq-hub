@@ -1,2520 +1,1412 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MPPSC MCQ Hub V14 - Admin Dashboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
+  <title>MPPSC MCQ Hub - Admin Login</title>
 
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#f3f6fa;
-    color:#102a43;
-    padding-bottom:50px;
-}
-
-.mppsc-site-logo-bar{
-    width:100%;
-    background:#0d47a1;
-    color:#fff;
-    min-height:64px;
-    padding:8px 16px;
-    display:flex;
-    align-items:center;
-    gap:12px;
-    box-shadow:0 2px 7px rgba(0,0,0,.12);
-}
-
-.mppsc-site-logo-bar img{
-    width:48px;
-    height:48px;
-    object-fit:cover;
-    border-radius:50%;
-    background:#fff;
-    padding:2px;
-}
-
-.mppsc-site-name{
-    font-size:18px;
-    font-weight:700;
-}
-
-.header{
-    background:#082b57;
-    color:#fff;
-    padding:15px 20px;
-    font-size:19px;
-    font-weight:700;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    min-height:60px;
-}
-
-.home-btn{
-    background:#fff;
-    color:#082b57;
-    border:none;
-    padding:8px 16px;
-    border-radius:6px;
-    font-weight:bold;
-    cursor:pointer;
-    font-size:14px;
-    text-decoration:none;
-}
-
-.wrap{
-    max-width:1500px;
-    margin:22px auto;
-    padding:0 15px;
-}
-
-.top{
-    background:#fff;
-    border-radius:12px;
-    padding:18px 20px;
-    margin-bottom:18px;
-    box-shadow:0 2px 9px rgba(0,0,0,.05);
-}
-
-.top h1{
-    margin-bottom:6px;
-    font-size:24px;
-}
-
-.top p{
-    color:#667085;
-    margin:5px 0;
-}
-
-.admin-finder{
-    position:sticky;
-    top:0;
-    z-index:900;
-    background:#f3f6fa;
-    padding:10px 0 12px;
-}
-
-.finder-box{
-    background:#fff;
-    border:1px solid #d7e1ec;
-    border-radius:12px;
-    padding:12px 14px;
-    box-shadow:0 2px 9px rgba(0,0,0,.06);
-    display:flex;
-    gap:10px;
-    align-items:center;
-    flex-wrap:wrap;
-}
-
-.finder-box label{
-    font-weight:800;
-    color:#082b57;
-}
-
-#test-search{
-    flex:1 1 320px;
-    min-width:220px;
-    padding:10px 12px;
-    border:1px solid #b8c7d9;
-    border-radius:7px;
-    font-size:14px;
-}
-
-.finder-btn,
-.jump-btn{
-    border:0;
-    border-radius:7px;
-    padding:10px 13px;
-    font-weight:800;
-    cursor:pointer;
-}
-
-.finder-btn{
-    background:#082b57;
-    color:#fff;
-}
-
-.jump-btn{
-    background:#fff;
-    color:#082b57;
-    border:1px solid #c9d7e6;
-    margin-top:8px;
-}
-
-.finder-count{
-    color:#667085;
-    font-size:13px;
-    font-weight:700;
-    width:100%;
-}
-
-.table-sec{
-    background:#fff;
-    border-radius:12px;
-    padding:20px;
-    margin-bottom:30px;
-    box-shadow:0 2px 9px rgba(0,0,0,.05);
-    border-top:4px solid #4caf50;
-}
-
-.table-sec h2{
-    margin-bottom:10px;
-}
-
-.table-wrap{
-    overflow-x:auto;
-}
-
-table{
-    width:100%;
-    border-collapse:collapse;
-    margin-top:15px;
-}
-
-th,td{
-    border:1px solid #d7e1ec;
-    padding:12px;
-    text-align:left;
-    font-size:14px;
-}
-
-th{
-    background:#f0f5ff;
-    color:#082b57;
-}
-
-.section-main-title{
-    font-size:24px;
-    font-weight:800;
-    color:#082b57;
-    margin:40px 0 15px;
-    padding-left:10px;
-}
-
-.pre-title{
-    border-left:6px solid #e53e3e;
-}
-
-.mains-title{
-    border-left:6px solid #147dcc;
-}
-
-.unit-sec,
-.paper{
-    background:#fff;
-    border-radius:12px;
-    padding:16px;
-    margin-bottom:25px;
-    box-shadow:0 2px 9px rgba(0,0,0,.05);
-    overflow:hidden;
-}
-
-.unit-sec{
-    border-top:4px solid #e53e3e;
-}
-
-.paper{
-    border-top:4px solid #147dcc;
-}
-
-.unit-sec h2,
-.paper h2{
-    margin-bottom:14px;
-    font-size:20px;
-    color:#082b57;
-    border-bottom:2px solid #eaf2fb;
-    padding-bottom:8px;
-}
-
-.section-toggle{
-    float:right;
-    border:0;
-    background:#eef4fb;
-    color:#082b57;
-    padding:6px 10px;
-    border-radius:6px;
-    font-weight:800;
-    cursor:pointer;
-}
-
-.section-content{
-    clear:both;
-}
-
-.section-collapsed .section-content{
-    display:none;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(6,minmax(0,1fr));
-    gap:12px;
-    margin-top:10px;
-}
-
-.card{
-    background:#fff;
-    border:1px solid #dfe7f1;
-    border-radius:10px;
-    padding:14px 10px;
-    min-height:112px;
-    text-align:center;
-    box-shadow:0 2px 7px rgba(0,0,0,.06);
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-}
-
-.card-title{
-    font-size:14px;
-    font-weight:800;
-    color:#082b57;
-    margin-bottom:7px;
-}
-
-.card-meta{
-    font-size:11px;
-    color:#667085;
-    margin-bottom:10px;
-}
-
-.open-btn{
-    display:block;
-    color:#fff;
-    text-decoration:none;
-    border-radius:6px;
-    padding:8px 6px;
-    font-size:12px;
-    font-weight:800;
-}
-
-.pre-btn{
-    background:#e53e3e;
-}
-
-.pre-btn:hover{
-    background:#c53030;
-}
-
-.mains-btn{
-    background:#147dcc;
-}
-
-.mains-btn:hover{
-    background:#0b69b1;
-}
-
-.code{
-    font-size:10px;
-    font-weight:700;
-    display:block;
-    margin-top:7px;
-    color:#667085;
-}
-
-.group-title{
-    background:#eaf2fb;
-    border-radius:7px;
-    padding:8px 10px;
-    margin:20px 0 10px;
-    font-size:14px;
-    font-weight:700;
-    color:#082b57;
-}
-
-.no-results{
-    display:none;
-    margin-top:10px;
-    padding:12px;
-    text-align:center;
-    background:#fff8e1;
-    border:1px solid #ffe082;
-    border-radius:7px;
-    color:#7a5a00;
-    font-weight:700;
-}
-
-.card.is-hidden{
-    display:none;
-}
-
-@media(max-width:1200px){
-    .grid{
-        grid-template-columns:repeat(4,1fr);
-    }
-}
-
-@media(max-width:800px){
-    .grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
-
-@media(max-width:600px){
-    .mppsc-site-logo-bar{
-        min-height:56px;
-        padding:6px 10px;
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    .mppsc-site-logo-bar img{
-        width:42px;
-        height:42px;
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      min-height: 100vh;
+      background: #eef4ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #172033;
+      padding: 20px;
     }
 
-    .mppsc-site-name{
-        font-size:15px;
+    .container {
+      width: 100%;
+      max-width: 460px;
     }
 
-    .header{
-        font-size:15px;
-        gap:10px;
+    .card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 32px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.12);
     }
 
-    .header span{
-        max-width:65%;
+    .logo {
+      text-align: center;
+      font-size: 48px;
+      margin-bottom: 8px;
     }
 
-    .grid{
-        grid-template-columns:repeat(2,1fr);
+    h1 {
+      text-align: center;
+      font-size: 25px;
+      margin-bottom: 8px;
+      color: #18233a;
     }
 
-    .finder-box{
-        padding:10px;
+    .subtitle {
+      text-align: center;
+      color: #6b7280;
+      font-size: 14px;
+      margin-bottom: 25px;
     }
 
-    #test-search{
-        min-width:100%;
+    button {
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      padding: 13px 16px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s;
     }
-}
-</style>
+
+    button:hover {
+      opacity: 0.92;
+    }
+
+    .google-btn {
+      background: #ffffff;
+      border: 1px solid #cfd5df;
+      color: #202124;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .google-btn:hover {
+      background: #f8f9fa;
+    }
+
+    .primary-btn {
+      background: #2864d7;
+      color: #ffffff;
+      margin-top: 12px;
+    }
+
+    .danger-btn {
+      background: #dc3545;
+      color: white;
+      margin-top: 10px;
+    }
+
+    .secondary-btn {
+      background: #eef2f7;
+      color: #26364d;
+      margin-top: 10px;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #cbd5e1;
+      border-radius: 9px;
+      outline: none;
+      font-size: 16px;
+      margin-top: 8px;
+    }
+
+    input:focus {
+      border-color: #2864d7;
+      box-shadow: 0 0 0 3px rgba(40,100,215,0.12);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 700;
+      font-size: 14px;
+      color: #334155;
+    }
+
+    .message {
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 9px;
+      font-size: 14px;
+      line-height: 1.5;
+      display: none;
+    }
+
+    .error {
+      background: #fff0f0;
+      color: #c62828;
+      border: 1px solid #ffcaca;
+    }
+
+    .success {
+      background: #effaf2;
+      color: #1b7d38;
+      border: 1px solid #bce7c7;
+    }
+
+    .info {
+      background: #eef5ff;
+      color: #2457a6;
+      border: 1px solid #c9dcff;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .user-box {
+      background: #f7f9fc;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+
+    .user-name {
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .user-email {
+      color: #64748b;
+      font-size: 13px;
+      margin-top: 4px;
+      word-break: break-all;
+    }
+
+    .section {
+      border-top: 1px solid #e5e7eb;
+      margin-top: 20px;
+      padding-top: 20px;
+    }
+
+    .section h2 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .section p {
+      font-size: 13px;
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    .qr-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: white;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 10px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .qr-box img {
+      width: 210px;
+      height: 210px;
+    }
+
+    .secret-box {
+      background: #f1f5f9;
+      padding: 12px;
+      border-radius: 8px;
+      font-family: monospace;
+      word-break: break-all;
+      font-size: 13px;
+      margin-top: 10px;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      color: #94a3b8;
+      font-size: 12px;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 10px;
+      color: #64748b;
+      font-size: 14px;
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- LOGO -->
-<div class="mppsc-site-logo-bar">
-    <img src="my-logo.jpg" alt="MPPSC MCQ Hub Logo">
-    <div class="mppsc-site-name">
-        MPPSC MCQ Hub
+<div class="container">
+
+  <div class="card">
+
+    <div class="logo">🔐</div>
+
+    <h1>Admin Login</h1>
+
+    <div class="subtitle">
+      MPPSC MCQ Hub Admin Panel
     </div>
-</div>
 
-<!-- HEADER -->
-<div class="header">
-    <span>
-        MPPSC MCQ Hub V14 — Full Admin Master Dashboard
-    </span>
+    <!-- LOGIN -->
+    <div id="login-section">
 
-    <a href="index.html" class="home-btn">
-        मुख्य वेबसाइट पर जाएँ
-    </a>
-</div>
+      <button id="google-login-btn" class="google-btn">
+        🔑 Continue with Google
+      </button>
 
-<div class="wrap">
+      <div id="login-message" class="message"></div>
 
-<!-- TOP -->
-<div class="top">
-    <h1>MPPSC Complete Control Board</h1>
+      <div class="footer">
+        केवल अधिकृत Admin Google Account से login करें।
+      </div>
 
-    <p>
-        <b>
-            Paid PRELIMS + Paid MAINS Control Dashboard
-        </b>
-    </p>
-
-    <p>
-        Admin:
-        <b>ajay.com1989@gmail.com</b>
-    </p>
-</div>
+    </div>
 
 
-<!-- SEARCH -->
-<div class="admin-finder">
+    <!-- ADMIN PANEL -->
+    <div id="admin-section" class="hidden">
 
-    <div class="finder-box">
+      <div class="user-box">
+        <div class="user-name" id="user-name">Admin</div>
+        <div class="user-email" id="user-email"></div>
+      </div>
 
-        <label for="test-search">
-            🔎 Test/Box खोजें
+
+      <!-- TOTP SECTION -->
+      <div id="totp-section">
+
+        <div class="section">
+
+          <h2>🛡️ Google Authenticator</h2>
+
+          <p>
+            Admin account की सुरक्षा के लिए Google Authenticator
+            TOTP verification enable करें।
+          </p>
+
+          <div id="totp-status" class="message info">
+            TOTP status check हो रहा है...
+          </div>
+
+        </div>
+
+
+        <!-- TOTP ENROLL -->
+        <div id="totp-enroll-box" class="hidden">
+
+          <div class="section">
+
+            <h2>2-Step Verification Setup</h2>
+
+            <p>
+              नीचे दिया गया QR code Google Authenticator app से scan करें।
+            </p>
+
+            <div id="qr-container" class="qr-box">
+              <img id="qr-image" src="" alt="Google Authenticator QR">
+            </div>
+
+            <label>
+              Manual Secret Key
+            </label>
+
+            <div id="totp-secret" class="secret-box">
+              -
+            </div>
+
+            <label for="totp-code">
+              6-Digit Authenticator Code
+            </label>
+
+            <input
+              id="totp-code"
+              type="text"
+              inputmode="numeric"
+              maxlength="6"
+              placeholder="6-digit code"
+              autocomplete="one-time-code"
+            >
+
+            <button
+              id="verify-totp-btn"
+              class="primary-btn">
+              Verify & Enable TOTP
+            </button>
+
+            <div id="totp-enroll-message" class="message"></div>
+
+          </div>
+
+        </div>
+
+
+        <!-- TOTP ALREADY ENABLED -->
+        <div id="totp-enabled-box" class="hidden">
+
+          <div class="section">
+
+            <div class="message success" style="display:block;">
+              ✅ Google Authenticator TOTP पहले से enabled है।
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- LOGOUT -->
+        <div class="section">
+
+          <button
+            id="logout-btn"
+            class="danger-btn">
+            Logout
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- MFA VERIFICATION -->
+    <div id="mfa-section" class="hidden">
+
+      <div class="section">
+
+        <h2>🔐 2-Step Verification</h2>
+
+        <p>
+          आपके Google account पर Authenticator enabled है।
+          Google Authenticator से वर्तमान 6-digit code डालें।
+        </p>
+
+        <label for="mfa-code">
+          Authenticator Code
         </label>
 
         <input
-            id="test-search"
-            type="search"
-            placeholder="जैसे P01T15, Unit 1, GS1-10M-045..."
-            autocomplete="off"
+          id="mfa-code"
+          type="text"
+          inputmode="numeric"
+          maxlength="6"
+          placeholder="6-digit code"
+          autocomplete="one-time-code"
         >
 
         <button
-            class="finder-btn"
-            type="button"
-            onclick="clearTestSearch()"
-        >
-            साफ करें
+          id="verify-mfa-btn"
+          class="primary-btn">
+          Verify Code
         </button>
 
-        <div
-            id="finder-count"
-            class="finder-count"
-        >
-            सभी Tests/Boxes दिख रहे हैं।
-        </div>
-
-        <div>
-            <button
-                class="jump-btn"
-                type="button"
-                onclick="jumpToSection('prelims-master-container')"
-            >
-                PRELIMS Units
-            </button>
-
-            <button
-                class="jump-btn"
-                type="button"
-                onclick="jumpToSection('mains-master-container')"
-            >
-                MAINS Papers
-            </button>
-        </div>
-
-    </div>
-</div>
-
-
-<!-- PAYMENT -->
-<section class="table-sec">
-
-    <h2 style="color:#4caf50;">
-        📥 छात्रों के पेंडिंग पेमेंट और रसीदें
-    </h2>
-
-    <div class="table-wrap">
-
-        <table>
-
-            <thead>
-                <tr>
-                    <th>दिनांक</th>
-                    <th>मोबाइल नंबर</th>
-                    <th>कोर्स</th>
-                    <th>UTR ID</th>
-                    <th>रसीद</th>
-                    <th>एक्शन</th>
-                </tr>
-            </thead>
-
-            <tbody id="payment-requests-table">
-
-                <tr>
-                    <td
-                        colspan="6"
-                        style="text-align:center;color:#667085;font-weight:bold;"
-                    >
-                        वर्तमान में कोई पेंडिंग पेमेंट रिक्वेस्ट नहीं है।
-                    </td>
-                </tr>
-
-            </tbody>
-
-        </table>
-
-    </div>
-
-</section>
-
-
-<!-- APPROVED STUDENTS -->
-<section
-    class="table-sec"
-    style="border-top-color:#147dcc;"
->
-
-    <h2 style="color:#082b57;">
-        👨‍🎓 Approved Students — Course Wise Login Details
-    </h2>
-
-    <p style="color:#667085;">
-        Approve करने के बाद student का mobile number,
-        password और course यहाँ दिखाई देगा।
-    </p>
-
-    <div
-        style="
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        gap:18px;
-        "
-    >
-
-        <!-- PRELIMS -->
-        <div
-            style="
-            border:1px solid #ffcdd2;
-            border-radius:10px;
-            overflow:hidden;
-            "
-        >
-
-            <div
-                style="
-                background:#ffebee;
-                color:#c62828;
-                padding:10px 12px;
-                font-weight:800;
-                "
-            >
-                📕 PRELIMS Students
-            </div>
-
-            <div class="table-wrap">
-
-                <table style="margin-top:0;">
-
-                    <thead>
-                        <tr>
-                            <th>मोबाइल</th>
-                            <th>Password</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-
-                    <tbody id="approved-prelims-students">
-
-                        <tr>
-                            <td colspan="3">
-                                कोई PRELIMS student नहीं है।
-                            </td>
-                        </tr>
-
-                    </tbody>
-
-                </table>
-
-            </div>
-
-        </div>
-
-
-        <!-- MAINS -->
-        <div
-            style="
-            border:1px solid #b3e5fc;
-            border-radius:10px;
-            overflow:hidden;
-            "
-        >
-
-            <div
-                style="
-                background:#e1f5fe;
-                color:#0277bd;
-                padding:10px 12px;
-                font-weight:800;
-                "
-            >
-                📘 MAINS Students
-            </div>
-
-            <div class="table-wrap">
-
-                <table style="margin-top:0;">
-
-                    <thead>
-                        <tr>
-                            <th>मोबाइल</th>
-                            <th>Password</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-
-                    <tbody id="approved-mains-students">
-
-                        <tr>
-                            <td colspan="3">
-                                कोई MAINS student नहीं है।
-                            </td>
-                        </tr>
-
-                    </tbody>
-
-                </table>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- PRELIMS -->
-<div
-    class="section-main-title pre-title"
->
-    🏆 Paid PRELIMS — 250 Total Tests
-</div>
-
-<div id="prelims-master-container"></div>
-
-
-<!-- MAINS -->
-<div
-    class="section-main-title mains-title"
->
-    📝 Paid MAINS — 600 Total Questions
-</div>
-
-<div id="mains-master-container"></div>
-
-</div>
-
-
-<script>
-
-/* =====================================================
-   PAGE LOAD
-===================================================== */
-
-document.addEventListener("DOMContentLoaded", function(){
-
-    loadPaymentRequests();
-
-    loadApprovedStudents();
-
-    renderPrelims200Boxes();
-
-    renderMains600Boxes();
-
-});
-
-
-/* =====================================================
-   PAYMENT REQUESTS
-===================================================== */
-
-function loadPaymentRequests(){
-
-    const tableBody =
-        document.getElementById(
-            "payment-requests-table"
-        );
-
-    if(!tableBody) return;
-
-    let pendingPayments =
-        JSON.parse(
-            localStorage.getItem(
-                "mppsc_pending_payments"
-            )
-        ) || [];
-
-    if(pendingPayments.length === 0){
-        return;
-    }
-
-    let html = "";
-
-    pendingPayments.forEach(function(req,index){
-
-        html += `
-
-        <tr>
-
-            <td>
-                ${escapeHtml(req.date || "")}
-            </td>
-
-            <td style="font-weight:bold;">
-                ${escapeHtml(req.phone || "")}
-            </td>
-
-            <td>
-                ${(req.course || "").toUpperCase()}
-            </td>
-
-            <td
-                style="
-                font-family:monospace;
-                font-weight:bold;
-                "
-            >
-                ${escapeHtml(req.utr || "")}
-            </td>
-
-            <td>
-
-                ${
-                    req.screenshot
-
-                    ?
-
-                    `
-                    <img
-                        src="${req.screenshot}"
-                        style="
-                        width:50px;
-                        height:50px;
-                        object-fit:cover;
-                        border-radius:5px;
-                        "
-                    >
-                    `
-
-                    :
-
-                    "No Screenshot"
-                }
-
-            </td>
-
-            <td>
-
-                <button
-                    onclick="approvePayment(${index})"
-                    style="
-                    background:#4caf50;
-                    color:#fff;
-                    border:0;
-                    padding:7px 12px;
-                    border-radius:5px;
-                    cursor:pointer;
-                    font-weight:bold;
-                    "
-                >
-                    Approve
-                </button>
-
-            </td>
-
-        </tr>
-
-        `;
-
-    });
-
-    tableBody.innerHTML = html;
-}
-
-
-/* =====================================================
-   APPROVED STUDENTS
-===================================================== */
-
-function loadApprovedStudents(){
-
-    const users =
-        JSON.parse(
-            localStorage.getItem(
-                "mppsc_students"
-            )
-        ) || [];
-
-    renderStudentGroup(
-        users.filter(
-            u => u.type === "prelims"
-        ),
-        "approved-prelims-students",
-        "PRELIMS"
-    );
-
-    renderStudentGroup(
-        users.filter(
-            u => u.type === "mains"
-        ),
-        "approved-mains-students",
-        "MAINS"
-    );
-}
-
-
-function renderStudentGroup(
-    students,
-    elementId,
-    courseName
-){
-
-    const tbody =
-        document.getElementById(elementId);
-
-    if(!tbody) return;
-
-    if(students.length === 0){
-
-        tbody.innerHTML = `
-            <tr>
-                <td
-                    colspan="3"
-                    style="
-                    text-align:center;
-                    color:#667085;
-                    "
-                >
-                    कोई ${courseName} student नहीं है।
-                </td>
-            </tr>
-        `;
-
-        return;
-    }
-
-    tbody.innerHTML =
-        students.map(function(student){
-
-            return `
-
-            <tr>
-
-                <td style="font-weight:700;">
-                    ${escapeHtml(
-                        student.username || ""
-                    )}
-                </td>
-
-                <td
-                    style="
-                    font-family:monospace;
-                    font-weight:700;
-                    "
-                >
-                    ${escapeHtml(
-                        student.password || ""
-                    )}
-                </td>
-
-                <td>
-
-                    <span
-                        style="
-                        color:
-                        ${
-                            student.active
-                            ? "#2e7d32"
-                            : "#c62828"
-                        };
-                        font-weight:700;
-                        "
-                    >
-                        ${
-                            student.active
-                            ? "Active"
-                            : "Disabled"
-                        }
-                    </span>
-
-                </td>
-
-            </tr>
-
-            `;
-
-        }).join("");
-
-}
-
-
-function escapeHtml(value){
-
-    return String(value).replace(
-        /[&<>'"]/g,
-        function(ch){
-
-            return {
-                "&":"&amp;",
-                "<":"&lt;",
-                ">":"&gt;",
-                "'":"&#39;",
-                '"':"&quot;"
-            }[ch];
-
-        }
-    );
-}
-
-
-/* =====================================================
-   APPROVE PAYMENT
-===================================================== */
-
-function approvePayment(index){
-
-    let pendingPayments =
-        JSON.parse(
-            localStorage.getItem(
-                "mppsc_pending_payments"
-            )
-        ) || [];
-
-    if(!pendingPayments[index]){
-
-        alert(
-            "Payment request नहीं मिली।"
-        );
-
-        return;
-    }
-
-    const approvedReq =
-        pendingPayments[index];
-
-    const studentPassword =
-        "MPPSC-" +
-        Math.floor(
-            1000 +
-            Math.random() * 9000
-        );
-
-    let users =
-        JSON.parse(
-            localStorage.getItem(
-                "mppsc_students"
-            )
-        ) || [];
-
-    const existingIndex =
-        users.findIndex(
-            u =>
-            u.username === approvedReq.phone &&
-            u.type === approvedReq.course
-        );
-
-    const studentRecord = {
-
-        username:
-            approvedReq.phone,
-
-        password:
-            studentPassword,
-
-        type:
-            approvedReq.course,
-
-        active:true
-
-    };
-
-    if(existingIndex !== -1){
-
-        users[existingIndex] =
-            studentRecord;
-
-    }else{
-
-        users.push(
-            studentRecord
-        );
-
-    }
-
-    localStorage.setItem(
-        "mppsc_students",
-        JSON.stringify(users)
-    );
-
-    pendingPayments.splice(
-        index,
-        1
-    );
-
-    localStorage.setItem(
-        "mppsc_pending_payments",
-        JSON.stringify(
-            pendingPayments
-        )
-    );
-
-    alert(
-        "✓ Student Approved!\n\n" +
-        "Mobile: " +
-        approvedReq.phone +
-        "\n\nPassword: " +
-        studentPassword
-    );
-
-    loadPaymentRequests();
-
-    loadApprovedStudents();
-
-}
-
-
-/* =====================================================
-   PRELIMS
-   10 UNITS × 20 TESTS = 200
-   + CET 50 = 250
-===================================================== */
-
-function renderPrelims200Boxes(){
-
-    const container =
-        document.getElementById(
-            "prelims-master-container"
-        );
-
-    if(!container) return;
-
-    const preUnits = [
-
-        "भारत का इतिहास",
-
-        "म.प्र. का इतिहास, संस्कृति",
-
-        "भारत का भूगोल",
-
-        "मध्यप्रदेश का भूगोल",
-
-        "संवैधानिक व्यवस्था",
-
-        "भारत एवं म.प्र. की अर्थव्यवस्था",
-
-        "विज्ञान, पर्यावरण व स्वास्थ्य",
-
-        "राष्ट्रीय व प्रादेशिक घटनाएं",
-
-        "सूचना एवं संचार (ICT)",
-
-        "म.प्र. की जनजातियां व संस्कृति"
-
-    ];
-
-    let preHtml = "";
-
-    for(
-        let u = 1;
-        u <= 10;
-        u++
-    ){
-
-        const padU =
-            u < 10
-            ? "0" + u
-            : String(u);
-
-        preHtml += `
-
-        <section
-            class="unit-sec"
-            data-section-title=
-            "Unit ${u} - ${preUnits[u-1]}"
-        >
-
-            <h2>
-
-                Unit ${u} -
-                ${preUnits[u-1]}
-
-                <button
-                    type="button"
-                    class="section-toggle"
-                    onclick="toggleSection(this)"
-                >
-                    ▼ Tests छिपाएँ
-                </button>
-
-            </h2>
-
-            <div class="section-content">
-
-                <div class="grid">
-        `;
-
-        for(
-            let t = 1;
-            t <= 20;
-            t++
-        ){
-
-            const padT =
-                t < 10
-                ? "0" + t
-                : String(t);
-
-            const code =
-                `P${padU}T${padT}`;
-
-            preHtml += `
-
-                <div class="card">
-
-                    <div class="card-title">
-                        📝 Test ${t}
-                    </div>
-
-                    <div class="card-meta">
-                        50 Questions • MCQ
-                    </div>
-
-                    <a
-                        class="open-btn pre-btn"
-                        href="
-                        prelims-tests/unit-${padU}/${code}/index.html
-                        "
-                    >
-                        Open Test
-                    </a>
-
-                    <span class="code">
-                        ${code}
-                    </span>
-
-                </div>
-
-            `;
-
-        }
-
-        preHtml += `
-
-                </div>
-
-                <div class="no-results">
-                    इस Unit में खोजा गया Test नहीं मिला।
-                </div>
-
-            </div>
-
-        </section>
-
-        `;
-
-    }
-
-
-    /* CET 50 */
-
-    preHtml += `
-
-    <section
-        class="unit-sec"
-        data-section-title="CET - 50 Tests"
-    >
-
-        <h2>
-
-            CET - 50 Tests
-
-            <button
-                type="button"
-                class="section-toggle"
-                onclick="toggleSection(this)"
-            >
-                ▼ Tests छिपाएँ
-            </button>
-
-        </h2>
-
-        <div class="section-content">
-
-            <div class="grid">
-    `;
-
-    for(
-        let t = 1;
-        t <= 50;
-        t++
-    ){
-
-        const padT =
-            t < 10
-            ? "0" + t
-            : String(t);
-
-        const code =
-            `CET${padT}`;
-
-        preHtml += `
-
-            <div class="card">
-
-                <div class="card-title">
-                    📝 CET Test ${t}
-                </div>
-
-                <div class="card-meta">
-                    50 Questions • MCQ
-                </div>
-
-                <a
-                    class="open-btn pre-btn"
-                    href="
-                    prelims-tests/cet/${code}/index.html
-                    "
-                >
-                    Open Test
-                </a>
-
-                <span class="code">
-                    ${code}
-                </span>
-
-            </div>
-
-        `;
-
-    }
-
-    preHtml += `
-
-            </div>
-
-            <div class="no-results">
-                CET में खोजा गया Test नहीं मिला।
-            </div>
-
-        </div>
-
-    </section>
-
-    `;
-
-    container.innerHTML =
-        preHtml;
-}
-
-
-/* =====================================================
-   MAINS
-   6 PAPERS × 100 = 600
-===================================================== */
-
-function renderMains600Boxes(){
-
-    const container =
-        document.getElementById(
-            "mains-master-container"
-        );
-
-    if(!container) return;
-
-    const mainsPapers = [
-
-        {
-            name:"General Studies-I",
-            prefix:"GS1",
-            folder:"paper-01-general-studies-i"
-        },
-
-        {
-            name:"General Studies-II",
-            prefix:"GS2",
-            folder:"paper-02-general-studies-ii"
-        },
-
-        {
-            name:"General Studies-III",
-            prefix:"GS3",
-            folder:"paper-03-general-studies-iii"
-        },
-
-        {
-            name:"General Studies-IV",
-            prefix:"GS4",
-            folder:"paper-04-general-studies-iv"
-        },
-
-        {
-            name:"General Hindi & Grammar",
-            prefix:"GH5",
-            folder:"paper-05-general-hindi-grammar"
-        },
-
-        {
-            name:"Hindi Essay Draft",
-            prefix:"HD6",
-            folder:"paper-06-hindi-essay-draft"
-        }
-
-    ];
-
-
-    const groups = [
-
-        {
-            marks:5,
-            count:40
-        },
-
-        {
-            marks:10,
-            count:40
-        },
-
-        {
-            marks:15,
-            count:20
-        }
-
-    ];
-
-
-    let mainsHtml = "";
-
-
-    mainsPapers.forEach(
-        function(paper,index){
-
-            const pNum =
-                index + 1;
-
-            mainsHtml += `
-
-            <section
-                class="paper"
-                data-section-title=
-                "Paper ${pNum} - ${paper.name}"
-            >
-
-                <h2>
-
-                    Paper ${pNum} -
-                    ${paper.name}
-
-                    <button
-                        type="button"
-                        class="section-toggle"
-                        onclick="toggleSection(this)"
-                    >
-                        ▼ Questions छिपाएँ
-                    </button>
-
-                </h2>
-
-                <div class="section-content">
-
-            `;
-
-
-            groups.forEach(
-                function(group){
-
-                    mainsHtml += `
-
-                    <div class="group-title">
-
-                        ${group.marks}
-                        अंक वाले प्रश्न —
-                        ${group.count}
-                        Questions
-
-                    </div>
-
-                    <div class="grid">
-
-                    `;
-
-
-                    for(
-                        let q = 1;
-                        q <= group.count;
-                        q++
-                    ){
-
-                        const qStr =
-                            String(q)
-                            .padStart(3,"0");
-
-                        const code =
-                            `${paper.prefix}-${group.marks}M-${qStr}`;
-
-
-                        mainsHtml += `
-
-                        <div class="card">
-
-                            <div class="card-title">
-                                📄 Question ${q}
-                            </div>
-
-                            <div class="card-meta">
-                                ${group.marks}
-                                Marks • Mains
-                            </div>
-
-                            <a
-                                class="open-btn mains-btn"
-                                href="
-                                ${paper.folder}/${group.marks}-marks/${code}/index.html
-                                "
-                            >
-                                Open Question
-                            </a>
-
-                            <span class="code">
-                                ${code}
-                            </span>
-
-                        </div>
-
-                        `;
-
-                    }
-
-                    mainsHtml += `
-                    </div>
-                    `;
-
-                }
-            );
-
-
-            mainsHtml += `
-
-                <div class="no-results">
-                    इस Paper में खोजा गया Question नहीं मिला।
-                </div>
-
-                </div>
-
-            </section>
-
-            `;
-
-        }
-    );
-
-
-    container.innerHTML =
-        mainsHtml;
-}
-
-
-/* =====================================================
-   SECTION TOGGLE
-===================================================== */
-
-function toggleSection(button){
-
-    const section =
-        button.closest(
-            ".unit-sec,.paper"
-        );
-
-    if(!section) return;
-
-    const collapsed =
-        section.classList.toggle(
-            "section-collapsed"
-        );
-
-    if(collapsed){
-
-        button.textContent =
-            "▶ Tests/Boxes खोलें";
-
-    }else{
-
-        button.textContent =
-            section.classList.contains(
-                "unit-sec"
-            )
-            ? "▼ Tests छिपाएँ"
-            : "▼ Boxes छिपाएँ";
-
-    }
-}
-
-
-/* =====================================================
-   JUMP
-===================================================== */
-
-function jumpToSection(id){
-
-    const el =
-        document.getElementById(id);
-
-    if(el){
-
-        el.scrollIntoView({
-            behavior:"smooth",
-            block:"start"
-        });
-
-    }
-}
-
-
-/* =====================================================
-   SEARCH
-===================================================== */
-
-function clearTestSearch(){
-
-    const input =
-        document.getElementById(
-            "test-search"
-        );
-
-    if(input){
-
-        input.value = "";
-
-        filterTests("");
-
-        input.focus();
-
-    }
-}
-
-
-function filterTests(query){
-
-    query =
-        String(query || "")
-        .trim()
-        .toLowerCase();
-
-    const cards =
-        document.querySelectorAll(
-            "#prelims-master-container .card," +
-            "#mains-master-container .card"
-        );
-
-    let visible = 0;
-
-    cards.forEach(
-        function(card){
-
-            const text =
-                card.textContent
-                .toLowerCase();
-
-            const match =
-                !query ||
-                text.includes(query);
-
-            card.classList.toggle(
-                "is-hidden",
-                !match
-            );
-
-            if(match){
-                visible++;
-            }
-
-        }
-    );
-
-
-    document.querySelectorAll(
-        "#prelims-master-container .unit-sec," +
-        "#mains-master-container .paper"
-    ).forEach(
-        function(section){
-
-            const shown =
-                section.querySelectorAll(
-                    ".card:not(.is-hidden)"
-                ).length;
-
-            const empty =
-                section.querySelector(
-                    ".no-results"
-                );
-
-            section.style.display =
-                query && shown === 0
-                ? "none"
-                : "";
-
-            if(empty){
-
-                empty.style.display =
-                    query && shown === 0
-                    ? "block"
-                    : "none";
-
-            }
-
-            if(
-                query &&
-                shown > 0 &&
-                section.classList.contains(
-                    "section-collapsed"
-                )
-            ){
-
-                section.classList.remove(
-                    "section-collapsed"
-                );
-
-            }
-
-        }
-    );
-
-
-    const count =
-        document.getElementById(
-            "finder-count"
-        );
-
-    if(count){
-
-        count.textContent =
-            query
-
-            ? `${visible} matching Test/Box दिखाई दे रहे हैं।`
-
-            : "सभी Tests/Boxes दिख रहे हैं।";
-
-    }
-}
-
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function(){
-
-        const input =
-            document.getElementById(
-                "test-search"
-            );
-
-        if(input){
-
-            input.addEventListener(
-                "input",
-                function(){
-
-                    filterTests(
-                        this.value
-                    );
-
-                }
-            );
-
-        }
-
-    }
-);
-
-</script>
-
-
-<!-- =====================================================
-     ADMIN LOGIN LOCK
-===================================================== -->
-
-<div
-    id="admin-auth-lock"
-    style="
-    position:fixed;
-    inset:0;
-    z-index:999999;
-    background:#eef4ff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-    overflow:auto;
-    "
->
-
-<div
-    style="
-    width:100%;
-    max-width:430px;
-    background:#fff;
-    border-radius:18px;
-    padding:28px;
-    box-shadow:0 8px 28px rgba(0,0,0,.14);
-    "
->
-
-    <div
-        style="
-        text-align:center;
-        font-size:42px;
-        margin-bottom:8px;
-        "
-    >
-        🔐
-    </div>
-
-    <h2
-        style="
-        text-align:center;
-        color:#082b57;
-        margin-bottom:8px;
-        "
-    >
-        Admin Login
-    </h2>
-
-    <p
-        style="
-        text-align:center;
-        color:#667085;
-        margin-bottom:18px;
-        "
-    >
-        MPPSC MCQ Hub Admin Panel
-    </p>
-
-
-    <button
-        id="google-login-btn"
-        type="button"
-        style="
-        width:100%;
-        padding:12px;
-        border-radius:8px;
-        background:#fff;
-        color:#222;
-        border:1px solid #ccd6e3;
-        font-size:15px;
-        font-weight:700;
-        cursor:pointer;
-        "
-    >
-        🔐 Continue with Google
-    </button>
-
-
-    <div
-        id="auth-message"
-        style="
-        min-height:22px;
-        margin-top:12px;
-        text-align:center;
-        color:#d32f2f;
-        font-weight:700;
-        "
-    ></div>
-
-
-    <!-- TOTP ENROLL -->
-    <div
-        id="totp-enroll"
-        style="display:none;"
-    >
-
-        <hr
-            style="
-            border:0;
-            border-top:1px solid #e5e7eb;
-            margin:18px 0;
-            "
-        >
-
-        <h3
-            style="
-            color:#082b57;
-            margin-bottom:8px;
-            "
-        >
-            Google Authenticator सेट करें
-        </h3>
-
-        <p
-            style="
-            color:#667085;
-            font-size:13px;
-            "
-        >
-            QR को Google Authenticator में scan करें,
-            फिर 6-digit code डालें।
-        </p>
-
-        <div
-            id="totp-qr"
-            style="
-            display:flex;
-            justify-content:center;
-            margin:14px 0;
-            "
-        ></div>
-
-        <div
-            id="totp-secret"
-            style="
-            font-size:12px;
-            color:#667085;
-            word-break:break-all;
-            "
-        ></div>
-
-        <input
-            id="totp-enroll-code"
-            inputmode="numeric"
-            maxlength="6"
-            placeholder="6-digit code"
-            style="
-            width:100%;
-            padding:12px;
-            margin:12px 0;
-            border:1px solid #ccd6e3;
-            border-radius:8px;
-            font-size:16px;
-            text-align:center;
-            letter-spacing:4px;
-            "
-        >
+        <div id="mfa-message" class="message"></div>
 
         <button
-            id="totp-enroll-btn"
-            type="button"
-            style="
-            width:100%;
-            padding:12px;
-            border:0;
-            border-radius:8px;
-            background:#1551a5;
-            color:#fff;
-            font-weight:800;
-            cursor:pointer;
-            "
-        >
-            Authenticator जोड़ें
+          id="mfa-cancel-btn"
+          class="secondary-btn">
+          Cancel
         </button>
+
+      </div>
 
     </div>
 
 
-    <!-- TOTP LOGIN -->
-    <div
-        id="totp-login"
-        style="display:none;"
-    >
-
-        <hr
-            style="
-            border:0;
-            border-top:1px solid #e5e7eb;
-            margin:18px 0;
-            "
-        >
-
-        <h3
-            style="
-            color:#082b57;
-            margin-bottom:8px;
-            "
-        >
-            2-Step Verification
-        </h3>
-
-        <p
-            style="
-            color:#667085;
-            font-size:13px;
-            "
-        >
-            Google Authenticator से 6-digit code डालें।
-        </p>
-
-        <input
-            id="totp-code"
-            inputmode="numeric"
-            maxlength="6"
-            placeholder="6-digit code"
-            style="
-            width:100%;
-            padding:12px;
-            margin:12px 0;
-            border:1px solid #ccd6e3;
-            border-radius:8px;
-            font-size:16px;
-            text-align:center;
-            letter-spacing:4px;
-            "
-        >
-
-        <button
-            id="totp-login-btn"
-            type="button"
-            style="
-            width:100%;
-            padding:12px;
-            border:0;
-            border-radius:8px;
-            background:#1551a5;
-            color:#fff;
-            font-weight:800;
-            cursor:pointer;
-            "
-        >
-            Verify & Login
-        </button>
-
-    </div>
-
-
-    <p
-        style="
-        font-size:12px;
-        color:#667085;
-        margin-top:16px;
-        line-height:1.5;
-        "
-    >
-        Google Sign-In + TOTP MFA Firebase Authentication
-        से चलता है।
-    </p>
+  </div>
 
 </div>
-</div>
 
-
-<!-- =====================================================
-     FIREBASE ADMIN AUTH
-===================================================== -->
 
 <script type="module">
 
-import {
-    initializeApp
-}
-from
-'https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js';
+  /* =========================================================
+     FIREBASE IMPORTS
+     ========================================================= */
 
+  import { initializeApp }
+    from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
 
-import {
+  import {
     getAuth,
     GoogleAuthProvider,
     signInWithPopup,
     onAuthStateChanged,
+    signOut,
     multiFactor,
     TotpMultiFactorGenerator,
     getMultiFactorResolver
-}
-from
-'https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js';
+  } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
 
 
-/* =====================================================
-   YOUR FIREBASE CONFIG
-===================================================== */
+  /* =========================================================
+     FIREBASE CONFIG
+     =========================================================
+     
+     IMPORTANT:
+     नीचे apiKey में Firebase Console से EXACT API KEY paste करें।
 
-const firebaseConfig = {
+     Firebase Console:
+     Project Settings
+     -> General
+     -> Your apps
+     -> MPPSC MCQ Hub Web
+     -> SDK setup and configuration
+     -> Config
 
-    apiKey:
-        "AIzaSyAzaSyAoKWyJ_6Upx25VcU_2fM2jk8M6A2dUk",
+  ========================================================= */
+
+  const firebaseConfig = {
+
+    apiKey: "PASTE_YOUR_REAL_FIREBASE_API_KEY_HERE",
 
     authDomain:
-        "mppsc-mcq-hub.firebaseapp.com",
+      "mppsc-mcq-hub.firebaseapp.com",
 
     projectId:
-        "mppsc-mcq-hub",
+      "mppsc-mcq-hub",
 
     storageBucket:
-        "mppsc-mcq-hub.firebasestorage.app",
+      "mppsc-mcq-hub.firebasestorage.app",
 
     messagingSenderId:
-        "709069054485",
+      "709069054485",
 
     appId:
-        "1:709069054485:web:578a8908ae9f0741c3a41c",
+      "1:709069054485:web:578a8908ae9f0741c3a41c",
 
     measurementId:
-        "G-WQYRP35L2"
+      "G-WQERPE35L2"
+  };
 
-};
 
+  /* =========================================================
+     ADMIN EMAIL
+     ========================================================= */
 
-/* =====================================================
-   ONLY THIS ADMIN EMAIL ALLOWED
-===================================================== */
-
-const ALLOWED_ADMIN_EMAIL =
+  const ALLOWED_ADMIN_EMAIL =
     "ajay.com1989@gmail.com";
 
 
-/* =====================================================
-   FIREBASE INIT
-===================================================== */
+  /* =========================================================
+     INITIALIZE FIREBASE
+     ========================================================= */
 
-const app =
-    initializeApp(
-        firebaseConfig
+  let app;
+  let auth;
+  let provider;
+
+  try {
+
+    app = initializeApp(firebaseConfig);
+
+    auth = getAuth(app);
+
+    provider = new GoogleAuthProvider();
+
+    provider.setCustomParameters({
+      prompt: "select_account"
+    });
+
+  } catch (error) {
+
+    console.error("Firebase initialization error:", error);
+
+    showMessage(
+      "login-message",
+      "Firebase configuration error: " + error.message,
+      "error"
     );
 
-const auth =
-    getAuth(app);
+  }
 
 
-const provider =
-    new GoogleAuthProvider();
+  /* =========================================================
+     DOM ELEMENTS
+     ========================================================= */
 
-provider.setCustomParameters({
-    prompt:"select_account"
-});
+  const loginSection =
+    document.getElementById("login-section");
+
+  const adminSection =
+    document.getElementById("admin-section");
+
+  const mfaSection =
+    document.getElementById("mfa-section");
+
+  const googleLoginBtn =
+    document.getElementById("google-login-btn");
+
+  const logoutBtn =
+    document.getElementById("logout-btn");
+
+  const verifyMfaBtn =
+    document.getElementById("verify-mfa-btn");
+
+  const mfaCancelBtn =
+    document.getElementById("mfa-cancel-btn");
+
+  const verifyTotpBtn =
+    document.getElementById("verify-totp-btn");
+
+  const userName =
+    document.getElementById("user-name");
+
+  const userEmail =
+    document.getElementById("user-email");
+
+  const totpStatus =
+    document.getElementById("totp-status");
+
+  const totpEnrollBox =
+    document.getElementById("totp-enroll-box");
+
+  const totpEnabledBox =
+    document.getElementById("totp-enabled-box");
+
+  const totpSecret =
+    document.getElementById("totp-secret");
+
+  const qrImage =
+    document.getElementById("qr-image");
+
+  const totpCode =
+    document.getElementById("totp-code");
+
+  const mfaCode =
+    document.getElementById("mfa-code");
 
 
-/* =====================================================
-   HELPER
-===================================================== */
+  /* =========================================================
+     MESSAGE FUNCTION
+     ========================================================= */
 
-const $ = id =>
-    document.getElementById(id);
+  function showMessage(elementId, text, type = "info") {
 
+    const element =
+      document.getElementById(elementId);
 
-function message(
-    text,
-    ok=false
-){
+    if (!element) return;
 
-    const el =
-        $("auth-message");
+    element.className =
+      "message " + type;
 
-    if(!el) return;
+    element.textContent =
+      text;
 
-    el.textContent =
-        text || "";
-
-    el.style.color =
-        ok
-        ? "#087f23"
-        : "#d32f2f";
-}
+    element.style.display =
+      "block";
+  }
 
 
-/* =====================================================
-   CHECK ADMIN EMAIL
-===================================================== */
+  function hideMessage(elementId) {
 
-function allowed(user){
+    const element =
+      document.getElementById(elementId);
+
+    if (!element) return;
+
+    element.style.display =
+      "none";
+  }
+
+
+  /* =========================================================
+     ERROR TRANSLATION
+     ========================================================= */
+
+  function friendlyFirebaseError(error) {
+
+    console.error(error);
+
+    const code =
+      error?.code || "";
+
+    const message =
+      error?.message || "";
+
+
+    if (
+      code ===
+      "auth/api-key-not-valid-please-pass-a-valid-api-key"
+    ) {
+
+      return (
+        "Firebase API Key गलत है। " +
+        "Firebase Console से exact apiKey copy करके code में paste करें।"
+      );
+
+    }
+
+
+    if (
+      code ===
+      "auth/operation-not-allowed"
+    ) {
+
+      return (
+        "Firebase Authentication में Google Sign-In अभी enabled नहीं है। " +
+        "Firebase Console → Authentication → Sign-in method → Google को Enable करें।"
+      );
+
+    }
+
+
+    if (
+      code ===
+      "auth/popup-closed-by-user"
+    ) {
+
+      return "Google login popup बंद कर दिया गया।";
+
+    }
+
+
+    if (
+      code ===
+      "auth/popup-blocked"
+    ) {
+
+      return (
+        "Browser ने Google popup block कर दिया। " +
+        "इस website के लिए popups allow करें।"
+      );
+
+    }
+
+
+    if (
+      code ===
+      "auth/unauthorized-domain"
+    ) {
+
+      return (
+        "यह domain Firebase Authentication में authorized नहीं है। " +
+        "Firebase Console → Authentication → Settings → Authorized domains में website domain जोड़ें।"
+      );
+
+    }
+
+
+    if (
+      code ===
+      "auth/multi-factor-auth-required"
+    ) {
+
+      return (
+        "Authenticator verification required है।"
+      );
+
+    }
+
+
+    if (
+      code ===
+      "auth/invalid-verification-code"
+    ) {
+
+      return "Authenticator code गलत है।";
+
+    }
+
+
+    if (
+      code ===
+      "auth/code-expired"
+    ) {
+
+      return "Authenticator code expire हो गया। नया code डालें।";
+
+    }
+
+
+    if (
+      code ===
+      "auth/requires-recent-login"
+    ) {
+
+      return (
+        "Security के लिए दोबारा Google login करना जरूरी है।"
+      );
+
+    }
+
+
+    return message ||
+      "Authentication में समस्या आई।";
+
+
+  }
+
+
+  /* =========================================================
+     CHECK ADMIN EMAIL
+     ========================================================= */
+
+  function isAllowedAdmin(user) {
+
+    if (!user || !user.email) {
+      return false;
+    }
 
     return (
-        user &&
-        user.email &&
-        user.email
-            .toLowerCase()
-            ===
-        ALLOWED_ADMIN_EMAIL
-            .toLowerCase()
+      user.email.toLowerCase() ===
+      ALLOWED_ADMIN_EMAIL.toLowerCase()
     );
 
-}
+  }
 
 
-/* =====================================================
-   UNLOCK ADMIN
-===================================================== */
+  /* =========================================================
+     SHOW ADMIN
+     ========================================================= */
 
-function unlock(user){
+  async function openAdminPanel(user) {
 
-    if(!allowed(user)){
+    if (!isAllowedAdmin(user)) {
 
-        message(
+      showMessage(
+        "login-message",
+        "यह Google account Admin के लिए authorized नहीं है।",
+        "error"
+      );
+
+      await signOut(auth);
+
+      return;
+
+    }
+
+
+    loginSection.classList.add("hidden");
+
+    mfaSection.classList.add("hidden");
+
+    adminSection.classList.remove("hidden");
+
+
+    userName.textContent =
+      user.displayName ||
+      "MPPSC Admin";
+
+
+    userEmail.textContent =
+      user.email;
+
+
+    await checkTotpStatus(user);
+
+  }
+
+
+  /* =========================================================
+     CHECK TOTP STATUS
+     ========================================================= */
+
+  async function checkTotpStatus(user) {
+
+    try {
+
+      const enrolledFactors =
+        multiFactor(user).enrolledFactors || [];
+
+
+      if (enrolledFactors.length > 0) {
+
+        totpStatus.style.display =
+          "none";
+
+        totpEnrollBox.classList.add(
+          "hidden"
+        );
+
+        totpEnabledBox.classList.remove(
+          "hidden"
+        );
+
+      } else {
+
+        totpStatus.style.display =
+          "block";
+
+        totpStatus.className =
+          "message info";
+
+        totpStatus.textContent =
+          "⚠️ Google Authenticator अभी enabled नहीं है। नीचे setup करें।";
+
+
+        totpEnrollBox.classList.remove(
+          "hidden"
+        );
+
+        totpEnabledBox.classList.add(
+          "hidden"
+        );
+
+      }
+
+    } catch (error) {
+
+      console.error(error);
+
+      showMessage(
+        "totp-enroll-message",
+        friendlyFirebaseError(error),
+        "error"
+      );
+
+    }
+
+  }
+
+
+  /* =========================================================
+     GOOGLE LOGIN
+     ========================================================= */
+
+  googleLoginBtn.addEventListener(
+    "click",
+    async () => {
+
+      hideMessage("login-message");
+
+      googleLoginBtn.disabled = true;
+
+      googleLoginBtn.textContent =
+        "⏳ Google Login हो रहा है...";
+
+
+      try {
+
+        const result =
+          await signInWithPopup(
+            auth,
+            provider
+          );
+
+
+        const user =
+          result.user;
+
+
+        if (!isAllowedAdmin(user)) {
+
+          await signOut(auth);
+
+          throw new Error(
             "यह Google account Admin के लिए authorized नहीं है।"
+          );
+
+        }
+
+
+        await openAdminPanel(user);
+
+
+      } catch (error) {
+
+        console.error(
+          "Google Sign-In Error:",
+          error
+        );
+
+
+        /*
+         * Firebase MFA REQUIRED
+         */
+
+        if (
+          error.code ===
+          "auth/multi-factor-auth-required"
+        ) {
+
+          try {
+
+            const resolver =
+              getMultiFactorResolver(
+                auth,
+                error
+              );
+
+
+            window.currentMfaResolver =
+              resolver;
+
+
+            loginSection.classList.add(
+              "hidden"
+            );
+
+            adminSection.classList.add(
+              "hidden"
+            );
+
+            mfaSection.classList.remove(
+              "hidden"
+            );
+
+
+            mfaCode.value = "";
+
+            mfaCode.focus();
+
+
+          } catch (resolverError) {
+
+            showMessage(
+              "login-message",
+              friendlyFirebaseError(
+                resolverError
+              ),
+              "error"
+            );
+
+          }
+
+
+        } else {
+
+          showMessage(
+            "login-message",
+            friendlyFirebaseError(error),
+            "error"
+          );
+
+        }
+
+      } finally {
+
+        googleLoginBtn.disabled =
+          false;
+
+        googleLoginBtn.textContent =
+          "🔑 Continue with Google";
+
+      }
+
+    }
+  );
+
+
+  /* =========================================================
+     MFA VERIFICATION
+     ========================================================= */
+
+  verifyMfaBtn.addEventListener(
+    "click",
+    async () => {
+
+      const code =
+        mfaCode.value.trim();
+
+
+      if (!/^\d{6}$/.test(code)) {
+
+        showMessage(
+          "mfa-message",
+          "कृपया 6 digit Authenticator code डालें।",
+          "error"
         );
 
         return;
 
+      }
+
+
+      const resolver =
+        window.currentMfaResolver;
+
+
+      if (!resolver) {
+
+        showMessage(
+          "mfa-message",
+          "MFA session उपलब्ध नहीं है। दोबारा login करें।",
+          "error"
+        );
+
+        return;
+
+      }
+
+
+      verifyMfaBtn.disabled =
+        true;
+
+      verifyMfaBtn.textContent =
+        "⏳ Verify हो रहा है...";
+
+
+      try {
+
+        /*
+         * Find TOTP factor
+         */
+
+        const totpHint =
+          resolver.hints.find(
+            hint =>
+              hint.factorId ===
+              TotpMultiFactorGenerator.FACTOR_ID
+          );
+
+
+        if (!totpHint) {
+
+          throw new Error(
+            "TOTP Authenticator factor नहीं मिला।"
+          );
+
+        }
+
+
+        /*
+         * Create TOTP assertion
+         */
+
+        const assertion =
+          TotpMultiFactorGenerator
+            .assertionForSignIn(
+              totpHint.uid,
+              code
+            );
+
+
+        /*
+         * Complete MFA login
+         */
+
+        const userCredential =
+          await resolver.resolveSignIn(
+            assertion
+          );
+
+
+        window.currentMfaResolver =
+          null;
+
+
+        mfaSection.classList.add(
+          "hidden"
+        );
+
+
+        await openAdminPanel(
+          userCredential.user
+        );
+
+
+      } catch (error) {
+
+        console.error(
+          "MFA Error:",
+          error
+        );
+
+
+        showMessage(
+          "mfa-message",
+          friendlyFirebaseError(error),
+          "error"
+        );
+
+
+      } finally {
+
+        verifyMfaBtn.disabled =
+          false;
+
+        verifyMfaBtn.textContent =
+          "Verify Code";
+
+      }
+
     }
+  );
 
-    sessionStorage.setItem(
-        "mppsc_admin_authenticated",
-        "true"
-    );
 
-    sessionStorage.setItem(
-        "mppsc_admin_email",
-        user.email
-    );
+  /* =========================================================
+     CANCEL MFA
+     ========================================================= */
 
-    const lock =
-        $("admin-auth-lock");
+  mfaCancelBtn.addEventListener(
+    "click",
+    async () => {
 
-    if(lock){
+      window.currentMfaResolver =
+        null;
 
-        lock.style.display =
-            "none";
+      mfaSection.classList.add(
+        "hidden"
+      );
+
+      loginSection.classList.remove(
+        "hidden"
+      );
+
+      mfaCode.value = "";
+
+      try {
+        await signOut(auth);
+      } catch (e) {
+        console.error(e);
+      }
 
     }
+  );
 
-}
+
+  /* =========================================================
+     ENABLE TOTP
+     ========================================================= */
+
+  verifyTotpBtn.addEventListener(
+    "click",
+    async () => {
+
+      const user =
+        auth.currentUser;
 
 
-/* =====================================================
-   TOTP ENROLL
-===================================================== */
+      if (!user) {
 
-async function enrollTotp(user){
+        showMessage(
+          "totp-enroll-message",
+          "पहले Admin login करें।",
+          "error"
+        );
 
-    try{
+        return;
+
+      }
+
+
+      const code =
+        totpCode.value.trim();
+
+
+      if (!/^\d{6}$/.test(code)) {
+
+        showMessage(
+          "totp-enroll-message",
+          "कृपया 6 digit Authenticator code डालें।",
+          "error"
+        );
+
+        return;
+
+      }
+
+
+      verifyTotpBtn.disabled =
+        true;
+
+      verifyTotpBtn.textContent =
+        "⏳ TOTP enable हो रहा है...";
+
+
+      try {
+
+        /*
+         * Get MFA session
+         */
 
         const session =
-            await multiFactor(user)
+          await multiFactor(user)
             .getSession();
 
 
+        /*
+         * Generate TOTP secret
+         */
+
         const secret =
-            await
-            TotpMultiFactorGenerator
-            .generateSecret(session);
-
-
-        const uri =
-            secret.generateQrCodeUrl(
-                user.email,
-                "MPPSC MCQ Hub Admin"
+          await TotpMultiFactorGenerator
+            .generateSecret(
+              session
             );
 
 
-        const qr =
-            $("totp-qr");
+        /*
+         * Create TOTP assertion
+         */
 
-        qr.innerHTML = "";
-
-
-        const img =
-            document.createElement("img");
-
-        img.width = 190;
-        img.height = 190;
-
-        img.alt =
-            "Google Authenticator QR";
+        const assertion =
+          TotpMultiFactorGenerator
+            .assertionForEnrollment(
+              secret,
+              code
+            );
 
 
-        img.src =
-            "https://quickchart.io/qr?text=" +
-            encodeURIComponent(uri) +
-            "&size=190";
+        /*
+         * Enroll factor
+         */
+
+        await multiFactor(user)
+          .enroll(
+            assertion,
+            "MPPSC Admin Authenticator"
+          );
 
 
-        qr.appendChild(img);
-
-
-        $("totp-secret")
-            .textContent =
-            "Manual key: " +
-            secret.secretKey;
-
-
-        $("totp-enroll")
-            .style.display =
-            "block";
-
-
-        $("totp-enroll-btn")
-            .onclick =
-            async function(){
-
-                const code =
-                    $("totp-enroll-code")
-                    .value
-                    .trim();
-
-
-                if(
-                    !/^\d{6}$/.test(code)
-                ){
-
-                    message(
-                        "6 अंकों का सही code डालें।"
-                    );
-
-                    return;
-
-                }
-
-
-                try{
-
-                    const assertion =
-                        TotpMultiFactorGenerator
-                        .assertionForEnrollment(
-                            secret,
-                            code
-                        );
-
-
-                    await
-                    multiFactor(user)
-                    .enroll(
-                        assertion,
-                        "Google Authenticator"
-                    );
-
-
-                    message(
-                        "Authenticator सफलतापूर्वक जुड़ गया।",
-                        true
-                    );
-
-
-                    unlock(user);
-
-                }
-                catch(e){
-
-                    message(
-                        e.message ||
-                        "Authenticator code गलत है।"
-                    );
-
-                }
-
-            };
-
-
-    }
-    catch(e){
-
-        message(
-            e.message ||
-            "Authenticator setup शुरू नहीं हो सका।"
+        showMessage(
+          "totp-enroll-message",
+          "✅ Google Authenticator successfully enable हो गया।",
+          "success"
         );
 
-    }
 
-}
+        totpEnrollBox.classList.add(
+          "hidden"
+        );
 
+        totpEnabledBox.classList.remove(
+          "hidden"
+        );
 
-/* =====================================================
-   GOOGLE LOGIN
-===================================================== */
-
-async function signIn(){
-
-    message("");
-
-    try{
-
-        const result =
-            await signInWithPopup(
-                auth,
-                provider
-            );
+        totpStatus.style.display =
+          "none";
 
 
-        const user =
-            result.user;
+      } catch (error) {
+
+        console.error(
+          "TOTP Enrollment Error:",
+          error
+        );
 
 
-        if(!allowed(user)){
+        showMessage(
+          "totp-enroll-message",
+          friendlyFirebaseError(error),
+          "error"
+        );
 
-            message(
-                "यह Google account authorized नहीं है।"
-            );
+      } finally {
 
-            return;
+        verifyTotpBtn.disabled =
+          false;
 
-        }
+        verifyTotpBtn.textContent =
+          "Verify & Enable TOTP";
 
-
-        const factors =
-            multiFactor(user)
-            .enrolledFactors;
-
-
-        if(!factors.length){
-
-            message(
-                "Google login सफल। Authenticator पहली बार सेट करें।",
-                true
-            );
-
-            await enrollTotp(user);
-
-        }
-        else{
-
-            unlock(user);
-
-        }
+      }
 
     }
-    catch(e){
-
-        /* =========================================
-           MFA REQUIRED
-        ========================================= */
-
-        if(
-            e.code ===
-            "auth/multi-factor-auth-required"
-        ){
-
-            try{
-
-                const resolver =
-                    getMultiFactorResolver(
-                        auth,
-                        e
-                    );
+  );
 
 
-                const hint =
-                    resolver.hints.find(
-                        h =>
-                        h.factorId ===
-                        TotpMultiFactorGenerator
-                        .FACTOR_ID
-                    );
+  /* =========================================================
+     LOGOUT
+     ========================================================= */
 
+  logoutBtn.addEventListener(
+    "click",
+    async () => {
 
-                if(!hint){
+      try {
 
-                    message(
-                        "TOTP Authenticator factor उपलब्ध नहीं है।"
-                    );
+        await signOut(auth);
 
-                    return;
+        adminSection.classList.add(
+          "hidden"
+        );
 
-                }
+        mfaSection.classList.add(
+          "hidden"
+        );
 
+        loginSection.classList.remove(
+          "hidden"
+        );
 
-                $("totp-login")
-                    .style.display =
-                    "block";
+        hideMessage(
+          "login-message"
+        );
 
+      } catch (error) {
 
-                $("totp-login-btn")
-                    .onclick =
-                    async function(){
+        console.error(
+          "Logout error:",
+          error
+        );
 
-                        const code =
-                            $("totp-code")
-                            .value
-                            .trim();
-
-
-                        if(
-                            !/^\d{6}$/.test(code)
-                        ){
-
-                            message(
-                                "6 अंकों का सही code डालें।"
-                            );
-
-                            return;
-
-                        }
-
-
-                        try{
-
-                            const assertion =
-                                TotpMultiFactorGenerator
-                                .assertionForSignIn(
-                                    hint.uid,
-                                    code
-                                );
-
-
-                            const cred =
-                                await
-                                resolver
-                                .resolveSignIn(
-                                    assertion
-                                );
-
-
-                            if(
-                                !allowed(
-                                    cred.user
-                                )
-                            ){
-
-                                message(
-                                    "यह Google account authorized नहीं है।"
-                                );
-
-                                return;
-
-                            }
-
-
-                            message(
-                                "2-Step Verification सफल।",
-                                true
-                            );
-
-
-                            unlock(
-                                cred.user
-                            );
-
-                        }
-                        catch(x){
-
-                            message(
-                                x.message ||
-                                "Authenticator code गलत/expired है।"
-                            );
-
-                        }
-
-                    };
-
-            }
-            catch(x){
-
-                message(
-                    x.message ||
-                    "2-Step Verification शुरू नहीं हो सकी।"
-                );
-
-            }
-
-        }
-        else{
-
-            message(
-                e.message ||
-                "Google authentication failed."
-            );
-
-        }
+      }
 
     }
-
-}
-
-
-/* =====================================================
-   GOOGLE LOGIN BUTTON
-===================================================== */
-
-$("google-login-btn")
-    .addEventListener(
-        "click",
-        signIn
-    );
+  );
 
 
-/* =====================================================
-   EXISTING FIREBASE SESSION
-===================================================== */
+  /* =========================================================
+     AUTH STATE
+     ========================================================= */
 
-onAuthStateChanged(
+  onAuthStateChanged(
     auth,
-    async function(user){
+    async (user) => {
 
-        if(!user){
-            return;
-        }
+      if (!user) {
 
-        if(!allowed(user)){
-            return;
-        }
+        loginSection.classList.remove(
+          "hidden"
+        );
 
-        const factors =
-            multiFactor(user)
-            .enrolledFactors;
+        adminSection.classList.add(
+          "hidden"
+        );
+
+        return;
+
+      }
 
 
-        if(factors.length){
+      if (isAllowedAdmin(user)) {
 
-            unlock(user);
+        await openAdminPanel(
+          user
+        );
 
-        }
+      } else {
+
+        await signOut(auth);
+
+      }
 
     }
-);
+  );
+
+
+  /* =========================================================
+     AUTO FORMAT TOTP INPUT
+     ========================================================= */
+
+  totpCode.addEventListener(
+    "input",
+    () => {
+
+      totpCode.value =
+        totpCode.value
+          .replace(/\D/g, "")
+          .slice(0, 6);
+
+    }
+  );
+
+
+  mfaCode.addEventListener(
+    "input",
+    () => {
+
+      mfaCode.value =
+        mfaCode.value
+          .replace(/\D/g, "")
+          .slice(0, 6);
+
+    }
+  );
+
 
 </script>
 
