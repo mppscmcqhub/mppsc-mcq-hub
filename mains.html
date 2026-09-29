@@ -3,59 +3,274 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<title>MPPSC MCQ Hub V14 - Paid MAINS</title>
+<title>MPPSC MCQ Hub V14 - Paid MAINS Course</title>
+
 <style>
-*{box-sizing:border-box}html,body{margin:0;padding:0}
-body{font-family:Arial,Helvetica,sans-serif;background:#f0f5ff;color:#102a43;display:none}
-.site-header{min-height:64px;background:#1450a3;color:#fff;display:flex;align-items:center;gap:12px;padding:8px 16px}
-.site-header img{width:48px;height:48px;object-fit:cover;border-radius:50%;background:#fff;padding:2px}
-.site-title{font-size:18px;font-weight:700}
-.header{background:#3182ce;color:#fff;padding:10px 16px;font-size:17px;font-weight:700}
-.wrap{max-width:1400px;margin:16px auto;padding:0 12px}
-.top,.unit{background:#fff;border-radius:12px;padding:14px;margin-bottom:14px;box-shadow:0 2px 9px rgba(0,0,0,.07)}
-.top{border-left:5px solid #3182ce}.top h1{margin:0 0 6px;color:#2b6cb0;font-size:21px}.top p{margin:5px 0;font-size:14px}
-.unit{border-top:4px solid #3182ce}.unit-title{margin:0 0 10px;color:#2b6cb0;font-size:16px}
-.grid{display:grid;grid-template-columns:repeat(8,1fr);gap:5px}
-.test{border:1px solid #90caf9;border-radius:6px;padding:5px;text-align:center}.code{display:block;font-size:10px;font-weight:700;margin-bottom:4px}.start{display:block;background:#3182ce;color:#fff;text-decoration:none;border-radius:5px;padding:5px 3px;font-size:10px;font-weight:700}
-.logout{float:right;color:#fff;background:#1e4f82;text-decoration:none;padding:5px 9px;border-radius:4px;font-size:12px}
-@media(max-width:1100px){.grid{grid-template-columns:repeat(6,1fr)}}@media(max-width:800px){.grid{grid-template-columns:repeat(4,1fr)}}@media(max-width:500px){.grid{grid-template-columns:repeat(2,1fr)}}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f3f6fa;
+  color:#102a43;
+  display:none;
+}
+.mppsc-site-logo-bar{
+  width:100%;
+  background:#0d47a1;
+  color:#fff;
+  min-height:64px;
+  padding:8px 16px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  box-shadow:0 2px 7px rgba(0,0,0,.12);
+}
+.mppsc-site-logo-bar img{
+  width:48px;height:48px;object-fit:cover;border-radius:50%;
+  background:#fff;padding:2px;flex:0 0 auto;
+}
+.mppsc-site-name{font-size:18px;font-weight:700;line-height:1.2}
+
+.header{
+  background:#147dcc;color:#fff;padding:12px 20px;
+  font-size:18px;font-weight:700;
+  box-shadow:0 2px 6px rgba(0,0,0,.10);
+}
+.wrap{max-width:1400px;margin:22px auto;padding:0 12px}
+.top{
+  background:#fff;border-radius:12px;padding:18px 20px;margin-bottom:18px;
+  box-shadow:0 2px 9px rgba(0,0,0,.05);
+  border-left:6px solid #147dcc;
+}
+.top h1{margin:0 0 6px;font-size:24px;color:#147dcc}
+.top p{margin:4px 0;font-size:15px}
+
+.paper{
+  background:#fff;border-radius:12px;padding:16px;margin-bottom:20px;
+  box-shadow:0 2px 9px rgba(0,0,0,.05);
+  border-top:4px solid #147dcc;
+}
+.paper h2{
+  margin:0 0 12px;font-size:20px;color:#147dcc;
+  border-bottom:2px solid #eaf2fb;padding-bottom:8px;
+}
+.group-title{
+  background:#eaf2fb;border-radius:7px;padding:8px 10px;
+  margin:12px 0 8px;font-size:17px;font-weight:700;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(8,1fr);
+  gap:7px;
+}
+.card{
+  background:#fff;border:1px solid #b8d9f5;border-radius:7px;
+  padding:7px;text-align:center;
+  transition:transform .15s ease,box-shadow .15s ease;
+}
+.card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 3px 8px rgba(0,0,0,.10);
+}
+.card-title{font-size:12px;font-weight:700;margin-bottom:5px}
+.card-meta{font-size:10px;color:#667085;margin-bottom:6px}
+.code{
+  font-size:10px;font-weight:700;display:block;margin-top:6px;color:#102a43;
+}
+.open{
+  display:block;background:#147dcc;color:#fff;text-decoration:none;
+  border-radius:6px;padding:6px 3px;font-size:11px;font-weight:bold;
+  text-align:center;
+}
+.open:hover{background:#0d5fa8}
+.toggle{
+  float:right;border:1px solid #b8d9f5;background:#fff;color:#1450a3;
+  border-radius:6px;padding:5px 8px;font-size:11px;font-weight:700;cursor:pointer;
+}
+.paper.collapsed .paper-content{display:none}
+
+.loading-box{
+  background:#fff;border-radius:12px;padding:20px;margin-bottom:20px;
+  text-align:center;color:#555;box-shadow:0 2px 9px rgba(0,0,0,.05);
+}
+
+@media(max-width:1200px){.grid{grid-template-columns:repeat(6,1fr)}}
+@media(max-width:900px){.grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:600px){
+  .mppsc-site-logo-bar{min-height:56px;padding:6px 10px}
+  .mppsc-site-logo-bar img{width:42px;height:42px}
+  .mppsc-site-name{font-size:15px}
+  .top h1{font-size:20px}
+  .paper h2{font-size:17px}
+}
+@media(max-width:550px){.grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
+
 <body>
-<header class="site-header"><img src="my-logo.jpg" alt="MPPSC MCQ Hub Logo"><div class="site-title">MPPSC MCQ Hub V14</div></header>
-<div class="header">🏆 MPPSC MCQ Hub — Paid MAINS Portal <a class="logout" href="#" id="logout">Logout</a></div>
-<div class="wrap">
-<div class="top"><h1>Paid MAINS Course (Active)</h1><p><b>MAINS Practice Test Portal</b></p></div>
-<div id="container"></div>
+
+<div class="mppsc-site-logo-bar">
+  <img src="my-logo.jpg" alt="MPPSC MCQ Hub Logo">
+  <div class="mppsc-site-name">MPPSC MCQ Hub V14</div>
 </div>
-<script>
-"use strict";
-const REQUIRED="mains";
-const LOGIN="student-login.html?course=mains";
-function clearSession(){["mppsc_student_authenticated","mppsc_student_course","mppsc_student_username","mppsc_student_session","paidStudentCourse","studentMobile"].forEach(k=>sessionStorage.removeItem(k));}
-function validSession(){return sessionStorage.getItem("mppsc_student_authenticated")==="true" && String(sessionStorage.getItem("mppsc_student_course")||"").toLowerCase()===REQUIRED && String(sessionStorage.getItem("mppsc_student_username")||"").trim()!=="";}
+
+<div class="header">🏆 MPPSC MCQ Hub — Paid MAINS Portal</div>
+
+<div class="wrap">
+
+  <div class="top">
+    <h1>Paid MAINS Course (Active)</h1>
+    <p><b>MAINS — 600 Practice Questions</b></p>
+    <p>6 Papers × 100 Questions — 5 अंक, 10 अंक और 15 अंक के प्रश्न अलग-अलग।</p>
+  </div>
+
+  <div id="mains-student-container">
+    <div class="loading-box">Paid Mains Questions Loading...</div>
+  </div>
+
+</div>
+
+<script data-mppsc-course-auth>
+/* =========================================================
+   COURSE ACCESS
+   ========================================================= */
+const REQUIRED_COURSE = "mains";
+
+/* =========================================================
+   6 MAINS PAPERS
+   ========================================================= */
+const mainsPapers = [
+  {name:"General Studies-I", prefix:"GS1", folder:"paper-01-general-studies-i"},
+  {name:"General Studies-II", prefix:"GS2", folder:"paper-02-general-studies-ii"},
+  {name:"General Studies-III", prefix:"GS3", folder:"paper-03-general-studies-iii"},
+  {name:"General Studies-IV", prefix:"GS4", folder:"paper-04-general-studies-iv"},
+  {name:"General Hindi & Grammar", prefix:"GH5", folder:"paper-05-general-hindi-grammar"},
+  {name:"Hindi Essay Draft", prefix:"HD6", folder:"paper-06-hindi-essay-draft"}
+];
+
+const mainsGroups = [
+  {marks:5, count:40},
+  {marks:10, count:40},
+  {marks:15, count:20}
+];
+
+/* =========================================================
+   BUILD 600 STUDENT BOXES
+   ========================================================= */
+function buildStudentMains(){
+  const container = document.getElementById("mains-student-container");
+  if(!container) return;
+
+  let html = "";
+
+  mainsPapers.forEach(function(paper,index){
+    const pNum = index + 1;
+
+    html += `
+      <section class="paper">
+        <h2>
+          Paper ${pNum} - ${paper.name}
+          <button type="button" class="toggle" onclick="togglePaper(this)">
+            ▼ Boxes छिपाएँ
+          </button>
+        </h2>
+
+        <div class="paper-content">
+    `;
+
+    mainsGroups.forEach(function(group){
+      html += `
+        <div class="group-title">
+          ${group.marks} अंक वाले प्रश्न — ${group.count} Questions
+        </div>
+        <div class="grid">
+      `;
+
+      for(let q=1; q<=group.count; q++){
+        const qStr = String(q).padStart(3,"0");
+        const code = `${paper.prefix}-${group.marks}M-${qStr}`;
+        const questionURL =
+          `${paper.folder}/${group.marks}-marks/${code}/index.html`;
+
+        html += `
+          <div class="card">
+            <div class="card-title">📄 Question ${q}</div>
+            <div class="card-meta">${group.marks} Marks • Mains</div>
+            <a class="open" href="${questionURL}">Open Questions</a>
+            <span class="code">${code}</span>
+          </div>
+        `;
+      }
+
+      html += `</div>`;
+    });
+
+    html += `
+        </div>
+      </section>
+    `;
+  });
+
+  container.innerHTML = html;
+  console.log("✅ 600 Paid Mains Questions तैयार हो गए।");
+}
+
+function togglePaper(button){
+  const paper = button.closest(".paper");
+  if(!paper) return;
+
+  const collapsed = paper.classList.toggle("collapsed");
+  button.textContent = collapsed
+    ? "▶ Boxes खोलें"
+    : "▼ Boxes छिपाएँ";
+}
+
+/* =========================================================
+   STUDENT AUTHENTICATION
+   Same session system as the existing Paid PRELIMS page
+   ========================================================= */
 (function(){
- if(!validSession()){clearSession();location.replace(LOGIN);return;}
- document.body.style.display="block";
- // Keep this section ready for the user's existing Mains test folders.
- const groups=[
-  ["Mains Test Series 01","mains-tests/MT01"],["Mains Test Series 02","mains-tests/MT02"],
-  ["Mains Test Series 03","mains-tests/MT03"],["Mains Test Series 04","mains-tests/MT04"],
-  ["Mains Test Series 05","mains-tests/MT05"],["Mains Test Series 06","mains-tests/MT06"]
- ];
- let html="";
- groups.forEach((g,i)=>{
-   html+=`<section class="unit"><h2 class="unit-title">${g[0]}</h2><div class="grid">`;
-   for(let n=1;n<=10;n++){
-     const code=`M${String(i+1).padStart(2,"0")}T${String(n).padStart(2,"0")}`;
-     html+=`<div class="test"><span class="code">${code}</span><a class="start" href="${g[1]}/${code}/index.html">Start Test</a></div>`;
-   }
-   html+="</div></section>";
- });
- document.getElementById("container").innerHTML=html;
+
+  let session = null;
+
+  try{
+    session = JSON.parse(
+      localStorage.getItem("mppsc_student_session") || "null"
+    );
+  }catch(error){
+    console.error("❌ Student session parse error:",error);
+  }
+
+  const authenticated =
+    sessionStorage.getItem("mppsc_student_authenticated") === "true";
+
+  const allowed =
+    authenticated &&
+    session &&
+    session.type === REQUIRED_COURSE;
+
+  console.log("Authentication:",authenticated);
+  console.log("Student session:",session);
+  console.log("Required course:",REQUIRED_COURSE);
+  console.log("Access allowed:",allowed);
+
+  if(!allowed){
+    alert(
+      "❌ इस Paid Course का access आपके account में नहीं है। कृपया Student Login करें।"
+    );
+
+    window.location.replace(
+      window.location.origin + "/student-login.html"
+    );
+
+    return;
+  }
+
+  document.body.style.display = "block";
+  buildStudentMains();
+
 })();
-document.getElementById("logout").addEventListener("click",e=>{e.preventDefault();clearSession();location.replace(LOGIN);});
 </script>
+
 </body>
 </html>
