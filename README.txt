@@ -1,8 +1,5 @@
-IMPORTANT:
-Live page URL uses this exact GitHub path:
-prelims-tests/unit-01/P01T01/index.html
-
-Replace/upload the index.html and q01.js ... q20.js from this ZIP at that exact path.
-The old GitHub path unit-01/P01T01/index.html is a different file and does NOT control the live URL.
-The q files keep the requested format: window.questions = [ { ... } ];
-index.html collects one question from each q file and displays a proper test UI.
+MPPSC V15 Starter
+1. Upload all files to GitHub repo.
+2. Paste Supabase URL and Anon Key in js/supabase.js.
+3. Run supabase.sql.
+4. Replace admin table with live pending requests.
