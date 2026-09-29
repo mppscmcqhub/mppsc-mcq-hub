@@ -1,906 +1,670 @@
 <!DOCTYPE html>
 <html lang="hi">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>MPPSC MCQ Hub - Paid PRELIMS Course</title>
 
-
 <style>
-
-/* =========================================================
-   BASIC RESET
-   ========================================================= */
-
 *{
-  box-sizing:border-box;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
-
-
-html,
-body{
-  margin:0;
-  padding:0;
-}
-
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#fff5f5;
-  color:#102a43;
-
-  /* Authentication होने तक hidden */
-  display:none;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#fff5f5;
+    color:#102a43;
 }
 
-
-/* =========================================================
-   HEADER
-   ========================================================= */
-
-.header{
-  background:#c53030;
-  color:#fff;
-
-  padding:15px 20px;
-
-  font-size:19px;
-  font-weight:700;
-
-  box-shadow:0 2px 6px rgba(0,0,0,.10);
-}
-
-
-/* =========================================================
-   MAIN WRAPPER
-   ========================================================= */
-
-.wrap{
-  max-width:1400px;
-
-  margin:22px auto;
-
-  padding:0 12px;
-}
-
-
-/* =========================================================
-   COURSE INTRO BOX
-   ========================================================= */
-
-.top{
-  background:#fff;
-
-  border-radius:12px;
-
-  padding:18px 20px;
-
-  margin-bottom:18px;
-
-  box-shadow:
-    0 2px 9px rgba(0,0,0,0.05);
-
-  border-left:6px solid #c53030;
-}
-
-
-.top h1{
-  margin:0 0 6px;
-
-  font-size:24px;
-
-  color:#c53030;
-}
-
-
-.top p{
-  margin:0;
-
-  font-size:15px;
-}
-
-
-/* =========================================================
-   UNIT SECTION
-   ========================================================= */
-
-.unit-sec{
-
-  background:#fff;
-
-  border-radius:12px;
-
-  padding:16px;
-
-  margin-bottom:25px;
-
-  box-shadow:
-    0 2px 9px rgba(0,0,0,0.05);
-
-  border-top:4px solid #c53030;
-}
-
-
-.unit-sec h2{
-
-  margin:0 0 14px;
-
-  font-size:20px;
-
-  color:#c53030;
-
-  border-bottom:
-    2px solid #fff5f5;
-
-  padding-bottom:8px;
-}
-
-
-/* =========================================================
-   TEST GRID
-   ========================================================= */
-
-.grid{
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(8,1fr);
-
-  gap:7px;
-}
-
-
-/* =========================================================
-   TEST CARD
-   ========================================================= */
-
-.card{
-
-  background:#fff;
-
-  border:
-    1px solid #f56565;
-
-  border-radius:7px;
-
-  padding:7px;
-
-  text-align:center;
-
-  transition:
-    transform .15s ease,
-    box-shadow .15s ease;
-}
-
-
-.card:hover{
-
-  transform:translateY(-2px);
-
-  box-shadow:
-    0 3px 8px rgba(0,0,0,.10);
-}
-
-
-/* =========================================================
-   TEST CODE
-   ========================================================= */
-
-.code{
-
-  font-size:11px;
-
-  font-weight:700;
-
-  display:block;
-
-  margin-bottom:7px;
-
-  color:#102a43;
-}
-
-
-/* =========================================================
-   START TEST BUTTON
-   ========================================================= */
-
-.open-btn{
-
-  display:block;
-
-  background:#e53e3e;
-
-  color:#fff;
-
-  text-decoration:none;
-
-  border-radius:6px;
-
-  padding:6px 3px;
-
-  font-size:11px;
-
-  font-weight:bold;
-
-  text-align:center;
-
-  transition:
-    background .15s ease;
-}
-
-
-.open-btn:hover{
-
-  background:#c53030;
-
-}
-
-
-/* =========================================================
-   LOGO BAR
-   ========================================================= */
+/* =========================
+   TOP SITE LOGO BAR
+========================= */
 
 .mppsc-site-logo-bar{
-
-  width:100%;
-
-  background:#0d47a1;
-
-  color:#fff;
-
-  min-height:64px;
-
-  padding:8px 16px;
-
-  display:flex;
-
-  align-items:center;
-
-  gap:12px;
-
-  box-sizing:border-box;
-
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-
-  position:relative;
-
-  z-index:999;
-
-  box-shadow:
-    0 2px 7px rgba(0,0,0,.12);
+    width:100%;
+    background:#0d47a1;
+    color:#fff;
+    min-height:64px;
+    padding:8px 16px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+    position:relative;
+    z-index:999;
+    box-shadow:0 2px 7px rgba(0,0,0,.12);
 }
-
 
 .mppsc-site-logo-bar img{
-
-  width:48px;
-
-  height:48px;
-
-  object-fit:cover;
-
-  border-radius:50%;
-
-  background:#fff;
-
-  padding:2px;
-
-  box-sizing:border-box;
-
-  flex:0 0 auto;
+    width:48px;
+    height:48px;
+    object-fit:cover;
+    border-radius:50%;
+    background:#fff;
+    padding:2px;
+    flex:0 0 auto;
 }
 
-
-.mppsc-site-logo-bar .mppsc-site-name{
-
-  font-size:18px;
-
-  font-weight:700;
-
-  line-height:1.2;
+.mppsc-site-name{
+    font-size:18px;
+    font-weight:700;
+    line-height:1.2;
 }
 
+/* =========================
+   HEADER
+========================= */
 
-/* =========================================================
-   LOADING MESSAGE
-   ========================================================= */
-
-.loading-box{
-
-  background:#fff;
-
-  border-radius:12px;
-
-  padding:20px;
-
-  margin-bottom:20px;
-
-  text-align:center;
-
-  color:#555;
-
-  box-shadow:
-    0 2px 9px rgba(0,0,0,.05);
+.header{
+    background:#c53030;
+    color:#fff;
+    padding:15px 20px;
+    font-size:19px;
+    font-weight:700;
 }
 
+/* =========================
+   MAIN WRAPPER
+========================= */
 
-/* =========================================================
+.wrap{
+    max-width:1400px;
+    margin:22px auto;
+    padding:0 12px;
+}
+
+/* =========================
+   COURSE INTRO
+========================= */
+
+.top{
+    background:#fff;
+    border-radius:12px;
+    padding:18px 20px;
+    margin-bottom:18px;
+    box-shadow:0 2px 9px rgba(0,0,0,.05);
+    border-left:6px solid #c53030;
+}
+
+.top h1{
+    margin:0 0 6px;
+    font-size:24px;
+    color:#c53030;
+}
+
+.top p{
+    font-size:14px;
+    color:#102a43;
+}
+
+/* =========================
+   UNIT SECTION
+========================= */
+
+.unit-sec{
+    background:#fff;
+    border-radius:12px;
+    padding:16px;
+    margin-bottom:25px;
+    box-shadow:0 2px 9px rgba(0,0,0,.05);
+    border-top:4px solid #c53030;
+}
+
+.unit-sec h2{
+    margin:0 0 14px;
+    font-size:20px;
+    color:#c53030;
+    border-bottom:2px solid #fff5f5;
+    padding-bottom:8px;
+}
+
+/* =========================
+   TEST GRID
+========================= */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(8,1fr);
+    gap:7px;
+}
+
+.card{
+    background:#fff;
+    border:1px solid #f56565;
+    border-radius:7px;
+    padding:7px;
+    text-align:center;
+}
+
+.code{
+    font-size:11px;
+    font-weight:700;
+    display:block;
+    margin-bottom:7px;
+    color:#102a43;
+}
+
+.open-btn{
+    display:block;
+    background:#e53e3e;
+    color:#fff;
+    text-decoration:none;
+    border-radius:6px;
+    padding:5px 3px;
+    font-size:11px;
+    font-weight:bold;
+    text-align:center;
+}
+
+.open-btn:hover{
+    background:#c53030;
+}
+
+/* =========================
+   ACCESS DENIED
+========================= */
+
+.access-denied{
+    max-width:600px;
+    margin:80px auto;
+    background:#fff;
+    border-radius:12px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 3px 15px rgba(0,0,0,.12);
+    border-top:5px solid #c53030;
+}
+
+.access-denied h2{
+    color:#c53030;
+    margin-bottom:12px;
+}
+
+.access-denied p{
+    margin-bottom:20px;
+    color:#444;
+}
+
+.login-btn{
+    display:inline-block;
+    background:#0d47a1;
+    color:#fff;
+    text-decoration:none;
+    padding:11px 22px;
+    border-radius:7px;
+    font-weight:bold;
+}
+
+/* =========================
    RESPONSIVE
-   ========================================================= */
+========================= */
 
 @media(max-width:1200px){
-
-  .grid{
-
-    grid-template-columns:
-      repeat(6,1fr);
-
-  }
-
+    .grid{
+        grid-template-columns:repeat(6,1fr);
+    }
 }
-
 
 @media(max-width:900px){
-
-  .grid{
-
-    grid-template-columns:
-      repeat(4,1fr);
-
-  }
-
+    .grid{
+        grid-template-columns:repeat(4,1fr);
+    }
 }
-
-
-@media(max-width:600px){
-
-  .mppsc-site-logo-bar{
-
-    min-height:56px;
-
-    padding:6px 10px;
-
-  }
-
-
-  .mppsc-site-logo-bar img{
-
-    width:42px;
-
-    height:42px;
-
-  }
-
-
-  .mppsc-site-logo-bar
-  .mppsc-site-name{
-
-    font-size:15px;
-
-  }
-
-
-  .top h1{
-
-    font-size:20px;
-
-  }
-
-
-  .unit-sec h2{
-
-    font-size:17px;
-
-  }
-
-}
-
 
 @media(max-width:550px){
 
-  .grid{
+    .mppsc-site-logo-bar{
+        min-height:56px;
+        padding:6px 10px;
+    }
 
-    grid-template-columns:
-      repeat(2,1fr);
+    .mppsc-site-logo-bar img{
+        width:42px;
+        height:42px;
+    }
 
-  }
+    .mppsc-site-name{
+        font-size:15px;
+    }
 
+    .header{
+        padding:12px;
+        font-size:15px;
+    }
+
+    .wrap{
+        margin:15px auto;
+        padding:0 8px;
+    }
+
+    .top{
+        padding:15px;
+    }
+
+    .top h1{
+        font-size:20px;
+    }
+
+    .unit-sec{
+        padding:12px;
+    }
+
+    .unit-sec h2{
+        font-size:17px;
+    }
+
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:6px;
+    }
 }
-
-
 </style>
-
 </head>
-
 
 <body>
 
+<!-- =========================
+     SITE LOGO
+========================= -->
 
-<!-- =========================================================
-     SITE LOGO BAR
-     ========================================================= -->
+<div class="mppsc-site-logo-bar">
 
-<div
-  class="mppsc-site-logo-bar"
-  data-mppsc-site-logo-bar
->
+    <img
+        src="my-logo.jpg"
+        alt="MPPSC MCQ Hub Logo"
+        onerror="this.style.display='none';"
+    >
 
-  <img
-    src="my-logo.jpg"
-    alt="MPPSC MCQ Hub Logo"
-  >
-
-  <div class="mppsc-site-name">
-    MPPSC MCQ Hub
-  </div>
+    <div class="mppsc-site-name">
+        MPPSC MCQ Hub
+    </div>
 
 </div>
 
 
-
-<!-- =========================================================
-     PAID PRELIMS HEADER
-     ========================================================= -->
+<!-- =========================
+     HEADER
+========================= -->
 
 <div class="header">
-
-  🏆 MPPSC MCQ Hub — Paid PRELIMS Portal
-
+    🏆 MPPSC MCQ Hub — Paid PRELIMS Portal
 </div>
 
 
-
-<!-- =========================================================
+<!-- =========================
      MAIN CONTENT
-     ========================================================= -->
+========================= -->
 
-<div class="wrap">
+<div id="page-content">
 
+    <div class="wrap">
 
-  <!-- COURSE INTRO -->
+        <div class="top">
 
-  <div class="top">
+            <h1>
+                Paid PRELIMS Course (Active)
+            </h1>
 
-    <h1>
-      Paid PRELIMS Course (Active)
-    </h1>
+            <p>
+                <b>
+                    10 Units + CET — 250 Total Practice Tests
+                </b>
+            </p>
 
-    <p>
-      <b>
-        10 Units + CET — 250 Total Practice Tests
-      </b>
-    </p>
+        </div>
 
-  </div>
-
-
-
-  <!-- =======================================================
-       TESTS WILL BE INSERTED HERE BY JAVASCRIPT
-       ======================================================= -->
-
-  <div
-    id="prelims-student-container"
-  >
-
-    <div class="loading-box">
-
-      Paid Prelims Tests Loading...
+        <div id="prelims-student-container"></div>
 
     </div>
 
-  </div>
-
-
 </div>
 
 
-
-<!-- =========================================================
-     JAVASCRIPT
-     ========================================================= -->
-
-<script data-mppsc-course-auth>
-
+<script>
 
 /* =========================================================
-   COURSE NAME
-   ========================================================= */
+   MPPSC PRELIMS COURSE AUTHENTICATION
+   =========================================================
 
-const REQUIRED_COURSE = "prelims";
+   IMPORTANT:
 
+   यह page केवल "prelims" type वाले student को allow करेगा।
+
+   mains user:
+       ❌ इस page में प्रवेश नहीं कर सकता
+
+   prelims user:
+       ✅ इस page में प्रवेश कर सकता है
+
+   कोई session नहीं:
+       ❌ student-login.html पर जाएगा
+
+========================================================= */
+
+(function(){
+
+    const REQUIRED_COURSE = "prelims";
+
+    let session = null;
+
+    /* -----------------------------
+       Session पढ़ना
+    ----------------------------- */
+
+    try{
+
+        session = JSON.parse(
+            localStorage.getItem("mppsc_student_session") || "null"
+        );
+
+    }catch(error){
+
+        session = null;
+
+    }
+
+
+    /* -----------------------------
+       SessionStorage authentication
+    ----------------------------- */
+
+    const authenticated =
+        sessionStorage.getItem(
+            "mppsc_student_authenticated"
+        ) === "true";
+
+
+    /* -----------------------------
+       Course type check
+    ----------------------------- */
+
+    const correctCourse =
+        session &&
+        session.type === REQUIRED_COURSE;
+
+
+    /* -----------------------------
+       Final authentication check
+    ----------------------------- */
+
+    if(!authenticated || !correctCourse){
+
+        /* पुराने गलत session को साफ करें */
+
+        sessionStorage.removeItem(
+            "mppsc_student_authenticated"
+        );
+
+        localStorage.removeItem(
+            "mppsc_student_session"
+        );
+
+        /* Access denied page */
+
+        document.getElementById("page-content").innerHTML = `
+
+            <div class="access-denied">
+
+                <h2>
+                    ❌ PRELIMS Course Access Required
+                </h2>
+
+                <p>
+                    इस Paid PRELIMS Course को खोलने के लिए
+                    PRELIMS Student Account से Login करें।
+                </p>
+
+                <a
+                    href="student-login.html"
+                    class="login-btn"
+                >
+                    Student Login
+                </a>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    /* =====================================================
+       केवल PRELIMS student के लिए page दिखाई देगा
+    ===================================================== */
+
+    document.body.style.display = "block";
+
+
+    /* =====================================================
+       Page load होने के बाद tests बनाएं
+    ===================================================== */
+
+    window.addEventListener("DOMContentLoaded", function(){
+
+        buildStudentPrelims();
+
+    });
+
+
+})();
 
 
 /* =========================================================
    PRELIMS UNITS
-
-   IMPORTANT:
-   इसे buildStudentPrelims() से पहले रखा गया है।
-   ========================================================= */
+========================================================= */
 
 const prelimsUnits = [
 
-  "भारत का इतिहास",
+    "भारत का इतिहास",
 
-  "मध्यप्रदेश का इतिहास, संस्कृति एवं साहित्य",
+    "मध्यप्रदेश का इतिहास, संस्कृति एवं साहित्य",
 
-  "भारत का भूगोल",
+    "भारत का भूगोल",
 
-  "मध्यप्रदेश का भूगोल",
+    "मध्यप्रदेश का भूगोल",
 
-  "भारत एवं म.प्र. की संवैधानिक व्यवस्था",
+    "भारत एवं म.प्र. की संवैधानिक व्यवस्था",
 
-  "भारत एवं म.प्र. की अर्थव्यवस्था",
+    "भारत एवं म.प्र. की अर्थव्यवस्था",
 
-  "विज्ञान, पर्यावरण एवं स्वास्थ्य",
+    "विज्ञान, पर्यावरण एवं स्वास्थ्य",
 
-  "अंतर्राष्ट्रीय, राष्ट्रीय एवं प्रादेशिक घटनाएं",
+    "अंतर्राष्ट्रीय, राष्ट्रीय एवं प्रादेशिक घटनाएं",
 
-  "सूचना एवं संचार प्रौद्योगिकी (ICT)",
+    "सूचना एवं संचार प्रौद्योगिकी (ICT)",
 
-  "म.प्र. की जनजातियां: विरासत व लोक संस्कृति"
+    "म.प्र. की जनजातियां: विरासत व लोक संस्कृति"
 
 ];
 
 
-
 /* =========================================================
-   BUILD STUDENT PRELIMS
-   ========================================================= */
+   BUILD PRELIMS TESTS
+========================================================= */
 
 function buildStudentPrelims(){
 
-  console.log(
-    "✅ buildStudentPrelims() शुरू"
-  );
+    const container =
+        document.getElementById(
+            "prelims-student-container"
+        );
 
 
-  let html = "";
+    if(!container){
+
+        console.error(
+            "prelims-student-container नहीं मिला।"
+        );
+
+        return;
+
+    }
 
 
+    let html = "";
 
-  /* =======================================================
-     10 UNITS
-     प्रत्येक Unit में 20 Tests
-     कुल = 200 Tests
-     ======================================================= */
 
-  for(
-    let u = 1;
-    u <= 10;
-    u++
-  ){
+    /* =====================================================
+       10 UNITS × 20 TESTS
+       TOTAL = 200 TESTS
+    ===================================================== */
 
-    const padU =
-      u < 10
-        ? "0" + u
-        : String(u);
+    for(let u = 1; u <= 10; u++){
 
+        const padU =
+            u < 10
+            ? "0" + u
+            : String(u);
+
+
+        html += `
+
+            <section class="unit-sec">
+
+                <h2>
+                    Unit ${u} - ${prelimsUnits[u - 1]}
+                </h2>
+
+                <div class="grid">
+
+        `;
+
+
+        for(let t = 1; t <= 20; t++){
+
+            const padT =
+                t < 10
+                ? "0" + t
+                : String(t);
+
+
+            const code =
+                "P" + padU + "T" + padT;
+
+
+            const testUrl =
+                "prelims-tests/unit-" +
+                padU +
+                "/" +
+                code +
+                "/index.html";
+
+
+            html += `
+
+                <div class="card">
+
+                    <span class="code">
+                        ${code}
+                    </span>
+
+                    <a
+                        class="open-btn"
+                        href="${testUrl}"
+                    >
+                        Start Test
+                    </a>
+
+                </div>
+
+            `;
+
+        }
+
+
+        html += `
+
+                </div>
+
+            </section>
+
+        `;
+
+    }
+
+
+    /* =====================================================
+       CET — 50 TESTS
+       TOTAL PRELIMS = 200 + 50 = 250
+    ===================================================== */
 
     html += `
 
-      <section class="unit-sec">
+        <section class="unit-sec">
 
-        <h2>
-          Unit ${u} -
-          ${prelimsUnits[u - 1]}
-        </h2>
+            <h2>
+                CET - 50 Tests
+            </h2>
 
-        <div class="grid">
+            <div class="grid">
 
     `;
 
 
-    /* -------------------------------------------------------
-       प्रत्येक Unit के 20 Tests
-       ------------------------------------------------------- */
+    for(let t = 1; t <= 50; t++){
 
-    for(
-      let t = 1;
-      t <= 20;
-      t++
-    ){
-
-      const padT =
-        t < 10
-          ? "0" + t
-          : String(t);
+        const padT =
+            t < 10
+            ? "0" + t
+            : String(t);
 
 
-      const code =
-        `P${padU}T${padT}`;
+        const code =
+            "CET" + padT;
 
 
-      const testURL =
-        `prelims-tests/unit-${padU}/${code}/index.html`;
+        const testUrl =
+            "prelims-tests/cet/" +
+            code +
+            "/index.html";
 
 
-      html += `
+        html += `
 
-        <div class="card">
+            <div class="card">
 
-          <span class="code">
-            ${code}
-          </span>
+                <span class="code">
+                    ${code}
+                </span>
 
-          <a
-            class="open-btn"
-            href="${testURL}"
-          >
-            Start Test
-          </a>
+                <a
+                    class="open-btn"
+                    href="${testUrl}"
+                >
+                    Start Test
+                </a>
 
-        </div>
+            </div>
 
-      `;
+        `;
 
     }
 
 
     html += `
 
-        </div>
+            </div>
 
-      </section>
-
-    `;
-
-  }
-
-
-
-  /* =======================================================
-     CET SECTION
-     50 Tests
-     ======================================================= */
-
-  html += `
-
-    <section class="unit-sec">
-
-      <h2>
-        CET - 50 Tests
-      </h2>
-
-      <div class="grid">
-
-  `;
-
-
-  /* -------------------------------------------------------
-     CET के 50 Tests
-     ------------------------------------------------------- */
-
-  for(
-    let t = 1;
-    t <= 50;
-    t++
-  ){
-
-    const padT =
-      t < 10
-        ? "0" + t
-        : String(t);
-
-
-    const code =
-      `CET${padT}`;
-
-
-    const testURL =
-      `prelims-tests/cet/${code}/index.html`;
-
-
-    html += `
-
-      <div class="card">
-
-        <span class="code">
-          ${code}
-        </span>
-
-        <a
-          class="open-btn"
-          href="${testURL}"
-        >
-          Start Test
-        </a>
-
-      </div>
+        </section>
 
     `;
 
-  }
 
+    /* =====================================================
+       HTML PAGE में डालें
+    ===================================================== */
 
-  html += `
-
-      </div>
-
-    </section>
-
-  `;
-
-
-
-  /* =======================================================
-     INSERT TESTS INTO PAGE
-     ======================================================= */
-
-  const container =
-    document.getElementById(
-      "prelims-student-container"
-    );
-
-
-  if(!container){
-
-    console.error(
-      "❌ prelims-student-container नहीं मिला।"
-    );
-
-    return;
-
-  }
-
-
-  container.innerHTML = html;
-
-
-  console.log(
-    "✅ 250 Paid Prelims Tests तैयार हो गए।"
-  );
+    container.innerHTML = html;
 
 }
 
-
-
-/* =========================================================
-   STUDENT AUTHENTICATION
-   ========================================================= */
-
-(function(){
-
-  console.log(
-    "🔐 Student authentication शुरू..."
-  );
-
-
-  let session = null;
-
-
-  /* -------------------------------------------------------
-     LocalStorage session पढ़ें
-     ------------------------------------------------------- */
-
-  try{
-
-    session =
-      JSON.parse(
-        localStorage.getItem(
-          "mppsc_student_session"
-        ) || "null"
-      );
-
-  }
-
-  catch(error){
-
-    console.error(
-      "❌ Student session parse error:",
-      error
-    );
-
-  }
-
-
-
-  /* -------------------------------------------------------
-     SessionStorage authentication check
-     ------------------------------------------------------- */
-
-  const authenticated =
-    sessionStorage.getItem(
-      "mppsc_student_authenticated"
-    ) === "true";
-
-
-
-  /* -------------------------------------------------------
-     Course check
-     ------------------------------------------------------- */
-
-  const allowed =
-    authenticated &&
-    session &&
-    session.type === REQUIRED_COURSE;
-
-
-
-  console.log(
-    "Authentication:",
-    authenticated
-  );
-
-  console.log(
-    "Student session:",
-    session
-  );
-
-  console.log(
-    "Required course:",
-    REQUIRED_COURSE
-  );
-
-  console.log(
-    "Access allowed:",
-    allowed
-  );
-
-
-
-  /* =======================================================
-     ACCESS DENIED
-     ======================================================= */
-
-  if(!allowed){
-
-    alert(
-      "❌ इस Paid Course का access आपके account में नहीं है। कृपया Student Login करें।"
-    );
-
-
-    window.location.replace(
-      window.location.origin +
-      "/student-login.html"
-    );
-
-
-    return;
-
-  }
-
-
-
-  /* =======================================================
-     ACCESS ALLOWED
-     ======================================================= */
-
-  console.log(
-    "✅ Student authentication सफल।"
-  );
-
-
-  /* Page दिखाएँ */
-
-  document.body.style.display =
-    "block";
-
-
-
-  /* =======================================================
-     IMPORTANT:
-     अब prelimsUnits पहले से initialize हो चुका है।
-     इसलिए अब tests बनाए जाएँगे।
-     ======================================================= */
-
-  buildStudentPrelims();
-
-
-})();
-
-
 </script>
 
-
 </body>
-
 </html>
