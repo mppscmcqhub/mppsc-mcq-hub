@@ -1,586 +1,477 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>MPPSC MCQ Hub - Student Login</title>
+<title>MPPSC MCQ Hub - Student Login</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f1f5fb;
-      min-height: 100vh;
-      color: #123;
-    }
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f3f7fd;
+    min-height:100vh;
+}
 
-    /* HEADER */
-    .header {
-      height: 75px;
-      background: #124fa3;
-      color: white;
-      display: flex;
-      align-items: center;
-      padding: 0 14px;
-      font-weight: bold;
-      font-size: 15px;
-    }
+/* HEADER */
+.header{
+    height:52px;
+    background:#1452a4;
+    color:white;
+    display:flex;
+    align-items:center;
+    padding:0 14px;
+    font-weight:bold;
+    font-size:14px;
+}
 
-    .logo {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-right: 10px;
-      border: 2px solid white;
-      background: #c00;
-    }
+.logo{
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    background:#d71920;
+    border:2px solid white;
+    margin-right:8px;
+}
 
-    /* LOGIN AREA */
-    .page {
-      min-height: calc(100vh - 75px);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
+/* CENTER */
+.login-wrapper{
+    min-height:calc(100vh - 52px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
 
-    .login-box {
-      width: 100%;
-      max-width: 330px;
-      background: white;
-      border-radius: 10px;
-      padding: 22px 20px 25px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.10);
-      border-top: 4px solid #123b70;
-    }
+/* CARD */
+.login-card{
+    width:100%;
+    max-width:330px;
+    background:white;
+    border-radius:8px;
+    padding:20px;
+    box-shadow:0 5px 18px rgba(0,0,0,0.12);
+    border-top:3px solid #123d78;
+}
 
-    .title {
-      text-align: center;
-      font-size: 20px;
-      font-weight: bold;
-      color: #123b70;
-      margin-bottom: 3px;
-    }
+/* TITLE */
+.title{
+    text-align:center;
+    color:#123d78;
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom:3px;
+}
 
-    .subtitle {
-      text-align: center;
-      font-size: 12px;
-      color: #666;
-      margin-bottom: 14px;
-    }
+.subtitle{
+    text-align:center;
+    color:#666;
+    font-size:11px;
+    margin-bottom:15px;
+}
 
-    /* COURSE BADGE */
-    .course-badge {
-      width: fit-content;
-      margin: 0 auto 15px;
-      padding: 5px 13px;
-      border-radius: 20px;
-      background: #eef4ff;
-      color: #123b70;
-      font-size: 12px;
-      font-weight: bold;
-    }
+/* COURSE BADGE */
+.course-badge{
+    display:block;
+    width:max-content;
+    margin:0 auto 14px;
+    padding:5px 12px;
+    border-radius:15px;
+    font-size:11px;
+    font-weight:bold;
+}
 
-    .course-badge.prelims {
-      color: #d62828;
-      background: #fff0f0;
-    }
+.course-badge.prelims{
+    background:#ffe5e5;
+    color:#d92727;
+}
 
-    .course-badge.mains {
-      color: #1677bd;
-      background: #eef7ff;
-    }
+.course-badge.mains{
+    background:#e1efff;
+    color:#147ac2;
+}
 
-    .course-heading {
-      text-align: center;
-      font-size: 15px;
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
+/* LABEL */
+label{
+    display:block;
+    font-size:13px;
+    margin-bottom:5px;
+    color:#333;
+}
 
-    /* FORM */
-    label {
-      display: block;
-      font-size: 13px;
-      font-weight: bold;
-      margin-bottom: 5px;
-      color: #222;
-    }
+/* INPUT */
+input{
+    width:100%;
+    padding:10px;
+    border:1px solid #b9c9df;
+    border-radius:5px;
+    background:#eef4fd;
+    margin-bottom:13px;
+    font-size:14px;
+    outline:none;
+}
 
-    input {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #9aa9bd;
-      border-radius: 5px;
-      background: #eaf2ff;
-      font-size: 14px;
-      margin-bottom: 13px;
-      outline: none;
-    }
+input:focus{
+    border-color:#1452a4;
+}
 
-    input:focus {
-      border-color: #1465bd;
-      background: white;
-    }
+/* LOGIN BUTTON */
+.login-btn{
+    width:100%;
+    border:none;
+    padding:11px;
+    border-radius:5px;
+    color:white;
+    font-size:14px;
+    font-weight:bold;
+    cursor:pointer;
+}
 
-    .login-btn {
-      width: 100%;
-      border: none;
-      border-radius: 5px;
-      padding: 11px;
-      color: white;
-      font-size: 15px;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 3px;
-    }
+.login-btn.prelims{
+    background:#d92727;
+}
 
-    .login-btn.prelims {
-      background: #d62828;
-    }
+.login-btn.mains{
+    background:#167fc4;
+}
 
-    .login-btn.prelims:hover {
-      background: #b91f1f;
-    }
+.login-btn:hover{
+    opacity:.92;
+}
 
-    .login-btn.mains {
-      background: #167fc5;
-    }
+/* MESSAGE */
+.message{
+    display:none;
+    margin-bottom:12px;
+    padding:10px;
+    border-radius:5px;
+    font-size:12px;
+    line-height:1.5;
+}
 
-    .login-btn.mains:hover {
-      background: #106ba7;
-    }
+.message.error{
+    display:block;
+    background:#ffe9e9;
+    color:#c62828;
+    border:1px solid #ffb5b5;
+}
 
-    .error {
-      display: none;
-      background: #ffe7e7;
-      border-left: 4px solid #d62828;
-      color: #b00000;
-      padding: 10px;
-      margin-bottom: 13px;
-      border-radius: 4px;
-      font-size: 12px;
-      line-height: 1.5;
-    }
+.message.success{
+    display:block;
+    background:#e8f7e8;
+    color:#237a23;
+    border:1px solid #a8dca8;
+}
 
-    .success {
-      display: none;
-      background: #e7f8ec;
-      border-left: 4px solid #199447;
-      color: #11652f;
-      padding: 10px;
-      margin-bottom: 13px;
-      border-radius: 4px;
-      font-size: 12px;
-      line-height: 1.5;
-    }
+/* HOME BUTTON */
+.home-btn{
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    background:#1452a4;
+    color:white;
+    padding:10px;
+    border-radius:5px;
+    margin-top:12px;
+    font-size:13px;
+    font-weight:bold;
+}
 
-    .forgot {
-      text-align: center;
-      margin-top: 13px;
-      font-size: 12px;
-      color: #086bb5;
-    }
-
-    /* INVALID COURSE */
-    .invalid-course {
-      text-align: center;
-      color: #b00000;
-      background: #fff0f0;
-      border: 1px solid #f1b5b5;
-      padding: 15px;
-      border-radius: 7px;
-      font-size: 13px;
-      line-height: 1.6;
-    }
-
-    .back-btn {
-      display: block;
-      width: 100%;
-      text-align: center;
-      text-decoration: none;
-      background: #124fa3;
-      color: white;
-      padding: 10px;
-      border-radius: 5px;
-      margin-top: 12px;
-      font-weight: bold;
-    }
-
-    @media (max-width: 500px) {
-      .header {
-        height: 65px;
-      }
-
-      .logo {
-        width: 42px;
-        height: 42px;
-      }
-
-      .page {
-        min-height: calc(100vh - 65px);
-      }
-
-      .login-box {
-        max-width: 350px;
-      }
-    }
-  </style>
+/* HIDE */
+.hidden{
+    display:none !important;
+}
+</style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <div class="header">
-    <img
-      src="MPPSC-MCQ-Hub-Logo.png"
-      class="logo"
-      onerror="this.style.display='none'"
-      alt="MPPSC Logo"
-    >
-    <span>MPPSC MCQ Hub V14</span>
-  </div>
+<!-- HEADER -->
+<div class="header">
+    <div class="logo"></div>
+    <div>MPPSC MCQ Hub V14</div>
+</div>
 
 
-  <!-- PAGE -->
-  <div class="page">
+<div class="login-wrapper">
 
-    <div class="login-box">
+<div class="login-card">
 
-      <div class="title">
+    <div class="title">
         MPPSC MCQ Hub
-      </div>
+    </div>
 
-      <div class="subtitle">
+    <div class="subtitle">
         Paid Student Portal Login
-      </div>
+    </div>
+
+    <!-- COURSE BADGE -->
+    <div id="courseBadge" class="course-badge">
+        Course Login
+    </div>
 
 
-      <!-- LOGIN FORM -->
-      <div id="loginSection">
-
-        <div id="courseBadge" class="course-badge">
-          Course Login
-        </div>
-
-        <div id="courseHeading" class="course-heading">
-          Login
-        </div>
-
-        <div id="errorBox" class="error"></div>
-
-        <div id="successBox" class="success"></div>
+    <!-- ERROR / SUCCESS -->
+    <div id="message" class="message"></div>
 
 
-        <form id="loginForm">
+    <!-- LOGIN FORM -->
+    <form id="loginForm">
 
-          <label for="username">
-            यूजर आईडी (मोबाइल नंबर):
-          </label>
+        <label>
+            मोबाइल नंबर:
+        </label>
 
-          <input
-            type="text"
-            id="username"
+        <input
+            type="tel"
+            id="mobile"
+            placeholder="मोबाइल नंबर दर्ज करें"
+            maxlength="10"
             autocomplete="username"
-            placeholder="अपना मोबाइल नंबर डालें"
             required
-          >
+        >
 
 
-          <label for="password">
+        <label>
             पासवर्ड:
-          </label>
+        </label>
 
-          <input
+        <input
             type="password"
             id="password"
+            placeholder="पासवर्ड दर्ज करें"
             autocomplete="current-password"
-            placeholder="पासवर्ड डालें"
             required
-          >
+        >
 
 
-          <button
+        <button
             type="submit"
             id="loginButton"
             class="login-btn"
-          >
+        >
             Login
-          </button>
+        </button>
 
-        </form>
-
-
-        <div class="forgot">
-          🔐 पासवर्ड भूलें
-        </div>
-
-      </div>
+    </form>
 
 
-      <!-- INVALID COURSE -->
-      <div id="invalidSection" style="display:none;">
+    <a href="index.html" class="home-btn">
+        🏠 Homepage पर जाएँ
+    </a>
 
-        <div class="invalid-course">
-          यह Student Login केवल Paid Course के माध्यम से खोला जा सकता है।<br><br>
+</div>
 
-          कृपया Homepage पर वापस जाकर अपना सही Paid Course चुनें।
-        </div>
-
-        <a href="index.html" class="back-btn">
-          🏠 Homepage पर जाएँ
-        </a>
-
-      </div>
-
-    </div>
-
-  </div>
+</div>
 
 
 <script>
 
-  /* =========================================================
-     COURSE DETECT
-     ========================================================= */
+/*
+====================================================
+COURSE DETECTION
+====================================================
+URL:
 
-  const params = new URLSearchParams(window.location.search);
+student-login.html?course=prelims
 
-  const course = (params.get("course") || "").toLowerCase().trim();
+या
 
+student-login.html?course=mains
+*/
 
-  const courseBadge = document.getElementById("courseBadge");
-  const courseHeading = document.getElementById("courseHeading");
-  const loginButton = document.getElementById("loginButton");
+const params = new URLSearchParams(window.location.search);
 
-  const loginSection = document.getElementById("loginSection");
-  const invalidSection = document.getElementById("invalidSection");
-
-  const errorBox = document.getElementById("errorBox");
-  const successBox = document.getElementById("successBox");
+let course = params.get("course");
 
 
-  /* =========================================================
-     COURSE UI
-     ========================================================= */
+// अगर गलत/खाली course है
+if(course !== "prelims" && course !== "mains"){
+    course = null;
+}
 
-  if (course === "prelims") {
 
-    courseBadge.textContent = "PRELIMS Paid Course";
-    courseBadge.className = "course-badge prelims";
+// Elements
+const badge = document.getElementById("courseBadge");
+const loginButton = document.getElementById("loginButton");
+const message = document.getElementById("message");
+const loginForm = document.getElementById("loginForm");
 
-    courseHeading.textContent = "PRELIMS Login";
+
+// ==================================================
+// COURSE UI
+// ==================================================
+
+if(course === "prelims"){
+
+    badge.textContent = "PRELIMS Login";
+    badge.className = "course-badge prelims";
 
     loginButton.textContent = "PRELIMS Login";
     loginButton.className = "login-btn prelims";
 
-  }
+}
+else if(course === "mains"){
 
-  else if (course === "mains") {
-
-    courseBadge.textContent = "MAINS Paid Course";
-    courseBadge.className = "course-badge mains";
-
-    courseHeading.textContent = "MAINS Login";
+    badge.textContent = "MAINS Login";
+    badge.className = "course-badge mains";
 
     loginButton.textContent = "MAINS Login";
     loginButton.className = "login-btn mains";
 
-  }
+}
+else{
 
-  else {
+    badge.textContent = "Course Select करें";
 
-    /*
-      Direct student-login.html खोलने पर
-      कोई PRELIMS/MAINS option नहीं दिखेगा।
-    */
+    loginButton.disabled = true;
 
-    loginSection.style.display = "none";
-    invalidSection.style.display = "block";
+    message.className = "message error";
 
-  }
+    message.innerHTML =
+        "कृपया Homepage से अपना Course चुनकर Login करें।<br><br>" +
+        "🔴 PRELIMS के लिए PRELIMS Login चुनें।<br>" +
+        "🔵 MAINS के लिए MAINS Login चुनें।";
+
+}
 
 
-  /* =========================================================
-     LOGIN
-     ========================================================= */
+// ==================================================
+// LOGIN
+// ==================================================
 
-  document.getElementById("loginForm").addEventListener("submit", function(e) {
+loginForm.addEventListener("submit", async function(e){
 
     e.preventDefault();
 
-    if (course !== "prelims" && course !== "mains") {
-      return;
+    if(!course){
+        return;
     }
 
 
-    const username =
-      document.getElementById("username").value.trim();
+    const mobile =
+        document.getElementById("mobile").value.trim();
 
     const password =
-      document.getElementById("password").value;
+        document.getElementById("password").value.trim();
 
 
-    errorBox.style.display = "none";
-    successBox.style.display = "none";
+    if(mobile.length !== 10){
 
+        message.className = "message error";
 
-    if (!username || !password) {
+        message.textContent =
+            "कृपया सही 10 अंकों का मोबाइल नंबर दर्ज करें।";
 
-      errorBox.textContent =
-        "कृपया यूजर आईडी और पासवर्ड दोनों भरें।";
-
-      errorBox.style.display = "block";
-
-      return;
+        return;
     }
 
 
-    /* =======================================================
-       STUDENT DATABASE
-       localStorage key:
-       mppsc_students
-       ======================================================= */
+    if(!password){
 
-    let students = [];
+        message.className = "message error";
 
-    try {
+        message.textContent =
+            "कृपया पासवर्ड दर्ज करें।";
 
-      students =
-        JSON.parse(
-          localStorage.getItem("mppsc_students") || "[]"
+        return;
+    }
+
+
+    /*
+    ==================================================
+    IMPORTANT
+
+    यहाँ आपकी मौजूदा Firebase / database login
+    checking वाली code लगानी है।
+
+    अभी course के हिसाब से session set किया जा रहा है।
+    ==================================================
+    */
+
+
+    try{
+
+        /*
+        ------------------------------------------------
+        यहाँ existing authentication function call करें
+        ------------------------------------------------
+
+        उदाहरण:
+
+        const student = await loginStudent(
+            mobile,
+            password,
+            course
         );
 
-      if (!Array.isArray(students)) {
-        students = [];
-      }
+        अगर login सफल:
+        */
 
-    } catch (error) {
+        sessionStorage.setItem(
+            "paidStudentCourse",
+            course
+        );
 
-      students = [];
+        sessionStorage.setItem(
+            "studentMobile",
+            mobile
+        );
+
+
+        message.className = "message success";
+
+        message.textContent =
+            course === "prelims"
+            ? "PRELIMS Login सफल।"
+            : "MAINS Login सफल।";
+
+
+        /*
+        =================================================
+        TEMPORARY REDIRECT
+
+        अपने वास्तविक paid course page के नाम यहाँ रखें।
+        =================================================
+        */
+
+        setTimeout(function(){
+
+            if(course === "prelims"){
+
+                window.location.href =
+                    "prelims.html";
+
+            }
+            else if(course === "mains"){
+
+                window.location.href =
+                    "mains.html";
+
+            }
+
+        }, 700);
+
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        message.className = "message error";
+
+        message.textContent =
+            "मोबाइल नंबर या पासवर्ड गलत है।";
 
     }
 
-
-    /* =======================================================
-       FIND STUDENT
-       ======================================================= */
-
-    const student = students.find(function(s) {
-
-      if (!s) return false;
-
-      const studentUsername =
-        String(s.username || "").trim();
-
-      const studentPassword =
-        String(s.password || "");
-
-      const studentType =
-        String(s.type || "").toLowerCase().trim();
-
-
-      return (
-
-        studentUsername === username &&
-
-        studentPassword === password &&
-
-        studentType === course &&
-
-        s.active !== false
-
-      );
-
-    });
-
-
-    /* =======================================================
-       INVALID LOGIN
-       ======================================================= */
-
-    if (!student) {
-
-      errorBox.textContent =
-        course === "prelims"
-          ? "PRELIMS की यूजर आईडी या पासवर्ड गलत है। कृपया PRELIMS Course का ही Login इस्तेमाल करें।"
-          : "MAINS की यूजर आईडी या पासवर्ड गलत है। कृपया MAINS Course का ही Login इस्तेमाल करें।";
-
-      errorBox.style.display = "block";
-
-      return;
-    }
-
-
-    /* =======================================================
-       SAVE SESSION
-       ======================================================= */
-
-    localStorage.setItem(
-      "mppsc_student_authenticated",
-      "true"
-    );
-
-    localStorage.setItem(
-      "mppsc_student_course",
-      course
-    );
-
-    localStorage.setItem(
-      "mppsc_student_username",
-      username
-    );
-
-    localStorage.setItem(
-      "mppsc_student_session",
-      JSON.stringify({
-        username: username,
-        course: course,
-        loginTime: new Date().toISOString()
-      })
-    );
-
-
-    /* =======================================================
-       SUCCESS
-       ======================================================= */
-
-    successBox.textContent =
-      course === "prelims"
-        ? "PRELIMS Login सफल। PRELIMS Course खोला जा रहा है..."
-        : "MAINS Login सफल। MAINS Course खोला जा रहा है...";
-
-    successBox.style.display = "block";
-
-
-    /* =======================================================
-       COURSE-SPECIFIC REDIRECT
-       ======================================================= */
-
-    setTimeout(function() {
-
-      if (course === "prelims") {
-
-        window.location.href = "prelims.html";
-
-      }
-
-      else if (course === "mains") {
-
-        window.location.href = "mains-600.html";
-
-      }
-
-    }, 500);
-
-  });
+});
 
 </script>
 
