@@ -3,81 +3,148 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MPPSC MCQ Hub V14 - Paid MAINS</title>
+<title>MPPSC MCQ Hub - Paid MAINS Course</title>
 <style>
-*{box-sizing:border-box}html,body{margin:0;padding:0}
-body{font-family:Arial,Helvetica,sans-serif;background:#f0f5ff;color:#102a43;display:none}
-.mppsc-site-logo-bar{width:100%;background:#0d47a1;color:#fff;min-height:64px;padding:8px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 2px 7px rgba(0,0,0,.12)}
-.mppsc-site-logo-bar img{width:48px;height:48px;object-fit:cover;border-radius:50%;background:#fff;padding:2px}
-.mppsc-site-logo-bar .mppsc-site-name{font-size:18px;font-weight:700}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f0f5ff;color:#102a43;display:none}
 .header{background:#082b57;color:#fff;padding:15px 20px;font-size:19px;font-weight:700}
 .wrap{max-width:1400px;margin:22px auto;padding:0 12px}
 .top{background:#fff;border-radius:12px;padding:18px 20px;margin-bottom:18px;box-shadow:0 2px 9px rgba(0,0,0,.05);border-left:6px solid #147dcc}
-.top h1{margin:0 0 6px;font-size:24px;color:#082b57}.top p{margin:5px 0;color:#667085}
+.top h1{margin:0 0 6px;font-size:24px;color:#082b57}
+.top p{margin:5px 0;color:#445}
 .paper{background:#fff;border-radius:12px;padding:16px;margin-bottom:25px;box-shadow:0 2px 9px rgba(0,0,0,.05);border-top:4px solid #147dcc}
 .paper h2{margin:0 0 14px;font-size:20px;color:#082b57;border-bottom:2px solid #eaf2fb;padding-bottom:8px}
-.group-title{background:#eaf2fb;border-radius:7px;padding:7px 10px;margin:16px 0 10px;font-size:14px;font-weight:700;color:#082b57}
+.group-title{background:#eaf2fb;border-radius:7px;padding:6px 10px;margin:20px 0 10px;font-size:14px;font-weight:700;color:#082b57}
 .grid{display:grid;grid-template-columns:repeat(8,1fr);gap:7px}
-.card{background:#fff;border:1px solid #d7e1ec;border-radius:7px;padding:7px;text-align:center;min-width:0}
-.code{font-size:11px;font-weight:700;display:block;margin-bottom:7px;white-space:nowrap}
+.card{background:#fff;border:1px solid #d7e1ec;border-radius:7px;padding:7px;text-align:center}
+.code{font-size:11px;font-weight:700;display:block;margin-bottom:7px}
 .open-btn{display:block;background:#147dcc;color:#fff;text-decoration:none;border-radius:6px;padding:5px 3px;font-size:11px;font-weight:bold;text-align:center}
 .open-btn:hover{background:#0b69b1}
-@media(max-width:1200px){.grid{grid-template-columns:repeat(6,1fr)}}@media(max-width:900px){.grid{grid-template-columns:repeat(4,1fr)}}@media(max-width:550px){.grid{grid-template-columns:repeat(2,1fr)}}
+.mppsc-site-logo-bar{width:100%;background:#0d47a1;color:#fff;min-height:64px;padding:8px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 2px 7px rgba(0,0,0,.12)}
+.mppsc-site-logo-bar img{width:48px;height:48px;object-fit:cover;border-radius:50%;background:#fff;padding:2px}
+.mppsc-site-name{font-size:18px;font-weight:700}
+@media(max-width:1200px){.grid{grid-template-columns:repeat(6,1fr)}}
+@media(max-width:900px){.grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:550px){.grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
-<div class="mppsc-site-logo-bar"><img src="MPPSC-MCQ-Hub-Logo.png" alt="MPPSC MCQ Hub Logo"><div class="mppsc-site-name">MPPSC MCQ Hub V14</div></div>
-<div class="header">📝 MPPSC MCQ Hub V14 — Paid MAINS Portal</div>
+
+<div class="mppsc-site-logo-bar">
+<img src="my-logo.jpg" alt="MPPSC MCQ Hub Logo">
+<div class="mppsc-site-name">MPPSC MCQ Hub V14</div>
+</div>
+
+<div class="header">📝 MPPSC MCQ Hub — Paid MAINS Portal</div>
+
 <div class="wrap">
-<div class="top"><h1>Paid MAINS Practice Course (Active)</h1><p><b>6 Papers — 600 Total Answer Writing Boxes</b></p><p>प्रत्येक Paper में 40 प्रश्न (5 अंक) + 40 प्रश्न (10 अंक) + 20 प्रश्न (15 अंक)</p></div>
+<div class="top">
+<h1>Paid MAINS Practice Course (Active)</h1>
+<p><b>6 Papers — 600 Total Answer Writing Boxes</b></p>
+<p>प्रत्येक Paper में 40 बॉक्स (5 अंक) + 40 बॉक्स (10 अंक) + 20 बॉक्स (15 अंक)</p>
+</div>
 <div id="mains-student-container"></div>
 </div>
-<script data-mppsc-course-auth>
+
+<script>
 "use strict";
-const REQUIRED_COURSE="mains",LOGIN_PAGE="student-login.html";
+
+/* =========================================================
+   MAINS AUTHENTICATION
+   केवल sessionStorage का current course माना जाएगा।
+   PRELIMS course वाला session MAINS नहीं खोल सकता।
+   ========================================================= */
+
+const REQUIRED_COURSE="mains";
+const LOGIN_PAGE="student-login.html";
+const AUTH_KEY="mppsc_student_authenticated";
+const COURSE_KEY="mppsc_student_course";
+const USER_KEY="mppsc_student_username";
+
 function denyAccess(){
-sessionStorage.removeItem("mppsc_student_authenticated");
-sessionStorage.removeItem("mppsc_student_course");
-sessionStorage.removeItem("mppsc_student_username");
-alert("❌ इस Paid MAINS Course का access आपके account में नहीं है।\n\nकृपया MAINS Student Login करें।");
-window.location.replace(LOGIN_PAGE);
+    sessionStorage.removeItem(AUTH_KEY);
+    sessionStorage.removeItem(COURSE_KEY);
+    sessionStorage.removeItem(USER_KEY);
+
+    alert("❌ यह MAINS Paid Course आपके account में assign नहीं है।\n\nकृपया MAINS Student Login करें।");
+    window.location.replace(LOGIN_PAGE);
 }
-function verifyMainsAccess(){
-const authenticated=sessionStorage.getItem("mppsc_student_authenticated")==="true";
-const course=String(sessionStorage.getItem("mppsc_student_course")||"").trim().toLowerCase();
-const username=String(sessionStorage.getItem("mppsc_student_username")||"").trim();
-if(!authenticated||course!==REQUIRED_COURSE||!username){denyAccess();return false;}
-document.body.style.display="block";return true;
+
+function checkMainsAccess(){
+    const authenticated=sessionStorage.getItem(AUTH_KEY)==="true";
+    const course=String(sessionStorage.getItem(COURSE_KEY) || "").trim().toLowerCase();
+    const username=String(sessionStorage.getItem(USER_KEY) || "").trim();
+
+    const allowed=
+        authenticated===true &&
+        course===REQUIRED_COURSE &&
+        username!=="";
+
+    console.log("MAINS authentication:",{
+        authenticated:authenticated,
+        course:course,
+        username:username,
+        allowed:allowed
+    });
+
+    if(!allowed){
+        denyAccess();
+        return false;
+    }
+
+    document.body.style.display="block";
+    return true;
 }
+
 const mainsPapers=[
-{name:"General Studies-I (इतिहास एवं भूगोल)",prefix:"GS1",folder:"paper-01-general-studies-i"},
-{name:"General Studies-II (राजनीति, अर्थशास्त्र एवं समाजशास्त्र)",prefix:"GS2",folder:"paper-02-general-studies-ii"},
-{name:"General Studies-III (विज्ञान, प्रौद्योगिकी एवं स्वास्थ्य)",prefix:"GS3",folder:"paper-03-general-studies-iii"},
-{name:"General Studies-IV (दर्शनशास्त्र, मनोविज्ञान एवं लोक प्रशासन)",prefix:"GS4",folder:"paper-04-general-studies-iv"},
-{name:"General Studies-V (सामान्य हिंदी एवं व्याकरण)",prefix:"GS5",folder:"paper-05-general-studies-v"},
-{name:"General Studies-VI (हिंदी निबंध एवं प्रारूप लेखन)",prefix:"GS6",folder:"paper-06-general-studies-vi"}];
-const mainsGroups=[{marks:5,count:40},{marks:10,count:40},{marks:15,count:20}];
+{name:"General Studies-I (इतिहास एवं भूगोल)",folder:"paper-01-general-studies-i"},
+{name:"General Studies-II (राजनीति, अर्थशास्त्र एवं समाजशास्त्र)",folder:"paper-02-general-studies-ii"},
+{name:"General Studies-III (विज्ञान, प्रौद्योगिकी एवं स्वास्थ्य)",folder:"paper-03-general-studies-iii"},
+{name:"General Studies-IV (दर्शनशास्त्र, मनोविज्ञान एवं लोक प्रशासन)",folder:"paper-04-general-studies-iv"},
+{name:"General Studies-V (सामान्य हिंदी एवं व्याकरण)",folder:"paper-05-general-studies-v"},
+{name:"General Studies-VI (हिंदी निबंध एवं प्रारूप लेखन)",folder:"paper-06-general-studies-vi"}
+];
+
 function buildStudentMains(){
-const container=document.getElementById("mains-student-container");if(!container)return;
-let html="";
-mainsPapers.forEach(function(paper,index){
-const paperNumber=index+1;
-html+=`<section class="paper"><h2>Paper ${paperNumber} - ${paper.name}</h2>`;
-mainsGroups.forEach(function(group){
-html+=`<div class="group-title">${group.marks} अंक वाले प्रश्न — ${group.count} Boxes</div><div class="grid">`;
-for(let q=1;q<=group.count;q++){
-const qStr=String(q).padStart(3,"0");
-const code=`${paper.prefix}-${group.marks}M-${qStr}`;
-const questionURL=`${paper.folder}/${group.marks}-marks/${code}/index.html`;
-html+=`<div class="card"><span class="code">${code}</span><a class="open-btn" href="${questionURL}">Open Box</a></div>`;
+    const container=document.getElementById("mains-student-container");
+    if(!container)return;
+
+    let html="";
+
+    mainsPapers.forEach(function(paper,index){
+        const pNum=index+1;
+
+        html+=`<section class="paper">
+<h2>Paper ${pNum} - ${paper.name}</h2>`;
+
+        html+=`<div class="group-title">5 अंक वाले प्रश्न — 40 Boxes</div><div class="grid">`;
+        for(let b=1;b<=40;b++){
+            const code=`GS${pNum}-5M-${String(b).padStart(3,"0")}`;
+            html+=`<div class="card"><span class="code">${code}</span><a class="open-btn" href="${paper.folder}/5-marks/${code}/index.html">Open Box</a></div>`;
+        }
+        html+=`</div>`;
+
+        html+=`<div class="group-title">10 अंक वाले प्रश्न — 40 Boxes</div><div class="grid">`;
+        for(let b=1;b<=40;b++){
+            const code=`GS${pNum}-10M-${String(b).padStart(3,"0")}`;
+            html+=`<div class="card"><span class="code">${code}</span><a class="open-btn" href="${paper.folder}/10-marks/${code}/index.html">Open Box</a></div>`;
+        }
+        html+=`</div>`;
+
+        html+=`<div class="group-title">15 अंक वाले प्रश्न — 20 Boxes</div><div class="grid">`;
+        for(let b=1;b<=20;b++){
+            const code=`GS${pNum}-15M-${String(b).padStart(3,"0")}`;
+            html+=`<div class="card"><span class="code">${code}</span><a class="open-btn" href="${paper.folder}/15-marks/${code}/index.html">Open Box</a></div>`;
+        }
+        html+=`</div></section>`;
+    });
+
+    container.innerHTML=html;
 }
-html+=`</div>`;
-});
-html+=`</section>`;
-});
-container.innerHTML=html;
+
+if(checkMainsAccess()){
+    buildStudentMains();
 }
-if(verifyMainsAccess())buildStudentMains();
 </script>
 </body>
 </html>
