@@ -5,10 +5,9 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>MPPSC MCQ Hub V14 - Paid PRELIMS</title>
-
 
 <style>
 
@@ -27,17 +26,13 @@ body{
 }
 
 body{
-
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-
+  font-family:Arial,Helvetica,sans-serif;
   background:#fff5f5;
-
   color:#102a43;
 
-  /* Authentication होने तक पूरा page hidden */
+  /*
+    Authentication verify होने तक पूरा page hidden रहेगा
+  */
   display:none;
 }
 
@@ -49,15 +44,12 @@ body{
 .mppsc-site-header{
 
   width:100%;
-
   min-height:64px;
 
   background:#1450a3;
-
   color:#fff;
 
   display:flex;
-
   align-items:center;
 
   gap:12px;
@@ -66,13 +58,13 @@ body{
 
   box-shadow:
     0 2px 7px rgba(0,0,0,.12);
+
 }
 
 
 .mppsc-site-header img{
 
   width:48px;
-
   height:48px;
 
   object-fit:cover;
@@ -84,16 +76,16 @@ body{
   padding:2px;
 
   flex:0 0 auto;
+
 }
 
 
 .mppsc-site-header .site-title{
 
   font-size:18px;
-
   font-weight:700;
-
   line-height:1.2;
+
 }
 
 
@@ -106,17 +98,16 @@ body{
   width:100%;
 
   background:#cf2e2e;
-
   color:#fff;
 
   padding:10px 16px;
 
   font-size:17px;
-
   font-weight:700;
 
   box-shadow:
     0 2px 6px rgba(0,0,0,.10);
+
 }
 
 
@@ -131,6 +122,7 @@ body{
   margin:16px auto;
 
   padding:0 12px;
+
 }
 
 
@@ -153,6 +145,7 @@ body{
 
   border-left:
     5px solid #cf2e2e;
+
 }
 
 
@@ -163,6 +156,7 @@ body{
   font-size:21px;
 
   color:#cf2e2e;
+
 }
 
 
@@ -173,6 +167,7 @@ body{
   color:#333;
 
   font-size:14px;
+
 }
 
 
@@ -195,6 +190,7 @@ body{
 
   border-top:
     4px solid #cf2e2e;
+
 }
 
 
@@ -209,6 +205,7 @@ body{
   font-size:16px;
 
   font-weight:700;
+
 }
 
 
@@ -224,6 +221,7 @@ body{
     repeat(8,1fr);
 
   gap:5px;
+
 }
 
 
@@ -245,6 +243,7 @@ body{
   text-align:center;
 
   min-width:0;
+
 }
 
 
@@ -261,6 +260,7 @@ body{
   margin-bottom:4px;
 
   white-space:nowrap;
+
 }
 
 
@@ -292,12 +292,14 @@ body{
 
   transition:
     background .15s ease;
+
 }
 
 
 .start-test:hover{
 
   background:#c92525;
+
 }
 
 
@@ -320,6 +322,7 @@ body{
 
   border-top:
     4px solid #1450a3;
+
 }
 
 
@@ -332,6 +335,7 @@ body{
   font-size:17px;
 
   font-weight:700;
+
 }
 
 
@@ -371,7 +375,6 @@ body{
   .mppsc-site-header img{
 
     width:42px;
-
     height:42px;
 
   }
@@ -466,7 +469,7 @@ body{
 
 
   <!-- =======================================================
-       PRELIMS TESTS WILL BE GENERATED HERE
+       PRELIMS TESTS
        ======================================================= -->
 
   <div id="prelims-student-container"></div>
@@ -477,33 +480,40 @@ body{
 
 <script>
 
+"use strict";
+
+
 /* =========================================================
-   MPPSC MCQ HUB
-   PAID PRELIMS
+   MPPSC MCQ HUB V14
+   PAID PRELIMS PAGE
    ========================================================= */
 
 
 /* =========================================================
-   IMPORTANT
-   ---------------------------------------------------------
-   सबसे पहले DATA define किया गया है।
-   इससे "Cannot access prelimsUnits before initialization"
-   वाली error नहीं आएगी।
+   COURSE SETTINGS
    ========================================================= */
 
-
-/* =========================================================
-   REQUIRED COURSE
-   ========================================================= */
+/*
+  यह page केवल PRELIMS students के लिए है.
+*/
 
 const REQUIRED_COURSE = "prelims";
 
 
-/* =========================================================
-   LOGIN PAGE
-   ========================================================= */
+/*
+  Login page
+*/
 
-const LOGIN_PAGE = "student-login.html";
+const LOGIN_PAGE = "/student-login.html";
+
+
+/*
+  Session keys
+*/
+
+const SESSION_KEY = "mppsc_student_session";
+
+const AUTH_KEY = "mppsc_student_authenticated";
 
 
 /* =========================================================
@@ -576,25 +586,302 @@ const prelimsUnits = [
 
 
 /* =========================================================
-   TESTS PER UNIT
+   TEST COUNT
    ========================================================= */
 
 const TESTS_PER_UNIT = 20;
 
-
-/* =========================================================
-   CET TEST COUNT
-   ========================================================= */
-
 const CET_TEST_COUNT = 50;
 
 
+/*
+  Total:
+
+  10 × 20 = 200
+  200 + 50 CET = 250
+*/
+
+
 /* =========================================================
-   TOTAL
-   ---------------------------------------------------------
-   10 × 20 = 200
-   200 + 50 CET = 250
+   SAFE LOGIN REDIRECT
    ========================================================= */
+
+function redirectToStudentLogin(){
+
+  /*
+    PRELIMS access deny होने पर
+    गलत session साफ करें.
+  */
+
+  try{
+
+    sessionStorage.removeItem(
+      AUTH_KEY
+    );
+
+  }catch(error){
+
+    console.warn(
+      "SessionStorage clear error:",
+      error
+    );
+
+  }
+
+
+  try{
+
+    localStorage.removeItem(
+      SESSION_KEY
+    );
+
+  }catch(error){
+
+    console.warn(
+      "LocalStorage session clear error:",
+      error
+    );
+
+  }
+
+
+  /*
+    Login page पर भेजें.
+  */
+
+  window.location.replace(
+    LOGIN_PAGE
+  );
+
+}
+
+
+/* =========================================================
+   READ STUDENT SESSION
+   ========================================================= */
+
+function getStudentSession(){
+
+  let session = null;
+
+  try{
+
+    const rawSession =
+      localStorage.getItem(
+        SESSION_KEY
+      );
+
+    if(rawSession){
+
+      session =
+        JSON.parse(rawSession);
+
+    }
+
+  }catch(error){
+
+    console.error(
+      "❌ Student session parse error:",
+      error
+    );
+
+    session = null;
+
+  }
+
+  return session;
+
+}
+
+
+/* =========================================================
+   CHECK PRELIMS ACCESS
+   ========================================================= */
+
+function checkPrelimsAccess(){
+
+  console.log(
+    "======================================"
+  );
+
+  console.log(
+    "🔐 PRELIMS AUTHENTICATION START"
+  );
+
+  console.log(
+    "======================================"
+  );
+
+
+  /*
+    Session पढ़ें
+  */
+
+  const session =
+    getStudentSession();
+
+
+  /*
+    Authentication flag
+  */
+
+  const authenticated =
+    sessionStorage.getItem(
+      AUTH_KEY
+    ) === "true";
+
+
+  /*
+    Username
+  */
+
+  const username =
+    session &&
+    typeof session.username !== "undefined"
+
+      ? String(
+          session.username
+        ).trim()
+
+      : "";
+
+
+  /*
+    Course type
+  */
+
+  const courseType =
+    session &&
+    typeof session.type !== "undefined"
+
+      ? String(
+          session.type
+        ).trim().toLowerCase()
+
+      : "";
+
+
+  /*
+    Debug
+  */
+
+  console.log(
+    "Authenticated:",
+    authenticated
+  );
+
+  console.log(
+    "Student Session:",
+    session
+  );
+
+  console.log(
+    "Username:",
+    username
+  );
+
+  console.log(
+    "Course Type:",
+    courseType
+  );
+
+  console.log(
+    "Required Course:",
+    REQUIRED_COURSE
+  );
+
+
+  /* =======================================================
+     IMPORTANT STRICT CHECK
+     ======================================================= */
+
+  /*
+    PRELIMS तभी खुलेगा जब:
+
+    1. login authenticated हो
+    2. session मौजूद हो
+    3. username मौजूद हो
+    4. session.type = prelims हो
+
+    इसलिए mains student PRELIMS नहीं खोल सकता.
+  */
+
+  const allowed =
+
+    authenticated === true &&
+
+    session !== null &&
+
+    username !== "" &&
+
+    courseType === REQUIRED_COURSE;
+
+
+  console.log(
+    "PRELIMS ACCESS ALLOWED:",
+    allowed
+  );
+
+
+  /* =======================================================
+     ACCESS DENIED
+     ======================================================= */
+
+  if(!allowed){
+
+    console.warn(
+      "❌ PRELIMS ACCESS DENIED"
+    );
+
+
+    /*
+      अगर MAINS session है तो साफ message
+    */
+
+    if(courseType === "mains"){
+
+      alert(
+        "❌ यह MAINS Student Account है।\n\nPRELIMS Course के लिए PRELIMS वाला account/login इस्तेमाल करें।"
+      );
+
+    }
+
+    else{
+
+      alert(
+        "❌ इस Paid PRELIMS Course का access आपके account में नहीं है।\n\nकृपया PRELIMS Student Login करें।"
+      );
+
+    }
+
+
+    redirectToStudentLogin();
+
+    return false;
+
+  }
+
+
+  /* =======================================================
+     ACCESS GRANTED
+     ======================================================= */
+
+  console.log(
+    "✅ PRELIMS Student authentication सफल।"
+  );
+
+
+  /*
+    Page दिखाई जाए
+  */
+
+  document.body.style.display =
+    "block";
+
+
+  return true;
+
+}
 
 
 /* =========================================================
@@ -652,30 +939,52 @@ function buildStudentPrelims(){
 
 
       /* =====================================================
-         20 TESTS
+         20 PRELIMS TESTS
          ===================================================== */
 
       for(
         let testNumber = 1;
+
         testNumber <= TESTS_PER_UNIT;
+
         testNumber++
       ){
 
         const testString =
-          String(testNumber).padStart(2,"0");
+          String(
+            testNumber
+          ).padStart(
+            2,
+            "0"
+          );
 
 
         const unitString =
-          String(unit.number).padStart(2,"0");
+          String(
+            unit.number
+          ).padStart(
+            2,
+            "0"
+          );
 
+
+        /*
+          Example:
+
+          P01T01
+          P01T02
+          P02T01
+          etc.
+        */
 
         const code =
           `P${unitString}T${testString}`;
 
 
         /*
-          IMPORTANT:
-          Question/test folder structure
+          ONLY PRELIMS URL
+
+          Mains का कोई folder यहाँ नहीं है.
         */
 
         const testURL =
@@ -735,17 +1044,28 @@ function buildStudentPrelims(){
 
   for(
     let cetNumber = 1;
+
     cetNumber <= CET_TEST_COUNT;
+
     cetNumber++
   ){
 
     const cetString =
-      String(cetNumber).padStart(2,"0");
+      String(
+        cetNumber
+      ).padStart(
+        2,
+        "0"
+      );
 
 
     const code =
       `CET${cetString}`;
 
+
+    /*
+      CET भी केवल PRELIMS folder से आएगा.
+    */
 
     const cetURL =
       `prelims-tests/${code}/index.html`;
@@ -783,12 +1103,16 @@ function buildStudentPrelims(){
 
 
   /* =======================================================
-     INSERT HTML
+     INSERT
      ======================================================= */
 
   container.innerHTML =
     html;
 
+
+  console.log(
+    "======================================"
+  );
 
   console.log(
     "✅ PRELIMS rendering complete."
@@ -800,231 +1124,57 @@ function buildStudentPrelims(){
   );
 
   console.log(
-    "✅ Unit tests:",
-    prelimsUnits.length * TESTS_PER_UNIT
+    "✅ Unit Tests:",
+    prelimsUnits.length *
+    TESTS_PER_UNIT
   );
 
   console.log(
-    "✅ CET tests:",
+    "✅ CET Tests:",
     CET_TEST_COUNT
   );
 
   console.log(
-    "✅ Total tests:",
-    (prelimsUnits.length * TESTS_PER_UNIT)
-    + CET_TEST_COUNT
+    "✅ Total Tests:",
+    (
+      prelimsUnits.length *
+      TESTS_PER_UNIT
+    ) +
+    CET_TEST_COUNT
+  );
+
+  console.log(
+    "======================================"
   );
 
 }
 
 
-
 /* =========================================================
-   STUDENT AUTHENTICATION
+   START
    ========================================================= */
 
 (function(){
 
-  "use strict";
+  /*
+    पहले authentication check होगा.
+    उसके बाद ही page render होगा.
+  */
+
+  const accessGranted =
+    checkPrelimsAccess();
 
 
-  console.log(
-    "===================================="
-  );
-
-  console.log(
-    "🔐 PRELIMS AUTHENTICATION START"
-  );
-
-  console.log(
-    "===================================="
-  );
-
-
-  /* =======================================================
-     READ SESSION
-     ======================================================= */
-
-  let session = null;
-
-
-  try{
-
-    const rawSession =
-      localStorage.getItem(
-        "mppsc_student_session"
-      );
-
-
-    if(rawSession){
-
-      session =
-        JSON.parse(rawSession);
-
-    }
-
-  }
-
-  catch(error){
-
-    console.error(
-      "❌ Student session parse error:",
-      error
-    );
-
-
-    session = null;
-
-  }
-
-
-  /* =======================================================
-     READ AUTH FLAG
-     ======================================================= */
-
-  const authenticated =
-    sessionStorage.getItem(
-      "mppsc_student_authenticated"
-    ) === "true";
-
-
-  /* =======================================================
-     SESSION VALUES
-     ======================================================= */
-
-  const sessionUsername =
-    session &&
-    String(
-      session.username || ""
-    ).trim();
-
-
-  const sessionType =
-    session &&
-    String(
-      session.type || ""
-    ).toLowerCase().trim();
-
-
-  /* =======================================================
-     DEBUG
-     ======================================================= */
-
-  console.log(
-    "Authenticated:",
-    authenticated
-  );
-
-
-  console.log(
-    "Student session:",
-    session
-  );
-
-
-  console.log(
-    "Session username:",
-    sessionUsername
-  );
-
-
-  console.log(
-    "Session type:",
-    sessionType
-  );
-
-
-  console.log(
-    "Required course:",
-    REQUIRED_COURSE
-  );
-
-
-  /* =======================================================
-     STRICT COURSE ACCESS
-     ======================================================= */
-
-  const allowed =
-
-    authenticated === true &&
-
-    session !== null &&
-
-    sessionUsername !== "" &&
-
-    sessionType === REQUIRED_COURSE;
-
-
-  console.log(
-    "PRELIMS access allowed:",
-    allowed
-  );
-
-
-  /* =======================================================
-     ACCESS DENIED
-     ======================================================= */
-
-  if(!allowed){
-
-    console.warn(
-      "❌ PRELIMS ACCESS DENIED"
-    );
-
-
-    /*
-      गलत authentication flag हटाएं।
-    */
-
-    sessionStorage.removeItem(
-      "mppsc_student_authenticated"
-    );
-
-
-    /*
-      MAINS / गलत course session हटाएं।
-    */
-
-    localStorage.removeItem(
-      "mppsc_student_session"
-    );
-
-
-    alert(
-      "❌ इस Paid PRELIMS Course का access आपके account में नहीं है।\n\nकृपया PRELIMS Student Login करें।"
-    );
-
-
-    window.location.replace(
-      LOGIN_PAGE
-    );
-
+  if(!accessGranted){
 
     return;
 
   }
 
 
-  /* =======================================================
-     ACCESS GRANTED
-     ======================================================= */
-
-  console.log(
-    "✅ PRELIMS Student authentication सफल।"
-  );
-
-
   /*
-    अब page दिखाई देगा।
+    अब केवल PRELIMS tests बनेंगे.
   */
-
-  document.body.style.display =
-    "block";
-
-
-  /* =======================================================
-     BUILD PRELIMS TESTS
-     ======================================================= */
 
   buildStudentPrelims();
 
