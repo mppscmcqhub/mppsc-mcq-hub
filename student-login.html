@@ -19,8 +19,7 @@ body{
     min-height:100vh;
 }
 
-/* ================= HEADER ================= */
-
+/* HEADER */
 .header{
     height:52px;
     background:#1452a4;
@@ -41,8 +40,7 @@ body{
     margin-right:8px;
 }
 
-/* ================= CENTER ================= */
-
+/* CENTER */
 .login-wrapper{
     min-height:calc(100vh - 52px);
     display:flex;
@@ -51,8 +49,7 @@ body{
     padding:20px;
 }
 
-/* ================= CARD ================= */
-
+/* CARD */
 .login-card{
     width:100%;
     max-width:330px;
@@ -63,8 +60,7 @@ body{
     border-top:3px solid #123d78;
 }
 
-/* ================= TITLE ================= */
-
+/* TITLE */
 .title{
     text-align:center;
     color:#123d78;
@@ -80,15 +76,14 @@ body{
     margin-bottom:15px;
 }
 
-/* ================= COURSE ================= */
-
+/* COURSE BADGE */
 .course-badge{
     display:block;
     width:max-content;
-    margin:0 auto 15px;
-    padding:6px 14px;
+    margin:0 auto 14px;
+    padding:5px 12px;
     border-radius:15px;
-    font-size:12px;
+    font-size:11px;
     font-weight:bold;
 }
 
@@ -102,8 +97,7 @@ body{
     color:#147ac2;
 }
 
-/* ================= LABEL ================= */
-
+/* LABEL */
 label{
     display:block;
     font-size:13px;
@@ -111,8 +105,7 @@ label{
     color:#333;
 }
 
-/* ================= INPUT ================= */
-
+/* INPUT */
 input{
     width:100%;
     padding:10px;
@@ -128,8 +121,7 @@ input:focus{
     border-color:#1452a4;
 }
 
-/* ================= LOGIN BUTTON ================= */
-
+/* LOGIN BUTTON */
 .login-btn{
     width:100%;
     border:none;
@@ -154,8 +146,11 @@ input:focus{
     cursor:not-allowed;
 }
 
-/* ================= MESSAGE ================= */
+.login-btn:hover:not(:disabled){
+    opacity:.92;
+}
 
+/* MESSAGE */
 .message{
     display:none;
     margin-bottom:12px;
@@ -179,8 +174,7 @@ input:focus{
     border:1px solid #a8dca8;
 }
 
-/* ================= HOME ================= */
-
+/* HOME BUTTON */
 .home-btn{
     display:block;
     text-align:center;
@@ -192,13 +186,6 @@ input:focus{
     margin-top:12px;
     font-size:13px;
     font-weight:bold;
-}
-
-/* ================= LOADING ================= */
-
-.loading{
-    opacity:.7;
-    pointer-events:none;
 }
 </style>
 </head>
@@ -230,7 +217,7 @@ input:focus{
         </div>
 
 
-        <!-- COURSE BADGE -->
+        <!-- COURSE -->
         <div id="courseBadge" class="course-badge">
             Course Login
         </div>
@@ -282,7 +269,10 @@ input:focus{
         </form>
 
 
-        <a href="index.html" class="home-btn">
+        <a
+            href="index.html"
+            class="home-btn"
+        >
             🏠 Homepage पर जाएँ
         </a>
 
@@ -293,20 +283,29 @@ input:focus{
 
 <script>
 
-/* ==================================================
+"use strict";
+
+/* =====================================================
    COURSE DETECTION
-================================================== */
+   ===================================================== */
 
-const params = new URLSearchParams(
-    window.location.search
-);
+const params =
+    new URLSearchParams(window.location.search);
 
-const course = params.get("course");
+let course =
+    params.get("course");
+
+if(
+    course !== "prelims" &&
+    course !== "mains"
+){
+    course = null;
+}
 
 
-/* ==================================================
+/* =====================================================
    ELEMENTS
-================================================== */
+   ===================================================== */
 
 const badge =
     document.getElementById("courseBadge");
@@ -320,53 +319,10 @@ const message =
 const loginForm =
     document.getElementById("loginForm");
 
-const mobileInput =
-    document.getElementById("mobile");
 
-const passwordInput =
-    document.getElementById("password");
-
-
-/* ==================================================
-   MESSAGE FUNCTION
-================================================== */
-
-function showMessage(text, type){
-
-    message.className =
-        "message " + type;
-
-    message.textContent = text;
-}
-
-
-/* ==================================================
-   INVALID COURSE
-================================================== */
-
-if(course !== "prelims" && course !== "mains"){
-
-    /*
-       Direct student-login.html खोलने पर
-       कोई course login नहीं दिखेगा।
-    */
-
-    badge.textContent =
-        "Course Select करें";
-
-    loginButton.disabled = true;
-
-    showMessage(
-        "कृपया Homepage से PRELIMS या MAINS Paid Course चुनकर Login करें।",
-        "error"
-    );
-
-}
-
-
-/* ==================================================
-   PRELIMS
-================================================== */
+/* =====================================================
+   COURSE UI
+   ===================================================== */
 
 if(course === "prelims"){
 
@@ -384,12 +340,7 @@ if(course === "prelims"){
 
 }
 
-
-/* ==================================================
-   MAINS
-================================================== */
-
-if(course === "mains"){
+else if(course === "mains"){
 
     badge.textContent =
         "MAINS Login";
@@ -405,10 +356,27 @@ if(course === "mains"){
 
 }
 
+else{
 
-/* ==================================================
+    badge.textContent =
+        "Course Select करें";
+
+    loginButton.disabled =
+        true;
+
+    message.className =
+        "message error";
+
+    message.innerHTML =
+        "कृपया Homepage से अपना Paid Course चुनकर Login करें।<br><br>" +
+        "🔴 PRELIMS के लिए PRELIMS Student Login चुनें।<br>" +
+        "🔵 MAINS के लिए MAINS Student Login चुनें।";
+}
+
+
+/* =====================================================
    LOGIN
-================================================== */
+   ===================================================== */
 
 loginForm.addEventListener(
     "submit",
@@ -417,265 +385,277 @@ loginForm.addEventListener(
         e.preventDefault();
 
 
-        /* Course जरूरी है */
-
-        if(course !== "prelims" &&
-           course !== "mains"){
-
-            showMessage(
-                "कृपया पहले Homepage से अपना Course चुनें।",
-                "error"
-            );
-
+        if(!course){
             return;
         }
 
 
+        /* MOBILE */
+
         const mobile =
-            mobileInput.value.trim();
+            document
+            .getElementById("mobile")
+            .value
+            .trim();
+
+
+        /* PASSWORD */
 
         const password =
-            passwordInput.value.trim();
+            document
+            .getElementById("password")
+            .value
+            .trim();
 
 
-        /* Mobile validation */
+        /* =================================================
+           MOBILE VALIDATION
+           ================================================= */
 
         if(!/^[0-9]{10}$/.test(mobile)){
 
-            showMessage(
-                "कृपया सही 10 अंकों का मोबाइल नंबर दर्ज करें।",
-                "error"
-            );
+            message.className =
+                "message error";
+
+            message.textContent =
+                "कृपया सही 10 अंकों का मोबाइल नंबर दर्ज करें।";
 
             return;
         }
 
 
-        /* Password validation */
+        /* =================================================
+           PASSWORD VALIDATION
+           ================================================= */
 
         if(!password){
 
-            showMessage(
-                "कृपया पासवर्ड दर्ज करें।",
-                "error"
-            );
+            message.className =
+                "message error";
+
+            message.textContent =
+                "कृपया पासवर्ड दर्ज करें।";
 
             return;
         }
 
 
-        /* Loading */
+        /* =================================================
+           GET STUDENTS
+           ================================================= */
 
-        loginButton.disabled = true;
-
-        loginButton.textContent =
-            "Login हो रहा है...";
-
+        let students = [];
 
         try{
 
-            /*
-            ==================================================
-            STUDENT DATABASE
-            ==================================================
-
-            Admin panel में students इसी key पर
-            save किए गए हैं:
-            
-            mppsc_students
-            */
-
-            const students =
-                JSON.parse(
-                    localStorage.getItem(
-                        "mppsc_students"
-                    ) || "[]"
+            const savedStudents =
+                localStorage.getItem(
+                    "mppsc_students"
                 );
 
 
-            /*
-            ==================================================
-            EXACT COURSE LOGIN
-            ==================================================
+            if(savedStudents){
 
-            PRELIMS:
-            type = "prelims"
-
-            MAINS:
-            type = "mains"
-
-            इसलिए दूसरे course का password
-            दूसरे course में काम नहीं करेगा।
-            */
-
-            const student =
-                students.find(function(s){
-
-                    return (
-
-                        String(s.username || "").trim()
-                        === mobile
-
-                        &&
-
-                        String(s.password || "")
-                        === password
-
-                        &&
-
-                        String(s.type || "")
-                        .toLowerCase()
-                        === course
-
-                        &&
-
-                        s.active !== false
-
-                    );
-
-                });
+                const parsed =
+                    JSON.parse(savedStudents);
 
 
-            /* ===============================
-               WRONG LOGIN
-            =============================== */
+                if(Array.isArray(parsed)){
 
-            if(!student){
+                    students = parsed;
 
-                showMessage(
-                    course === "prelims"
-                    ? "PRELIMS का मोबाइल नंबर या पासवर्ड गलत है।"
-                    : "MAINS का मोबाइल नंबर या पासवर्ड गलत है।",
-                    "error"
-                );
+                }
 
-                loginButton.disabled = false;
-
-                loginButton.textContent =
-                    course === "prelims"
-                    ? "PRELIMS Login"
-                    : "MAINS Login";
-
-                return;
             }
-
-
-            /* ==================================================
-               CORRECT LOGIN
-            ================================================== */
-
-            const session = {
-
-                username:
-                    student.username,
-
-                mobile:
-                    student.username,
-
-                name:
-                    student.name || "",
-
-                type:
-                    course,
-
-                course:
-                    course,
-
-                authenticated:
-                    true,
-
-                loginTime:
-                    new Date().toISOString()
-
-            };
-
-
-            /*
-            ==================================================
-            SESSION SAVE
-            ==================================================
-            */
-
-            sessionStorage.setItem(
-                "mppsc_student_session",
-                JSON.stringify(session)
-            );
-
-            sessionStorage.setItem(
-                "mppsc_student_authenticated",
-                "true"
-            );
-
-            sessionStorage.setItem(
-                "paidStudentCourse",
-                course
-            );
-
-            sessionStorage.setItem(
-                "studentMobile",
-                mobile
-            );
-
-
-            /* ===============================
-               SUCCESS
-            =============================== */
-
-            showMessage(
-                course === "prelims"
-                ? "PRELIMS Login सफल।"
-                : "MAINS Login सफल।",
-                "success"
-            );
-
-
-            /*
-            ==================================================
-            COURSE-SPECIFIC REDIRECT
-            ==================================================
-            */
-
-            setTimeout(function(){
-
-                if(course === "prelims"){
-
-                    window.location.href =
-                        "prelims.html";
-
-                }
-                else if(course === "mains"){
-
-                    window.location.href =
-                        "mains-600.html";
-
-                }
-
-            }, 500);
-
 
         }
         catch(error){
 
             console.error(
-                "Student Login Error:",
+                "Student data error:",
                 error
             );
 
+            message.className =
+                "message error";
 
-            showMessage(
-                "Login में तकनीकी समस्या हुई। कृपया दोबारा प्रयास करें।",
-                "error"
-            );
+            message.textContent =
+                "Student database पढ़ने में समस्या हुई।";
 
-
-            loginButton.disabled = false;
-
-            loginButton.textContent =
-                course === "prelims"
-                ? "PRELIMS Login"
-                : "MAINS Login";
-
+            return;
         }
+
+
+        /* =================================================
+           FIND STUDENT
+           ================================================= */
+
+        const student =
+            students.find(function(item){
+
+                if(!item){
+                    return false;
+                }
+
+
+                const username =
+                    String(
+                        item.username ?? ""
+                    ).trim();
+
+
+                const studentPassword =
+                    String(
+                        item.password ?? ""
+                    ).trim();
+
+
+                const studentType =
+                    String(
+                        item.type ?? ""
+                    ).trim().toLowerCase();
+
+
+                return (
+                    username === mobile &&
+                    studentPassword === password &&
+                    studentType === course
+                );
+
+            });
+
+
+        /* =================================================
+           STUDENT NOT FOUND
+           ================================================= */
+
+        if(!student){
+
+            message.className =
+                "message error";
+
+            message.textContent =
+                "मोबाइल नंबर, पासवर्ड या Course गलत है।";
+
+            return;
+        }
+
+
+        /* =================================================
+           ACTIVE CHECK
+           ================================================= */
+
+        const activeValue =
+            student.active;
+
+
+        const isActive =
+            activeValue === true ||
+            activeValue === "true" ||
+            activeValue === 1 ||
+            activeValue === "1";
+
+
+        if(!isActive){
+
+            message.className =
+                "message error";
+
+            message.textContent =
+                "आपका Paid Course अभी Active नहीं है।";
+
+            return;
+        }
+
+
+        /* =================================================
+           CLEAR OLD COURSE SESSION
+           ================================================= */
+
+        sessionStorage.removeItem(
+            "mppsc_student_authenticated"
+        );
+
+        sessionStorage.removeItem(
+            "mppsc_student_course"
+        );
+
+        sessionStorage.removeItem(
+            "mppsc_student_username"
+        );
+
+
+        /* =================================================
+           CREATE NEW LOGIN SESSION
+           ================================================= */
+
+        sessionStorage.setItem(
+            "mppsc_student_authenticated",
+            "true"
+        );
+
+        sessionStorage.setItem(
+            "mppsc_student_course",
+            course
+        );
+
+        sessionStorage.setItem(
+            "mppsc_student_username",
+            mobile
+        );
+
+
+        /* पुराने keys भी साफ */
+
+        sessionStorage.removeItem(
+            "paidStudentCourse"
+        );
+
+        sessionStorage.removeItem(
+            "studentMobile"
+        );
+
+
+        /* =================================================
+           SUCCESS
+           ================================================= */
+
+        message.className =
+            "message success";
+
+        message.textContent =
+            course === "prelims"
+            ? "PRELIMS Login सफल।"
+            : "MAINS Login सफल।";
+
+
+        loginButton.disabled =
+            true;
+
+
+        /* =================================================
+           COURSE REDIRECT
+           ================================================= */
+
+        setTimeout(function(){
+
+            if(course === "prelims"){
+
+                window.location.replace(
+                    "prelims.html"
+                );
+
+            }
+
+            else if(course === "mains"){
+
+                window.location.replace(
+                    "mains-600.html"
+                );
+
+            }
+
+        }, 500);
 
     }
 );
