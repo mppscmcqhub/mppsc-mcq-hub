@@ -17,7 +17,6 @@ body{
     font-family:Arial,Helvetica,sans-serif;
     background:#f4f7fc;
     min-height:100vh;
-    margin:0;
 }
 
 .mppsc-site-logo-bar{
@@ -58,7 +57,7 @@ body{
     background:#fff;
     padding:35px 30px;
     border-radius:12px;
-    box-shadow:0 4px 25px rgba(0,0,0,.1);
+    box-shadow:0 4px 25px rgba(0,0,0,.10);
     width:100%;
     max-width:380px;
     text-align:center;
@@ -130,10 +129,6 @@ button:hover{
     font-weight:bold;
 }
 
-.switch-link:hover{
-    text-decoration:underline;
-}
-
 .error-alert{
     color:#d32f2f;
     font-size:13px;
@@ -147,15 +142,15 @@ button:hover{
 }
 
 .success-alert{
-    color:#166534;
+    color:#087f23;
     font-size:13px;
     font-weight:bold;
     margin-top:10px;
     display:none;
-    background:#dcfce7;
+    background:#e8f5e9;
     padding:8px;
     border-radius:4px;
-    border-left:4px solid #16a34a;
+    border-left:4px solid #087f23;
 }
 
 @media(max-width:600px){
@@ -178,23 +173,21 @@ button:hover{
         min-height:calc(100vh - 56px);
         padding:20px 10px 30px;
     }
-
-    .login-container{
-        padding:30px 20px;
-    }
 }
 </style>
-
 </head>
 
 <body>
 
 <div class="mppsc-site-logo-bar">
 
-    <img src="my-logo.jpg" alt="MPPSC MCQ Hub Logo">
+    <img
+        src="MPPSC-MCQ-Hub-Logo.png"
+        alt="MPPSC MCQ Hub Logo"
+    >
 
     <div class="mppsc-site-name">
-        MPPSC MCQ Hub
+        MPPSC MCQ Hub V14
     </div>
 
 </div>
@@ -202,160 +195,175 @@ button:hover{
 
 <div class="login-page">
 
-<!-- ================= LOGIN ================= -->
+    <!-- LOGIN -->
 
-<div class="login-container" id="login-section">
-
-    <div class="logo-title">
-        MPPSC MCQ Hub
-    </div>
-
-    <div class="sub-title">
-        Paid Student Portal Login
-    </div>
-
-    <div class="form-group">
-
-        <label>
-            यूजर आईडी (आपका मोबाइल नंबर):
-        </label>
-
-        <input
-            type="text"
-            id="login-user"
-            inputmode="numeric"
-            maxlength="10"
-            placeholder="10 अंकों का मोबाइल नंबर"
-        >
-
-    </div>
-
-
-    <div class="form-group">
-
-        <label>
-            पासवर्ड:
-        </label>
-
-        <input
-            type="password"
-            id="login-pass"
-            placeholder="अपना पासवर्ड दर्ज करें"
-        >
-
-    </div>
-
-
-    <div class="error-alert" id="login-error">
-        गलत मोबाइल नंबर या पासवर्ड!
-    </div>
-
-
-    <button onclick="handleStudentLogin()">
-        लॉगिन करें (Login & Study)
-    </button>
-
-
-    <span
-        class="switch-link"
-        onclick="toggleSections(false)"
+    <div
+        class="login-container"
+        id="login-section"
     >
-        🔐 प्राप्त पासवर्ड बदलें
-    </span>
 
-</div>
+        <div class="logo-title">
+            MPPSC MCQ Hub
+        </div>
 
-
-<!-- ================= CHANGE PASSWORD ================= -->
-
-<div
-    class="login-container"
-    id="change-section"
-    style="display:none;"
->
-
-    <div class="logo-title">
-        पासवर्ड बदलें
-    </div>
-
-    <div class="sub-title">
-        अपना नया परमानेंट पासवर्ड सेट करें
-    </div>
+        <div class="sub-title">
+            Paid Student Portal Login
+        </div>
 
 
-    <div class="form-group">
+        <div class="form-group">
 
-        <label>
-            आपका पंजीकृत मोबाइल नंबर:
-        </label>
+            <label>
+                यूजर आईडी (मोबाइल नंबर):
+            </label>
 
-        <input
-            type="text"
-            id="change-user"
-            inputmode="numeric"
-            maxlength="10"
-            placeholder="10 अंकों का मोबाइल नंबर"
+            <input
+                type="text"
+                id="login-user"
+                inputmode="numeric"
+                maxlength="10"
+                placeholder="10 अंकों का मोबाइल नंबर"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                पासवर्ड:
+            </label>
+
+            <input
+                type="password"
+                id="login-pass"
+                placeholder="अपना पासवर्ड दर्ज करें"
+            >
+
+        </div>
+
+
+        <div
+            class="error-alert"
+            id="login-error"
         >
+            गलत मोबाइल नंबर या पासवर्ड!
+        </div>
 
-    </div>
 
-
-    <div class="form-group">
-
-        <label>
-            पुराना पासवर्ड:
-        </label>
-
-        <input
-            type="password"
-            id="old-pass"
-            placeholder="पुराना पासवर्ड"
+        <button
+            onclick="handleStudentLogin()"
         >
+            लॉगिन करें
+        </button>
 
-    </div>
 
-
-    <div class="form-group">
-
-        <label>
-            नया पासवर्ड:
-        </label>
-
-        <input
-            type="password"
-            id="new-pass"
-            placeholder="नया पासवर्ड"
+        <span
+            class="switch-link"
+            onclick="toggleSections(false)"
         >
+            🔐 पासवर्ड बदलें
+        </span>
 
     </div>
 
 
-    <div class="error-alert" id="change-error">
-        विवरण मैच नहीं हुआ!
-    </div>
+    <!-- CHANGE PASSWORD -->
 
-
-    <div class="success-alert" id="change-success">
-        पासवर्ड सफलतापूर्वक बदल दिया गया।
-    </div>
-
-
-    <button
-        onclick="handlePasswordChange()"
-        style="background:#147dcc;"
+    <div
+        class="login-container"
+        id="change-section"
+        style="display:none;"
     >
-        अपडेट करें
-    </button>
+
+        <div class="logo-title">
+            पासवर्ड बदलें
+        </div>
+
+        <div class="sub-title">
+            नया Permanent Password सेट करें
+        </div>
 
 
-    <span
-        class="switch-link"
-        onclick="toggleSections(true)"
-    >
-        ⬅ वापस लॉगिन पेज
-    </span>
+        <div class="form-group">
 
-</div>
+            <label>
+                पंजीकृत मोबाइल नंबर:
+            </label>
+
+            <input
+                type="text"
+                id="change-user"
+                inputmode="numeric"
+                maxlength="10"
+                placeholder="10 अंकों का मोबाइल नंबर"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                पुराना पासवर्ड:
+            </label>
+
+            <input
+                type="password"
+                id="old-pass"
+                placeholder="SMS वाला पासवर्ड"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                नया पासवर्ड:
+            </label>
+
+            <input
+                type="password"
+                id="new-pass"
+                placeholder="नया पासवर्ड"
+            >
+
+        </div>
+
+
+        <div
+            class="error-alert"
+            id="change-error"
+        >
+            विवरण मैच नहीं हुआ!
+        </div>
+
+
+        <div
+            class="success-alert"
+            id="change-success"
+        >
+            पासवर्ड सफलतापूर्वक बदल दिया गया।
+        </div>
+
+
+        <button
+            onclick="handlePasswordChange()"
+            style="background:#147dcc;"
+        >
+            Update Password
+        </button>
+
+
+        <span
+            class="switch-link"
+            onclick="toggleSections(true)"
+        >
+            ⬅ वापस Login
+        </span>
+
+    </div>
 
 </div>
 
@@ -363,10 +371,11 @@ button:hover{
 <script>
 
 /* =========================================================
-   SESSION CLEANUP
+   IMPORTANT:
+   पुराना गलत session साफ करें
    ========================================================= */
 
-function clearOldCourseSession(){
+function clearStudentSession(){
 
     sessionStorage.removeItem(
         "mppsc_student_authenticated"
@@ -376,6 +385,10 @@ function clearOldCourseSession(){
         "mppsc_student_course"
     );
 
+    sessionStorage.removeItem(
+        "mppsc_student_username"
+    );
+
     localStorage.removeItem(
         "mppsc_student_session"
     );
@@ -383,31 +396,32 @@ function clearOldCourseSession(){
 
 
 /* =========================================================
-   FORM SWITCH
+   PAGE SWITCH
    ========================================================= */
 
 function toggleSections(showLogin){
 
-    document.getElementById("login-error")
-        .style.display = "none";
+    document.getElementById(
+        "login-error"
+    ).style.display = "none";
 
-    document.getElementById("change-error")
-        .style.display = "none";
+    document.getElementById(
+        "change-error"
+    ).style.display = "none";
 
-    document.getElementById("change-success")
-        .style.display = "none";
+    document.getElementById(
+        "change-success"
+    ).style.display = "none";
 
+    document.getElementById(
+        "login-section"
+    ).style.display =
+        showLogin ? "block" : "none";
 
-    document.getElementById("login-section")
-        .style.display = showLogin
-            ? "block"
-            : "none";
-
-
-    document.getElementById("change-section")
-        .style.display = showLogin
-            ? "none"
-            : "block";
+    document.getElementById(
+        "change-section"
+    ).style.display =
+        showLogin ? "none" : "block";
 }
 
 
@@ -418,16 +432,19 @@ function toggleSections(showLogin){
 function handleStudentLogin(){
 
     const user =
-        document.getElementById("login-user")
-        .value
-        .trim();
+        document.getElementById(
+            "login-user"
+        ).value.trim();
 
     const pass =
-        document.getElementById("login-pass")
-        .value;
+        document.getElementById(
+            "login-pass"
+        ).value;
 
     const errorBox =
-        document.getElementById("login-error");
+        document.getElementById(
+            "login-error"
+        );
 
 
     errorBox.style.display = "none";
@@ -435,26 +452,20 @@ function handleStudentLogin(){
 
     if(!user || !pass){
 
-        alert("कृपया मोबाइल नंबर और पासवर्ड भरें।");
+        alert(
+            "कृपया मोबाइल नंबर और पासवर्ड भरें!"
+        );
+
         return;
-
-    }
-
-
-    if(!/^[0-9]{10}$/.test(user)){
-
-        alert("कृपया सही 10 अंकों का मोबाइल नंबर दर्ज करें।");
-        return;
-
     }
 
 
     /*
-       पुराने PRELIMS/MAINS session को पहले साफ करें।
-       इससे पुराना course दूसरे course में नहीं जाएगा।
+       पुराने session को पहले पूरी तरह साफ करें।
+       यही सबसे महत्वपूर्ण fix है।
     */
 
-    clearOldCourseSession();
+    clearStudentSession();
 
 
     let users = [];
@@ -463,83 +474,72 @@ function handleStudentLogin(){
 
         users =
             JSON.parse(
-                localStorage.getItem("mppsc_students")
+                localStorage.getItem(
+                    "mppsc_students"
+                )
             ) || [];
 
-    }catch(e){
+    }
+    catch(error){
+
+        console.error(
+            "Student database error:",
+            error
+        );
 
         users = [];
-
     }
 
 
     /*
-       केवल exact username + exact password
-       और active student को खोजें।
+       Student खोजें
     */
 
-    const matches = users.filter(function(u){
+    const foundUser =
+        users.find(function(u){
 
-        return String(u.username).trim() === user &&
-               String(u.password) === pass &&
-               u.active !== false &&
-               (
-                   String(u.type).toLowerCase() === "prelims" ||
-                   String(u.type).toLowerCase() === "mains"
-               );
+            return (
+                String(u.username) === String(user) &&
+                String(u.password) === String(pass) &&
+                u.active !== false
+            );
 
-    });
+        });
 
 
-    /* कोई user नहीं मिला */
-
-    if(matches.length === 0){
-
-        errorBox.innerHTML =
-            "❌ गलत मोबाइल नंबर या पासवर्ड!";
+    if(!foundUser){
 
         errorBox.style.display = "block";
 
         return;
-
     }
 
 
     /*
-       अगर एक ही credentials से
-       PRELIMS और MAINS दोनों records हैं,
-       तो system guess नहीं करेगा।
+       केवल दो valid course
     */
-
-    const courseTypes = [
-        ...new Set(
-            matches.map(function(u){
-                return String(u.type).toLowerCase();
-            })
-        )
-    ];
-
-
-    if(courseTypes.length !== 1){
-
-        errorBox.innerHTML =
-            "❌ इस मोबाइल नंबर और पासवर्ड की दो course entries हैं। Admin को student record ठीक करना होगा।";
-
-        errorBox.style.display = "block";
-
-        return;
-
-    }
-
-
-    const foundUser = matches[0];
 
     const course =
-        String(foundUser.type).toLowerCase();
+        String(foundUser.type || "")
+        .trim()
+        .toLowerCase();
+
+
+    if(
+        course !== "prelims" &&
+        course !== "mains"
+    ){
+
+        alert(
+            "❌ आपके account में कोई valid course assign नहीं है। Admin से संपर्क करें।"
+        );
+
+        return;
+    }
 
 
     /*
-       केवल सही course session बनाएं।
+       नया secure course session
     */
 
     sessionStorage.setItem(
@@ -552,61 +552,45 @@ function handleStudentLogin(){
         course
     );
 
-
-    localStorage.setItem(
-        "mppsc_student_session",
-        JSON.stringify({
-
-            username: String(foundUser.username),
-
-            type: course,
-
-            loginAt: Date.now()
-
-        })
+    sessionStorage.setItem(
+        "mppsc_student_username",
+        String(foundUser.username)
     );
 
 
     /*
-       Course के हिसाब से exact redirect
+       localStorage में course session नहीं रखेंगे।
+       इससे mains/prelims mix होने की समस्या नहीं होगी।
+    */
+
+
+    alert(
+        "🎉 Login सफल!\n\n" +
+        "Course: " +
+        (course === "mains"
+            ? "MAINS"
+            : "PRELIMS")
+    );
+
+
+    /*
+       COURSE के हिसाब से अलग redirect
     */
 
     if(course === "mains"){
-
-        alert(
-            "🎉 MAINS Login सफल!\n\nआपको Paid MAINS Course पर भेजा जा रहा है।"
-        );
 
         window.location.replace(
             "mains-600.html"
         );
 
-        return;
     }
-
-
-    if(course === "prelims"){
-
-        alert(
-            "🎉 PRELIMS Login सफल!\n\nआपको Paid PRELIMS Course पर भेजा जा रहा है।"
-        );
+    else{
 
         window.location.replace(
             "prelims.html"
         );
 
-        return;
     }
-
-
-    /* सुरक्षा */
-
-    clearOldCourseSession();
-
-    errorBox.innerHTML =
-        "❌ Course type valid नहीं है।";
-
-    errorBox.style.display = "block";
 
 }
 
@@ -618,54 +602,57 @@ function handleStudentLogin(){
 function handlePasswordChange(){
 
     const user =
-        document.getElementById("change-user")
-        .value
-        .trim();
+        document.getElementById(
+            "change-user"
+        ).value.trim();
 
     const oldPass =
-        document.getElementById("old-pass")
-        .value;
+        document.getElementById(
+            "old-pass"
+        ).value;
 
     const newPass =
-        document.getElementById("new-pass")
-        .value;
+        document.getElementById(
+            "new-pass"
+        ).value;
 
 
     const errorBox =
-        document.getElementById("change-error");
+        document.getElementById(
+            "change-error"
+        );
 
     const successBox =
-        document.getElementById("change-success");
+        document.getElementById(
+            "change-success"
+        );
 
 
     errorBox.style.display = "none";
     successBox.style.display = "none";
 
 
-    if(!user || !oldPass || !newPass){
+    if(
+        !user ||
+        !oldPass ||
+        !newPass
+    ){
 
-        alert("कृपया सभी विवरण भरें।");
+        alert(
+            "कृपया सभी विवरण भरें!"
+        );
+
         return;
-
-    }
-
-
-    if(!/^[0-9]{10}$/.test(user)){
-
-        alert("कृपया सही 10 अंकों का मोबाइल नंबर दर्ज करें।");
-        return;
-
     }
 
 
     if(newPass.length < 4){
 
         alert(
-            "नया पासवर्ड कम से कम 4 अक्षरों या अंकों का होना चाहिए।"
+            "नया पासवर्ड कम से कम 4 अक्षरों/अंकों का होना चाहिए!"
         );
 
         return;
-
     }
 
 
@@ -675,89 +662,40 @@ function handlePasswordChange(){
 
         users =
             JSON.parse(
-                localStorage.getItem("mppsc_students")
+                localStorage.getItem(
+                    "mppsc_students"
+                )
             ) || [];
 
-    }catch(e){
+    }
+    catch(error){
 
         users = [];
-
     }
 
 
-    /*
-       username + old password से exact student खोजें।
-    */
+    const userIndex =
+        users.findIndex(function(u){
 
-    const userIndexes = [];
+            return (
+                String(u.username) === String(user) &&
+                String(u.password) === String(oldPass) &&
+                u.active !== false
+            );
 
-    users.forEach(function(u,index){
-
-        if(
-            String(u.username).trim() === user &&
-            String(u.password) === oldPass &&
-            (
-                String(u.type).toLowerCase() === "prelims" ||
-                String(u.type).toLowerCase() === "mains"
-            )
-        ){
-
-            userIndexes.push(index);
-
-        }
-
-    });
+        });
 
 
-    if(userIndexes.length === 0){
-
-        errorBox.innerHTML =
-            "❌ मोबाइल नंबर या पुराना पासवर्ड गलत है।";
+    if(userIndex === -1){
 
         errorBox.style.display = "block";
 
         return;
-
     }
 
 
-    /*
-       अगर same credentials multiple course records में हैं,
-       password change को रोकें।
-    */
-
-    const matchedTypes = [
-        ...new Set(
-            userIndexes.map(function(index){
-
-                return String(
-                    users[index].type
-                ).toLowerCase();
-
-            })
-        )
-    ];
-
-
-    if(matchedTypes.length > 1){
-
-        errorBox.innerHTML =
-            "❌ इस student की PRELIMS और MAINS दोनों entries में वही credentials हैं। पहले Admin record ठीक करें।";
-
-        errorBox.style.display = "block";
-
-        return;
-
-    }
-
-
-    /*
-       उसी course के student का password बदलें।
-    */
-
-    const index = userIndexes[0];
-
-    users[index].password = newPass;
+    users[userIndex].password =
+        newPass;
 
 
     localStorage.setItem(
@@ -766,24 +704,24 @@ function handlePasswordChange(){
     );
 
 
-    successBox.innerHTML =
-        "✓ पासवर्ड सफलतापूर्वक बदल दिया गया। अब नए पासवर्ड से Login करें।";
-
-    successBox.style.display = "block";
+    successBox.style.display =
+        "block";
 
 
-    document.getElementById("login-user")
-        .value = user;
+    document.getElementById(
+        "login-user"
+    ).value = user;
 
-    document.getElementById("login-pass")
-        .value = "";
+    document.getElementById(
+        "login-pass"
+    ).value = "";
 
 
     setTimeout(function(){
 
         toggleSections(true);
 
-    },1500);
+    },1200);
 
 }
 
@@ -792,16 +730,23 @@ function handlePasswordChange(){
    ENTER KEY LOGIN
    ========================================================= */
 
-document.getElementById("login-pass")
-.addEventListener("keydown",function(e){
+document.addEventListener(
+    "keydown",
+    function(event){
 
-    if(e.key === "Enter"){
+        if(
+            event.key === "Enter" &&
+            document.getElementById(
+                "login-section"
+            ).style.display !== "none"
+        ){
 
-        handleStudentLogin();
+            handleStudentLogin();
+
+        }
 
     }
-
-});
+);
 
 </script>
 
