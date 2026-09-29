@@ -3,109 +3,74 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <title>MPPSC MCQ Hub V14 - Paid PRELIMS</title>
 <style>
 *{box-sizing:border-box}html,body{margin:0;padding:0}
 body{font-family:Arial,Helvetica,sans-serif;background:#fff5f5;color:#102a43;display:none}
-.mppsc-site-header{width:100%;min-height:64px;background:#1450a3;color:#fff;display:flex;align-items:center;gap:12px;padding:8px 16px;box-shadow:0 2px 7px rgba(0,0,0,.12)}
-.mppsc-site-header img{width:48px;height:48px;object-fit:cover;border-radius:50%;background:#fff;padding:2px;flex:0 0 auto}
-.mppsc-site-header .site-title{font-size:18px;font-weight:700;line-height:1.2}
-.header{width:100%;background:#cf2e2e;color:#fff;padding:10px 16px;font-size:17px;font-weight:700;box-shadow:0 2px 6px rgba(0,0,0,.10)}
+.site-header{width:100%;min-height:64px;background:#1450a3;color:#fff;display:flex;align-items:center;gap:12px;padding:8px 16px}
+.site-header img{width:48px;height:48px;object-fit:cover;border-radius:50%;background:#fff;padding:2px}
+.site-title{font-size:18px;font-weight:700}
+.header{background:#cf2e2e;color:#fff;padding:10px 16px;font-size:17px;font-weight:700}
 .wrap{max-width:1400px;margin:16px auto;padding:0 12px}
-.top{background:#fff;border-radius:12px;padding:18px 20px;margin-bottom:14px;box-shadow:0 2px 9px rgba(0,0,0,.07);border-left:5px solid #cf2e2e}
-.top h1{margin:0 0 6px;font-size:21px;color:#cf2e2e}.top p{margin:5px 0;color:#333;font-size:14px}
-.unit{background:#fff;border-radius:12px;padding:10px;margin-bottom:16px;box-shadow:0 2px 9px rgba(0,0,0,.07);border-top:4px solid #cf2e2e}
-.unit-title{margin:0 0 10px;padding:3px 2px;color:#cf2e2e;font-size:16px;font-weight:700}
-.test-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:5px}
-.test-card{background:#fff;border:1px solid #ef8b8b;border-radius:6px;padding:5px;text-align:center;min-width:0}
-.test-code{display:block;color:#102a43;font-size:10px;font-weight:700;margin-bottom:4px;white-space:nowrap}
-.start-test{display:block;width:100%;padding:5px 3px;background:#ef3d3d;color:#fff;text-decoration:none;border-radius:5px;font-size:10px;font-weight:700;text-align:center}
-.start-test:hover{background:#c92525}
-.cet-section{background:#fff;border-radius:12px;padding:12px;margin-bottom:20px;box-shadow:0 2px 9px rgba(0,0,0,.07);border-top:4px solid #1450a3}
-.cet-title{margin:0 0 10px;color:#1450a3;font-size:17px;font-weight:700}
-@media(max-width:1100px){.test-grid{grid-template-columns:repeat(6,1fr)}}
-@media(max-width:800px){.test-grid{grid-template-columns:repeat(4,1fr)}.mppsc-site-header .site-title{font-size:16px}.mppsc-site-header img{width:42px;height:42px}}
-@media(max-width:500px){.test-grid{grid-template-columns:repeat(2,1fr)}.top h1{font-size:19px}.unit-title{font-size:15px}}
+.top,.unit,.cet{background:#fff;border-radius:12px;padding:14px;margin-bottom:14px;box-shadow:0 2px 9px rgba(0,0,0,.07)}
+.top{border-left:5px solid #cf2e2e}.top h1{margin:0 0 6px;font-size:21px;color:#cf2e2e}.top p{margin:5px 0;font-size:14px}
+.unit{border-top:4px solid #cf2e2e}.unit-title{margin:0 0 10px;color:#cf2e2e;font-size:16px}
+.grid{display:grid;grid-template-columns:repeat(8,1fr);gap:5px}
+.test{border:1px solid #ef8b8b;border-radius:6px;padding:5px;text-align:center}.code{display:block;font-size:10px;font-weight:700;margin-bottom:4px}.start{display:block;background:#ef3d3d;color:#fff;text-decoration:none;border-radius:5px;padding:5px 3px;font-size:10px;font-weight:700}
+.cet{border-top:4px solid #1450a3}.cet h2{margin:0 0 10px;color:#1450a3;font-size:17px}
+.logout{float:right;color:#fff;background:#7b1111;text-decoration:none;padding:5px 9px;border-radius:4px;font-size:12px}
+@media(max-width:1100px){.grid{grid-template-columns:repeat(6,1fr)}}@media(max-width:800px){.grid{grid-template-columns:repeat(4,1fr)}}@media(max-width:500px){.grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
-<header class="mppsc-site-header">
-<img src="MPPSC-MCQ-Hub-Logo.png" alt="MPPSC MCQ Hub Logo">
+<header class="site-header">
+<img src="my-logo.jpg" alt="MPPSC MCQ Hub Logo">
 <div class="site-title">MPPSC MCQ Hub V14</div>
 </header>
-<div class="header">🏆 MPPSC MCQ Hub — Paid PRELIMS Portal</div>
+<div class="header">🏆 MPPSC MCQ Hub — Paid PRELIMS Portal
+<a class="logout" href="#" id="logout">Logout</a></div>
 <div class="wrap">
-<div class="top">
-<h1>Paid PRELIMS Course (Active)</h1>
-<p><b>10 Units + CET — 250 Total Practice Tests</b></p>
+<div class="top"><h1>Paid PRELIMS Course (Active)</h1><p><b>10 Units + CET — 250 Total Practice Tests</b></p></div>
+<div id="container"></div>
 </div>
-<div id="prelims-student-container"></div>
-</div>
-
 <script>
 "use strict";
-
-const REQUIRED_COURSE="prelims";
-const LOGIN_PAGE="student-login.html?course=prelims";
-
-const prelimsUnits=[
-{number:1,name:"भारत का इतिहास",folder:"unit-01"},
-{number:2,name:"मध्यप्रदेश का इतिहास, संस्कृति एवं साहित्य",folder:"unit-02"},
-{number:3,name:"भारत का भूगोल",folder:"unit-03"},
-{number:4,name:"मध्यप्रदेश का भूगोल",folder:"unit-04"},
-{number:5,name:"भारतीय राजव्यवस्था एवं शासन",folder:"unit-05"},
-{number:6,name:"मध्यप्रदेश की राजव्यवस्था एवं शासन",folder:"unit-06"},
-{number:7,name:"भारतीय अर्थव्यवस्था",folder:"unit-07"},
-{number:8,name:"मध्यप्रदेश की अर्थव्यवस्था",folder:"unit-08"},
-{number:9,name:"सामान्य विज्ञान एवं पर्यावरण",folder:"unit-09"},
-{number:10,name:"समसामयिक घटनाएँ एवं विविध सामान्य ज्ञान",folder:"unit-10"}
+const REQUIRED="prelims";
+const LOGIN="student-login.html?course=prelims";
+const units=[
+["1","भारत का इतिहास","unit-01"],["2","मध्यप्रदेश का इतिहास, संस्कृति एवं साहित्य","unit-02"],
+["3","भारत का भूगोल","unit-03"],["4","मध्यप्रदेश का भूगोल","unit-04"],
+["5","भारतीय राजव्यवस्था एवं शासन","unit-05"],["6","मध्यप्रदेश की राजव्यवस्था एवं शासन","unit-06"],
+["7","भारतीय अर्थव्यवस्था","unit-07"],["8","मध्यप्रदेश की अर्थव्यवस्था","unit-08"],
+["9","सामान्य विज्ञान एवं पर्यावरण","unit-09"],["10","समसामयिक घटनाएँ एवं विविध सामान्य ज्ञान","unit-10"]
 ];
-
-const TESTS_PER_UNIT=20;
-const CET_TEST_COUNT=50;
-
-function buildStudentPrelims(){
- const container=document.getElementById("prelims-student-container");
- let html="";
- prelimsUnits.forEach(function(unit){
-  html+=`<section class="unit"><h2 class="unit-title">Unit ${unit.number} - ${unit.name}</h2><div class="test-grid">`;
-  for(let testNumber=1;testNumber<=TESTS_PER_UNIT;testNumber++){
-   const testString=String(testNumber).padStart(2,"0");
-   const unitString=String(unit.number).padStart(2,"0");
-   const code=`P${unitString}T${testString}`;
-   const testURL=`${unit.folder}/${code}/index.html`;
-   html+=`<div class="test-card"><span class="test-code">${code}</span><a class="start-test" href="${testURL}">Start Test</a></div>`;
-  }
-  html+=`</div></section>`;
- });
- html+=`<section class="cet-section"><h2 class="cet-title">CET — Common Eligibility / Mixed Practice Tests</h2><div class="test-grid">`;
- for(let cetNumber=1;cetNumber<=CET_TEST_COUNT;cetNumber++){
-  const code=`CET${String(cetNumber).padStart(2,"0")}`;
-  const cetURL=`prelims-tests/${code}/index.html`;
-  html+=`<div class="test-card"><span class="test-code">${code}</span><a class="start-test" href="${cetURL}">Start Test</a></div>`;
- }
- html+=`</div></section>`;
- container.innerHTML=html;
+function validSession(){
+  return sessionStorage.getItem("mppsc_student_authenticated")==="true" &&
+    String(sessionStorage.getItem("mppsc_student_course")||"").toLowerCase()===REQUIRED &&
+    String(sessionStorage.getItem("mppsc_student_username")||"").trim()!=="";
 }
-
+function clearSession(){
+  ["mppsc_student_authenticated","mppsc_student_course","mppsc_student_username","mppsc_student_session","paidStudentCourse","studentMobile"].forEach(k=>sessionStorage.removeItem(k));
+}
 (function(){
- const authenticated=sessionStorage.getItem("mppsc_student_authenticated")==="true";
- const course=String(sessionStorage.getItem("mppsc_student_course")||"").trim().toLowerCase();
- const username=String(sessionStorage.getItem("mppsc_student_username")||"").trim();
-
- const allowed=authenticated && course===REQUIRED_COURSE && username!=="";
-
- if(!allowed){
-  sessionStorage.removeItem("mppsc_student_authenticated");
-  sessionStorage.removeItem("mppsc_student_course");
-  sessionStorage.removeItem("mppsc_student_username");
-  window.location.replace(LOGIN_PAGE);
-  return;
- }
-
+ if(!validSession()){clearSession();location.replace(LOGIN);return;}
  document.body.style.display="block";
- buildStudentPrelims();
+ let html="";
+ units.forEach(u=>{
+   html+=`<section class="unit"><h2 class="unit-title">Unit ${u[0]} - ${u[1]}</h2><div class="grid">`;
+   for(let n=1;n<=20;n++){
+     const code=`P${String(u[0]).padStart(2,"0")}T${String(n).padStart(2,"0")}`;
+     html+=`<div class="test"><span class="code">${code}</span><a class="start" href="${u[2]}/${code}/index.html">Start Test</a></div>`;
+   }
+   html+="</div></section>";
+ });
+ html+=`<section class="cet"><h2>CET — Common Eligibility / Mixed Practice Tests</h2><div class="grid">`;
+ for(let n=1;n<=50;n++){const code=`CET${String(n).padStart(2,"0")}`;html+=`<div class="test"><span class="code">${code}</span><a class="start" href="prelims-tests/${code}/index.html">Start Test</a></div>`;}
+ html+="</div></section>";
+ document.getElementById("container").innerHTML=html;
 })();
+document.getElementById("logout").addEventListener("click",e=>{e.preventDefault();clearSession();location.replace("student-login.html?course=prelims");});
 </script>
 </body>
 </html>
