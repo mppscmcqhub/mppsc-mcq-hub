@@ -7,7 +7,8 @@
 
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>MPPSC MCQ Hub V14 - Paid MAINS</title>
+<title>MPPSC MCQ Hub V14 - Paid MAINS Course</title>
+
 
 <style>
 
@@ -26,24 +27,38 @@ body{
 }
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#f3f6fa;
+
+  margin:0;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  background:#f0f5ff;
+
   color:#102a43;
 
-  /* Authentication verify होने तक hidden */
+  /* Authentication होने तक page hidden */
   display:none;
 }
 
 
 /* =========================================================
-   SITE LOGO HEADER
+   SITE LOGO BAR
    ========================================================= */
 
-.mppsc-site-header{
+.mppsc-site-logo-bar{
+
+  width:100%;
 
   background:#1450a3;
 
   color:#fff;
+
+  min-height:64px;
+
+  padding:8px 16px;
 
   display:flex;
 
@@ -51,36 +66,45 @@ body{
 
   gap:12px;
 
-  padding:10px 16px;
-
-  width:100%;
-
   box-sizing:border-box;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  position:relative;
+
+  z-index:999;
 
   box-shadow:
     0 2px 7px rgba(0,0,0,.12);
 }
 
 
-.mppsc-site-header img{
+.mppsc-site-logo-bar img{
 
-  width:42px;
+  width:48px;
 
-  height:42px;
+  height:48px;
 
-  object-fit:contain;
+  object-fit:cover;
 
   border-radius:50%;
 
   background:#fff;
 
+  padding:2px;
+
+  box-sizing:border-box;
+
   flex:0 0 auto;
 }
 
 
-.mppsc-site-header .site-title{
+.mppsc-site-logo-bar .mppsc-site-name{
 
-  font-size:20px;
+  font-size:18px;
 
   font-weight:700;
 
@@ -93,6 +117,8 @@ body{
    ========================================================= */
 
 .header{
+
+  width:100%;
 
   background:#082b57;
 
@@ -138,7 +164,7 @@ body{
   margin-bottom:18px;
 
   box-shadow:
-    0 2px 9px rgba(0,0,0,.06);
+    0 2px 9px rgba(0,0,0,.05);
 
   border-left:
     6px solid #147dcc;
@@ -147,7 +173,8 @@ body{
 
 .top h1{
 
-  margin:0 0 6px;
+  margin:
+    0 0 6px;
 
   font-size:24px;
 
@@ -160,166 +187,8 @@ body{
   margin:5px 0;
 
   color:#667085;
-}
 
-
-/* =========================================================
-   PAPER
-   ========================================================= */
-
-.paper{
-
-  background:#fff;
-
-  border-radius:12px;
-
-  padding:16px;
-
-  margin-bottom:18px;
-
-  box-shadow:
-    0 2px 9px rgba(0,0,0,.06);
-
-  border-top:
-    4px solid #147dcc;
-}
-
-
-.paper h2{
-
-  margin:0 0 14px;
-
-  font-size:20px;
-
-  color:#102a43;
-
-  border-bottom:
-    2px solid #eaf2fb;
-
-  padding-bottom:8px;
-}
-
-
-/* =========================================================
-   MARKS GROUP
-   ========================================================= */
-
-.group-title{
-
-  background:#eaf2fb;
-
-  border-radius:7px;
-
-  padding:8px 10px;
-
-  margin:12px 0 8px;
-
-  font-size:18px;
-
-  font-weight:700;
-
-  color:#082b57;
-}
-
-
-/* =========================================================
-   QUESTION GRID
-   ========================================================= */
-
-.grid{
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(8,1fr);
-
-  gap:7px;
-}
-
-
-/* =========================================================
-   QUESTION CARD
-   ========================================================= */
-
-.card{
-
-  background:#fff;
-
-  border:
-    1px solid #d7e1ec;
-
-  border-radius:7px;
-
-  padding:8px;
-
-  text-align:center;
-
-  transition:
-    transform .15s ease,
-    box-shadow .15s ease;
-}
-
-
-.card:hover{
-
-  transform:
-    translateY(-2px);
-
-  box-shadow:
-    0 3px 9px rgba(0,0,0,.10);
-}
-
-
-/* =========================================================
-   QUESTION CODE
-   ========================================================= */
-
-.code{
-
-  font-size:12px;
-
-  font-weight:700;
-
-  display:block;
-
-  margin-bottom:7px;
-
-  color:#102a43;
-}
-
-
-/* =========================================================
-   OPEN BUTTON
-   ========================================================= */
-
-.open{
-
-  display:block;
-
-  background:#147dcc;
-
-  color:#fff;
-
-  text-decoration:none;
-
-  border-radius:6px;
-
-  padding:7px 3px;
-
-  font-size:12px;
-
-  font-weight:700;
-
-  text-align:center;
-
-  transition:
-    background .15s ease;
-}
-
-
-.open:hover{
-
-  background:#0d5fa8;
+  font-size:14px;
 }
 
 
@@ -349,10 +218,174 @@ body{
 
 
 /* =========================================================
+   PAPER
+   ========================================================= */
+
+.paper{
+
+  background:#fff;
+
+  border-radius:12px;
+
+  padding:16px;
+
+  margin-bottom:25px;
+
+  box-shadow:
+    0 2px 9px rgba(0,0,0,.05);
+
+  border-top:
+    4px solid #147dcc;
+}
+
+
+.paper h2{
+
+  margin:
+    0 0 14px;
+
+  font-size:20px;
+
+  color:#082b57;
+
+  border-bottom:
+    2px solid #eaf2fb;
+
+  padding-bottom:8px;
+}
+
+
+/* =========================================================
+   GROUP TITLE
+   ========================================================= */
+
+.group-title{
+
+  background:#eaf2fb;
+
+  border-radius:7px;
+
+  padding:8px 10px;
+
+  margin:
+    18px 0 10px;
+
+  font-size:15px;
+
+  font-weight:700;
+
+  color:#082b57;
+}
+
+
+/* =========================================================
+   GRID
+   ========================================================= */
+
+.grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(8,1fr);
+
+  gap:7px;
+}
+
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.card{
+
+  background:#fff;
+
+  border:
+    1px solid #d7e1ec;
+
+  border-radius:7px;
+
+  padding:7px;
+
+  text-align:center;
+
+  transition:
+    transform .15s ease,
+    box-shadow .15s ease;
+}
+
+
+.card:hover{
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 3px 9px rgba(0,0,0,.10);
+}
+
+
+/* =========================================================
+   QUESTION CODE
+   ========================================================= */
+
+.code{
+
+  font-size:11px;
+
+  font-weight:700;
+
+  display:block;
+
+  margin-bottom:7px;
+
+  color:#102a43;
+
+  white-space:nowrap;
+}
+
+
+/* =========================================================
+   OPEN BUTTON
+   ========================================================= */
+
+.open-btn{
+
+  display:block;
+
+  background:#147dcc;
+
+  color:#fff;
+
+  text-decoration:none;
+
+  border-radius:6px;
+
+  padding:6px 3px;
+
+  font-size:11px;
+
+  font-weight:700;
+
+  text-align:center;
+
+  transition:
+    background .15s ease;
+}
+
+
+.open-btn:hover{
+
+  background:#0b69b1;
+}
+
+
+/* =========================================================
    RESPONSIVE
    ========================================================= */
 
-@media(max-width:1000px){
+@media(max-width:1200px){
 
   .grid{
 
@@ -364,7 +397,7 @@ body{
 }
 
 
-@media(max-width:760px){
+@media(max-width:900px){
 
   .grid{
 
@@ -373,26 +406,35 @@ body{
 
   }
 
-
-  .mppsc-site-header .site-title{
-
-    font-size:17px;
-
-  }
-
-
-  .mppsc-site-header img{
-
-    width:36px;
-
-    height:36px;
-
-  }
-
 }
 
 
-@media(max-width:480px){
+@media(max-width:600px){
+
+  .mppsc-site-logo-bar{
+
+    min-height:56px;
+
+    padding:6px 10px;
+
+  }
+
+
+  .mppsc-site-logo-bar img{
+
+    width:42px;
+
+    height:42px;
+
+  }
+
+
+  .mppsc-site-logo-bar .mppsc-site-name{
+
+    font-size:15px;
+
+  }
+
 
   .grid{
 
@@ -415,13 +457,6 @@ body{
 
   }
 
-
-  .group-title{
-
-    font-size:15px;
-
-  }
-
 }
 
 </style>
@@ -433,21 +468,26 @@ body{
 
 
 <!-- =========================================================
-     SITE HEADER
+     SITE LOGO BAR
      ========================================================= -->
 
-<header class="mppsc-site-header">
+<div
+  class="mppsc-site-logo-bar"
+  data-mppsc-site-logo-bar
+>
 
   <img
-    src="MPPSC-MCQ-Hub-Logo.png"
+    src="my-logo.jpg"
     alt="MPPSC MCQ Hub Logo"
   >
 
-  <div class="site-title">
-    MPPSC MCQ Hub V14
+  <div class="mppsc-site-name">
+
+    MPPSC MCQ Hub
+
   </div>
 
-</header>
+</div>
 
 
 <!-- =========================================================
@@ -456,7 +496,7 @@ body{
 
 <div class="header">
 
-  📝 MPPSC MCQ Hub V14 — Paid MAINS
+  📝 MPPSC MCQ Hub V14 — Paid MAINS Portal
 
 </div>
 
@@ -471,18 +511,19 @@ body{
   <div class="top">
 
     <h1>
-      Paid Course MPPSC 2027
+      Paid MAINS Practice Course (Active)
     </h1>
 
     <p>
       <b>
-        MAINS — 600 Practice Boxes
+        6 Papers — 600 Total Answer Writing Boxes
       </b>
     </p>
 
     <p>
-      हर Paper में 5 अंक, 10 अंक और 15 अंक
-      के प्रश्न अलग-अलग boxes में।
+      प्रत्येक Paper में 40 × 5 Marks +
+      40 × 10 Marks +
+      20 × 15 Marks
     </p>
 
   </div>
@@ -503,217 +544,37 @@ body{
   </div>
 
 
-  <!-- QUESTIONS -->
+  <!-- =======================================================
+       QUESTIONS WILL BE GENERATED HERE
+       ======================================================= -->
+
   <div id="mains-student-container"></div>
 
 
 </div>
 
 
-<script>
+<!-- =========================================================
+     MAINS JAVASCRIPT
+     ========================================================= -->
+
+<script data-mppsc-course-auth>
+
+"use strict";
+
 
 /* =========================================================
-   MAINS COURSE AUTHENTICATION
+   REQUIRED COURSE
    ========================================================= */
 
-(function(){
+const REQUIRED_COURSE = "mains";
 
-  "use strict";
 
-  console.log("====================================");
-  console.log("🔐 MAINS AUTHENTICATION START");
-  console.log("====================================");
+/* =========================================================
+   LOGIN PAGE
+   ========================================================= */
 
-
-  /* -------------------------------------------------------
-     REQUIRED COURSE
-     ------------------------------------------------------- */
-
-  const REQUIRED_COURSE = "mains";
-
-
-  /* -------------------------------------------------------
-     LOGIN PAGE
-     ------------------------------------------------------- */
-
-  const LOGIN_PAGE = "student-login.html";
-
-
-  /* -------------------------------------------------------
-     READ SESSION
-     ------------------------------------------------------- */
-
-  let session = null;
-
-  try{
-
-    const rawSession =
-      localStorage.getItem(
-        "mppsc_student_session"
-      );
-
-    if(rawSession){
-
-      session =
-        JSON.parse(rawSession);
-
-    }
-
-  }
-
-  catch(error){
-
-    console.error(
-      "❌ Session parse error:",
-      error
-    );
-
-    session = null;
-
-  }
-
-
-  /* -------------------------------------------------------
-     READ AUTH FLAG
-     ------------------------------------------------------- */
-
-  const authenticated =
-    sessionStorage.getItem(
-      "mppsc_student_authenticated"
-    ) === "true";
-
-
-  /* -------------------------------------------------------
-     DEBUG
-     ------------------------------------------------------- */
-
-  console.log(
-    "Authenticated:",
-    authenticated
-  );
-
-  console.log(
-    "Session:",
-    session
-  );
-
-  console.log(
-    "Required Course:",
-    REQUIRED_COURSE
-  );
-
-
-  /* -------------------------------------------------------
-     SESSION VALUES
-     ------------------------------------------------------- */
-
-  const sessionUsername =
-    session &&
-    String(session.username || "").trim();
-
-  const sessionType =
-    session &&
-    String(session.type || "").toLowerCase().trim();
-
-
-  /* -------------------------------------------------------
-     FINAL ACCESS CHECK
-     ------------------------------------------------------- */
-
-  const allowed =
-    authenticated === true &&
-    session !== null &&
-    sessionUsername !== "" &&
-    sessionType === REQUIRED_COURSE;
-
-
-  console.log(
-    "Session Username:",
-    sessionUsername
-  );
-
-  console.log(
-    "Session Type:",
-    sessionType
-  );
-
-  console.log(
-    "MAINS Access Allowed:",
-    allowed
-  );
-
-
-  /* =======================================================
-     ACCESS DENIED
-     ======================================================= */
-
-  if(!allowed){
-
-    console.warn(
-      "❌ MAINS ACCESS DENIED"
-    );
-
-
-    /*
-      गलत/पुराना authentication flag हटाएं
-      लेकिन student database को touch नहीं करेंगे।
-    */
-
-    sessionStorage.removeItem(
-      "mppsc_student_authenticated"
-    );
-
-
-    /*
-      गलत course session को भी हटाएं।
-    */
-
-    localStorage.removeItem(
-      "mppsc_student_session"
-    );
-
-
-    alert(
-      "❌ इस Paid MAINS Course का access आपके account में नहीं है।\n\nकृपया MAINS Student Login करें।"
-    );
-
-
-    window.location.replace(
-      LOGIN_PAGE
-    );
-
-
-    return;
-
-  }
-
-
-  /* =======================================================
-     ACCESS GRANTED
-     ======================================================= */
-
-  console.log(
-    "✅ MAINS STUDENT VERIFIED"
-  );
-
-
-  /*
-    अब page दिखाएं
-  */
-
-  document.body.style.display =
-    "block";
-
-
-  /* =======================================================
-     BUILD MAINS QUESTIONS
-     ======================================================= */
-
-  buildStudentMains();
-
-
-})();
-
+const LOGIN_PAGE = "student-login.html";
 
 
 /* =========================================================
@@ -724,7 +585,7 @@ const mainsPapers = [
 
   {
     name:
-      "General Studies-I",
+      "General Studies-I (इतिहास एवं भूगोल)",
 
     prefix:
       "GS1",
@@ -736,7 +597,7 @@ const mainsPapers = [
 
   {
     name:
-      "General Studies-II",
+      "General Studies-II (राजनीति, अर्थशास्त्र एवं समाजशास्त्र)",
 
     prefix:
       "GS2",
@@ -748,7 +609,7 @@ const mainsPapers = [
 
   {
     name:
-      "General Studies-III",
+      "General Studies-III (विज्ञान, प्रौद्योगिकी एवं स्वास्थ्य)",
 
     prefix:
       "GS3",
@@ -760,7 +621,7 @@ const mainsPapers = [
 
   {
     name:
-      "General Studies-IV",
+      "General Studies-IV (दर्शनशास्त्र, मनोविज्ञान एवं लोक प्रशासन)",
 
     prefix:
       "GS4",
@@ -772,35 +633,34 @@ const mainsPapers = [
 
   {
     name:
-      "General Hindi & Grammar",
+      "General Studies-V (सामान्य हिंदी एवं व्याकरण)",
 
     prefix:
-      "GHG",
+      "GS5",
 
     folder:
-      "paper-05-general-hindi-grammar"
+      "paper-05-general-studies-v"
   },
 
 
   {
     name:
-      "Hindi Essay Draft",
+      "General Studies-VI (हिंदी निबंध एवं प्रारूप लेखन)",
 
     prefix:
-      "HED",
+      "GS6",
 
     folder:
-      "paper-06-hindi-essay-draft"
+      "paper-06-general-studies-vi"
   }
 
 ];
 
 
-
 /* =========================================================
    QUESTION GROUPS
 
-   40 + 40 + 20 = 100 QUESTIONS PER PAPER
+   40 + 40 + 20 = 100
    ========================================================= */
 
 const mainsGroups = [
@@ -810,10 +670,12 @@ const mainsGroups = [
     count:40
   },
 
+
   {
     marks:10,
     count:40
   },
+
 
   {
     marks:15,
@@ -821,7 +683,6 @@ const mainsGroups = [
   }
 
 ];
-
 
 
 /* =========================================================
@@ -835,6 +696,23 @@ function buildStudentMains(){
   );
 
 
+  const container =
+    document.getElementById(
+      "mains-student-container"
+    );
+
+
+  if(!container){
+
+    console.error(
+      "❌ mains-student-container नहीं मिला।"
+    );
+
+    return;
+
+  }
+
+
   let html = "";
 
 
@@ -843,6 +721,7 @@ function buildStudentMains(){
      ======================================================= */
 
   mainsPapers.forEach(
+
     function(paper,paperIndex){
 
       const paperNumber =
@@ -854,8 +733,10 @@ function buildStudentMains(){
         <section class="paper">
 
           <h2>
+
             Paper ${paperNumber} -
             ${paper.name}
+
           </h2>
 
       `;
@@ -866,6 +747,7 @@ function buildStudentMains(){
          ===================================================== */
 
       mainsGroups.forEach(
+
         function(group){
 
           html += `
@@ -889,14 +771,31 @@ function buildStudentMains(){
              ================================================= */
 
           for(
+
             let q = 1;
+
             q <= group.count;
+
             q++
+
           ){
 
             const qStr =
               String(q).padStart(3,"0");
 
+
+            /*
+             * Example:
+             *
+             * GS1-5M-001
+             * GS1-5M-040
+             *
+             * GS1-10M-001
+             * GS1-10M-040
+             *
+             * GS1-15M-001
+             * GS1-15M-020
+             */
 
             const code =
               `${paper.prefix}-${group.marks}M-${qStr}`;
@@ -911,14 +810,19 @@ function buildStudentMains(){
               <div class="card">
 
                 <span class="code">
+
                   ${code}
+
                 </span>
 
+
                 <a
-                  class="open"
+                  class="open-btn"
                   href="${questionURL}"
                 >
+
                   Open Question
+
                 </a>
 
               </div>
@@ -935,6 +839,7 @@ function buildStudentMains(){
           `;
 
         }
+
       );
 
 
@@ -945,29 +850,13 @@ function buildStudentMains(){
       `;
 
     }
+
   );
 
 
   /* =======================================================
-     INSERT QUESTIONS
+     INSERT HTML
      ======================================================= */
-
-  const container =
-    document.getElementById(
-      "mains-student-container"
-    );
-
-
-  if(!container){
-
-    console.error(
-      "❌ mains-student-container नहीं मिला।"
-    );
-
-    return;
-
-  }
-
 
   container.innerHTML =
     html;
@@ -978,6 +867,214 @@ function buildStudentMains(){
   );
 
 }
+
+
+/* =========================================================
+   STUDENT AUTHENTICATION
+   ========================================================= */
+
+(function(){
+
+  console.log(
+    "===================================="
+  );
+
+  console.log(
+    "🔐 MAINS AUTHENTICATION START"
+  );
+
+  console.log(
+    "===================================="
+  );
+
+
+  /* =======================================================
+     READ STUDENT SESSION
+     ======================================================= */
+
+  let session = null;
+
+
+  try{
+
+    const rawSession =
+      localStorage.getItem(
+        "mppsc_student_session"
+      );
+
+
+    if(rawSession){
+
+      session =
+        JSON.parse(
+          rawSession
+        );
+
+    }
+
+  }
+
+  catch(error){
+
+    console.error(
+      "❌ Student session parse error:",
+      error
+    );
+
+    session = null;
+
+  }
+
+
+  /* =======================================================
+     READ AUTH FLAG
+     ======================================================= */
+
+  const authenticated =
+    sessionStorage.getItem(
+      "mppsc_student_authenticated"
+    ) === "true";
+
+
+  /* =======================================================
+     SESSION VALUES
+     ======================================================= */
+
+  const sessionUsername =
+
+    session &&
+
+    String(
+      session.username || ""
+    ).trim();
+
+
+  const sessionType =
+
+    session &&
+
+    String(
+      session.type || ""
+    ).toLowerCase().trim();
+
+
+  /* =======================================================
+     DEBUG
+     ======================================================= */
+
+  console.log(
+    "Authenticated:",
+    authenticated
+  );
+
+
+  console.log(
+    "Student session:",
+    session
+  );
+
+
+  console.log(
+    "Session username:",
+    sessionUsername
+  );
+
+
+  console.log(
+    "Session type:",
+    sessionType
+  );
+
+
+  console.log(
+    "Required course:",
+    REQUIRED_COURSE
+  );
+
+
+  /* =======================================================
+     STRICT MAINS COURSE ACCESS
+     ======================================================= */
+
+  const allowed =
+
+    authenticated === true &&
+
+    session !== null &&
+
+    sessionUsername !== "" &&
+
+    sessionType === REQUIRED_COURSE;
+
+
+  console.log(
+    "MAINS access allowed:",
+    allowed
+  );
+
+
+  /* =======================================================
+     ACCESS DENIED
+     ======================================================= */
+
+  if(!allowed){
+
+    console.warn(
+      "❌ MAINS ACCESS DENIED"
+    );
+
+
+    /*
+     * IMPORTANT:
+     *
+     * यहाँ session को delete नहीं करेंगे।
+     *
+     * क्योंकि अगर PRELIMS user गलती से
+     * MAINS page खोलता है तो उसका सही
+     * PRELIMS session logout नहीं होना चाहिए।
+     */
+
+
+    alert(
+      "❌ इस Paid MAINS Course का access आपके account में नहीं है।\n\nकृपया MAINS Student Login करें।"
+    );
+
+
+    window.location.replace(
+      LOGIN_PAGE
+    );
+
+
+    return;
+
+  }
+
+
+  /* =======================================================
+     ACCESS GRANTED
+     ======================================================= */
+
+  console.log(
+    "✅ MAINS Student authentication सफल।"
+  );
+
+
+  /*
+   * अब page दिखाई देगा।
+   */
+
+  document.body.style.display =
+    "block";
+
+
+  /* =======================================================
+     BUILD MAINS QUESTIONS
+     ======================================================= */
+
+  buildStudentMains();
+
+
+})();
 
 </script>
 
