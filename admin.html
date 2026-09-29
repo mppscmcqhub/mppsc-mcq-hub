@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+
 <title>MPPSC MCQ Hub V14 - Full Admin Master Dashboard</title>
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -109,7 +111,6 @@ body{
     color:#082b57;
 }
 
-/* Clean card layout like the Student Unit/Test page */
 .grid{
     display:grid;
     grid-template-columns:repeat(6,minmax(0,1fr));
@@ -234,71 +235,8 @@ th{
     font-weight:bold;
 }
 
-@media(max-width:1200px){
-    .grid{
-        grid-template-columns:repeat(4,1fr);
-    }
-}
+/* ================= FINDER ================= */
 
-@media(max-width:800px){
-    .grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
-
-@media(max-width:700px){
-    .table-sec > div[style*="grid-template-columns"]{
-        grid-template-columns:1fr !important;
-    }
-}
-
-@media(max-width:500px){
-    .grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
-</style>
-
-<style data-mppsc-site-logo-bar>
-.mppsc-site-logo-bar {
-  width:100%;
-  background:#0d47a1;
-  color:#fff;
-  min-height:64px;
-  padding:8px 16px;
-  display:flex;
-  align-items:center;
-  gap:12px;
-  box-sizing:border-box;
-  font-family:Arial,Helvetica,sans-serif;
-  position:relative;
-  z-index:999;
-  box-shadow:0 2px 7px rgba(0,0,0,.12);
-}
-.mppsc-site-logo-bar img {
-  width:48px;
-  height:48px;
-  object-fit:cover;
-  border-radius:50%;
-  background:#fff;
-  padding:2px;
-  box-sizing:border-box;
-  flex:0 0 auto;
-}
-.mppsc-site-logo-bar .mppsc-site-name {
-  font-size:18px;
-  font-weight:700;
-  line-height:1.2;
-}
-@media (max-width:600px) {
-  .mppsc-site-logo-bar { min-height:56px; padding:6px 10px; }
-  .mppsc-site-logo-bar img { width:42px; height:42px; }
-  .mppsc-site-logo-bar .mppsc-site-name { font-size:15px; }
-}
-</style>
-
-<style>
-/* ===== Admin test navigation / finder ===== */
 .admin-finder{
     position:sticky;
     top:0;
@@ -306,6 +244,7 @@ th{
     background:#f3f6fa;
     padding:10px 0 12px;
 }
+
 .finder-box{
     background:#fff;
     border:1px solid #d7e1ec;
@@ -317,11 +256,13 @@ th{
     align-items:center;
     flex-wrap:wrap;
 }
+
 .finder-box label{
     font-weight:800;
     color:#082b57;
     white-space:nowrap;
 }
+
 #test-search{
     flex:1 1 320px;
     min-width:220px;
@@ -331,7 +272,12 @@ th{
     font-size:14px;
     outline:none;
 }
-#test-search:focus{border-color:#147dcc;box-shadow:0 0 0 2px rgba(20,125,204,.12);}
+
+#test-search:focus{
+    border-color:#147dcc;
+    box-shadow:0 0 0 2px rgba(20,125,204,.12);
+}
+
 .finder-btn{
     border:0;
     border-radius:7px;
@@ -341,32 +287,58 @@ th{
     background:#082b57;
     color:#fff;
 }
+
 .finder-count{
     color:#667085;
     font-size:13px;
     font-weight:700;
     width:100%;
 }
-.unit-sec,.paper{
-    overflow:hidden;
+
+.jump-row{
+    display:flex;
+    gap:7px;
+    flex-wrap:wrap;
+    margin-top:9px;
 }
-.section-toggle{
-    border:0;
-    background:transparent;
+
+.jump-btn{
+    border:1px solid #c9d7e6;
+    background:#fff;
     color:#082b57;
-    font:inherit;
-    font-weight:800;
-    cursor:pointer;
-    float:right;
-    padding:5px 9px;
     border-radius:6px;
+    padding:5px 8px;
+    font-size:12px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.jump-btn:hover{
     background:#eef4fb;
 }
-.section-toggle:hover{background:#dfeaf7;}
-.section-content{clear:both;}
-.section-collapsed .section-content{display:none;}
-.unit-sec h2,.paper h2{min-height:32px;}
-.card.is-hidden{display:none;}
+
+.unit-sec,
+.paper{
+    overflow:hidden;
+}
+
+.section-content{
+    clear:both;
+}
+
+.section-collapsed .section-content{
+    display:none;
+}
+
+.unit-sec h2,
+.paper h2{
+    min-height:32px;
+}
+
+.card.is-hidden{
+    display:none;
+}
+
 .no-results{
     display:none;
     margin-top:10px;
@@ -378,37 +350,284 @@ th{
     color:#7a5a00;
     font-weight:700;
 }
-.jump-row{
-    display:flex;
-    gap:7px;
-    flex-wrap:wrap;
-    margin-top:9px;
-}
-.jump-btn{
-    border:1px solid #c9d7e6;
-    background:#fff;
+
+/* ================= PASSWORD ================= */
+
+.password-cell{
+    font-family:monospace;
+    font-weight:800;
     color:#082b57;
-    border-radius:6px;
-    padding:5px 8px;
-    font-size:12px;
+    letter-spacing:.4px;
+}
+
+.copy-pass-btn{
+    margin-left:7px;
+    border:0;
+    background:#eef4ff;
+    color:#1551a5;
+    border-radius:5px;
+    padding:4px 7px;
+    cursor:pointer;
+    font-size:11px;
+    font-weight:700;
+}
+
+.copy-pass-btn:hover{
+    background:#dbe9ff;
+}
+
+/* ================= AUTH LOCK ================= */
+
+#admin-auth-lock{
+    position:fixed;
+    inset:0;
+    z-index:999999;
+    background:#eef4ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    overflow:auto;
+}
+
+.auth-box{
+    width:100%;
+    max-width:430px;
+    background:#fff;
+    border-radius:18px;
+    padding:28px;
+    box-shadow:0 8px 28px rgba(0,0,0,.14);
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+.auth-icon{
+    text-align:center;
+    font-size:42px;
+    margin-bottom:8px;
+}
+
+.auth-title{
+    text-align:center;
+    color:#082b57;
+    margin:0 0 8px;
+}
+
+.auth-subtitle{
+    text-align:center;
+    color:#667085;
+    margin:0 0 18px;
+}
+
+.auth-btn{
+    width:100%;
+    padding:12px;
+    border-radius:8px;
+    font-size:15px;
     font-weight:700;
     cursor:pointer;
 }
-.jump-btn:hover{background:#eef4fb;}
-@media(max-width:600px){
-    .finder-box{padding:10px;}
-    #test-search{min-width:100%;}
-    .finder-btn{flex:1;}
+
+.google-btn{
+    background:#fff;
+    color:#222;
+    border:1px solid #ccd6e3;
 }
+
+.verify-btn{
+    background:#1551a5;
+    color:#fff;
+    border:0;
+}
+
+.auth-input{
+    width:100%;
+    padding:12px;
+    margin:12px 0;
+    border:1px solid #ccd6e3;
+    border-radius:8px;
+    font-size:16px;
+    text-align:center;
+    letter-spacing:4px;
+    outline:none;
+}
+
+.auth-input:focus{
+    border-color:#1551a5;
+    box-shadow:0 0 0 2px rgba(21,81,165,.12);
+}
+
+.auth-message{
+    min-height:22px;
+    margin-top:12px;
+    text-align:center;
+    color:#d32f2f;
+    font-weight:700;
+    line-height:1.4;
+}
+
+.auth-info{
+    font-size:12px;
+    color:#667085;
+    margin-top:16px;
+    line-height:1.5;
+}
+
+.auth-warning{
+    display:none;
+    margin-top:10px;
+    padding:10px;
+    border-radius:8px;
+    background:#fff8e1;
+    border:1px solid #ffe082;
+    color:#7a5a00;
+    font-size:12px;
+    line-height:1.5;
+}
+
+.logout-btn{
+    border:0;
+    background:#c62828;
+    color:#fff;
+    padding:8px 12px;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:700;
+}
+
+.logout-btn:hover{
+    background:#a51f1f;
+}
+
+@media(max-width:1200px){
+    .grid{
+        grid-template-columns:repeat(4,1fr);
+    }
+}
+
+@media(max-width:800px){
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .header{
+        gap:10px;
+        flex-wrap:wrap;
+    }
+}
+
+@media(max-width:700px){
+
+    .table-sec > div[style*="grid-template-columns"]{
+        grid-template-columns:1fr !important;
+    }
+
+    .top h1{
+        font-size:20px;
+    }
+
+    .section-main-title{
+        font-size:20px;
+    }
+}
+
+@media(max-width:500px){
+
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:8px;
+    }
+
+    .card{
+        padding:10px 6px;
+        min-height:105px;
+    }
+
+    .header{
+        font-size:15px;
+    }
+
+    .home-btn{
+        font-size:12px;
+    }
+}
+
 </style>
+
+<style data-mppsc-site-logo-bar>
+
+.mppsc-site-logo-bar{
+    width:100%;
+    background:#0d47a1;
+    color:#fff;
+    min-height:64px;
+    padding:8px 16px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+    position:relative;
+    z-index:999;
+    box-shadow:0 2px 7px rgba(0,0,0,.12);
+}
+
+.mppsc-site-logo-bar img{
+    width:48px;
+    height:48px;
+    object-fit:cover;
+    border-radius:50%;
+    background:#fff;
+    padding:2px;
+    box-sizing:border-box;
+    flex:0 0 auto;
+}
+
+.mppsc-site-logo-bar .mppsc-site-name{
+    font-size:18px;
+    font-weight:700;
+    line-height:1.2;
+}
+
+@media(max-width:600px){
+
+    .mppsc-site-logo-bar{
+        min-height:56px;
+        padding:6px 10px;
+    }
+
+    .mppsc-site-logo-bar img{
+        width:42px;
+        height:42px;
+    }
+
+    .mppsc-site-logo-bar .mppsc-site-name{
+        font-size:15px;
+    }
+}
+
+</style>
+
 </head>
 
 <body>
-<div class="mppsc-site-logo-bar" data-mppsc-site-logo-bar>
-  <img src="my-logo.jpg" alt="MPPSC MCQ Hub Logo">
-  <div class="mppsc-site-name">MPPSC MCQ Hub</div>
+
+<!-- ================= SITE LOGO ================= -->
+
+<div class="mppsc-site-logo-bar">
+
+    <img
+        src="my-logo.jpg"
+        alt="MPPSC MCQ Hub Logo"
+    >
+
+    <div class="mppsc-site-name">
+        MPPSC MCQ Hub
+    </div>
+
 </div>
 
+
+<!-- ================= HEADER ================= -->
 
 <div class="header">
 
@@ -416,14 +635,31 @@ th{
         MPPSC MCQ Hub V14 — Full Admin Master Dashboard
     </span>
 
-    <a href="index.html" class="home-btn">
-        मुख्य वेबसाइट पर जाएँ
-    </a>
+    <div style="display:flex;gap:8px;align-items:center;">
+
+        <button
+            id="admin-logout-btn"
+            class="logout-btn"
+            type="button"
+            style="display:none;"
+            onclick="adminLogout()">
+            Logout
+        </button>
+
+        <a
+            href="index.html"
+            class="home-btn">
+            मुख्य वेबसाइट पर जाएँ
+        </a>
+
+    </div>
 
 </div>
 
 
 <div class="wrap">
+
+    <!-- ================= TOP ================= -->
 
     <div class="top">
 
@@ -439,20 +675,57 @@ th{
 
     </div>
 
+
     <!-- ================= TEST FINDER ================= -->
+
     <div class="admin-finder">
+
         <div class="finder-box">
-            <label for="test-search">🔎 Test/Box खोजें</label>
-            <input id="test-search" type="search"
-                   placeholder="जैसे P01T15, Unit 1, GS1-10M-045..."
-                   autocomplete="off">
-            <button class="finder-btn" type="button" onclick="clearTestSearch()">साफ करें</button>
-            <div id="finder-count" class="finder-count">सभी Tests/Boxes दिख रहे हैं।</div>
-            <div class="jump-row">
-                <button class="jump-btn" type="button" onclick="jumpToSection('prelims-master-container')">PRELIMS Units</button>
-                <button class="jump-btn" type="button" onclick="jumpToSection('mains-master-container')">MAINS Papers</button>
+
+            <label for="test-search">
+                🔎 Test/Box खोजें
+            </label>
+
+            <input
+                id="test-search"
+                type="search"
+                placeholder="जैसे P01T15, Unit 1, GS1-10M-045..."
+                autocomplete="off"
+            >
+
+            <button
+                class="finder-btn"
+                type="button"
+                onclick="clearTestSearch()">
+                साफ करें
+            </button>
+
+            <div
+                id="finder-count"
+                class="finder-count">
+                सभी Tests/Boxes दिख रहे हैं।
             </div>
+
+            <div class="jump-row">
+
+                <button
+                    class="jump-btn"
+                    type="button"
+                    onclick="jumpToSection('prelims-master-container')">
+                    PRELIMS Units
+                </button>
+
+                <button
+                    class="jump-btn"
+                    type="button"
+                    onclick="jumpToSection('mains-master-container')">
+                    MAINS Papers
+                </button>
+
+            </div>
+
         </div>
+
     </div>
 
 
@@ -461,7 +734,10 @@ th{
     <section class="table-sec">
 
         <h2 style="color:#4caf50;margin:0 0 5px 0;">
-            📥 छात्रों के पेंडिंग पेमेंट और रसीदें (Verification Requests)
+
+            📥 छात्रों के पेंडिंग पेमेंट और रसीदें
+            (Verification Requests)
+
         </h2>
 
         <div style="overflow-x:auto;">
@@ -492,7 +768,8 @@ th{
 
                     <tr>
 
-                        <td colspan="6"
+                        <td
+                            colspan="6"
                             style="text-align:center;color:#667085;font-weight:bold;">
 
                             वर्तमान में कोई पेंडिंग पेमेंट रिक्वेस्ट नहीं है।
@@ -512,56 +789,129 @@ th{
 
     <!-- ================= APPROVED STUDENTS ================= -->
 
-    <section class="table-sec" style="border-top-color:#147dcc;">
+    <section
+        class="table-sec"
+        style="border-top-color:#147dcc;">
 
         <h2 style="color:#082b57;margin:0 0 5px 0;">
+
             👨‍🎓 Approved Students — Course Wise Login Details
+
         </h2>
 
         <p style="color:#667085;margin:6px 0 12px;">
-            Approve करने के बाद student का mobile number, password और course यहाँ अपने-आप दिखाई देगा।
+
+            Approve करने के बाद student का mobile number,
+            password और course यहाँ अपने-आप दिखाई देगा।
+
         </p>
 
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+        <div
+            style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
 
-            <div style="border:1px solid #ffcdd2;border-radius:10px;overflow:hidden;">
-                <div style="background:#ffebee;color:#c62828;padding:10px 12px;font-weight:800;">
+            <!-- PRELIMS -->
+
+            <div
+                style="border:1px solid #ffcdd2;border-radius:10px;overflow:hidden;">
+
+                <div
+                    style="background:#ffebee;color:#c62828;padding:10px 12px;font-weight:800;">
+
                     📕 PRELIMS Students
+
                 </div>
+
                 <div style="overflow-x:auto;">
+
                     <table style="margin-top:0;">
+
                         <thead>
+
                             <tr>
+
                                 <th>मोबाइल नंबर</th>
+
                                 <th>Password</th>
+
                                 <th>Status</th>
+
                             </tr>
+
                         </thead>
+
                         <tbody id="approved-prelims-students">
-                            <tr><td colspan="3" style="text-align:center;color:#667085;">कोई PRELIMS student नहीं है।</td></tr>
+
+                            <tr>
+
+                                <td
+                                    colspan="3"
+                                    style="text-align:center;color:#667085;">
+
+                                    कोई PRELIMS student नहीं है।
+
+                                </td>
+
+                            </tr>
+
                         </tbody>
+
                     </table>
+
                 </div>
+
             </div>
 
-            <div style="border:1px solid #b3e5fc;border-radius:10px;overflow:hidden;">
-                <div style="background:#e1f5fe;color:#0277bd;padding:10px 12px;font-weight:800;">
+
+            <!-- MAINS -->
+
+            <div
+                style="border:1px solid #b3e5fc;border-radius:10px;overflow:hidden;">
+
+                <div
+                    style="background:#e1f5fe;color:#0277bd;padding:10px 12px;font-weight:800;">
+
                     📘 MAINS Students
+
                 </div>
+
                 <div style="overflow-x:auto;">
+
                     <table style="margin-top:0;">
+
                         <thead>
+
                             <tr>
+
                                 <th>मोबाइल नंबर</th>
+
                                 <th>Password</th>
+
                                 <th>Status</th>
+
                             </tr>
+
                         </thead>
+
                         <tbody id="approved-mains-students">
-                            <tr><td colspan="3" style="text-align:center;color:#667085;">कोई MAINS student नहीं है।</td></tr>
+
+                            <tr>
+
+                                <td
+                                    colspan="3"
+                                    style="text-align:center;color:#667085;">
+
+                                    कोई MAINS student नहीं है।
+
+                                </td>
+
+                            </tr>
+
                         </tbody>
+
                     </table>
+
                 </div>
+
             </div>
 
         </div>
@@ -573,7 +923,8 @@ th{
 
     <div class="section-main-title pre-title">
 
-        🏆 Paid PRELIMS — 250 Total Tests (Unit 1 to 10 + CET)
+        🏆 Paid PRELIMS — 250 Total Tests
+        (Unit 1 to 10 + CET)
 
     </div>
 
@@ -584,7 +935,8 @@ th{
 
     <div class="section-main-title mains-title">
 
-        📝 Paid MAINS — 600 Total Questions (Paper 1 to 6)
+        📝 Paid MAINS — 600 Total Questions
+        (Paper 1 to 6)
 
     </div>
 
@@ -592,6 +944,10 @@ th{
 
 </div>
 
+
+<!-- =========================================================
+     MAIN DASHBOARD SCRIPT
+========================================================= -->
 
 <script>
 
@@ -602,11 +958,28 @@ th{
 document.addEventListener("DOMContentLoaded", function(){
 
     loadPaymentRequests();
+
     loadApprovedStudents();
 
     renderPrelims200Boxes();
 
     renderMains600Boxes();
+
+    const input =
+        document.getElementById("test-search");
+
+    if(input){
+
+        input.addEventListener(
+            "input",
+            function(){
+
+                filterTests(this.value);
+
+            }
+        );
+
+    }
 
 });
 
@@ -618,16 +991,36 @@ document.addEventListener("DOMContentLoaded", function(){
 function loadPaymentRequests(){
 
     const tableBody =
-        document.getElementById("payment-requests-table");
+        document.getElementById(
+            "payment-requests-table"
+        );
 
     if(!tableBody) return;
 
     let pendingPayments =
         JSON.parse(
-            localStorage.getItem("mppsc_pending_payments")
+            localStorage.getItem(
+                "mppsc_pending_payments"
+            )
         ) || [];
 
     if(pendingPayments.length === 0){
+
+        tableBody.innerHTML = `
+
+            <tr>
+
+                <td
+                    colspan="6"
+                    style="text-align:center;color:#667085;font-weight:bold;">
+
+                    वर्तमान में कोई पेंडिंग पेमेंट रिक्वेस्ट नहीं है।
+
+                </td>
+
+            </tr>
+
+        `;
 
         return;
 
@@ -635,93 +1028,301 @@ function loadPaymentRequests(){
 
     let html = "";
 
-    pendingPayments.forEach(function(req,index){
+    pendingPayments.forEach(
+        function(req,index){
 
-        html += `
+            html += `
 
-        <tr>
+            <tr>
 
-            <td>
-                ${req.date || ""}
-            </td>
+                <td>
+                    ${escapeHtml(req.date || "")}
+                </td>
 
-            <td style="font-weight:bold;">
-                ${req.phone || ""}
-            </td>
+                <td style="font-weight:bold;">
+                    ${escapeHtml(req.phone || "")}
+                </td>
 
-            <td>
+                <td>
 
-                <span
-                    style="
-                    padding:4px 8px;
-                    border-radius:4px;
-                    font-weight:bold;
-                    font-size:12px;
-                    background:${req.course === "mains"
-                        ? "#e1f5fe"
-                        : "#ffebee"};
-                    color:${req.course === "mains"
-                        ? "#0288d1"
-                        : "#c62828"};
-                    ">
-
-                    ${(req.course || "").toUpperCase()}
-
-                </span>
-
-            </td>
-
-            <td style="font-family:monospace;font-weight:bold;">
-                ${req.utr || ""}
-            </td>
-
-            <td>
-
-                ${
-                    req.screenshot
-                    ?
-                    `<img
-                        src="${req.screenshot}"
+                    <span
                         style="
-                        width:40px;
-                        height:40px;
-                        object-fit:cover;
+                        padding:4px 8px;
                         border-radius:4px;
+                        font-weight:bold;
+                        font-size:12px;
+                        background:${
+                            req.course === "mains"
+                            ? "#e1f5fe"
+                            : "#ffebee"
+                        };
+                        color:${
+                            req.course === "mains"
+                            ? "#0288d1"
+                            : "#c62828"
+                        };
+                        ">
+
+                        ${escapeHtml(
+                            (req.course || "")
+                            .toUpperCase()
+                        )}
+
+                    </span>
+
+                </td>
+
+                <td
+                    style="font-family:monospace;font-weight:bold;">
+
+                    ${escapeHtml(req.utr || "")}
+
+                </td>
+
+                <td>
+
+                    ${
+                        req.screenshot
+
+                        ?
+
+                        `<img
+                            src="${escapeHtml(req.screenshot)}"
+                            style="
+                            width:40px;
+                            height:40px;
+                            object-fit:cover;
+                            border-radius:4px;
+                            cursor:pointer;
+                            "
+                            onclick="window.open('${escapeHtml(req.screenshot)}','_blank')"
+                        >`
+
+                        :
+
+                        "No Screenshot"
+                    }
+
+                </td>
+
+                <td>
+
+                    <button
+                        style="
+                        background:#4caf50;
+                        color:white;
+                        border:none;
+                        padding:5px 10px;
+                        border-radius:4px;
+                        cursor:pointer;
+                        font-weight:bold;
                         "
-                    >`
-                    :
-                    "No Screenshot"
-                }
+                        onclick="approvePayment(${index})">
 
-            </td>
+                        Approve
 
-            <td>
+                    </button>
 
-                <button
-                    style="
-                    background:#4caf50;
-                    color:white;
-                    border:none;
-                    padding:5px 10px;
-                    border-radius:4px;
-                    cursor:pointer;
-                    font-weight:bold;
-                    "
-                    onclick="approvePayment(${index})">
+                </td>
 
-                    Approve
+            </tr>
 
-                </button>
+            `;
 
-            </td>
+        }
+    );
 
-        </tr>
+    tableBody.innerHTML = html;
+
+}
+
+
+/* =========================================================
+   RANDOM STUDENT PASSWORD
+   Example: RKO@so478
+========================================================= */
+
+function generateStudentPassword(){
+
+    const upper =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    const lower =
+        "abcdefghijklmnopqrstuvwxyz";
+
+    const numbers =
+        "0123456789";
+
+    function randomChar(chars){
+
+        return chars[
+            Math.floor(
+                Math.random() * chars.length
+            )
+        ];
+
+    }
+
+    return (
+
+        randomChar(upper) +
+
+        randomChar(upper) +
+
+        randomChar(upper) +
+
+        "@" +
+
+        randomChar(lower) +
+
+        randomChar(lower) +
+
+        randomChar(numbers) +
+
+        randomChar(numbers) +
+
+        randomChar(numbers)
+
+    );
+
+}
+
+
+/* =========================================================
+   APPROVED STUDENTS
+========================================================= */
+
+function loadApprovedStudents(){
+
+    const users =
+        JSON.parse(
+            localStorage.getItem(
+                "mppsc_students"
+            )
+        ) || [];
+
+    renderStudentGroup(
+        users.filter(
+            u => u.type === "prelims"
+        ),
+        "approved-prelims-students",
+        "PRELIMS"
+    );
+
+    renderStudentGroup(
+        users.filter(
+            u => u.type === "mains"
+        ),
+        "approved-mains-students",
+        "MAINS"
+    );
+
+}
+
+
+/* =========================================================
+   RENDER STUDENTS
+========================================================= */
+
+function renderStudentGroup(
+    students,
+    elementId,
+    courseName
+){
+
+    const tbody =
+        document.getElementById(
+            elementId
+        );
+
+    if(!tbody) return;
+
+    if(students.length === 0){
+
+        tbody.innerHTML = `
+
+            <tr>
+
+                <td
+                    colspan="3"
+                    style="text-align:center;color:#667085;">
+
+                    कोई ${courseName} student नहीं है।
+
+                </td>
+
+            </tr>
 
         `;
 
-    });
+        return;
 
-    tableBody.innerHTML = html;
+    }
+
+    tbody.innerHTML =
+        students.map(
+            function(student){
+
+                const password =
+                    escapeHtml(
+                        student.password || ""
+                    );
+
+                return `
+
+                <tr>
+
+                    <td style="font-weight:700;">
+
+                        ${escapeHtml(
+                            student.username || ""
+                        )}
+
+                    </td>
+
+                    <td class="password-cell">
+
+                        ${password}
+
+                        <button
+                            class="copy-pass-btn"
+                            type="button"
+                            onclick="copyPassword(this,'${escapeJs(student.password || "")}')">
+
+                            Copy
+
+                        </button>
+
+                    </td>
+
+                    <td>
+
+                        <span
+                            style="
+                            color:${
+                                student.active
+                                ? "#2e7d32"
+                                : "#c62828"
+                            };
+                            font-weight:700;
+                            ">
+
+                            ${
+                                student.active
+                                ? "Active"
+                                : "Disabled"
+                            }
+
+                        </span>
+
+                    </td>
+
+                </tr>
+
+                `;
+
+            }
+        ).join("");
 
 }
 
@@ -730,132 +1331,234 @@ function loadPaymentRequests(){
    APPROVE PAYMENT
 ========================================================= */
 
-function loadApprovedStudents(){
-
-    const users = JSON.parse(localStorage.getItem("mppsc_students")) || [];
-
-    renderStudentGroup(
-        users.filter(u => u.type === "prelims"),
-        "approved-prelims-students",
-        "PRELIMS"
-    );
-
-    renderStudentGroup(
-        users.filter(u => u.type === "mains"),
-        "approved-mains-students",
-        "MAINS"
-    );
-}
-
-
-function renderStudentGroup(students, elementId, courseName){
-
-    const tbody = document.getElementById(elementId);
-    if(!tbody) return;
-
-    if(students.length === 0){
-        tbody.innerHTML = `<tr><td colspan="3" style="text-align:center;color:#667085;">कोई ${courseName} student नहीं है।</td></tr>`;
-        return;
-    }
-
-    tbody.innerHTML = students.map((student) => `
-        <tr>
-            <td style="font-weight:700;">${escapeHtml(student.username || "")}</td>
-            <td style="font-family:monospace;font-weight:700;">${escapeHtml(student.password || "")}</td>
-            <td>
-                <span style="color:${student.active ? "#2e7d32" : "#c62828"};font-weight:700;">
-                    ${student.active ? "Active" : "Disabled"}
-                </span>
-            </td>
-        </tr>
-    `).join("");
-}
-
-
-function escapeHtml(value){
-    return String(value).replace(/[&<>'"]/g, function(ch){
-        return ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;","\"":"&quot;"})[ch];
-    });
-}
-
-
 function approvePayment(index){
 
     let pendingPayments =
         JSON.parse(
-            localStorage.getItem("mppsc_pending_payments")
+            localStorage.getItem(
+                "mppsc_pending_payments"
+            )
         ) || [];
 
     if(!pendingPayments[index]){
 
-        alert("Payment request नहीं मिली।");
+        alert(
+            "Payment request नहीं मिली।"
+        );
 
         return;
 
     }
 
-    let approvedReq =
+    const approvedReq =
         pendingPayments[index];
 
+
+    /* NEW PASSWORD */
+
     const studentPassword =
-        "MPPSC-" +
-        Math.floor(
-            1000 +
-            Math.random() * 9000
-        );
+        generateStudentPassword();
+
 
     let users =
         JSON.parse(
-            localStorage.getItem("mppsc_students")
+            localStorage.getItem(
+                "mppsc_students"
+            )
         ) || [];
 
-    // Same mobile + same course को दोबारा duplicate account न बनाएं।
-    const existingIndex = users.findIndex(
-        u => u.username === approvedReq.phone && u.type === approvedReq.course
-    );
+
+    /* SAME MOBILE + SAME COURSE */
+
+    const existingIndex =
+        users.findIndex(
+            u =>
+                u.username ===
+                    approvedReq.phone
+                &&
+                u.type ===
+                    approvedReq.course
+        );
+
 
     const studentRecord = {
-        username: approvedReq.phone,
-        password: studentPassword,
-        type: approvedReq.course,
-        active: true
+
+        username:
+            approvedReq.phone,
+
+        password:
+            studentPassword,
+
+        type:
+            approvedReq.course,
+
+        active:
+            true,
+
+        createdAt:
+            new Date().toISOString()
+
     };
 
-    if (existingIndex !== -1) {
-        users[existingIndex] = studentRecord;
-    } else {
-        users.push(studentRecord);
+
+    if(existingIndex !== -1){
+
+        users[existingIndex] =
+            studentRecord;
+
+    }else{
+
+        users.push(
+            studentRecord
+        );
+
     }
+
 
     localStorage.setItem(
         "mppsc_students",
         JSON.stringify(users)
     );
 
+
     alert(
+
         "✓ Credentials Activated!\n\n" +
+
         "Mobile: " +
         approvedReq.phone +
+
         "\n\nPassword: " +
-        studentPassword
+        studentPassword +
+
+        "\n\nCourse: " +
+        String(
+            approvedReq.course || ""
+        ).toUpperCase()
+
     );
 
-    pendingPayments.splice(index,1);
+
+    pendingPayments.splice(
+        index,
+        1
+    );
+
 
     localStorage.setItem(
         "mppsc_pending_payments",
-        JSON.stringify(pendingPayments)
+        JSON.stringify(
+            pendingPayments
+        )
     );
 
+
     loadPaymentRequests();
+
     loadApprovedStudents();
 
 }
 
 
 /* =========================================================
-   PRELIMS — 250 TESTS (10 UNITS + CET)
-   10 UNITS × 20 TESTS
+   COPY PASSWORD
+========================================================= */
+
+async function copyPassword(
+    button,
+    password
+){
+
+    try{
+
+        await navigator.clipboard.writeText(
+            password
+        );
+
+        const oldText =
+            button.textContent;
+
+        button.textContent =
+            "Copied!";
+
+        setTimeout(
+            function(){
+
+                button.textContent =
+                    oldText;
+
+            },
+            1200
+        );
+
+    }catch(e){
+
+        alert(
+            "Password: " +
+            password
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   SAFE HTML
+========================================================= */
+
+function escapeHtml(value){
+
+    return String(value)
+        .replace(
+            /[&<>'"]/g,
+            function(ch){
+
+                return {
+
+                    "&":"&amp;",
+                    "<":"&lt;",
+                    ">":"&gt;",
+                    "'":"&#39;",
+                    "\"":"&quot;"
+
+                }[ch];
+
+            }
+        );
+
+}
+
+
+/* =========================================================
+   SAFE JS STRING
+========================================================= */
+
+function escapeJs(value){
+
+    return String(value)
+        .replace(
+            /\\/g,
+            "\\\\"
+        )
+        .replace(
+            /'/g,
+            "\\'"
+        )
+        .replace(
+            /\n/g,
+            "\\n"
+        )
+        .replace(
+            /\r/g,
+            "\\r"
+        );
+
+}
+
+
+/* =========================================================
+   PRELIMS — 250 TESTS
 ========================================================= */
 
 function renderPrelims200Boxes(){
@@ -896,7 +1599,11 @@ function renderPrelims200Boxes(){
     let preHtml = "";
 
 
-    for(let u = 1; u <= 10; u++){
+    for(
+        let u = 1;
+        u <= 10;
+        u++
+    ){
 
         let padU =
             u < 10
@@ -906,34 +1613,44 @@ function renderPrelims200Boxes(){
 
         preHtml += `
 
-        <section class="unit-sec" data-section-title="Unit ${u} - ${preUnits[u-1]}">
+        <section
+            class="unit-sec"
+            data-section-title="Unit ${u} - ${preUnits[u-1]}">
 
             <h2>
-                Unit ${u} - ${preUnits[u-1]}
-                <button type="button" class="section-toggle" onclick="toggleSection(this)">▼ Tests छिपाएँ</button>
+
+                Unit ${u} -
+                ${preUnits[u-1]}
+
+                <button
+                    type="button"
+                    class="section-toggle"
+                    onclick="toggleSection(this)">
+
+                    ▼ Tests छिपाएँ
+
+                </button>
+
             </h2>
 
             <div class="section-content">
-            <div class="grid">
+
+                <div class="grid">
 
         `;
 
 
-        for(let t = 1; t <= 20; t++){
+        for(
+            let t = 1;
+            t <= 20;
+            t++
+        ){
 
             let padT =
                 t < 10
                 ? "0" + t
                 : String(t);
 
-
-            /*
-                Example:
-                P01T01
-                P01T02
-                ...
-                P10T20
-            */
 
             let code =
                 `P${padU}T${padT}`;
@@ -942,14 +1659,27 @@ function renderPrelims200Boxes(){
             preHtml += `
 
                 <div class="card">
-                    <div class="card-title">📝 Test ${t}</div>
-                    <div class="card-meta">50 Questions • MCQ</div>
+
+                    <div class="card-title">
+                        📝 Test ${t}
+                    </div>
+
+                    <div class="card-meta">
+                        50 Questions • MCQ
+                    </div>
+
                     <a
                         class="open-btn pre-btn"
                         href="prelims-tests/unit-${padU}/${code}/index.html">
+
                         Open Test
+
                     </a>
-                    <span class="code">${code}</span>
+
+                    <span class="code">
+                        ${code}
+                    </span>
+
                 </div>
 
             `;
@@ -959,8 +1689,12 @@ function renderPrelims200Boxes(){
 
         preHtml += `
 
-            </div>
-            <div class="no-results">इस Unit में खोजे गए Test नहीं मिला।</div>
+                </div>
+
+                <div class="no-results">
+                    इस Unit में खोजा गया Test नहीं मिला।
+                </div>
+
             </div>
 
         </section>
@@ -970,51 +1704,96 @@ function renderPrelims200Boxes(){
     }
 
 
-    // CET — 50 additional tests, included in the same Paid PRELIMS course
+    /* CET */
+
     preHtml += `
 
-        <section class="unit-sec" data-section-title="CET - 50 Tests">
+        <section
+            class="unit-sec"
+            data-section-title="CET - 50 Tests">
 
             <h2>
+
                 CET - 50 Tests
-                <button type="button" class="section-toggle" onclick="toggleSection(this)">▼ Tests छिपाएँ</button>
+
+                <button
+                    type="button"
+                    class="section-toggle"
+                    onclick="toggleSection(this)">
+
+                    ▼ Tests छिपाएँ
+
+                </button>
+
             </h2>
 
             <div class="section-content">
-            <div class="grid">
+
+                <div class="grid">
 
     `;
 
-    for(let t = 1; t <= 50; t++){
 
-        let padT = t < 10 ? "0" + t : String(t);
-        let code = `CET${padT}`;
+    for(
+        let t = 1;
+        t <= 50;
+        t++
+    ){
+
+        let padT =
+            t < 10
+            ? "0" + t
+            : String(t);
+
+        let code =
+            `CET${padT}`;
+
 
         preHtml += `
 
-                <div class="card">
-                    <div class="card-title">📝 CET Test ${t}</div>
-                    <div class="card-meta">50 Questions • MCQ</div>
-                    <a
-                        class="open-btn pre-btn"
-                        href="prelims-tests/cet/${code}/index.html">
-                        Open Test
-                    </a>
-                    <span class="code">${code}</span>
+            <div class="card">
+
+                <div class="card-title">
+                    📝 CET Test ${t}
                 </div>
 
+                <div class="card-meta">
+                    50 Questions • MCQ
+                </div>
+
+                <a
+                    class="open-btn pre-btn"
+                    href="prelims-tests/cet/${code}/index.html">
+
+                    Open Test
+
+                </a>
+
+                <span class="code">
+                    ${code}
+                </span>
+
+            </div>
+
         `;
+
     }
+
 
     preHtml += `
 
-            </div>
-            <div class="no-results">CET में खोजा गया Test नहीं मिला।</div>
+                </div>
+
+                <div class="no-results">
+                    CET में खोजा गया Test नहीं मिला।
+                </div>
+
             </div>
 
         </section>
 
     `;
+
 
     container.innerHTML =
         preHtml;
@@ -1024,276 +1803,1521 @@ function renderPrelims200Boxes(){
 
 /* =========================================================
    MAINS — 600 BOXES
-   6 PAPERS × 100 BOXES
 ========================================================= */
 
 function renderMains600Boxes(){
 
-    const container = document.getElementById("mains-master-container");
+    const container =
+        document.getElementById(
+            "mains-master-container"
+        );
+
     if(!container) return;
 
+
     const mainsPapers = [
-        {name:"General Studies-I", prefix:"GS1", folder:"paper-01-general-studies-i"},
-        {name:"General Studies-II", prefix:"GS2", folder:"paper-02-general-studies-ii"},
-        {name:"General Studies-III", prefix:"GS3", folder:"paper-03-general-studies-iii"},
-        {name:"General Studies-IV", prefix:"GS4", folder:"paper-04-general-studies-iv"},
-        {name:"General Hindi & Grammar", prefix:"GH5", folder:"paper-05-general-hindi-grammar"},
-        {name:"Hindi Essay Draft", prefix:"HD6", folder:"paper-06-hindi-essay-draft"}
+
+        {
+            name:"General Studies-I",
+            prefix:"GS1",
+            folder:"paper-01-general-studies-i"
+        },
+
+        {
+            name:"General Studies-II",
+            prefix:"GS2",
+            folder:"paper-02-general-studies-ii"
+        },
+
+        {
+            name:"General Studies-III",
+            prefix:"GS3",
+            folder:"paper-03-general-studies-iii"
+        },
+
+        {
+            name:"General Studies-IV",
+            prefix:"GS4",
+            folder:"paper-04-general-studies-iv"
+        },
+
+        {
+            name:"General Hindi & Grammar",
+            prefix:"GH5",
+            folder:"paper-05-general-hindi-grammar"
+        },
+
+        {
+            name:"Hindi Essay Draft",
+            prefix:"HD6",
+            folder:"paper-06-hindi-essay-draft"
+        }
+
     ];
 
+
     const groups = [
-        {marks:5, count:40},
-        {marks:10, count:40},
-        {marks:15, count:20}
+
+        {
+            marks:5,
+            count:40
+        },
+
+        {
+            marks:10,
+            count:40
+        },
+
+        {
+            marks:15,
+            count:20
+        }
+
     ];
+
 
     let mainsHtml = "";
 
-    mainsPapers.forEach(function(paper, index){
 
-        const pNum = index + 1;
+    mainsPapers.forEach(
+        function(paper,index){
 
-        mainsHtml += `
-        <section class="paper" data-section-title="Paper ${pNum} - ${paper.name}">
-            <h2>
-                Paper ${pNum} - ${paper.name}
-                <button type="button" class="section-toggle" onclick="toggleSection(this)">▼ Questions छिपाएँ</button>
-            </h2>
-            <div class="section-content">
-        `;
+            const pNum =
+                index + 1;
 
-        groups.forEach(function(group){
 
             mainsHtml += `
-                <div class="group-title">
-                    ${group.marks} अंक वाले प्रश्न — ${group.count} Questions
-                </div>
-                <div class="grid">
+
+            <section
+                class="paper"
+                data-section-title="Paper ${pNum} - ${paper.name}">
+
+                <h2>
+
+                    Paper ${pNum} -
+                    ${paper.name}
+
+                    <button
+                        type="button"
+                        class="section-toggle"
+                        onclick="toggleSection(this)">
+
+                        ▼ Questions छिपाएँ
+
+                    </button>
+
+                </h2>
+
+                <div class="section-content">
+
             `;
 
-            for(let q = 1; q <= group.count; q++){
 
-                const qStr = String(q).padStart(3,"0");
-                const code = `${paper.prefix}-${group.marks}M-${qStr}`;
+            groups.forEach(
+                function(group){
 
-                mainsHtml += `
-                    <div class="card">
-                        <div class="card-title">📄 Question ${q}</div>
-                        <div class="card-meta">${group.marks} Marks • Mains</div>
-                        <a class="open-btn mains-btn"
-                           href="${paper.folder}/${group.marks}-marks/${code}/index.html">
-                           Open Questions
-                        </a>
-                        <span class="code">${code}</span>
+                    mainsHtml += `
+
+                        <div class="group-title">
+
+                            ${group.marks}
+                            अंक वाले प्रश्न —
+                            ${group.count}
+                            Questions
+
+                        </div>
+
+                        <div class="grid">
+
+                    `;
+
+
+                    for(
+                        let q = 1;
+                        q <= group.count;
+                        q++
+                    ){
+
+                        const qStr =
+                            String(q)
+                            .padStart(3,"0");
+
+
+                        const code =
+                            `${paper.prefix}-${group.marks}M-${qStr}`;
+
+
+                        mainsHtml += `
+
+                            <div class="card">
+
+                                <div class="card-title">
+                                    📄 Question ${q}
+                                </div>
+
+                                <div class="card-meta">
+                                    ${group.marks} Marks • Mains
+                                </div>
+
+                                <a
+                                    class="open-btn mains-btn"
+                                    href="${paper.folder}/${group.marks}-marks/${code}/index.html">
+
+                                    Open Questions
+
+                                </a>
+
+                                <span class="code">
+                                    ${code}
+                                </span>
+
+                            </div>
+
+                        `;
+
+                    }
+
+
+                    mainsHtml += `
+
+                        </div>
+
+                    `;
+
+                }
+            );
+
+
+            mainsHtml += `
+
+                    <div class="no-results">
+                        इस Paper में खोजा गया Question नहीं मिला।
                     </div>
-                `;
-            }
 
-            mainsHtml += `</div>`;
-        });
+                </div>
 
-        mainsHtml += `
-            <div class="no-results">इस Paper में खोजा गया Question नहीं मिला।</div>
-            </div>
-        </section>
-        `;
-    });
+            </section>
 
-    container.innerHTML = mainsHtml;
+            `;
+
+        }
+    );
+
+
+    container.innerHTML =
+        mainsHtml;
+
 }
+
+
+/* =========================================================
+   SECTION TOGGLE
+========================================================= */
 
 function toggleSection(button){
-    const section = button.closest(".unit-sec, .paper");
+
+    const section =
+        button.closest(
+            ".unit-sec, .paper"
+        );
+
     if(!section) return;
-    const collapsed = section.classList.toggle("section-collapsed");
-    button.textContent = collapsed
-        ? "▶ Tests/Boxes खोलें"
-        : (section.classList.contains("unit-sec") ? "▼ Tests छिपाएँ" : "▼ Boxes छिपाएँ");
+
+
+    const collapsed =
+        section.classList.toggle(
+            "section-collapsed"
+        );
+
+
+    button.textContent =
+        collapsed
+
+        ?
+
+        "▶ Tests/Boxes खोलें"
+
+        :
+
+        (
+            section.classList.contains(
+                "unit-sec"
+            )
+
+            ?
+
+            "▼ Tests छिपाएँ"
+
+            :
+
+            "▼ Boxes छिपाएँ"
+        );
+
 }
+
+
+/* =========================================================
+   JUMP
+========================================================= */
 
 function jumpToSection(id){
-    const el=document.getElementById(id);
-    if(el) el.scrollIntoView({behavior:"smooth", block:"start"});
+
+    const el =
+        document.getElementById(id);
+
+    if(el){
+
+        el.scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+
+    }
+
 }
+
+
+/* =========================================================
+   CLEAR SEARCH
+========================================================= */
 
 function clearTestSearch(){
-    const input=document.getElementById("test-search");
+
+    const input =
+        document.getElementById(
+            "test-search"
+        );
+
     if(input){
-        input.value="";
+
+        input.value = "";
+
         filterTests("");
+
         input.focus();
+
     }
+
 }
+
+
+/* =========================================================
+   FILTER
+========================================================= */
 
 function filterTests(query){
-    query=String(query||"").trim().toLowerCase();
-    const cards=document.querySelectorAll("#prelims-master-container .card, #mains-master-container .card");
-    let visible=0;
-    cards.forEach(card=>{
-        const text=card.textContent.toLowerCase();
-        const match=!query || text.includes(query);
-        card.classList.toggle("is-hidden",!match);
-        if(match) visible++;
-    });
 
-    document.querySelectorAll("#prelims-master-container .unit-sec, #mains-master-container .paper")
-      .forEach(section=>{
-        const sectionCards=section.querySelectorAll(".card");
-        const shown=section.querySelectorAll(".card:not(.is-hidden)").length;
-        const empty=section.querySelector(".no-results");
-        section.style.display = query && shown===0 ? "none" : "";
-        if(empty) empty.style.display = query && shown===0 ? "block" : "none";
-        if(query && shown>0 && section.classList.contains("section-collapsed")){
-            section.classList.remove("section-collapsed");
-            const btn=section.querySelector(".section-toggle");
-            if(btn) btn.textContent=section.classList.contains("unit-sec") ? "▼ Tests छिपाएँ" : "▼ Boxes छिपाएँ";
+    query =
+        String(query || "")
+        .trim()
+        .toLowerCase();
+
+
+    const cards =
+        document.querySelectorAll(
+            "#prelims-master-container .card, #mains-master-container .card"
+        );
+
+
+    let visible = 0;
+
+
+    cards.forEach(
+        function(card){
+
+            const text =
+                card.textContent
+                .toLowerCase();
+
+
+            const match =
+                !query ||
+                text.includes(query);
+
+
+            card.classList.toggle(
+                "is-hidden",
+                !match
+            );
+
+
+            if(match){
+
+                visible++;
+
+            }
+
         }
-      });
+    );
 
-    const count=document.getElementById("finder-count");
+
+    document.querySelectorAll(
+        "#prelims-master-container .unit-sec, #mains-master-container .paper"
+    ).forEach(
+        function(section){
+
+            const shown =
+                section.querySelectorAll(
+                    ".card:not(.is-hidden)"
+                ).length;
+
+
+            const empty =
+                section.querySelector(
+                    ".no-results"
+                );
+
+
+            section.style.display =
+                query && shown === 0
+                ? "none"
+                : "";
+
+
+            if(empty){
+
+                empty.style.display =
+                    query && shown === 0
+                    ? "block"
+                    : "none";
+
+            }
+
+
+            if(
+                query &&
+                shown > 0 &&
+                section.classList.contains(
+                    "section-collapsed"
+                )
+            ){
+
+                section.classList.remove(
+                    "section-collapsed"
+                );
+
+
+                const btn =
+                    section.querySelector(
+                        ".section-toggle"
+                    );
+
+
+                if(btn){
+
+                    btn.textContent =
+                        section.classList.contains(
+                            "unit-sec"
+                        )
+
+                        ?
+
+                        "▼ Tests छिपाएँ"
+
+                        :
+
+                        "▼ Boxes छिपाएँ";
+
+                }
+
+            }
+
+        }
+    );
+
+
+    const count =
+        document.getElementById(
+            "finder-count"
+        );
+
+
     if(count){
-        count.textContent=query
-          ? `${visible} matching Test/Box दिखाई दे रहे हैं।`
-          : "सभी Tests/Boxes दिख रहे हैं।";
-    }
-}
 
-document.addEventListener("DOMContentLoaded",function(){
-    const input=document.getElementById("test-search");
-    if(input){
-        input.addEventListener("input",function(){ filterTests(this.value); });
+        count.textContent =
+            query
+
+            ?
+
+            `${visible} matching Test/Box दिखाई दे रहे हैं।`
+
+            :
+
+            "सभी Tests/Boxes दिख रहे हैं।";
+
     }
-});
+
+}
 
 </script>
 
-<!-- ================= GOOGLE + TOTP ADMIN AUTH ================= -->
-<div id="admin-auth-lock" style="position:fixed;inset:0;z-index:999999;background:#eef4ff;display:flex;align-items:center;justify-content:center;padding:20px;overflow:auto;">
-  <div style="width:100%;max-width:430px;background:#fff;border-radius:18px;padding:28px;box-shadow:0 8px 28px rgba(0,0,0,.14);font-family:Arial,Helvetica,sans-serif;">
-    <div style="text-align:center;font-size:42px;margin-bottom:8px">🔐</div>
-    <h2 style="text-align:center;color:#082b57;margin:0 0 8px">Admin Login</h2>
-    <p style="text-align:center;color:#667085;margin:0 0 18px">MPPSC MCQ Hub Admin Panel</p>
-    <button id="google-login-btn" type="button" style="width:100%;padding:12px;border:0;border-radius:8px;background:#fff;color:#222;border:1px solid #ccd6e3;font-size:15px;font-weight:700;cursor:pointer">🔐 Continue with Google</button>
-    <div id="auth-message" style="min-height:22px;margin-top:12px;text-align:center;color:#d32f2f;font-weight:700"></div>
-    <div id="totp-enroll" style="display:none">
-      <hr style="border:0;border-top:1px solid #e5e7eb;margin:18px 0">
-      <h3 style="color:#082b57;margin:0 0 8px">Google Authenticator सेट करें</h3>
-      <p style="color:#667085;font-size:13px">QR को Google Authenticator में scan करें, फिर 6-digit code डालें।</p>
-      <div id="totp-qr" style="display:flex;justify-content:center;margin:14px 0"></div>
-      <div id="totp-secret" style="font-size:12px;color:#667085;word-break:break-all"></div>
-      <input id="totp-enroll-code" inputmode="numeric" maxlength="6" placeholder="6-digit code" style="width:100%;padding:12px;margin:12px 0;border:1px solid #ccd6e3;border-radius:8px;font-size:16px;text-align:center;letter-spacing:4px">
-      <button id="totp-enroll-btn" type="button" style="width:100%;padding:12px;border:0;border-radius:8px;background:#1551a5;color:#fff;font-weight:800;cursor:pointer">Authenticator जोड़ें</button>
+
+<!-- =========================================================
+     GOOGLE + TOTP ADMIN AUTH
+========================================================= -->
+
+<div id="admin-auth-lock">
+
+    <div class="auth-box">
+
+        <div class="auth-icon">
+            🔐
+        </div>
+
+        <h2 class="auth-title">
+            Admin Login
+        </h2>
+
+        <p class="auth-subtitle">
+            MPPSC MCQ Hub Admin Panel
+        </p>
+
+
+        <!-- GOOGLE LOGIN -->
+
+        <button
+            id="google-login-btn"
+            type="button"
+            class="auth-btn google-btn">
+
+            🔐 Continue with Google
+
+        </button>
+
+
+        <!-- MESSAGE -->
+
+        <div
+            id="auth-message"
+            class="auth-message">
+        </div>
+
+
+        <!-- CLOCK WARNING -->
+
+        <div
+            id="totp-clock-warning"
+            class="auth-warning">
+
+            ⚠️ अगर Google Authenticator का code
+            बार-बार invalid आ रहा है, तो आपके
+            computer/mobile की Date & Time को
+            <b>Automatic / Set time automatically</b>
+            पर रखें।
+
+        </div>
+
+
+        <!-- TOTP ENROLL -->
+
+        <div
+            id="totp-enroll"
+            style="display:none;">
+
+            <hr
+                style="
+                border:0;
+                border-top:1px solid #e5e7eb;
+                margin:18px 0;
+                ">
+
+            <h3
+                style="
+                color:#082b57;
+                margin:0 0 8px;
+                ">
+
+                Google Authenticator सेट करें
+
+            </h3>
+
+            <p
+                style="
+                color:#667085;
+                font-size:13px;
+                ">
+
+                नीचे दिए QR को Google Authenticator
+                में scan करें, फिर 6-digit code डालें।
+
+            </p>
+
+
+            <div
+                id="totp-qr"
+                style="
+                display:flex;
+                justify-content:center;
+                margin:14px 0;
+                ">
+
+            </div>
+
+
+            <div
+                id="totp-secret"
+                style="
+                font-size:12px;
+                color:#667085;
+                word-break:break-all;
+                background:#f7f9fc;
+                padding:8px;
+                border-radius:6px;
+                ">
+
+            </div>
+
+
+            <input
+                id="totp-enroll-code"
+                class="auth-input"
+                inputmode="numeric"
+                maxlength="6"
+                autocomplete="one-time-code"
+                placeholder="6-digit code">
+
+
+            <button
+                id="totp-enroll-btn"
+                type="button"
+                class="auth-btn verify-btn">
+
+                Authenticator जोड़ें
+
+            </button>
+
+        </div>
+
+
+        <!-- TOTP LOGIN -->
+
+        <div
+            id="totp-login"
+            style="display:none;">
+
+            <hr
+                style="
+                border:0;
+                border-top:1px solid #e5e7eb;
+                margin:18px 0;
+                ">
+
+            <h3
+                style="
+                color:#082b57;
+                margin:0 0 8px;
+                ">
+
+                2-Step Verification
+
+            </h3>
+
+            <p
+                style="
+                color:#667085;
+                font-size:13px;
+                ">
+
+                Google Authenticator से
+                6-digit code डालें।
+
+            </p>
+
+
+            <input
+                id="totp-code"
+                class="auth-input"
+                inputmode="numeric"
+                maxlength="6"
+                autocomplete="one-time-code"
+                placeholder="6-digit code">
+
+
+            <button
+                id="totp-login-btn"
+                type="button"
+                class="auth-btn verify-btn">
+
+                Verify & Login
+
+            </button>
+
+        </div>
+
+
+        <p class="auth-info">
+
+            Google Sign-In + Google Authenticator
+            TOTP Firebase Authentication से चलता है।
+
+            <br><br>
+
+            पहली बार login पर Authenticator setup
+            दिखाई देगा।
+
+        </p>
+
     </div>
-    <div id="totp-login" style="display:none">
-      <hr style="border:0;border-top:1px solid #e5e7eb;margin:18px 0">
-      <h3 style="color:#082b57;margin:0 0 8px">2-Step Verification</h3>
-      <p style="color:#667085;font-size:13px">Google Authenticator से 6-digit code डालें।</p>
-      <input id="totp-code" inputmode="numeric" maxlength="6" placeholder="6-digit code" style="width:100%;padding:12px;margin:12px 0;border:1px solid #ccd6e3;border-radius:8px;font-size:16px;text-align:center;letter-spacing:4px">
-      <button id="totp-login-btn" type="button" style="width:100%;padding:12px;border:0;border-radius:8px;background:#1551a5;color:#fff;font-weight:800;cursor:pointer">Verify & Login</button>
-    </div>
-    <p style="font-size:12px;color:#667085;margin-top:16px;line-height:1.5">Google Sign-In + TOTP MFA Firebase Authentication से चलता है। Firebase Console में Google provider और TOTP MFA enable करें।</p>
-  </div>
+
 </div>
 
-<script type="module">
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js';
-import {
-  getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged,
-  multiFactor, TotpMultiFactorGenerator, getMultiFactorResolver
-} from 'https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js';
 
-/* Firebase Console की वास्तविक config यहाँ डालें */
+<!-- =========================================================
+     FIREBASE AUTH
+========================================================= -->
+
+<script type="module">
+
+import {
+    initializeApp
+} from
+'https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js';
+
+
+import {
+    getAuth,
+    GoogleAuthProvider,
+    signInWithPopup,
+    signOut,
+    onAuthStateChanged,
+    multiFactor,
+    TotpMultiFactorGenerator,
+    getMultiFactorResolver
+} from
+'https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js';
+
+
+/* =========================================================
+   FIREBASE CONFIG
+========================================================= */
+
 const firebaseConfig = {
-  apiKey: "AIzaSyAowKOyJ_6Upx0z5VcU_2fM2jk8M6A2dUk",
-  authDomain: "mppsc-mcq-hub.firebaseapp.com",
-  projectId: "mppsc-mcq-hub",
-  storageBucket: "mppsc-mcq-hub.firebasestorage.app",
-  messagingSenderId: "709069054485",
-  appId: "1:709069054485:web:578a8908ae9f0741c3a41c",
-  measurementId: "G-W0YRPE35L2"
+
+    apiKey:
+        "AIzaSyAowKOyJ_6Upx0z5VcU_2fM2jk8M6A2dUk",
+
+    authDomain:
+        "mppsc-mcq-hub.firebaseapp.com",
+
+    projectId:
+        "mppsc-mcq-hub",
+
+    storageBucket:
+        "mppsc-mcq-hub.firebasestorage.app",
+
+    messagingSenderId:
+        "709069054485",
+
+    appId:
+        "1:709069054485:web:578a8908ae9f0741c3a41c",
+
+    measurementId:
+        "G-W0YRPE35L2"
+
 };
 
-/* केवल आपके admin Google account को अनुमति दें */
-const ALLOWED_ADMIN_EMAIL = 'PASTE_YOUR_ADMIN_GMAIL';
 
-const auth = getAuth(initializeApp(firebaseConfig));
-const provider = new GoogleAuthProvider();
-provider.setCustomParameters({prompt:'select_account'});
-const $ = id => document.getElementById(id);
-function message(text, ok=false){
-  const el=$('auth-message');
-  if(String(text||'').includes('auth/api-key-not-valid')){
-    text='Firebase API key invalid है। Firebase Web App config और API key restrictions check करें।';
-  } el.textContent=text||''; el.style.color=ok?'#087f23':'#d32f2f'; }
-function allowed(user){ return user?.email && user.email.toLowerCase()===ALLOWED_ADMIN_EMAIL.toLowerCase(); }
-function unlock(user){
-  if(!allowed(user)){ message('यह Google account Admin के लिए authorized नहीं है।'); return; }
-  sessionStorage.setItem('mppsc_admin_authenticated','true');
-  sessionStorage.setItem('mppsc_admin_email',user.email);
-  $('admin-auth-lock').style.display='none';
+/* =========================================================
+   IMPORTANT:
+   यहाँ अपना ADMIN GMAIL डालें
+========================================================= */
+
+const ALLOWED_ADMIN_EMAIL =
+    "PASTE_YOUR_ADMIN_GMAIL";
+
+
+/* =========================================================
+   FIREBASE INIT
+========================================================= */
+
+const app =
+    initializeApp(
+        firebaseConfig
+    );
+
+const auth =
+    getAuth(app);
+
+const provider =
+    new GoogleAuthProvider();
+
+
+provider.setCustomParameters({
+    prompt:"select_account"
+});
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+const $ =
+    id =>
+        document.getElementById(id);
+
+
+function message(
+    text,
+    ok=false
+){
+
+    const el =
+        $("auth-message");
+
+    if(!el) return;
+
+
+    let finalText =
+        String(text || "");
+
+
+    if(
+        finalText.includes(
+            "auth/api-key-not-valid"
+        )
+    ){
+
+        finalText =
+            "Firebase API key invalid है। Firebase Web App config और API key restrictions check करें।";
+
+    }
+
+
+    if(
+        finalText.includes(
+            "auth/invalid-verification-code"
+        )
+    ){
+
+        finalText =
+            "Authenticator code स्वीकार नहीं हुआ। नया 6-digit code आने पर तुरंत डालें और मोबाइल/PC का समय Automatic रखें।";
+
+    }
+
+
+    if(
+        finalText.includes(
+            "auth/code-expired"
+        )
+    ){
+
+        finalText =
+            "Authenticator code expire हो गया। नया 6-digit code डालें।";
+
+    }
+
+
+    el.textContent =
+        finalText;
+
+
+    el.style.color =
+        ok
+        ? "#087f23"
+        : "#d32f2f";
+
 }
+
+
+function showClockWarning(){
+
+    const warning =
+        $("totp-clock-warning");
+
+    if(warning){
+
+        warning.style.display =
+            "block";
+
+    }
+
+}
+
+
+/* =========================================================
+   ADMIN EMAIL CHECK
+========================================================= */
+
+function allowed(user){
+
+    if(!user?.email){
+
+        return false;
+
+    }
+
+
+    if(
+        !ALLOWED_ADMIN_EMAIL ||
+        ALLOWED_ADMIN_EMAIL ===
+            "PASTE_YOUR_ADMIN_GMAIL"
+    ){
+
+        return false;
+
+    }
+
+
+    return (
+        user.email.toLowerCase() ===
+        ALLOWED_ADMIN_EMAIL.toLowerCase()
+    );
+
+}
+
+
+/* =========================================================
+   UNLOCK
+========================================================= */
+
+function unlock(user){
+
+    if(!allowed(user)){
+
+        message(
+            "यह Google account Admin के लिए authorized नहीं है।"
+        );
+
+        return;
+
+    }
+
+
+    sessionStorage.setItem(
+        "mppsc_admin_authenticated",
+        "true"
+    );
+
+
+    sessionStorage.setItem(
+        "mppsc_admin_email",
+        user.email
+    );
+
+
+    const lock =
+        $("admin-auth-lock");
+
+
+    if(lock){
+
+        lock.style.display =
+            "none";
+
+    }
+
+
+    const logoutBtn =
+        $("admin-logout-btn");
+
+
+    if(logoutBtn){
+
+        logoutBtn.style.display =
+            "inline-block";
+
+    }
+
+}
+
+
+/* =========================================================
+   SHOW TOTP LOGIN
+========================================================= */
+
+function showTotpLogin(
+    resolver,
+    hint
+){
+
+    $("totp-login").style.display =
+        "block";
+
+
+    $("totp-enroll").style.display =
+        "none";
+
+
+    showClockWarning();
+
+
+    const input =
+        $("totp-code");
+
+
+    if(input){
+
+        input.focus();
+
+    }
+
+
+    $("totp-login-btn").onclick =
+        async function(){
+
+            const code =
+                $("totp-code")
+                .value
+                .trim();
+
+
+            if(
+                !/^\d{6}$/.test(code)
+            ){
+
+                message(
+                    "6 अंकों का सही code डालें।"
+                );
+
+                return;
+
+            }
+
+
+            try{
+
+                const assertion =
+                    TotpMultiFactorGenerator
+                    .assertionForSignIn(
+                        hint.uid,
+                        code
+                    );
+
+
+                const credential =
+                    await resolver.resolveSignIn(
+                        assertion
+                    );
+
+
+                if(
+                    !allowed(
+                        credential.user
+                    )
+                ){
+
+                    message(
+                        "यह Google account authorized नहीं है।"
+                    );
+
+                    return;
+
+                }
+
+
+                message(
+                    "2-Step Verification सफल।",
+                    true
+                );
+
+
+                unlock(
+                    credential.user
+                );
+
+
+            }catch(error){
+
+                console.error(
+                    "TOTP verification error:",
+                    error
+                );
+
+
+                message(
+                    error.message ||
+                    "Authenticator code गलत या expired है।"
+                );
+
+
+                showClockWarning();
+
+            }
+
+        };
+
+}
+
+
+/* =========================================================
+   ENROLL TOTP
+========================================================= */
 
 async function enrollTotp(user){
-  try{
-    const session=await multiFactor(user).getSession();
-    const secret=await TotpMultiFactorGenerator.generateSecret(session);
-    const uri=secret.generateQrCodeUrl(user.email,'MPPSC MCQ Hub Admin');
-    const qr=$('totp-qr'); qr.innerHTML='';
-    const img=document.createElement('img'); img.width=190; img.height=190; img.alt='Google Authenticator QR';
-    img.src='https://quickchart.io/qr?text='+encodeURIComponent(uri)+'&size=190'; qr.appendChild(img);
-    $('totp-secret').textContent='Manual key: '+secret.secretKey;
-    $('totp-enroll').style.display='block';
-    $('totp-enroll-btn').onclick=async()=>{
-      const code=$('totp-enroll-code').value.trim();
-      if(!/^\d{6}$/.test(code)){message('6 अंकों का सही code डालें।');return;}
-      try{
-        const assertion=TotpMultiFactorGenerator.assertionForEnrollment(secret,code);
-        await multiFactor(user).enroll(assertion,'Google Authenticator');
-        message('Authenticator सफलतापूर्वक जुड़ गया।',true); unlock(user);
-      }catch(e){message(e.message||'Authenticator code गलत है।');}
-    };
-  }catch(e){message(e.message||'Authenticator setup शुरू नहीं हो सका।');}
+
+    try{
+
+        const session =
+            await multiFactor(
+                user
+            ).getSession();
+
+
+        const secret =
+            await TotpMultiFactorGenerator
+            .generateSecret(
+                session
+            );
+
+
+        const uri =
+            secret.generateQrCodeUrl(
+                user.email,
+                "MPPSC MCQ Hub Admin"
+            );
+
+
+        const qr =
+            $("totp-qr");
+
+
+        qr.innerHTML = "";
+
+
+        const img =
+            document.createElement(
+                "img"
+            );
+
+
+        img.width = 190;
+
+        img.height = 190;
+
+        img.alt =
+            "Google Authenticator QR";
+
+
+        img.src =
+            "https://quickchart.io/qr?text=" +
+            encodeURIComponent(uri) +
+            "&size=190";
+
+
+        qr.appendChild(
+            img
+        );
+
+
+        $("totp-secret")
+            .textContent =
+                "Manual key: " +
+                secret.secretKey;
+
+
+        $("totp-enroll")
+            .style.display =
+                "block";
+
+
+        showClockWarning();
+
+
+        $("totp-enroll-btn")
+            .onclick =
+            async function(){
+
+                const code =
+                    $("totp-enroll-code")
+                    .value
+                    .trim();
+
+
+                if(
+                    !/^\d{6}$/.test(code)
+                ){
+
+                    message(
+                        "6 अंकों का सही code डालें।"
+                    );
+
+                    return;
+
+                }
+
+
+                try{
+
+                    const assertion =
+                        TotpMultiFactorGenerator
+                        .assertionForEnrollment(
+                            secret,
+                            code
+                        );
+
+
+                    await multiFactor(
+                        user
+                    ).enroll(
+                        assertion,
+                        "Google Authenticator"
+                    );
+
+
+                    message(
+                        "Google Authenticator सफलतापूर्वक जुड़ गया।",
+                        true
+                    );
+
+
+                    unlock(
+                        user
+                    );
+
+
+                }catch(error){
+
+                    console.error(
+                        "TOTP enrollment error:",
+                        error
+                    );
+
+
+                    message(
+                        error.message ||
+                        "Authenticator code गलत है।"
+                    );
+
+
+                    showClockWarning();
+
+                }
+
+            };
+
+
+    }catch(error){
+
+        console.error(
+            "TOTP setup error:",
+            error
+        );
+
+
+        message(
+            error.message ||
+            "Authenticator setup शुरू नहीं हो सका।"
+        );
+
+    }
+
 }
+
+
+/* =========================================================
+   GOOGLE SIGN-IN
+========================================================= */
 
 async function signIn(){
-  message('');
-  try{
-    const result=await signInWithPopup(auth,provider);
-    const user=result.user;
-    if(!allowed(user)){message('यह Google account authorized नहीं है।');return;}
-    const factors=multiFactor(user).enrolledFactors;
-    if(!factors.length){ message('Google login सफल। Authenticator पहली बार सेट करें।',true); await enrollTotp(user); }
-    else { unlock(user); }
-  }catch(e){
-    if(e.code==='auth/multi-factor-auth-required'){
-      try{
-        const resolver=getMultiFactorResolver(auth,e);
-        const hint=resolver.hints.find(h=>h.factorId===TotpMultiFactorGenerator.FACTOR_ID);
-        if(!hint){message('TOTP Authenticator factor उपलब्ध नहीं है।');return;}
-        $('totp-login').style.display='block';
-        $('totp-login-btn').onclick=async()=>{
-          const code=$('totp-code').value.trim();
-          if(!/^\d{6}$/.test(code)){message('6 अंकों का सही code डालें।');return;}
-          try{
-            const assertion=TotpMultiFactorGenerator.assertionForSignIn(hint.uid,code);
-            const cred=await resolver.resolveSignIn(assertion);
-            if(!allowed(cred.user)){message('यह Google account authorized नहीं है।');return;}
-            message('2-Step Verification सफल।',true); unlock(cred.user);
-          }catch(x){message(x.message||'Authenticator code गलत/expired है।');}
-        };
-      }catch(x){message(x.message||'2-Step Verification शुरू नहीं हो सकी।');}
-    }else message(e.message||'Google authentication failed.');
-  }
+
+    message("");
+
+
+    $("totp-login")
+        .style.display =
+            "none";
+
+
+    $("totp-enroll")
+        .style.display =
+            "none";
+
+
+    try{
+
+        const result =
+            await signInWithPopup(
+                auth,
+                provider
+            );
+
+
+        const user =
+            result.user;
+
+
+        if(
+            !allowed(user)
+        ){
+
+            message(
+                "यह Google account Admin के लिए authorized नहीं है।"
+            );
+
+
+            await signOut(
+                auth
+            );
+
+
+            return;
+
+        }
+
+
+        const factors =
+            multiFactor(
+                user
+            ).enrolledFactors;
+
+
+        if(
+            !factors.length
+        ){
+
+            message(
+                "Google login सफल। अब Google Authenticator पहली बार सेट करें।",
+                true
+            );
+
+
+            await enrollTotp(
+                user
+            );
+
+
+        }else{
+
+            /*
+             * अगर popup flow पहले से fully authenticated है
+             * तो सीधे dashboard खोलें।
+             */
+
+            unlock(
+                user
+            );
+
+        }
+
+
+    }catch(error){
+
+        console.error(
+            "Google authentication error:",
+            error
+        );
+
+
+        /*
+         * Firebase MFA required
+         */
+
+        if(
+            error.code ===
+            "auth/multi-factor-auth-required"
+        ){
+
+            try{
+
+                const resolver =
+                    getMultiFactorResolver(
+                        auth,
+                        error
+                    );
+
+
+                const hint =
+                    resolver.hints.find(
+                        function(h){
+
+                            return (
+                                h.factorId ===
+                                TotpMultiFactorGenerator
+                                .FACTOR_ID
+                            );
+
+                        }
+                    );
+
+
+                if(!hint){
+
+                    message(
+                        "TOTP Authenticator factor उपलब्ध नहीं है।"
+                    );
+
+                    return;
+
+                }
+
+
+                showTotpLogin(
+                    resolver,
+                    hint
+                );
+
+
+            }catch(mfaError){
+
+                console.error(
+                    "MFA resolver error:",
+                    mfaError
+                );
+
+
+                message(
+                    mfaError.message ||
+                    "2-Step Verification शुरू नहीं हो सकी।"
+                );
+
+            }
+
+
+        }else{
+
+            if(
+                error.code ===
+                "auth/popup-closed-by-user"
+            ){
+
+                message(
+                    "Google login window बंद कर दी गई।"
+                );
+
+            }else{
+
+                message(
+                    error.message ||
+                    "Google authentication failed."
+                );
+
+            }
+
+        }
+
+    }
+
 }
 
-$('google-login-btn').addEventListener('click',signIn);
 
-/* Page खुलने पर पहले से authenticated Firebase session को देखें */
-onAuthStateChanged(auth, async user=>{
-  if(!user) return;
-  if(!allowed(user)){return;}
-  const factors=multiFactor(user).enrolledFactors;
-  if(factors.length){ unlock(user); }
-});
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+async function adminLogout(){
+
+    try{
+
+        await signOut(
+            auth
+        );
+
+    }catch(error){
+
+        console.error(
+            error
+        );
+
+    }
+
+
+    sessionStorage.removeItem(
+        "mppsc_admin_authenticated"
+    );
+
+
+    sessionStorage.removeItem(
+        "mppsc_admin_email"
+    );
+
+
+    $("admin-auth-lock")
+        .style.display =
+            "flex";
+
+
+    $("admin-logout-btn")
+        .style.display =
+            "none";
+
+
+    $("totp-login")
+        .style.display =
+            "none";
+
+
+    $("totp-enroll")
+        .style.display =
+            "none";
+
+
+    message("");
+
+}
+
+
+/* =========================================================
+   GOOGLE LOGIN BUTTON
+========================================================= */
+
+$("google-login-btn")
+    .addEventListener(
+        "click",
+        signIn
+    );
+
+
+/* =========================================================
+   FIREBASE AUTH STATE
+========================================================= */
+
+onAuthStateChanged(
+    auth,
+    async function(user){
+
+        if(!user){
+
+            return;
+
+        }
+
+
+        if(
+            !allowed(user)
+        ){
+
+            return;
+
+        }
+
+
+        const factors =
+            multiFactor(
+                user
+            ).enrolledFactors;
+
+
+        /*
+         * यदि session पूरी तरह authenticated है।
+         */
+
+        if(
+            factors.length
+        ){
+
+            /*
+             * केवल तब unlock करें जब Firebase
+             * current user को fully authenticated
+             * मान चुका हो।
+             */
+
+            if(
+                user.emailVerified ||
+                user.providerData?.length
+            ){
+
+                unlock(
+                    user
+                );
+
+            }
+
+        }
+
+    }
+);
+
 </script>
-</body></html>
+
+</body>
+</html>
