@@ -14,6 +14,7 @@ body{font-family:Arial,Helvetica,sans-serif;background:#f4f7fc;min-height:100vh}
 .login-container{background:#fff;padding:35px 30px;border-radius:12px;box-shadow:0 4px 25px rgba(0,0,0,.10);width:100%;max-width:380px;text-align:center;border-top:5px solid #082b57}
 .logo-title{color:#082b57;font-size:24px;font-weight:bold;margin-bottom:5px}
 .sub-title{color:#667085;font-size:13px;margin-bottom:25px}
+.course-badge{display:inline-block;background:#eaf2fb;color:#082b57;padding:7px 12px;border-radius:20px;font-size:13px;font-weight:bold;margin-bottom:18px}
 .form-group{text-align:left;margin-bottom:15px}
 .form-group label{font-weight:bold;display:block;margin-bottom:5px;font-size:13px;color:#333}
 input{width:100%;padding:11px;border:1px solid #ccc;border-radius:6px;font-size:14px}
@@ -23,12 +24,7 @@ button:hover{background:#051d3b}
 .switch-link{color:#147dcc;cursor:pointer;display:block;margin-top:20px;font-size:13px;font-weight:bold}
 .error-alert{color:#d32f2f;font-size:13px;font-weight:bold;margin-top:10px;display:none;background:#ffebee;padding:8px;border-radius:4px;border-left:4px solid #d32f2f}
 .success-alert{color:#087f23;font-size:13px;font-weight:bold;margin-top:10px;display:none;background:#e8f5e9;padding:8px;border-radius:4px;border-left:4px solid #087f23}
-@media(max-width:600px){
-.mppsc-site-logo-bar{min-height:56px;padding:6px 10px}
-.mppsc-site-logo-bar img{width:42px;height:42px}
-.mppsc-site-name{font-size:15px}
-.login-page{min-height:calc(100vh - 56px);padding:20px 10px 30px}
-}
+@media(max-width:600px){.mppsc-site-logo-bar{min-height:56px;padding:6px 10px}.mppsc-site-logo-bar img{width:42px;height:42px}.mppsc-site-name{font-size:15px}.login-page{min-height:calc(100vh - 56px);padding:20px 10px 30px}}
 </style>
 </head>
 <body>
@@ -41,6 +37,7 @@ button:hover{background:#051d3b}
 <div class="login-container" id="login-section">
 <div class="logo-title">MPPSC MCQ Hub</div>
 <div class="sub-title">Paid Student Portal Login</div>
+<div class="course-badge" id="course-badge">Course Login</div>
 
 <div class="form-group">
 <label>यूजर आईडी (मोबाइल नंबर):</label>
@@ -52,10 +49,9 @@ button:hover{background:#051d3b}
 <input type="password" id="login-pass" placeholder="अपना पासवर्ड दर्ज करें">
 </div>
 
-<div class="error-alert" id="login-error">गलत मोबाइल नंबर या पासवर्ड!</div>
+<div class="error-alert" id="login-error"></div>
 
-<button type="button" onclick="handleStudentLogin()">लॉगिन करें</button>
-
+<button onclick="handleStudentLogin()">लॉगिन करें</button>
 <span class="switch-link" onclick="toggleSections(false)">🔐 पासवर्ड बदलें</span>
 </div>
 
@@ -67,12 +63,10 @@ button:hover{background:#051d3b}
 <label>पंजीकृत मोबाइल नंबर:</label>
 <input type="text" id="change-user" inputmode="numeric" maxlength="10" placeholder="10 अंकों का मोबाइल नंबर">
 </div>
-
 <div class="form-group">
 <label>पुराना पासवर्ड:</label>
 <input type="password" id="old-pass" placeholder="SMS वाला पासवर्ड">
 </div>
-
 <div class="form-group">
 <label>नया पासवर्ड:</label>
 <input type="password" id="new-pass" placeholder="नया पासवर्ड">
@@ -80,8 +74,7 @@ button:hover{background:#051d3b}
 
 <div class="error-alert" id="change-error">विवरण मैच नहीं हुआ!</div>
 <div class="success-alert" id="change-success">पासवर्ड सफलतापूर्वक बदल दिया गया।</div>
-
-<button type="button" onclick="handlePasswordChange()" style="background:#147dcc;">Update Password</button>
+<button onclick="handlePasswordChange()" style="background:#147dcc">Update Password</button>
 <span class="switch-link" onclick="toggleSections(true)">⬅ वापस Login</span>
 </div>
 </div>
@@ -89,148 +82,141 @@ button:hover{background:#051d3b}
 <script>
 "use strict";
 
-/* =========================================================
-   IMPORTANT:
-   Course access अब केवल sessionStorage में रहेगा।
-   localStorage में course session नहीं रखा जाएगा।
-   इससे PRELIMS login से MAINS खुलने की समस्या खत्म होगी।
-   ========================================================= */
+/* Requested course is taken from the URL.
+   mains-600.html -> student-login.html?course=mains
+   prelims.html   -> student-login.html?course=prelims
+*/
+const params = new URLSearchParams(window.location.search);
+const requestedCourse = String(params.get("course") || "").trim().toLowerCase();
 
-const AUTH_KEY = "mppsc_student_authenticated";
-const COURSE_KEY = "mppsc_student_course";
-const USER_KEY = "mppsc_student_username";
+if(requestedCourse !== "mains" && requestedCourse !== "prelims"){
+  document.getElementById("course-badge").textContent = "Course Login";
+}else{
+  document.getElementById("course-badge").textContent =
+    requestedCourse === "mains" ? "MAINS Student Login" : "PRELIMS Student Login";
+}
 
 function clearStudentSession(){
-    sessionStorage.removeItem(AUTH_KEY);
-    sessionStorage.removeItem(COURSE_KEY);
-    sessionStorage.removeItem(USER_KEY);
+  sessionStorage.removeItem("mppsc_student_authenticated");
+  sessionStorage.removeItem("mppsc_student_course");
+  sessionStorage.removeItem("mppsc_student_username");
 }
 
 function toggleSections(showLogin){
-    document.getElementById("login-error").style.display="none";
-    document.getElementById("change-error").style.display="none";
-    document.getElementById("change-success").style.display="none";
-    document.getElementById("login-section").style.display=showLogin?"block":"none";
-    document.getElementById("change-section").style.display=showLogin?"none":"block";
+  document.getElementById("login-error").style.display="none";
+  document.getElementById("change-error").style.display="none";
+  document.getElementById("change-success").style.display="none";
+  document.getElementById("login-section").style.display=showLogin?"block":"none";
+  document.getElementById("change-section").style.display=showLogin?"none":"block";
+}
+
+function getUsers(){
+  try{
+    const data=JSON.parse(localStorage.getItem("mppsc_students") || "[]");
+    return Array.isArray(data)?data:[];
+  }catch(e){
+    console.error("Student database error:",e);
+    return [];
+  }
 }
 
 function handleStudentLogin(){
-    const user=document.getElementById("login-user").value.trim();
-    const pass=document.getElementById("login-pass").value;
-    const errorBox=document.getElementById("login-error");
+  const user=document.getElementById("login-user").value.trim();
+  const pass=document.getElementById("login-pass").value;
+  const errorBox=document.getElementById("login-error");
+  errorBox.style.display="none";
 
-    errorBox.style.display="none";
+  if(requestedCourse!=="mains" && requestedCourse!=="prelims"){
+    errorBox.textContent="❌ Login page का course निर्धारित नहीं है। कृपया MAINS या PRELIMS page से login करें।";
+    errorBox.style.display="block";
+    return;
+  }
 
-    if(!user || !pass){
-        alert("कृपया मोबाइल नंबर और पासवर्ड भरें!");
-        return;
-    }
+  if(!user || !pass){
+    errorBox.textContent="कृपया मोबाइल नंबर और पासवर्ड भरें!";
+    errorBox.style.display="block";
+    return;
+  }
 
-    /* पुराने course/session को पहले साफ करें */
-    clearStudentSession();
+  clearStudentSession();
 
-    let users=[];
-    try{
-        users=JSON.parse(localStorage.getItem("mppsc_students") || "[]");
-        if(!Array.isArray(users)) users=[];
-    }catch(error){
-        console.error("Student database error:",error);
-        users=[];
-    }
+  const users=getUsers();
 
-    const foundUser=users.find(function(u){
-        return String(u.username || "")===String(user) &&
-               String(u.password || "")===String(pass) &&
-               u.active!==false;
-    });
+  /* IMPORTANT:
+     पहले course + username + password तीनों match होंगे.
+     इसलिए PRELIMS password MAINS login में स्वीकार नहीं होगा.
+  */
+  const foundUser=users.find(function(u){
+    return String(u.username||"").trim()===user &&
+           String(u.password||"")===pass &&
+           String(u.type||"").trim().toLowerCase()===requestedCourse &&
+           u.active!==false;
+  });
 
-    if(!foundUser){
-        errorBox.style.display="block";
-        return;
-    }
+  if(!foundUser){
+    errorBox.textContent =
+      "❌ गलत " +
+      (requestedCourse==="mains"?"MAINS":"PRELIMS") +
+      " मोबाइल नंबर या पासवर्ड!";
+    errorBox.style.display="block";
+    return;
+  }
 
-    const course=String(foundUser.type || "").trim().toLowerCase();
+  sessionStorage.setItem("mppsc_student_authenticated","true");
+  sessionStorage.setItem("mppsc_student_course",requestedCourse);
+  sessionStorage.setItem("mppsc_student_username",String(foundUser.username));
 
-    if(course!=="prelims" && course!=="mains"){
-        alert("❌ आपके account में कोई valid course assign नहीं है। Admin से संपर्क करें।");
-        clearStudentSession();
-        return;
-    }
-
-    /* केवल वर्तमान login का course save होगा */
-    sessionStorage.setItem(AUTH_KEY,"true");
-    sessionStorage.setItem(COURSE_KEY,course);
-    sessionStorage.setItem(USER_KEY,String(foundUser.username || user));
-
-    alert(
-        "🎉 Login सफल!\n\nCourse: " +
-        (course==="mains" ? "MAINS" : "PRELIMS")
-    );
-
-    if(course==="mains"){
-        window.location.replace("mains-600.html");
-    }else{
-        window.location.replace("prelims.html");
-    }
+  window.location.replace(
+    requestedCourse==="mains" ? "mains-600.html" : "prelims.html"
+  );
 }
 
 function handlePasswordChange(){
-    const user=document.getElementById("change-user").value.trim();
-    const oldPass=document.getElementById("old-pass").value;
-    const newPass=document.getElementById("new-pass").value;
+  const user=document.getElementById("change-user").value.trim();
+  const oldPass=document.getElementById("old-pass").value;
+  const newPass=document.getElementById("new-pass").value;
+  const errorBox=document.getElementById("change-error");
+  const successBox=document.getElementById("change-success");
+  errorBox.style.display="none";
+  successBox.style.display="none";
 
-    const errorBox=document.getElementById("change-error");
-    const successBox=document.getElementById("change-success");
+  if(!user||!oldPass||!newPass){
+    errorBox.textContent="कृपया सभी विवरण भरें!";
+    errorBox.style.display="block"; return;
+  }
+  if(newPass.length<4){
+    errorBox.textContent="नया पासवर्ड कम से कम 4 अक्षरों/अंकों का होना चाहिए!";
+    errorBox.style.display="block"; return;
+  }
 
-    errorBox.style.display="none";
-    successBox.style.display="none";
+  const users=getUsers();
+  const userIndex=users.findIndex(function(u){
+    return String(u.username||"").trim()===user &&
+           String(u.password||"")===oldPass &&
+           u.active!==false &&
+           (requestedCourse==="" ||
+            String(u.type||"").trim().toLowerCase()===requestedCourse);
+  });
 
-    if(!user || !oldPass || !newPass){
-        alert("कृपया सभी विवरण भरें!");
-        return;
-    }
+  if(userIndex===-1){
+    errorBox.textContent="❌ मोबाइल नंबर, पुराने पासवर्ड या course का मिलान नहीं हुआ!";
+    errorBox.style.display="block"; return;
+  }
 
-    if(newPass.length<4){
-        alert("नया पासवर्ड कम से कम 4 अक्षरों/अंकों का होना चाहिए!");
-        return;
-    }
+  users[userIndex].password=newPass;
+  localStorage.setItem("mppsc_students",JSON.stringify(users));
+  successBox.style.display="block";
 
-    let users=[];
-    try{
-        users=JSON.parse(localStorage.getItem("mppsc_students") || "[]");
-        if(!Array.isArray(users)) users=[];
-    }catch(error){
-        users=[];
-    }
-
-    const userIndex=users.findIndex(function(u){
-        return String(u.username || "")===String(user) &&
-               String(u.password || "")===String(oldPass) &&
-               u.active!==false;
-    });
-
-    if(userIndex===-1){
-        errorBox.style.display="block";
-        return;
-    }
-
-    users[userIndex].password=newPass;
-    localStorage.setItem("mppsc_students",JSON.stringify(users));
-
-    successBox.style.display="block";
-    document.getElementById("login-user").value=user;
-    document.getElementById("login-pass").value="";
-
-    setTimeout(function(){
-        toggleSections(true);
-    },1200);
+  document.getElementById("login-user").value=user;
+  document.getElementById("login-pass").value="";
+  setTimeout(function(){toggleSections(true)},1200);
 }
 
 document.addEventListener("keydown",function(event){
-    if(event.key==="Enter" &&
-       document.getElementById("login-section").style.display!=="none"){
-        handleStudentLogin();
-    }
+  if(event.key==="Enter" &&
+     document.getElementById("login-section").style.display!=="none"){
+    handleStudentLogin();
+  }
 });
 </script>
 </body>

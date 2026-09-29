@@ -5,8 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>MPPSC MCQ Hub V14 - Paid PRELIMS</title>
 <style>
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
 body{font-family:Arial,Helvetica,sans-serif;background:#fff5f5;color:#102a43;display:none}
 .mppsc-site-header{width:100%;min-height:64px;background:#1450a3;color:#fff;display:flex;align-items:center;gap:12px;padding:8px 16px;box-shadow:0 2px 7px rgba(0,0,0,.12)}
 .mppsc-site-header img{width:48px;height:48px;object-fit:cover;border-radius:50%;background:#fff;padding:2px;flex:0 0 auto}
@@ -14,8 +13,7 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff5f5;color:#102a43;dis
 .header{width:100%;background:#cf2e2e;color:#fff;padding:10px 16px;font-size:17px;font-weight:700;box-shadow:0 2px 6px rgba(0,0,0,.10)}
 .wrap{max-width:1400px;margin:16px auto;padding:0 12px}
 .top{background:#fff;border-radius:12px;padding:18px 20px;margin-bottom:14px;box-shadow:0 2px 9px rgba(0,0,0,.07);border-left:5px solid #cf2e2e}
-.top h1{margin:0 0 6px;font-size:21px;color:#cf2e2e}
-.top p{margin:5px 0;color:#333;font-size:14px}
+.top h1{margin:0 0 6px;font-size:21px;color:#cf2e2e}.top p{margin:5px 0;color:#333;font-size:14px}
 .unit{background:#fff;border-radius:12px;padding:10px;margin-bottom:16px;box-shadow:0 2px 9px rgba(0,0,0,.07);border-top:4px solid #cf2e2e}
 .unit-title{margin:0 0 10px;padding:3px 2px;color:#cf2e2e;font-size:16px;font-weight:700}
 .test-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:5px}
@@ -31,14 +29,11 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff5f5;color:#102a43;dis
 </style>
 </head>
 <body>
-
 <header class="mppsc-site-header">
 <img src="MPPSC-MCQ-Hub-Logo.png" alt="MPPSC MCQ Hub Logo">
 <div class="site-title">MPPSC MCQ Hub V14</div>
 </header>
-
 <div class="header">🏆 MPPSC MCQ Hub — Paid PRELIMS Portal</div>
-
 <div class="wrap">
 <div class="top">
 <h1>Paid PRELIMS Course (Active)</h1>
@@ -50,52 +45,8 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff5f5;color:#102a43;dis
 <script>
 "use strict";
 
-/* =========================================================
-   PRELIMS AUTHENTICATION
-   केवल sessionStorage का current course माना जाएगा।
-   MAINS course वाला session PRELIMS नहीं खोल सकता।
-   ========================================================= */
-
 const REQUIRED_COURSE="prelims";
-const LOGIN_PAGE="student-login.html";
-const AUTH_KEY="mppsc_student_authenticated";
-const COURSE_KEY="mppsc_student_course";
-const USER_KEY="mppsc_student_username";
-
-function denyAccess(){
-    sessionStorage.removeItem(AUTH_KEY);
-    sessionStorage.removeItem(COURSE_KEY);
-    sessionStorage.removeItem(USER_KEY);
-
-    alert("❌ यह PRELIMS Paid Course आपके account में assign नहीं है।\n\nकृपया PRELIMS Student Login करें।");
-    window.location.replace(LOGIN_PAGE);
-}
-
-function checkPrelimsAccess(){
-    const authenticated=sessionStorage.getItem(AUTH_KEY)==="true";
-    const course=String(sessionStorage.getItem(COURSE_KEY) || "").trim().toLowerCase();
-    const username=String(sessionStorage.getItem(USER_KEY) || "").trim();
-
-    const allowed=
-        authenticated===true &&
-        course===REQUIRED_COURSE &&
-        username!=="";
-
-    console.log("PRELIMS authentication:",{
-        authenticated:authenticated,
-        course:course,
-        username:username,
-        allowed:allowed
-    });
-
-    if(!allowed){
-        denyAccess();
-        return false;
-    }
-
-    document.body.style.display="block";
-    return true;
-}
+const LOGIN_PAGE="student-login.html?course=prelims";
 
 const prelimsUnits=[
 {number:1,name:"भारत का इतिहास",folder:"unit-01"},
@@ -114,53 +65,47 @@ const TESTS_PER_UNIT=20;
 const CET_TEST_COUNT=50;
 
 function buildStudentPrelims(){
-    const container=document.getElementById("prelims-student-container");
-    if(!container)return;
-
-    let html="";
-
-    prelimsUnits.forEach(function(unit){
-        html+=`<section class="unit">
-<h2 class="unit-title">Unit ${unit.number} - ${unit.name}</h2>
-<div class="test-grid">`;
-
-        for(let testNumber=1;testNumber<=TESTS_PER_UNIT;testNumber++){
-            const testString=String(testNumber).padStart(2,"0");
-            const unitString=String(unit.number).padStart(2,"0");
-            const code=`P${unitString}T${testString}`;
-            const testURL=`${unit.folder}/${code}/index.html`;
-
-            html+=`<div class="test-card">
-<span class="test-code">${code}</span>
-<a class="start-test" href="${testURL}">Start Test</a>
-</div>`;
-        }
-
-        html+=`</div></section>`;
-    });
-
-    html+=`<section class="cet-section">
-<h2 class="cet-title">CET — Common Eligibility / Mixed Practice Tests</h2>
-<div class="test-grid">`;
-
-    for(let cetNumber=1;cetNumber<=CET_TEST_COUNT;cetNumber++){
-        const cetString=String(cetNumber).padStart(2,"0");
-        const code=`CET${cetString}`;
-        const cetURL=`prelims-tests/${code}/index.html`;
-
-        html+=`<div class="test-card">
-<span class="test-code">${code}</span>
-<a class="start-test" href="${cetURL}">Start Test</a>
-</div>`;
-    }
-
-    html+=`</div></section>`;
-    container.innerHTML=html;
+ const container=document.getElementById("prelims-student-container");
+ let html="";
+ prelimsUnits.forEach(function(unit){
+  html+=`<section class="unit"><h2 class="unit-title">Unit ${unit.number} - ${unit.name}</h2><div class="test-grid">`;
+  for(let testNumber=1;testNumber<=TESTS_PER_UNIT;testNumber++){
+   const testString=String(testNumber).padStart(2,"0");
+   const unitString=String(unit.number).padStart(2,"0");
+   const code=`P${unitString}T${testString}`;
+   const testURL=`${unit.folder}/${code}/index.html`;
+   html+=`<div class="test-card"><span class="test-code">${code}</span><a class="start-test" href="${testURL}">Start Test</a></div>`;
+  }
+  html+=`</div></section>`;
+ });
+ html+=`<section class="cet-section"><h2 class="cet-title">CET — Common Eligibility / Mixed Practice Tests</h2><div class="test-grid">`;
+ for(let cetNumber=1;cetNumber<=CET_TEST_COUNT;cetNumber++){
+  const code=`CET${String(cetNumber).padStart(2,"0")}`;
+  const cetURL=`prelims-tests/${code}/index.html`;
+  html+=`<div class="test-card"><span class="test-code">${code}</span><a class="start-test" href="${cetURL}">Start Test</a></div>`;
+ }
+ html+=`</div></section>`;
+ container.innerHTML=html;
 }
 
-if(checkPrelimsAccess()){
-    buildStudentPrelims();
-}
+(function(){
+ const authenticated=sessionStorage.getItem("mppsc_student_authenticated")==="true";
+ const course=String(sessionStorage.getItem("mppsc_student_course")||"").trim().toLowerCase();
+ const username=String(sessionStorage.getItem("mppsc_student_username")||"").trim();
+
+ const allowed=authenticated && course===REQUIRED_COURSE && username!=="";
+
+ if(!allowed){
+  sessionStorage.removeItem("mppsc_student_authenticated");
+  sessionStorage.removeItem("mppsc_student_course");
+  sessionStorage.removeItem("mppsc_student_username");
+  window.location.replace(LOGIN_PAGE);
+  return;
+ }
+
+ document.body.style.display="block";
+ buildStudentPrelims();
+})();
 </script>
 </body>
 </html>
