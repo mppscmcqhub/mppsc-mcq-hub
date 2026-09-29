@@ -1,4 +1,4 @@
-Options -Indexes
-<Files "config.php">
-  Require all denied
-</Files>
+# Protect configuration and documentation files
+<FilesMatch "^(config\.php|README\.txt)$">
+    Require all denied
+</FilesMatch>

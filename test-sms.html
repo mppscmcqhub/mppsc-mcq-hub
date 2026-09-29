@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MPPSC SMS Test</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f3f6fb;margin:0;padding:30px}
+.card{max-width:520px;margin:auto;background:#fff;padding:24px;border-radius:14px;box-shadow:0 5px 25px #0001}
+h2{color:#0b3b78}
+input,select,button{width:100%;padding:12px;margin:7px 0;box-sizing:border-box}
+button{background:#1558a6;color:#fff;border:0;border-radius:7px;font-weight:bold;cursor:pointer}
+pre{white-space:pre-wrap;background:#f5f5f5;padding:12px;border-radius:8px}
+.warn{background:#fff3cd;padding:12px;border-radius:8px}
+</style>
+</head>
+<body>
+<div class="card">
+<h2>MPPSC SMS Test</h2>
+<div class="warn">
+पहले config.php में MSG91 Auth Key, Flow/Template ID, Sender ID और endpoint token भरें।
+</div>
+
+<label>Mobile</label>
+<input id="phone" placeholder="9876543210" maxlength="10">
+
+<label>Course</label>
+<select id="course">
+<option value="PRELIMS">PRELIMS</option>
+<option value="MAINS">MAINS</option>
+</select>
+
+<label>Password</label>
+<input id="password" placeholder="GDFT4lskj">
+
+<label>Endpoint Token</label>
+<input id="token" type="password" placeholder="config.php वाला token">
+
+<button onclick="sendSMS()">Send Test SMS</button>
+<pre id="out"></pre>
+</div>
+
+<script>
+async function sendSMS(){
+  const out=document.getElementById('out');
+  out.textContent='Sending...';
+
+  try{
+    const r=await fetch('send-sms.php',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        token:document.getElementById('token').value,
+        phone:document.getElementById('phone').value,
+        course:document.getElementById('course').value,
+        password:document.getElementById('password').value
+      })
+    });
+
+    const text=await r.text();
+    try{
+      out.textContent=JSON.stringify(JSON.parse(text),null,2);
+    }catch(e){
+      out.textContent=text;
+    }
+  }catch(e){
+    out.textContent='Request failed: '+e.message;
+  }
+}
+</script>
+</body>
+</html>
