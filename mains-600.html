@@ -9,7 +9,6 @@
 
 <title>MPPSC MCQ Hub V14 - Paid MAINS</title>
 
-
 <style>
 
 /* =========================================================
@@ -31,13 +30,13 @@ body{
   background:#f3f6fa;
   color:#102a43;
 
-  /* Login verify होने तक page hidden */
+  /* Authentication verify होने तक hidden */
   display:none;
 }
 
 
 /* =========================================================
-   SITE LOGO BAR
+   SITE LOGO HEADER
    ========================================================= */
 
 .mppsc-site-header{
@@ -74,6 +73,8 @@ body{
   border-radius:50%;
 
   background:#fff;
+
+  flex:0 0 auto;
 }
 
 
@@ -88,7 +89,7 @@ body{
 
 
 /* =========================================================
-   HEADER
+   MAIN HEADER
    ========================================================= */
 
 .header{
@@ -222,7 +223,7 @@ body{
 
 
 /* =========================================================
-   GRID
+   QUESTION GRID
    ========================================================= */
 
 .grid{
@@ -323,7 +324,7 @@ body{
 
 
 /* =========================================================
-   INFO
+   COURSE INFO
    ========================================================= */
 
 .course-info{
@@ -449,7 +450,6 @@ body{
 </header>
 
 
-
 <!-- =========================================================
      MAIN HEADER
      ========================================================= -->
@@ -459,7 +459,6 @@ body{
   📝 MPPSC MCQ Hub V14 — Paid MAINS
 
 </div>
-
 
 
 <!-- =========================================================
@@ -489,7 +488,6 @@ body{
   </div>
 
 
-
   <div class="course-info">
 
     <b>Paid MAINS Course:</b>
@@ -505,38 +503,221 @@ body{
   </div>
 
 
-
-  <!-- =======================================================
-       QUESTIONS WILL BE GENERATED HERE
-       ======================================================= -->
-
+  <!-- QUESTIONS -->
   <div id="mains-student-container"></div>
 
 
 </div>
 
 
-
-<!-- =========================================================
-     MAINS JAVASCRIPT
-     ========================================================= -->
-
-<script data-mppsc-course-auth>
-
+<script>
 
 /* =========================================================
-   REQUIRED COURSE
+   MAINS COURSE AUTHENTICATION
    ========================================================= */
 
-const REQUIRED_COURSE = "mains";
+(function(){
+
+  "use strict";
+
+  console.log("====================================");
+  console.log("🔐 MAINS AUTHENTICATION START");
+  console.log("====================================");
+
+
+  /* -------------------------------------------------------
+     REQUIRED COURSE
+     ------------------------------------------------------- */
+
+  const REQUIRED_COURSE = "mains";
+
+
+  /* -------------------------------------------------------
+     LOGIN PAGE
+     ------------------------------------------------------- */
+
+  const LOGIN_PAGE = "student-login.html";
+
+
+  /* -------------------------------------------------------
+     READ SESSION
+     ------------------------------------------------------- */
+
+  let session = null;
+
+  try{
+
+    const rawSession =
+      localStorage.getItem(
+        "mppsc_student_session"
+      );
+
+    if(rawSession){
+
+      session =
+        JSON.parse(rawSession);
+
+    }
+
+  }
+
+  catch(error){
+
+    console.error(
+      "❌ Session parse error:",
+      error
+    );
+
+    session = null;
+
+  }
+
+
+  /* -------------------------------------------------------
+     READ AUTH FLAG
+     ------------------------------------------------------- */
+
+  const authenticated =
+    sessionStorage.getItem(
+      "mppsc_student_authenticated"
+    ) === "true";
+
+
+  /* -------------------------------------------------------
+     DEBUG
+     ------------------------------------------------------- */
+
+  console.log(
+    "Authenticated:",
+    authenticated
+  );
+
+  console.log(
+    "Session:",
+    session
+  );
+
+  console.log(
+    "Required Course:",
+    REQUIRED_COURSE
+  );
+
+
+  /* -------------------------------------------------------
+     SESSION VALUES
+     ------------------------------------------------------- */
+
+  const sessionUsername =
+    session &&
+    String(session.username || "").trim();
+
+  const sessionType =
+    session &&
+    String(session.type || "").toLowerCase().trim();
+
+
+  /* -------------------------------------------------------
+     FINAL ACCESS CHECK
+     ------------------------------------------------------- */
+
+  const allowed =
+    authenticated === true &&
+    session !== null &&
+    sessionUsername !== "" &&
+    sessionType === REQUIRED_COURSE;
+
+
+  console.log(
+    "Session Username:",
+    sessionUsername
+  );
+
+  console.log(
+    "Session Type:",
+    sessionType
+  );
+
+  console.log(
+    "MAINS Access Allowed:",
+    allowed
+  );
+
+
+  /* =======================================================
+     ACCESS DENIED
+     ======================================================= */
+
+  if(!allowed){
+
+    console.warn(
+      "❌ MAINS ACCESS DENIED"
+    );
+
+
+    /*
+      गलत/पुराना authentication flag हटाएं
+      लेकिन student database को touch नहीं करेंगे।
+    */
+
+    sessionStorage.removeItem(
+      "mppsc_student_authenticated"
+    );
+
+
+    /*
+      गलत course session को भी हटाएं।
+    */
+
+    localStorage.removeItem(
+      "mppsc_student_session"
+    );
+
+
+    alert(
+      "❌ इस Paid MAINS Course का access आपके account में नहीं है।\n\nकृपया MAINS Student Login करें।"
+    );
+
+
+    window.location.replace(
+      LOGIN_PAGE
+    );
+
+
+    return;
+
+  }
+
+
+  /* =======================================================
+     ACCESS GRANTED
+     ======================================================= */
+
+  console.log(
+    "✅ MAINS STUDENT VERIFIED"
+  );
+
+
+  /*
+    अब page दिखाएं
+  */
+
+  document.body.style.display =
+    "block";
+
+
+  /* =======================================================
+     BUILD MAINS QUESTIONS
+     ======================================================= */
+
+  buildStudentMains();
+
+
+})();
 
 
 
 /* =========================================================
    MAINS PAPERS
-
-   IMPORTANT:
-   ये folders आपके actual Mains structure के अनुसार हैं।
    ========================================================= */
 
 const mainsPapers = [
@@ -619,7 +800,7 @@ const mainsPapers = [
 /* =========================================================
    QUESTION GROUPS
 
-   40 + 40 + 20 = 100
+   40 + 40 + 20 = 100 QUESTIONS PER PAPER
    ========================================================= */
 
 const mainsGroups = [
@@ -650,12 +831,11 @@ const mainsGroups = [
 function buildStudentMains(){
 
   console.log(
-    "📝 Paid Mains rendering शुरू..."
+    "📝 Paid MAINS rendering शुरू..."
   );
 
 
   let html = "";
-
 
 
   /* =======================================================
@@ -674,14 +854,11 @@ function buildStudentMains(){
         <section class="paper">
 
           <h2>
-
             Paper ${paperNumber} -
             ${paper.name}
-
           </h2>
 
       `;
-
 
 
       /* =====================================================
@@ -705,7 +882,6 @@ function buildStudentMains(){
             <div class="grid">
 
           `;
-
 
 
           /* =================================================
@@ -735,19 +911,14 @@ function buildStudentMains(){
               <div class="card">
 
                 <span class="code">
-
                   ${code}
-
                 </span>
-
 
                 <a
                   class="open"
                   href="${questionURL}"
                 >
-
                   Open Question
-
                 </a>
 
               </div>
@@ -755,7 +926,6 @@ function buildStudentMains(){
             `;
 
           }
-
 
 
           html += `
@@ -768,7 +938,6 @@ function buildStudentMains(){
       );
 
 
-
       html += `
 
         </section>
@@ -779,9 +948,8 @@ function buildStudentMains(){
   );
 
 
-
   /* =======================================================
-     INSERT HTML
+     INSERT QUESTIONS
      ======================================================= */
 
   const container =
@@ -806,147 +974,10 @@ function buildStudentMains(){
 
 
   console.log(
-    "✅ 600 Paid Mains Questions तैयार।"
+    "✅ 600 Paid MAINS Questions तैयार।"
   );
 
 }
-
-
-
-/* =========================================================
-   STUDENT AUTHENTICATION
-   ========================================================= */
-
-(function(){
-
-  console.log(
-    "🔐 Mains student authentication शुरू..."
-  );
-
-
-  let session = null;
-
-
-
-  /* =======================================================
-     GET STUDENT SESSION
-     ======================================================= */
-
-  try{
-
-    session =
-      JSON.parse(
-        localStorage.getItem(
-          "mppsc_student_session"
-        ) || "null"
-      );
-
-  }
-
-  catch(error){
-
-    console.error(
-      "❌ Student session parse error:",
-      error
-    );
-
-  }
-
-
-
-  /* =======================================================
-     AUTH FLAG
-     ======================================================= */
-
-  const authenticated =
-    sessionStorage.getItem(
-      "mppsc_student_authenticated"
-    ) === "true";
-
-
-
-  /* =======================================================
-     COURSE ACCESS CHECK
-     ======================================================= */
-
-  const allowed =
-    authenticated &&
-    session &&
-    session.type === REQUIRED_COURSE;
-
-
-
-  console.log(
-    "Authenticated:",
-    authenticated
-  );
-
-
-  console.log(
-    "Student session:",
-    session
-  );
-
-
-  console.log(
-    "Required course:",
-    REQUIRED_COURSE
-  );
-
-
-  console.log(
-    "Mains access allowed:",
-    allowed
-  );
-
-
-
-  /* =======================================================
-     ACCESS DENIED
-     ======================================================= */
-
-  if(!allowed){
-
-    alert(
-      "❌ इस Paid MAINS Course का access आपके account में नहीं है। कृपया MAINS Student Login करें।"
-    );
-
-
-    window.location.replace(
-      window.location.origin +
-      "/student-login.html"
-    );
-
-
-    return;
-
-  }
-
-
-
-  /* =======================================================
-     ACCESS GRANTED
-     ======================================================= */
-
-  console.log(
-    "✅ MAINS Student authentication सफल।"
-  );
-
-
-  document.body.style.display =
-    "block";
-
-
-
-  /* =======================================================
-     BUILD QUESTIONS
-     ======================================================= */
-
-  buildStudentMains();
-
-
-})();
-
 
 </script>
 
