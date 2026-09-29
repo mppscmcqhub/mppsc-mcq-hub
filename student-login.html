@@ -26,7 +26,7 @@ body{
 }
 
 /* =========================
-   TOP HEADER
+   HEADER
 ========================= */
 
 .mppsc-site-logo-bar{
@@ -132,15 +132,16 @@ body{
 .form-group label{
   font-weight:bold;
   display:block !important;
+  width:100%;
   margin-bottom:6px;
   font-size:13px;
   color:#333;
 }
 
-/*
-  IMPORTANT FIX
-  Login inputs को forcefully visible रखा गया है
-*/
+/* =========================
+   LOGIN INPUTS
+   FORCE VISIBLE
+========================= */
 
 .form-group input,
 #login-user,
@@ -154,22 +155,22 @@ body{
 
   width:100% !important;
   height:44px !important;
-
   min-height:44px !important;
 
   padding:10px 12px !important;
 
-  border:1px solid #b8c0cc !important;
+  border:1px solid #777 !important;
   border-radius:6px !important;
 
   background:#ffffff !important;
-  color:#222222 !important;
+  color:#111111 !important;
 
   font-family:Arial,Helvetica,sans-serif !important;
   font-size:14px !important;
+  line-height:22px !important;
 
-  outline:none;
-  box-shadow:none;
+  outline:none !important;
+  box-shadow:none !important;
 }
 
 .form-group input::placeholder{
@@ -189,7 +190,6 @@ body{
 button{
   width:100%;
   min-height:44px;
-
   padding:12px;
 
   background:#082b57;
@@ -346,220 +346,252 @@ button:hover{
 
 <div class="login-page">
 
-<div class="login-container" id="login-section">
+  <div
+    class="login-container"
+    id="login-section"
+  >
 
-  <div class="logo-title">
-    MPPSC MCQ Hub
-  </div>
-
-  <div class="sub-title">
-    Paid Student Portal Login
-  </div>
-
-  <div class="course-badge" id="course-badge">
-    Course Login
-  </div>
-
-
-  <!-- COURSE SELECTOR -->
-
-  <div id="course-selector">
-
-    <div id="course-selector-title">
-      पहले Course चुनें:
+    <div class="logo-title">
+      MPPSC MCQ Hub
     </div>
 
-    <button
-      type="button"
-      class="prelims-btn"
-      onclick="selectCourse('prelims')"
+    <div class="sub-title">
+      Paid Student Portal Login
+    </div>
+
+    <div
+      class="course-badge"
+      id="course-badge"
     >
-      PRELIMS Login
-    </button>
+      Course Login
+    </div>
+
+
+    <!-- =========================
+         COURSE SELECTOR
+    ========================= -->
+
+    <div id="course-selector">
+
+      <div id="course-selector-title">
+        पहले Course चुनें:
+      </div>
+
+      <button
+        type="button"
+        class="prelims-btn"
+        onclick="selectCourse('prelims')"
+      >
+        PRELIMS Login
+      </button>
+
+      <button
+        type="button"
+        class="mains-btn"
+        onclick="selectCourse('mains')"
+      >
+        MAINS Login
+      </button>
+
+    </div>
+
+
+    <!-- =========================
+         USER ID
+    ========================= -->
+
+    <div
+      class="form-group"
+      id="user-group"
+    >
+
+      <label for="login-user">
+        यूजर आईडी (मोबाइल नंबर):
+      </label>
+
+      <input
+        type="text"
+        id="login-user"
+        name="login-user"
+        inputmode="numeric"
+        maxlength="10"
+        autocomplete="username"
+        placeholder="10 अंकों का मोबाइल नंबर"
+        style="
+          display:block !important;
+          visibility:visible !important;
+          opacity:1 !important;
+        "
+      >
+
+    </div>
+
+
+    <!-- =========================
+         PASSWORD
+    ========================= -->
+
+    <div
+      class="form-group"
+      id="password-group"
+    >
+
+      <label for="login-pass">
+        पासवर्ड:
+      </label>
+
+      <input
+        type="password"
+        id="login-pass"
+        name="login-pass"
+        autocomplete="current-password"
+        placeholder="अपना पासवर्ड दर्ज करें"
+        style="
+          display:block !important;
+          visibility:visible !important;
+          opacity:1 !important;
+        "
+      >
+
+    </div>
+
+
+    <!-- =========================
+         LOGIN ERROR
+    ========================= -->
+
+    <div
+      class="error-alert"
+      id="login-error"
+    ></div>
+
+
+    <!-- =========================
+         LOGIN BUTTON
+    ========================= -->
 
     <button
+      id="login-button"
       type="button"
-      class="mains-btn"
-      onclick="selectCourse('mains')"
+      onclick="handleStudentLogin()"
     >
-      MAINS Login
+      लॉगिन करें
     </button>
+
+
+    <!-- =========================
+         CHANGE PASSWORD
+    ========================= -->
+
+    <span
+      class="switch-link"
+      onclick="toggleSections(false)"
+    >
+      🔐 पासवर्ड बदलें
+    </span>
 
   </div>
 
 
   <!-- =========================
-       USER ID
+       CHANGE PASSWORD SECTION
   ========================= -->
 
-  <div class="form-group" id="user-group">
-
-    <label for="login-user">
-      यूजर आईडी (मोबाइल नंबर):
-    </label>
-
-    <input
-      type="text"
-      id="login-user"
-      inputmode="numeric"
-      maxlength="10"
-      autocomplete="username"
-      placeholder="10 अंकों का मोबाइल नंबर"
-    >
-
-  </div>
-
-
-  <!-- =========================
-       PASSWORD
-  ========================= -->
-
-  <div class="form-group" id="password-group">
-
-    <label for="login-pass">
-      पासवर्ड:
-    </label>
-
-    <input
-      type="password"
-      id="login-pass"
-      autocomplete="current-password"
-      placeholder="अपना पासवर्ड दर्ज करें"
-    >
-
-  </div>
-
-
-  <!-- ERROR -->
-
   <div
-    class="error-alert"
-    id="login-error"
-  ></div>
-
-
-  <!-- LOGIN BUTTON -->
-
-  <button
-    id="login-button"
-    type="button"
-    onclick="handleStudentLogin()"
+    class="login-container"
+    id="change-section"
+    style="display:none;"
   >
-    लॉगिन करें
-  </button>
+
+    <div class="logo-title">
+      पासवर्ड बदलें
+    </div>
+
+    <div class="sub-title">
+      नया Permanent Password सेट करें
+    </div>
 
 
-  <!-- CHANGE PASSWORD -->
+    <div class="form-group">
 
-  <span
-    class="switch-link"
-    onclick="toggleSections(false)"
-  >
-    🔐 पासवर्ड बदलें
-  </span>
+      <label for="change-user">
+        पंजीकृत मोबाइल नंबर:
+      </label>
 
-</div>
+      <input
+        type="text"
+        id="change-user"
+        inputmode="numeric"
+        maxlength="10"
+        placeholder="10 अंकों का मोबाइल नंबर"
+      >
 
-
-<!-- =========================
-     CHANGE PASSWORD
-========================= -->
-
-<div
-  class="login-container"
-  id="change-section"
-  style="display:none;"
->
-
-  <div class="logo-title">
-    पासवर्ड बदलें
-  </div>
-
-  <div class="sub-title">
-    नया Permanent Password सेट करें
-  </div>
+    </div>
 
 
-  <div class="form-group">
+    <div class="form-group">
 
-    <label for="change-user">
-      पंजीकृत मोबाइल नंबर:
-    </label>
+      <label for="old-pass">
+        पुराना पासवर्ड:
+      </label>
 
-    <input
-      type="text"
-      id="change-user"
-      inputmode="numeric"
-      maxlength="10"
-      placeholder="10 अंकों का मोबाइल नंबर"
+      <input
+        type="password"
+        id="old-pass"
+        placeholder="SMS वाला पासवर्ड"
+      >
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label for="new-pass">
+        नया पासवर्ड:
+      </label>
+
+      <input
+        type="password"
+        id="new-pass"
+        placeholder="नया पासवर्ड"
+      >
+
+    </div>
+
+
+    <div
+      class="error-alert"
+      id="change-error"
     >
+      विवरण मैच नहीं हुआ!
+    </div>
 
-  </div>
 
-
-  <div class="form-group">
-
-    <label for="old-pass">
-      पुराना पासवर्ड:
-    </label>
-
-    <input
-      type="password"
-      id="old-pass"
-      placeholder="SMS वाला पासवर्ड"
+    <div
+      class="success-alert"
+      id="change-success"
     >
+      पासवर्ड सफलतापूर्वक बदल दिया गया।
+    </div>
 
-  </div>
 
-
-  <div class="form-group">
-
-    <label for="new-pass">
-      नया पासवर्ड:
-    </label>
-
-    <input
-      type="password"
-      id="new-pass"
-      placeholder="नया पासवर्ड"
+    <button
+      type="button"
+      onclick="handlePasswordChange()"
+      style="background:#147dcc;"
     >
+      Update Password
+    </button>
+
+
+    <span
+      class="switch-link"
+      onclick="toggleSections(true)"
+    >
+      ⬅ वापस Login
+    </span>
 
   </div>
-
-
-  <div
-    class="error-alert"
-    id="change-error"
-  >
-    विवरण मैच नहीं हुआ!
-  </div>
-
-
-  <div
-    class="success-alert"
-    id="change-success"
-  >
-    पासवर्ड सफलतापूर्वक बदल दिया गया।
-  </div>
-
-
-  <button
-    type="button"
-    onclick="handlePasswordChange()"
-    style="background:#147dcc;"
-  >
-    Update Password
-  </button>
-
-
-  <span
-    class="switch-link"
-    onclick="toggleSections(true)"
-  >
-    ⬅ वापस Login
-  </span>
-
-</div>
 
 </div>
 
@@ -572,40 +604,63 @@ button:hover{
 ========================================== */
 
 const params =
-  new URLSearchParams(window.location.search);
+  new URLSearchParams(
+    window.location.search
+  );
 
 let requestedCourse =
-  String(params.get("course") || "")
-    .trim()
-    .toLowerCase();
+  String(
+    params.get("course") || ""
+  )
+  .trim()
+  .toLowerCase();
 
 
 /* ==========================================
-   COURSE UI
+   UPDATE COURSE UI
 ========================================== */
 
 function updateCourseUI(){
 
   const selector =
-    document.getElementById("course-selector");
+    document.getElementById(
+      "course-selector"
+    );
 
   const badge =
-    document.getElementById("course-badge");
+    document.getElementById(
+      "course-badge"
+    );
 
   const userGroup =
-    document.getElementById("user-group");
+    document.getElementById(
+      "user-group"
+    );
 
   const passwordGroup =
-    document.getElementById("password-group");
+    document.getElementById(
+      "password-group"
+    );
 
   const loginButton =
-    document.getElementById("login-button");
+    document.getElementById(
+      "login-button"
+    );
+
+  const userInput =
+    document.getElementById(
+      "login-user"
+    );
+
+  const passInput =
+    document.getElementById(
+      "login-pass"
+    );
 
 
-  /*
-    अगर URL में course नहीं है
-    तो पहले PRELIMS / MAINS चुनवाएं
-  */
+  /* =========================
+     NO COURSE
+  ========================= */
 
   if(
     requestedCourse !== "mains" &&
@@ -631,27 +686,27 @@ function updateCourseUI(){
   }
 
 
-  /*
-    PRELIMS
-  */
+  /* =========================
+     COURSE NAME
+  ========================= */
 
-  if(requestedCourse === "prelims"){
+  if(
+    requestedCourse === "mains"
+  ){
+
+    badge.textContent =
+      "MAINS Student Login";
+
+  }else{
 
     badge.textContent =
       "PRELIMS Student Login";
   }
 
 
-  /*
-    MAINS
-  */
-
-  if(requestedCourse === "mains"){
-
-    badge.textContent =
-      "MAINS Student Login";
-  }
-
+  /* =========================
+     SHOW LOGIN FORM
+  ========================= */
 
   selector.style.display =
     "none";
@@ -664,6 +719,42 @@ function updateCourseUI(){
 
   loginButton.style.display =
     "block";
+
+
+  /* =========================
+     FORCE INPUT VISIBLE
+  ========================= */
+
+  userInput.style.display =
+    "block";
+
+  userInput.style.visibility =
+    "visible";
+
+  userInput.style.opacity =
+    "1";
+
+  userInput.style.width =
+    "100%";
+
+  userInput.style.height =
+    "44px";
+
+
+  passInput.style.display =
+    "block";
+
+  passInput.style.visibility =
+    "visible";
+
+  passInput.style.opacity =
+    "1";
+
+  passInput.style.width =
+    "100%";
+
+  passInput.style.height =
+    "44px";
 }
 
 
@@ -677,19 +768,26 @@ function selectCourse(course){
     course !== "mains" &&
     course !== "prelims"
   ){
+
     return;
   }
+
 
   requestedCourse =
     course;
 
+
   const url =
-    new URL(window.location.href);
+    new URL(
+      window.location.href
+    );
+
 
   url.searchParams.set(
     "course",
     course
   );
+
 
   window.history.replaceState(
     {},
@@ -697,12 +795,13 @@ function selectCourse(course){
     url.toString()
   );
 
+
   updateCourseUI();
 }
 
 
 /* ==========================================
-   INITIAL UI
+   INITIALIZE
 ========================================== */
 
 updateCourseUI();
@@ -729,34 +828,43 @@ function clearStudentSession(){
 
 
 /* ==========================================
-   LOGIN / CHANGE PASSWORD SWITCH
+   LOGIN / PASSWORD CHANGE SWITCH
 ========================================== */
 
-function toggleSections(showLogin){
+function toggleSections(
+  showLogin
+){
 
   document.getElementById(
     "login-error"
-  ).style.display = "none";
+  ).style.display =
+    "none";
 
   document.getElementById(
     "change-error"
-  ).style.display = "none";
+  ).style.display =
+    "none";
 
   document.getElementById(
     "change-success"
-  ).style.display = "none";
+  ).style.display =
+    "none";
 
 
   document.getElementById(
     "login-section"
   ).style.display =
-    showLogin ? "block" : "none";
+    showLogin
+      ? "block"
+      : "none";
 
 
   document.getElementById(
     "change-section"
   ).style.display =
-    showLogin ? "none" : "block";
+    showLogin
+      ? "none"
+      : "block";
 }
 
 
@@ -774,6 +882,7 @@ function getUsers(){
           "mppsc_students"
         ) || "[]"
       );
+
 
     return Array.isArray(data)
       ? data
@@ -799,14 +908,20 @@ function handleStudentLogin(){
 
   const user =
     document
-      .getElementById("login-user")
+      .getElementById(
+        "login-user"
+      )
       .value
       .trim();
 
+
   const pass =
     document
-      .getElementById("login-pass")
+      .getElementById(
+        "login-pass"
+      )
       .value;
+
 
   const errorBox =
     document.getElementById(
@@ -818,9 +933,9 @@ function handleStudentLogin(){
     "none";
 
 
-  /*
-    COURSE CHECK
-  */
+  /* =========================
+     COURSE CHECK
+  ========================= */
 
   if(
     requestedCourse !== "mains" &&
@@ -837,11 +952,14 @@ function handleStudentLogin(){
   }
 
 
-  /*
-    EMPTY FIELD CHECK
-  */
+  /* =========================
+     EMPTY FIELD CHECK
+  ========================= */
 
-  if(!user || !pass){
+  if(
+    !user ||
+    !pass
+  ){
 
     errorBox.textContent =
       "कृपया मोबाइल नंबर और पासवर्ड भरें!";
@@ -860,41 +978,56 @@ function handleStudentLogin(){
     getUsers();
 
 
-  /*
-    IMPORTANT:
-    Course + Username + Password
-    तीनों match होना जरूरी है।
-  */
+  /* =========================
+     EXACT COURSE LOGIN
+     
+     Username
+     Password
+     Course
+     Active
+     
+     चारों check होंगे।
+  ========================= */
 
   const foundUser =
-    users.find(function(u){
+    users.find(
+      function(u){
 
-      const username =
-        String(u.username || "")
+        const username =
+          String(
+            u.username || ""
+          )
           .trim();
 
-      const password =
-        String(u.password || "");
 
-      const type =
-        String(u.type || "")
+        const password =
+          String(
+            u.password || ""
+          );
+
+
+        const type =
+          String(
+            u.type || ""
+          )
           .trim()
           .toLowerCase();
 
 
-      return (
-        username === user &&
-        password === pass &&
-        type === requestedCourse &&
-        u.active !== false
-      );
+        return (
+          username === user &&
+          password === pass &&
+          type === requestedCourse &&
+          u.active !== false
+        );
 
-    });
+      }
+    );
 
 
-  /*
-    LOGIN FAILED
-  */
+  /* =========================
+     LOGIN FAILED
+  ========================= */
 
   if(!foundUser){
 
@@ -914,31 +1047,37 @@ function handleStudentLogin(){
   }
 
 
-  /*
-    LOGIN SUCCESS
-  */
+  /* =========================
+     LOGIN SUCCESS
+  ========================= */
 
   sessionStorage.setItem(
     "mppsc_student_authenticated",
     "true"
   );
 
+
   sessionStorage.setItem(
     "mppsc_student_course",
     requestedCourse
   );
 
+
   sessionStorage.setItem(
     "mppsc_student_username",
-    String(foundUser.username)
+    String(
+      foundUser.username
+    )
   );
 
 
-  /*
-    REDIRECT
-  */
+  /* =========================
+     REDIRECT
+  ========================= */
 
-  if(requestedCourse === "mains"){
+  if(
+    requestedCourse === "mains"
+  ){
 
     window.location.replace(
       "mains-600.html"
@@ -961,18 +1100,26 @@ function handlePasswordChange(){
 
   const user =
     document
-      .getElementById("change-user")
+      .getElementById(
+        "change-user"
+      )
       .value
       .trim();
 
+
   const oldPass =
     document
-      .getElementById("old-pass")
+      .getElementById(
+        "old-pass"
+      )
       .value;
+
 
   const newPass =
     document
-      .getElementById("new-pass")
+      .getElementById(
+        "new-pass"
+      )
       .value;
 
 
@@ -980,6 +1127,7 @@ function handlePasswordChange(){
     document.getElementById(
       "change-error"
     );
+
 
   const successBox =
     document.getElementById(
@@ -994,9 +1142,9 @@ function handlePasswordChange(){
     "none";
 
 
-  /*
-    EMPTY CHECK
-  */
+  /* =========================
+     EMPTY CHECK
+  ========================= */
 
   if(
     !user ||
@@ -1014,11 +1162,13 @@ function handlePasswordChange(){
   }
 
 
-  /*
-    PASSWORD LENGTH
-  */
+  /* =========================
+     PASSWORD LENGTH
+  ========================= */
 
-  if(newPass.length < 4){
+  if(
+    newPass.length < 4
+  ){
 
     errorBox.textContent =
       "नया पासवर्ड कम से कम 4 अक्षरों/अंकों का होना चाहिए!";
@@ -1034,40 +1184,51 @@ function handlePasswordChange(){
     getUsers();
 
 
-  /*
-    USER FIND
-  */
+  /* =========================
+     FIND USER
+  ========================= */
 
   const userIndex =
-    users.findIndex(function(u){
+    users.findIndex(
+      function(u){
 
-      return (
-        String(u.username || "")
-          .trim() === user &&
+        return (
+          String(
+            u.username || ""
+          )
+          .trim()
+          === user &&
 
-        String(u.password || "")
+          String(
+            u.password || ""
+          )
           === oldPass &&
 
-        u.active !== false &&
+          u.active !== false &&
 
-        (
-          requestedCourse === "" ||
+          (
+            requestedCourse === "" ||
 
-          String(u.type || "")
+            String(
+              u.type || ""
+            )
             .trim()
             .toLowerCase()
             === requestedCourse
-        )
-      );
+          )
+        );
 
-    });
+      }
+    );
 
 
-  /*
-    NOT FOUND
-  */
+  /* =========================
+     USER NOT FOUND
+  ========================= */
 
-  if(userIndex === -1){
+  if(
+    userIndex === -1
+  ){
 
     errorBox.textContent =
       "❌ मोबाइल नंबर, पुराने पासवर्ड या course का मिलान नहीं हुआ!";
@@ -1079,9 +1240,9 @@ function handlePasswordChange(){
   }
 
 
-  /*
-    UPDATE PASSWORD
-  */
+  /* =========================
+     UPDATE PASSWORD
+  ========================= */
 
   users[userIndex].password =
     newPass;
@@ -1089,7 +1250,9 @@ function handlePasswordChange(){
 
   localStorage.setItem(
     "mppsc_students",
-    JSON.stringify(users)
+    JSON.stringify(
+      users
+    )
   );
 
 
@@ -1102,18 +1265,24 @@ function handlePasswordChange(){
 
   document.getElementById(
     "login-user"
-  ).value = user;
+  ).value =
+    user;
+
 
   document.getElementById(
     "login-pass"
-  ).value = "";
+  ).value =
+    "";
 
 
-  setTimeout(function(){
+  setTimeout(
+    function(){
 
-    toggleSections(true);
+      toggleSections(true);
 
-  },1200);
+    },
+    1200
+  );
 }
 
 
