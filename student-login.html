@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>MPPSC MCQ Hub - Student Login</title>
 
 <style>
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -25,6 +27,7 @@ body{
   min-height:100vh;
 }
 
+
 /* =====================================================
    TOP HEADER
 ===================================================== */
@@ -33,20 +36,29 @@ body{
   width:100%;
   background:#0d47a1;
   color:#fff;
+
   min-height:64px;
+
   padding:8px 16px;
+
   display:flex;
   align-items:center;
+
   gap:12px;
+
   box-shadow:0 2px 7px rgba(0,0,0,.12);
 }
 
 .mppsc-site-logo-bar img{
   width:48px;
   height:48px;
+
   object-fit:cover;
+
   border-radius:50%;
+
   background:#fff;
+
   padding:2px;
 }
 
@@ -61,84 +73,117 @@ body{
 ===================================================== */
 
 .login-page{
+
   min-height:calc(100vh - 64px);
+
   display:flex;
+
   justify-content:center;
   align-items:center;
+
   padding:30px 15px 40px;
 }
 
+
+/* =====================================================
+   LOGIN CARD
+===================================================== */
+
 .login-container{
+
   background:#fff;
+
   padding:35px 30px;
+
   border-radius:12px;
-  box-shadow:0 4px 25px rgba(0,0,0,.10);
+
+  box-shadow:
+    0 4px 25px rgba(0,0,0,.10);
+
   width:100%;
+
   max-width:380px;
+
   text-align:center;
+
   border-top:5px solid #082b57;
 }
 
+
+/* =====================================================
+   TITLE
+===================================================== */
+
 .logo-title{
+
   color:#082b57;
+
   font-size:24px;
+
   font-weight:bold;
+
   margin-bottom:5px;
 }
 
 .sub-title{
-  color:#667085;
-  font-size:13px;
-  margin-bottom:25px;
-}
 
-.course-badge{
-  display:inline-block;
-  background:#eaf2fb;
-  color:#082b57;
-  padding:7px 12px;
-  border-radius:20px;
+  color:#667085;
+
   font-size:13px;
-  font-weight:bold;
-  margin-bottom:18px;
+
+  margin-bottom:20px;
 }
 
 
 /* =====================================================
-   COURSE SELECTOR
+   COURSE BADGE
 ===================================================== */
 
-#course-selector{
-  display:none;
-  margin-bottom:18px;
-}
+.course-badge{
 
-#course-selector-title{
+  display:inline-block;
+
+  background:#eaf2fb;
+
+  color:#082b57;
+
+  padding:7px 14px;
+
+  border-radius:20px;
+
   font-size:13px;
-  font-weight:700;
-  color:#444;
-  margin-bottom:10px;
+
+  font-weight:bold;
+
+  margin-bottom:22px;
 }
 
 
 /* =====================================================
-   FORM GROUP
-   IMPORTANT:
-   यहाँ !important नहीं लगाया गया है
-   ताकि JavaScript display:none काम करे
+   FORM
 ===================================================== */
 
 .form-group{
+
   width:100%;
+
   text-align:left;
+
   margin-bottom:15px;
+
+  display:block !important;
 }
 
 .form-group label{
+
   font-weight:bold;
-  display:block;
+
+  display:block !important;
+
   margin-bottom:6px;
+
   font-size:13px;
+
   color:#333;
 }
 
@@ -147,105 +192,167 @@ body{
    INPUTS
 ===================================================== */
 
-.form-group input{
-  display:block;
-  visibility:visible;
-  opacity:1;
+.form-group input,
+#login-user,
+#login-pass,
+#change-user,
+#old-pass,
+#new-pass{
 
-  width:100%;
-  height:44px;
-  min-height:44px;
+  display:block !important;
 
-  padding:10px 12px;
+  visibility:visible !important;
 
-  border:1px solid #b8c0cc;
-  border-radius:6px;
+  opacity:1 !important;
 
-  background:#fff;
-  color:#222;
+  width:100% !important;
 
-  font-family:Arial,Helvetica,sans-serif;
-  font-size:14px;
+  height:44px !important;
+
+  min-height:44px !important;
+
+  padding:10px 12px !important;
+
+  border:1px solid #b8c0cc !important;
+
+  border-radius:6px !important;
+
+  background:#ffffff !important;
+
+  color:#222222 !important;
+
+  font-family:Arial,Helvetica,sans-serif !important;
+
+  font-size:14px !important;
 
   outline:none;
+
   box-shadow:none;
 }
 
 .form-group input::placeholder{
-  color:#888;
-  opacity:1;
+
+  color:#888 !important;
+
+  opacity:1 !important;
 }
 
 .form-group input:focus{
-  border-color:#147dcc;
-  box-shadow:0 0 0 2px rgba(20,125,204,.12);
+
+  border-color:#147dcc !important;
+
+  box-shadow:
+    0 0 0 2px rgba(20,125,204,.12) !important;
 }
 
 
 /* =====================================================
-   BUTTON
+   LOGIN BUTTON
 ===================================================== */
 
 button{
+
   width:100%;
+
   min-height:44px;
 
   padding:12px;
 
   background:#082b57;
+
   color:#fff;
 
   border:none;
+
   border-radius:6px;
 
   cursor:pointer;
 
   font-size:16px;
+
   font-weight:bold;
 
   margin-top:10px;
 }
 
 button:hover{
+
   background:#051d3b;
 }
 
 
-/* Course buttons */
+/* =====================================================
+   COURSE COLORS
+===================================================== */
 
-#course-selector button{
-  margin-top:0;
+.prelims-theme{
+
+  border-top-color:#cf2e2e;
 }
 
-#course-selector .prelims-btn{
+.prelims-theme .course-badge{
+
+  background:#ffebee;
+
+  color:#b71c1c;
+}
+
+.prelims-theme #login-button{
+
   background:#cf2e2e;
-  margin-bottom:8px;
 }
 
-#course-selector .prelims-btn:hover{
+.prelims-theme #login-button:hover{
+
   background:#a92323;
 }
 
-#course-selector .mains-btn{
+
+.mains-theme{
+
+  border-top-color:#147dcc;
+}
+
+.mains-theme .course-badge{
+
+  background:#e3f2fd;
+
+  color:#0d5e99;
+}
+
+.mains-theme #login-button{
+
   background:#147dcc;
 }
 
-#course-selector .mains-btn:hover{
+.mains-theme #login-button:hover{
+
   background:#0d5e99;
 }
 
 
 /* =====================================================
-   LINKS
+   CHANGE PASSWORD LINK
 ===================================================== */
 
 .switch-link{
+
   color:#147dcc;
+
   cursor:pointer;
+
   display:block;
+
   margin-top:20px;
+
   font-size:13px;
+
   font-weight:bold;
+}
+
+.switch-link:hover{
+
+  text-decoration:underline;
 }
 
 
@@ -254,8 +361,11 @@ button:hover{
 ===================================================== */
 
 .error-alert{
+
   color:#d32f2f;
+
   font-size:13px;
+
   font-weight:bold;
 
   margin-top:10px;
@@ -274,8 +384,11 @@ button:hover{
 }
 
 .success-alert{
+
   color:#087f23;
+
   font-size:13px;
+
   font-weight:bold;
 
   margin-top:10px;
@@ -295,35 +408,72 @@ button:hover{
 
 
 /* =====================================================
+   INVALID COURSE MESSAGE
+===================================================== */
+
+.invalid-course{
+
+  color:#b71c1c;
+
+  background:#ffebee;
+
+  border-left:4px solid #d32f2f;
+
+  padding:12px;
+
+  border-radius:5px;
+
+  font-size:13px;
+
+  line-height:1.6;
+
+  text-align:left;
+
+  margin-top:10px;
+}
+
+
+/* =====================================================
    MOBILE
 ===================================================== */
 
 @media(max-width:600px){
 
   .mppsc-site-logo-bar{
+
     min-height:56px;
+
     padding:6px 10px;
   }
 
   .mppsc-site-logo-bar img{
+
     width:42px;
+
     height:42px;
   }
 
   .mppsc-site-name{
+
     font-size:15px;
   }
 
   .login-page{
+
     min-height:calc(100vh - 56px);
+
     padding:20px 10px 30px;
   }
 
   .login-container{
+
     padding:28px 20px;
   }
+
 }
+
 </style>
+
 </head>
 
 
@@ -346,7 +496,6 @@ button:hover{
   </div>
 
 </div>
-
 
 
 <!-- =====================================================
@@ -385,36 +534,23 @@ button:hover{
 
 
     <!-- =================================================
-         COURSE SELECTOR
-         केवल तब दिखेगा जब URL में course नहीं है
+         INVALID COURSE MESSAGE
     ================================================== -->
 
-    <div id="course-selector">
+    <div
+      class="invalid-course"
+      id="invalid-course"
+      style="display:none;"
+    >
 
-      <div id="course-selector-title">
-        पहले Course चुनें:
-      </div>
+      यह Student Login केवल Paid Course के माध्यम से
+      खोलें।<br><br>
 
+      <b>PRELIMS</b> के लिए PRELIMS Student Login खोलें।<br>
 
-      <button
-        type="button"
-        class="prelims-btn"
-        onclick="selectCourse('prelims')"
-      >
-        PRELIMS Login
-      </button>
-
-
-      <button
-        type="button"
-        class="mains-btn"
-        onclick="selectCourse('mains')"
-      >
-        MAINS Login
-      </button>
+      <b>MAINS</b> के लिए MAINS Student Login खोलें।
 
     </div>
-
 
 
     <!-- =================================================
@@ -424,7 +560,6 @@ button:hover{
     <div
       class="form-group"
       id="user-group"
-      style="display:none;"
     >
 
       <label for="login-user">
@@ -443,7 +578,6 @@ button:hover{
     </div>
 
 
-
     <!-- =================================================
          PASSWORD
     ================================================== -->
@@ -451,7 +585,6 @@ button:hover{
     <div
       class="form-group"
       id="password-group"
-      style="display:none;"
     >
 
       <label for="login-pass">
@@ -468,8 +601,9 @@ button:hover{
     </div>
 
 
-
-    <!-- ERROR -->
+    <!-- =================================================
+         ERROR
+    ================================================== -->
 
     <div
       class="error-alert"
@@ -477,21 +611,22 @@ button:hover{
     ></div>
 
 
-
-    <!-- LOGIN BUTTON -->
+    <!-- =================================================
+         LOGIN BUTTON
+    ================================================== -->
 
     <button
       id="login-button"
       type="button"
-      style="display:none;"
       onclick="handleStudentLogin()"
     >
       लॉगिन करें
     </button>
 
 
-
-    <!-- CHANGE PASSWORD -->
+    <!-- =================================================
+         CHANGE PASSWORD
+    ================================================== -->
 
     <span
       class="switch-link"
@@ -505,7 +640,7 @@ button:hover{
 
 
   <!-- ===================================================
-       CHANGE PASSWORD
+       CHANGE PASSWORD SECTION
   ==================================================== -->
 
   <div
@@ -523,7 +658,19 @@ button:hover{
     </div>
 
 
-    <!-- MOBILE -->
+    <!-- COURSE DISPLAY -->
+
+    <div
+      class="course-badge"
+      id="change-course-badge"
+    >
+      Course
+    </div>
+
+
+    <!-- =================================================
+         MOBILE
+    ================================================== -->
 
     <div class="form-group">
 
@@ -542,7 +689,9 @@ button:hover{
     </div>
 
 
-    <!-- OLD PASSWORD -->
+    <!-- =================================================
+         OLD PASSWORD
+    ================================================== -->
 
     <div class="form-group">
 
@@ -559,7 +708,9 @@ button:hover{
     </div>
 
 
-    <!-- NEW PASSWORD -->
+    <!-- =================================================
+         NEW PASSWORD
+    ================================================== -->
 
     <div class="form-group">
 
@@ -576,27 +727,29 @@ button:hover{
     </div>
 
 
-    <!-- ERROR -->
+    <!-- =================================================
+         ERROR
+    ================================================== -->
 
     <div
       class="error-alert"
       id="change-error"
-    >
-      विवरण मैच नहीं हुआ!
-    </div>
+    ></div>
 
 
-    <!-- SUCCESS -->
+    <!-- =================================================
+         SUCCESS
+    ================================================== -->
 
     <div
       class="success-alert"
       id="change-success"
-    >
-      पासवर्ड सफलतापूर्वक बदल दिया गया।
-    </div>
+    ></div>
 
 
-    <!-- UPDATE -->
+    <!-- =================================================
+         UPDATE BUTTON
+    ================================================== -->
 
     <button
       type="button"
@@ -607,7 +760,9 @@ button:hover{
     </button>
 
 
-    <!-- BACK -->
+    <!-- =================================================
+         BACK LOGIN
+    ================================================== -->
 
     <span
       class="switch-link"
@@ -617,6 +772,7 @@ button:hover{
     </span>
 
   </div>
+
 
 </div>
 
@@ -628,11 +784,14 @@ button:hover{
 
 
 /* =====================================================
-   COURSE FROM URL
+   GET COURSE FROM URL
 ===================================================== */
 
 const params =
-  new URLSearchParams(window.location.search);
+  new URLSearchParams(
+    window.location.search
+  );
+
 
 let requestedCourse =
   String(
@@ -648,14 +807,19 @@ let requestedCourse =
 
 function updateCourseUI(){
 
-  const selector =
+  const loginSection =
     document.getElementById(
-      "course-selector"
+      "login-section"
     );
 
   const badge =
     document.getElementById(
       "course-badge"
+    );
+
+  const invalidCourse =
+    document.getElementById(
+      "invalid-course"
     );
 
   const userGroup =
@@ -673,20 +837,14 @@ function updateCourseUI(){
       "login-button"
     );
 
+  const changeBadge =
+    document.getElementById(
+      "change-course-badge"
+    );
+
 
   /* ===================================================
-     NO COURSE
-     
-     Example:
-     student-login.html
-     
-     यहाँ केवल:
-     PRELIMS Login
-     MAINS Login
-     
-     दिखाई देंगे।
-     
-     ID / Password नहीं दिखेंगे।
+     INVALID / MISSING COURSE
   =================================================== */
 
   if(
@@ -697,7 +855,7 @@ function updateCourseUI(){
     badge.textContent =
       "Course Login";
 
-    selector.style.display =
+    invalidCourse.style.display =
       "block";
 
     userGroup.style.display =
@@ -709,15 +867,15 @@ function updateCourseUI(){
     loginButton.style.display =
       "none";
 
+    changeBadge.textContent =
+      "Course Select करें";
+
     return;
   }
 
 
   /* ===================================================
      PRELIMS
-     
-     URL:
-     student-login.html?course=prelims
   =================================================== */
 
   if(
@@ -727,27 +885,21 @@ function updateCourseUI(){
     badge.textContent =
       "PRELIMS Student Login";
 
-    selector.style.display =
-      "none";
+    changeBadge.textContent =
+      "PRELIMS Password Change";
 
-    userGroup.style.display =
-      "block";
+    loginSection.classList.add(
+      "prelims-theme"
+    );
 
-    passwordGroup.style.display =
-      "block";
-
-    loginButton.style.display =
-      "block";
-
-    return;
+    loginSection.classList.remove(
+      "mains-theme"
+    );
   }
 
 
   /* ===================================================
      MAINS
-     
-     URL:
-     student-login.html?course=mains
   =================================================== */
 
   if(
@@ -757,63 +909,34 @@ function updateCourseUI(){
     badge.textContent =
       "MAINS Student Login";
 
-    selector.style.display =
-      "none";
+    changeBadge.textContent =
+      "MAINS Password Change";
 
-    userGroup.style.display =
-      "block";
-
-    passwordGroup.style.display =
-      "block";
-
-    loginButton.style.display =
-      "block";
-
-    return;
-  }
-
-}
-
-
-/* =====================================================
-   SELECT COURSE
-===================================================== */
-
-function selectCourse(course){
-
-  if(
-    course !== "prelims" &&
-    course !== "mains"
-  ){
-    return;
-  }
-
-
-  requestedCourse =
-    course;
-
-
-  const url =
-    new URL(
-      window.location.href
+    loginSection.classList.add(
+      "mains-theme"
     );
 
-
-  url.searchParams.set(
-    "course",
-    course
-  );
-
-
-  window.history.replaceState(
-    {},
-    "",
-    url.toString()
-  );
+    loginSection.classList.remove(
+      "prelims-theme"
+    );
+  }
 
 
-  updateCourseUI();
+  /* ===================================================
+     SHOW LOGIN FIELDS
+  =================================================== */
 
+  invalidCourse.style.display =
+    "none";
+
+  userGroup.style.display =
+    "block";
+
+  passwordGroup.style.display =
+    "block";
+
+  loginButton.style.display =
+    "block";
 }
 
 
@@ -824,9 +947,8 @@ function selectCourse(course){
 updateCourseUI();
 
 
-
 /* =====================================================
-   CLEAR STUDENT SESSION
+   CLEAR SESSION
 ===================================================== */
 
 function clearStudentSession(){
@@ -842,13 +964,11 @@ function clearStudentSession(){
   sessionStorage.removeItem(
     "mppsc_student_username"
   );
-
 }
 
 
-
 /* =====================================================
-   LOGIN / PASSWORD CHANGE SWITCH
+   LOGIN / CHANGE PASSWORD SWITCH
 ===================================================== */
 
 function toggleSections(
@@ -860,12 +980,10 @@ function toggleSections(
   ).style.display =
     "none";
 
-
   document.getElementById(
     "change-error"
   ).style.display =
     "none";
-
 
   document.getElementById(
     "change-success"
@@ -906,17 +1024,17 @@ function getUsers(){
         ) || "[]"
       );
 
-
     return Array.isArray(data)
       ? data
       : [];
 
+  }
 
-  }catch(error){
+  catch(e){
 
     console.error(
       "Student database error:",
-      error
+      e
     );
 
     return [];
@@ -924,7 +1042,6 @@ function getUsers(){
   }
 
 }
-
 
 
 /* =====================================================
@@ -970,7 +1087,7 @@ function handleStudentLogin(){
   ){
 
     errorBox.textContent =
-      "❌ पहले PRELIMS या MAINS Course चुनें।";
+      "❌ यह Login Page किसी Paid Course से नहीं जुड़ा है।";
 
     errorBox.style.display =
       "block";
@@ -999,11 +1116,11 @@ function handleStudentLogin(){
 
 
   /* ===================================================
-     MOBILE VALIDATION
+     MOBILE NUMBER CHECK
   =================================================== */
 
   if(
-    !/^\d{10}$/.test(user)
+    !/^[0-9]{10}$/.test(user)
   ){
 
     errorBox.textContent =
@@ -1016,22 +1133,25 @@ function handleStudentLogin(){
   }
 
 
+  /* ===================================================
+     CLEAR OLD SESSION
+  =================================================== */
+
   clearStudentSession();
 
+
+  /* ===================================================
+     GET USERS
+  =================================================== */
 
   const users =
     getUsers();
 
 
   /* ===================================================
-     IMPORTANT:
-     
-     USERNAME
-     +
-     PASSWORD
-     +
-     COURSE TYPE
-     
+     FIND USER
+
+     COURSE + USERNAME + PASSWORD
      तीनों match होना जरूरी है।
   =================================================== */
 
@@ -1061,10 +1181,15 @@ function handleStudentLogin(){
 
 
         return (
+
           username === user &&
+
           password === pass &&
+
           type === requestedCourse &&
+
           u.active !== false
+
         );
 
       }
@@ -1086,10 +1211,8 @@ function handleStudentLogin(){
       ) +
       " मोबाइल नंबर या पासवर्ड!";
 
-
     errorBox.style.display =
       "block";
-
 
     return;
   }
@@ -1131,7 +1254,9 @@ function handleStudentLogin(){
       "mains-600.html"
     );
 
-  }else{
+  }
+
+  else{
 
     window.location.replace(
       "prelims.html"
@@ -1140,7 +1265,6 @@ function handleStudentLogin(){
   }
 
 }
-
 
 
 /* =====================================================
@@ -1189,9 +1313,27 @@ function handlePasswordChange(){
   errorBox.style.display =
     "none";
 
-
   successBox.style.display =
     "none";
+
+
+  /* ===================================================
+     COURSE CHECK
+  =================================================== */
+
+  if(
+    requestedCourse !== "prelims" &&
+    requestedCourse !== "mains"
+  ){
+
+    errorBox.textContent =
+      "❌ Course निर्धारित नहीं है।";
+
+    errorBox.style.display =
+      "block";
+
+    return;
+  }
 
 
   /* ===================================================
@@ -1219,7 +1361,7 @@ function handlePasswordChange(){
   =================================================== */
 
   if(
-    !/^\d{10}$/.test(user)
+    !/^[0-9]{10}$/.test(user)
   ){
 
     errorBox.textContent =
@@ -1260,8 +1402,8 @@ function handlePasswordChange(){
 
   /* ===================================================
      FIND USER
-     
-     Course भी match होगा।
+
+     COURSE भी match होना जरूरी है।
   =================================================== */
 
   const userIndex =
@@ -1290,10 +1432,15 @@ function handlePasswordChange(){
 
 
         return (
+
           username === user &&
+
           password === oldPass &&
+
           type === requestedCourse &&
+
           u.active !== false
+
         );
 
       }
@@ -1332,8 +1479,17 @@ function handlePasswordChange(){
   );
 
 
+  /* ===================================================
+     SUCCESS
+  =================================================== */
+
   successBox.textContent =
-    "✅ पासवर्ड सफलतापूर्वक बदल दिया गया।";
+    (
+      requestedCourse === "mains"
+        ? "MAINS"
+        : "PRELIMS"
+    ) +
+    " का पासवर्ड सफलतापूर्वक बदल दिया गया।";
 
 
   successBox.style.display =
@@ -1341,23 +1497,21 @@ function handlePasswordChange(){
 
 
   /* ===================================================
-     LOGIN USER FIELD
+     CLEAR OLD PASSWORD
   =================================================== */
 
   document.getElementById(
-    "login-user"
-  ).value =
-    user;
+    "old-pass"
+  ).value = "";
 
 
   document.getElementById(
-    "login-pass"
-  ).value =
-    "";
+    "new-pass"
+  ).value = "";
 
 
   /* ===================================================
-     BACK TO LOGIN
+     GO BACK LOGIN
   =================================================== */
 
   setTimeout(
@@ -1366,15 +1520,14 @@ function handlePasswordChange(){
       toggleSections(true);
 
     },
-    1200
+    1500
   );
 
 }
 
 
-
 /* =====================================================
-   ENTER KEY
+   ENTER KEY LOGIN
 ===================================================== */
 
 document.addEventListener(
@@ -1383,6 +1536,7 @@ document.addEventListener(
 
     if(
       event.key === "Enter" &&
+
       document.getElementById(
         "login-section"
       ).style.display !== "none"
