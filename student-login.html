@@ -38,6 +38,11 @@ button:hover{background:#051d3b}
 <div class="logo-title">MPPSC MCQ Hub</div>
 <div class="sub-title">Paid Student Portal Login</div>
 <div class="course-badge" id="course-badge">Course Login</div>
+<div id="course-selector" style="display:none;margin-bottom:18px;">
+  <div style="font-size:13px;font-weight:700;color:#444;margin-bottom:10px;">पहले Course चुनें:</div>
+  <button type="button" onclick="selectCourse('prelims')" style="margin:0 0 8px;background:#cf2e2e;">PRELIMS Login</button>
+  <button type="button" onclick="selectCourse('mains')" style="margin:0;background:#147dcc;">MAINS Login</button>
+</div>
 
 <div class="form-group">
 <label>यूजर आईडी (मोबाइल नंबर):</label>
@@ -87,14 +92,39 @@ button:hover{background:#051d3b}
    prelims.html   -> student-login.html?course=prelims
 */
 const params = new URLSearchParams(window.location.search);
-const requestedCourse = String(params.get("course") || "").trim().toLowerCase();
+let requestedCourse = String(params.get("course") || "").trim().toLowerCase();
 
-if(requestedCourse !== "mains" && requestedCourse !== "prelims"){
-  document.getElementById("course-badge").textContent = "Course Login";
-}else{
-  document.getElementById("course-badge").textContent =
-    requestedCourse === "mains" ? "MAINS Student Login" : "PRELIMS Student Login";
+function updateCourseUI(){
+  const selector=document.getElementById("course-selector");
+  const badge=document.getElementById("course-badge");
+  const loginFields=document.querySelectorAll("#login-user,#login-pass,#login-section button[onclick=\"handleStudentLogin()\"]");
+  if(requestedCourse !== "mains" && requestedCourse !== "prelims"){
+    badge.textContent="Course Login";
+    selector.style.display="block";
+    document.getElementById("login-user").style.display="none";
+    document.getElementById("login-pass").style.display="none";
+    document.querySelector('#login-user').parentElement.style.display="none";
+    document.querySelector('#login-pass').parentElement.style.display="none";
+    document.querySelector('#login-section button[onclick=\"handleStudentLogin()\"]').style.display="none";
+  }else{
+    badge.textContent=requestedCourse === "mains" ? "MAINS Student Login" : "PRELIMS Student Login";
+    selector.style.display="none";
+    document.querySelector('#login-user').parentElement.style.display="block";
+    document.querySelector('#login-pass').parentElement.style.display="block";
+    document.querySelector('#login-section button[onclick=\"handleStudentLogin()\"]').style.display="block";
+  }
 }
+
+function selectCourse(course){
+  if(course!=="mains" && course!=="prelims") return;
+  requestedCourse=course;
+  const url=new URL(window.location.href);
+  url.searchParams.set("course",course);
+  window.history.replaceState({},"",url.toString());
+  updateCourseUI();
+}
+
+updateCourseUI();
 
 function clearStudentSession(){
   sessionStorage.removeItem("mppsc_student_authenticated");
@@ -127,7 +157,7 @@ function handleStudentLogin(){
   errorBox.style.display="none";
 
   if(requestedCourse!=="mains" && requestedCourse!=="prelims"){
-    errorBox.textContent="❌ Login page का course निर्धारित नहीं है। कृपया MAINS या PRELIMS page से login करें।";
+    errorBox.textContent="❌ पहले PRELIMS या MAINS Course चुनें।";
     errorBox.style.display="block";
     return;
   }
