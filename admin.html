@@ -538,7 +538,7 @@ th{
                             </tr>
                         </thead>
                         <tbody id="approved-prelims-students">
-                            <tr><td colspan="4" style="text-align:center;color:#667085;">कोई PRELIMS student नहीं है।</td></tr>
+                            <tr><td colspan="3" style="text-align:center;color:#667085;">कोई PRELIMS student नहीं है।</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -767,12 +767,6 @@ function renderStudentGroup(students, elementId, courseName){
                     ${student.active ? "Active" : "Disabled"}
                 </span>
             </td>
-            <td style="font-weight:700;color:${
-                student.smsStatus === "SMS Sent" ? "#087f23" :
-                student.smsStatus === "SMS Failed" ? "#c62828" : "#667085"
-            };">
-                ${escapeHtml(student.smsStatus || "Not sent")}
-            </td>
         </tr>
     `).join("");
 }
@@ -785,7 +779,7 @@ function escapeHtml(value){
 }
 
 
-async function approvePayment(index){
+function approvePayment(index){
 
     let pendingPayments =
         JSON.parse(
@@ -803,21 +797,12 @@ async function approvePayment(index){
     let approvedReq =
         pendingPayments[index];
 
-    function generateStudentPassword(){
-        const upper = "ABCDEFGHJKLMNPQRSTUVWXYZ";
-        const lower = "abcdefghijkmnopqrstuvwxyz";
-        const digits = "0123456789";
-        const pick = chars => chars[Math.floor(Math.random() * chars.length)];
-
-        return (
-            pick(upper) + pick(upper) + pick(upper) +
-            "@" +
-            pick(lower) + pick(lower) +
-            pick(digits) + pick(digits) + pick(digits)
+    const studentPassword =
+        "MPPSC-" +
+        Math.floor(
+            1000 +
+            Math.random() * 9000
         );
-    }
-
-    const studentPassword = generateStudentPassword();
 
     let users =
         JSON.parse(
@@ -847,47 +832,13 @@ async function approvePayment(index){
         JSON.stringify(users)
     );
 
-    // SMS is sent through the secure Firebase Cloud Function.
-    // The MSG91 auth key is NEVER stored in this HTML file.
-    const smsPayload = {
-        mobile: approvedReq.phone,
-        password: studentPassword,
-        course: approvedReq.course
-    };
-
-    try {
-        if (typeof window.sendStudentSMS !== "function") {
-            throw new Error("SMS service अभी configure नहीं है।");
-        }
-
-        const smsResult = await window.sendStudentSMS(smsPayload);
-
-        // Save only the provider acceptance status locally.
-        approvedReq.smsStatus = "SMS Sent";
-        approvedReq.smsSentAt = new Date().toISOString();
-        approvedReq.smsProviderId = smsResult?.requestId || "";
-
-        alert(
-            "✓ Credentials Activated!\n\n" +
-            "Mobile: " + approvedReq.phone +
-            "\n\nPassword: " + studentPassword +
-            "\n\n📱 SMS Sent"
-        );
-
-    } catch (smsError) {
-        approvedReq.smsStatus = "SMS Failed";
-        approvedReq.smsError = smsError?.message || "SMS failed";
-        approvedReq.smsFailedAt = new Date().toISOString();
-
-        alert(
-            "✓ Student account बन गया।\n\n" +
-            "Mobile: " + approvedReq.phone +
-            "\n\nPassword: " + studentPassword +
-            "\n\n⚠️ SMS नहीं भेजा गया।\n" +
-            "Admin में SMS Failed दिखेगा।\n\n" +
-            "Error: " + (smsError?.message || "Unknown SMS error")
-        );
-    }
+    alert(
+        "✓ Credentials Activated!\n\n" +
+        "Mobile: " +
+        approvedReq.phone +
+        "\n\nPassword: " +
+        studentPassword
+    );
 
     pendingPayments.splice(index,1);
 
@@ -1240,15 +1191,12 @@ document.addEventListener("DOMContentLoaded",function(){
       <input id="totp-code" inputmode="numeric" maxlength="6" placeholder="6-digit code" style="width:100%;padding:12px;margin:12px 0;border:1px solid #ccd6e3;border-radius:8px;font-size:16px;text-align:center;letter-spacing:4px">
       <button id="totp-login-btn" type="button" style="width:100%;padding:12px;border:0;border-radius:8px;background:#1551a5;color:#fff;font-weight:800;cursor:pointer">Verify & Login</button>
     </div>
-    <p style="font-size:12px;color:#667085;margin-top:16px;line-height:1.5">Google Sign-In + TOTP MFA Firebase Authentication से चलता है। Firebase Console में Google provider और TOTP MFA enable करें।</p><p style="font-size:12px;color:#667085;margin-top:8px;line-height:1.5">
-  📱 Student approval पर credentials SMS भेजने के लिए Firebase Cloud Function + MSG91 configured होना चाहिए।
-</p>
+    <p style="font-size:12px;color:#667085;margin-top:16px;line-height:1.5">Google Sign-In + TOTP MFA Firebase Authentication से चलता है। Firebase Console में Google provider और TOTP MFA enable करें।</p>
   </div>
 </div>
 
 <script type="module">
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js';
-import { getFunctions, httpsCallable } from 'https://www.gstatic.com/firebasejs/11.10.0/firebase-functions.js';
 import {
   getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged,
   multiFactor, TotpMultiFactorGenerator, getMultiFactorResolver
@@ -1256,35 +1204,27 @@ import {
 
 /* Firebase Console की वास्तविक config यहाँ डालें */
 const firebaseConfig = {
-  apiKey: 'PASTE_FIREBASE_API_KEY',
-  authDomain: 'PASTE_PROJECT_ID.firebaseapp.com',
-  projectId: 'PASTE_PROJECT_ID',
-  storageBucket: 'PASTE_PROJECT_ID.firebasestorage.app',
-  messagingSenderId: 'PASTE_MESSAGING_SENDER_ID',
-  appId: 'PASTE_APP_ID'
+  apiKey: "AIzaSyAowKOyJ_6Upx0z5VcU_2fM2jk8M6A2dUk",
+  authDomain: "mppsc-mcq-hub.firebaseapp.com",
+  projectId: "mppsc-mcq-hub",
+  storageBucket: "mppsc-mcq-hub.firebasestorage.app",
+  messagingSenderId: "709069054485",
+  appId: "1:709069054485:web:578a8908ae9f0741c3a41c",
+  measurementId: "G-W0YRPE35L2"
 };
 
 /* केवल आपके admin Google account को अनुमति दें */
 const ALLOWED_ADMIN_EMAIL = 'PASTE_YOUR_ADMIN_GMAIL';
 
-const firebaseApp = initializeApp(firebaseConfig);
-const auth = getAuth(firebaseApp);
-const functions = getFunctions(firebaseApp, "asia-south1");
-
-/*
- * Secure SMS bridge.
- * Firebase automatically attaches the signed-in admin user's auth token
- * to the callable request. The Cloud Function verifies the admin email.
- */
-window.sendStudentSMS = async function(payload){
-  const call = httpsCallable(functions, "sendStudentCredentialsSMS");
-  const result = await call(payload);
-  return result.data || {};
-};
+const auth = getAuth(initializeApp(firebaseConfig));
 const provider = new GoogleAuthProvider();
 provider.setCustomParameters({prompt:'select_account'});
 const $ = id => document.getElementById(id);
-function message(text, ok=false){ const el=$('auth-message'); el.textContent=text||''; el.style.color=ok?'#087f23':'#d32f2f'; }
+function message(text, ok=false){
+  const el=$('auth-message');
+  if(String(text||'').includes('auth/api-key-not-valid')){
+    text='Firebase API key invalid है। Firebase Web App config और API key restrictions check करें।';
+  } el.textContent=text||''; el.style.color=ok?'#087f23':'#d32f2f'; }
 function allowed(user){ return user?.email && user.email.toLowerCase()===ALLOWED_ADMIN_EMAIL.toLowerCase(); }
 function unlock(user){
   if(!allowed(user)){ message('यह Google account Admin के लिए authorized नहीं है।'); return; }
