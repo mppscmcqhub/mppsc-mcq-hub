@@ -235,7 +235,7 @@ function togglePaper(button){
 
   try{
     session = JSON.parse(
-      localStorage.getItem("mppsc_student_session") || "null"
+      sessionStorage.getItem("mppsc_student_session") || "null"
     );
   }catch(error){
     console.error("❌ Student session parse error:",error);
