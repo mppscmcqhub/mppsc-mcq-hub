@@ -234,6 +234,8 @@ function togglePaper(button){
   let session = null;
 
   try{
+    // Student Login stores the active login in sessionStorage.
+    // Read the same storage here so the paid Mains page can recognize the login.
     session = JSON.parse(
       sessionStorage.getItem("mppsc_student_session") || "null"
     );
@@ -243,14 +245,20 @@ function togglePaper(button){
 
   const authenticated =
     sessionStorage.getItem("mppsc_student_authenticated") === "true";
+  const sessionCourse = String(
+    sessionStorage.getItem("mppsc_student_course") ||
+    (session && (session.course || session.type)) ||
+    ""
+  ).trim().toLowerCase();
 
   const allowed =
     authenticated &&
     session &&
-    session.type === REQUIRED_COURSE;
+    sessionCourse === REQUIRED_COURSE;
 
   console.log("Authentication:",authenticated);
   console.log("Student session:",session);
+  console.log("Student course:",sessionCourse);
   console.log("Required course:",REQUIRED_COURSE);
   console.log("Access allowed:",allowed);
 
