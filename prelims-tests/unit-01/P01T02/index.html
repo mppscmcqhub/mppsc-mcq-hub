@@ -20,7 +20,6 @@
             padding-bottom: 60px;
         }
 
-        /* फुल-विड्थ हेडर स्टाइल */
         .header {
             background-color: #0b4c8c;
             color: white;
@@ -37,7 +36,6 @@
             width: 100%;
         }
 
-        /* लोगो कंटेनर एरिया */
         .logo-area {
             display: flex;
             align-items: center;
@@ -53,14 +51,12 @@
             padding: 2px;
         }
 
-        /* नो-वेस्ट स्पेस कंटेनर (पूरा पेज कवर करने के लिए) */
         .container {
             width: 100%;
             max-width: 100%;
             padding: 20px 30px;
         }
 
-        /* लाइव स्कोरबोर्ड जो सबमिट के बाद खुलेगा */
         .score-board {
             display: none;
             background-color: #d1ecf1;
@@ -74,7 +70,6 @@
             text-align: center;
         }
 
-        /* फुल-पेज क्वेश्चन कार्ड */
         .question-card {
             background-color: white;
             border-radius: 4px;
@@ -122,7 +117,6 @@
             cursor: pointer;
         }
 
-        /* सबमिट के बाद एक्टिव होने वाले रंग */
         .correct-option {
             background-color: #c3e6cb !important;
             border-color: #8fd19e !important;
@@ -134,7 +128,6 @@
             border-color: #f5c6cb !important;
         }
 
-        /* व्याख्या बॉक्स - सबमिट के बाद ही चालू होगा */
         .explanation-box {
             display: none;
             background-color: #e2f0d9;
@@ -181,10 +174,8 @@
 </head>
 <body>
 
-    <!-- टॉप हेडर एरिया - फिक्स्ड लोगो बैकअप के साथ -->
     <div class="header">
         <div class="logo-area">
-            <!-- onerror लगा दिया गया है ताकि अगर आपके सर्वर पर लोगो न भी मिले तो प्रोफेशनल आइकन दिखे -->
             <img src="logo.png" alt="Logo" onerror="this.onerror=null; this.src='https://icons8.com';">
             <span>MPPSC MCQ Hub V14</span>
         </div>
@@ -192,7 +183,6 @@
     </div>
 
     <div class="container" id="quiz-area">
-        <!-- लाइव स्कोरबोर्ड -->
         <div id="score-board" class="score-board"></div>
 
         <!-- प्रश्न 1 -->
@@ -206,7 +196,7 @@
             </div>
             <div class="explanation-box">
                 <div class="correct-answer-text">Correct Answer: D. महायुग (Mahayuga)</div>
-                <div><span class="explanation-title">Detailed Explanation:</span> चारों युगों के एक पूर्ण चक्र को 'महायुग' कहा जाता है, जिसमें कुल 43,20,000 सौर वर्ष होते हैं।</div>
+                <div><span class="explanation-title">Detailed Explanation:</span> चारों युगों के एक पूर्ण चक्र को 'महायुग' कहा जाता है।</div>
             </div>
         </div>
 
@@ -221,7 +211,7 @@
             </div>
             <div class="explanation-box">
                 <div class="correct-answer-text">Correct Answer: D. ब्रह्मांडीय, नैतिक और प्राकृतिक व्यवस्था</div>
-                <div><span class="explanation-title">Detailed Explanation:</span> ऋत वैदिक दर्शन की एक अत्यंत महत्वपूर्ण अवधारणा है, जो ब्रह्मांड की नैतिक व्यवस्था को नियंत्रित करती है।</div>
+                <div><span class="explanation-title">Detailed Explanation:</span> ऋत वैदिक दर्शन की एक अत्यंत महत्वपूर्ण अवधारणा है।</div>
             </div>
         </div>
 
@@ -236,14 +226,13 @@
             </div>
             <div class="explanation-box">
                 <div class="correct-answer-text">Correct Answer: A. बारहसिंगा (Barasingha)</div>
-                <div><span class="explanation-title">Detailed Explanation:</span> मध्य प्रदेश का राजकीय पशु दलदली हिरण या बारहसिंगा है, जो मुख्य रूप से कान्हा राष्ट्रीय उद्यान में पाया जाता है।</div>
+                <div><span class="explanation-title">Detailed Explanation:</span> मध्य प्रदेश का राजकीय पशु बारहसिंगा है।</div>
             </div>
         </div>
 
-        <!-- 4 से 50 प्रश्नों की पूरी लिस्ट भरने की जगह -->
+        <!-- ऑटो-जेनरेटेड 4 से 50 प्रश्न -->
         <div id="dynamic-blank-questions"></div>
 
-        <!-- नीचे के एक्शन बटन्स -->
         <div class="btn-container">
             <button id="submit-btn" class="action-btn submit-btn" onclick="submitTest()">✔️ Submit Test</button>
             <button id="bottom-pdf-btn" class="action-btn pdf-btn" onclick="downloadPDF()">📥 Download PDF Report</button>
@@ -251,31 +240,32 @@
     </div>
 
     <script>
-        // ऑटोमैटिक 4 से 50 प्रश्नों का लेआउट लोड करना ताकि पेज भरा रहे
-const blankContainer = document.getElementById('dynamic-blank-questions');
-for (let i = 4; i <= 50; i++) {
-blankContainer.innerHTML += `
-
-${i}. मध्य प्रदेश सामान्य ज्ञान प्रश्न संख्या ${i} / MP GK Mock Question Number ${i}?
- A. विकल्प A (सही उत्तर)
- B. विकल्प B
- C. विकल्प C
- D. विकल्प D
+        // 4 से 50 प्रश्नों का लेआउट लोड करना
+        const blankContainer = document.getElementById('dynamic-blank-questions');
+        for (let i = 4; i <= 50; i++) {
+            blankContainer.innerHTML += `
+                <div class="question-card" data-correct="A">
+                    <div class="question-text">${i}. मध्य प्रदेश सामान्य ज्ञान प्रश्न संख्या ${i} / MP GK Mock Question Number ${i}?</div>
+                    <div class="options-container">
+                        <label class="option-label" data-id="A"><input type="radio" name="q${i}" value="A"> A. विकल्प A (सही उत्तर)</label>
+                        <label class="option-label" data-id="B"><input type="radio" name="q${i}" value="B"> B. विकल्प B</label>
+                        <label class="option-label" data-id="C"><input type="radio" name="q${i}" value="C"> C. विकल्प C</label>
+D. विकल्प D
 Correct Answer: A. विकल्प A
-Detailed Explanation: यह प्रश्न संख्या ${i} की विस्तृत व्याख्या है जिसे आप अपनी ज़रूरत के अनुसार कोड में बदल सकते हैं।
+Detailed Explanation: यह प्रश्न संख्या ${i} की विस्तृत व्याख्या है।
 
 
 `;
 }
-// नया 100% फिक्स्ड सबमिट फंक्शन
+// बिल्कुल एरर-प्रूफ नया सबमिट फंक्शन
 function submitTest() {
 let score = 0;
 const cards = document.querySelectorAll('.question-card');
 const total = cards.length;
 cards.forEach((card) => {
 const correctAns = card.getAttribute('data-correct');
+// नामों (Names) की जगह सीधे इनपुट चेक करना (100% सेफ)
 const selectedInput = card.querySelector('input[type="radio"]:checked');
-// सही उत्तर को हमेशा ग्रीन बैकग्राउंड दें
 const correctLabel = card.querySelector(.option-label[data-id="${correctAns}"]);
 if (correctLabel) {
 correctLabel.classList.add('correct-option');
@@ -285,34 +275,27 @@ const userAns = selectedInput.value;
 if (userAns === correctAns) {
 score++;
 } else {
-// गलत सिलेक्टेड उत्तर को रेड बैकग्राउंड दें
 const wrongLabel = card.querySelector(.option-label[data-id="${userAns}"]);
 if (wrongLabel) {
 wrongLabel.classList.add('wrong-option');
 }
 }
 }
-// व्याख्या बॉक्स को विज़िबल करें
 const expBox = card.querySelector('.explanation-box');
 if (expBox) {
 expBox.style.display = 'block';
 }
-// सबमिट के बाद रेडियो बटन्स को डिसेबल करें
 const radios = card.querySelectorAll('input[type="radio"]');
 radios.forEach(r => r.disabled = true);
 });
-// स्कोरबोर्ड अपडेट और शो करना
 const scoreBoard = document.getElementById('score-board');
 scoreBoard.innerHTML = 🏆 आपका लाइव स्कोर: ${score} / ${total} (${Math.round((score/total)*100)}%);
 scoreBoard.style.display = 'block';
-// बटन्स की विजिबिलिटी बदलना
 document.getElementById('submit-btn').style.display = 'none';
 document.getElementById('top-pdf-btn').style.display = 'block';
 document.getElementById('bottom-pdf-btn').style.display = 'block';
-// स्क्रीन के टॉप पर ऑटो-स्क्रॉल करना ताकि स्कोर तुरंत दिखे
 window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-// रंगीन PDF रिपोर्ट डाउनलोड करने का फंक्शन
 function downloadPDF() {
 const element = document.getElementById('quiz-area');
 const opt = {
