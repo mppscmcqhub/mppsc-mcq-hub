@@ -20,10 +20,11 @@
             padding-bottom: 60px;
         }
 
+        /* फुल-विड्थ हेडर स्टाइल */
         .header {
             background-color: #0b4c8c;
             color: white;
-            padding: 15px 30px;
+            padding: 12px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -36,6 +37,22 @@
             width: 100%;
         }
 
+        /* लोगो कंटेनर */
+        .logo-area {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-area img {
+            height: 38px;
+            width: 38px;
+            margin-right: 12px;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: white; /* इमेज लोड न होने पर बैकग्राउंड */
+        }
+
+        /* नो-वेस्ट स्पेस कंटेनर */
         .container {
             width: 100%;
             max-width: 100%;
@@ -102,7 +119,7 @@
             cursor: pointer;
         }
 
-        /* सबमिट के बाद बैकग्राउंड रंग */
+        /* सबमिट के बाद रिजल्ट कलर्स */
         .correct-option {
             background-color: #c3e6cb !important;
             border-color: #8fd19e !important;
@@ -115,7 +132,7 @@
         }
 
         .explanation-box {
-            display: none; /* सबमिट से पहले छुपा रहेगा */
+            display: none; /* टेस्ट के दौरान छुपा रहेगा */
             background-color: #e2f0d9;
             border-left: 5px solid #385723;
             padding: 15px 20px;
@@ -160,8 +177,13 @@
 </head>
 <body>
 
+    <!-- टॉप हेडर असली लोगो इमेज के साथ -->
     <div class="header">
-        <span>📌 MPPSC MCQ Hub V14</span>
+        <div class="logo-area">
+            <!-- ⚠️ यहाँ logo.png की जगह अपनी इमेज फ़ाइल का सही नाम लिखें -->
+            <img src="logo.png" alt="Logo">
+            <span>MPPSC MCQ Hub V14</span>
+        </div>
         <button id="top-pdf-btn" class="action-btn pdf-btn" style="padding: 6px 15px; font-size: 0.9rem;" onclick="downloadPDF()">📥 Download PDF</button>
     </div>
 
@@ -214,7 +236,7 @@
             </div>
         </div>
 
-        <!-- ऑटो-जेनरेटेड 4 से 50 प्रश्न यहाँ लोड होंगे -->
+        <!-- 4 से 50 प्रश्न भरने के लिए डायनामिक स्पेस -->
         <div id="dynamic-blank-questions"></div>
 
         <!-- नीचे के एक्शन बटन्स -->
@@ -225,25 +247,23 @@
     </div>
 
     <script>
-        // 4 से 50 तक के प्रश्नों का ढांचा ऑटोमैटिक तैयार करना
+        // बची हुई जगह भरने के लिए 4 से 50 प्रश्न तुरंत जेनरेट करना ताकि स्पेस फुल रहे
         const blankContainer = document.getElementById('dynamic-blank-questions');
         for (let i = 4; i <= 50; i++) {
             blankContainer.innerHTML += `
                 <div class="question-card" data-correct="A">
-                    <div class="question-text">${i}. मध्य प्रदेश सामान्य ज्ञान प्रश्न संख्या ${i} / MP GK Mock Question Number ${i}?</div>
-                    <div class="options-container">
-                        <label class="option-label" data-id="A"><input type="radio" name="q${i}" value="A"> A. विकल्प A (सही उत्तर)</label>
-                        <label class="option-label" data-id="B"><input type="radio" name="q${i}" value="B"> B. विकल्प B</label>
-                        <label class="option-label" data-id="C"><input type="radio" name="q${i}" value="C"> C. विकल्प C</label>
-                        <label class="option-label" data-id="D"><input type="radio" name="q${i}" value="D"> D. विकल्प D</label>
-                    </div>
+${i}. मध्य प्रदेश सामान्य ज्ञान प्रश्न संख्या ${i} / MP GK Mock Question Number ${i}?
+ A. विकल्प A (सही उत्तर)
+ B. विकल्प B
+ C. विकल्प C
+ D. विकल्प D
 Correct Answer: A. विकल्प A
 Detailed Explanation: यह प्रश्न संख्या ${i} की विस्तृत व्याख्या है।
 
 
 `;
 }
-// नया 100% सुरक्षित सबमिट फंक्शन
+// पूरी तरह सुरक्षित और 100% वर्किंग सबमिट फंक्शन
 function submitTest() {
 let score = 0;
 const cards = document.querySelectorAll('.question-card');
@@ -268,12 +288,12 @@ wrongLabel.classList.add('wrong-option');
 }
 }
 }
-// व्याख्या बॉक्स दिखाएं
+// व्याख्या बॉक्स को ओपन करें
 const expBox = card.querySelector('.explanation-box');
 if (expBox) {
 expBox.style.display = 'block';
 }
-// रेडियो बटन्स को लॉक करें
+// रेडियो बटन्स को पूरी तरह लॉक करें
 const radios = card.querySelectorAll('input[type="radio"]');
 radios.forEach(r => r.disabled = true);
 });
@@ -281,14 +301,14 @@ radios.forEach(r => r.disabled = true);
 const scoreBoard = document.getElementById('score-board');
 scoreBoard.innerHTML = 🏆 आपका लाइव स्कोर: ${score} / ${total} (${Math.round((score/total)*100)}%);
 scoreBoard.style.display = 'block';
-// बटन्स की विजिबिलिटी बदलें
+// बटन्स की विजिबिलिटी अपडेट करें
 document.getElementById('submit-btn').style.display = 'none';
 document.getElementById('top-pdf-btn').style.display = 'block';
 document.getElementById('bottom-pdf-btn').style.display = 'block';
-// पेज के सबसे ऊपरी हिस्से पर स्मूथली ले जाएं
+// पेज के शीर्ष पर स्मूथ स्क्रॉल करें ताकि स्कोर तुरंत दिखाई दे
 window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-// PDF डाउनलोड फंक्शन
+// रंगीन PDF रिपोर्ट जनरेट करने का फंक्शन
 function downloadPDF() {
 const element = document.getElementById('quiz-area');
 const opt = {
