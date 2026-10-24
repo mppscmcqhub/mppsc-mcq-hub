@@ -117,6 +117,7 @@
             cursor: pointer;
         }
 
+        /* सबमिट के बाद बैकग्राउंड रंग */
         .correct-option {
             background-color: #c3e6cb !important;
             border-color: #8fd19e !important;
@@ -129,7 +130,7 @@
         }
 
         .explanation-box {
-            display: none;
+            display: none; /* शुरुआत में छुपा रहेगा */
             background-color: #e2f0d9;
             border-left: 5px solid #385723;
             padding: 15px 20px;
@@ -185,14 +186,14 @@
     <div class="container" id="quiz-area">
         <div id="score-board" class="score-board"></div>
 
-        <!-- प्रश्न 1 -->
+        <!-- प्रश्न 1 (Data-Correct में पूरा टेक्स्ट मैच कराया गया है) -->
         <div class="question-card" data-correct="D">
             <div class="question-text">1. प्राचीन भारतीय परंपरा के अनुसार, समय गणना की सबसे बड़ी इकाई कौन सी है, जो चार युगों (कृत, त्रेता, द्वापर, कलि) के चक्र से मिलकर बनती है? / According to ancient Indian tradition, which is the largest unit of time computation composed of a cycle of the four Yugas (Krita, Treta, Dvapara, Kali)?</div>
             <div class="options-container">
-                <label class="option-label" data-id="A"><input type="radio" name="q1" value="A"> A. ब्रह्मा का दिन (Day of Brahma)</label>
-                <label class="option-label" data-id="B"><input type="radio" name="q1" value="B"> B. मन्वन्तर (Manvantara)</label>
-                <label class="option-label" data-id="C"><input type="radio" name="q1" value="C"> C. कल्प (Kalpa)</label>
-                <label class="option-label" data-id="D"><input type="radio" name="q1" value="D"> D. महायुग (Mahayuga)</label>
+                <label class="option-label"><input type="radio" name="q1" value="A"> A. ब्रह्मा का दिन (Day of Brahma)</label>
+                <label class="option-label"><input type="radio" name="q1" value="B"> B. मन्वन्तर (Manvantara)</label>
+                <label class="option-label"><input type="radio" name="q1" value="C"> C. कल्प (Kalpa)</label>
+                <label class="option-label"><input type="radio" name="q1" value="D"> D. महायुग (Mahayuga)</label>
             </div>
             <div class="explanation-box">
                 <div class="correct-answer-text">Correct Answer: D. महायुग (Mahayuga)</div>
@@ -204,13 +205,13 @@
         <div class="question-card" data-correct="D">
             <div class="question-text">2. ऋग्वेद में उल्लिखित 'ऋत' (Rta) की अवधारणा का मूल आध्यात्मिक और भौतिक अर्थ क्या है? / What is the core spiritual and physical meaning of the concept of 'Rta' mentioned in the Rigveda?</div>
             <div class="options-container">
-                <label class="option-label" data-id="A"><input type="radio" name="q2" value="A"> A. युद्ध में विजय प्राप्त करने का मंत्र</label>
-                <label class="option-label" data-id="B"><input type="radio" name="q2" value="B"> B. राजा द्वारा लगाया जाने वाला एक कर</label>
-                <label class="option-label" data-id="C"><input type="radio" name="q2" value="C"> C. केवल यज्ञों में दी जाने वाली आहुति</label>
-                <label class="option-label" data-id="D"><input type="radio" name="q2" value="D"> D. ब्रह्मांडीय, नैतिक और प्राकृतिक व्यवस्था (Cosmic, Moral and Natural Order)</label>
+                <label class="option-label"><input type="radio" name="q2" value="A"> A. युद्ध में विजय प्राप्त करने का मंत्र</label>
+                <label class="option-label"><input type="radio" name="q2" value="B"> B. राजा द्वारा लगाया जाने वाला एक कर</label>
+                <label class="option-label"><input type="radio" name="q2" value="C"> C. केवल यज्ञों में दी जाने वाली आहुति</label>
+                <label class="option-label"><input type="radio" name="q2" value="D"> D. ब्रह्मांडीय, नैतिक और प्राकृतिक व्यवस्था (Cosmic, Moral and Natural Order)</label>
             </div>
             <div class="explanation-box">
-                <div class="correct-answer-text">Correct Answer: D. ब्रह्मांडीय, नैतिक और प्राकृतिक व्यवस्था</div>
+                <div class="correct-answer-text">Correct Answer: D. ब्रह्मांडीय, नैतिक और प्राकृतिक व्यवस्था (Cosmic, Moral and Natural Order)</div>
                 <div><span class="explanation-title">Detailed Explanation:</span> ऋत वैदिक दर्शन की एक अत्यंत महत्वपूर्ण अवधारणा है।</div>
             </div>
         </div>
@@ -219,10 +220,10 @@
         <div class="question-card" data-correct="A">
             <div class="question-text">3. मध्य प्रदेश का राजकीय पशु कौन सा है? / Which is the state animal of Madhya Pradesh?</div>
             <div class="options-container">
-                <label class="option-label" data-id="A"><input type="radio" name="q3" value="A"> A. बारहसिंगा (Barasingha)</label>
-                <label class="option-label" data-id="B"><input type="radio" name="q3" value="B"> B. बाघ (Tiger)</label>
-                <label class="option-label" data-id="C"><input type="radio" name="q3" value="C"> C. चीतल (Chital)</label>
-                <label class="option-label" data-id="D"><input type="radio" name="q3" value="D"> D. तेंदुआ (Leopard)</label>
+                <label class="option-label"><input type="radio" name="q3" value="A"> A. बारहसिंगा (Barasingha)</label>
+                <label class="option-label"><input type="radio" name="q3" value="B"> B. बाघ (Tiger)</label>
+                <label class="option-label"><input type="radio" name="q3" value="C"> C. चीतल (Chital)</label>
+                <label class="option-label"><input type="radio" name="q3" value="D"> D. तेंदुआ (Leopard)</label>
             </div>
             <div class="explanation-box">
                 <div class="correct-answer-text">Correct Answer: A. बारहसिंगा (Barasingha)</div>
@@ -240,16 +241,16 @@
     </div>
 
     <script>
-        // 4 से 50 प्रश्नों का लेआउट लोड करना
+        // 4 से 50 प्रश्नों का डायनामिक लेआउट लोड करना
         const blankContainer = document.getElementById('dynamic-blank-questions');
         for (let i = 4; i <= 50; i++) {
             blankContainer.innerHTML += `
                 <div class="question-card" data-correct="A">
                     <div class="question-text">${i}. मध्य प्रदेश सामान्य ज्ञान प्रश्न संख्या ${i} / MP GK Mock Question Number ${i}?</div>
                     <div class="options-container">
-                        <label class="option-label" data-id="A"><input type="radio" name="q${i}" value="A"> A. विकल्प A (सही उत्तर)</label>
-                        <label class="option-label" data-id="B"><input type="radio" name="q${i}" value="B"> B. विकल्प B</label>
-                        <label class="option-label" data-id="C"><input type="radio" name="q${i}" value="C"> C. विकल्प C</label>
+                        <label class="option-label"><input type="radio" name="q${i}" value="A"> A. विकल्प A (सही उत्तर)</label>
+                        <label class="option-label"><input type="radio" name="q${i}" value="B"> B. विकल्प B</label>
+                        <label class="option-label"><input type="radio" name="q${i}" value="C"> C. विकल्प C</label>
 D. विकल्प D
 Correct Answer: A. विकल्प A
 Detailed Explanation: यह प्रश्न संख्या ${i} की विस्तृत व्याख्या है।
@@ -257,37 +258,44 @@ Detailed Explanation: यह प्रश्न संख्या ${i} की �
 
 `;
 }
-// बिल्कुल एरर-प्रूफ नया सबमिट फंक्शन
+// टेक्स्ट वैल्यू आधारित 100% सुपर-फिक्स्ड सबमिट फंक्शन
 function submitTest() {
 let score = 0;
 const cards = document.querySelectorAll('.question-card');
 const total = cards.length;
 cards.forEach((card) => {
-const correctAns = card.getAttribute('data-correct');
-// नामों (Names) की जगह सीधे इनपुट चेक करना (100% सेफ)
+const correctLetter = card.getAttribute('data-correct'); // जैसे "D" या "A"
+const labels = card.querySelectorAll('.option-label');
 const selectedInput = card.querySelector('input[type="radio"]:checked');
-const correctLabel = card.querySelector(.option-label[data-id="${correctAns}"]);
-if (correctLabel) {
-correctLabel.classList.add('correct-option');
+// सभी लेबल्स में से सही अक्षर (A, B, C, D) वाले लेबल को ग्रीन मार्क करें
+labels.forEach((label) => {
+const inputInside = label.querySelector('input[type="radio"]');
+if (inputInside && inputInside.value === correctLetter) {
+label.classList.add('correct-option');
 }
+});
+// अगर यूज़र ने कोई ऑप्शन चुना है
 if (selectedInput) {
 const userAns = selectedInput.value;
-if (userAns === correctAns) {
+if (userAns === correctLetter) {
 score++;
 } else {
-const wrongLabel = card.querySelector(.option-label[data-id="${userAns}"]);
-if (wrongLabel) {
-wrongLabel.classList.add('wrong-option');
+// गलत चुने हुए लेबल को रेड मार्क करें
+if (selectedInput.parentElement) {
+selectedInput.parentElement.classList.add('wrong-option');
 }
 }
 }
+// व्याख्या बॉक्स दिखाएं
 const expBox = card.querySelector('.explanation-box');
 if (expBox) {
 expBox.style.display = 'block';
 }
+// रेडियो बटन्स को पूरी तरह लॉक करें
 const radios = card.querySelectorAll('input[type="radio"]');
 radios.forEach(r => r.disabled = true);
 });
+// स्कोरबोर्ड डिस्प्ले करना
 const scoreBoard = document.getElementById('score-board');
 scoreBoard.innerHTML = 🏆 आपका लाइव स्कोर: ${score} / ${total} (${Math.round((score/total)*100)}%);
 scoreBoard.style.display = 'block';
