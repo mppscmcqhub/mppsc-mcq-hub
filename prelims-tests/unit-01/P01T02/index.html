@@ -115,7 +115,7 @@
         }
 
         .explanation-box {
-            display: none; /* डिफ़ॉल्ट रूप से छुपा रहेगा */
+            display: none; /* सबमिट से पहले छुपा रहेगा */
             background-color: #e2f0d9;
             border-left: 5px solid #385723;
             padding: 15px 20px;
@@ -243,14 +243,13 @@ Detailed Explanation: यह प्रश्न संख्या ${i} की �
 
 `;
 }
-// नया 100% एरर-फ्री सबमिट फंक्शन (नामों पर निर्भर नहीं)
+// नया 100% सुरक्षित सबमिट फंक्शन
 function submitTest() {
 let score = 0;
 const cards = document.querySelectorAll('.question-card');
 const total = cards.length;
 cards.forEach((card) => {
 const correctAns = card.getAttribute('data-correct');
-// इस विशेष कार्ड में कौन सा रेडियो टिक किया गया है
 const selectedInput = card.querySelector('input[type="radio"]:checked');
 // सही उत्तर को हमेशा ग्रीन करें
 const correctLabel = card.querySelector(.option-label[data-id="${correctAns}"]);
@@ -278,15 +277,15 @@ expBox.style.display = 'block';
 const radios = card.querySelectorAll('input[type="radio"]');
 radios.forEach(r => r.disabled = true);
 });
-// स्कोर दिखाएं
+// स्कोरबोर्ड प्रदर्शित करें
 const scoreBoard = document.getElementById('score-board');
 scoreBoard.innerHTML = 🏆 आपका लाइव स्कोर: ${score} / ${total} (${Math.round((score/total)*100)}%);
 scoreBoard.style.display = 'block';
-// बटन्स की स्थिति बदलें
+// बटन्स की विजिबिलिटी बदलें
 document.getElementById('submit-btn').style.display = 'none';
 document.getElementById('top-pdf-btn').style.display = 'block';
 document.getElementById('bottom-pdf-btn').style.display = 'block';
-// पेज के ऊपरी हिस्से पर आसानी से ले जाएँ
+// पेज के सबसे ऊपरी हिस्से पर स्मूथली ले जाएं
 window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 // PDF डाउनलोड फंक्शन
