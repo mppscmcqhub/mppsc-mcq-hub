@@ -170,7 +170,7 @@
         <div id="score-board" class="score-board"></div>
 
         <!-- प्रश्न 1 -->
-        <div class="question-card" data-correct="D">
+        <div class="question-card" data-qnum="1" data-correct="D">
             <div class="question-text">1. प्राचीन भारतीय परंपरा के अनुसार, समय गणना की सबसे बड़ी इकाई कौन सी है, जो चार युगों (कृत, त्रेता, द्वापर, कलि) के चक्र से मिलकर बनती है? / According to ancient Indian tradition, which is the largest unit of time computation composed of a cycle of the four Yugas (Krita, Treta, Dvapara, Kali)?</div>
             <div class="options-container">
                 <label class="option-label" data-id="A"><input type="radio" name="q1" value="A"> A. ब्रह्मा का दिन (Day of Brahma)</label>
@@ -185,7 +185,7 @@
         </div>
 
         <!-- प्रश्न 2 -->
-        <div class="question-card" data-correct="D">
+        <div class="question-card" data-qnum="2" data-correct="D">
             <div class="question-text">2. ऋग्वेद में उल्लिखित 'ऋत' (Rta) की अवधारणा का मूल आध्यात्मिक और भौतिक अर्थ क्या है? / What is the core spiritual and physical meaning of the concept of 'Rta' mentioned in the Rigveda?</div>
             <div class="options-container">
                 <label class="option-label" data-id="A"><input type="radio" name="q2" value="A"> A. युद्ध में विजय प्राप्त करने का मंत्र</label>
@@ -199,9 +199,8 @@
             </div>
         </div>
 
-        <!-- प्रश्न 3 से 50 के टेम्पलेट नीचे लोड कर दिए गए हैं (आप इनमें सीधे अपने प्रश्न लिख सकते हैं) -->
         <!-- प्रश्न 3 -->
-        <div class="question-card" data-correct="A">
+        <div class="question-card" data-qnum="3" data-correct="A">
             <div class="question-text">3. मध्य प्रदेश का राजकीय पशु कौन सा है? / Which is the state animal of Madhya Pradesh?</div>
             <div class="options-container">
                 <label class="option-label" data-id="A"><input type="radio" name="q3" value="A"> A. बारहसिंगा (Barasingha)</label>
@@ -215,7 +214,7 @@
             </div>
         </div>
 
-        <!-- सुविधा के लिए प्रश्न 4 से 50 तक खाली टेम्पलेट (Blank Templates) जोड़े गए हैं ताकि स्क्रीन भरी रहे -->
+        <!-- ऑटो-जेनरेटेड 4 से 50 प्रश्न यहाँ लोड होंगे -->
         <div id="dynamic-blank-questions"></div>
 
         <!-- नीचे के एक्शन बटन्स -->
@@ -226,52 +225,59 @@
     </div>
 
     <script>
-        // बची हुई खाली जगह भरने के लिए 4 से 50 तक के प्रश्न तुरंत जनरेट करना ताकि कोई स्पेस खाली न रहे
+        // 4 से 50 तक के प्रश्नों का ढांचा तैयार करना
         const blankContainer = document.getElementById('dynamic-blank-questions');
         for (let i = 4; i <= 50; i++) {
             blankContainer.innerHTML += `
-                <div class="question-card" data-correct="A">
+                <div class="question-card" data-qnum="${i}" data-correct="A">
                     <div class="question-text">${i}. मध्य प्रदेश सामान्य ज्ञान प्रश्न संख्या ${i} / MP GK Mock Question Number ${i}?</div>
                     <div class="options-container">
-                        <label class="option-label" data-id="A"><input type="radio" name="q${i}" value="A"> A. विकल्प A (प्रश्न ${i} का सही उत्तर)</label>
+                        <label class="option-label" data-id="A"><input type="radio" name="q${i}" value="A"> A. विकल्प A (सही उत्तर)</label>
                         <label class="option-label" data-id="B"><input type="radio" name="q${i}" value="B"> B. विकल्प B</label>
-C. विकल्प C
- D. विकल्प D
+                        <label class="option-label" data-id="C"><input type="radio" name="q${i}" value="C"> C. विकल्प C</label>
+                        <label class="option-label" data-id="D"><input type="radio" name="q${i}" value="D"> D. विकल्प D</label>
 Correct Answer: A. विकल्प A
-Detailed Explanation: यह प्रश्न संख्या ${i} की विस्तृत व्याख्या है। इसे आप अपनी फ़ाइल में जाकर बदल सकते हैं।
+Detailed Explanation: यह प्रश्न संख्या ${i} की विस्तृत व्याख्या है।
 
 
 `;
 }
-// टेस्ट सबमिट करने की प्रक्रिया
+// पूरी तरह से एरर-प्रूफ सबमिट फंक्शन
 function submitTest() {
 let score = 0;
 const cards = document.querySelectorAll('.question-card');
 const total = cards.length;
-cards.forEach((card, index) => {
-const qNum = index + 1;
+cards.forEach((card) => {
+const qNum = card.getAttribute('data-qnum');
 const correctAns = card.getAttribute('data-correct');
+// रेडियो बटन से सिलेक्टेड वैल्यू निकालें
 const selected = card.querySelector(input[name="q${qNum}"]:checked);
-// सही उत्तर को हमेशा ग्रीन करें
+// सही ऑप्शन वाले लेबल को ग्रीन बैकग्राउंड दें
 const correctLabel = card.querySelector(.option-label[data-id="${correctAns}"]);
-if(correctLabel) correctLabel.classList.add('correct-option');
+if (correctLabel) {
+correctLabel.classList.add('correct-option');
+}
 if (selected) {
 if (selected.value === correctAns) {
 score++;
 } else {
-// गलत उत्तर को रेड करें
+// गलत सिलेक्ट किए गए ऑप्शन को रेड बैकग्राउंड दें
 const wrongLabel = card.querySelector(.option-label[data-id="${selected.value}"]);
-if(wrongLabel) wrongLabel.classList.add('wrong-option');
+if (wrongLabel) {
+wrongLabel.classList.add('wrong-option');
 }
 }
-// व्याख्या बॉक्स दिखाएं
+}
+// एक्सप्लेनेशन बॉक्स को डिस्प्ले करें
 const expBox = card.querySelector('.explanation-box');
-if(expBox) expBox.style.display = 'block';
-// रेडियो बटन लॉक करें
-const radios = card.querySelectorAll('input[type="radio"]');
+if (expBox) {
+expBox.style.display = 'block';
+}
+// सभी रेडियो बटन्स को डिसेबल करें
+const radios = card.querySelectorAll(input[name="q${qNum}"]);
 radios.forEach(r => r.disabled = true);
 });
-// स्कोर दिखाएं
+// स्कोरबोर्ड प्रदर्शित करें
 const scoreBoard = document.getElementById('score-board');
 scoreBoard.innerHTML = 🏆 आपका लाइव स्कोर: ${score} / ${total} (${Math.round((score/total)*100)}%);
 scoreBoard.style.display = 'block';
@@ -279,6 +285,7 @@ scoreBoard.style.display = 'block';
 document.getElementById('submit-btn').style.display = 'none';
 document.getElementById('top-pdf-btn').style.display = 'block';
 document.getElementById('bottom-pdf-btn').style.display = 'block';
+// स्क्रीन को सबसे ऊपर ले जाएँ ताकि स्कोर साफ़ दिखे
 window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 // PDF डाउनलोड फंक्शन
@@ -286,7 +293,7 @@ function downloadPDF() {
 const element = document.getElementById('quiz-area');
 const opt = {
 margin:       10,
-filename:     'MPPSC_Full_Exam_Report.pdf',
+filename:     'MPPSC_50_Questions_Report.pdf',
 image:        { type: 'jpeg', quality: 0.98 },
 html2canvas:  { scale: 2, useCORS: true },
 jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
