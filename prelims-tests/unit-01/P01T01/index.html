@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MPPSC MCQ Hub V14</title>
-    <!-- PDF जनरेट करने के लिए लाइब्रेरी -->
+    <!-- PDF जनरेशन लाइब्रेरी -->
     <script src="https://cloudflare.com"></script>
     <style>
         * {
@@ -17,7 +17,7 @@
         body {
             background-color: #f0f2f5;
             color: #333;
-            padding-bottom: 50px;
+            padding-bottom: 60px;
         }
 
         .header {
@@ -50,7 +50,7 @@
             padding: 20px;
             border-radius: 4px;
             margin-bottom: 25px;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: bold;
             text-align: center;
         }
@@ -102,6 +102,7 @@
             cursor: pointer;
         }
 
+        /* सबमिट के बाद दिखने वाले रंग */
         .correct-option {
             background-color: #c3e6cb !important;
             border-color: #8fd19e !important;
@@ -114,7 +115,7 @@
         }
 
         .explanation-box {
-            display: none;
+            display: none; /* शुरुआत में छुपा रहेगा */
             background-color: #e2f0d9;
             border-left: 5px solid #385723;
             padding: 15px 20px;
@@ -137,11 +138,11 @@
 
         .btn-container {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 40px;
         }
 
         .action-btn {
-            padding: 12px 30px;
+            padding: 14px 40px;
             font-size: 1.1rem;
             font-weight: bold;
             border: none;
@@ -165,8 +166,59 @@
     </div>
 
     <div class="container" id="quiz-area">
+        <!-- लाइव स्कोरबोर्ड -->
         <div id="score-board" class="score-board"></div>
-        <div id="quiz-container"></div>
+
+        <!-- प्रश्न 1 -->
+        <div class="question-card" data-correct="D">
+            <div class="question-text">1. प्राचीन भारतीय परंपरा के अनुसार, समय गणना की सबसे बड़ी इकाई कौन सी है, जो चार युगों (कृत, त्रेता, द्वापर, कलि) के चक्र से मिलकर बनती है? / According to ancient Indian tradition, which is the largest unit of time computation composed of a cycle of the four Yugas (Krita, Treta, Dvapara, Kali)?</div>
+            <div class="options-container">
+                <label class="option-label" data-id="A"><input type="radio" name="q1" value="A"> A. ब्रह्मा का दिन (Day of Brahma)</label>
+                <label class="option-label" data-id="B"><input type="radio" name="q1" value="B"> B. मन्वन्तर (Manvantara)</label>
+                <label class="option-label" data-id="C"><input type="radio" name="q1" value="C"> C. कल्प (Kalpa)</label>
+                <label class="option-label" data-id="D"><input type="radio" name="q1" value="D"> D. महायुग (Mahayuga)</label>
+            </div>
+            <div class="explanation-box">
+                <div class="correct-answer-text">Correct Answer: D. महायुग (Mahayuga)</div>
+                <div><span class="explanation-title">Detailed Explanation:</span> चारों युगों के एक पूर्ण चक्र को 'महायुग' कहा जाता है, जिसमें कुल 43,20,000 सौर वर्ष होते हैं।</div>
+            </div>
+        </div>
+
+        <!-- प्रश्न 2 -->
+        <div class="question-card" data-correct="D">
+            <div class="question-text">2. ऋग्वेद में उल्लिखित 'ऋत' (Rta) की अवधारणा का मूल आध्यात्मिक और भौतिक अर्थ क्या है? / What is the core spiritual and physical meaning of the concept of 'Rta' mentioned in the Rigveda?</div>
+            <div class="options-container">
+                <label class="option-label" data-id="A"><input type="radio" name="q2" value="A"> A. युद्ध में विजय प्राप्त करने का मंत्र</label>
+                <label class="option-label" data-id="B"><input type="radio" name="q2" value="B"> B. राजा द्वारा लगाया जाने वाला एक कर</label>
+                <label class="option-label" data-id="C"><input type="radio" name="q2" value="C"> C. केवल यज्ञों में दी जाने वाली आहुति</label>
+                <label class="option-label" data-id="D"><input type="radio" name="q2" value="D"> D. ब्रह्मांडीय, नैतिक और प्राकृतिक व्यवस्था (Cosmic, Moral and Natural Order)</label>
+            </div>
+            <div class="explanation-box">
+                <div class="correct-answer-text">Correct Answer: D. ब्रह्मांडीय, नैतिक और प्राकृतिक व्यवस्था</div>
+                <div><span class="explanation-title">Detailed Explanation:</span> ऋत वैदिक दर्शन की एक अत्यंत महत्वपूर्ण अवधारणा है, जो ब्रह्मांड की नैतिक व्यवस्था को नियंत्रित करती है।</div>
+            </div>
+        </div>
+
+        <!-- प्रश्न 3 से 50 के टेम्पलेट नीचे लोड कर दिए गए हैं (आप इनमें सीधे अपने प्रश्न लिख सकते हैं) -->
+        <!-- प्रश्न 3 -->
+        <div class="question-card" data-correct="A">
+            <div class="question-text">3. मध्य प्रदेश का राजकीय पशु कौन सा है? / Which is the state animal of Madhya Pradesh?</div>
+            <div class="options-container">
+                <label class="option-label" data-id="A"><input type="radio" name="q3" value="A"> A. बारहसिंगा (Barasingha)</label>
+                <label class="option-label" data-id="B"><input type="radio" name="q3" value="B"> B. बाघ (Tiger)</label>
+                <label class="option-label" data-id="C"><input type="radio" name="q3" value="C"> C. चीतल (Chital)</label>
+                <label class="option-label" data-id="D"><input type="radio" name="q3" value="D"> D. तेंदुआ (Leopard)</label>
+            </div>
+            <div class="explanation-box">
+                <div class="correct-answer-text">Correct Answer: A. बारहसिंगा (Barasingha)</div>
+                <div><span class="explanation-title">Detailed Explanation:</span> मध्य प्रदेश का राजकीय पशु दलदली हिरण या बारहसिंगा है, जो मुख्य रूप से कान्हा राष्ट्रीय उद्यान में पाया जाता है।</div>
+            </div>
+        </div>
+
+        <!-- सुविधा के लिए प्रश्न 4 से 50 तक खाली टेम्पलेट (Blank Templates) जोड़े गए हैं ताकि स्क्रीन भरी रहे -->
+        <div id="dynamic-blank-questions"></div>
+
+        <!-- नीचे के एक्शन बटन्स -->
         <div class="btn-container">
             <button id="submit-btn" class="action-btn submit-btn" onclick="submitTest()">✔️ Submit Test</button>
             <button id="bottom-pdf-btn" class="action-btn pdf-btn" onclick="downloadPDF()">📥 Download PDF Report</button>
@@ -174,139 +226,70 @@
     </div>
 
     <script>
-        // 50 प्रश्नों की पूरी लिस्ट (डेटाबेस)
-        const mppscQuestions = [];
+        // बची हुई खाली जगह भरने के लिए 4 से 50 तक के प्रश्न तुरंत जनरेट करना ताकि कोई स्पेस खाली न रहे
+        const blankContainer = document.getElementById('dynamic-blank-questions');
+        for (let i = 4; i <= 50; i++) {
+            blankContainer.innerHTML += `
+                <div class="question-card" data-correct="A">
+                    <div class="question-text">${i}. मध्य प्रदेश सामान्य ज्ञान प्रश्न संख्या ${i} / MP GK Mock Question Number ${i}?</div>
+                    <div class="options-container">
+                        <label class="option-label" data-id="A"><input type="radio" name="q${i}" value="A"> A. विकल्प A (प्रश्न ${i} का सही उत्तर)</label>
+                        <label class="option-label" data-id="B"><input type="radio" name="q${i}" value="B"> B. विकल्प B</label>
+C. विकल्प C
+ D. विकल्प D
+Correct Answer: A. विकल्प A
+Detailed Explanation: यह प्रश्न संख्या ${i} की विस्तृत व्याख्या है। इसे आप अपनी फ़ाइल में जाकर बदल सकते हैं।
 
-        // प्रश्न 1 और 2 का असली डेटा
-        mppscQuestions.push({
-            id: 1,
-            qText: "1. प्राचीन भारतीय परंपरा के अनुसार, समय गणना की सबसे बड़ी इकाई कौन सी है, जो चार युगों (कृत, त्रेता, द्वापर, कलि) के चक्र से मिलकर बनती है? / According to ancient Indian tradition, which is the largest unit of time computation composed of a cycle of the four Yugas (Krita, Treta, Dvapara, Kali)?",
-            options: [
-                { id: "A", text: "A. ब्रह्मा का दिन (Day of Brahma)" },
-                { id: "B", text: "B. मन्वन्तर (Manvantara)" },
-                { id: "C", text: "C. कल्प (Kalpa)" },
-                { id: "D", text: "D. महायुग (Mahayuga)" }
-            ],
-            correctAnswer: "D",
-            correctText: "D. महायुग (Mahayuga)",
-            explanation: "चारों युगों (कृत/सत्य, त्रेता, द्वापर, कलि) के एक पूर्ण चक्र को 'महायुग' कहा जाता है, जिसमें कुल 43,20,000 सौर वर्ष होते हैं। 71 महायुग मिलकर एक मन्वन्तर बनाते हैं।"
-        });
 
-        mppscQuestions.push({
-            id: 2,
-            qText: "2. ऋग्वेद में उल्लिखित 'ऋत' (Rta) की अवधारणा का मूल आध्यात्मिक और भौतिक अर्थ क्या है? / What is the core spiritual and physical meaning of the concept of 'Rta' mentioned in the Rigveda?",
-            options: [
-                { id: "A", text: "A. युद्ध में विजय प्राप्त करने का मंत्र" },
-                { id: "B", text: "B. राजा द्वारा लगाया जाने वाला एक कर" },
-                { id: "C", text: "C. केवल यज्ञों में दी जाने वाली आहुति" },
-                { id: "D", text: "D. ब्रह्मांडीय, नैतिक और प्राकृतिक व्यवस्था (Cosmic, Moral and Natural Order)" }
-            ],
-            correctAnswer: "D",
-            correctText: "D. ब्रह्मांडीय, नैतिक और प्राकृतिक व्यवस्था (Cosmic, Moral and Natural Order)",
-            explanation: "ऋत वैदिक दर्शन की एक अत्यंत महत्वपूर्ण अवधारणा है, जो ब्रह्मांड की अपरिवर्तनीय नैतिक, प्राकृतिक और भौतिक व्यवस्था को नियंत्रित करती है। वरुण देवता को 'ऋतस्य गोपा' (ऋत का रक्षक) कहा गया है।"
-        });
-
-        // प्रश्न 3 से 50 तक ऑटो-जेनरेटेड लिस्ट (ताकि आपका पेज खाली न दिखे)
-        for (let i = 3; i <= 50; i++) {
-            mppscQuestions.push({
-                id: i,
-                qText: `${i}. मध्य प्रदेश सामान्य ज्ञान प्रश्न संख्या ${i} / MP GK Mock Question Number ${i}?`,
-                options: [
-                    { id: "A", text: `A. विकल्प A - प्रश्न ${i} का उत्तर` },
-                    { id: "B", text: `B. विकल्प B - प्रश्न ${i} का उत्तर` },
-                    { id: "C", text: `C. विकल्प C - प्रश्न ${i} का उत्तर` },
-                    { id: "D", text: `D. विकल्प D - प्रश्न ${i} का उत्तर` }
-                ],
-                correctAnswer: "A",
-                correctText: `A. विकल्प A`,
-                explanation: `यह प्रश्न संख्या ${i} की विस्तृत व्याख्या है। आप इस टेक्स्ट को कोड में जाकर आसानी से बदल सकते हैं।`
-            });
-        }
-
-        // रेंडर फंक्शन
-        function renderTest() {
-            const container = document.getElementById('quiz-container');
-            container.innerHTML = '';
-
-            mppscQuestions.forEach((q) => {
-                const card = document.createElement('div');
-                card.className = 'question-card';
-
-                const qTextEl = document.createElement('div');
-                qTextEl.className = 'question-text';
-                qTextEl.innerText = q.qText;
-                card.appendChild(qTextEl);
-
-                const optionsContainer = document.createElement('div');
-                optionsContainer.className = 'options-container';
-
-                q.options.forEach((opt) => {
-                    const label = document.createElement('label');
-                    label.className = 'option-label';
-                    label.id = `label-${q.id}-${opt.id}`;
-
-                    const radio = document.createElement('input');
-                    radio.type = 'radio';
-                    radio.name = `question-${q.id}`;
-                    radio.value = opt.id;
-
-                    label.appendChild(radio);
-                    label.appendChild(document.createTextNode(opt.text));
-                    optionsContainer.appendChild(label);
-                });
-                card.appendChild(optionsContainer);
-
-                const expBox = document.createElement('div');
-                expBox.className = 'explanation-box';
-                expBox.id = `explanation-${q.id}`;
-                expBox.innerHTML = `
-                    <div class="correct-answer-text">Correct Answer: ${q.correctText}</div>
-                    <div class="detailed-explanation">
-                        <span class="explanation-title">Detailed Explanation:</span><br>
-                        ${q.explanation}
-                    </div>
-                `;
-                card.appendChild(expBox);
-                container.appendChild(card);
-            });
-        }
-
-        function submitTest() {
-            let score = 0;
-            let total = mppscQuestions.length;
-
-            mppscQuestions.forEach((q) => {
-const selectedOption = document.querySelector(input[name="question-${q.id}"]:checked);
-document.getElementById(label-${q.id}-${q.correctAnswer}).classList.add('correct-option');
-if (selectedOption) {
-const userAns = selectedOption.value;
-if (userAns === q.correctAnswer) {
+`;
+}
+// टेस्ट सबमिट करने की प्रक्रिया
+function submitTest() {
+let score = 0;
+const cards = document.querySelectorAll('.question-card');
+const total = cards.length;
+cards.forEach((card, index) => {
+const qNum = index + 1;
+const correctAns = card.getAttribute('data-correct');
+const selected = card.querySelector(input[name="q${qNum}"]:checked);
+// सही उत्तर को हमेशा ग्रीन करें
+const correctLabel = card.querySelector(.option-label[data-id="${correctAns}"]);
+if(correctLabel) correctLabel.classList.add('correct-option');
+if (selected) {
+if (selected.value === correctAns) {
 score++;
 } else {
-document.getElementById(label-${q.id}-${userAns}).classList.add('wrong-option');
+// गलत उत्तर को रेड करें
+const wrongLabel = card.querySelector(.option-label[data-id="${selected.value}"]);
+if(wrongLabel) wrongLabel.classList.add('wrong-option');
 }
 }
-document.getElementById(explanation-${q.id}).style.display = 'block';
-const radios = document.getElementsByName(question-${q.id});
+// व्याख्या बॉक्स दिखाएं
+const expBox = card.querySelector('.explanation-box');
+if(expBox) expBox.style.display = 'block';
+// रेडियो बटन लॉक करें
+const radios = card.querySelectorAll('input[type="radio"]');
 radios.forEach(r => r.disabled = true);
 });
+// स्कोर दिखाएं
 const scoreBoard = document.getElementById('score-board');
 scoreBoard.innerHTML = 🏆 आपका लाइव स्कोर: ${score} / ${total} (${Math.round((score/total)*100)}%);
 scoreBoard.style.display = 'block';
+// बटन्स की विजिबिलिटी बदलें
 document.getElementById('submit-btn').style.display = 'none';
 document.getElementById('top-pdf-btn').style.display = 'block';
 document.getElementById('bottom-pdf-btn').style.display = 'block';
 window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+// PDF डाउनलोड फंक्शन
 function downloadPDF() {
 const element = document.getElementById('quiz-area');
 const opt = {
 margin:       10,
-filename:     'MPPSC_50_Questions_Report.pdf',
+filename:     'MPPSC_Full_Exam_Report.pdf',
 image:        { type: 'jpeg', quality: 0.98 },
 html2canvas:  { scale: 2, useCORS: true },
 jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
 };
 html2pdf().set(opt).from(element).save();
 }
-window.onload = renderTest;
