@@ -203,13 +203,13 @@ e: "वेदांग 6 हैं: शिक्षा (उच्चारण), 
 q: "किस उपनिषद से भारत का राष्ट्रीय आदर्श वाक्य 'सत्यमेव जयते' लिया गया है? / From which Upanishad is India's national motto 'Satyamev Jayate' extracted?",
 o: ["कठोपनिषद / Kathopanishad", "मुण्डकोपनिषद / Mundakopanishad", "छान्दोग्य उपनिषद / Chandogya Upanishad", "माण्डूक्य उपनिषद / Mandukya Upanishad"],
 a: 1,
-e: "'सत्यमेव जयते' (सत्य की ही विजय होती है) वाक्य मुण्डकोपनिषद से लिया गया है। / The motto 'Satyamev Jayate' is taken from the Mundaka Upanishad."
+e: "'सत्यमेव जयते' वाक्य मुण्डकोपनिषद से लिया गया है। / The motto 'Satyamev Jayate' is taken from the Mundaka Upanishad."
 },
 {
 q: "प्राचीन भारतीय ज्ञान परंपरा में 'वेदांत' शब्द का प्रयोग किसके लिए किया जाता है? / In ancient Indian knowledge systems, for what is the term 'Vedanta' used?",
 o: ["ब्राह्मण ग्रंथों के लिए / Brahmanas", "आरन्यकों के लिए / Aranyakas", "उपनिषदों के लिए / Upanishads", "वेदांगों के लिए / Vedangas"],
 a: 2,
-e: "चूंकि उपनिषद वैदिक साहित्य के अंतिम भाग हैं और इनमें वेदों का सर्वोच्च दार्शनिक सार है, इसलिए इन्हें 'वेदांत' कहा जाता है। / Upanishads are called Vedanta as they come at the end of the Vedic period and embody its core philosophy."
+e: "चूंकि उपनिषद वैदिक साहित्य के अंतिम भाग हैं और ईंधन वेदों का सर्वोच्च दार्शनिक सार है, इसलिए इन्हें 'वेदांत' कहा जाता है। / Upanishads are called Vedanta as they come at the end of the Vedic period and embody its core philosophy."
 },
 {
 q: "वैदिक काल में 'सभा' और 'समिति' को किस प्रजातांत्रिक राजा की 'दो पुत्रियाँ' कहा गया है? / In the Vedic period, 'Sabha' and 'Samiti' were described as the 'two daughters' of which entity?",
@@ -380,67 +380,80 @@ a: 2,
 e: "महाभारत में श्लोकों की संख्या बढ़ते-बढ़ते एक लाख हो जाने के कारण इसे 'शतसाहस्री संहिता' या महाभारत नाम दिया गया। / Mahabharata is termed Shatasahasri Samhita when its verses reached one lakh."
 }
 ];
-// Function to render quiz questions dynamically
+// Function to render quiz questions dynamically (Using Bulletproof Traditional Concatenation)
 function renderQuiz() {
-const quizContainer = document.getElementById('quiz');
+var quizContainer = document.getElementById('quiz');
 if (!quizContainer) return;
-quizContainer.innerHTML = questions.map((q, qIdx) => <div class="question" id="qbox_${qIdx}"> <div class="qtitle">${qIdx + 1}. ${q.q}</div> ${q.o.map((opt, oIdx) =>
-).join('')} <div class="explanation" id="exp_${qIdx}">${q.e}</div> </div> ).join('');
+var html = '';
+for (var i = 0; i < questions.length; i++) {
+var q = questions[i];
+html += '';
+html += '  ' + (i + 1) + '. ' + q.q + '';
+for (var j = 0; j < q.o.length; j++) {
+html += '  ';
+html += '    ';
+html += '    ' + q.o[j];
+html += '  ';
+}
+html += '  ' + q.e + '';
+html += '';
+}
+quizContainer.innerHTML = html;
 }
 // Function to handle test submission
 function submitTest() {
-let score = 0;
-questions.forEach((q, qIdx) => {
-const selectedRadio = document.querySelector(input[name="q_${qIdx}"]:checked);
-const expDiv = document.getElementById(exp_${qIdx});
+var score = 0;
+for (var i = 0; i < questions.length; i++) {
+var q = questions[i];
+var checkedRadio = document.querySelector('input[name="q_' + i + '"]:checked');
+var expDiv = document.getElementById('exp_' + i);
 if (expDiv) expDiv.style.display = 'block';
-// Highlight correct answer
-const correctLabel = document.getElementById(label_${qIdx}_${q.a});
+var correctLabel = document.getElementById('label_' + i + '_' + q.a);
 if (correctLabel) correctLabel.classList.add('correct');
-if (selectedRadio) {
-const chosenAnswer = parseInt(selectedRadio.value);
+if (checkedRadio) {
+var chosenAnswer = parseInt(checkedRadio.value);
 if (chosenAnswer === q.a) {
 score++;
 } else {
-// Highlight wrong answer if selected
-const wrongLabel = document.getElementById(label_${qIdx}_${chosenAnswer});
+var wrongLabel = document.getElementById('label_' + i + '_' + chosenAnswer);
 if (wrongLabel) wrongLabel.classList.add('wrong');
 }
 }
-});
-// Display result summary
-const resultDiv = document.getElementById('result');
+}
+var resultDiv = document.getElementById('result');
 if (resultDiv) {
 resultDiv.style.display = 'block';
-resultDiv.innerHTML = <h2>परीक्षा परिणाम / Test Result</h2> <div class="score">${score} / ${questions.length}</div> <p>आपने ${questions.length} में से ${score} प्रश्नों का सही उत्तर दिया है। / You answered ${score} out of ${questions.length} questions correctly.</p>;
+resultDiv.innerHTML = 'परीक्षा परिणाम / Test Result' +
+'' + score + ' / ' + questions.length + '' +
+'आपने ' + questions.length + ' में से ' + score + ' प्रश्नों का सही उत्तर दिया है।';
 }
-// Disable further inputs after submission
-const inputs = document.querySelectorAll('input[type="radio"]');
-inputs.forEach(input => input.disabled = true);
-// Scroll to top to see score
+var inputs = document.querySelectorAll('input[type="radio"]');
+for (var k = 0; k < inputs.length; k++) {
+inputs[k].disabled = true;
+}
 window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 function goBack() {
 window.history.back();
 }
 // Countdown Timer Logic
-let timeInMinutes = 60;
-let timeInSeconds = timeInMinutes * 60;
-const timerElement = document.getElementById('time');
-const countdown = setInterval(() => {
-let minutes = Math.floor(timeInSeconds / 60);
-let seconds = timeInSeconds % 60;
+var timeInMinutes = 60;
+var timeInSeconds = timeInMinutes * 60;
+var timerElement = document.getElementById('time');
+var countdown = setInterval(function() {
+var minutes = Math.floor(timeInSeconds / 60);
+var seconds = timeInSeconds % 60;
 seconds = seconds < 10 ? '0' + seconds : seconds;
 minutes = minutes < 10 ? '0' + minutes : minutes;
 if (timerElement) {
-timerElement.textContent = ${minutes}:${seconds};
+timerElement.textContent = minutes + ':' + seconds;
 }
 if (timeInSeconds <= 0) {
 clearInterval(countdown);
-alert('समय समाप्त! आपका टेस्ट स्वतः सबमिट हो रहा है। / Time over! Your test is submitting automatically.');
+alert('समय समाप्त! आपका टेस्ट स्वतः सबमिट हो रहा है।');
 submitTest();
 }
 timeInSeconds--;
 }, 1000);
-// Initialize Quiz on load immediately
+// Force Immediate Rendering execution
 renderQuiz();
