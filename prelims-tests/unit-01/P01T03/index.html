@@ -1,1 +1,306 @@
 
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MPPSC MCQ Hub - 50 Questions</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  padding:15px;
+  font-family:Arial,sans-serif;
+  background:#f1f4f9;
+  color:#222;
+}
+header{
+  background:#171717;
+  color:white;
+  padding:15px;
+  border-bottom:5px solid #d71920;
+  text-align:center;
+}
+header img{
+  max-width:65px;
+  max-height:65px;
+  object-fit:contain;
+}
+header h1{margin:8px 0;color:#fff}
+#testTitle{margin:10px 0}
+#questionList{max-width:900px;margin:18px auto}
+.question{
+  background:white;
+  padding:16px;
+  margin-bottom:14px;
+  border:1px solid #ddd;
+  border-radius:8px;
+}
+.question h3{margin-top:0;font-size:17px}
+.option{
+  display:block;
+  padding:10px;
+  margin:7px 0;
+  background:#f5f6f8;
+  border:1px solid #ddd;
+  border-radius:5px;
+  cursor:pointer;
+}
+.option input{margin-right:8px}
+.option.correct{background:#d5f5df;border-color:#16853b}
+.option.wrong{background:#ffe0e0;border-color:#d71920}
+.explanation{
+  display:none;
+  background:#eef6ff;
+  border-left:4px solid #1769aa;
+  padding:12px;
+  margin-top:12px;
+  line-height:1.6;
+}
+#submitBtn{
+  display:block;
+  width:100%;
+  max-width:900px;
+  margin:20px auto;
+  padding:15px;
+  background:#d71920;
+  color:white;
+  font-size:18px;
+  font-weight:bold;
+  border:0;
+  border-radius:7px;
+  cursor:pointer;
+}
+#result{
+  display:none;
+  max-width:900px;
+  margin:20px auto;
+  padding:18px;
+  background:white;
+  border:2px solid #16853b;
+  border-radius:8px;
+  line-height:1.8;
+}
+#status{
+  max-width:900px;
+  margin:15px auto;
+  text-align:center;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <img src="../mppsc-logo.jpg"
+       alt="MPPSC Logo"
+       onerror="this.style.display='none'">
+  <h1>MPPSC MCQ Hub</h1>
+  <div>MPPSC Prelims Practice Test</div>
+  <h2 id="testTitle">50 Questions Test</h2>
+</header>
+
+<div id="status">प्रश्न लोड हो रहे हैं...</div>
+<div id="questionList"></div>
+
+<button id="submitBtn" type="button">Submit Test / टेस्ट जमा करें</button>
+
+<div id="result"></div>
+
+<!-- पहले questionBank.js लोड होगा -->
+<script src="../questionBank.js"></script>
+
+<script>
+(function(){
+  const params = new URLSearchParams(location.search);
+  const unit = Number(params.get("unit") || 1);
+  const test = Number(params.get("test") || 1);
+
+  document.getElementById("testTitle").textContent =
+    "Unit " + unit + " - Test " + test + " | 50 Questions";
+
+  const bank = window.questionBank || {};
+  const unitData = bank["unit" + unit] || {};
+  const raw = unitData["test" + test];
+
+  const status = document.getElementById("status");
+  const list = document.getElementById("questionList");
+  const submit = document.getElementById("submitBtn");
+  const result = document.getElementById("result");
+
+  if (!Array.isArray(raw) || raw.length === 0) {
+    status.textContent =
+      "प्रश्न नहीं मिले। questionBank.js में Unit " +
+      unit + " के Test " + test + " का डेटा जाँचें।";
+    submit.style.display = "none";
+    return;
+  }
+
+  // अधिकतम 50 प्रश्न दिखाएँ
+  const questions = raw.slice(0, 50);
+  let submitted = false;
+
+  function getQuestion(q, i) {
+    return q.questionHi || q.questionHindi ||
+      q.question || q.questionEn ||
+      q.text || ("Question " + (i + 1));
+  }
+
+  function getEnglish(q) {
+    return q.questionEn || q.english || "";
+  }
+
+  function getOptions(q) {
+    return q.options || q.choices ||
+      [q.A, q.B, q.C, q.D].filter(v => v != null);
+  }
+
+  function getAnswer(q) {
+    let a = q.answer;
+    if (a == null) a = q.correctAnswer;
+    if (a == null) a = q.correct;
+    if (a == null) a = q.answerIndex;
+
+    if (typeof a === "string") {
+      a = a.trim();
+      if (/^[ABCD]$/i.test(a)) {
+        return a.toUpperCase().charCodeAt(0) - 65;
+      }
+      if (/^[0-3]$/.test(a)) return Number(a);
+      if (/^[1-4]$/.test(a)) return Number(a) - 1;
+
+      const opts = getOptions(q);
+      return opts.findIndex(o =>
+        String(typeof o === "object" ? o.text : o)
+          .trim() === a
+      );
+    }
+
+    return Number(a);
+  }
+
+  questions.forEach((q, i) => {
+    const card = document.createElement("section");
+    card.className = "question";
+
+    const heading = document.createElement("h3");
+    heading.textContent =
+      (i + 1) + ". " + getQuestion(q, i);
+    card.appendChild(heading);
+
+    const english = getEnglish(q);
+    if (english && english !== getQuestion(q, i)) {
+      const en = document.createElement("p");
+      en.textContent = english;
+      card.appendChild(en);
+    }
+
+    const options = getOptions(q);
+    const labels = ["A", "B", "C", "D"];
+
+    options.forEach((option, j) => {
+      const label = document.createElement("label");
+      label.className = "option";
+
+      const radio = document.createElement("input");
+      radio.type = "radio";
+      radio.name = "question" + i;
+      radio.value = j;
+
+      const text = typeof option === "object"
+        ? (option.text || option.textHi || option.textEn || "")
+        : option;
+
+      label.appendChild(radio);
+      label.appendChild(document.createTextNode(
+        labels[j] + ". " + text
+      ));
+      card.appendChild(label);
+    });
+
+    const explanation = document.createElement("div");
+    explanation.className = "explanation";
+    explanation.textContent = "व्याख्या: " +
+      (q.explanationHi || q.explanationHindi ||
+       q.explanation || q.explanationEn ||
+       "इस प्रश्न की व्याख्या उपलब्ध नहीं है।");
+
+    card.appendChild(explanation);
+    list.appendChild(card);
+  });
+
+  status.textContent = "कुल प्रश्न: " + questions.length;
+
+  submit.addEventListener("click", function(){
+    if (submitted) return;
+
+    const unanswered = questions.filter((q, i) =>
+      !document.querySelector(
+        'input[name="question' + i + '"]:checked'
+      )
+    ).length;
+
+    if (unanswered > 0 &&
+        !confirm(unanswered + " प्रश्न बाकी हैं। क्या टेस्ट जमा करें?")) {
+      return;
+    }
+
+    submitted = true;
+    let score = 0;
+    let attempted = 0;
+
+    questions.forEach((q, i) => {
+      const selected = document.querySelector(
+        'input[name="question' + i + '"]:checked'
+      );
+      const correct = getAnswer(q);
+      const card = list.children[i];
+
+      if (selected) {
+        attempted++;
+        if (Number(selected.value) === correct) score++;
+      }
+
+      card.querySelectorAll(".option").forEach((label, j) => {
+        const radio = label.querySelector("input");
+        radio.disabled = true;
+
+        if (j === correct) label.classList.add("correct");
+        if (selected &&
+            Number(selected.value) === j &&
+            j !== correct) {
+          label.classList.add("wrong");
+        }
+      });
+
+      card.querySelector(".explanation").style.display = "block";
+    });
+
+    result.style.display = "block";
+    result.innerHTML = "";
+
+    const title = document.createElement("h2");
+    title.textContent = "आपका परिणाम / Your Result";
+    result.appendChild(title);
+
+    [
+      "कुल प्रश्न: " + questions.length,
+      "हल किए: " + attempted,
+      "सही उत्तर: " + score,
+      "गलत उत्तर: " + (attempted - score),
+      "स्कोर: " + score + " / " + questions.length,
+      "प्रतिशत: " +
+        ((score / questions.length) * 100).toFixed(2) + "%"
+    ].forEach(line => {
+      const p = document.createElement("p");
+      p.textContent = line;
+      result.appendChild(p);
+    });
+
+    submit.textContent = "Test Submitted / टेस्ट जमा हो गया";
+    submit.disabled = true;
+    result.scrollIntoView({behavior:"smooth"});
+  });
+})();
+</script>
+</body>
+</html>
