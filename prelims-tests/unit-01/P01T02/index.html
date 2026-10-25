@@ -3,48 +3,64 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MPPSC MCQ Hub - Unit 1 Test 2</title>
+
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:Arial,"Noto Sans Devanagari",sans-serif;background:#f0f2f5;color:#222}
-header{background:#185795;color:white;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.brand{font-size:20px;font-weight:bold}
-.actions{display:flex;gap:8px;align-items:center}
-button{border:0;border-radius:5px;padding:10px 14px;cursor:pointer;font-weight:bold;font-size:14px}
-.timer{background:#c71919;color:white;font-size:18px;min-width:85px;text-align:center}
+header{background:#185795;color:white;min-height:58px;padding:9px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:bold;font-size:19px}
+.logo{width:36px;height:36px;border-radius:50%;object-fit:contain;background:white;border:2px solid #ddd}
+.fallback{display:none;width:36px;height:36px;border-radius:50%;background:#d71920;color:white;align-items:center;justify-content:center;font-weight:bold}
+.actions{display:flex;align-items:center;gap:7px}
+button{border:0;border-radius:5px;padding:10px 13px;cursor:pointer;font-weight:bold}
+.timer{background:#c71919;color:white;min-width:74px;text-align:center;padding:7px;font-weight:bold}
 .back{background:#087cf0;color:white}
 .pdf{background:#ffc107;color:#111}
 .submit{background:#209d49;color:white}
-main{max-width:1100px;margin:16px auto;padding:0 12px}
-.heading,.question,.result{background:white;border:1px solid #ddd;border-radius:6px;padding:16px;margin-bottom:14px}
-.heading h2{margin:0;font-size:21px}
-#notice{background:#fff0c2;color:#704d00;padding:16px;border-radius:6px;margin-bottom:14px;line-height:1.7}
+main{max-width:1100px;margin:14px auto;padding:0 12px}
+.heading,.question,.result{background:white;border:1px solid #ddd;border-radius:6px;padding:14px;margin-bottom:12px}
+.heading h2{font-size:21px;margin:0 0 8px}
+.heading p{margin:0;line-height:1.6}
+#notice{display:none;background:#fff0c2;color:#704d00;border-radius:5px;padding:12px;margin-bottom:12px;line-height:1.6}
 .question h3{font-size:17px;line-height:1.65;margin:0 0 12px}
-.option{display:block;padding:11px;margin:7px 0;border:1px solid #ddd;border-radius:5px;cursor:pointer;line-height:1.5}
+.option{display:block;padding:10px;margin:7px 0;border:1px solid #ddd;border-radius:5px;cursor:pointer;line-height:1.55}
 .option:hover{background:#f4f8ff}
 .option input{margin-right:8px}
-.option.correct{background:#d8f5df;border-color:#249544}
-.option.wrong{background:#ffe0e0;border-color:#d22}
-.explanation{display:none;background:#f1f7ff;border-left:4px solid #185795;padding:12px;margin-top:12px;line-height:1.7}
+.correct{background:#d8f5df!important;border-color:#249544!important}
+.wrong{background:#ffe0e0!important;border-color:#d22!important}
+.explanation{display:none;background:#f1f7ff;border-left:4px solid #185795;padding:12px;margin-top:10px;line-height:1.7}
 .result{display:none;line-height:1.8}
-.bottom-actions{text-align:center;margin:20px 0}
-#bankError{display:none}
+.bottom{text-align:center;padding:8px 0 18px}
+@media(max-width:520px){
+ .brand{font-size:16px}
+ header{padding:9px}
+ button{padding:9px}
+ .heading h2{font-size:19px}
+}
 @media print{
-header,.bottom-actions{display:none!important}
-body{background:white}
-main{max-width:none}
-.question{break-inside:avoid}
+ header,.bottom{display:none!important}
+ body{background:white}
+ main{max-width:none}
+ .question{break-inside:avoid}
+ .explanation{display:block!important}
 }
 </style>
 </head>
+
 <body>
 <header>
-  <div class="brand">🔴 MPPSC MCQ Hub</div>
+  <div class="brand">
+    <img class="logo" src="../../../mppsc-logo.jpg" alt="MPPSC Logo"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex'">
+    <span class="fallback">M</span>
+    <span>MPPSC MCQ Hub</span>
+  </div>
   <div class="actions">
-    <div class="timer" id="timer">60:00</div>
+    <span class="timer" id="timer">60:00</span>
     <button class="back" onclick="goBack()">← Back</button>
-    <button class="pdf" onclick="window.print()">🖨 PDF / Print</button>
+    <button class="pdf" onclick="window.print()">▣ PDF / Print</button>
   </div>
 </header>
 
@@ -54,133 +70,132 @@ main{max-width:none}
     <p>MPPSC Prelims Practice Test | 50 Questions | समय: 60 मिनट</p>
   </section>
 
-  <div id="notice">
-    प्रश्न लोड किए जा रहे हैं... / Loading questions...
-  </div>
-
+  <div id="notice"></div>
   <div id="questions"></div>
-
   <section id="result" class="result"></section>
 
-  <div class="bottom-actions">
+  <div class="bottom" id="bottom">
     <button class="back" onclick="goBack()">← Back</button>
     <button class="submit" id="submitBtn" onclick="submitTest()">✓ Submit Test</button>
   </div>
 </main>
 
-<!-- questionBank.js का सही path -->
 <script src="../../../questionBank.js"></script>
 
 <script>
 (function(){
-  const notice = document.getElementById("notice");
-  const container = document.getElementById("questions");
-  const bank = window.questionBank;
-  const questions = bank && bank.unit1 && bank.unit1.test2;
+  const notice=document.getElementById("notice");
+  const container=document.getElementById("questions");
+  const bank=window.questionBank;
+  const questions=bank && bank.unit1 && bank.unit1.test2;
+  let submitted=false;
+  let timerInterval;
 
-  if (!Array.isArray(questions) || questions.length === 0) {
-    notice.innerHTML =
-      "<strong>प्रश्न नहीं मिले!</strong><br>" +
-      "questionBank.js में window.questionBank.unit1.test2 का डेटा नहीं मिला।<br>" +
-      "50 प्रश्नों वाली JavaScript कोडिंग को index.html में नहीं, मुख्य questionBank.js फ़ाइल में रखें।";
+  if(!Array.isArray(questions)||questions.length===0){
+    notice.style.display="block";
+    notice.innerHTML=
+      "<strong>प्रश्नों का डेटा नहीं मिला।</strong><br>"+
+      "मुख्य questionBank.js फ़ाइल में window.questionBank.unit1.test2 के अंदर प्रश्न जोड़ें।";
+    document.getElementById("bottom").style.display="none";
     return;
   }
 
-  notice.textContent = "सभी प्रश्नों के उत्तर चुनें। Submit Test दबाने पर स्कोर और व्याख्याएँ दिखाई देंगी।";
-  const letters = ["A","B","C","D"];
-  let submitted = false;
+  notice.style.display="none";
 
-  questions.forEach(function(q, i){
-    const card = document.createElement("section");
-    card.className = "question";
-    const title = document.createElement("h3");
-    title.textContent = (i + 1) + ". " + q.question;
+  const letters=["A","B","C","D"];
+
+  questions.forEach(function(q,i){
+    const card=document.createElement("section");
+    card.className="question";
+
+    const title=document.createElement("h3");
+    title.textContent=(i+1)+". "+q.question;
     card.appendChild(title);
 
-    (q.options || []).forEach(function(option, j){
-      const label = document.createElement("label");
-      label.className = "option";
-      const input = document.createElement("input");
-      input.type = "radio";
-      input.name = "question_" + i;
-      input.value = letters[j];
-      const text = document.createElement("span");
-      text.textContent = option;
+    (q.options||[]).forEach(function(opt,j){
+      const label=document.createElement("label");
+      label.className="option";
+
+      const input=document.createElement("input");
+      input.type="radio";
+      input.name="question_"+i;
+      input.value=letters[j];
+
+      const span=document.createElement("span");
+      span.textContent=opt;
+
       label.appendChild(input);
-      label.appendChild(text);
+      label.appendChild(span);
       card.appendChild(label);
     });
 
-    const exp = document.createElement("div");
-    exp.className = "explanation";
-    exp.id = "explanation_" + i;
-    exp.textContent = "व्याख्या / Explanation: " + (q.explanation || "व्याख्या उपलब्ध नहीं है।");
-    card.appendChild(exp);
+    const explanation=document.createElement("div");
+    explanation.className="explanation";
+    explanation.id="explanation_"+i;
+    explanation.textContent="व्याख्या / Explanation: "+(q.explanation||"व्याख्या उपलब्ध नहीं है।");
+    card.appendChild(explanation);
     container.appendChild(card);
   });
 
-  window.submitTest = function(){
-    if (submitted) return;
-    submitted = true;
+  window.submitTest=function(){
+    if(submitted)return;
+    submitted=true;
     clearInterval(timerInterval);
 
-    let score = 0;
-    let attempted = 0;
+    let score=0,attempted=0;
 
-    questions.forEach(function(q, i){
-      const card = container.children[i];
-      const selected = card.querySelector('input[name="question_' + i + '"]:checked');
-      const correct = String(q.answer || "").trim().charAt(0).toUpperCase();
+    questions.forEach(function(q,i){
+      const card=container.children[i];
+      const selected=card.querySelector('input[name="question_'+i+'"]:checked');
+      const correct=String(q.answer||"").trim().charAt(0).toUpperCase();
 
-      if (selected) {
+      if(selected){
         attempted++;
-        if (selected.value === correct) score++;
+        if(selected.value===correct)score++;
       }
 
       card.querySelectorAll(".option").forEach(function(label){
-        const input = label.querySelector("input");
-        input.disabled = true;
-        if (input.value === correct) label.classList.add("correct");
-        if (selected && input === selected && selected.value !== correct) {
+        const input=label.querySelector("input");
+        input.disabled=true;
+        if(input.value===correct)label.classList.add("correct");
+        if(selected&&input===selected&&selected.value!==correct)
           label.classList.add("wrong");
-        }
       });
 
-      document.getElementById("explanation_" + i).style.display = "block";
+      document.getElementById("explanation_"+i).style.display="block";
     });
 
-    const result = document.getElementById("result");
-    result.style.display = "block";
-    result.innerHTML =
-      "<h2>आपका परिणाम / Your Result</h2>" +
-      "<p><strong>कुल प्रश्न / Total Questions:</strong> " + questions.length + "</p>" +
-      "<p><strong>उत्तर दिए / Attempted:</strong> " + attempted + "</p>" +
-      "<p><strong>सही उत्तर / Correct:</strong> " + score + "</p>" +
-      "<p><strong>गलत या छोड़े / Wrong or Unanswered:</strong> " + (questions.length - score) + "</p>" +
-      "<h3>स्कोर / Score: " + score + " / " + questions.length + "</h3>";
+    const result=document.getElementById("result");
+    result.style.display="block";
+    result.innerHTML=
+      "<h2>परिणाम / Your Result</h2>"+
+      "<p>कुल प्रश्न / Total Questions: "+questions.length+"</p>"+
+      "<p>उत्तर दिए / Attempted: "+attempted+"</p>"+
+      "<p>सही उत्तर / Correct: "+score+"</p>"+
+      "<p>गलत या छोड़े / Wrong or Unanswered: "+(questions.length-score)+"</p>"+
+      "<h3>स्कोर / Score: "+score+" / "+questions.length+"</h3>";
 
-    document.getElementById("submitBtn").disabled = true;
+    document.getElementById("submitBtn").disabled=true;
     result.scrollIntoView({behavior:"smooth"});
   };
 
-  let remaining = 60 * 60;
-  const timerDisplay = document.getElementById("timer");
-  const timerInterval = setInterval(function(){
-    if (submitted) return;
+  let remaining=3600;
+  timerInterval=setInterval(function(){
+    if(submitted)return;
     remaining--;
-    const min = Math.floor(remaining / 60);
-    const sec = remaining % 60;
-    timerDisplay.textContent =
-      String(min).padStart(2,"0") + ":" + String(sec).padStart(2,"0");
-    if (remaining <= 0) {
-      window.submitTest();
-      alert("समय समाप्त! आपका टेस्ट सबमिट कर दिया गया है।");
-    }
-  }, 1000);
+    document.getElementById("timer").textContent=
+      String(Math.floor(remaining/60)).padStart(2,"0")+":"+
+      String(remaining%60).padStart(2,"0");
 
-  window.goBack = function(){
-    if (history.length > 1) history.back();
-    else location.href = "../../../index.html";
+    if(remaining<=0){
+      window.submitTest();
+      alert("समय समाप्त! टेस्ट सबमिट हो गया।");
+    }
+  },1000);
+
+  window.goBack=function(){
+    if(history.length>1)history.back();
+    else location.href="../../../index.html";
   };
 })();
 </script>
