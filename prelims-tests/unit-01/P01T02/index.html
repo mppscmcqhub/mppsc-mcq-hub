@@ -1,525 +1,294 @@
-<!-- QUESTION 1 -->
-<div class="question-card" data-qnum="1" data-correct="D">
-    <div class="question-text">1. प्राचीन भारतीय परंपरा में चार युगों के पूर्ण चक्र को क्या कहते हैं? / What is the complete cycle of the four Yugas called?</div>
-    <div class="options-container">
-        <label class="option-label" data-id="A"><input type="radio" name="q1" value="A"> A. ब्रह्मा का दिन / Day of Brahma</label>
-        <label class="option-label" data-id="B"><input type="radio" name="q1" value="B"> B. मन्वन्तर / Manvantara</label>
-        <label class="option-label" data-id="C"><input type="radio" name="q1" value="C"> C. कल्प / Kalpa</label>
-        <label class="option-label" data-id="D"><input type="radio" name="q1" value="D"> D. महायुग / Mahayuga</label>
-    </div>
-    <div class="explanation-box">
-        <div class="correct-answer-text">सही उत्तर: D. महायुग / Mahayuga</div>
-        चारों युगों के एक पूर्ण चक्र को महायुग कहा जाता है। / A complete cycle of the four Yugas is called a Mahayuga.
-    </div>
-</div>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPPSC MCQ Hub V14 - Test 2</title>
+    <script src="https://cloudflare.com"></script>
+    <style>
+        * { box-sizing: border-box; font-family: "Segoe UI", Arial, sans-serif; }
+        body { margin: 0; background: #f0f2f5; color: #222; }
+        .header { background: #15549a; color: white; padding: 10px 18px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px #0003; }
+        .brand { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: bold; }
+        .site-logo { width: 40px; height: 40px; object-fit: contain; border-radius: 50%; background: white; border: 2px solid white; }
+        .header-right { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .timer { background: #b71c1c; color: white; font-size: 19px; font-weight: bold; padding: 10px 14px; border-radius: 5px; min-width: 105px; text-align: center; }
+        .timer.warning { background: #ff9800; color: #111; }
+        .timer.finished { background: #333; color: white; }
+        button { border: none; border-radius: 5px; padding: 11px 16px; font-size: 15px; font-weight: bold; cursor: pointer; }
+        button:hover { opacity: .9; }
+        .back-btn { background: #087bff; color: white; }
+        .pdf-btn { background: #ffc107; color: black; }
+        .submit-btn { background: #28a745; color: white; }
+        .container { padding: 18px 22px; max-width: 800px; margin: 0 auto; }
+        .score-board { display: none; background: #d1ecf1; border: 1px solid #bee5eb; color: #0c5460; padding: 18px; border-radius: 5px; margin-bottom: 20px; text-align: center; font-size: 20px; font-weight: bold; }
+        .question-card { background: white; border: 1px solid #ddd; border-radius: 5px; padding: 20px; margin-bottom: 20px; box-shadow: 0 1px 4px #0001; }
+        .question-text { font-weight: 600; line-height: 1.7; margin-bottom: 15px; font-size: 16px; }
+        .options-container { display: flex; flex-direction: column; gap: 9px; }
+        .option-label { display: flex; align-items: center; gap: 10px; padding: 11px; border: 1px solid #d5d5d5; border-radius: 4px; cursor: pointer; line-height: 1.5; background: #fff; }
+        .option-label:hover { background: #f4f7fb; }
+        .option-label input { width: 17px; height: 17px; flex-shrink: 0; margin: 0; }
+        .correct-option { background: #c3e6cb !important; border-color: #8fd19e !important; font-weight: bold; color: #155724; }
+        .wrong-option { background: #f5c6cb !important; border-color: #e7a0a7 !important; color: #721c24; }
+        .explanation-box { display: none; background: #e2f0d9; border-left: 5px solid #385723; padding: 14px; margin-top: 14px; line-height: 1.8; font-size: 14px; border-radius: 0 4px 4px 0; }
+        .correct-answer-text { color: #385723; font-weight: bold; margin-bottom: 5px; }
+        .bottom-buttons { display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap; padding: 15px 0 30px; }
+        @media(max-width: 600px) {
+            .header { padding: 10px; }
+            .brand { font-size: 16px; }
+            .header-right { width: 100%; }
+            .header-right button { flex: 1; }
+            .container { padding: 10px; }
+            .question-card { padding: 14px; }
+            .timer { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
 
-<!-- QUESTION 2 -->
-<div class="question-card" data-qnum="2" data-correct="D">
-    <div class="question-text">2. ऋग्वेद में 'ऋत' का मूल अर्थ क्या है? / What is the core meaning of 'Rta' in the Rigveda?</div>
-    <div class="options-container">
-        <label class="option-label" data-id="A"><input type="radio" name="q2" value="A"> A. युद्ध में विजय / Victory in war</label>
-        <label class="option-label" data-id="B"><input type="radio" name="q2" value="B"> B. कर व्यवस्था / Tax system</label>
-        <label class="option-label" data-id="C"><input type="radio" name="q2" value="C"> C. केवल यज्ञ / Sacrifice only</label>
-        <label class="option-label" data-id="D"><input type="radio" name="q2" value="D"> D. ब्रह्मांडीय, नैतिक और प्राकृतिक व्यवस्था / Cosmic, moral and natural order</label>
+<header class="header">
+    <div class="brand">
+        <img src="../../../mppsc-logo.jpg" alt="MPPSC" class="site-logo" onerror="this.style.display='none'">
+        <span>MPPSC MCQ Hub V14</span>
     </div>
-    <div class="explanation-box">
-        <div class="correct-answer-text">सही उत्तर: D. ब्रह्मांडीय, नैतिक और प्राकृतिक व्यवस्था</div>
-        वैदिक साहित्य में ऋत का संबंध ब्रह्मांडीय और प्राकृतिक व्यवस्था से है। / Rta is associated with cosmic and natural order.
+    <div class="header-right">
+        <div class="timer" id="timer">60:00</div>
+        <button class="back-btn" onclick="goBack()"> ⬅ Back </button>
+        <button class="pdf-btn" onclick="downloadPDF()"> 📥 PDF </button>
     </div>
-</div>
+</header>
 
-<!-- QUESTION 3 -->
-<div class="question-card" data-qnum="3" data-correct="A">
-    <div class="question-text">3. मध्य प्रदेश का राजकीय पशु कौन-सा है? / What is the state animal of Madhya Pradesh?</div>
-    <div class="options-container">
-        <label class="option-label" data-id="A"><input type="radio" name="q3" value="A"> A. बारहसिंगा / Barasingha</label>
-        <label class="option-label" data-id="B"><input type="radio" name="q3" value="B"> B. बाघ / Tiger</label>
-        <label class="option-label" data-id="C"><input type="radio" name="q3" value="C"> C. चीतल / Chital</label>
-        <label class="option-label" data-id="D"><input type="radio" name="q3" value="D"> D. तेंदुआ / Leopard</label>
-    </div>
-    <div class="explanation-box">
-        <div class="correct-answer-text">सही उत्तर: A. बारहसिंगा / Barasingha</div>
-        बारहसिंगा मध्य प्रदेश का राजकीय पशु है। / The Barasingha is the state animal of Madhya Pradesh.
-    </div>
-</div>
+<main class="container" id="quiz-area">
+    <div class="score-board" id="score-board"></div>
 
-<!-- QUESTION 4 -->
-<div class="question-card" data-qnum="4" data-correct="B">
-    <div class="question-text">4. खजुराहो के प्रसिद्ध मंदिरों का निर्माण किस राजवंश के शासकों द्वारा कराया गया था? / The famous temples of Khajuraho were built by the rulers of which dynasty?</div>
-    <div class="options-container">
-        <label class="option-label" data-id="A"><input type="radio" name="q4" value="A"> A. परमार राजवंश / Paramara Dynasty</label>
-        <label class="option-label" data-id="B"><input type="radio" name="q4" value="B"> B. चन्देल राजवंश / Chandela Dynasty</label>
-        <label class="option-label" data-id="C"><input type="radio" name="q4" value="C"> C. राष्ट्रकूट राजवंश / Rashtrakuta Dynasty</label>
-        <label class="option-label" data-id="D"><input type="radio" name="q4" value="D"> D. मौर्य राजवंश / Maurya Dynasty</label>
+    <!-- QUESTION 1 -->
+    <div class="question-card" data-qnum="1" data-correct="D">
+        <div class="question-text">1. प्राचीन भारतीय परंपरा में चार युगों के पूर्ण चक्र को क्या कहते हैं? / What is the complete cycle of the four Yugas called?</div>
+        <div class="options-container">
+            <label class="option-label" data-id="A"><input type="radio" name="q1" value="A"> A. ब्रह्मा का दिन / Day of Brahma</label>
+            <label class="option-label" data-id="B"><input type="radio" name="q1" value="B"> B. मन्वन्तर / Manvantara</label>
+            <label class="option-label" data-id="C"><input type="radio" name="q1" value="C"> C. कल्प / Kalpa</label>
+            <label class="option-label" data-id="D"><input type="radio" name="q1" value="D"> D. महायुग / Mahayuga</label>
+        </div>
+        <div class="explanation-box">
+            <div class="correct-answer-text">सही उत्तर: D. महायुग / Mahayuga</div>
+            चारों युगों के एक पूर्ण चक्र को महायुग कहा जाता है। / A complete cycle of the four Yugas is called a Mahayuga.
+        </div>
     </div>
-    <div class="explanation-box">
-        <div class="correct-answer-text">सही उत्तर: B. चन्देल राजवंश / Chandela Dynasty</div>
-        खजुराहो के मंदिरों का निर्माण चन्देल शासकों द्वारा किया गया था। / The temples of Khajuraho were built by Chandela rulers.
-    </div>
-</div>
 
-<!-- QUESTION 5 -->
-<div class="question-card" data-qnum="5" data-correct="A">
-    <div class="question-text">5. मध्य प्रदेश के किस लोक नाट्य को 'लोक नाट्यों का मुकुटमणि' कहा जाता है? / Which folk drama of Madhya Pradesh is called the 'Crown Jewel of Folk Dramas'?</div>
-    <div class="options-container">
-        <label class="option-label" data-id="A"><input type="radio" name="q5" value="A"> A. माच / Maach</label>
-        <label class="option-label" data-id="B"><input type="radio" name="q5" value="B"> B. राई / Rai</label>
-        <label class="option-label" data-id="C"><input type="radio" name="q5" value="C"> C. स्वांग / Swang</label>
-        <label class="option-label" data-id="D"><input type="radio" name="q5" value="D"> D. नौटंकी / Nautanki</label>
+    <!-- QUESTION 2 -->
+    <div class="question-card" data-qnum="2" data-correct="D">
+        <div class="question-text">2. ऋग्वेद में 'ऋत' का मूल अर्थ क्या है? / What is the core meaning of 'Rta' in the Rigveda?</div>
+        <div class="options-container">
+            <label class="option-label" data-id="A"><input type="radio" name="q2" value="A"> A. युद्ध में विजय / Victory in war</label>
+            <label class="option-label" data-id="B"><input type="radio" name="q2" value="B"> B. कर व्यवस्था / Tax system</label>
+            <label class="option-label" data-id="C"><input type="radio" name="q2" value="C"> C. केवल यज्ञ / Sacrifice only</label>
+            <label class="option-label" data-id="D"><input type="radio" name="q2" value="D"> D. ब्रह्मांडीय, नैतिक और प्राकृतिक व्यवस्था / Cosmic, moral and natural order</label>
+        </div>
+        <div class="explanation-box">
+            <div class="correct-answer-text">सही उत्तर: D. ब्रह्मांडीय, नैतिक और प्राकृतिक व्यवस्था</div>
+            वैदिक साहित्य में ऋत का संबंध ब्रह्मांडीय और प्राकृतिक व्यवस्था से है। / Rta is associated with cosmic and natural order.
+        </div>
     </div>
-    <div class="explanation-box">
-        <div class="correct-answer-text">सही उत्तर: A. माच / Maach</div>
-        माच मालवा अंचल का प्रमुख लोक नाट्य है और यह मध्य प्रदेश का राजकीय लोक नाट्य है। / Maach is the state folk drama of MP, popular in Malwa.
-    </div>
-</div>
 
-<!-- QUESTION 6 -->
-<div class="question-card" data-qnum="6" data-correct="C">
-    <div class="question-text">6. प्रसिद्ध 'सांची का स्तूप' मध्य प्रदेश के किस जिले में स्थित है? / In which district of Madhya Pradesh is the famous 'Sanchi Stupa' located?</div>
-    <div class="options-container">
-        <label class="option-label" data-id="A"><input type="radio" name="q6" value="A"> A. विदिशा / Vidisha</label>
-        <label class="option-label" data-id="B"><input type="radio" name="q6" value="B"> B. भोपाल / Bhopal</label>
-        <label class="option-label" data-id="C"><input type="radio" name="q6" value="C"> C. रायसेन / Raisen</label>
-        <label class="option-label" data-id="D"><input type="radio" name="q6" value="D"> D. सीहोर / Sehore</label>
+    <!-- QUESTION 3 -->
+    <div class="question-card" data-qnum="3" data-correct="A">
+        <div class="question-text">3. मध्य प्रदेश का राजकीय पशु कौन-सा है? / What is the state animal of Madhya Pradesh?</div>
+        <div class="options-container">
+            <label class="option-label" data-id="A"><input type="radio" name="q3" value="A"> A. बारहसिंगा / Barasingha</label>
+            <label class="option-label" data-id="B"><input type="radio" name="q3" value="B"> B. बाघ / Tiger</label>
+            <label class="option-label" data-id="C"><input type="radio" name="q3" value="C"> C. चीतल / Chital</label>
+            <label class="option-label" data-id="D"><input type="radio" name="q3" value="D"> D. तेंदुआ / Leopard</label>
+        </div>
+        <div class="explanation-box">
+            <div class="correct-answer-text">सही उत्तर: A. बारहसिंगा / Barasingha</div>
+            बारहसिंगा मध्य प्रदेश का राजकीय पशु है। / The Barasingha is the state animal of Madhya Pradesh.
+        </div>
     </div>
-    <div class="explanation-box">
-        <div class="correct-answer-text">सही उत्तर: C. रायसेन / Raisen</div>
-        सांची का स्तूप मध्य प्रदेश के रायसेन जिले में स्थित है, जिसका निर्माण सम्राट अशोक ने कराया था। / Sanchi Stupa is located in the Raisen district, built by Emperor Ashoka.
-    </div>
-</div>
 
-<!-- QUESTION 7 -->
-<div class="question-card" data-qnum="7" data-correct="D">
-    <div class="question-text">7. प्रसिद्ध आदिवासी जननायक भीमा नायक का संबंध मध्य प्रदेश के किस क्षेत्र से था? / Tribal leader Bhima Nayak belonged to which region of Madhya Pradesh?</div>
-    <div class="options-container">
-        <label class="option-label" data-id="A"><input type="radio" name="q7" value="A"> A. बुंदेलखंड / Bundelkhand</label>
-        <label class="option-label" data-id="B"><input type="radio" name="q7" value="B"> B. महाकौशल / Mahakoshal</label>
-        <label class="option-label" data-id="C"><input type="radio" name="q7" value="C"> C. मालवा / Malwa</label>
-        <label class="option-label" data-id="D"><input type="radio" name="q7" value="D"> D. निमाड़ / Nimar</label>
+    <!-- QUESTION 4 -->
+    <div class="question-card" data-qnum="4" data-correct="B">
+        <div class="question-text">4. खजुराहो के प्रसिद्ध मंदिरों का निर्माण किस राजवंश के शासकों द्वारा कराया गया था? / The famous temples of Khajuraho were built by the rulers of which dynasty?</div>
+        <div class="options-container">
+            <label class="option-label" data-id="A"><input type="radio" name="q4" value="A"> A. परमार राजवंश / Paramara Dynasty</label>
+            <label class="option-label" data-id="B"><input type="radio" name="q4" value="B"> B. चन्देल राजवंश / Chandela Dynasty</label>
+            <label class="option-label" data-id="C"><input type="radio" name="q4" value="C"> C. राष्ट्रकूट राजवंश / Rashtrakuta Dynasty</label>
+            <label class="option-label" data-id="D"><input type="radio" name="q4" value="D"> D. मौर्य राजवंश / Maurya Dynasty</label>
+        </div>
+        <div class="explanation-box">
+            <div class="correct-answer-text">सही उत्तर: B. चन्देल राजवंश / Chandela Dynasty</div>
+            खजुराहो के मंदिरों का निर्माण चन्देल शासकों द्वारा किया गया था। / The temples of Khajuraho were built by Chandela rulers.
+        </div>
     </div>
-    <div class="explanation-box">
-        <div class="correct-answer-text">सही उत्तर: D. निमाड़ / Nimar</div>
-        भीमा नायक को 'निमाड़ का रॉबिनहुड' कहा जाता है, जिन्होंने 1857 की क्रांति में नेतृत्व किया था। / Bhima Nayak is known as the 'Robin Hood of Nimar' who led the 1857 revolt.
-    </div>
-</div>
 
-<!-- QUESTION 8 -->
-<div class="question-card" data-qnum="8" data-correct="D">
-    <div class="question-text">8. निम्नलिखित में से कौन-सी साहित्यिक रचना महाकवि कालिदास द्वारा रचित नहीं है? / Which of the following literary works is not composed by Mahakavi Kalidas?</div>
-    <div class="options-container">
-        <label class="option-label" data-id="A"><input type="radio" name="q8" value="A"> A. मेघदूतम् / Meghadootam</label>
-        <label class="option-label" data-id="B"><input type="radio" name="q8" value="B"> B. कुमारसंभवम् / Kumarasambhavam</label>
-        <label class="option-label" data-id="C"><input type="radio" name="q8" value="C"> C. मालविकाग्निमित्रम् / Malavikagnimitram</label>
-        <label class="option-label" data-id="D"><input type="radio" name="q8" value="D"> D. कादम्बरी / Kadambari</label>
+    <!-- QUESTION 5 -->
+    <div class="question-card" data-qnum="5" data-correct="A">
+        <div class="question-text">5. मध्य प्रदेश के किस लोक नाट्य को 'लोक नाट्यों का मुकुटमणि' कहा जाता है? / Which folk drama of Madhya Pradesh is called the 'Crown Jewel of Folk Dramas'?</div>
+        <div class="options-container">
+            <label class="option-label" data-id="A"><input type="radio" name="q5" value="A"> A. माच / Maach</label>
+            <label class="option-label" data-id="B"><input type="radio" name="q5" value="B"> B. राई / Rai</label>
+            <label class="option-label" data-id="C"><input type="radio" name="q5" value="C"> C. स्वांग / Swang</label>
+            <label class="option-label" data-id="D"><input type="radio" name="q5" value="D"> D. नौटंकी / Nautanki</label>
+        </div>
+        <div class="explanation-box">
+            <div class="correct-answer-text">सही उत्तर: A. माच / Maach</div>
+            माच मालवा अंचल का प्रमुख लोक नाट्य है और यह मध्य प्रदेश का राजकीय लोक नाट्य है। / Maach is the state folk drama of MP.
+        </div>
     </div>
-    <div class="explanation-box">
-        <div class="correct-answer-text">सही उत्तर: D. कादम्बरी / Kadambari</div>
-        'कादम्बरी' बाणभट्ट की रचना है, जबकि अन्य तीनों महाकवि कालिदास की कृतियाँ हैं। / 'Kadambari' was written by Banabhatta, while the others are by Kalidas.
-    </div>
-</div>
 
-<!-- QUESTION 9 -->
-<div class="question-card" data-qnum="9" data-correct="B">
-    <div class="question-text">9. मध्य प्रदेश में भीमबेटका की गुफाओं की खोज किसने की थी? / Who discovered the Bhimbetka caves in Madhya Pradesh?</div>
-    <div class="options-container">
-        <label class="option-label" data-id="A"><input type="radio" name="q9" value="A"> A. एच. डी. सांकलिया / H. D. Sankalia</label>
-        <label class="option-label" data-id="B"><input type="radio" name="q9" value="B"> B. डॉ. विष्णु श्रीधर वाकणकर / Dr. Vishnu Shridhar Wakankar</label>
-        <label class="option-label" data-id="C"><input type="radio" name="q9" value="C"> C. जॉन मार्शल / John Marshall</label>
-        <label class="option-label" data-id="D"><input type="radio" name="q9" value="D"> D. अलेक्जेंडर कनिंघम / Alexander Cunningham</label>
-    </div>
-    <div class="explanation-box">
-        <div class="correct-answer-text">सही उत्तर: B. डॉ. विष्णु श्रीधर वाकणकर</div>
-        भीमबेटका की प्रागैतिहासिक गुफाओं की खोज 1957-58 में डॉ. विष्णु श्रीधर वाकणकर ने की थी। / Bhimbetka caves were discovered by Dr. V.S. Wakankar in 1957-58.
-    </div>
-</div>
+    <!-- QUESTION 6 -->
+    <div class="question-card" data-qnum="6" data-correct="C">
+        <div class="question-text">6. प्रसिद्ध 'सांची का स्तूप' मध्य प्रदेश के किस जिले में स्थित है? / In which district of Madhya Pradesh is the famous 'Sanchi Stupa' located?</div>
+A. विदिशा / Vidisha
+ B. भोपाल / Bhopal
+ C. रायसेन / Raisen
+ D. सीहोर / Sehore
+सही उत्तर: C. रायसेन / Raisen
+सांची का स्तूप मध्य प्रदेश के रायसेन जिले में स्थित है, जिसका निर्माण सम्राट अशोक ने कराया था। / Sanchi Stupa is located in the Raisen district.
 
-<!-- QUESTION 10 -->
-<div class="question-card" data-qnum="10" data-correct="A">
-    <div class="question-text">10. मांडू में स्थित 'जहाज महल' का निर्माण किस शासक ने करवाया था? / Which ruler built the 'Jahaz Mahal' located in Mandu?</div>
-    <div class="options-container">
-A. गयासुद्दीन खिलजी / Ghiyas-ud-din Khilji
- B. होशंग शाह / Hoshang Shah
- C. बाज बहादुर / Baz Bahadur
- D. अलाउद्दीन खिलजी / Alauddin Khilji
-सही उत्तर: A. गयासुद्दीन खिलजी / Ghiyas-ud-din Khilji
-मांडू के प्रसिद्ध जहाज महल का निर्माण मालवा के सुल्तान गयासुद्दीन खिलजी ने करवाया था। / Jahaz Mahal in Mandu was built by Sultan Ghiyas-ud-din Khilji.
+7. प्रसिद्ध आदिवासी जननायक भीमा नायक का संबंध मध्य प्रदेश के किस क्षेत्र से था? / Tribal leader Bhima Nayak belonged to which region of Madhya Pradesh?
+ A. बुंदेलखंड / Bundelkhand
+ B. महाकौशल / Mahakoshal
+ C. मालवा / Malwa
+ D. निमाड़ / Nimar
+सही उत्तर: D. निमाड़ / Nimar
+भीमा नायक को 'निमाड़ का रॉबिनहुड' कहा जाता है, जिन्होंने 1857 की क्रांति में नेतृत्व किया था। / Bhima Nayak belongs to Nimar region.
+
+8. निम्नलिखित में से कौन-सी साहित्यिक रचना महाकवि कालिदास द्वारा रचित नहीं है? / Which of the following literary works is not composed by Mahakavi Kalidas?
+ A. meghdoot / Meghadootam
+ B. kumar / Kumarasambhavam
+ C. malvika / Malavikagnimitram
+ D. kadambari / Kadambari
+सही उत्तर: D. कादम्बरी / Kadambari
+'कादम्बरी' बाणभट्ट की रचना है, जबकि अन्य तीनों महाकवि कालिदास की कृतियाँ हैं।
+
+9. मध्य प्रदेश में भीमबेटका की गुफाओं की खोज किसने की थी? / Who discovered the Bhimbetka caves in Madhya Pradesh?
+ A. H.D. Sankalia
+ B. डॉ. विष्णु श्रीधर वाकणकर / Dr. V.S. Wakankar
+ C. John Marshall
+ D. Alexander Cunningham
+सही उत्तर: B. डॉ. विष्णु श्रीधर वाकणकर
+भीमबेटका की प्रागैतिहासिक गुफाओं की खोज 1957-58 में डॉ. वाकणकर ने की थी।
+
+10. मांडू में स्थित 'जहाज महल' का निर्माण किस शासक ने करवाया था? / Which ruler built the 'Jahaz Mahal' located in Mandu?
+ A. गयासुद्दीन खिलजी / Ghiyas-ud-din Khilji
+ B. Hoshang Shah
+ C. Baz Bahadur
+ D. Alauddin Khilji
+सही उत्तर: A. गयासुद्दीन खिलजी
+मांडू के प्रसिद्ध जहाज महल का निर्माण सुल्तान गयासुद्दीन खिलजी ने करवाया था।
 
 11. राजा भोज का संबंध किस राजवंश से था? / King Bhoj belonged to which dynasty?
- A. चन्देल राजवंश / Chandela Dynasty
- B. कलचुरी राजवंश / Kalachuri Dynasty
+ A. Chandela
+ B. Kalachuri
  C. परमार राजवंश / Paramara Dynasty
- D. तोमर राजवंश / Tomar Dynasty
-सही उत्तर: C. परमार राजवंश / Paramara Dynasty
-राजा भोज परमार राजवंश के सबसे प्रतापी राजा थे, जिन्होंने धार को अपनी राजधानी बनाया था। / King Bhoj was the most famous ruler of the Paramara dynasty.
+ D. Tomar
+सही उत्तर: C. परमार राजवंश
+राजा भोज परमार राजवंश के सबसे प्रतापी राजा थे, जिन्होंने धार को राजधानी बनाया था।
 
 12. प्रसिद्ध वीरांगना रानी अवंतीबाई का संबंध मध्य प्रदेश के किस क्षेत्र से था? / Rani Avantibai belonged to which region of Madhya Pradesh?
- A. झांसी / Jhansi
+ A. Jhansi
  B. रामगढ़ / Ramgarh
- C. मंडला / Mandla
- D. धार / Dhar
-सही उत्तर: B. रामगढ़ / Ramgarh
-रानी अवंतीबाई रामगढ़ (वर्तमान डिंडोरी/मंडला क्षेत्र) की शासिका थीं, जिन्होंने 1857 की क्रांति में अंग्रेजों से लोहा लिया था। / Rani Avantibai was the queen of Ramgarh.
+ C. Mandla
+ D. Dhar
+सही उत्तर: B. रामगढ़
+रानी अवंतीबाई रामगढ़ की शासिका थीं, जिन्होंने 1857 की क्रांति में अंग्रेजों से युद्ध किया।
 
 13. 'भगोरिया' हाट उत्सव मुख्य रूप से मध्य प्रदेश की किस जनजाति से संबंधित है? / 'Bhagoria' festival is mainly related to which tribe of Madhya Pradesh?
  A. भील जनजाति / Bhil Tribe
- B. गोंड जनजाति / Gond Tribe
- C. बैगा जनजाति / Baiga Tribe
- D. सहरिया जनजाति / Sahariya Tribe
-सही उत्तर: A. भील जनजाति / Bhil Tribe
-भगोरिया उत्सव भील जनजाति का एक प्रमुख सांस्कृतिक और होली के समय मनाया जाने वाला उत्सव है। / Bhagoria is a major festival of the Bhil tribe celebrated around Holi.
+ B. Gond
+ C. Baiga
+ D. Sahariya
+सही उत्तर: A. भील जनजाति
+भगोरिया उत्सव भील जनजाति का एक प्रमुख सांस्कृतिक और होली उत्सव है।
 
 14. मध्य प्रदेश के किस स्थान को 'सफेद बाघों की भूमि' कहा जाता है? / Which place in Madhya Pradesh is known as the 'Land of White Tigers'?
- A. कान्हा / Kanha
- B. बांधवगढ़ / Bandhavgarh
+ A. Kanha
+ B. Bandhavgarh
  C. रीवा / Rewa
- D. शिवपुरी / Shivpuri
-सही उत्तर: C. रीवा / Rewa
-रीवा रियासत के जंगलों में ही पहला सफेद बाघ 'मोहन' पकड़ा गया था, इसलिए इसे सफेद बाघों की भूमि कहते हैं। / Rewa is known as the Land of White Tigers.
+ D. Shivpuri
+सही उत्तर: C. रीवा
+रीवा रियासत के जंगलों में ही पहला सफेद बाघ 'मोहन' पकड़ा गया था।
 
 15. कलचुरी राजवंश की राजधानी मध्य प्रदेश के किस स्थान पर स्थित थी? / The capital of the Kalachuri dynasty was located at which place in Madhya Pradesh?
- A. महेश्वर / Maheshwar
+ A. Maheshwar
  B. त्रिपुरी / Tripuri
- C. उज्जैन / Ujjain
- D. विदिशा / Vidisha
-सही उत्तर: B. त्रिपुरी / Tripuri
-कलचुरी राजवंश की मुख्य शाखा की राजधानी त्रिपुरी (वर्तमान जबलपुर के पास) थी। / The capital of the Kalachuri dynasty was Tripuri near Jabalpur.
+ C. Ujjain
+ D. Vidisha
+सही उत्तर: B. त्रिपुरी
+कलचुरी राजवंश की राजधानी त्रिपुरी (वर्तमान जबलपुर के पास) थी।
 
-16. 'चटकोरा नृत्य' मध्य प्रदेश की किस जनजाति का प्रसिद्ध लोक नृत्य है? / 'Chatkora dance' is a famous folk dance of which tribe of Madhya Pradesh?
- A. भील / Bhil
- B. गोंड / Gond
- C. भारिया / Bharia
- D. कोरकू / Korku
-सही उत्तर: D. कोरकू / Korku
-चटकोरा नृत्य मुख्य रूप से मध्य प्रदेश की कोरकू जनजाति द्वारा किया जाने वाला पारंपरिक लोक नृत्य है। / Chatkora dance belongs to the Korku tribe.
+ ⬅ Back 
+ ✔️ Submit Test 
 
-17. भरहुत स्तूप की खोज किसने की थी, जो सतना जिले में स्थित है? / Who discovered the Bharhut Stupa, located in Satna district?
- A. अलेक्जेंडर कनिंघम / Alexander Cunningham
- B. जॉन मार्शल / John Marshall
- C. आर. डी. बनर्जी / R. D. Banerjee
- D. दयाराम साहनी / Dayaram Sahni
-सही उत्तर: A. अलेक्जेंडर कनिंघम / Alexander Cunningham
-सतना जिले में स्थित प्रसिद्ध बौद्ध स्थल भरहुत स्तूप की खोज 1873 में अलेक्जेंडर कनिंघम ने की थी। / Bharhut Stupa was discovered by Alexander Cunningham in 1873.
-
-18. वर्ष 1930 का प्रसिद्ध 'टुरिया जंगल सत्याग्रह' मध्य प्रदेश के किस जिले से संबंधित है? / The famous 'Turiya Jungle Satyagraha' of 1930 is related to which district of MP?
- A. बैतुल / Betul
- B. जबलपुर / Jabalpur
- C. सिवनी / Seoni
- D. होशंगाबाद / Hoshangabad
-सही उत्तर: C. सिवनी / Seoni
-सिवनी जिले के टुरिया में 1930 में दुर्गाशंकर मेहता के नेतृत्व में आदिवासियों ने जंगल सत्याग्रह किया था। / Turiya Jungle Satyagraha took place in Seoni district.
-
-19. 'आल्हा-ऊदल' किस शासक के सेनापति थे, जिन्होंने पृथ्वीराज चौहान से युद्ध किया था? / 'Alha-Udal' were generals of which ruler, who fought against Prithviraj Chauhan?
- A. कीर्तिवर्मन / Kirtivarman
- B. परमार्दिदेव (परमल) / Paramardideva
- C. यशोवर्मन / Yashovarman
- D. धंग देव / Dhang Dev
-सही उत्तर: B. परमार्दिदेव (परमल) / Paramardideva
-आल्हा और ऊदल बुंदेलखंड के चंदेल शासक परमार्दिदेव के वीर सेनापति थे। / Alha and Udal were generals of the Chandela ruler Paramardideva.
-
-20. मध्य प्रदेश के प्रसिद्ध व्यंग्यकार शरद जोशी का जन्म कहाँ हुआ था? / Where was the famous satirist Sharad Joshi of Madhya Pradesh born?
- A. इंदौर / Indore
- B. उज्जैन / Ujjain
- C. होशंगाबाद / Hoshangabad
- D. सागर / Sagar
-सही उत्तर: B. उज्जैन / Ujjain
-प्रसिद्ध हिंदी व्यंग्यकार शरद जोशी का जन्म 21 मई 1931 को उज्जैन में हुआ था। / Famous satirist Sharad Joshi was born in Ujjain.
-
-21. 'चरण पादुका नरसंहार' मध्य प्रदेश के किस जिले में घटित हुआ था, जिसे मध्य प्रदेश का जलियांवाला बाग कहा जाता है? / In which district did the 'Charan Paduka Massacre' take place?
- A. छतरपुर / Chhatarpur
- B. पन्ना / Panna
- C. जबलपुर / Jabalpur
- D. सागर / Sagar
-सही उत्तर: A. छतरपुर / Chhatarpur
-14 जनवरी 1931 को मकर संक्रांति के दिन छतरपुर में चरण पादुका मैदान पर कर्नल फिशर के आदेश पर अंधाधुंध गोलियां चलाई गई थीं। / It occurred in Chhatarpur on 14 Jan 1931.
-
-22. भोपाल रियासत के प्रथम नवाब कौन थे? / Who was the first Nawab of Bhopal Princely State?
- A. यार मोहम्मद खान / Yar Mohammad Khan
- B. फैज मोहम्मद खान / Faiz Mohammad Khan
- C. दोस्त मोहम्मद खान / Dost Mohammad Khan
- D. हमीदुल्ला खान / Hamidullah Khan
-सही उत्तर: C. दोस्त मोहम्मद खान / Dost Mohammad Khan
-एक अफगान सिपाही दोस्त मोहम्मद खान ने जगदीशपुर (इस्लाम नगर) को जीतकर भोपाल रियासत की नींव रखी थी। / Dost Mohammad Khan founded the Bhopal princely state.
-
-23. मालवा के प्रसिद्ध स्वतंत्र सुल्तान होशंग शाह का वास्तविक नाम क्या था? / What was the real name of Hoshang Shah, the famous independent sultan of Malwa?
- A. दिलावर खान / Dilawar Khan
- B. अल्प खान / Alp Khan
- C. बहादुर शाह / Bahadur Shah
- D. महमूद खिलजी / Mahmud Khilji
-सही उत्तर: B. अल्प खान / Alp Khan
-दिलावर खान के पुत्र अल्प खान ने 'होशंग शाह गौरी' की उपाधि धारण कर मालवा की कमान संभाली और मांडू को राजधानी बनाया। / Alp Khan assumed the title of Hoshang Shah.
-
-24. उदयगिरि की गुफाएँ मध्य प्रदेश के किस जिले में स्थित हैं, जो गुप्तकालीन वास्तुकला के लिए प्रसिद्ध हैं? / Udayagiri caves are located in which district of MP?
- A. विदिशा / Vidisha
- B. रायसेन / Raisen
- C. सीहोर / Sehore
- D. राजगढ़ / Rajgarh
-सही उत्तर: A. विदिशा / Vidisha
-विदिशा में स्थित उदयगिरि की 20 गुफाओं में से गुफा संख्या 5 में भगवान विष्णु के 'वराह अवतार' की विशाल प्रतिमा है। / Udayagiri caves are in Vidisha, famous for the Varaha avatar.
-
-25. त्रिपुरी (जहांगीर/जबलपुर क्षेत्र) में कांग्रेस का ऐतिहासिक 52वाँ अधिवेशन किस वर्ष आयोजित किया गया था, जिसमें सुभाष चंद्र बोस अध्यक्ष चुने गए थे? / In which year was the historic Tripuri Session of Congress held?
- A. 1938
- B. 1940
- C. 1939
- D. 1937
-सही उत्तर: C. 1939
-1939 के त्रिपुरी अधिवेशन में सुभाष चंद्र बोस ने पट्टाभि सीतारमैया (गांधीजी के उम्मीदवार) को हराकर अध्यक्ष पद जीता था। / The Tripuri session was held in the year 1939.
-<!-- QUESTION 26 -->
-<div class="question-card" data-qnum="26" data-correct="A">
-    <div class="question-text">26. 'गोपद नदी' का उद्गम मध्य प्रदेश के किस जिले से होता है? / Gopad River originates from which district of Madhya Pradesh?</div>
-    <div class="options-container">
-        <label class="option-label" data-id="A"><input type="radio" name="q26" value="A"> A. सीधी / Sidhi</label>
-        <label class="option-label" data-id="B"><input type="radio" name="q26" value="B"> B. शहडोल / Shahdol</label>
-        <label class="option-label" data-id="C"><input type="radio" name="q26" value="C"> C. अनूपपुर / Anuppur</label>
-        <label class="option-label" data-id="D"><input type="radio" name="q26" value="D"> D. उमरिया / Umaria</label>
-    </div>
-    <div class="explanation-box">
-        <div class="correct-answer-text">सही उत्तर: A. सीधी / Sidhi</div>
-        गोपद नदी का उद्गम सीधी (सिंगरौली क्षेत्र की सीमा के पास) से होता है और यह सोन नदी की सहायक नदी है। / Gopad river originates from Sidhi region and is a tributary of Son river.
-    </div>
-</div>
-
-<!-- QUESTION 27 -->
-<div class="question-card" data-qnum="27" data-correct="B">
-    <div class="question-text">27. मध्य प्रदेश के किस राष्ट्रीय उद्यान में 'जॉर्ज कैसल' भवन स्थित है? / In which National Park of Madhya Pradesh is the 'George Castle' building located?</div>
-    <div class="options-container">
-        <label class="option-label" data-id="A"><input type="radio" name="q27" value="A"> A. कान्हा राष्ट्रीय उद्यान / Kanha National Park</label>
-        <label class="option-label" data-id="B"><input type="radio" name="q27" value="B"> B. माधव राष्ट्रीय उद्यान / Madhav National Park</label>
-        <label class="option-label" data-id="C"><input type="radio" name="q27" value="C"> C. बांधवगढ़ राष्ट्रीय उद्यान / Bandhavgarh National Park</label>
-        <label class="option-label" data-id="D"><input type="radio" name="q27" value="D"> D. पेंच राष्ट्रीय उद्यान / Pench National Park</label>
-    </div>
-    <div class="explanation-box">
-        <div class="correct-answer-text">सही उत्तर: B. माधव राष्ट्रीय उद्यान / Madhav National Park</div>
-        शिवपुरी जिले में स्थित माधव राष्ट्रीय उद्यान के अंदर 1911 में जॉर्ज पंचम के स्वागत के लिए जॉर्ज कैसल भवन बनाया गया था। / George Castle is located inside Madhav National Park, Shivpuri.
-    </div>
-</div>
-
-<!-- QUESTION 28 -->
-<div class="question-card" data-qnum="28" data-correct="C">
-    <div class="question-text">28. मध्य प्रदेश का एकमात्र यूनानी चिकित्सा महाविद्यालय कहाँ स्थित है? / Where is the only Unani Medical College of Madhya Pradesh located?</div>
-    <div class="options-container">
-        <label class="option-label" data-id="A"><input type="radio" name="q28" value="A"> A. ग्वालियर / Gwalior</label>
-        <label class="option-label" data-id="B"><input type="radio" name="q28" value="B"> B. इंदौर / Indore</label>
-        <label class="option-label" data-id="C"><input type="radio" name="q28" value="C"> C. बुरहानपुर / Burhanpur</label>
-        <label class="option-label" data-id="D"><input type="radio" name="q28" value="D"> D. भोपाल / Bhopal</label>
-    </div>
-    <div class="explanation-box">
-        <div class="correct-answer-text">सही उत्तर: C. बुरहानपुर / Burhanpur</div>
-        मध्य प्रदेश का सबसे पुराना और एकमात्र शासकीय यूनानी चिकित्सा महाविद्यालय बुरहानपुर में स्थित है। / The only government Unani medical college of MP is in Burhanpur.
-    </div>
-</div>
-
-<!-- QUESTION 29 -->
-<div class="question-card" data-qnum="29" data-correct="A">
-    <div class="question-text">29. मध्य प्रदेश विधानसभा के प्रथम अध्यक्ष कौन थे? / Who was the first Speaker of Madhya Pradesh Legislative Assembly?</div>
-    <div class="options-container">
-        <label class="option-label" data-id="A"><input type="radio" name="q29" value="A"> A. पंडित कुंजीलाल दुबे / Pt. Kunjilal Dubey</label>
-        <label class="option-label" data-id="B"><input type="radio" name="q29" value="B"> B. विष्णुपद सरवटे / Vishnupad Sarwate</label>
-        <label class="option-label" data-id="C"><input type="radio" name="q29" value="C"> C. काशीप्रसाद पांडे / Kashiprasad Pandey</label>
-        <label class="option-label" data-id="D"><input type="radio" name="q29" value="D"> D. तेजलाल टेम्भरे / Tejlal Tembhre</label>
-    </div>
-    <div class="explanation-box">
-        <div class="correct-answer-text">सही उत्तर: A. पंडित कुंजीलाल दुबे / Pt. Kunjilal Dubey</div>
-        पंडित कुंजीलाल दुबे मध्य प्रदेश के प्रथम विधानसभा अध्यक्ष थे और उन्हें 'विधि पुरुष' भी कहा जाता है। / Pt. Kunjilal Dubey was the first Speaker of the MP Legislative Assembly.
-    </div>
-</div>
-
-<!-- QUESTION 30 -->
-<div class="question-card" data-qnum="30" data-correct="D">
-    <div class="question-text">30. 'बाणसागर परियोजना' किस नदी पर निर्मित है और यह किन राज्यों की संयुक्त परियोजना है? / On which river is the 'Bansagar Project' built and which states share it?</div>
-    <div class="options-container">
-        <label class="option-label" data-id="A"><input type="radio" name="q30" value="A"> A. नर्मदा - MP, GJ, MH / Narmada - MP, GJ, MH</label>
-        <label class="option-label" data-id="B"><input type="radio" name="q30" value="B"> B. चम्बल - MP, RJ / Chambal - MP, RJ</label>
-        <label class="option-label" data-id="C"><input type="radio" name="q30" value="C"> C. बेतवा - MP, UP / Betwa - MP, UP</label>
-        <label class="option-label" data-id="D"><input type="radio" name="q30" value="D"> D. सोन - MP, UP, BR / Son - MP, UP, BR</label>
-    </div>
-    <div class="explanation-box">
-        <div class="correct-answer-text">सही उत्तर: D. सोन - MP, UP, BR / Son - MP, UP, BR</div>
-        बाणसागर बांध शहडोल जिले के देवलौंद में सोन नदी पर बना है। यह मध्य प्रदेश, उत्तर प्रदेश और बिहार की संयुक्त परियोजना है। / Bansagar project is on Son river, shared by MP, UP, and Bihar.
-    </div>
-</div>
-
-<!-- QUESTION 31 -->
-<div class="question-card" data-qnum="31" data-correct="B">
-    <div class="question-text">31. मध्य प्रदेश का सबसे कम लिंगानुपात वाला जिला कौन सा है? / Which district of Madhya Pradesh has the lowest sex ratio?</div>
-    <div class="options-container">
-        <label class="option-label" data-id="A"><input type="radio" name="q31" value="A"> A. मुरैना / Morena</label>
-        <label class="option-label" data-id="B"><input type="radio" name="q31" value="B"> B. भिंड / Bhind</label>
-        <label class="option-label" data-id="C"><input type="radio" name="q31" value="C"> C. दतिया / Datia</label>
-        <label class="option-label" data-id="D"><input type="radio" name="q31" value="D"> D. शिवपुरी / Shivpuri</label>
-    </div>
-    <div class="explanation-box">
-        <div class="correct-answer-text">सही उत्तर: B. भिंड / Bhind</div>
-        2011 की जनगणना के अनुसार मध्य प्रदेश में सबसे कम लिंगानुपात भिंड जिले (837) का है, जबकि सर्वाधिक बालाघाट (1021) का है। / According to Census 2011, Bhind has the lowest sex ratio (837).
-    </div>
-</div>
-
-<!-- QUESTION 32 -->
-<div class="question-card" data-qnum="32" data-correct="A">
-    <div class="question-text">32. मध्य प्रदेश में 'मलांजखंड' किस खनिज के उत्पादन के लिए प्रसिद्ध है? / 'Malanjkhand' in Madhya Pradesh is famous for the production of which mineral?</div>
-    <div class="options-container">
-        <label class="option-label" data-id="A"><input type="radio" name="q32" value="A"> A. तांबा / Copper</label>
-        <label class="option-label" data-id="B"><input type="radio" name="q32" value="B"> B. मैंगनीज / Manganese</label>
-        <label class="option-label" data-id="C"><input type="radio" name="q32" value="C"> C. हीरा / Diamond</label>
-        <label class="option-label" data-id="D"><input type="radio" name="q32" value="D"> D. कोयला / Coal</label>
-    </div>
-    <div class="explanation-box">
-        <div class="correct-answer-text">सही उत्तर: A. तांबा / Copper</div>
-        बालाघाट जिले में स्थित मलांजखंड एशिया की सबसे बड़ी खुली तांबा खदान के लिए प्रसिद्ध है। / Malanjkhand in Balaghat district is famous for its open-cast copper mines.
-    </div>
-</div>
-
-<!-- QUESTION 33 -->
-<div class="question-card" data-qnum="33" data-correct="C">
-    <div class="question-text">33. मध्य प्रदेश राज्य निर्वाचन आयोग की स्थापना किस वर्ष की गई थी? / In which year was the Madhya Pradesh State Election Commission established?</div>
-    <div class="options-container">
-        <label class="option-label" data-id="A"><input type="radio" name="q33" value="A"> A. 1993</label>
-        <label class="option-label" data-id="B"><input type="radio" name="q33" value="B"> B. 1995</label>
-        <label class="option-label" data-id="C"><input type="radio" name="q33" value="C"> C. 1994</label>
-        <label class="option-label" data-id="D"><input type="radio" name="q33" value="D"> D. 1996</label>
-    </div>
-    <div class="explanation-box">
-        <div class="correct-answer-text">सही उत्तर: C. 1994</div>
-        मध्य प्रदेश राज्य निर्वाचन आयोग का गठन 1 फरवरी 1994 को किया गया था। यह चुनाव आयोग गठित करने वाला देश का पहला राज्य है। / MP State Election Commission was constituted on 1st February 1994.
-    </div>
-</div>
-
-<!-- QUESTION 34 -->
-<div class="question-card" data-qnum="34" data-correct="B">
-    <div class="question-text">34. मध्य प्रदेश में 'पातालकोट' घाटी किस जिले में स्थित है, जहाँ भारिया जनजाति निवास करती है? / In which district is the 'Patalkot' valley located in MP?</div>
-    <div class="options-container">
-        <label class="option-label" data-id="A"><input type="radio" name="q34" value="A"> A. बैतुल / Betul</label>
-        <label class="option-label" data-id="B"><input type="radio" name="q34" value="B"> B. छिंदवाड़ा / Chhindwara</label>
-        <label class="option-label" data-id="C"><input type="radio" name="q34" value="C"> C. सिवनी / Seoni</label>
-        <label class="option-label" data-id="D"><input type="radio" name="q34" value="D"> D. मंडला / Mandla</label>
-    </div>
-    <div class="explanation-box">
-        <div class="correct-answer-text">सही उत्तर: B. छिंदवाड़ा / Chhindwara</div>
-छिंदवाड़ा जिले में स्थित पातालकोट एक गहरी घोड़ा-नाल आकार की घाटी है, जहाँ सदियों से 'भारिया' जनजाति पृथक रूप से रह रही है। / Patalkot valley is located in Chhindwara district.
-
-35. मध्य प्रदेश उच्च न्यायालय की मुख्य पीठ कहाँ स्थित है? / Where is the main seat (bench) of the Madhya Pradesh High Court located?
- A. जबलपुर / Jabalpur
- B. इंदौर / Indore
- C. ग्वालियर / Gwalior
- D. भोपाल / Bhopal
-सही उत्तर: A. जबलपुर / Jabalpur
-मध्य प्रदेश उच्च न्यायालय की मुख्य पीठ जबलपुर में है, तथा इसकी दो खंडपीठ इंदौर और ग्वालियर (1968 में स्थापित) में कार्यरत हैं। / The principal seat of MP High Court is at Jabalpur.
-
-36. 73वें संविधान संशोधन के तहत पंचायती राज संस्थाओं का चुनाव कराने वाला पहला राज्य कौन सा है? / Which was the first state to hold elections under the 73rd Constitutional Amendment Act?
- A. राजस्थान / Rajasthan
- B. आंध्र प्रदेश / Andhra Pradesh
- C. उत्तर प्रदेश / Uttar Pradesh
- D. मध्य प्रदेश / Madhya Pradesh
-सही उत्तर: D. मध्य प्रदेश / Madhya Pradesh
-73वें संविधान संशोधन अधिनियम, 1992 को लागू करने और इसके तहत 1994 में त्रिस्टरी पंचायत चुनाव कराने वाला पहला राज्य मध्य प्रदेश था। / MP was the first state to execute elections under 73rd CAA.
-
-37. मध्य प्रदेश में 'ओंकारेश्वर ज्योतिर्लिंग' किस नदी के द्वीप पर स्थित है? / Omkareshwar Jyotirlinga is situated on an island of which river?
- A. क्षिप्रा नदी / Shipra River
- B. चम्बल नदी / Chambal River
- C. नर्मदा नदी / Narmada River
- D. ताप्ती नदी / Tapti River
-सही उत्तर: C. नर्मदा नदी / Narmada River
-ओंकारेश्वर ज्योतिर्लिंग खंडवा जिले में नर्मदा नदी के बीच 'मान्धाता' या 'शिवपुरी' नामक ओम्-आकार के द्वीप पर स्थित है। / Omkareshwar is situated on Mandhata island in the Narmada River.
-
-38. मध्य प्रदेश का कौन सा जिला 'पॉवरलूम उद्योग' (Powerloom Industry) के लिए जाना जाता है? / Which district of Madhya Pradesh is known for its Powerloom Industry?
- A. इंदौर / Indore
- B. बुरहानपुर / Burhanpur
- C. उज्जैन / Ujjain
- D. जबलपुर / Jabalpur
-सही उत्तर: B. बुरहानपुर / Burhanpur
-बुरहानपुर जिला मध्य प्रदेश में टेक्सटाइल और पॉवरलूम सेक्टर का एक प्रमुख केंद्र है। / Burhanpur is a major hub for powerloom cloth weaving in MP.
-
-39. मालवा पठार में मुख्य रूप से कौन सी मिट्टी पाई जाती है? / Which soil is primarily found in the Malwa Plateau?
- A. लाल-पीली मिट्टी / Red-Yellow Soil
- B. काली मिट्टी / Black Soil
- C. जलोढ़ मिट्टी / Alluvial Soil
- D. लैटेराइट मिट्टी / Laterite Soil
-सही उत्तर: B. काली मिट्टी / Black Soil
-काली मिट्टी को रेगुर या कपास मिट्टी भी कहा जाता है, जो मालवा के पठार में प्रचुरता में पाई जाती है। / Black soil is also known as Regur soil, found abundantly in Malwa.
-
-40. लोकसभा का चुनाव लड़ने के लिए न्यूनतम आयु सीमा क्या है? / What is the minimum age limit to contest Lok Sabha elections?
- A. 25 वर्ष / 25 Years
- B. 30 वर्ष / 30 Years
- C. 35 वर्ष / 35 Years
- D. 21 वर्ष / 21 Years
-सही उत्तर: A. 25 वर्ष / 25 Years
-लोकसभा के लिए 25 वर्ष, राज्यसभा के लिए 30 वर्ष और राष्ट्रपति पद के लिए 35 वर्ष न्यूनतम आयु है। / The minimum age for Lok Sabha membership is 25 years.
-
-41. गोबर गैस (Biogas) में मुख्य रूप से कौन-सी गैस पाई जाती है? / Which gas is primarily found in Biogas?
- A. ब्यूटेन / Butane
- B. मीथेन / Methane
- C. प्रोपेन / Propane
- D. एथेन / Ethane
-सही उत्तर: B. मीथेन / Methane
-बायोगैस में मुख्य रूप से मीथेन (CH4) पाई जाती है, जो लगभग 50-75% तक होती है। / Methane is the primary constituent of biogas.
-
-42. नीति आयोग (NITI Aayog) के प्रथम उपाध्यक्ष कौन थे? / Who was the first Vice-Chairman of NITI Aayog?
- A. राजीव कुमार / Rajiv Kumar
- B. अमिताभ कांत / Amitabh Kant
- C. अरविंद पनगढ़िया / Arvind Panagariya
- D. सुमन बेरी / Suman Bery
-सही उत्तर: C. अरविंद पनगढ़िया / Arvind Panagariya
-1 जनवरी 2015 को स्थापित नीति आयोग के अध्यक्ष प्रधानमंत्री होते हैं तथा इसके प्रथम उपाध्यक्ष अरविंद पनगढ़िया थे। / Arvind Panagariya was the first Vice-Chairman of NITI Aayog.
-
-43. राष्ट्रीय मानवाधिकार आयोग (NHRC) के अध्यक्ष का कार्यकाल कितने वर्ष का होता है? / What is the tenure of the Chairman of National Human Rights Commission?
- A. 3 वर्ष या 70 वर्ष की आयु / 3 Years or 70 Years of age
- B. 5 वर्ष या 65 वर्ष की आयु / 5 Years or 65 Years of age
- C. 6 वर्ष या 65 वर्ष की आयु / 6 Years or 65 Years of age
- D. 5 वर्ष या 70 वर्ष की आयु / 5 Years or 70 Years of age
-सही उत्तर: A. 3 वर्ष या 70 वर्ष की आयु
-2019 के संशोधन के बाद राष्ट्रीय मानवाधिकार आयोग के अध्यक्ष और सदस्यों का कार्यकाल 3 वर्ष या 70 वर्ष की आयु (जो भी पहले हो) कर दिया गया है। / The tenure is 3 years or up to 70 years of age.
-
-44. इंटरनेट प्रोटोकॉल में 'IPv6' एड्रेस कितने बिट का होता है? / How many bits are there in an IPv6 internet protocol address?
- A. 32 बिट / 32 Bits
- B. 64 बिट / 64 Bits
- C. 128 बिट / 128 Bits
- D. 256 बिट / 256 Bits
-सही उत्तर: C. 128 बिट / 128 Bits
-IPv4 एड्रेस 32 बिट का होता है जबकि आधुनिक IPv6 एड्रेस 128 बिट (16 बाइट्स) का होता है। / An IPv6 address is 128 bits long.
-
-45. कंप्यूटर प्रणाली में 'फायरवॉल' (Firewall) का मुख्य उद्देश्य क्या होता है? / What is the primary purpose of a 'Firewall' in a computer system?
- A. कंप्यूटर की गति बढ़ाना / To speed up computer
- B. अनधिकृत पहुंच को रोकना / To prevent unauthorized access
- C. डेटा का बैकअप लेना / To backup data
- D. वायरस को हटाना / To delete viruses
-सही उत्तर: B. अनधिकृत पहुंच को रोकना
-फायरवॉल एक नेटवर्क सुरक्षा प्रणाली है जो आने वाले और जाने वाले ट्रैफ़िक की निगरानी करती है और अनधिकृत पहुँच (Hackers) को रोकती है। / A firewall protects network systems from unauthorized access.
-
-46. मध्य प्रदेश में विंध्याचल ताप विद्युत केंद्र (Vindhyachal Thermal Power Station) कहाँ स्थित है? / Where is the Vindhyachal Thermal Power Station located in MP?
- A. शहडोल / Shahdol
- B. खंडवा / Khandwa
- C. सिंगरौली (बैढ़न) / Singrauli (Waidhan)
- D. बैतुल / Betul
-सही उत्तर: C. सिंगरौली (बैढ़न) / Singrauli (Waidhan)
-विंध्याचल ताप विद्युत गृह सिंगरौली के बैढ़न में स्थित है, जो एनटीपीसी द्वारा संचालित भारत का सबसे बड़ा थर्मल पावर प्लांट है। / It is the largest thermal power plant in India, located in Singrauli.
-
-47. ई-कॉमर्स में 'C2C' का क्या अर्थ है? / What does 'C2C' stand for in E-commerce?
- A. कंज्यूमर-टू-कंज्यूमर / Consumer-to-Consumer
- B. कंपनी-टू-कंज्यूमर / Company-to-Consumer
- C. कॉमर्स-टू-कंपनी / Commerce-to-Company
- D. क्लाइंट-टू-क्लाइंट / Client-to-Client
-सही उत्तर: A. कंज्यूमर-टू-कंज्यूमर / Consumer-to-Consumer
-C2C का अर्थ है कंज्यूमर-टू-कंज्यूमर। जैसे OLX or eBay प्लेटफॉर्म जहाँ एक उपभोक्ता सीधे दूसरे उपभोक्ता को सामान बेचता है। / C2C facilitates trade between private individuals.
-
-48. किस संविधान संशोधन अधिनियम द्वारा भारतीय संविधान की प्रस्तावना में 'समाजवादी', 'पंथनिरपेक्ष' और 'अखंडता' शब्द जोड़े गए थे? / By which Amendment were 'Socialist', 'Secular' and 'Integrity' words added to the Preamble?
- A. 44वाँ संशोधन / 44th Amendment
- B. 86वाँ संशोधन / 86th Amendment
- C. 52वाँ संशोधन / 52nd Amendment
- D. 42वाँ संशोधन / 42nd Amendment
-सही उत्तर: D. 42वाँ संशोधन / 42nd Amendment
-1976 के 42वें संविधान संशोधन (जिसे लघु संविधान भी कहते हैं) द्वारा प्रस्तावना में ये तीन शब्द जोड़े गए थे। / These words were inserted by the 42nd CAA, 1976.
-
-49. मध्य प्रदेश के किस शहर को भारत का 'डेट्रायट' (Detroit of India) कहा जाता है? / Which town of Madhya Pradesh is called the 'Detroit of India'?
- A. मक्सी / Maksi
- B. पीथमपुर / Pithampur
- C. मंडीदीप / Mandideep
- D. मालनपुर / Malanpur
-सही उत्तर: B. पीथमपुर / Pithampur
-धार जिले में स्थित पीथमपुर औद्योगिक क्षेत्र को भारी ऑटोमोबाइल उद्योगों की उपस्थिति के कारण भारत का डेट्रायट कहा जाता है। / Pithampur is a major automobile hub in India.
-
-50. मध्य प्रदेश वित्त निगम (Madhya Pradesh Finance Corporation) का मुख्यालय कहाँ स्थित है? / Where is the headquarters of the Madhya Pradesh Finance Corporation located?
- A. इंदौर / Indore
- B. भोपाल / Bhopal
- C. जबलपुर / Jabalpur
- D. ग्वालियर / Gwalior
-सही उत्तर: A. Indore / इंदौर
-वर्ष 1955 में स्थापित मध्य प्रदेश वित्त निगम का मुख्यालय राज्य की व्यावसायिक राजधानी इंदौर में स्थित है। / Established in 1955, the MPFC is headquartered in Indore.
+let remainingSeconds = 60 * 60;
+let timerInterval = null;
+let testSubmitted = false;
+function goBack() {
+if (window.history.length > 1) { window.history.back(); }
+else { window.location.href = "index.html"; }
+}
+function updateTimerDisplay() {
+const timer = document.getElementById("timer");
+const minutes = Math.floor(remainingSeconds / 60);
+const seconds = remainingSeconds % 60;
+timer.textContent = String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2, "0");
+if (remainingSeconds <= 300) { timer.classList.add("warning"); }
+}
+function startTimer() {
+updateTimerDisplay();
+timerInterval = setInterval(function() {
+if (testSubmitted) { clearInterval(timerInterval); return; }
+remainingSeconds--;
+if (remainingSeconds <= 0) {
+remainingSeconds = 0;
+updateTimerDisplay();
+clearInterval(timerInterval);
+document.getElementById("timer").textContent = "समय समाप्त";
+document.getElementById("timer").classList.add("finished");
+alert("समय समाप्त! आपका टेस्ट ऑटो-सबमिट किया जा रहा है।");
+submitTest(true);
+return;
+}
+updateTimerDisplay();
+}, 1000);
+}
+function submitTest(autoSubmit = false) {
+if (testSubmitted) return;
+const cards = document.querySelectorAll("#quiz-area .question-card");
+let score = 0;
+const total = cards.length;
+cards.forEach(function(card) {
+const qNum = card.dataset.qnum;
+const correct = card.dataset.correct;
+const selected = card.querySelector('input[name="q' + qNum + '"]:checked');
+const correctLabel = card.querySelector('.option-label[data-id="' + correct + '"]');
+if (correctLabel) { correctLabel.classList.add("correct-option"); }
+if (selected) {
+if (selected.value === correct) { score++; }
+else {
+const wrongLabel = card.querySelector('.option-label[data-id="' + selected.value + '"]');
+if (wrongLabel) { wrongLabel.classList.add("wrong-option"); }
+}
+}
+const explanation = card.querySelector(".explanation-box");
+if (explanation) { explanation.style.display = "block"; }
+card.querySelectorAll('input[type="radio"]').forEach(function(input) { input.disabled = true; });
+});
+testSubmitted = true;
+clearInterval(timerInterval);
+const percentage = total ? Math.round((score / total) * 100) : 0;
+const board = document.getElementById("score-board");
+board.textContent = (autoSubmit ? "⏰ समय समाप्त! " : "🏆 आपका स्कोर: ") + score + " / " + total + " (" + percentage + "%)";
+board.style.display = "block";
+document.getElementById("submit-btn").disabled = true;
+document.getElementById("submit-btn").textContent = "Test Submitted";
+document.getElementById("timer").classList.add("finished");
+window.scrollTo({ top: 0, behavior: "smooth" });
+}
+function downloadPDF() {
+if (typeof html2pdf !== "function") { alert("PDF लाइब्रेरी लोड नहीं हुई।"); return; }
+const element = document.getElementById("quiz-area");
+html2pdf().set({ margin: 8, filename: "MPPSC_Test.pdf", html2canvas: { scale: 2 }, jsPDF: { format: "a4", orientation: "portrait" } }).from(element).save();
+}
+startTimer();
