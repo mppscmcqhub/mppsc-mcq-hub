@@ -10,7 +10,6 @@ html,body{margin:0;padding:0;width:100%;font-family:Arial,"Noto Sans Devanagari"
 body{background:#eef2f7}
 header{background:#164f86;color:white;padding:12px 8px;text-align:center}
 .brand{display:flex;align-items:center;justify-content:center;gap:10px}
-.logo{width:48px;height:48px;object-fit:contain;background:white;border-radius:50%;padding:3px}
 header h1{font-size:21px;margin:3px 0}
 header p{margin:5px 0;font-size:14px}
 main{width:100%;max-width:900px;margin:0 auto;padding:10px}
@@ -136,7 +135,7 @@ const questions = [
     e: "ऋग्वेद के 10वें मण्डल के 'पुरुष सूक्त' में एक आदि पुरुष (विराट पुरुष) के विभिन्न अंगों से चारों वर्णों की उत्पत्ति बताई गई है। / The Purusha Sukta in the 10th Mandala of Rigveda contains the earliest reference to the four-fold Varna system."
   },
   {
-q: "यज्ञों के नियम, विधान तथा कर्मकांडों का संकलन गद्य और पद्य दोनों रूपों में किस वेद में मिलता है? / Which Veda contains the compilation of sacrificial formulas and rituals written in both prose and verse?",
+    q: "यज्ञों के नियम, विधान तथा कर्मकांडों का संकलन गद्य और पद्य दोनों रूपों में किस वेद में मिलता है? / Which Veda contains the compilation of sacrificial formulas and rituals written in both prose and verse?",
 o: ["ऋग्वेद / Rigveda", "सामवेद / Samaveda", "यजुर्वेद / Yajurveda", "अथर्ववेद / Atharvaveda"],
 a: 2,
 e: "यजुर्वेद एक कर्मकांडीय वेद है। यह दो भागों में बंटा है: शुक्ल यजुर्वेद (केवल पद्य) और कृष्ण यजुर्वेद (गद्य और पद्य दोनों)। / Yajurveda is the Veda of rituals and is unique for containing passages in both prose and verse styles."
@@ -175,7 +174,7 @@ e: "उपनिषदों को वेदांत कहा जाता �
 q: "निम्नलिखित में से कौन सा युग्म सुमेलित नहीं है (वेद और उसका उपवेद)? / Which of the following pairs is NOT correctly matched (Veda and its Upaveda)?",
 o: ["ऋग्वेद — आयुर्वेद / Rigveda — Ayurveda", "यजुर्वेद — धनुर्वेद / Yajurveda — Dhanurveda", "सामवेद — गंधर्ववेद / Samaveda — Gandharvaveda", "अथर्ववेद — शिल्पवेद / Atharvaveda — Shilpaveda"],
 a: 3,
-e: "सभी युग्म सही सुमेलित हैं। अथर्ववेद का उपवेद शिल्पवेद (या अर्थवेद) है। (नोट: सभी विकल्प सत्य सुमेलित श्रेणी के व्यवस्थित प्रारूप को दर्शाते हैं, कोई त्रुटि नहीं है अतः संरचना पूर्णतः शुद्ध है)। / All pairs are correct. Atharvaveda's Upaveda is Shilpaveda."
+e: "सभी युग्म सही सुमेलित हैं। अथर्ववेद का उपवेद शिल्पवेद (या अर्थवेद) है। / All pairs are correct. Atharvaveda's Upaveda is Shilpaveda."
 },
 {
 q: "ऋग्वेद में 'अघन्या' (न मारने योग्य) शब्द का प्रयोग किस पशु के लिए किया गया है? / For which animal was the word 'Aghanya' (not to be killed) used in the Rigveda?",
@@ -211,7 +210,7 @@ e: "'सत्यमेव जयते' (सत्य की ही विज�
 q: "प्राचीन भारतीय ज्ञान परंपरा में 'वेदांत' शब्द का प्रयोग किसके लिए किया जाता है? / In ancient Indian knowledge systems, for what is the term 'Vedanta' used?",
 o: ["ब्राह्मण ग्रंथों के लिए / Brahmanas", "आरन्यकों के लिए / Aranyakas", "उपनिषदों के लिए / Upanishads", "वेदांगों के लिए / Vedangas"],
 a: 2,
-e: "चूंकि उपनिषद वैदिक साहित्य के अंतिम भाग हैं और इनमें वेदों का सर्वोच्च दार्शनिक सार है, इसलिए इन्हें 'वेदांत' कहा जाता है। / Upanishads are called Vedanta as they come at the end of the Vedic period and embody its core philosophy."
+e: "चूंकि उपनिषद वैदिक साहित्य के अंतिम भाग हैं और ईंधन वेदों का सर्वोच्च दार्शनिक सार है, इसलिए इन्हें 'वेदांत' कहा जाता है। / Upanishads are called Vedanta as they come at the end of the Vedic period and embody its core philosophy."
 },
 {
 q: "वैदिक काल में 'सभा' और 'समिति' को किस प्रजातांत्रिक राजा की 'दो पुत्रियाँ' कहा गया है? / In the Vedic period, 'Sabha' and 'Samiti' were described as the 'two daughters' of which entity?",
@@ -247,7 +246,7 @@ e: "ऋग्वेद में कुल 10 मण्डल (अध्या�
 q: "वैदिक शिक्षा पद्धति में वेदों के अर्थ और व्याकरण को कंठस्थ करने के लिए रचित 'शिक्षा' वेदांग की तुलना मानव शरीर के किस अंग से की गई है? / In Vedic education, the Vedanga 'Shiksha' (Phonetics) is compared to which organ of the human body?",
 o: ["नासिका (नाक) / Nose", "मुख (मुंह) / Mouth", "पाद (पैर) / Feet", "चक्षु (आंख) / Eyes"],
 a: 0,
-e: "पारंपरिक संस्कृत व्याकरण में 'छंदः पादौ तु वेदस्य हस्तौ कल्पोऽथ पठ्यते, ज्योतिषामयनं चक्षुर्निरुक्तं श्रोत्रमुच्यते, शिक्षा घ्राणं तु वेदस्य मुखं व्याकरणं स्मृतम्' के अनुसार शिक्षा को वेद पुरुष की नासिका (नाक) कहा गया है। / Shiksha is metaphorical for the nose (Ghrama) of the Veda Purusha."
+e: "पारंपरिक संस्कृत व्याकरण के अनुसार शिक्षा को वेद पुरुष की नासिका (नाक) कहा गया है। / Shiksha is metaphorical for the nose (Ghrama) of the Veda Purusha."
 },
 {
 q: "जैन ग्रंथ 'जम्बूद्वीपपण्णत्ति' में भारतवर्ष के लिए मुख्यतः किस शब्द का प्रयोग भौगोलिक संदर्भ में हुआ है? / In the Jain text 'Jambudvipa-Pannatti', which term is mainly used for India in a geographical context?",
@@ -259,7 +258,7 @@ e: "प्राचीन जैन आगम साहित्य में �
 q: "वैदिक सूक्तों के द्रष्टा और रचनाकार ऋषियों में कई महिलाएँ भी शामिल थीं। निम्न में से कौन सी विदुषी महिला ऋग्वेद की मंत्र द्रष्टा नहीं है? / Many women were seers of Vedic hymns. Who among the following was NOT a female seer of the Rigveda?",
 o: ["लोपामुद्रा / Lopamudra", "घोषा / Ghosha", "गार्गी / Gargi", "अपला / Apala"],
 a: 2,
-e: "लोपामुद्रा, घोषा, अपला, सिकता और विश्ववारा ऋग्वेद काल की मंत्र द्रष्टा हैं, जबकि गार्गी उत्तर-वैदिक काल की प्रसिद्ध उपनिषद कालीन विदुषी थीं जिन्होंने याज्ञवल्क्य से शास्त्रार्थ किया था। / Gargi belongs to the later Vedic/Upanishadic period, famous for her debate with Yajnavalkya."
+e: "लोपामुद्रा, घोषा, अपला ऋग्वेद काल की मंत्र द्रष्टा हैं, जबकि गार्गी उत्तर-वैदिक काल की प्रसिद्ध उपनिषद कालीन विदुषी थीं जिन्होंने शास्त्रार्थ किया था। / Gargi belongs to the later Vedic/Upanishadic period, famous for her debate with Yajnavalkya."
 },
 {
 q: "प्राचीन भारतीय ज्ञान परंपरा में 'श्रीमद्भगवद्गीता' महाभारत के किस पर्व का हिस्सा है? / In the ancient Indian tradition, the 'Bhagavad Gita' is part of which Parva of the Mahabharata?",
@@ -289,7 +288,7 @@ e: "वेदों की संहिताओं की व्याख्य
 q: "निम्नलिखित में से कौन सा आरण्यक ग्रंथ ऋग्वेद से संबंधित है? / Which of the following Aranyaka texts is explicitly connected with the Rigveda?",
 o: ["तैत्तिरीय आरण्यक / Taittiriya Aranyaka", "ऐतरेय आरण्यक / Aitareya Aranyaka", "तलवकार आरण्यक / Talavakara Aranyaka", "शतपथ आरण्यक / Shatapatha Aranyaka"],
 a: 1,
-e: "ऐतरेय और कौषीतकि आरण्यक ऋग्वेद से संबद्ध हैं। तैत्तिरीय यजुर्वेद से संबद्ध है। / Aitareya Aranyaka belongs strictly to the Rigvedic canon."
+e: "ऐतरेय और कौषीतकि आरण्यक ऋग्वेद से संबद्ध हैं। / Aitareya Aranyaka belongs strictly to the Rigvedic canon."
 },
 {
 q: "प्राचीन यूनानी भूगोलविदों (Greek Geographers) ने भारतवर्ष के लिए सर्वप्रथम 'इण्डिया' (India) शब्द का प्रयोग किस नदी के नाम के आधार पर किया था? / Based on which river's name did ancient Greek geographers first use the term 'India'?",
@@ -313,19 +312,19 @@ e: "छंद शास्त्र के मूल प्रवर्तक �
 q: "वैदिक काल में प्रयुक्त 'कृषि' तकनीक और फसलों के संदर्भ में, 'यव' शब्द का प्रयोग किस अनाज के लिए किया जाता था? / In the Vedic agrarian terminology, for which grain was the word 'Yava' utilized?",
 o: ["गेहूं / Wheat", "चावल / Rice", "जौ / Barley", "बाजरा / Millet"],
 a: 2,
-e: "वैदिक साहित्य में 'यव' का अर्थ जौ (Barley) है, तथा 'व्रीहि' का प्रयोग चावल (Rice) के लिए और 'गोधूम' का प्रयोग गेहूं के लिए किया जाता था। / 'Yava' translates to barley in the Vedas, while 'Vrihi' stands for rice."
+e: "वैदिक साहित्य में 'यव' का अर्थ जौ (Barley) है, तथा 'व्रीहि' का प्रयोग चावल (Rice) के लिए किया जाता था। / 'Yava' translates to barley in the Vedas, while 'Vrihi' stands for rice."
 },
 {
-q: "वैदिक काल में विनिमय के माध्यम (Medium of Exchange) और गले के एक आभूषण के रूप में प्रयुक्त 'निष्क' क्या था? / What was 'Nishka', used both as an ornament and a medium of exchange in the Vedic period?",
+q: "वैदिक काल में विनिमय के माध्यम (Medium of Exchange) and गले के एक आभूषण के रूप में प्रयुक्त 'निष्क' क्या था? / What was 'Nishka', used both as an ornament and a medium of exchange in the Vedic period?",
 o: ["चाँदी का सिक्का / Silver Coin", "सोने का सिक्का या स्वर्ण आभूषण / Gold coin or ornament", "ताँबे की मुद्रा / Copper currency", "मिट्टी की मुहर / Clay seal"],
 a: 1,
-e: "ऋग्वैदिक काल में निष्क सोने का एक आभूषण होता था जो गले में पहना जाता था, जिसका उपयोग मूल्य मापन और व्यापारिक विनिमय में भी होता था। / Nishka was a gold neckpiece that also functioned as currency or a store of value."
+e: "ऋग्वैदिक काल में निष्क सोने का एक आभूषण होता था जो गले में पहना जाता था, जिसका उपयोग व्यापारिक विनिमय में भी होता था। / Nishka was a gold neckpiece that also functioned as currency or a store of value."
 },
 {
 q: "वेदांगों में शामिल 'ज्योतिष' का प्राचीनतम उपलब्ध प्रामाणिक ग्रंथ 'वेदांग ज्योतिष' किसके द्वारा रचित है? / The oldest surviving treatise on Vedic astronomy, 'Vedanga Jyotisha', was composed by whom?",
 o: ["वराहमिहिर / Varahamihira", "लगध मुनि / Lagadha Muni", "आर्यभट्ट / Aryabhata", "ब्रह्मगुप्त / Brahmagupta"],
 a: 1,
-e: "वेदांग ज्योतिष की रचना महात्मा लगध ने ईसा पूर्व काल में की थी, जिसमें खगोलीय गणनाओं और नक्षत्रों का विवरण है। / Lagadha Muni compiled the Vedanga Jyotisha, focused on calculating appropriate astronomical times for Vedic sacrifices."
+e: "वेदांग ज्योतिष की रचना महात्मा लगध ने ईसा पूर्व काल में की थी, जिसमें खगोलीय गणनाओं का विवरण है। / Lagadha Muni compiled the Vedanga Jyotisha, focused on calculating appropriate astronomical times for Vedic sacrifices."
 },
 {
 q: "प्राचीन भारतीय ऐतिहासिक परंपरा में पुराणों की कुल संख्या कितनी निर्धारित है और इनके संकलनकर्ता कौन माने जाते हैं? / What is the total number of Puranas in Indian historical traditions, and who is credited with their compilation?",
@@ -337,7 +336,7 @@ e: "पुराणों की कुल संख्या 18 है। इ�
 q: "निम्नलिखित में से किस उपनिषद में 'चारों आश्रमों' (ब्रह्मचर्य, गृहस्थ, वानप्रस्थ, संन्यास) का प्रथम बार एक साथ स्पष्ट उल्लेख मिलता है? / In which Upanishad is the four-fold ashrama system mentioned together clearly for the first time?",
 o: ["जाबालोपनिषद / Jabala Upanishad", "बृहदारण्यक उपनिषद / Brihadaranyaka", "कठोपनिषद / Katha Upanishad", "श्वेताश्वतर उपनिषद / Shvetashvatara"],
 a: 0,
-e: "जाबालोपनिषद में पहली बार चारों जीवन चरणों या आश्रमों का स्पष्ट निरूपण मिलता है। छान्दोग्य उपनिषद में केवल प्रथम तीन आश्रमों का उल्लेख था। / Jabala Upanishad provides the earliest distinct layout of all four life stages."
+e: "जाबालोपनिषद में पहली बार चारों जीवन चरणों या आश्रमों का स्पष्ट निरूपण मिलता है। / Jabala Upanishad provides the earliest distinct layout of all four life stages."
 },
 {
 q: "प्राचीन भारतीय भौगोलिक अवधारणा के अनुसार भारत के मध्य भाग को क्या कहा जाता था जहाँ वैदिक संस्कृति का मुख्य प्रसार हुआ? / According to ancient Indian geography, what was the central land area called where Vedic culture expanded?",
@@ -349,7 +348,7 @@ e: "हिमालय और विंध्याचल के बीच क�
 q: "ऋग्वेद काल की सर्वाधिक पवित्र नदी कौन सी मानी जाती थी, जिसे 'नदीतमा' (नदियों में उत्तम) कहा गया है? / Which river was considered the most sacred in the Rigveda and styled as 'Naditama'?",
 o: ["सिंधु नदी / Indus", "गंगा नदी / Ganges", "सरस्वती नदी / Sarasvati", "यमुना नदी / Yamuna"],
 a: 2,
-e: "ऋग्वैदिक आर्यों की सबसे पवित्र नदी सरस्वती थी, जिसे नदीतमा, देवीतमा और मातेतमा कहा गया है। हालांकि सर्वाधिक बार उल्लेख सिंधु का हुआ है। / Sarasvati was highly revered as the ultimate sacred river, termed Naditama."
+e: "ऋग्वैदिक आर्यों की सबसे पवित्र नदी सरस्वती थी, जिसे नदीतमा कहा गया है। हालांकि सर्वाधिक बार उल्लेख सिंधु का हुआ है। / Sarasvati was highly revered as the ultimate sacred river, termed Naditama."
 },
 {
 q: "वैदिक साहित्य में राजा पर नियंत्रण रखने वाली संस्था 'समिति' के अध्यक्ष या प्रधान को क्या कहा जाता था? / What was the presiding officer or chairperson of the Vedic assembly known as 'Samiti' called?",
@@ -373,16 +372,16 @@ e: "ऋग्वैदिक काल में प्रजा अपने �
 q: "प्राचीन भारतीय ज्ञान परंपरा में 'शून्यवाद' और माध्यमिक दर्शन के जनक किस दार्शनिक को माना जाता है? / In the Indian knowledge tradition, who is credited as the father of 'Shunyavada' and Madhyamika philosophy?",
 o: ["आचार्य नागार्जुन / Acharya Nagarjuna", "शंकराचार्य / Adi Shankara", "वसुबंधु / Vasubandhu", "माधवाचार्य / Madhvacharya"],
 a: 0,
-e: "कनिष्क के समकालीन आचार्य नागार्जुन ने प्रज्ञापारमिता सूत्र में शून्यवाद (सापेक्षतावाद) का प्रतिपादन किया था। इन्हें भारत का आइंस्टीन भी कहते हैं। / Acharya Nagarjuna formulated the theory of Shunyavada (Voidness/Relativity)."
+e: "कनिष्क के समकालीन आचार्य नागार्जुन ने प्रज्ञापारमिता सूत्र में शून्यवाद का प्रतिपादन किया था। इन्हें भारत का आइंस्टीन भी कहते हैं। / Acharya Nagarjuna formulated the theory of Shunyavada (Voidness/Relativity)."
 },
 {
 q: "निम्नलिखित में से किस प्राचीन ग्रंथ को 'शतसाहस्री संहिता' (1,00,000 श्लोकों का संकलन) के नाम से भी जाना जाता है? / Which ancient text is also famously called 'Shatasahasri Samhita' owing to its 100,000 verses?",
-o: ["ऋग्वेद संहिता / Rigveda", "रामायण / Ramayana", "महाभारत / Mahabharata", "श्रीमद्भागवत पुराण / Bhagavata Purana"],
+o: ["ऋग्वेद संहिता / Rigveda", "रामायण / Ramayana", "महाभारत / Mahabharata", "श्रीमद्भगववत पुराण / Bhagavata Purana"],
 a: 2,
-e: "महाभारत में श्लोकों की संख्या बढ़ते-बढ़ते एक लाख हो जाने के कारण इसे 'शतसाहस्री संहिता' या महाभारत नाम दिया गया। इसका प्रारंभिक नाम 'जय संहिता' था। / Mahabharata is termed Shatasahasri Samhita when its verses reached one lakh."
+e: "महाभारत में श्लोकों की संख्या बढ़ते-बढ़ते एक लाख हो जाने के कारण इसे 'शतसाहस्री संहिता' या महाभारत नाम दिया गया। / Mahabharata is termed Shatasahasri Samhita when its verses reached one lakh."
 }
 ];
-// Function to render the 50 questions dynamically
+// Function to render the 50 questions dynamically (Immediately Called)
 function renderQuiz() {
 const quizContainer = document.getElementById('quiz');
 if (!quizContainer) return;
@@ -394,10 +393,8 @@ function submitTest() {
 let score = 0;
 questions.forEach((q, qIdx) => {
 const selectedRadio = document.querySelector(input[name="q_${qIdx}"]:checked);
-// Unhide explanation pane
 const expDiv = document.getElementById(exp_${qIdx});
 if (expDiv) expDiv.style.display = 'block';
-// Render the right options in a green background highlight
 const correctLabel = document.getElementById(label_${qIdx}_${q.a});
 if (correctLabel) correctLabel.classList.add('correct');
 if (selectedRadio) {
@@ -405,25 +402,23 @@ const chosenAnswer = parseInt(selectedRadio.value);
 if (chosenAnswer === q.a) {
 score++;
 } else {
-// Red flag wrong user options
 const wrongLabel = document.getElementById(label_${qIdx}_${chosenAnswer});
 if (wrongLabel) wrongLabel.classList.add('wrong');
 }
 }
 });
-// Scoring card logic block
 const resultDiv = document.getElementById('result');
 if (resultDiv) {
 resultDiv.style.display = 'block';
 const accuracy = Math.round((score / questions.length) * 100);
 resultDiv.innerHTML = <h2>परीक्षा परिणाम / Test Result Summary</h2> <div class="score">${score} / ${questions.length} अंक (Marks)</div> <p>आपकी सटीकता दर (Accuracy) <b>${accuracy}%</b> रही है। सभी प्रश्नों के सही उत्तर और विस्तृत समीक्षा नीचे चेक करें।</p>;
 }
-// Freeze further attempts after validation submission
 const inputs = document.querySelectorAll('input[type="radio"]');
 inputs.forEach(input => input.disabled = true);
-// Smooth scroll back up to read scorecards instantly
 window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+// Direct Execution Rule to bypass browser loading blocks
+renderQuiz();
 // Global Timer Countdown Controller Engine
 let timeInMinutes = 60;
 let timeInSeconds = timeInMinutes * 60;
@@ -443,5 +438,3 @@ submitTest();
 }
 timeInSeconds--;
 }, 1000);
-// Set window loaders to safely map arrays on execution lifecycle
-window.onload = renderQuiz;
