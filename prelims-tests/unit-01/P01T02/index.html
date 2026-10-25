@@ -1,294 +1,378 @@
-<!DOCTYPE html>
-<html lang="hi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MPPSC MCQ Hub V14 - Test 2</title>
-    <script src="https://cloudflare.com"></script>
-    <style>
-        * { box-sizing: border-box; font-family: "Segoe UI", Arial, sans-serif; }
-        body { margin: 0; background: #f0f2f5; color: #222; }
-        .header { background: #15549a; color: white; padding: 10px 18px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px #0003; }
-        .brand { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: bold; }
-        .site-logo { width: 40px; height: 40px; object-fit: contain; border-radius: 50%; background: white; border: 2px solid white; }
-        .header-right { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-        .timer { background: #b71c1c; color: white; font-size: 19px; font-weight: bold; padding: 10px 14px; border-radius: 5px; min-width: 105px; text-align: center; }
-        .timer.warning { background: #ff9800; color: #111; }
-        .timer.finished { background: #333; color: white; }
-        button { border: none; border-radius: 5px; padding: 11px 16px; font-size: 15px; font-weight: bold; cursor: pointer; }
-        button:hover { opacity: .9; }
-        .back-btn { background: #087bff; color: white; }
-        .pdf-btn { background: #ffc107; color: black; }
-        .submit-btn { background: #28a745; color: white; }
-        .container { padding: 18px 22px; max-width: 800px; margin: 0 auto; }
-        .score-board { display: none; background: #d1ecf1; border: 1px solid #bee5eb; color: #0c5460; padding: 18px; border-radius: 5px; margin-bottom: 20px; text-align: center; font-size: 20px; font-weight: bold; }
-        .question-card { background: white; border: 1px solid #ddd; border-radius: 5px; padding: 20px; margin-bottom: 20px; box-shadow: 0 1px 4px #0001; }
-        .question-text { font-weight: 600; line-height: 1.7; margin-bottom: 15px; font-size: 16px; }
-        .options-container { display: flex; flex-direction: column; gap: 9px; }
-        .option-label { display: flex; align-items: center; gap: 10px; padding: 11px; border: 1px solid #d5d5d5; border-radius: 4px; cursor: pointer; line-height: 1.5; background: #fff; }
-        .option-label:hover { background: #f4f7fb; }
-        .option-label input { width: 17px; height: 17px; flex-shrink: 0; margin: 0; }
-        .correct-option { background: #c3e6cb !important; border-color: #8fd19e !important; font-weight: bold; color: #155724; }
-        .wrong-option { background: #f5c6cb !important; border-color: #e7a0a7 !important; color: #721c24; }
-        .explanation-box { display: none; background: #e2f0d9; border-left: 5px solid #385723; padding: 14px; margin-top: 14px; line-height: 1.8; font-size: 14px; border-radius: 0 4px 4px 0; }
-        .correct-answer-text { color: #385723; font-weight: bold; margin-bottom: 5px; }
-        .bottom-buttons { display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap; padding: 15px 0 30px; }
-        @media(max-width: 600px) {
-            .header { padding: 10px; }
-            .brand { font-size: 16px; }
-            .header-right { width: 100%; }
-            .header-right button { flex: 1; }
-            .container { padding: 10px; }
-            .question-card { padding: 14px; }
-            .timer { font-size: 16px; }
-        }
-    </style>
-</head>
-<body>
 
-<header class="header">
-    <div class="brand">
-        <img src="../../../mppsc-logo.jpg" alt="MPPSC" class="site-logo" onerror="this.style.display='none'">
-        <span>MPPSC MCQ Hub V14</span>
-    </div>
-    <div class="header-right">
-        <div class="timer" id="timer">60:00</div>
-        <button class="back-btn" onclick="goBack()"> ⬅ Back </button>
-        <button class="pdf-btn" onclick="downloadPDF()"> 📥 PDF </button>
-    </div>
-</header>
+window.questionBank = window.questionBank || {};
+window.questionBank.unit1 = window.questionBank.unit1 || {};
 
-<main class="container" id="quiz-area">
-    <div class="score-board" id="score-board"></div>
-
-    <!-- QUESTION 1 -->
-    <div class="question-card" data-qnum="1" data-correct="D">
-        <div class="question-text">1. प्राचीन भारतीय परंपरा में चार युगों के पूर्ण चक्र को क्या कहते हैं? / What is the complete cycle of the four Yugas called?</div>
-        <div class="options-container">
-            <label class="option-label" data-id="A"><input type="radio" name="q1" value="A"> A. ब्रह्मा का दिन / Day of Brahma</label>
-            <label class="option-label" data-id="B"><input type="radio" name="q1" value="B"> B. मन्वन्तर / Manvantara</label>
-            <label class="option-label" data-id="C"><input type="radio" name="q1" value="C"> C. कल्प / Kalpa</label>
-            <label class="option-label" data-id="D"><input type="radio" name="q1" value="D"> D. महायुग / Mahayuga</label>
-        </div>
-        <div class="explanation-box">
-            <div class="correct-answer-text">सही उत्तर: D. महायुग / Mahayuga</div>
-            चारों युगों के एक पूर्ण चक्र को महायुग कहा जाता है। / A complete cycle of the four Yugas is called a Mahayuga.
-        </div>
-    </div>
-
-    <!-- QUESTION 2 -->
-    <div class="question-card" data-qnum="2" data-correct="D">
-        <div class="question-text">2. ऋग्वेद में 'ऋत' का मूल अर्थ क्या है? / What is the core meaning of 'Rta' in the Rigveda?</div>
-        <div class="options-container">
-            <label class="option-label" data-id="A"><input type="radio" name="q2" value="A"> A. युद्ध में विजय / Victory in war</label>
-            <label class="option-label" data-id="B"><input type="radio" name="q2" value="B"> B. कर व्यवस्था / Tax system</label>
-            <label class="option-label" data-id="C"><input type="radio" name="q2" value="C"> C. केवल यज्ञ / Sacrifice only</label>
-            <label class="option-label" data-id="D"><input type="radio" name="q2" value="D"> D. ब्रह्मांडीय, नैतिक और प्राकृतिक व्यवस्था / Cosmic, moral and natural order</label>
-        </div>
-        <div class="explanation-box">
-            <div class="correct-answer-text">सही उत्तर: D. ब्रह्मांडीय, नैतिक और प्राकृतिक व्यवस्था</div>
-            वैदिक साहित्य में ऋत का संबंध ब्रह्मांडीय और प्राकृतिक व्यवस्था से है। / Rta is associated with cosmic and natural order.
-        </div>
-    </div>
-
-    <!-- QUESTION 3 -->
-    <div class="question-card" data-qnum="3" data-correct="A">
-        <div class="question-text">3. मध्य प्रदेश का राजकीय पशु कौन-सा है? / What is the state animal of Madhya Pradesh?</div>
-        <div class="options-container">
-            <label class="option-label" data-id="A"><input type="radio" name="q3" value="A"> A. बारहसिंगा / Barasingha</label>
-            <label class="option-label" data-id="B"><input type="radio" name="q3" value="B"> B. बाघ / Tiger</label>
-            <label class="option-label" data-id="C"><input type="radio" name="q3" value="C"> C. चीतल / Chital</label>
-            <label class="option-label" data-id="D"><input type="radio" name="q3" value="D"> D. तेंदुआ / Leopard</label>
-        </div>
-        <div class="explanation-box">
-            <div class="correct-answer-text">सही उत्तर: A. बारहसिंगा / Barasingha</div>
-            बारहसिंगा मध्य प्रदेश का राजकीय पशु है। / The Barasingha is the state animal of Madhya Pradesh.
-        </div>
-    </div>
-
-    <!-- QUESTION 4 -->
-    <div class="question-card" data-qnum="4" data-correct="B">
-        <div class="question-text">4. खजुराहो के प्रसिद्ध मंदिरों का निर्माण किस राजवंश के शासकों द्वारा कराया गया था? / The famous temples of Khajuraho were built by the rulers of which dynasty?</div>
-        <div class="options-container">
-            <label class="option-label" data-id="A"><input type="radio" name="q4" value="A"> A. परमार राजवंश / Paramara Dynasty</label>
-            <label class="option-label" data-id="B"><input type="radio" name="q4" value="B"> B. चन्देल राजवंश / Chandela Dynasty</label>
-            <label class="option-label" data-id="C"><input type="radio" name="q4" value="C"> C. राष्ट्रकूट राजवंश / Rashtrakuta Dynasty</label>
-            <label class="option-label" data-id="D"><input type="radio" name="q4" value="D"> D. मौर्य राजवंश / Maurya Dynasty</label>
-        </div>
-        <div class="explanation-box">
-            <div class="correct-answer-text">सही उत्तर: B. चन्देल राजवंश / Chandela Dynasty</div>
-            खजुराहो के मंदिरों का निर्माण चन्देल शासकों द्वारा किया गया था। / The temples of Khajuraho were built by Chandela rulers.
-        </div>
-    </div>
-
-    <!-- QUESTION 5 -->
-    <div class="question-card" data-qnum="5" data-correct="A">
-        <div class="question-text">5. मध्य प्रदेश के किस लोक नाट्य को 'लोक नाट्यों का मुकुटमणि' कहा जाता है? / Which folk drama of Madhya Pradesh is called the 'Crown Jewel of Folk Dramas'?</div>
-        <div class="options-container">
-            <label class="option-label" data-id="A"><input type="radio" name="q5" value="A"> A. माच / Maach</label>
-            <label class="option-label" data-id="B"><input type="radio" name="q5" value="B"> B. राई / Rai</label>
-            <label class="option-label" data-id="C"><input type="radio" name="q5" value="C"> C. स्वांग / Swang</label>
-            <label class="option-label" data-id="D"><input type="radio" name="q5" value="D"> D. नौटंकी / Nautanki</label>
-        </div>
-        <div class="explanation-box">
-            <div class="correct-answer-text">सही उत्तर: A. माच / Maach</div>
-            माच मालवा अंचल का प्रमुख लोक नाट्य है और यह मध्य प्रदेश का राजकीय लोक नाट्य है। / Maach is the state folk drama of MP.
-        </div>
-    </div>
-
-    <!-- QUESTION 6 -->
-    <div class="question-card" data-qnum="6" data-correct="C">
-        <div class="question-text">6. प्रसिद्ध 'सांची का स्तूप' मध्य प्रदेश के किस जिले में स्थित है? / In which district of Madhya Pradesh is the famous 'Sanchi Stupa' located?</div>
-A. विदिशा / Vidisha
- B. भोपाल / Bhopal
- C. रायसेन / Raisen
- D. सीहोर / Sehore
-सही उत्तर: C. रायसेन / Raisen
-सांची का स्तूप मध्य प्रदेश के रायसेन जिले में स्थित है, जिसका निर्माण सम्राट अशोक ने कराया था। / Sanchi Stupa is located in the Raisen district.
-
-7. प्रसिद्ध आदिवासी जननायक भीमा नायक का संबंध मध्य प्रदेश के किस क्षेत्र से था? / Tribal leader Bhima Nayak belonged to which region of Madhya Pradesh?
- A. बुंदेलखंड / Bundelkhand
- B. महाकौशल / Mahakoshal
- C. मालवा / Malwa
- D. निमाड़ / Nimar
-सही उत्तर: D. निमाड़ / Nimar
-भीमा नायक को 'निमाड़ का रॉबिनहुड' कहा जाता है, जिन्होंने 1857 की क्रांति में नेतृत्व किया था। / Bhima Nayak belongs to Nimar region.
-
-8. निम्नलिखित में से कौन-सी साहित्यिक रचना महाकवि कालिदास द्वारा रचित नहीं है? / Which of the following literary works is not composed by Mahakavi Kalidas?
- A. meghdoot / Meghadootam
- B. kumar / Kumarasambhavam
- C. malvika / Malavikagnimitram
- D. kadambari / Kadambari
-सही उत्तर: D. कादम्बरी / Kadambari
-'कादम्बरी' बाणभट्ट की रचना है, जबकि अन्य तीनों महाकवि कालिदास की कृतियाँ हैं।
-
-9. मध्य प्रदेश में भीमबेटका की गुफाओं की खोज किसने की थी? / Who discovered the Bhimbetka caves in Madhya Pradesh?
- A. H.D. Sankalia
- B. डॉ. विष्णु श्रीधर वाकणकर / Dr. V.S. Wakankar
- C. John Marshall
- D. Alexander Cunningham
-सही उत्तर: B. डॉ. विष्णु श्रीधर वाकणकर
-भीमबेटका की प्रागैतिहासिक गुफाओं की खोज 1957-58 में डॉ. वाकणकर ने की थी।
-
-10. मांडू में स्थित 'जहाज महल' का निर्माण किस शासक ने करवाया था? / Which ruler built the 'Jahaz Mahal' located in Mandu?
- A. गयासुद्दीन खिलजी / Ghiyas-ud-din Khilji
- B. Hoshang Shah
- C. Baz Bahadur
- D. Alauddin Khilji
-सही उत्तर: A. गयासुद्दीन खिलजी
-मांडू के प्रसिद्ध जहाज महल का निर्माण सुल्तान गयासुद्दीन खिलजी ने करवाया था।
-
-11. राजा भोज का संबंध किस राजवंश से था? / King Bhoj belonged to which dynasty?
- A. Chandela
- B. Kalachuri
- C. परमार राजवंश / Paramara Dynasty
- D. Tomar
-सही उत्तर: C. परमार राजवंश
-राजा भोज परमार राजवंश के सबसे प्रतापी राजा थे, जिन्होंने धार को राजधानी बनाया था।
-
-12. प्रसिद्ध वीरांगना रानी अवंतीबाई का संबंध मध्य प्रदेश के किस क्षेत्र से था? / Rani Avantibai belonged to which region of Madhya Pradesh?
- A. Jhansi
- B. रामगढ़ / Ramgarh
- C. Mandla
- D. Dhar
-सही उत्तर: B. रामगढ़
-रानी अवंतीबाई रामगढ़ की शासिका थीं, जिन्होंने 1857 की क्रांति में अंग्रेजों से युद्ध किया।
-
-13. 'भगोरिया' हाट उत्सव मुख्य रूप से मध्य प्रदेश की किस जनजाति से संबंधित है? / 'Bhagoria' festival is mainly related to which tribe of Madhya Pradesh?
- A. भील जनजाति / Bhil Tribe
- B. Gond
- C. Baiga
- D. Sahariya
-सही उत्तर: A. भील जनजाति
-भगोरिया उत्सव भील जनजाति का एक प्रमुख सांस्कृतिक और होली उत्सव है।
-
-14. मध्य प्रदेश के किस स्थान को 'सफेद बाघों की भूमि' कहा जाता है? / Which place in Madhya Pradesh is known as the 'Land of White Tigers'?
- A. Kanha
- B. Bandhavgarh
- C. रीवा / Rewa
- D. Shivpuri
-सही उत्तर: C. रीवा
-रीवा रियासत के जंगलों में ही पहला सफेद बाघ 'मोहन' पकड़ा गया था।
-
-15. कलचुरी राजवंश की राजधानी मध्य प्रदेश के किस स्थान पर स्थित थी? / The capital of the Kalachuri dynasty was located at which place in Madhya Pradesh?
- A. Maheshwar
- B. त्रिपुरी / Tripuri
- C. Ujjain
- D. Vidisha
-सही उत्तर: B. त्रिपुरी
-कलचुरी राजवंश की राजधानी त्रिपुरी (वर्तमान जबलपुर के पास) थी।
-
- ⬅ Back 
- ✔️ Submit Test 
-
-let remainingSeconds = 60 * 60;
-let timerInterval = null;
-let testSubmitted = false;
-function goBack() {
-if (window.history.length > 1) { window.history.back(); }
-else { window.location.href = "index.html"; }
+window.questionBank.unit1.test2 = [
+{
+question:"ऋग्वेद में 'ऋत' का सबसे उपयुक्त अर्थ क्या है? / What is the most appropriate meaning of 'Rta' in the Rigveda?",
+options:["A. केवल यज्ञ / Sacrifice only","B. ब्रह्मांडीय एवं नैतिक व्यवस्था / Cosmic and moral order","C. राजा की सैन्य शक्ति / Military power","D. व्यापारिक नियम / Commercial rules"],
+answer:"B",
+explanation:"ऋत वैदिक चिंतन में ब्रह्मांडीय, प्राकृतिक और नैतिक व्यवस्था का सिद्धांत है। / Rta represents cosmic, natural and moral order in Vedic thought."
+},
+{
+question:"ऋग्वैदिक साहित्य में सभा और समिति का संबंध किससे था? / Sabha and Samiti in the Rigvedic period were associated with:",
+options:["A. केवल धार्मिक अनुष्ठान / Religious rituals only","B. विदेशी व्यापार / Foreign trade","C. जनजीवन और राजनीतिक विचार-विमर्श / Public life and political deliberation","D. केवल सैन्य प्रशिक्षण / Military training only"],
+answer:"C",
+explanation:"सभा और समिति को ऋग्वैदिक समाज की महत्वपूर्ण सामुदायिक एवं राजनीतिक संस्थाएँ माना जाता है। / Sabha and Samiti were important communal and political institutions."
+},
+{
+question:"ब्राह्मण ग्रंथ मुख्यतः किस विषय की व्याख्या करते हैं? / Brahmana texts primarily explain:",
+options:["A. यज्ञों और अनुष्ठानों की विधियाँ / Rituals and sacrificial procedures","B. केवल युद्धों का इतिहास / History of wars only","C. गणितीय प्रमेय / Mathematical theorems","D. मध्यकालीन प्रशासन / Medieval administration"],
+answer:"A",
+explanation:"ब्राह्मण ग्रंथ वैदिक यज्ञों, अनुष्ठानों और उनके अर्थ की व्याख्या करते हैं। / Brahmana texts explain Vedic sacrifices, rituals and their significance."
+},
+{
+question:"आरण्यक ग्रंथों की प्रमुख विशेषता क्या है? / What is a major characteristic of the Aranyakas?",
+options:["A. व्यापारिक कानून / Commercial laws","B. राजवंशों की सूची / Lists of dynasties","C. सैन्य रणनीति / Military strategy","D. अनुष्ठानों के प्रतीकात्मक और चिंतनपरक अर्थ / Symbolic and contemplative meanings of rituals"],
+answer:"D",
+explanation:"आरण्यक ग्रंथ बाहरी अनुष्ठानों से आगे बढ़कर उनके प्रतीकात्मक और दार्शनिक अर्थों पर विचार करते हैं। / Aranyakas explore symbolic and contemplative aspects of rituals."
+},
+{
+question:"उपनिषदों का केंद्रीय दार्शनिक विषय क्या है? / What is a central philosophical concern of the Upanishads?",
+options:["A. केवल कर संग्रह / Tax collection only","B. आत्मा, ब्रह्म और ज्ञान / Self, Brahman and knowledge","C. समुद्री युद्ध / Naval warfare","D. सिक्कों का निर्माण / Coin minting"],
+answer:"B",
+explanation:"उपनिषद आत्मा, ब्रह्म, ज्ञान और मुक्ति जैसे दार्शनिक प्रश्नों पर केंद्रित हैं। / The Upanishads examine the self, ultimate reality, knowledge and liberation."
+},
+{
+question:"निम्नलिखित में से कौन-सा वेद अपनी ऋचाओं और स्तुतियों के लिए विशेष रूप से प्रसिद्ध है? / Which Veda is especially known for its hymns?",
+options:["A. अथर्ववेद / Atharvaveda","B. यजुर्वेद / Yajurveda","C. ऋग्वेद / Rigveda","D. सामवेद / Samaveda"],
+answer:"C",
+explanation:"ऋग्वेद में विभिन्न देवताओं की स्तुतियों वाले सूक्त संकलित हैं। / The Rigveda contains hymns praising various deities."
+},
+{
+question:"सामवेद का विशेष संबंध किससे है? / The Samaveda is particularly associated with:",
+options:["A. गेय मंत्र और संगीतात्मक पाठ / Chants and musical recitation","B. न्यायिक निर्णय / Judicial decisions","C. नगर नियोजन / Urban planning","D. राजस्व सर्वेक्षण / Revenue surveys"],
+answer:"A",
+explanation:"सामवेद के अनेक मंत्र गायन और यज्ञीय संगीत परंपरा से संबंधित हैं। / Many Samaveda verses are associated with chanting and ritual music."
+},
+{
+question:"यजुर्वेद का मुख्य संबंध किससे है? / The Yajurveda is primarily associated with:",
+options:["A. केवल चिकित्सा / Medicine only","B. खगोल मानचित्र / Astronomical maps","C. व्यापारिक अनुबंध / Commercial contracts","D. यज्ञीय सूत्रों और अनुष्ठानों / Sacrificial formulas and rituals"],
+answer:"D",
+explanation:"यजुर्वेद में यज्ञों के दौरान प्रयुक्त मंत्रों और अनुष्ठानिक सूत्रों का महत्वपूर्ण स्थान है। / The Yajurveda contains formulas used in sacrificial rituals."
+},
+{
+question:"परंपरागत भारतीय चिंतन में चार पुरुषार्थ कौन-से हैं? / Which are the four Purusharthas in traditional Indian thought?",
+options:["A. धर्म, अर्थ, काम, मोक्ष / Dharma, Artha, Kama, Moksha","B. सत्य, युद्ध, राज्य, धन / Truth, War, State, Wealth","C. ज्ञान, विज्ञान, व्यापार, शक्ति / Knowledge, Science, Trade, Power","D. ऋण, यज्ञ, दान, तप / Debt, Sacrifice, Charity, Penance"],
+answer:"A",
+explanation:"चार पुरुषार्थ धर्म, अर्थ, काम और मोक्ष हैं; इन्हें जीवन के प्रमुख उद्देश्यों के रूप में समझा जाता है। / The four Purusharthas are Dharma, Artha, Kama and Moksha."
+},
+{
+question:"परंपरागत आश्रम व्यवस्था का सही क्रम कौन-सा है? / What is the traditional sequence of the Ashrama system?",
+options:["A. गृहस्थ, संन्यास, ब्रह्मचर्य, वानप्रस्थ / Grihastha, Sannyasa, Brahmacharya, Vanaprastha","B. ब्रह्मचर्य, गृहस्थ, वानप्रस्थ, संन्यास / Brahmacharya, Grihastha, Vanaprastha, Sannyasa","C. संन्यास, गृहस्थ, वानप्रस्थ, ब्रह्मचर्य / Sannyasa, Grihastha, Vanaprastha, Brahmacharya","D. वानप्रस्थ, ब्रह्मचर्य, संन्यास, गृहस्थ / Vanaprastha, Brahmacharya, Sannyasa, Grihastha"],
+answer:"B",
+explanation:"परंपरागत क्रम ब्रह्मचर्य, गृहस्थ, वानप्रस्थ और संन्यास है। / The traditional sequence is Brahmacharya, Grihastha, Vanaprastha and Sannyasa."
+},
+{
+question:"पंचमहायज्ञ की परंपरा में कौन-सा समूह सही है? / Which group correctly identifies the Pancha Mahayajnas?",
+options:["A. केवल युद्ध, कर, व्यापार और दंड / War, tax, trade and punishment only","B. केवल कृषि और पशुपालन / Agriculture and animal husbandry only","C. देव, ऋषि, पितृ, भूत और मनुष्य यज्ञ / Deva, Rishi, Pitri, Bhuta and Manushya Yajnas","D. केवल राजसूय और अश्वमेध / Rajasuya and Ashvamedha only"],
+answer:"C",
+explanation:"पंचमहायज्ञों में देवयज्ञ, ऋषियज्ञ, पितृयज्ञ, भूतयज्ञ और मनुष्ययज्ञ शामिल हैं। / The five obligations include offerings to deities, sages, ancestors, living beings and humans."
+},
+{
+question:"बौद्ध धर्म में 'बोधिसत्त्व' की अवधारणा विशेष रूप से किस पर बल देती है? / In Buddhism, the Bodhisattva ideal particularly emphasizes:",
+options:["A. केवल राजसत्ता प्राप्त करना / Gaining political power only","B. व्यापार का विस्तार / Expansion of trade","C. कर्मकांडों की अनिवार्यता / Necessity of rituals","D. सभी प्राणियों के कल्याण हेतु करुणा / Compassion for the welfare of all beings"],
+answer:"D",
+explanation:"महायान बौद्ध परंपरा में बोधिसत्त्व सभी प्राणियों के कल्याण के लिए बुद्धत्व की दिशा में कार्य करता है। / In Mahayana Buddhism, a Bodhisattva seeks enlightenment for the welfare of all beings."
+},
+{
+question:"जैन परंपरा में 24वें तीर्थंकर कौन थे? / Who was the 24th Tirthankara in Jain tradition?",
+options:["A. महावीर / Mahavira","B. पार्श्वनाथ / Parshvanatha","C. ऋषभनाथ / Rishabhanatha","D. नेमिनाथ / Neminatha"],
+answer:"A",
+explanation:"महावीर जैन परंपरा के 24वें तीर्थंकर थे; पार्श्वनाथ 23वें तीर्थंकर माने जाते हैं। / Mahavira was the 24th Tirthankara, while Parshvanatha was the 23rd."
+},
+{
+question:"गौतम बुद्ध ने अपना प्रथम उपदेश कहाँ दिया था? / Where did Gautama Buddha deliver his first sermon?",
+options:["A. लुंबिनी / Lumbini","B. सारनाथ / Sarnath","C. कुशीनगर / Kushinagar","D. राजगृह / Rajagriha"],
+answer:"B",
+explanation:"बुद्ध ने ज्ञान प्राप्ति के बाद सारनाथ के मृगदाव में प्रथम उपदेश दिया, जिसे धर्मचक्रप्रवर्तन कहा जाता है। / Buddha delivered his first sermon at Sarnath, known as the turning of the Wheel of Dharma."
+},
+{
+question:"बुद्ध के महापरिनिर्वाण के बाद परंपरागत रूप से प्रथम बौद्ध संगीति कहाँ हुई? / Where was the First Buddhist Council traditionally held after Buddha's death?",
+options:["A. वैशाली / Vaishali","B. पाटलिपुत्र / Pataliputra","C. राजगृह / Rajagriha","D. कश्मीर / Kashmir"],
+answer:"C",
+explanation:"परंपरा के अनुसार प्रथम बौद्ध संगीति राजगृह में राजा अजातशत्रु के संरक्षण में आयोजित हुई। / Tradition places the First Buddhist Council at Rajagriha under Ajatashatru's patronage."
+},
+{
+question:"अशोक के अधिकांश अभिलेख किस लिपि में लिखे गए थे? / In which script were most of Ashoka's inscriptions written?",
+options:["A. देवनागरी / Devanagari","B. शारदा / Sharada","C. फारसी / Persian","D. ब्राह्मी / Brahmi"],
+answer:"D",
+explanation:"अशोक के अनेक अभिलेख ब्राह्मी लिपि में हैं; उत्तर-पश्चिम के कुछ अभिलेख खरोष्ठी तथा कुछ यूनानी और अरामाइक में भी हैं। / Many Ashokan inscriptions use Brahmi, while some northwestern inscriptions use Kharosthi, Greek or Aramaic."
+},
+{
+question:"अर्थशास्त्र परंपरागत रूप से किस विद्वान से संबंधित है? / The Arthashastra is traditionally associated with which scholar?",
+options:["A. कौटिल्य / Kautilya","B. कालिदास / Kalidasa","C. बाणभट्ट / Banabhatta","D. पतंजलि / Patanjali"],
+answer:"A",
+explanation:"अर्थशास्त्र राज्य-व्यवस्था, प्रशासन, अर्थनीति, कूटनीति और दंडनीति पर महत्वपूर्ण ग्रंथ है, जिसे परंपरागत रूप से कौटिल्य से जोड़ा जाता है। / The Arthashastra discusses statecraft, administration, economy, diplomacy and law."
+},
+{
+question:"मेगस्थनीज किस शासक के दरबार में आया था? / Megasthenes visited the court of which ruler?",
+options:["A. अशोक / Ashoka","B. चंद्रगुप्त मौर्य / Chandragupta Maurya","C. समुद्रगुप्त / Samudragupta","D. हर्षवर्धन / Harshavardhana"],
+answer:"B",
+explanation:"मेगस्थनीज यूनानी राजदूत था, जो सेल्यूकस निकेटर की ओर से चंद्रगुप्त मौर्य के दरबार में आया था। / Megasthenes was a Greek ambassador associated with the court of Chandragupta Maurya."
+},
+{
+question:"प्रयाग प्रशस्ति मुख्यतः किस गुप्त शासक की उपलब्धियों का वर्णन करती है? / The Prayaga Prashasti primarily describes the achievements of which Gupta ruler?",
+options:["A. चंद्रगुप्त प्रथम / Chandragupta I","B. कुमारगुप्त / Kumaragupta","C. समुद्रगुप्त / Samudragupta","D. स्कंदगुप्त / Skandagupta"],
+answer:"C",
+explanation:"हरिषेण द्वारा रचित प्रयाग प्रशस्ति समुद्रगुप्त की विजयों और राजनीतिक उपलब्धियों का प्रमुख स्रोत है। / Composed by Harisena, the Prayaga Prashasti is a key source on Samudragupta's campaigns."
+},
+{
+question:"'हर्षचरित' के लेखक कौन थे? / Who authored Harshacharita?",
+options:["A. कल्हण / Kalhana","B. भवभूति / Bhavabhuti","C. दंडी / Dandin","D. बाणभट्ट / Banabhatta"],
+answer:"D",
+explanation:"बाणभट्ट हर्षवर्धन के दरबारी लेखक थे और उन्होंने संस्कृत गद्य में हर्षचरित की रचना की। / Banabhatta, a court author of Harsha, composed the Sanskrit prose work Harshacharita."
+},
+{
+question:"उत्तरमेरूर अभिलेख किस विषय के अध्ययन में विशेष रूप से उपयोगी हैं? / The Uttaramerur inscriptions are especially useful for studying:",
+options:["A. चोलकालीन स्थानीय स्वशासन / Chola local self-government","B. मौर्यकालीन विदेशी नीति / Mauryan foreign policy","C. मुगल मनसबदारी / Mughal mansabdari","D. वैदिक पशुपालन / Vedic pastoralism"],
+answer:"A",
+explanation:"उत्तरमेरूर के चोलकालीन अभिलेख ग्राम सभाओं, समितियों और स्थानीय प्रशासन की व्यवस्था के बारे में जानकारी देते हैं। / The inscriptions provide evidence about village assemblies, committees and local administration under the Cholas."
+},
+{
+question:"दिल्ली सल्तनत की इक्ता व्यवस्था का मुख्य संबंध किससे था? / The Iqta system of the Delhi Sultanate was primarily related to:",
+options:["A. मंदिर निर्माण / Temple construction","B. राजस्व अधिकारों का आवंटन और प्रशासनिक-सैन्य दायित्व / Assignment of revenue rights and administrative-military obligations","C. समुद्री व्यापार का निजीकरण / Privatization of maritime trade","D. केवल धार्मिक शिक्षा / Religious education only"],
+answer:"B",
+explanation:"इक्ता के अंतर्गत अधिकारियों को राजस्व वसूली के अधिकार दिए जाते थे और उनसे प्रशासनिक या सैन्य दायित्व निभाने की अपेक्षा की जाती थी। / Iqtas assigned revenue rights to officials in return for administrative or military duties."
+},
+{
+question:"अलाउद्दीन खिलजी की बाजार नियंत्रण नीति का एक प्रमुख उद्देश्य क्या था? / A major purpose of Alauddin Khalji's market-control policy was to:",
+options:["A. सभी व्यापार समाप्त करना / End all trade","B. केवल विदेशी वस्तुएँ बेचना / Sell only foreign goods","C. सेना के लिए आवश्यक वस्तुएँ नियंत्रित कीमतों पर उपलब्ध कराना / Supply essential goods to the army at controlled prices","D. मुद्रा का उपयोग बंद करना / Stop using currency"],
+answer:"C",
+explanation:"अलाउद्दीन खिलजी ने कीमतों और बाजारों पर नियंत्रण लागू किया, जिससे बड़ी सेना के रखरखाव की लागत नियंत्रित रखने में मदद मिलती थी। / His price controls helped manage the costs of maintaining a large army."
+},
+{
+question:"मुगल मनसबदारी व्यवस्था में 'जात' और 'सवार' का सामान्य संबंध किससे था? / In the Mughal mansabdari system, 'zat' and 'sawar' generally referred to:",
+options:["A. भूमि की दो फसलें / Two crops","B. दो धार्मिक संप्रदाय / Two religious sects","C. दो प्रकार के सिक्के / Two types of coins","D. पद-प्रतिष्ठा और घुड़सवार दायित्व / Rank-status and cavalry obligation"],
+answer:"D",
+explanation:"जात मनसबदार की व्यक्तिगत पद-स्थिति दर्शाता था, जबकि सवार उसके घुड़सवारों से संबंधित दायित्व का संकेत देता था। / Zat indicated personal rank, while sawar related to cavalry obligations."
+},
+{
+question:"अकबर ने इबादतखाना कहाँ स्थापित किया था? / Where did Akbar establish the Ibadat Khana?",
+options:["A. फतेहपुर सीकरी / Fatehpur Sikri","B. आगरा किला / Agra Fort","C. दिल्ली / Delhi","D. लाहौर / Lahore"],
+answer:"A",
+explanation:"अकबर ने फतेहपुर सीकरी में इबादतखाना स्थापित किया, जहाँ धार्मिक और दार्शनिक विचार-विमर्श होते थे। / Akbar established the Ibadat Khana at Fatehpur Sikri for religious and philosophical discussions."
+},
+{
+question:"भक्ति आंदोलन की अनेक धाराओं में कौन-सा तत्व प्रमुख रहा? / Which element was prominent in many streams of the Bhakti movement?",
+options:["A. केवल साम्राज्य विस्तार / Imperial expansion only","B. व्यक्तिगत भक्ति और ईश्वर के प्रति समर्पण / Personal devotion and dedication to God","C. समुद्री उपनिवेशवाद / Maritime colonialism","D. केवल राजकीय कराधान / State taxation only"],
+answer:"B",
+explanation:"भक्ति परंपराओं ने व्यक्तिगत भक्ति, प्रेम और ईश्वर के प्रति समर्पण पर जोर दिया; विभिन्न संतों के विचार अलग-अलग थे। / Bhakti traditions emphasized personal devotion, love and dedication, though individual saints differed in their teachings."
+},
+{
+question:"सूफी परंपरा में 'खानकाह' सामान्यतः क्या थी? / In Sufi traditions, a 'khanqah' was generally:",
+options:["A. सैनिक छावनी / Military camp","B. राजस्व कार्यालय / Revenue office","C. सूफियों का आध्यात्मिक केंद्र और आश्रय / Spiritual center and lodge for Sufis","D. बंदरगाह / Port"],
+answer:"C",
+explanation:"खानकाह सूफी संतों, शिष्यों और आगंतुकों के लिए आध्यात्मिक अभ्यास, शिक्षा और सेवा का केंद्र होती थी। / A khanqah served as a center for spiritual practice, teaching and hospitality."
+},
+{
+question:"विजयनगर साम्राज्य की स्थापना परंपरागत रूप से किन भाइयों से जोड़ी जाती है? / The foundation of the Vijayanagara Empire is traditionally associated with which brothers?",
+options:["A. बाबर और हुमायूँ / Babur and Humayun","B. अकबर और जहाँगीर / Akbar and Jahangir","C. कृष्णदेवराय और अच्युतराय / Krishnadevaraya and Achyutaraya","D. हरिहर और बुक्का / Harihara and Bukka"],
+answer:"D",
+explanation:"विजयनगर साम्राज्य की स्थापना 14वीं शताब्दी में हरिहर और बुक्का से संबंधित मानी जाती है। / The Vijayanagara Empire is traditionally traced to Harihara and Bukka in the 14th century."
+},
+{
+question:"शिवाजी के प्रशासन में 'अष्टप्रधान' किसे कहा जाता था? / What did 'Ashtapradhan' refer to in Shivaji's administration?",
+options:["A. आठ प्रमुख मंत्रियों की परिषद / Council of eight principal ministers","B. आठ किलों का समूह / Group of eight forts","C. आठ व्यापारिक बंदरगाह / Eight trading ports","D. आठ धार्मिक ग्रंथ / Eight religious texts"],
+answer:"A",
+explanation:"अष्टप्रधान मराठा शासन में प्रमुख प्रशासनिक कार्यों के लिए नियुक्त आठ मंत्रियों की परिषद थी। / The Ashtapradhan was a council of eight ministers responsible for key administrative functions."
+},
+{
+question:"ब्रह्म समाज की स्थापना किसने की थी? / Who founded the Brahmo Samaj?",
+options:["A. स्वामी विवेकानंद / Swami Vivekananda","B. राजा राममोहन राय / Raja Rammohan Roy","C. दयानंद सरस्वती / Dayananda Saraswati","D. ज्योतिबा फुले / Jyotiba Phule"],
+answer:"B",
+explanation:"राजा राममोहन राय ने 1828 में ब्रह्म सभा की स्थापना की, जो आगे चलकर ब्रह्म समाज के रूप में प्रसिद्ध हुई। / Raja Rammohan Roy founded the Brahmo Sabha in 1828, which became known as the Brahmo Samaj."
+},
+{
+question:"आर्य समाज की स्थापना किसने की थी? / Who founded the Arya Samaj?",
+options:["A. ईश्वरचंद्र विद्यासागर / Ishwar Chandra Vidyasagar","B. केशवचंद्र सेन / Keshab Chandra Sen","C. स्वामी दयानंद सरस्वती / Swami Dayananda Saraswati","D. महादेव गोविंद रानाडे / Mahadev Govind Ranade"],
+answer:"C",
+explanation:"स्वामी दयानंद सरस्वती ने 1875 में बंबई में आर्य समाज की स्थापना की। / Swami Dayananda Saraswati founded the Arya Samaj in Bombay in 1875."
+},
+{
+question:"सत्यशोधक समाज की स्थापना किसने की थी? / Who founded the Satyashodhak Samaj?",
+options:["A. गोपाल कृष्ण गोखले / Gopal Krishna Gokhale","B. बाल गंगाधर तिलक / Bal Gangadhar Tilak","C. एम. जी. रानाडे / M. G. Ranade","D. ज्योतिराव फुले / Jyotirao Phule"],
+answer:"D",
+explanation:"ज्योतिराव फुले ने 1873 में जातिगत असमानता और सामाजिक अन्याय के विरुद्ध सत्यशोधक समाज की स्थापना की। / Jyotirao Phule founded the Satyashodhak Samaj in 1873 to challenge caste inequality and social injustice."
+},
+{
+question:"अलीगढ़ आंदोलन मुख्यतः किससे संबंधित था? / The Aligarh Movement was primarily associated with:",
+options:["A. सर सैयद अहमद खान और आधुनिक शिक्षा / Sir Syed Ahmad Khan and modern education","B. दांडी मार्च / Dandi March","C. चंपारण सत्याग्रह / Champaran Satyagraha","D. स्वदेशी आंदोलन / Swadeshi Movement"],
+answer:"A",
+explanation:"सर सैयद अहमद खान ने आधुनिक वैज्ञानिक शिक्षा को बढ़ावा दिया; अलीगढ़ आंदोलन इसी प्रयास से जुड़ा था। / Sir Syed Ahmad Khan promoted modern scientific education, a central aim of the Aligarh Movement."
+},
+{
+question:"भारतीय राष्ट्रीय कांग्रेस की स्थापना किस वर्ष हुई थी? / In which year was the Indian National Congress founded?",
+options:["A. 1857","B. 1885","C. 1905","D. 1919"],
+answer:"B",
+explanation:"भारतीय राष्ट्रीय कांग्रेस की स्थापना 1885 में हुई; इसके पहले अधिवेशन की अध्यक्षता डब्ल्यू. सी. बनर्जी ने की थी। / The Indian National Congress was founded in 1885, with W. C. Bonnerjee presiding over its first session."
+},
+{
+question:"बंगाल विभाजन 1905 किस वायसराय के समय हुआ था? / The Partition of Bengal in 1905 took place under which Viceroy?",
+options:["A. लॉर्ड रिपन / Lord Ripon","B. लॉर्ड कर्जन के बाद / After Lord Curzon","C. लॉर्ड कर्जन / Lord Curzon","D. लॉर्ड माउंटबेटन / Lord Mountbatten"],
+answer:"C",
+explanation:"लॉर्ड कर्जन के शासनकाल में 1905 में बंगाल का विभाजन हुआ, जिसके विरोध में स्वदेशी और बहिष्कार आंदोलन तेज हुए। / Bengal was partitioned in 1905 under Lord Curzon, prompting Swadeshi and boycott campaigns."
+},
+{
+question:"कांग्रेस का सूरत विभाजन किस वर्ष हुआ था? / In which year did the Surat Split in the Congress occur?",
+options:["A. 1905","B. 1916","C. 1920","D. 1907"],
+answer:"D",
+explanation:"1907 के सूरत अधिवेशन में कांग्रेस के नरमपंथी और गरमपंथी नेताओं के बीच विभाजन हुआ। / The 1907 Surat session saw a split between Moderates and Extremists in the Congress."
+},
+{
+question:"महात्मा गांधी का भारत में पहला प्रमुख सत्याग्रह कौन-सा माना जाता है? / Which is generally considered Gandhi's first major satyagraha in India?",
+options:["A. चंपारण सत्याग्रह / Champaran Satyagraha","B. भारत छोड़ो आंदोलन / Quit India Movement","C. दांडी मार्च / Dandi March","D. बारडोली सत्याग्रह / Bardoli Satyagraha"],
+answer:"A",
+explanation:"1917 का चंपारण सत्याग्रह बिहार के नील किसानों की समस्याओं से संबंधित था और गांधी के भारत में शुरुआती सफल आंदोलनों में था। / The 1917 Champaran Satyagraha addressed the grievances of indigo cultivators in Bihar."
+},
+{
+question:"रॉलेट एक्ट 1919 का प्रमुख उद्देश्य क्या था? / What was a major feature of the Rowlatt Act of 1919?",
+options:["A. सार्वभौमिक वयस्क मताधिकार / Universal adult franchise","B. बिना सामान्य मुकदमे के निरोध और दमनकारी शक्तियाँ / Detention and repressive powers without ordinary trial safeguards","C. पूर्ण स्वतंत्रता की घोषणा / Declaration of complete independence","D. प्रांतीय स्वायत्तता / Provincial autonomy"],
+answer:"B",
+explanation:"रॉलेट एक्ट ने सरकार को कुछ मामलों में बिना सामान्य न्यायिक प्रक्रिया के लोगों को हिरासत में रखने जैसी शक्तियाँ दीं। / The Act extended powers of detention and repression without ordinary legal safeguards."
+},
+{
+question:"जलियाँवाला बाग हत्याकांड कब हुआ था? / When did the Jallianwala Bagh massacre occur?",
+options:["A. 1905","B. 1917","C. 13 अप्रैल 1919 / 13 April 1919","D. 1922"],
+answer:"C",
+explanation:"13 अप्रैल 1919 को अमृतसर के जलियाँवाला बाग में जनरल डायर के आदेश पर निहत्थी भीड़ पर गोली चलाई गई। / On 13 April 1919, troops under General Dyer fired on a gathering at Jallianwala Bagh in Amritsar."
+},
+{
+question:"असहयोग आंदोलन को गांधीजी ने किस घटना के बाद वापस लिया? / After which event did Gandhi withdraw the Non-Cooperation Movement?",
+options:["A. काकोरी कांड / Kakori incident","B. साइमन कमीशन / Simon Commission","C. दांडी मार्च / Dandi March","D. चौरी-चौरा घटना / Chauri Chaura incident"],
+answer:"D",
+explanation:"1922 की चौरी-चौरा हिंसक घटना के बाद गांधीजी ने असहयोग आंदोलन वापस लेने का निर्णय किया। / Gandhi withdrew the Non-Cooperation Movement after the violent Chauri Chaura incident in 1922."
+},
+{
+question:"साइमन कमीशन भारत कब आया था? / When did the Simon Commission arrive in India?",
+options:["A. 1928","B. 1919","C. 1935","D. 1942"],
+answer:"A",
+explanation:"साइमन कमीशन 1928 में भारत आया। इसमें कोई भारतीय सदस्य नहीं था, इसलिए व्यापक विरोध हुआ। / The Simon Commission arrived in 1928 and was widely opposed because it had no Indian members."
+},
+{
+question:"कांग्रेस के लाहौर अधिवेशन 1929 की प्रमुख घोषणा क्या थी? / What was a major declaration of the Congress Lahore Session of 1929?",
+options:["A. बंगाल विभाजन / Partition of Bengal","B. पूर्ण स्वराज / Purna Swaraj","C. भारत छोड़ो / Quit India","D. कैबिनेट मिशन योजना / Cabinet Mission Plan"],
+answer:"B",
+explanation:"जवाहरलाल नेहरू की अध्यक्षता वाले लाहौर अधिवेशन में पूर्ण स्वराज को कांग्रेस का लक्ष्य घोषित किया गया। / The Lahore Session under Jawaharlal Nehru declared Purna Swaraj as the Congress goal."
+},
+{
+question:"दांडी मार्च का सीधा संबंध किस कानून के विरोध से था? / The Dandi March directly challenged which law?",
+options:["A. वन कानून / Forest laws","B. प्रेस कानून / Press laws","C. नमक कानून / Salt laws","D. स्थायी बंदोबस्त / Permanent Settlement"],
+answer:"C",
+explanation:"1930 में गांधीजी ने नमक कानून के विरोध में साबरमती से दांडी तक मार्च किया, जिससे सविनय अवज्ञा आंदोलन को गति मिली। / Gandhi's 1930 march to Dandi challenged the salt laws and launched a major phase of Civil Disobedience."
+},
+{
+question:"पूना समझौता 1932 मुख्यतः किनके बीच हुआ था? / The Poona Pact of 1932 was primarily between:",
+options:["A. गांधी और लॉर्ड इरविन / Gandhi and Lord Irwin","B. नेहरू और जिन्ना / Nehru and Jinnah","C. पटेल और माउंटबेटन / Patel and Mountbatten","D. गांधी और डॉ. बी. आर. आंबेडकर / Gandhi and Dr. B. R. Ambedkar"],
+answer:"D",
+explanation:"पूना समझौता गांधी और डॉ. आंबेडकर के बीच हुआ और दलित वर्गों के प्रतिनिधित्व की व्यवस्था से संबंधित था। / The pact between Gandhi and Ambedkar concerned political representation for the Depressed Classes."
+},
+{
+question:"भारत छोड़ो आंदोलन किस वर्ष शुरू हुआ? / In which year did the Quit India Movement begin?",
+options:["A. 1942","B. 1930","C. 1919","D. 1946"],
+answer:"A",
+explanation:"अगस्त 1942 में कांग्रेस ने भारत छोड़ो आंदोलन शुरू किया; गांधीजी ने 'करो या मरो' का संदेश दिया। / The Quit India Movement began in August 1942, accompanied by Gandhi's call to 'Do or Die'."
+},
+{
+question:"आजाद हिंद फौज के पुनर्गठन और नेतृत्व से प्रमुख रूप से कौन जुड़े थे? / Who was prominently associated with reorganizing and leading the Indian National Army?",
+options:["A. दादाभाई नौरोजी / Dadabhai Naoroji","B. सुभाषचंद्र बोस / Subhas Chandra Bose","C. गोपाल कृष्ण गोखले / Gopal Krishna Gokhale","D. सी. राजगोपालाचारी / C. Rajagopalachari"],
+answer:"B",
+explanation:"सुभाषचंद्र बोस ने आजाद हिंद फौज को संगठित और प्रेरित करने में महत्वपूर्ण भूमिका निभाई। / Subhas Chandra Bose played a major role in reorganizing and inspiring the Indian National Army."
+},
+{
+question:"कैबिनेट मिशन भारत कब आया था? / When did the Cabinet Mission come to India?",
+options:["A. 1935","B. 1942","C. 1946","D. 1947"],
+answer:"C",
+explanation:"कैबिनेट मिशन 1946 में भारत आया और सत्ता हस्तांतरण तथा संविधान निर्माण के लिए प्रस्ताव रखे। / The Cabinet Mission arrived in 1946 and proposed a framework for transfer of power and constitution-making."
+},
+{
+question:"भारतीय स्वतंत्रता अधिनियम किस वर्ष पारित हुआ? / In which year was the Indian Independence Act passed?",
+options:["A. 1935","B. 1942","C. 1946","D. 1947"],
+answer:"D",
+explanation:"ब्रिटिश संसद ने 1947 में भारतीय स्वतंत्रता अधिनियम पारित किया, जिसके अंतर्गत भारत और पाकिस्तान दो डोमिनियन बने। / The 1947 Act provided for the creation of the Dominions of India and Pakistan."
+},
+{
+question:"स्वतंत्रता के बाद रियासतों के एकीकरण में सरदार वल्लभभाई पटेल के साथ किस अधिकारी की प्रमुख भूमिका थी? / Which official played a major role alongside Sardar Vallabhbhai Patel in integrating princely states?",
+options:["A. वी. पी. मेनन / V. P. Menon","B. सी. वी. रमन / C. V. Raman","C. होमी भाभा / Homi Bhabha","D. सत्येंद्रनाथ बोस / Satyendra Nath Bose"],
+answer:"A",
+explanation:"वी. पी. मेनन ने रियासतों के भारत में विलय से जुड़ी वार्ताओं और प्रशासनिक प्रक्रिया में महत्वपूर्ण भूमिका निभाई। / V. P. Menon was central to negotiations and administrative work concerning the accession of princely states."
+},
+{
+question:"भारतीय संविधान कब अंगीकृत किया गया? / When was the Constitution of India adopted?",
+options:["A. 15 अगस्त 1947 / 15 August 1947","B. 26 नवंबर 1949 / 26 November 1949","C. 26 जनवरी 1950 / 26 January 1950","D. 2 अक्टूबर 1950 / 2 October 1950"],
+answer:"B",
+explanation:"संविधान सभा ने 26 नवंबर 1949 को संविधान अंगीकृत किया; यह 26 जनवरी 1950 को लागू हुआ। / The Constituent Assembly adopted the Constitution on 26 November 1949; it came into force on 26 January 1950."
+},
+{
+question:"भारत में भाषाई आधार पर गठित पहला राज्य कौन-सा था? / Which was the first Indian state formed on a linguistic basis after independence?",
+options:["A. गुजरात / Gujarat","B. महाराष्ट्र / Maharashtra","C. आंध्र राज्य / Andhra State","D. हरियाणा / Haryana"],
+answer:"C",
+explanation:"1953 में मद्रास राज्य से अलग आंध्र राज्य बनाया गया; इसे स्वतंत्र भारत में भाषाई आधार पर बने पहले राज्य के रूप में माना जाता है। / Andhra State was created in 1953 and is generally regarded as the first linguistic state after independence."
+},
+{
+question:"राज्यों के व्यापक भाषाई पुनर्गठन से संबंधित राज्य पुनर्गठन अधिनियम किस वर्ष लागू हुआ? / In which year did the States Reorganisation Act take effect?",
+options:["A. 1947","B. 1950","C. 1953","D. 1956"],
+answer:"D",
+explanation:"राज्य पुनर्गठन अधिनियम 1956 ने भारत के राज्यों की सीमाओं में व्यापक बदलाव किए, मुख्यतः भाषाई आधार पर। / The 1956 Act reorganized state boundaries extensively, largely on linguistic lines."
+},
+{
+question:"मध्य प्रदेश का वर्तमान स्वरूप मुख्यतः किस वर्ष के राज्य पुनर्गठन से बना? / The present form of Madhya Pradesh was primarily created through reorganisation in which year?",
+options:["A. 1956","B. 1947","C. 1960","D. 2000"],
+answer:"A",
+explanation:"1 नवंबर 1956 को राज्य पुनर्गठन के बाद मध्य प्रदेश का नया स्वरूप बना। छत्तीसगढ़ 1 नवंबर 2000 को अलग राज्य बना। / Madhya Pradesh took its reorganized form on 1 November 1956; Chhattisgarh became a separate state in 2000."
+},
+{
+question:"प्राचीन भारतीय इतिहास के पुनर्निर्माण में अभिलेखों का प्रमुख महत्व क्या है? / What is a major value of inscriptions in reconstructing ancient Indian history?",
+options:["A. वे हमेशा पूर्ण और पक्षपातरहित होते हैं / They are always complete and unbiased","B. वे तिथियों, शासकों, दान और प्रशासन के प्रमाण देते हैं / They provide evidence about dates, rulers, donations and administration","C. वे केवल मिथक बताते हैं / They contain only myths","D. वे केवल आधुनिक घटनाओं का वर्णन करते हैं / They describe only modern events"],
+answer:"B",
+explanation:"अभिलेख समकालीन या निकट-समकालीन जानकारी दे सकते हैं, लेकिन उनकी भाषा, उद्देश्य और पक्षपात का आलोचनात्मक अध्ययन जरूरी है। / Inscriptions provide valuable evidence, but their purpose, language and possible bias must be critically assessed."
+},
+{
+question:"पुरातत्व में किसी स्थल की तिथि निर्धारित करने के लिए कौन-सा तरीका वैज्ञानिक रूप से उपयोगी हो सकता है? / Which method can be scientifically useful for dating archaeological material?",
+options:["A. केवल लोककथा / Folklore alone","B. केवल आधुनिक नाम / Modern place names alone","C. रेडियोकार्बन डेटिंग, उपयुक्त जैविक नमूनों पर / Radiocarbon dating on suitable organic samples","D. केवल अनुमान / Guesswork alone"],
+answer:"C",
+explanation:"रेडियोकार्बन डेटिंग उपयुक्त कार्बनिक पदार्थों की आयु का अनुमान देती है; परिणामों को संदर्भ और अन्य साक्ष्यों के साथ समझा जाता है। / Radiocarbon dating estimates the age of suitable organic material and must be interpreted alongside context and other evidence."
+},
+{
+question:"संगम साहित्य मुख्यतः किस प्राचीन क्षेत्र की भाषा-साहित्यिक परंपरा से संबंधित है? / Sangam literature is primarily associated with the ancient literary tradition of which region?",
+options:["A. गांधार / Gandhara","B. कश्मीर / Kashmir","C. मगध / Magadha","D. तमिलकम / Tamilakam"],
+answer:"D",
+explanation:"संगम साहित्य प्राचीन तमिलकम की साहित्यिक परंपरा से जुड़ा है और समाज, राजनीति, अर्थव्यवस्था तथा काव्य के अध्ययन में उपयोगी है। / Sangam literature belongs to the ancient Tamil tradition and informs studies of society, politics, economy and poetry."
+},
+{
+question:"नालंदा प्राचीन काल में किस कारण विशेष रूप से प्रसिद्ध था? / For what was Nalanda especially renowned in ancient times?",
+options:["A. उच्च शिक्षा और बौद्ध अध्ययन / Higher learning and Buddhist studies","B. केवल समुद्री जहाज निर्माण / Shipbuilding only","C. लौह अयस्क खनन / Iron ore mining","D. मुगल चित्रकला / Mughal painting"],
+answer:"A",
+explanation:"नालंदा एक प्रसिद्ध प्राचीन शिक्षाकेंद्र था, जहाँ बौद्ध दर्शन सहित अनेक विषयों का अध्ययन होता था। / Nalanda was a renowned ancient center of learning, especially associated with Buddhist studies."
+},
+{
+question:"गुप्तकालीन स्वर्ण मुद्राएँ किस विषय के अध्ययन में उपयोगी स्रोत हैं? / Gupta gold coins are useful sources for studying:",
+options:["A. केवल आधुनिक चुनाव / Modern elections only","B. शाही उपाधियाँ, प्रतीक, अर्थव्यवस्था और कला / Royal titles, symbols, economy and art","C. केवल औपनिवेशिक प्रशासन / Colonial administration only","D. केवल वैदिक मंत्र / Vedic hymns only"],
+answer:"B",
+explanation:"सिक्कों से शासकों की उपाधियों, धार्मिक प्रतीकों, कलात्मक शैली और आर्थिक गतिविधियों के बारे में जानकारी मिल सकती है। / Coins reveal royal titles, religious symbols, artistic styles and aspects of the economy."
+},
+{
+question:"प्राचीन भारतीय इतिहास के अध्ययन में साहित्यिक स्रोतों का उपयोग करते समय क्या सावधानी आवश्यक है? / What caution is necessary when using literary sources for ancient Indian history?",
+options:["A. हर वर्णन को शाब्दिक सत्य मानना / Treat every account as literal truth","B. पुरातत्व को पूरी तरह अनदेखा करना / Ignore archaeology completely","C. रचना-काल, उद्देश्य और दृष्टिकोण की जाँच करना / Examine date, purpose and perspective","D. केवल एक स्रोत पर निर्भर रहना / Depend on only one source"],
+answer:"C",
+explanation:"साहित्यिक स्रोतों को उनके ऐतिहासिक संदर्भ में पढ़ना और उन्हें अभिलेखों, पुरातत्व तथा अन्य साक्ष्यों से मिलाकर देखना चाहिए। / Literary sources should be contextualized and compared with inscriptions, archaeology and other evidence."
+},
+{
+question:"भारतीय राष्ट्रीय आंदोलन में स्वदेशी आंदोलन का प्रमुख तरीका क्या था? / What was a major method of the Swadeshi Movement?",
+options:["A. सभी भारतीय उद्योग बंद करना / Closing all Indian industries","B. केवल सरकारी नौकरियाँ स्वीकारना / Accepting only government jobs","C. विदेशी वस्तुओं की खपत बढ़ाना / Increasing consumption of foreign goods","D. विदेशी वस्तुओं का बहिष्कार और स्वदेशी का प्रोत्साहन / Boycott of foreign goods and promotion of indigenous products"],
+answer:"D",
+explanation:"1905 के बंगाल विभाजन के विरोध में स्वदेशी आंदोलन ने विदेशी वस्तुओं के बहिष्कार और देशी उत्पादन को प्रोत्साहित किया। / The Swadeshi Movement promoted indigenous goods and boycotted foreign products, especially after the 1905 Bengal Partition."
+},
+{
+question:"भारतीय स्वतंत्रता आंदोलन में 'सविनय अवज्ञा' का मूल विचार क्या था? / What is the core idea of civil disobedience in India's freedom struggle?",
+options:["A. अन्यायपूर्ण कानूनों का अहिंसक उल्लंघन और दंड स्वीकारना / Nonviolent breach of unjust laws and willingness to accept penalties","B. हर कानून का हिंसक विरोध / Violent opposition to every law","C. राजनीति से पूर्ण दूरी / Complete withdrawal from politics","D. केवल चुनाव लड़ना / Contesting elections only"],
+answer:"A",
+explanation:"गांधीवादी सविनय अवज्ञा में अन्यायपूर्ण कानूनों का अहिंसक उल्लंघन, सत्याग्रह और दंड सहने की तत्परता शामिल थी। / Gandhian civil disobedience involved nonviolent resistance to unjust laws and willingness to accept punishment."
+},
+{
+question:"भारतीय राष्ट्रीय आंदोलन के अध्ययन में प्राथमिक स्रोत का उदाहरण कौन-सा है? / Which is an example of a primary source for studying India's national movement?",
+options:["A. आज का सामान्य परीक्षा-गाइड / A current exam guide","B. आंदोलन के समय का पत्र, सरकारी दस्तावेज या समाचारपत्र / A contemporary letter, government document or newspaper","C. बिना संदर्भ का सोशल मीडिया पोस्ट / An unreferenced social media post","D. काल्पनिक उपन्यास को ऐतिहासिक दस्तावेज मानना / Treating a fictional novel as a historical document"],
+answer:"B",
+explanation:"समकालीन पत्र, सरकारी दस्तावेज, भाषण और समाचारपत्र प्राथमिक स्रोत हो सकते हैं; उनके संदर्भ और विश्वसनीयता की जाँच जरूरी है। / Contemporary letters, official records, speeches and newspapers can be primary sources, subject to critical evaluation."
 }
-function updateTimerDisplay() {
-const timer = document.getElementById("timer");
-const minutes = Math.floor(remainingSeconds / 60);
-const seconds = remainingSeconds % 60;
-timer.textContent = String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2, "0");
-if (remainingSeconds <= 300) { timer.classList.add("warning"); }
-}
-function startTimer() {
-updateTimerDisplay();
-timerInterval = setInterval(function() {
-if (testSubmitted) { clearInterval(timerInterval); return; }
-remainingSeconds--;
-if (remainingSeconds <= 0) {
-remainingSeconds = 0;
-updateTimerDisplay();
-clearInterval(timerInterval);
-document.getElementById("timer").textContent = "समय समाप्त";
-document.getElementById("timer").classList.add("finished");
-alert("समय समाप्त! आपका टेस्ट ऑटो-सबमिट किया जा रहा है।");
-submitTest(true);
-return;
-}
-updateTimerDisplay();
-}, 1000);
-}
-function submitTest(autoSubmit = false) {
-if (testSubmitted) return;
-const cards = document.querySelectorAll("#quiz-area .question-card");
-let score = 0;
-const total = cards.length;
-cards.forEach(function(card) {
-const qNum = card.dataset.qnum;
-const correct = card.dataset.correct;
-const selected = card.querySelector('input[name="q' + qNum + '"]:checked');
-const correctLabel = card.querySelector('.option-label[data-id="' + correct + '"]');
-if (correctLabel) { correctLabel.classList.add("correct-option"); }
-if (selected) {
-if (selected.value === correct) { score++; }
-else {
-const wrongLabel = card.querySelector('.option-label[data-id="' + selected.value + '"]');
-if (wrongLabel) { wrongLabel.classList.add("wrong-option"); }
-}
-}
-const explanation = card.querySelector(".explanation-box");
-if (explanation) { explanation.style.display = "block"; }
-card.querySelectorAll('input[type="radio"]').forEach(function(input) { input.disabled = true; });
-});
-testSubmitted = true;
-clearInterval(timerInterval);
-const percentage = total ? Math.round((score / total) * 100) : 0;
-const board = document.getElementById("score-board");
-board.textContent = (autoSubmit ? "⏰ समय समाप्त! " : "🏆 आपका स्कोर: ") + score + " / " + total + " (" + percentage + "%)";
-board.style.display = "block";
-document.getElementById("submit-btn").disabled = true;
-document.getElementById("submit-btn").textContent = "Test Submitted";
-document.getElementById("timer").classList.add("finished");
-window.scrollTo({ top: 0, behavior: "smooth" });
-}
-function downloadPDF() {
-if (typeof html2pdf !== "function") { alert("PDF लाइब्रेरी लोड नहीं हुई।"); return; }
-const element = document.getElementById("quiz-area");
-html2pdf().set({ margin: 8, filename: "MPPSC_Test.pdf", html2canvas: { scale: 2 }, jsPDF: { format: "a4", orientation: "portrait" } }).from(element).save();
-}
-startTimer();
+];
