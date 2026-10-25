@@ -10,7 +10,6 @@ html,body{margin:0;padding:0;width:100%;font-family:Arial,"Noto Sans Devanagari"
 body{background:#eef2f7}
 header{background:#164f86;color:white;padding:12px 8px;text-align:center}
 .brand{display:flex;align-items:center;justify-content:center;gap:10px}
-.logo{width:48px;height:48px;object-fit:contain;background:white;border-radius:50%;padding:3px}
 header h1{font-size:21px;margin:3px 0}
 header p{margin:5px 0;font-size:14px}
 main{width:100%;max-width:none;margin:0 auto;padding:6px}
@@ -46,7 +45,6 @@ main{padding:0}
 <body>
 <header>
   <div class="brand">
-    <div style="display:none;" id="logoSpace"></div>
     <div>
       <h1>MPPSC MCQ Hub</h1>
       <p>Unit 1 — Test 1 | संकल्पना एवं विचार: प्राचीन भारतीय ज्ञान परंपरा, भारतवर्ष और वेद</p>
@@ -63,11 +61,10 @@ main{padding:0}
 
   <div class="timer">⏱ समय / Time Remaining: <span id="time">60:00</span></div>
   <div class="instructions">
-    <b>निर्देश / Instructions:</b> सभी 50 प्रश्न हल करें। प्रत्येक प्रश्न में एक सही उत्तर चुनें। Submit करने के बाद सही उत्तर हरे, गलत चुना गया उत्तर लाल और प्रत्येक प्रश्न का स्पष्टीकरण दिखाई देगा।
-    <br>Choose one answer per question. Correct answers and explanations appear after submission.
+    <b>निर्देश / Instructions:</b> सभी 50 प्रश्न हल करें। प्रत्येक प्रश्न में एक सही उत्तर चुनें। Submit करने के बाद सही उत्तर दिखाई देगा।
   </div>
 
-  <div id="quiz"></div>
+  <div id="quiz">प्रश्नों को लोड किया जा रहा है, कृपया प्रतीक्षा करें...</div>
   <div id="result"></div>
   
   <div class="toolbar">
@@ -78,310 +75,312 @@ main{padding:0}
 <footer>mppscportal.in | MPPSC Prelims Practice Test</footer>
 
 <script>
-const questions = [
+// 50 प्रश्नों का शुद्ध डेटा ऐरे
+var questions = [
   {
-    q: "विष्णु पुराण में वर्णित प्रसिद्ध श्लोक 'उत्तरं यत्समुद्रस्य हिमाद्रेश्चैव दक्षिणम्' में किस भौगोलिक इकाई को परिभाषित किया गया है? / Which geographical entity is defined in the famous shloka 'Uttaram Yatsamudrasya...' from Vishnu Purana?",
+    q: "विष्णु पुराण में वर्णित प्रसिद्ध श्लोक 'उत्तरं यत्समुद्रस्य हिमाद्रेश्चैव दक्षिणम्' में किस भौगोलिक इकाई को परिभाषित किया गया है? / Which geographical entity is defined in the famous shloka?",
     o: ["जम्बूद्वीप / Jambudvipa", "भारतवर्ष / Bharatvarsha", "आर्यावर्त / Aryavarta", "ब्रह्मर्षि देश / Brahmarshi Desha"],
     a: 1,
-    e: "विष्णु पुराण के इस श्लोक के अनुसार समुद्र के उत्तर और हिमालय के दक्षिण में जो भूभाग स्थित है, उसका नाम भारतवर्ष है। / According to this verse, the land north of the ocean and south of the Himalayas is named Bharatvarsha."
+    e: "विष्णु पुराण के इस श्लोक के अनुसार समुद्र के उत्तर और हिमालय के दक्षिण में जो भूभाग स्थित है, उसका नाम भारतवर्ष है।"
   },
   {
-    q: "अभिलेखीय साक्ष्यों के अनुसार, 'भारतवर्ष' शब्द का सर्वप्रथम लिखित उल्लेख किस प्राचीन अभिलेख में मिलता है? / According to epigraphic evidence, which ancient inscription contains the first written mention of the term 'Bharatvarsha'?",
-    o: ["अशोक का शाहबाजगढ़ी अभिलेख / Shahbazgarhi Inscription of Ashoka", "खारवेल का हाथीगुम्फा अभिलेख / Hathigumpha Inscription of Kharavela", "रुद्रदामन का जूनागढ़ अभिलेख / Junagadh Inscription of Rudradaman", "समुद्रगुप्त की प्रयाग प्रशस्ति / Prayag Prashasti of Samudragupta"],
+    q: "अभिलेखीय साक्ष्यों के अनुसार, 'भारतवर्ष' शब्द का सर्वप्रथम लिखित उल्लेख किस प्राचीन अभिलेख में मिलता है? / Which ancient inscription contains the first written mention of 'Bharatvarsha'?",
+    o: ["अशोक का अभिलेख", "खारवेल का हाथीगुम्फा अभिलेख", "रुद्रदामन का जूनागढ़ अभिलेख", "समुद्रगुप्त की प्रयाग प्रशस्ति"],
     a: 1,
-    e: "कलिंग राजा खारवेल के प्राकृत भाषा में उत्कीर्ण हाथीगुम्फा अभिलेख में 'भरधवरस' (भारतवर्ष) शब्द का सर्वप्रथम प्रामाणिक उल्लेख मिलता है। / The earliest reliable epigraphic mention of Bharatvarsha occurs in the Hathigumpha inscription of King Kharavela."
+    e: "कलिंग राजा खारवेल के हाथीगुम्फा अभिलेख में 'भरधवरस' (भारतवर्ष) शब्द का सर्वप्रथम प्रामाणिक उल्लेख मिलता है।"
   },
   {
-    q: "बौद्ध ब्रह्मांड विज्ञान (Buddhist Cosmology) के अनुसार, भारत को किस विशाल द्वीप का हिस्सा माना गया है? / According to Buddhist Cosmology, India is considered a part of which grand island?",
-    o: ["पुष्करद्वीप / Pushkardvipa", "क्रौंचद्वीप / Kraunchadvipa", "जम्बूद्वीप / Jambudvipa", "शाकद्वीप / Shakadvipa"],
+    q: "बौद्ध ब्रह्मांड विज्ञान (Buddhist Cosmology) के अनुसार, भारत को किस विशाल द्वीप का हिस्सा माना गया है? / India is considered a part of which grand island?",
+    o: ["पुष्करद्वीप", "क्रौंचद्वीप", "जम्बूद्वीप", "शाकद्वीप"],
     a: 2,
-    e: "प्राचीन बौद्ध एवं जैन ग्रंथों तथा पुराणों में संपूर्ण पृथ्वी को द्वीपों में बांटा गया है, जिसमें भारतवर्ष को 'जम्बूद्वीप' का दक्षिणी भाग बताया गया है। / In ancient Buddhist, Jain, and Puranic literature, Bharatvarsha is designated as part of Jambudvipa."
+    e: "प्राचीन बौद्ध एवं जैन ग्रंथों तथा पुराणों में भारतवर्ष को 'जम्बूद्वीप' का दक्षिणी भाग बताया गया है।"
   },
   {
-    q: "ऋग्वेद के अनुसार, 'दशराज्ञ युद्ध' (दस राजाओं का युद्ध) निम्नलिखित में से किस नदी के तट पर लड़ा गया था? / According to the Rigveda, the 'Dasaraja Yajna' (Battle of Ten Kings) was fought on the banks of which river?",
-    o: ["वितस्ता (झेलम) / Vitasta", "परुष्णी (रावी) / Parushni", "असिकनी (चेनाब) / Asikni", "शतुद्रि (सतलज) / Shatudri"],
+    q: "ऋग्वेद के अनुसार, 'दशराज्ञ युद्ध' (दस राजाओं का युद्ध) निम्नलिखित में से किस नदी के तट पर लड़ा गया था? / The 'Dasaraja Yajna' was fought on the banks of which river?",
+    o: ["वितस्ता", "परुष्णी (रावी)", "असिकनी", "शतुद्रि"],
     a: 1,
-    e: "दशराज्ञ युद्ध परुष्णी (आधुनिक रावी) नदी के तट पर राजा सुदास (भरत जन) और दस राजाओं के संघ के बीच लड़ा गया था, जिसमें सुदास विजयी हुए। / The Battle of Ten Kings was fought on the banks of the Parushni (modern Ravi) river between King Sudas and a confederacy of 10 tribes."
+    e: "दशराज्ञ युद्ध परुष्णी (आधुनिक रावी) नदी के तट पर राजा सुदास और दस राजाओं के संघ के बीच लड़ा गया था।"
   },
   {
-    q: "वैदिक ज्ञान परंपरा में 'श्रुति' साहित्य के अंतर्गत निम्नलिखित में से किसे शामिल नहीं किया जाता है? / In the Vedic knowledge tradition, which of the following is NOT included under 'Shruti' literature?",
-    o: ["संहिता / Samhita", "ब्राह्मण / Brahmana", "उपनिषद / Upanishad", "वेदांग / Vedanga"],
+    q: "वैदिक ज्ञान परंपरा में 'श्रुति' साहित्य के अंतर्गत निम्नलिखित में से किसे शामिल नहीं किया जाता है? / Which is NOT included under 'Shruti' literature?",
+    o: ["संहिता", "ब्राह्मण", "उपनिषद", "वेदांग"],
     a: 3,
-    e: "संहिता, ब्राह्मण, आरण्यक और उपनिषद 'श्रुति' हैं, जबकि वेदांग, सूत्र और स्मृतियाँ 'स्मृति' (मानव रचित परंपरा) साहित्य के अंतर्गत आते हैं। / Vedangas belong to Smriti literature. Shruti comprises Samhitas, Brahmanas, Aranyakas, and Upanishads."
+    e: "संहिता, ब्राह्मण, आरण्यक और उपनिषद 'श्रुति' हैं, जबकि वेदांग 'स्मृति' साहित्य के अंतर्गत आते हैं।"
   },
   {
-    q: "चारों वेदों में से किस वेद को 'भारतीय संगीत और कला का मूल जनक' माना जाता है? / Which of the four Vedas is considered the 'original source of Indian music and arts'?",
-    o: ["ऋग्वेद / Rigveda", "सामवेद / Samaveda", "यजुर्वेद / Yajurveda", "अथर्ववेद / Atharvaveda"],
+    q: "चारों वेदों में से किस वेद को 'भारतीय संगीत और कला का मूल जनक' माना जाता है? / Which Veda is considered the source of Indian music?",
+    o: ["ऋग्वेद", "सामवेद", "यजुर्वेद", "अथर्ववेद"],
     a: 1,
-    e: "सामवेद ऋचाओं का संगीतमय रूप है। इसके मंत्रों को यज्ञों के अवसर पर 'उद्गाता' द्वारा गाया जाता था। इसे संगीत का जनक माना जाता है। / Samaveda is the Veda of melodies and chants, serving as the foundational root of Indian classical music."
+    e: "सामवेद ऋचाओं का संगीतमय रूप है। इसे भारतीय शास्त्रीय संगीत का मूल जनक माना जाता है।"
   },
   {
-    q: "आयुर्वेद, जो चिकित्सा शास्त्र से संबंधित है, को पारंपरिक रूप से किस वेद का 'उपवेद' माना जाता है? / Ayurveda, which deals with medicine, is traditionally considered the 'Upaveda' of which Veda?",
-    o: ["ऋग्वेद / Rigveda", "सामवेद / Samaveda", "यजुर्वेद / Yajurveda", "अथर्ववेद / Atharvaveda"],
+    q: "आयुर्वेद, जो चिकित्सा शास्त्र से संबंधित है, को पारंपरिक रूप से किस वेद का 'उपवेद' माना जाता है? / Ayurveda is the Upaveda of which Veda?",
+    o: ["ऋग्वेद", "सामवेद", "यजुर्वेद", "अथर्ववेद"],
     a: 0,
-    e: "पारंपरिक मत के अनुसार आयुर्वेद को ऋग्वेद का उपवेद माना जाता है (कुछ विद्वान इसे अथर्ववेद से भी जोड़ते हैं, परंतु प्रामाणिक उत्तर ऋग्वेद का उपवेद है)। / Ayurveda is widely categorized as the Upaveda of the Rigveda."
+    e: "पारंपरिक प्रामाणिक मत के अनुसार आयुर्वेद को ऋग्वेद का उपवेद माना जाता है।"
   },
   {
-    q: "प्रसिद्ध 'गायत्री मंत्र' का उल्लेख ऋग्वेद के किस मण्डल में किया गया है और इसके रचयिता कौन हैं? / In which Mandala of the Rigveda is the famous 'Gayatri Mantra' mentioned, and who is its author?",
-    o: ["द्वितीय मण्डल - गृत्समद / 2nd Mandala - Gritsamada", "तृतीय मण्डल - विश्वामित्र / 3rd Mandala - Vishvamitra", "सप्तम मण्डल - वशिष्ठ / 7th Mandala - Vashistha", "नवम मण्डल - अंगिरस / 9th Mandala - Angiras"],
+    q: "प्रसिद्ध 'गायत्री मंत्र' का उल्लेख ऋग्वेद के किस मण्डल में किया गया है और इसके रचयिता कौन हैं? / In which Mandala of Rigveda is the Gayatri Mantra mentioned?",
+    o: ["द्वितीय मण्डल - गृत्समद", "तृतीय मण्डल - विश्वामित्र", "सप्तम मण्डल - वशिष्ठ", "नवम मण्डल - अंगिरस"],
     a: 1,
-    e: "ऋग्वेद के तृतीय मण्डल में महर्षि विश्वामित्र द्वारा रचित गायत्री मंत्र है, जो सूर्य देवता (सविता) को समर्पित है। / The Gayatri Mantra is located in the 3rd Mandala of the Rigveda, composed by Vishvamitra and dedicated to Savitr."
+    e: "ऋग्वेद के तृतीय मण्डल में महर्षि विश्वामित्र द्वारा रचित गायत्री मंत्र है, जो सूर्य देवता (सविता) को समर्पित है।"
   },
   {
-    q: "ऋग्वेद के किस सूक्त में पहली बार चारों वर्णों (ब्राह्मण, क्षत्रिय, वैश्य, शूद्र) की उत्पत्ति का एक साथ उल्लेख मिलता है? / In which Sukta of the Rigveda is the origin of the four Varnas first mentioned together?",
-    o: ["नासदीय सूक्त / Nasadiya Sukta", "पुरुष सूक्त / Purusha Sukta", "विवाह सूक्त / Vivaha Sukta", "नदी सूक्त / Nadi Sukta"],
+    q: "ऋग्वेद के किस सूक्त में पहली बार चारों वर्णों (ब्राह्मण, क्षत्रिय, वैश्य, शूद्र) की उत्पत्ति का उल्लेख मिलता है? / Where is the four-fold Varna system first mentioned?",
+    o: ["नासदीय सूक्त", "पुरुष सूक्त", "विवाह सूक्त", "नदी सूक्त"],
     a: 1,
-    e: "ऋग्वेद के 10वें मण्डल के 'पुरुष सूक्त' में एक आदि पुरुष (विराट पुरुष) के विभिन्न अंगों से चारों वर्णों की उत्पत्ति बताई गई है। / The Purusha Sukta in the 10th Mandala of Rigveda contains the earliest reference to the four-fold Varna system."
+    e: "ऋग्वेद के 10वें मण्डल के 'पुरुष सूक्त' में पहली बार चारों वर्णों की उत्पत्ति का वर्णन मिलता है।"
   },
   {
-    q: "यज्ञों के नियम, विधान तथा कर्मकांडों का संकलन गद्य और पद्य दोनों रूपों में किस वेद में मिलता है? / Which Veda contains the compilation of sacrificial formulas and rituals written in both prose and verse?",
-    o: ["ऋग्वेद / Rigveda", "सामवेद / Samaveda", "यजुर्वेद / Yajurveda", "अथर्ववेद / Atharvaveda"],
+    q: "यज्ञों के नियम, विधान तथा कर्मकांडों का संकलन गद्य और पद्य दोनों रूपों में किस वेद में मिलता है? / Which Veda contains passages in both prose and verse?",
+    o: ["ऋग्वेद", "सामवेद", "यजुर्वेद", "अथर्ववेद"],
     a: 2,
-e: "यजुर्वेद एक कर्मकांडीय वेद है। यह दो भागों में बंटा है: शुक्ल यजुर्वेद (केवल पद्य) और कृष्ण यजुर्वेद (गद्य और पद्य दोनों)। / Yajurveda is the Veda of rituals and is unique for containing passages in both prose and verse styles."
+    e: "यजुर्वेद एक कर्मकांडीय वेद है जो गद्य और पद्य दोनों रूपों में संकलित है।"
+  },
+  {
+    q: "अथर्ववेद का उच्चारण करने वाले मुख्य पुरोहित को प्राचीन काल में क्या कहा जाता था? / What was the priest of Atharvaveda called?",
+    o: ["होता", "उद्गाता", "अध्वर्यु", "ब्रह्मा"],
+    a: 3,
+    e: "अथर्ववेद के मुख्य पुरोहित को 'ब्रह्मा' कहा जाता था, जो संपूर्ण यज्ञ की देखरेख करते थे।"
+  },
+  {
+    q: "गोपथ ब्राह्मण निम्नलिखित में से किस वेद का एकमात्र उपलब्ध ब्राह्मण ग्रंथ है? / Gopatha Brahmana belongs to which Veda?",
+    o: ["ऋग्वेद", "सामवेद", "यजुर्वेद", "अथर्ववेद"],
+    a: 3,
+    e: "गोपथ ब्राह्मण अथर्ववेद का एकमात्र ब्राह्मण ग्रंथ है।"
+  },
+  {
+    q: "प्राचीन भारतीय गणित और ज्यामिति (Geometry) के बीज किस वैदिक साहित्य में पाए जाते हैं? / Where are the seeds of Indian geometry found?",
+    o: ["शूल्ब सूत्र", "गृह्य सूत्र", "धर्म सूत्र", "श्रोत सूत्र"],
+    a: 0,
+    e: "कल्प वेदांग के अंतर्गत आने वाले 'शूल्ब सूत्र' में यज्ञ वेदियों को मापने के नियम हैं, जो रेखागणित का प्राचीनतम स्रोत हैं।"
+  },
+  {
+    q: "वेदों के कठिन शब्दों और उनके अर्थों की व्याख्या करने के लिए रचित 'निरुक्त' के प्रणेता कौन हैं? / Who wrote 'Nirukta'?",
+    o: ["महर्षि पाणिनि", "महर्षि यास्क", "पिंगल मुनि", "लगध मुनि"],
+    a: 1,
+    e: "वेदांगों में 'निरुक्त' भाषा विज्ञान और व्युत्पत्ति (Etymology) से संबंधित है, जिसके रचयिता महर्षि यास्क हैं।"
+  },
+  {
+    q: "प्रसिद्ध दार्शनिक सिद्धांत 'अहं ब्रह्मास्मि' और 'तत्त्वमसि' का मूल स्रोत निम्नलिखित में से क्या है? / What is the source of 'Aham Brahmasmi'?",
+    o: ["संहिता", "ब्राह्मण ग्रंथ", "उपनिषद", "पुराण"],
+    a: 2,
+    e: "उपनिषदों को वेदांत कहा जाता है, जहाँ आत्मा और ब्रह्म की एकता के गंभीर दार्शनिक सिद्धांत निहित हैं।"
+  },
+  {
+    q: "सामवेद का उपवेद निम्नलिखित में से कौन सा माना जाता है? / Which is the Upaveda of Samaveda?",
+    o: ["धनुर्वेद", "गंधर्ववेद", "शिल्पवेद", "आयुर्वेद"],
+    a: 1,
+    e: "सामवेद का उपवेद गंधर्ववेद है, जो संगीत और नृत्य कला से संबंधित है।"
+  },
+  {
+    q: "ऋग्वेद में 'अघन्या' (न मारने योग्य) शब्द का प्रयोग किस पशु के लिए किया गया है? / For which animal was 'Aghanya' used?",
+    o: ["घोड़ा", "गाय", "हाथी", "बैल"],
+    a: 1,
+    e: "वैदिक काल में गाय को अत्यंत पवित्र माना जाता था। इसे 'अघन्या' अर्थात् वध न करने योग्य घोषित किया गया था।"
+  },
+  {
+    q: "भारतीय ब्रह्मांडीय और नैतिक व्यवस्था के मूल सिद्धांत 'ऋत' (Rta) का नियामक किस देवता को माना गया है? / Which deity is the guardian of 'Rta'?",
+    o: ["इंद्र", "अग्नि", "वरुण", "सोम"],
+    a: 2,
+    e: "वरुण देवता को ऋग्वेद में 'ऋतस्य गोपा' (ऋत का रक्षक) कहा गया है।"
+  },
+  {
+    q: "ऋग्वेद के किस मण्डल को पूर्णतः 'सोम' देवता को समर्पित किया गया है? / Which Mandala is dedicated to Soma?",
+    o: ["सातवां मण्डल", "आठवां मण्डल", "नवम मण्डल", "दसवां मण्डल"],
+    a: 2,
+e: "ऋग्वेद के नवम मण्डल के सभी 114 सूक्त वनस्पति के देवता 'सोम' को समर्पित हैं।"
 },
 {
-q: "अथर्ववेद का उच्चारण करने वाले पुरोहित/ऋषि को प्राचीन काल में क्या कहा जाता था? / What was the priest who recited the Atharvaveda called in ancient times?",
-o: ["होता / Hotra", "उद्गाता / Udgata", "अध्वर्यु / Adhvaryu", "ब्रह्मा / Brahma"],
-a: 3,
-e: "ऋग्वेद के पुरोहित को होता, सामवेद के पुरोहित को उद्गाता, यजुर्वेद के पुरोहित को अध्वर्यु तथा अथर्ववेद के मुख्य पुरोहित को 'ब्रह्मा' कहा जाता था। / The priest associated with the Atharvaveda is called Brahma, who supervised the entire sacrificial ceremony."
-},
-{
-q: "गोपथ ब्राह्मण निम्नलिखित में से किस वेद का एकमात्र उपलब्ध ब्राह्मण ग्रंथ है? / Gopatha Brahmana is the only available Brahmana text of which Veda?",
-o: ["ऋग्वेद / Rigveda", "सामवेद / Samaveda", "यजुर्वेद / Yajurveda", "अथर्ववेद / Atharvaveda"],
-a: 3,
-e: "गोपथ ब्राह्मण अथर्ववेद का एकमात्र ब्राह्मण ग्रंथ है, जबकि ऐतरेय ऋग्वेद का और शतपथ यजुर्वेद का ब्राह्मण ग्रंथ है। / Gopatha Brahmana is exclusively attached to the Atharvaveda."
-},
-{
-q: "प्राचीन भारतीय गणित और ज्यामिति (Geometry) के बीज किस वैदिक साहित्य में पाए जाते हैं? / In which Vedic literature are the seeds of ancient Indian mathematics and geometry found?",
-o: ["शूल्ब सूत्र / Shulba Sutras", "गृह्य सूत्र / Grihya Sutras", "धर्म सूत्र / Dharma Sutras", "श्रोत सूत्र / Shrauta Sutras"],
-a: 0,
-e: "कल्प वेदांग के अंतर्गत आने वाले 'शूल्ब सूत्र' में यज्ञ वेदियों को मापने और बनाने के नियम हैं, जो भारतीय रेखागणित का प्राचीनतम स्रोत हैं। / Shulba Sutras contain geometrical instructions for constructing sacrificial altars, making it the oldest source of Indian geometry."
-},
-{
-q: "वेदों के कठिन शब्दों और उनके अर्थों की व्याख्या करने के लिए रचित 'निरुक्त' के प्रणेता कौन हैं? / Who is the author of 'Nirukta', composed to explain difficult Vedic words and etymology?",
-o: ["महर्षि पाणिनि / Panini", "महर्षि यास्क / Yaska", "पिंगल मुनि / Pingala", "लगध मुनि / Lagadha"],
-a: 1,
-e: "वेदांगों में 'निरुक्त' भाषा विज्ञान और व्युत्पत्ति (Etymology) से संबंधित है, जिसके रचयिता महर्षि यास्क हैं। / Nirukta, the Vedanga dealing with etymology, was composed by Acharya Yaska."
-},
-{
-q: "प्रसिद्ध दार्शनिक सिद्धांत 'अहं ब्रह्मास्मि' और 'तत्त्वमसि' का मूल स्रोत निम्नलिखित में से क्या है? / What is the primary source of the famous philosophical statements 'Aham Brahmasmi' and 'Tat Tvam Asi'?",
-o: ["संहिता / Samhitas", "ब्राह्मण ग्रंथ / Brahmanas", "उपनिषद / Upanishads", "पुराण / Puranas"],
-a: 2,
-e: "उपनिषदों को वेदांत कहा जाता है, जहाँ आत्मा और ब्रह्म की एकता के गंभीर दार्शनिक सिद्धांत महावाक्यों के रूप में प्रतिपादित हैं। / Upanishads contain high spiritual philosophy emphasizing the unity of Atman and Brahman."
-},
-{
-q: "निम्नलिखित में से कौन सा युग्म सुमेलित नहीं है (वेद और उसका उपवेद)? / Which of the following pairs is NOT correctly matched (Veda and its Upaveda)?",
-o: ["ऋग्वेद — आयुर्वेद / Rigveda — Ayurveda", "यजुर्वेद — धनुर्वेद / Yajurveda — Dhanurveda", "सामवेद — गंधर्ववेद / Samaveda — Gandharvaveda", "अथर्ववेद — शिल्पवेद / Atharvaveda — Shilpaveda"],
-a: 3,
-e: "सभी युग्म सही सुमेलित हैं। अथर्ववेद का उपवेद शिल्पवेद (या अर्थवेद) है। / All pairs are correct. Atharvaveda's Upaveda is Shilpaveda."
-},
-{
-q: "ऋग्वेद में 'अघन्या' (न मारने योग्य) शब्द का प्रयोग किस पशु के लिए किया गया है? / For which animal was the word 'Aghanya' (not to be killed) used in the Rigveda?",
-o: ["घोड़ा / Horse", "गाय / Cow", "हाथी / Elephant", "बैल / Bull"],
-a: 1,
-e: "वैदिक काल में गाय को अत्यंत पवित्र और आर्थिक समृद्धि का प्रतीक माना जाता था। इसे 'अघन्या' अर्थात् वध न करने योग्य घोषित किया गया था। / In Rigvedic times, cows were highly revered and called Aghanya, meaning they should not be harmed or killed."
-},
-{
-q: "भारतीय ब्रह्मांडीय और नैतिक व्यवस्था के मूल सिद्धांत 'ऋत' (Rta) का नियामक किस देवता को माना गया है? / Which deity is considered the regulator and guardian of 'Rta' (the cosmic and moral order)?",
-o: ["इंद्र / Indra", "अग्नि / Agni", "वरुण / Varuna", "सोम / Soma"],
-a: 2,
-e: "वरुण देवता को ऋग्वेद में 'ऋतस्य गोपा' (ऋत का रक्षक) कहा गया है। वे ब्रह्मांड की भौतिक व नैतिक व्यवस्था को नियंत्रित करते हैं। / Varuna is hailed as 'Rtasya Gopa', the guardian of cosmic order and moral law."
-},
-{
-q: "ऋग्वेद के किस मण्डल को पूर्णतः 'सोम' देवता को समर्पित किया गया है? / Which Mandala of the Rigveda is entirely dedicated to the deity 'Soma'?",
-o: ["सातवां मण्डल / 7th Mandala", "आठवां मण्डल / 8th Mandala", "नवम मण्डल / 9th Mandala", "दसवां मण्डल / 10th Mandala"],
-a: 2,
-e: "ऋग्वेद के नवम मण्डल में कुल 114 सूक्त हैं और ये सभी वनस्पति के देवता 'सोम' की स्तुति करते हैं। / The entire 9th Mandala of the Rigveda consists of hymns praising Soma."
-},
-{
-q: "वेदांगों की कुल संख्या कितनी है, जो वेदों के शुद्ध उच्चारण और समझने के लिए सहायक अंग हैं? / What is the total number of Vedangas, which serve as auxiliary disciplines to understand the Vedas?",
+q: "वेदांगों की कुल संख्या कितनी है, जो वेदों को शुद्ध समझने के लिए सहायक अंग हैं? / What is the total number of Vedangas?",
 o: ["चार (4)", "छह (6)", "आठ (8)", "बारह (12)"],
 a: 1,
-e: "वेदांग 6 हैं: शिक्षा (उच्चारण), कल्प (कर्मकांड), व्याकरण, निरुक्त (व्युत्पत्ति), छंद और ज्योतिष। / There are six Vedangas: Shiksha, Kalpa, Vyakarana, Nirukta, Chhanda, and Jyotisha."
+e: "वेदांग 6 हैं: शिक्षा, कल्प, व्याकरण, निरुक्त, छंद और ज्योतिष।"
 },
 {
-q: "किस उपनिषद से भारत का राष्ट्रीय आदर्श वाक्य 'सत्यमेव जयते' लिया गया है? / From which Upanishad is India's national motto 'Satyamev Jayate' extracted?",
-o: ["कठोपनिषद / Kathopanishad", "मुण्डकोपनिषद / Mundakopanishad", "छान्दोग्य उपनिषद / Chandogya Upanishad", "माण्डूक्य उपनिषद / Mandukya Upanishad"],
+q: "किस उपनिषद से भारत का राष्ट्रीय आदर्श वाक्य 'सत्यमेव जयते' लिया गया है? / From which Upanishad is 'Satyamev Jayate' taken?",
+o: ["कठोपनिषद", "मुण्डकोपनिषद", "छान्दोग्य उपनिषद", "माण्डूक्य उपनिषद"],
 a: 1,
-e: "'सत्यमेव जयते' वाक्य मुण्डकोपनिषद से लिया गया है। / The motto 'Satyamev Jayate' is taken from the Mundaka Upanishad."
+e: "'सत्यमेव जयते' (सत्य की ही विजय होती है) वाक्य मुण्डकोपनिषद से लिया गया है।"
 },
 {
-q: "प्राचीन भारतीय ज्ञान परंपरा में 'वेदांत' शब्द का प्रयोग किसके लिए किया जाता है? / In ancient Indian knowledge systems, for what is the term 'Vedanta' used?",
-o: ["ब्राह्मण ग्रंथों के लिए / Brahmanas", "आरन्यकों के लिए / Aranyakas", "उपनिषदों के लिए / Upanishads", "वेदांगों के लिए / Vedangas"],
+q: "प्राचीन भारतीय ज्ञान परंपरा में 'वेदांत' शब्द का प्रयोग किसके लिए किया जाता है? / For what is the term 'Vedanta' used?",
+o: ["ब्राह्मण ग्रंथों के लिए", "आरन्यकों के लिए", "उपनिषदों के लिए", "वेदांगों के लिए"],
 a: 2,
-e: "चूंकि उपनिषद वैदिक साहित्य के अंतिम भाग हैं और ईंधन वेदों का सर्वोच्च दार्शनिक सार है, इसलिए इन्हें 'वेदांत' कहा जाता है। / Upanishads are called Vedanta as they come at the end of the Vedic period and embody its core philosophy."
+e: "चूंकि उपनिषद वैदिक साहित्य के अंतिम भाग हैं, इसलिए इन्हें 'वेदांत' (वेद+अंत) कहा जाता है।"
 },
 {
-q: "वैदिक काल में 'सभा' और 'समिति' को किस प्रजातांत्रिक राजा की 'दो पुत्रियाँ' कहा गया है? / In the Vedic period, 'Sabha' and 'Samiti' were described as the 'two daughters' of which entity?",
-o: ["प्रजापति / Prajapati", "मनु / Manu", "इंद्र / Indra", "भरत / Bharata"],
+q: "वैदिक काल में 'सभा' और 'समिति' को किस प्रजातांत्रिक संस्था या देवता की 'दो पुत्रियाँ' कहा गया है? / 'Sabha' and 'Samiti' were daughters of?",
+o: ["प्रजापति", "मनु", "इंद्र", "भरत"],
 a: 0,
-e: "अथर्ववेद में राजा को सलाह देने वाली दो लोकतांत्रिक संस्थाओं 'सभा' और 'समिति' को प्रजापति की दो बेटियाँ कहा गया है। / The Atharvaveda refers to Sabha and Samiti as the twin daughters of Prajapati."
+e: "अथर्ववेद में राजा को सलाह देने वाली दो संस्थाओं 'सभा' और 'समिति' को प्रजापति की दो बेटियाँ कहा गया है।"
 },
 {
-q: "यजुर्वेद के मंत्रों का पाठ कर यज्ञ संपन्न कराने वाले मुख्य पुरोहित को क्या कहा जाता था? / What was the chief priest who recited Yajurveda hymns during a sacrifice called?",
-o: ["होता / Hotra", "अध्वर्यु / Adhvaryu", "उद्गाता / Udgata", "पुरोहित / Purohit"],
+q: "यजुर्वेद के मंत्रों का पाठ कर यज्ञ संपन्न कराने वाले पुरोहित को क्या कहा जाता था? / What was the priest of Yajurveda called?",
+o: ["होता", "अध्वर्यु", "उद्गाता", "पुरोहित"],
 a: 1,
-e: "यजुर्वेद के कर्मकांडों को अमली जामा पहनाने वाले और आहुति देने वाले पुरोहित को 'अध्वर्यु' कहा जाता था। / Adhvaryu was the priest responsible for the physical execution of sacrifices according to Yajurveda rules."
+e: "यजुर्वेद के कर्मकांडों को संपन्न कराने वाले पुरोहित को 'अध्वर्यु' कहा जाता था।"
 },
 {
-q: "विश्व का प्राचीनतम ग्रंथ किसे माना जाता है, जो मानव जाति के ज्ञान का प्रथम प्रामाणिक दस्तावेज है? / Which text is universally regarded as the oldest written book of mankind?",
-o: ["अथर्ववेद / Atharvaveda", "ऋग्वेद / Rigveda", "जेंद अवेस्ता / Zend Avesta", "श्रीमद्भगवद्गीता / Bhagavad Gita"],
+q: "विश्व का प्राचीनतम लिखित ग्रंथ किसे माना जाता है, जो मानव जाति के ज्ञान का प्रथम दस्तावेज है? / Which is the oldest text?",
+o: ["अथर्ववेद", "ऋग्वेद", "जेंद अवेस्ता", "श्रीमद्भगवद्गीता"],
 a: 1,
-e: "ऋग्वेद सनातन धर्म और संपूर्ण मानव इतिहास का प्राचीनतम उपलब्ध लिखित ग्रंथ (संहिता) है। / Rigveda is historically dated as the oldest surviving Indo-Aryan text."
+e: "ऋग्वेद सनातन धर्म और संपूर्ण मानव इतिहास का प्राचीनतम उपलब्ध लिखित ग्रंथ है।"
 },
 {
-q: "प्राचीन 'भारतवर्ष' को किस भौगोलिक पर्वत श्रृंखला द्वारा मुख्य रूप से उत्तरापथ और दक्षिणापथ में विभाजित किया गया था? / By which mountain range was ancient 'Bharatvarsha' primarily split into Uttarapatha and Dakshinapatha?",
-o: ["हिमालय पर्वतमाला / Himalayas", "विंध्याचल पर्वत श्रृंखला / Vindhya Range", "अरावली पर्वतमाला / Aravalli Range", "सतपुड़ा की पहाड़ियां / Satpura Range"],
+q: "प्राचीन 'भारतवर्ष' को किस भौगोलिक पर्वत श्रृंखला द्वारा उत्तरापथ और दक्षिणापथ में विभाजित किया गया था? / Which range divided India?",
+o: ["हिमालय", "विंध्याचल पर्वत श्रृंखला", "अरावली", "सतपुड़ा"],
 a: 1,
-e: "विंध्य पर्वत श्रृंखला भारत को उत्तर भारत (उत्तरापथ) और दक्षिण भारत (दक्षिणापथ) में भौगोलिक व सांस्कृतिक रूप से विभाजित करती थी। / The Vindhya Range acted as the traditional geographical dividing line between northern and southern India."
+e: "विंध्य पर्वत श्रृंखला भारत को उत्तर भारत और दक्षिण भारत में भौगोलिक रूप से विभाजित करती थी।"
 },
 {
-q: "ऋग्वेद में कुल कितने मण्डल और सूक्त संकलित हैं? / How many Mandalas and Suktas are compiled in the Rigveda?",
-o: ["10 मण्डल और 1024 सूक्त / 10 Mandalas, 1024 Suktas", "8 मण्डल और 1017 सूक्त / 8 Mandalas, 1017 Suktas", "10 मण्डल और 1028 सूक्त / 10 Mandalas, 1028 Suktas", "12 मण्डल और 1050 सूक्त / 12 Mandalas, 1050 Suktas"],
+q: "ऋग्वेद में कुल कितने मण्डल और सूक्त संकलित हैं? / How many Mandalas and Suktas are in Rigveda?",
+o: ["10 मण्डल और 1024 सूक्त", "8 मण्डल और 1017 सूक्त", "10 मण्डल और 1028 सूक्त", "12 मण्डल और 1050 सूक्त"],
 a: 2,
-e: "ऋग्वेद में कुल 10 मण्डल (अध्याय) और 1028 सूक्त (सूक्तियाँ) हैं, जिनमें 1017 मूल सूक्त और 11 बालखिल्य सूक्त शामिल हैं। / Rigveda comprises 10 Mandalas and 1028 Suktas (including 11 Valakhilya hymns)."
+e: "ऋग्वेद में कुल 10 मण्डल (अध्याय) और 1028 सूक्त शामिल हैं।"
 },
 {
-q: "वैदिक शिक्षा पद्धति में वेदों के अर्थ और व्याकरण को कंठस्थ करने के लिए रचित 'शिक्षा' वेदांग की तुलना मानव शरीर के किस अंग से की गई है? / In Vedic education, the Vedanga 'Shiksha' (Phonetics) is compared to which organ of the human body?",
-o: ["नासिका (नाक) / Nose", "मुख (मुंह) / Mouth", "पाद (पैर) / Feet", "चक्षु (आंख) / Eyes"],
+q: "शिक्षा वेदांग की तुलना वेद पुरुष के किस अंग से की गई है? / Shiksha Vedanga is compared to which organ?",
+o: ["नासिका (नाक)", "मुख (मुंह)", "पाद (पैर)", "चक्षु (आंख)"],
 a: 0,
-e: "पारंपरिक संस्कृत व्याकरण के अनुसार शिक्षा को वेद पुरुष की नासिका (नाक) कहा गया है। / Shiksha is metaphorical for the nose (Ghrama) of the Veda Purusha."
+e: "पारंपरिक संस्कृत व्याकरण के अनुसार शिक्षा को वेद पुरुष की नासिका (नाक) कहा गया है।"
 },
 {
-q: "जैन ग्रंथ 'जम्बूद्वीपपण्णत्ति' में भारतवर्ष के लिए मुख्यतः किस शब्द का प्रयोग भौगोलिक संदर्भ में हुआ है? / In the Jain text 'Jambudvipa-Pannatti', which term is mainly used for India in a geographical context?",
-o: ["भरतखेत्त (भरतक्षेत्र) / Bharata-Khetta", "नाभिवर्ष / Nabhivarsha", "आर्यावर्त / Aryavarta", "हिंदुस्तान / Hindustan"],
+q: "जैन ग्रंथ 'जम्बूद्वीपपण्णत्ति' में भारतवर्ष के लिए मुख्यतः किस शब्द का प्रयोग हुआ है? / Term used in Jain text for India?",
+o: ["भरतखेत्त (भरतक्षेत्र)", "नाभिवर्ष", "आर्यावर्त", "हिंदुस्तान"],
 a: 0,
-e: "प्राचीन जैन आगम साहित्य में भारत भूभाग को 'भरतक्षेत्र' या प्राकृत में 'भरतखेत्त' नाम से संबोधित किया गया है। / Jain Canonical texts refer to India as Bharata-Khetta."
+e: "प्राचीन जैन आगम साहित्य में भारत भूभाग को 'भरतक्षेत्र' या प्राकृत में 'भरतखेत्त' कहा गया है।"
 },
 {
-q: "वैदिक सूक्तों के द्रष्टा और रचनाकार ऋषियों में कई महिलाएँ भी शामिल थीं। निम्न में से कौन सी विदुषी महिला ऋग्वेद की मंत्र द्रष्टा नहीं है? / Many women were seers of Vedic hymns. Who among the following was NOT a female seer of the Rigveda?",
-o: ["लोपामुद्रा / Lopamudra", "घोषा / Ghosha", "गार्गी / Gargi", "अपला / Apala"],
+q: "निम्न में से कौन सी विदुषी महिला ऋग्वेद की मंत्र द्रष्टा (रचयिता) नहीं है? / Who was NOT a female seer of Rigveda?",
+o: ["लोपामुद्रा", "घोषा", "गार्गी", "अपला"],
 a: 2,
-e: "लोपामुद्रा, घोषा, अपला ऋग्वेद काल की मंत्र द्रष्टा हैं, जबकि गार्गी उत्तर-वैदिक काल की प्रसिद्ध विदुषी थीं जिन्होंने याज्ञवल्क्य से शास्त्रार्थ किया था। / Gargi belongs to the later Vedic/Upanishadic period, famous for her debate with Yajnavalkya."
+e: "लोपामुद्रा, घोषा, अपला ऋग्वेद काल की हैं, जबकि गार्गी उत्तर-वैदिक उपनिषद काल की विदुषी थीं।"
 },
 {
-q: "प्राचीन भारतीय ज्ञान परंपरा में 'श्रीमद्भगवद्गीता' महाभारत के किस पर्व का हिस्सा है? / In the ancient Indian tradition, the 'Bhagavad Gita' is part of which Parva of the Mahabharata?",
-o: ["आदि पर्व / Adi Parva", "वन पर्व / Vana Parva", "भीष्म पर्व / Bhishma Parva", "शांति पर्व / Shanti Parva"],
+q: "प्राचीन भारतीय ज्ञान परंपरा में 'श्रीमद्भगवद्गीता' महाभारत के किस पर्व का हिस्सा है? / Gita is part of which Parva?",
+o: ["आदि पर्व", "वन पर्व", "भीष्म पर्व", "शांति पर्व"],
 a: 2,
-e: "श्रीमद्भगवद्गीता महाभारत के 'भीष्म पर्व' के 25वें से 42वें अध्याय का हिस्सा है, जिसमें श्रीकृष्ण ने अर्जुन को निष्काम कर्म का उपदेश दिया था। / The Bhagavad Gita is contained within the Bhishma Parva of Mahabharata."
+e: "श्रीमद्भगवद्गीता महाभारत के 'भीष्म पर्व' का हिस्सा है।"
 },
 {
-q: "अथर्ववेद में 'कुरुओं का राजा' और एक महान लोक-कल्याणकारी शासक किसे कहा गया है? / Who is described as the 'King of Kurus' and a highly benevolent ruler in the Atharvaveda?",
-o: ["राजा परीक्षित / King Parikshit", "राजा जनमेजय / King Janamejaya", "राजा सुदास / King Sudas", "राजा धृतराष्ट्र / King Dhritarashtra"],
+q: "अथर्ववेद में 'कुरुओं का राजा' और एक महान लोक-कल्याणकारी शासक किसे कहा गया है? / King of Kurus in Atharvaveda?",
+o: ["राजा परीक्षित", "राजा जनमेजय", "राजा सुदास", "राजा धृतराष्ट्र"],
 a: 0,
-e: "अथर्ववेद में कुरु देश की समृद्धि का वर्णन मिलता है, जहाँ राजा परीक्षित को 'मृत्युलोक का देवता' और कुरुओं का प्रतापी राजा बताया गया है। / King Parikshit is highly praised as a model ruler of the Kurus in the Atharvaveda."
+e: "अथर्ववेद में कुरु देश के राजा परीक्षित को एक प्रतापी और लोक-कल्याणकारी राजा बताया गया है।"
 },
 {
-q: "प्रसिद्ध 'नचिकेता और यमराज' का आध्यात्मिक संवाद, जिसमें आत्मा की अमरता का उपदेश है, किस उपनिषद में वर्णित है? / The profound dialogue between Yama and Nachiketa on the immortality of soul is found in which Upanishad?",
-o: ["केनोपनिषद / Kena Upanishad", "कठोपनिषद / Katha Upanishad", "ईशोपनिषद / Isha Upanishad", "बृहदारण्यक उपनिषद / Brihadaranyaka Upanishad"],
+q: "प्रसिद्ध 'नचिकेता और यमराज' का आध्यात्मिक संवाद किस उपनिषद में वर्णित है? / Nachiketa-Yama dialogue is in?",
+o: ["केनोपनिषद", "कठोपनिषद", "ईशोपनिषद", "बृहदारण्यक उपनिषद"],
 a: 1,
-e: "यम-नचिकेता का प्रसिद्ध संवाद 'कठोपनिषद' में दर्ज है, जहाँ यमराज नचिकेता को जीवन, मृत्यु और आत्मज्ञान का रहस्य समझाते हैं। / The dialogue between Lord Yama and the young Nachiketa is located in the Katha Upanishad."
+e: "यम-नचिकेता का प्रसिद्ध संवाद 'कठोपनिषद' में दर्ज है, जहाँ आत्मा के रहस्य पर चर्चा की गई है।"
 },
 {
-q: "वैदिक ग्रंथों की गद्यात्मक व्याख्याएँ जो यज्ञों के गूढ़ अर्थ और क्रियाओं को स्पष्ट करती हैं, क्या कहलाती हैं? / The prose commentaries on the Vedas that explain the inner meaning and mechanics of sacrifices are called?",
-o: ["ब्राह्मण ग्रंथ / Brahmanas", "आरण्यक / Aranyakas", "उपनिषद / Upanishads", "स्मृतियाँ / Smritis"],
+q: "वेदों की संहिताओं की व्याख्या करने के लिए गद्य में लिखे गए ग्रंथ क्या कहलाते हैं? / Prose commentaries on Vedas are?",
+o: ["ब्राह्मण ग्रंथ", "आरण्यक", "उपनिषद", "स्मृतियाँ"],
 a: 0,
-e: "वेदों की संहिताओं की व्याख्या करने के लिए गद्य में लिखे गए ग्रंथों को 'ब्राह्मण ग्रंथ' कहा जाता है। / Brahmanas are prose commentaries attached to Vedic Samhitas to guide rituals."
+e: "वेदों की संहिताओं की सरल व्याख्या करने के लिए गद्य में लिखे गए ग्रंथों को 'ब्राह्मण ग्रंथ' कहा जाता है।"
 },
 {
-q: "निम्नलिखित में से कौन सा आरण्यक ग्रंथ ऋग्वेद से संबंधित है? / Which of the following Aranyaka texts is explicitly connected with the Rigveda?",
-o: ["तैत्तिरीय आरण्यक / Taittiriya Aranyaka", "ऐतरेय आरण्यक / Aitareya Aranyaka", "तलवकार आरण्यक / Talavakara Aranyaka", "शतपथ आरण्यक / Shatapatha Aranyaka"],
+q: "निम्नलिखित में से कौन सा आरण्यक ग्रंथ ऋग्वेद से संबंधित है? / Which Aranyaka belongs to Rigveda?",
+o: ["तैत्तिरीय आरण्यक", "ऐतरेय आरण्यक", "तलवकार आरण्यक", "शतपथ आरण्यक"],
 a: 1,
-e: "ऐतरेय और कौषीतकि आरण्यक ऋग्वेद से संबद्ध हैं। / Aitareya Aranyaka belongs strictly to the Rigvedic canon."
+e: "ऐतरेय और कौषीतकि आरण्यक ग्रंथ ऋग्वेद से संबद्ध हैं।"
 },
 {
-q: "प्राचीन यूनानी भूगोलविदों (Greek Geographers) ने भारतवर्ष के लिए सर्वप्रथम 'इण्डिया' (India) शब्द का प्रयोग किस नदी के नाम के आधार पर किया था? / Based on which river's name did ancient Greek geographers first use the term 'India'?",
-o: ["गंगा नदी / Ganges", "सिंधु नदी / Indus", "नर्मदा नदी / Narmada", "सरस्वती नदी / Sarasvati"],
+q: "प्राचीन यूनानी भूगोलविदों ने भारतवर्ष के लिए सर्वप्रथम 'इण्डिया' शब्द का प्रयोग किस नदी के आधार पर किया? / 'India' term based on which river?",
+o: ["गंगा नदी", "सिंधु नदी", "नर्मदा नदी", "सरस्वती नदी"],
 a: 1,
-e: "यूनानियों ने सिंधु नदी को 'इण्डस' (Indus) कहा और इसके पूर्व के पूरे भूभाग को 'इण्डिया' नाम दिया। / The Greeks derived 'India' from the river Indus (Sindhu)."
+e: "यूनानियों ने सिंधु नदी को 'इण्डस' (Indus) कहा और इसी के आधार पर देश को 'इण्डिया' नाम दिया।"
 },
 {
-q: "ईरानी (पारसी) धर्मग्रंथ 'जेंद अवेस्ता' में सिंधु नदी के आस-पास के भारतीय क्षेत्र को किस नाम से पुकारा गया है? / In the ancient Persian holy text 'Zend Avesta', what name is given to the Indian region around the Indus?",
-o: ["सप्त सैंधव / Sapta Saindhava", "हप्त हिंदू / Hapta Hindu", "तिब्बत / Thibet", "आर्यावर्त / Aryavarta"],
+q: "ईरानी (पारसी) धर्मग्रंथ 'जेंद अवेस्ता' में सिंधु नदी के आस-पास के क्षेत्र को क्या कहा गया है? / Term used in Zend Avesta?",
+o: ["सप्त सैंधव", "हप्त हिंदू", "तिब्बत", "आर्यावर्त"],
 a: 1,
-e: "प्राचीन ईरानी भाषा में 'स' का उच्चारण 'ह' होने के कारण वे ऋग्वैदिक 'सप्त सिंधु' क्षेत्र को 'हप्त हिंदू' कहते थे। / In ancient Persian, 'Sapta Sindhu' shifted phonetically to 'Hapta Hindu'."
+e: "पारसी भाषा में 'स' का उच्चारण 'ह' होने के कारण वे 'सप्त सिंधु' को 'हप्त हिंदू' कहते थे।"
 },
 {
-q: "वेदों के काव्यात्मक छंदों की शुद्धता बनाए रखने के लिए रचित 'छंद वेदांग' के प्रवर्तक आचार्य कौन माने जाते हैं? / Who is regarded as the pioneering master of 'Chhanda' (Vedic Meters) Vedanga?",
-o: ["पिंगल मुनि / Acharya Pingala", "लगध मुनि / Acharya Lagadha", "कणाद ऋषि / Sage Kanada", "भरत मुनि / Bharata Muni"],
+q: "वेदों के काव्यात्मक छंदों की शुद्धता बनाए रखने के लिए रचित 'छंद वेदांग' के प्रवर्तक कौन हैं? / Founder of Chhanda?",
+o: ["पिंगल मुनि", "लगध मुनि", "कणाद ऋषि", "भरत मुनि"],
 a: 0,
-e: "छंद शास्त्र के मूल प्रवर्तक महर्षि पिंगल हैं। उनकी पुस्तक 'छंदसूत्र' छंद वेदांग का प्रामाणिक ग्रंथ है। / Acharya Pingala is the legendary father of metrics and prosody (Chhanda)."
+e: "छंद शास्त्र के मूल प्रवर्तक महर्षि पिंगल हैं। उनकी पुस्तक 'छंदसूत्र' प्रसिद्ध है।"
 },
 {
-q: "वैदिक काल में प्रयुक्त 'कृषि' तकनीक और फसलों के संदर्भ में, 'यव' शब्द का प्रयोग किस अनाज के लिए किया जाता था? / In the Vedic agrarian terminology, for which grain was the word 'Yava' utilized?",
-o: ["गेहूं / Wheat", "चावल / Rice", "जौ / Barley", "बाजरा / Millet"],
+q: "वैदिक काल में प्रयुक्त 'कृषि' तकनीक और फसलों के संदर्भ में, 'यव' शब्द का प्रयोग किस अनाज के लिए होता था? / Meaning of 'Yava'?",
+o: ["गेहूं", "चावल", "जौ", "बाजरा"],
 a: 2,
-e: "वैदिक साहित्य में 'यव' का अर्थ जौ (Barley) है, तथा 'व्रीहि' का प्रयोग चावल (Rice) के लिए किया जाता था। / 'Yava' translates to barley in the Vedas, while 'Vrihi' stands for rice."
+e: "वैदिक साहित्य में 'यव' का अर्थ जौ (Barley) है, तथा 'व्रीहि' का अर्थ चावल है।"
 },
 {
-q: "वैदिक काल में विनिमय के माध्यम (Medium of Exchange) और गले के एक आभूषण के रूप में प्रयुक्त 'निष्क' क्या था? / What was 'Nishka', used both as an ornament and a medium of exchange in the Vedic period?",
-o: ["चाँदी का सिक्का / Silver Coin", "सोने का सिक्का या स्वर्ण आभूषण / Gold coin or ornament", "ताँबे की मुद्रा / Copper currency", "मिट्टी की मुहर / Clay seal"],
+q: "वैदिक काल में विनिमय के माध्यम और मूल्य मापन के रूप में प्रयुक्त 'निष्क' क्या था? / What was 'Nishka'?",
+o: ["चाँदी का सिक्का", "सोने का आभूषण या मुद्रा", "ताँबे की मुद्रा", "मिट्टी की मुहर"],
 a: 1,
-e: "ऋग्वैदिक काल में निष्क सोने का एक आभूषण होता था जो गले में पहना जाता था, जिसका उपयोग व्यापारिक विनिमय में भी होता था। / Nishka was a gold neckpiece that also functioned as currency or a store of value."
+e: "ऋग्वैदिक काल में निष्क सोने का एक आभूषण था, जिसका उपयोग विनिमय के माध्यम के रूप में भी होता था।"
 },
 {
-q: "वेदांगों में शामिल 'ज्योतिष' का प्राचीनतम उपलब्ध प्रामाणिक ग्रंथ 'वेदांग ज्योतिष' किसके द्वारा रचित है? / The oldest surviving treatise on Vedic astronomy, 'Vedanga Jyotisha', was composed by whom?",
-o: ["वराहमिहिर / Varahamihira", "लगध मुनि / Lagadha Muni", "आर्यभट्ट / Aryabhata", "ब्रह्मगुप्त / Brahmagupta"],
+q: "वेदांगों में शामिल 'ज्योतिष' का प्राचीनतम ग्रंथ 'वेदांग ज्योतिष' किसके द्वारा रचित है? / Who wrote Vedanga Jyotisha?",
+o: ["वराहमिहिर", "लगध मुनि", "आर्यभट्ट", "ब्रह्मगुप्त"],
 a: 1,
-e: "वेदांग ज्योतिष की रचना महात्मा लगध ने ईसा पूर्व काल में की थी, जिसमें खगोलीय गणनाओं का विवरण है। / Lagadha Muni compiled the Vedanga Jyotisha, focused on calculating appropriate astronomical times for Vedic sacrifices."
+e: "वेदांग ज्योतिष की रचना लगध मुनि ने की थी, जिसमें खगोलीय गणनाओं का विवरण है।"
 },
 {
-q: "प्राचीन भारतीय ऐतिहासिक परंपरा में पुराणों की कुल संख्या कितनी निर्धारित है और इनके संकलनकर्ता कौन माने जाते हैं? / What is the total number of Puranas in Indian historical traditions, and who is credited with their compilation?",
-o: ["12 — महर्षि व्यास / 12 — Vyasa", "18 — लोमहर्ष एवं उग्रश्रवा / 18 — Lomaharshana and Ugrashrava", "24 — महर्षि वाल्मीकि / 24 — Valmiki", "108 — शंकराचार्य / 108 — Shankaracharya"],
+q: "प्राचीन भारतीय ऐतिहासिक परंपरा में पुराणों की कुल संख्या कितनी है? / Total number of Puranas?",
+o: ["12", "18", "24", "108"],
 a: 1,
-e: "पुराणों की कुल संख्या 18 है। इनकी रचना व संकलन का श्रेय महर्षि लोमहर्ष और उनके पुत्र उग्रश्रवा को दिया जाता है। / There are 18 canonical Puranas, compiled by Rishi Lomaharshana and his son Ugrashrava."
+e: "पुराणों की कुल संख्या 18 है। इनकी रचना का श्रेय लोमहर्ष ऋषि और उनके पुत्र उग्रश्रवा को है।"
 },
 {
-q: "निम्नलिखित में से किस उपनिषद में 'चारों आश्रमों' (ब्रह्मचर्य, गृहस्थ, वानप्रस्थ, संन्यास) का प्रथम बार एक साथ स्पष्ट उल्लेख मिलता है? / In which Upanishad is the four-fold ashrama system mentioned together clearly for the first time?",
-o: ["जाबालोपनिषद / Jabala Upanishad", "बृहदारण्यक उपनिषद / Brihadaranyaka", "कठोपनिषद / Katha Upanishad", "श्वेताश्वतर उपनिषद / Shvetashvatara"],
+q: "निम्नलिखित में से किस उपनिषद में 'चारों आश्रमों' का प्रथम बार एक साथ स्पष्ट उल्लेख मिलता है? / Where are the 4 Ashramas first mentioned?",
+o: ["जाबालोपनिषद", "बृहदारण्यक उपनिषद", "कठोपनिषद", "श्वेताश्वतर उपनिषद"],
 a: 0,
-e: "जाबालोपनिषद में पहली बार चारों जीवन चरणों या आश्रमों का स्पष्ट निरूपण मिलता है। / Jabala Upanishad provides the earliest distinct layout of all four life stages."
+e: "जाबालोपनिषद में पहली बार चारों जीवन चरणों या आश्रमों का स्पष्ट उल्लेख मिलता है।"
 },
 {
-q: "प्राचीन भारतीय भौगोलिक अवधारणा के अनुसार भारत के मध्य भाग को क्या कहा जाता था जहाँ वैदिक संस्कृति का मुख्य प्रसार हुआ? / According to ancient Indian geography, what was the central land area called where Vedic culture expanded?",
-o: ["उत्तरापथ / Uttarapatha", "मध्यदेश / Madhyadesha", "ब्रह्मावर्त / Brahmavarta", "दक्षिणापथ / Dakshinapatha"],
+q: "प्राचीन भारतीय भौगोलिक अवधारणा के अनुसार भारत के मध्य भाग को क्या कहा जाता था? / Central part of India was called?",
+o: ["उत्तरापथ", "मध्यदेश", "ब्रह्मावर्त", "दक्षिणापथ"],
 a: 1,
-e: "हिमालय और विंध्याचल के बीच के मध्यवर्ती क्षेत्र को प्राचीन ग्रंथों में 'मध्यदेश' कहा गया है, जो सांस्कृतिक गतिविधियों का प्रधान केंद्र था। / Madhyadesha was the terminology applied to the central heartland of India between the Himalayas and the Vindhyas."
+e: "हिमालय और विंध्याचल के बीच के क्षेत्र को प्राचीन ग्रंथों में 'मध्यदेश' कहा गया है।"
 },
 {
-q: "ऋग्वेद काल की सर्वाधिक पवित्र नदी कौन सी मानी जाती थी, जिसे 'नदीतमा' (नदियों में उत्तम) कहा गया है? / Which river was considered the most sacred in the Rigveda and styled as 'Naditama'?",
-o: ["सिंधु नदी / Indus", "गंगा नदी / Ganges", "सरस्वती नदी / Sarasvati", "यमुना नदी / Yamuna"],
+q: "ऋग्वेद काल की सर्वाधिक पवित्र नदी कौन सी मानी जाती थी, जिसे 'नदीतमा' कहा गया है? / Most sacred river called Naditama?",
+o: ["सिंधु नदी", "गंगा नदी", "सरस्वती नदी", "यमुना नदी"],
 a: 2,
-e: "ऋग्वैदिक आर्यों की सबसे पवित्र नदी सरस्वती थी, जिसे नदीतमा कहा गया है। हालांकि सर्वाधिक बार उल्लेख सिंधु का हुआ है। / Sarasvati was highly revered as the ultimate sacred river, termed Naditama."
+e: "ऋग्वैदिक आर्यों की सबसे पवित्र नदी सरस्वती थी, जिसे 'नदीतमा' (नदियों में उत्तम) कहा गया है।"
 },
 {
-q: "वैदिक साहित्य में राजा पर नियंत्रण रखने वाली संस्था 'समिति' के अध्यक्ष या प्रधान को क्या कहा जाता था? / What was the presiding officer or chairperson of the Vedic assembly known as 'Samiti' called?",
-o: ["ईशान / Ishana", "सभापति / Sabhapati", "सेनानी / Senani", "ग्रामणी / Gramani"],
+q: "वैदिक साहित्य में जनमानस की केंद्रीय संस्था 'समिति' के अध्यक्ष को क्या कहा जाता था? / Head of Samiti was called?",
+o: ["ईशान", "सभापति", "सेनानी", "ग्रामणी"],
 a: 0,
-e: "समिति आम जनमानस की केंद्रीय संस्था थी। इसके प्रमुख/अध्यक्ष को 'ईशान' कहा जाता था। / The head of the Samiti assembly was addressed as Ishana."
+e: "वैदिक काल में समिति के प्रमुख या अध्यक्ष को 'ईशान' कहा जाता था।"
 },
 {
-q: "ऋग्वेद के 10वें मण्डल में संकलित 'नासदीय सूक्त' का मुख्य विषय निम्नलिखित में से क्या है? / What is the primary subject matter of the 'Nasadiya Sukta' in the 10th Mandala of the Rigveda?",
-o: ["ब्रह्मांड की उत्पत्ति और सृष्टि निर्माण / Origin of Universe and Creation", "विवाह की रस्में / Marriage Rituals", "नदियों की सूची / Geography of Rivers", "दशराज्ञ युद्ध का वर्णन / Battle of Ten Kings"],
+q: "ऋग्वेद के 10वें मण्डल में संकलित 'नासदीय सूक्त' का मुख्य विषय क्या है? / Subject of Nasadiya Sukta?",
+o: ["ब्रह्मांड की उत्पत्ति और सृष्टि निर्माण", "विवाह की रस्में", "नदियों की सूची", "दशराज्ञ युद्ध"],
 a: 0,
-e: "नासदीय सूक्त दार्शनिक चिंतन का चरमोत्कर्ष है, जिसमें सृष्टि उत्पत्ति के रहस्यों और ब्रह्मांड के निर्माण पर विचार किया गया है। / Nasadiya Sukta is universally famous for its deep metaphysical inquiries into the creation of the universe."
+e: "नासदीय सूक्त में ब्रह्मांड की उत्पत्ति और सृष्टि के निर्माण से संबंधित गंभीर दार्शनिक प्रश्न उठाए गए हैं।"
 },
 {
-q: "ऋग्वैदिक काल में राजा को स्वेच्छा से दिया जाने वाला धार्मिक या स्वैच्छिक कर (Contribution) क्या कहलाता था? / What was the voluntary tribute or tax paid by the citizens to the king in the Rigvedic period called?",
-o: ["भाग / Bhaga", "बली / Bali", "शुल्क / Shulka", "कर / Kara"],
+q: "ऋग्वैदिक काल में राजा को स्वेच्छा से दिया जाने वाला उपहार या स्वैच्छिक कर क्या कहलाता था? / Voluntary tax in Rigvedic period?",
+o: ["भाग", "बली", "शुल्क", "कर"],
 a: 1,
-e: "ऋग्वैदिक काल में प्रजा अपने राजा को अपनी मर्जी से उपहार या अनाज का हिस्सा देती थी, जिसे 'बली' कहा जाता था। उत्तर वैदिक काल में यह अनिवार्य कर बन गया। / Bali was a voluntary contribution to the chief in early Vedic times."
+e: "ऋग्वैदिक काल में प्रजा अपने राजा को अपनी मर्जी से उपहार देती थी, जिसे 'बली' कहा जाता था।"
 },
 {
-q: "प्राचीन भारतीय ज्ञान परंपरा में 'शून्यवाद' और माध्यमिक दर्शन के जनक किस दार्शनिक को माना जाता है? / In the Indian knowledge tradition, who is credited as the father of 'Shunyavada' and Madhyamika philosophy?",
-o: ["आचार्य नागार्जुन / Acharya Nagarjuna", "शंकराचार्य / Adi Shankara", "वसुबंधु / Vasubandhu", "माधवाचार्य / Madhvacharya"],
+q: "प्राचीन भारतीय ज्ञान परंपरा में 'शून्यवाद' (माध्यमिक दर्शन) के जनक किस दार्शनिक को माना जाता है? / Founder of Shunyavada?",
+o: ["आचार्य नागार्जुन", "शंकराचार्य", "वसुबंधु", "माधवाचार्य"],
 a: 0,
-e: "कनिष्क के समकालीन आचार्य नागार्जुन ने प्रज्ञापारमिता सूत्र में शून्यवाद का प्रतिपादन किया था। इन्हें भारत का आइंस्टीन भी कहते हैं। / Acharya Nagarjuna formulated the theory of Shunyavada (Voidness/Relativity)."
+e: "आचार्य नागार्जुन ने शून्यवाद का प्रतिपादन किया था। इन्हें भारत का आइंस्टीन भी कहा जाता है।"
 },
 {
-q: "निम्नलिखित में से किस प्राचीन ग्रंथ को 'शतसाहस्री संहिता' (1,00,000 श्लोकों का संकलन) के नाम से भी जाना जाता है? / Which ancient text is also famously called 'Shatasahasri Samhita' owing to its 100,000 verses?",
-o: ["ऋग्वेद संहिता / Rigveda", "रामायण / Ramayana", "महाभारत / Mahabharata", "श्रीमद्भगववत पुराण / Bhagavata Purana"],
+q: "निम्नलिखित में से किस प्राचीन ग्रंथ को 'शतसाहस्री संहिता' (1,00,000 श्लोकों का संकलन) भी कहा जाता है? / Which text is called Shatasahasri Samhita?",
+o: ["ऋग्वेद संहिता", "रामायण", "महाभारत", "श्रीमद्भगवद्गीता"],
 a: 2,
-e: "महाभारत में श्लोकों की संख्या बढ़ते-बढ़ते एक लाख हो जाने के कारण इसे 'शतसाहस्री संहिता' या महाभारत नाम दिया गया। / Mahabharata is termed Shatasahasri Samhita when its verses reached one lakh."
+e: "महाभारत में श्लोकों की संख्या एक लाख हो जाने के कारण इसे 'शतसाहस्री संहिता' कहा जाता है।"
 }
 ];
-// Function to render quiz questions dynamically (Using Bulletproof Traditional Concatenation)
+// रेंडर फ़ंक्शन - बिल्कुल साधारण और सुरक्षित लूप आधारित तरीका
 function renderQuiz() {
+try {
 var quizContainer = document.getElementById('quiz');
 if (!quizContainer) return;
 var html = '';
@@ -395,14 +394,16 @@ html += '    ';
 html += '    ' + q.o[j];
 html += '  ';
 }
-html += '  ' + q.e + '';
+html += '  व्याख्या: ' + q.e + '';
 html += '';
 }
 quizContainer.innerHTML = html;
+} catch (err) {
+document.getElementById('quiz').innerHTML = 'स्क्रिप्ट एरर: ' + err.message + '';
 }
-// Function to handle test submission
+}
+// टेस्ट सबमिट और मार्किंग फ़ंक्शन
 function submitTest() {
-var score = 0;
 for (var i = 0; i < questions.length; i++) {
 var q = questions[i];
 var checkedRadio = document.querySelector('input[name="q_' + i + '"]:checked');
@@ -412,33 +413,19 @@ var correctLabel = document.getElementById('label_' + i + '_' + q.a);
 if (correctLabel) correctLabel.classList.add('correct');
 if (checkedRadio) {
 var chosenAnswer = parseInt(checkedRadio.value);
-if (chosenAnswer === q.a) {
-score++;
-} else {
+if (chosenAnswer !== q.a) {
 var wrongLabel = document.getElementById('label_' + i + '_' + chosenAnswer);
 if (wrongLabel) wrongLabel.classList.add('wrong');
 }
 }
 }
-var resultDiv = document.getElementById('result');
-if (resultDiv) {
-resultDiv.style.display = 'block';
-resultDiv.innerHTML = 'परीक्षा परिणाम / Test Result' +
-'' + score + ' / ' + questions.length + '' +
-'आपने ' + questions.length + ' में से ' + score + ' प्रश्नों का सही उत्तर दिया है।';
-}
-var inputs = document.querySelectorAll('input[type="radio"]');
-for (var k = 0; k < inputs.length; k++) {
-inputs[k].disabled = true;
-}
-window.scrollTo({ top: 0, behavior: 'smooth' });
+alert('टेस्ट सफलतापूर्वक सबमिट हो गया है! नीचे स्क्रॉल करके सही उत्तर और व्याख्या देखें।');
 }
 function goBack() {
 window.history.back();
 }
-// Countdown Timer Logic
-var timeInMinutes = 60;
-var timeInSeconds = timeInMinutes * 60;
+// 60 मिनट का काउंटडाउन टाइमर
+var timeInSeconds = 60 * 60;
 var timerElement = document.getElementById('time');
 var countdown = setInterval(function() {
 var minutes = Math.floor(timeInSeconds / 60);
@@ -450,10 +437,9 @@ timerElement.textContent = minutes + ':' + seconds;
 }
 if (timeInSeconds <= 0) {
 clearInterval(countdown);
-alert('समय समाप्त! आपका टेस्ट स्वतः सबमिट हो रहा है।');
 submitTest();
 }
 timeInSeconds--;
 }, 1000);
-// Force Immediate Rendering execution
+// पेज लोड होते ही तुरंत रेंडर करना
 renderQuiz();
