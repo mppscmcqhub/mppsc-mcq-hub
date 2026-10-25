@@ -3,1325 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MPPSC Prelims 2027 Mock Test - Unit 1</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <title>MPPSC MCQ Hub - Unit 1 Specially Designed</title>
+    <script src="https://cloudflare.com"></script>
     <style>
         * { box-sizing: border-box; font-family: "Segoe UI", Arial, sans-serif; }
-        body { margin: 0; background: #f0f2f5; color: #222; }
-        .header { background: #15549a; color: white; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px #0003; }
-        .brand { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: bold; }
-        .header-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-        .timer { background: #b71c1c; color: white; font-size: 19px; font-weight: bold; padding: 10px 14px; border-radius: 5px; min-width: 105px; text-align: center; }
+        body { margin: 0; background: #f0f2f5; color: #222; padding-bottom: 40px; }
+        
+        /* फुल-विड्थ हेडर लेआउट */
+        .header { 
+            background: #15549a; 
+            color: white; 
+            padding: 12px 24px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+            box-shadow: 0 2px 5px #0003; 
+        }
+        .header-left { display: flex; align-items: center; gap: 15px; }
+        .brand { display: flex; align-items: center; gap: 12px; font-size: 22px; font-weight: bold; }
+        .site-logo { width: 42px; height: 42px; object-fit: cover; border-radius: 50%; background: white; border: 2px solid white; display: block; }
+        .header-right { display: flex; align-items: center; gap: 12px; }
+        
+        .timer { background: #b71c1c; color: white; font-size: 19px; font-weight: bold; padding: 10px 16px; border-radius: 5px; text-align: center; }
         .timer.warning { background: #ff9800; color: #111; }
         .timer.finished { background: #333; color: white; }
-        button { border: none; border-radius: 5px; padding: 11px 18px; font-size: 15px; font-weight: bold; cursor: pointer; transition: 0.2s; }
-        button:hover { opacity: .9; transform: translateY(-1px); }
+        
+        button { border: none; border-radius: 5px; padding: 11px 18px; font-size: 15px; font-weight: bold; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+        button:hover { opacity: .9; }
+        .back-btn { background: #ffffff; color: #15549a; border: 1px solid #ffffff; transition: background 0.2s; padding: 8px 14px; font-size: 14px; }
+        .back-btn:hover { background: #e6e6e6; }
         .pdf-btn { background: #ffc107; color: black; }
-        .submit-btn { background: #28a745; color: white; }
-        .container { padding: 20px 25px; max-width: 1000px; margin: 0 auto; }
-        .test-title-box { background: white; border: 1px solid #ddd; border-radius: 6px; padding: 20px; margin-bottom: 20px; border-left: 6px solid #15549a; }
-        .test-title-box h2 { margin: 0 0 5px 0; color: #15549a; font-size: 22px; }
-        .test-title-box p { margin: 0; font-size: 14px; color: #555; }
-        .score-board { display: none; background: #d1ecf1; border: 1px solid #bee5eb; color: #0c5460; padding: 18px; border-radius: 5px; margin-bottom: 20px; text-align: center; font-size: 22px; font-weight: bold; box-shadow: 0 2px 4px #0001; }
-        .question-card { background: white; border: 1px solid #ddd; border-radius: 5px; padding: 22px; margin-bottom: 20px; box-shadow: 0 1px 4px #0001; }
-        .question-text { font-weight: 600; line-height: 1.7; margin-bottom: 15px; font-size: 16px; color: #111; }
-        .options-container { display: flex; flex-direction: column; gap: 10px; }
-        .option-label { display: flex; align-items: center; gap: 12px; padding: 12px; border: 1px solid #d5d5d5; border-radius: 5px; cursor: pointer; line-height: 1.5; transition: 0.15s; }
-        .option-label:hover { background: #f4f7fb; border-color: #b5c7de; }
+        .submit-btn { background: #28a745; color: white; padding: 13px 24px; font-size: 16px; }
+        
+        /* फुल विड्थ कंटेनर जिससे साइड्स की फालतू खाली जगह हट जाएगी */
+        .container { width: 100%; max-width: 100%; padding: 20px 24px; }
+        .score-board { display: none; background: #d1ecf1; border: 1px solid #bee5eb; color: #0c5460; padding: 20px; border-radius: 6px; margin-bottom: 24px; text-align: center; font-size: 22px; font-weight: bold; }
+        
+        /* प्रश्न कार्ड को पूरी चौड़ाई दी गई है */
+        .question-card { background: white; border: 1px solid #ddd; border-radius: 6px; padding: 24px; margin-bottom: 24px; box-shadow: 0 2px 6px #00000008; width: 100%; }
+        .question-text { font-size: 17px; font-weight: 600; line-height: 1.7; margin-bottom: 18px; color: #111; }
+        .options-container { display: flex; flex-direction: column; gap: 12px; }
+        
+        .option-label { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border: 1px solid #d5d5d5; border-radius: 5px; cursor: pointer; line-height: 1.5; font-size: 15.5px; background: #fff; transition: background 0.2s; }
+        .option-label:hover { background: #f4f7fb; }
         .option-label input { width: 18px; height: 18px; flex-shrink: 0; cursor: pointer; }
-        .correct-option { background: #c3e6cb !important; border-color: #8fd19e !important; font-weight: bold; color: #155724; }
-        .wrong-option { background: #f5c6cb !important; border-color: #e7a0a7 !important; color: #721c24; }
-        .explanation-box { display: none; background: #e2f0d9; border-left: 5px solid #385723; padding: 14px; margin-top: 15px; line-height: 1.8; border-radius: 0 4px 4px 0; font-size: 15px; }
-        .correct-answer-text { color: #385723; font-weight: bold; margin-bottom: 5px; font-size: 16px; }
+        
+        .correct-option { background: #d4edda !important; border-color: #c3e6cb !important; color: #155724 !important; font-weight: 600; }
+        .wrong-option { background: #f8d7da !important; border-color: #f5c6cb !important; color: #721c24 !important; }
+        .explanation-box { display: none; background: #f8f9fa; border-left: 5px solid #15549a; padding: 16px; margin-top: 18px; border-radius: 0 4px 4px 0; line-height: 1.8; font-size: 15px; }
+        .correct-answer-text { color: #155724; font-weight: bold; margin-bottom: 8px; font-size: 16px; }
+        
         .bottom-buttons { display: flex; justify-content: center; align-items: center; gap: 15px; padding: 20px 0 40px; }
-        @media(max-width: 600px) {
-            .header { padding: 10px; }
-            .brand { font-size: 16px; }
-            .header-right { width: 100%; justify-content: space-between; }
-            .container { padding: 10px; }
-            .question-card { padding: 15px; }
-            .timer { font-size: 16px; padding: 8px 10px; }
+        
+        @media(max-width: 768px) {
+            .header { padding: 12px 15px; }
+            .brand { font-size: 18px; }
+            .site-logo { width: 36px; height: 36px; }
+            .container { padding: 15px; }
+            .question-card { padding: 16px; }
+            .option-label { padding: 12px; font-size: 15px; }
         }
         @media print {
-            .header, .bottom-buttons { display: none !important; }
+            .header-left button, .header-right, .bottom-buttons { display: none !important; }
+            .question-card { break-inside: avoid; border: 1px solid #000; margin-bottom: 20px; }
             body { background: white; }
-            .question-card { break-inside: avoid; border: 1px solid #000; margin-bottom: 15px; page-break-inside: avoid; }
         }
     </style>
 </head>
 <body>
-    <header class="header">
+
+<header class="header">
+    <div class="header-left">
+        <!-- नया बैक बटन हेडर में शामिल -->
+        <button class="back-btn" onclick="goBack()">⬅ Back</button>
         <div class="brand">
-            <span>MPPSC MCQ Hub - Unit 1 Specially Designed</span>
+            <!-- MPPSC लोगो के लिए ऑनलाइन बैकअप पाथ दिया गया है ताकि लोगो न छूटे -->
+            <img src="mppsc-logo.jpg" alt="Logo" class="site-logo" onerror="this.src='https://wikimedia.org';">
+            <span>MPPSC MCQ Hub - Unit 1</span>
         </div>
-        <div class="header-right">
-            <div class="timer" id="timer">120:00</div>
-            <button class="pdf-btn" onclick="downloadPDF()">📥 Save PDF</button>
-        </div>
-    </header>
-    
-    <main class="container" id="quiz-area">
-        <div class="test-title-box">
-            <h2>MPPSC प्रारंभिक परीक्षा 2027 - अभ्यास मुख्य टेस्ट (Unit 1)</h2>
-            <p><b>विषय:</b> भारतवर्ष की संकल्पना, वेद, उपनिषद, श्रमण परंपरा एवं मध्य प्रदेश का इतिहास, संस्कृति, साहित्य, जनजातियाँ एवं प्रमुख राजवंश (संशोधित पाठ्यक्रम 2027 पर आधारित)</p>
-            <p><b>प्रश्नों की संख्या:</b> 50 | <b>पूर्णांक:</b> 100 अंक | <b>समय:</b> 120 मिनट</p>
-        </div>
+    </div>
+    <div class="header-right">
+        <div class="timer" id="timer">120:00</div>
+        <button class="pdf-btn" onclick="downloadPDF()">📥 Save PDF</button>
+    </div>
+</header>
 
-        <div class="score-board" id="score-board"></div>
+<main class="container" id="quiz-area">
+    <div class="score-board" id="score-board"></div>
 
-        <!-- QUESTION 1 -->
-        <div class="question-card" data-qnum="1" data-correct="C">
-            <div class="question-text">1. भारतीय संस्कृति की मूल अवधारणाओं में 'ऋणत्रय' (Three Debts) में कौन-सा शामिल नहीं है? / Which of the following is not included in the 'Rinatraya' (Three Debts) of Indian culture?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q1" value="A"> A. देव ऋण / Deva Rina (Debt to Gods)
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q1" value="B"> B. ऋषि ऋण / Rishi Rina (Debt to Sages)
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q1" value="C"> C. लोक ऋण / Loka Rina (Debt to Public/World)
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q1" value="D"> D. पितृ ऋण / Pitru Rina (Debt to Ancestors)
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: C. लोक ऋण / Loka Rina</div>
-                <div>सनातन संस्कृति में तीन मुख्य ऋण माने गए हैं: देव ऋण, ऋषि ऋण और पितृ ऋण। लोक ऋण इसमें शामिल नहीं है। / In Sanatan culture, three main debts are recognized: Deva Rina, Rishi Rina, and Pitru Rina.</div>
-            </div>
+    <!-- QUESTION 1 -->
+    <div class="question-card" data-qnum="1" data-correct="C">
+        <div class="question-text">1. सनातन संस्कृति में निम्नलिखित में से किसे 'ऋणत्रय' (तीन मुख्य ऋण) में शामिल नहीं किया गया है? / In Sanatan culture, which of the following is not included in the 'Rinatraya' (three main debts)?</div>
+        <div class="options-container">
+            <label class="option-label" data-id="A"><input type="radio" name="q1" value="A"> A. देव ऋण / Deva Rina (Debt to Gods)</label>
+            <label class="option-label" data-id="B"><input type="radio" name="q1" value="B"> B. ऋषि ऋण / Rishi Rina (Debt to Sages)</label>
+            <label class="option-label" data-id="C"><input type="radio" name="q1" value="C"> C. लोक ऋण / Loka Rina (Debt to Public/World)</label>
+            <label class="option-label" data-id="D"><input type="radio" name="q1" value="D"> D. पितृ ऋण / Pitru Rina (Debt to Ancestors)</label>
         </div>
-    
-        <!-- QUESTION 2 -->
-        <div class="question-card" data-qnum="2" data-correct="A">
-            <div class="question-text">2. मध्य प्रदेश की निम्नलिखित में से किस जनजाति को 'कबीले का राजा' या 'खुंटिया पटेल' से संबोधित किया जाता है? / Which tribe of Madhya Pradesh is addressed as 'King of Clan' or 'Khuntia Patel'?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q2" value="A"> A. सहरिया / Saharia
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q2" value="B"> B. बैगा / Baiga
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q2" value="C"> C. भारिया / Bharia
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q2" value="D"> D. भील / Bhil
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: A. सहरिया / Saharia</div>
-                <div>सहरिया जनजाति के मुखिया को 'खुंटिया पटेल' कहा जाता है। यह मध्य प्रदेश की एक विशेष रूप से कमजोर जनजाति (PVTG) है। / The head of the Saharia tribe is called Khuntia Patel.</div>
-            </div>
+        <div class="explanation-box">
+            <div class="correct-answer-text">सही उत्तर: C. लोक ऋण / Loka Rina</div>
+            सनातन संस्कृति में तीन मुख्य ऋण माने गए हैं: देव ऋण, ऋषि ऋण और पितृ ऋण। लोक ऋण इसमें शामिल नहीं है। / In Sanatan culture, three main debts are recognized: Deva Rina, Rishi Rina, and Pitru Rina. Loka Rina is not part of it.
         </div>
-    
-        <!-- QUESTION 3 -->
-        <div class="question-card" data-qnum="3" data-correct="B">
-            <div class="question-text">3. 'श्रमण परंपरा' (Shramana Tradition) का उदय मुख्य रूप से किस काल में हुआ और इसका मुख्य केंद्र क्या था? / In which period did the 'Shramana Tradition' primarily emerge and what was its core nature?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q3" value="A"> A. प्रारंभिक वैदिक काल - कर्मकांड आधारित / Early Vedic Period - Ritualistic
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q3" value="B"> B. उत्तर वैदिक काल एवं महाजनपद काल - वैदिक कर्मकांडों के विरुद्ध संन्यासी आंदोलन / Later Vedic & Mahajanapada Period - Ascetic movement against rituals
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q3" value="C"> C. मौर्योत्तर काल - पूर्णतः विदेशी प्रभाव / Post-Mauryan Period - Purely foreign influence
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q3" value="D"> D. गुप्त काल - भागवत धर्म का विस्तार / Gupta Period - Expansion of Bhagavata sect
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: B. उत्तर वैदिक काल एवं महाजनपद काल</div>
-                <div>श्रमण परंपरा (जैसे बौद्ध, जैन, आजीविका) ने वेदों की प्रामाणिकता और पशु बलि का विरोध किया और तपस्या व ज्ञान पर बल दिया। / Shramana traditions opposed Vedic rituals and emphasized asceticism.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 4 -->
-        <div class="question-card" data-qnum="4" data-correct="C">
-            <div class="question-text">4. मध्य प्रदेश के इतिहास में 'गढ़ा-कटंगा' (Garha-Katanga) राजवंश की प्रसिद्ध शासिका रानी दुर्गावती का संबंध किस वंश से था? / Queen Durgavati of the famous 'Garha-Katanga' dynasty belonged to which dynasty by birth?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q4" value="A"> A. परमार वंश / Paramara Dynasty
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q4" value="B"> B. बुंदेला वंश / Bundela Dynasty
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q4" value="C"> C. चंदेल वंश (महोबा) / Chandela Dynasty (Mahoba)
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q4" value="D"> D. कलचुरी वंश / Kalachuri Dynasty
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: C. चंदेल वंश (महोबा)</div>
-                <div>रानी दुर्गावती महोबा के चंदेल राजा कीर्तिसिंह की पुत्री थीं। उनका विवाह गोंडवाना के राजा दलपत शाह से हुआ था। / Queen Durgavati was a Chandela princess married into the Gond dynasty of Garha-Katanga.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 5 -->
-        <div class="question-card" data-qnum="5" data-correct="D">
-            <div class="question-text">5. 'सभा' और 'समिति' को प्रजापति की दो पुत्रियाँ किस वेद में कहा गया है? / In which Veda are 'Sabha' and 'Samiti' described as the two daughters of Prajapati?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q5" value="A"> A. ऋग्वेद / Rigveda
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q5" value="B"> B. सामवेद / Samaveda
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q5" value="C"> C. यजुर्वेद / Yajurveda
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q5" value="D"> D. अथर्ववेद / Atharvaveda
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: D. अथर्ववेद / Atharvaveda</div>
-                <div>अथर्ववेद में प्रजातांत्रिक संस्थाओं 'सभा' और 'समिति' को प्रजापति (सृष्टिकर्ता) की दो पुत्रियाँ कहा गया है। / Atharvaveda states that Sabha and Samiti are the two daughters of Prajapati.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 6 -->
-        <div class="question-card" data-qnum="6" data-correct="A">
-            <div class="question-text">6. धार के प्रसिद्ध 'भोजशाला' (Bhojshala) मंदिर में किस देवी की प्रतिमा स्थापित थी, जो वर्तमान में लंदन के संग्रहालय में है? / Which deity's idol was installed in the famous 'Bhojshala' temple of Dhar, currently in a London museum?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q6" value="A"> A. वाग्देवी (सरस्वती) / Vagdevi (Saraswati)
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q6" value="B"> B. महाकाली / Mahakali
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q6" value="C"> C. माता पार्वती / Goddess Parvati
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q6" value="D"> D. माँ लक्ष्मी / Goddess Lakshmi
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: A. वाग्देवी (सरस्वती)</div>
-                <div>राजा भोज द्वारा निर्मित धार की भोजशाला एक प्रसिद्ध संस्कृत अध्ययन केंद्र और वाग्देवी (सरस्वती) का मंदिर थी। / King Bhoj built the Bhojshala temple dedicated to Goddess Vagdevi (Saraswati).</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 7 -->
-        <div class="question-card" data-qnum="7" data-correct="B">
-            <div class="question-text">7. मध्य प्रदेश में 1857 के स्वतंत्रता संग्राम के दौरान 'भीमा नायक' ने किस क्षेत्र से विद्रोह का नेतृत्व किया था? / From which region did 'Bhima Nayak' lead the revolt during the 1857 Freedom Struggle in MP?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q7" value="A"> A. महाकौशल / Mahakoshal
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q7" value="B"> B. निमाड़ / Nimar (Barwani)
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q7" value="C"> C. बुंदेलखंड / Bundelkhand
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q7" value="D"> D. मालवा / Malwa
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: B. निमाड़ / Nimar (Barwani)</div>
-                <div>भीमा नायक को 'निमाड़ का रॉबिनहुड' कहा जाता है। उन्होंने निमाड़ क्षेत्र (बड़वानी) से अंग्रेजों के खिलाफ विद्रोह का बिगुल फूंका था। / Bhima Nayak led the 1857 uprising from the Nimar region.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 8 -->
-        <div class="question-card" data-qnum="8" data-correct="D">
-            <div class="question-text">8. प्रसिद्ध लोक साहित्यकार 'ईसुरी' (Isuri) का संबंध मध्य प्रदेश के किस आंचलिक क्षेत्र से है? / With which regional area of Madhya Pradesh is the famous folk writer 'Isuri' associated?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q8" value="A"> A. मालवा / Malwa
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q8" value="B"> B. निमाड़ / Nimar
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q8" value="C"> C. बघेलखंड / Baghelkhand
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q8" value="D"> D. बुंदेलखंड / Bundelkhand
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: D. बुंदेलखंड / Bundelkhand</div>
-                <div>संत ईसुरी को बुंदेलखंड का जयदेव कहा जाता है। उनकी 'ईसुरी की फागें' बुंदेलखंड क्षेत्र में अत्यधिक प्रसिद्ध हैं। / Isuri is deeply associated with the Bundelkhand region and famous for his Phags.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 9 -->
-        <div class="question-card" data-qnum="9" data-correct="A">
-            <div class="question-text">9. निम्नलिखित में से कौन-सा उपनिषद सबसे छोटा माना जाता है, जिसमें केवल 18 मंत्र हैं? / Which of the following Upanishads is considered the shortest, containing only 18 verses?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q9" value="A"> A. ईशोपनिषद / Ishopanishad
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q9" value="B"> B. मुण्डकोपनिषद / Mundakopanishad
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q9" value="C"> C. कठोपनिषद / Kathopanishad
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q9" value="D"> D. छान्दोग्य उपनिषद / Chandogya Upanishad
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: A. ईशोपनिषद / Ishopanishad</div>
-                <div>ईशोपनिषद (यजुर्वेद का भाग) आकार में सबसे छोटा है और इसमें केवल 18 श्लोक/मंत्र हैं। / Ishopanishad is widely recognized as the shortest major Upanishad.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 10 -->
-        <div class="question-card" data-qnum="10" data-correct="C">
-            <div class="question-text">10. मध्य प्रदेश की प्रसिद्ध गुफाएँ 'उदयगिरि की गुफाएँ' (Udayagiri Caves) किस जिले में स्थित हैं और इनका संबंध मुख्य रूप से किस काल से है? / In which district are the famous 'Udayagiri Caves' located, and to which period do they primarily belong?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q10" value="A"> A. रायसेन - मौर्य काल / Raisen - Mauryan Period
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q10" value="B"> B. धार - परमार काल / Dhar - Paramara Period
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q10" value="C"> C. विदिशा - गुप्त काल / Vidisha - Gupta Period
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q10" value="D"> D. सीहोर - शुंग काल / Sehore - Shunga Period
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: C. विदिशा - गुप्त काल</div>
-                <div>विदिशा के पास स्थित उदयगिरि की गुफाएँ गुप्त साम्राज्य के शासनकाल (चंद्रगुप्त द्वितीय) के दौरान निर्मित हुईं। गुफा संख्या 5 में भगवान विष्णु का वराह अवतार प्रसिद्ध है। / Udayagiri caves are in Vidisha, featuring prominent Gupta art and the Varaha avatar.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 11 -->
-        <div class="question-card" data-qnum="11" data-correct="B">
-            <div class="question-text">11. 'षड्दर्शन' (Six Schools of Indian Philosophy) के अंतर्गत 'सांख्य दर्शन' के मूल प्रवर्तक कौन माने जाते हैं? / Who is considered the original propounder of 'Samkhya Philosophy' under Shad-Darshana?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q11" value="A"> A. महर्षि कणाद / Maharishi Kanada
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q11" value="B"> B. महर्षि कपिल / Maharishi Kapila
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q11" value="C"> C. महर्षि गौतम / Maharishi Gautama
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q11" value="D"> D. महर्षि पतंजलि / Maharishi Patanjali
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: B. महर्षि कपिल / Maharishi Kapila</div>
-                <div>सांख्य दर्शन सबसे प्राचीन दर्शन माना जाता है, जिसके प्रणेता महर्षि कपिल हैं। कणाद वैशेषिक के और गौतम न्याय दर्शन के प्रवर्तक हैं। / Maharishi Kapila is the founder of Samkhya philosophy.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 12 -->
-        <div class="question-card" data-qnum="12" data-correct="D">
-            <div class="question-text">12. निम्नलिखित में से कौन-सा युग्म (dynasty and capital) सुमेलित नहीं है? / Which of the following pairs (Dynasty and Capital in MP history) is NOT correctly matched?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q12" value="A"> A. चंदेल - खजुराहो / Chandela - Khajuraho
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q12" value="B"> B. परमार - धार / Paramara - Dhar
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q12" value="C"> C. होलकर - इंदौर / Holkar - Indore
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q12" value="D"> D. कलचुरी - ग्वालियर / Kalachuri - Gwalior
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: D. कलचुरी - ग्वालियर</div>
-                <div>कलचुरी राजवंश की राजधानी त्रिपुरी (जबलपुर के पास) थी, जबकि ग्वालियर पर तोमर और सिंधिया राजाओं का शासन था। / The capital of the Kalachuri dynasty was Tripuri, not Gwalior.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 13 -->
-        <div class="question-card" data-qnum="13" data-correct="A">
-            <div class="question-text">13. बुंदेला विद्रोह (1842) के दौरान अंग्रेजों के छक्के छुड़ाने वाले राजा 'मर्दन सिंह' कहाँ के शासक थे? / During the Bundela Rebellion (1842), Raja Mardan Singh, who fiercely fought the British, was the ruler of which region?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q13" value="A"> A. बानपुर / Banpur
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q13" value="B"> B. शाहगढ़ / Shahgarh
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q13" value="C"> C. जैतपुर / Jaitpur
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q13" value="D"> D. हीरापुर / Hirapur
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: A. बानपुर</div>
-                <div>राजा मर्दन सिंह बानपुर के राजा थे और उनके सहयोगी राजा बखत बली शाहगढ़ के शासक थे। दोनों ने मिलकर 1842 और 1857 के संग्रामों में सक्रिय भूमिका निभाई। / Raja Mardan Singh was the ruler of Banpur.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 14 -->
-        <div class="question-card" data-qnum="14" data-correct="B">
-            <div class="question-text">14. पुरातत्व स्थल 'कायथा' (Kayatha) मध्य प्रदेश के किस जिले में स्थित है और यह किस नदी के किनारे विकसित हुआ? / Archaeological site 'Kayatha' is located in which district of MP and on the banks of which river?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q14" value="A"> A. इंदौर - खान नदी / Indore - Khan River
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q14" value="B"> B. उज्जैन - छोटी काली सिंध नदी / Ujjain - Choti Kali Sindh River
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q14" value="C"> C. खरगोन - नर्मदा नदी / Khargone - Narmada River
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q14" value="D"> D. सागर - बीना नदी / Sagar - Bina River
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: B. उज्जैन - छोटी काली सिंध नदी</div>
-                <div>कायथा मध्य प्रदेश की पहली ताम्रपाषाणिक (Chalcolithic) संस्कृति का स्थल है, जो वराहमिहिर की जन्मस्थली भी मानी जाती है। / Kayatha is a premier Chalcolithic site located in Ujjain district.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 15 -->
-        <div class="question-card" data-qnum="15" data-correct="C">
-            <div class="question-text">15. अष्टांग योग (Eightfold Path of Yoga) का सही क्रम क्या है? / What is the correct chronological sequence of Ashtanga Yoga by Patanjali?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q15" value="A"> A. यम, नियम, आसन, प्राणायाम, ध्यान, धारणा, प्रत्याहार, समाधि
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q15" value="B"> B. आसन, प्राणायाम, यम, नियम, प्रत्याहार, धारणा, ध्यान, समाधि
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q15" value="C"> C. यम, नियम, आसन, प्राणायाम, प्रत्याहार, धारणा, ध्यान, समाधि
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q15" value="D"> D. यम, नियम, प्राणायाम, आसन, धारणा, प्रत्याहार, ध्यान, समाधि
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: C. यम, नियम, आसन, प्राणायाम, प्रत्याहार, धारणा, ध्यान, समाधि</div>
-                <div>पतंजलि योगसूत्र के अनुसार आठ अंग हैं: यम, नियम, आसन, प्राणायाम, प्रत्याहार, धारणा, ध्यान और समाधि। / The exact sequence is Yama, Niyama, Asana, Pranayama, Pratyahara, Dharana, Dhyana, Samadhi.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 16 -->
-        <div class="question-card" data-qnum="16" data-correct="A">
-            <div class="question-text">16. मध्य प्रदेश की 'पिथौरा भित्तिचित्र' (Pithora Wall Paintings) कला के लिए प्रसिद्ध कलाकार पेमा फाल्या का संबंध किस जनजाति से था? / Pema Falya, the legendary artist of 'Pithora Wall Painting', belonged to which tribe?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q16" value="A"> A. भील जनजाति / Bhil Tribe
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q16" value="B"> B. गोंड जनजाति / Gond Tribe
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q16" value="C"> C. कोरकू जनजाति / Korku Tribe
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q16" value="D"> D. कोल जनजाति / Kol Tribe
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: A. भील जनजाति / Bhil Tribe</div>
-                <div>पेमा फाल्या भील जनजाति के एक महान पिथौरा चित्रकार थे। पिथौरा पेंटिंग भीलों का एक पवित्र अनुष्ठानिक भित्तिचित्र है। / Pema Falya was a legendary Pithora painter belonging to the Bhil tribe.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 17 -->
-        <div class="question-card" data-qnum="17" data-correct="C">
-            <div class="question-text">17. 'झंडा सत्याग्रह' (Flag Satyagraha - 1923) का प्रारंभ मध्य प्रदेश के किस शहर से हुआ था? / From which city of Madhya Pradesh did the historic 'Flag Satyagraha' of 1923 begin?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q17" value="A"> A. इंदौर / Indore
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q17" value="B"> B. भोपाल / Bhopal
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q17" value="C"> C. जबलपुर / Jabalpur
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q17" value="D"> D. सागर / Sagar
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: C. जबलपुर / Jabalpur</div>
-                <div>1923 में झंडा सत्याग्रह जबलपुर से शुरू हुआ था और बाद में इसका नेतृत्व नागपुर में बड़े पैमाने पर किया गया। / The Flag Satyagraha initiated from Jabalpur in 1923.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 18 -->
-        <div class="question-card" data-qnum="18" data-correct="B">
-            <div class="question-text">18. प्राचीन काल में 'अवंती' महाजनपद की उत्तरी राजधानी उज्जैनी थी, इसकी दक्षिणी राजधानी का क्या नाम था? / In ancient times, Ujjaini was the northern capital of Avanti Mahajanapada. What was the name of its southern capital?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q18" value="A"> A. विदिशा / Vidisha
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q18" value="B"> B. माहिष्मती / Mahishmati
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q18" value="C"> C. त्रिपुरी / Tripuri
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q18" value="D"> D. पद्मावती / Padmavati
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: B. माहिष्मती / Mahishmati</div>
-                <div>अवंती महाजनपद दो भागों में विभाजित था। उत्तरी अवंती की राजधानी उज्जैनी थी और दक्षिणी अवंती की राजधानी माहिष्मती (वर्तमान महेश्वर) थी। / Mahishmati was the southern capital of Avanti Mahajanapada.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 19 -->
-        <div class="question-card" data-qnum="19" data-correct="D">
-            <div class="question-text">19. वैदिक आख्यानों के अनुसार 'पुराणों' (Puranas) की कुल संख्या कितनी है और इनमें से सबसे प्राचीन पुराण किसे माना जाता है? / According to Vedic traditions, what is the total number of Puranas and which one is the oldest?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q19" value="A"> A. 108 - विष्णु पुराण / 108 - Vishnu Purana
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q19" value="B"> B. 18 - शिव पुराण / 18 - Shiva Purana
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q19" value="C"> C. 12 - भागवत पुराण / 12 - Bhagavata Purana
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q19" value="D"> D. 18 - मत्स्य पुराण / 18 - Matsya Purana
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: D. 18 - मत्स्य पुराण</div>
-                <div>कुल पुराणों की संख्या 18 है, जिनमें से 'मत्स्य पुराण' को सबसे प्राचीन और प्रामाणिक माना जाता है। इसमें सातवाहन वंश का विवरण मिलता है। / There are 18 Puranas, with Matsya Purana being the oldest.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 20 -->
-        <div class="question-card" data-qnum="20" data-correct="A">
-            <div class="question-text">20. 'सफेद शेर की भूमि' (Land of White Tigers) मध्य प्रदेश के किस जिले या रियासत को ऐतिहासिक रूप से कहा जाता है? / Which district or princely state of Madhya Pradesh is historically called the 'Land of White Tigers'?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q20" value="A"> A. रीवा / Rewa
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q20" value="B"> B. शहडोल / Shahdol
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q20" value="C"> C. पन्ना / Panna
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q20" value="D"> D. मंडला / Mandla
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: A. रीवा / Rewa</div>
-                <div>रीवा के महाराजा मार्तंड सिंह ने 1951 में पहले सफेद शेर 'मोहन' को पकड़ा था, जिसके बाद रीवा को सफेद शेरों की भूमि कहा जाने लगा। / Rewa state is historically celebrated as the Land of White Tigers.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 21 -->
-        <div class="question-card" data-qnum="21" data-correct="C">
-            <div class="question-text">21. मध्य प्रदेश की प्रसिद्ध वीरांगना 'रानी अवंतीबाई' कहाँ की शासिका थीं? / Where was the famous heroic queen 'Rani Avantibai' of Madhya Pradesh the ruler of?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q21" value="A"> A. झाँसी / Jhansi
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q21" value="B"> B. ओरछा / Orchha
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q21" value="C"> C. रामगढ़ / Ramgarh (Dindori)
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q21" value="D"> D. धार / Dhar
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: C. रामगढ़ / Ramgarh (Dindori)</div>
-                <div>रानी अवंतीबाई रामगढ़ (वर्तमान डिंडोरी जिला) की शासिका थीं। उन्होंने 1857 की क्रांति में अंग्रेजों के विरुद्ध वीरतापूर्वक युद्ध किया था। / Rani Avantibai led the rebellion from Ramgarh.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 22 -->
-        <div class="question-card" data-qnum="22" data-correct="B">
-            <div class="question-text">22. पुरुषार्थ (Four Purusharthas) का सही अनुक्रम क्या है जो मानव जीवन के चार उद्देश्यों को दर्शाता है? / What is the correct sequence of the four Purusharthas representing life objectives?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q22" value="A"> A. धर्म, काम, अर्थ, मोक्ष
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q22" value="B"> B. धर्म, अर्थ, काम, मोक्ष
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q22" value="C"> C. अर्थ, धर्म, काम, मोक्ष
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q22" value="D"> D. काम, अर्थ, धर्म, मोक्ष
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: B. धर्म, अर्थ, काम, मोक्ष</div>
-                <div>वैदिक सनातन परंपरा में चार पुरुषार्थ हैं: धर्म, अर्थ, काम और अंतिम लक्ष्य मोक्ष। / The traditional sequential order is Dharma, Artha, Kama, and Moksha.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 23 -->
-        <div class="question-card" data-qnum="23" data-correct="D">
-            <div class="question-text">23. भोपाल रियासत की प्रसिद्ध बेगमों में से किसने 'ताज-उल-मसाजिद' (Taj-ul-Masajid) का निर्माण कार्य प्रारंभ करवाया था? / Who among the famous Begums of Bhopal state started the construction of the Taj-ul-Masajid?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q23" value="A"> A. कुदसिया बेगम / Qudsia Begum
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q23" value="B"> B. सिकंदर जहां बेगम / Sikandar Jahan Begum
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q23" value="C"> C. सुल्तान जहां बेगम / Sultan Jahan Begum
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q23" value="D"> D. शाहजहाँ बेगम / Shah Jahan Begum
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: D. शाहजहाँ बेगम / Shah Jahan Begum</div>
-                <div>भोपाल स्थित भारत की सबसे बड़ी मस्जिदों में से एक, ताज-उल-मसाजिद का निर्माण शाहजहाँ बेगम ने शुरू करवाया था और बाद में इसे पूर्ण कराया गया। / Shah Jahan Begum initiated the building of Taj-ul-Masajid.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 24 -->
-        <div class="question-card" data-qnum="24" data-correct="A">
-            <div class="question-text">24. चंदेल शासक 'विद्याधर' ने खजुराहो में किस भव्य मंदिर का निर्माण करवाया था, जो यहाँ का सबसे बड़ा मंदिर है? / Which grand temple in Khajuraho was built by the Chandela ruler 'Vidyadhara', representing the largest temple there?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q24" value="A"> A. कंदारिया महादेव मंदिर / Kandariya Mahadev Temple
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q24" value="B"> B. लक्ष्मण मंदिर / Lakshmana Temple
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q24" value="C"> C. चौंसठ योगिनी मंदिर / Chausath Yogini Temple
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q24" value="D"> D. चित्रगुप्त मंदिर / Chitragupta Temple
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: A. कंदारिया महादेव मंदिर</div>
-                <div>राजा विद्याधर ने महमूद गजनवी पर अपनी विजय के उपलक्ष्य में कंदारिया महादेव मंदिर (लगभग 1025-1050 ईस्वी) का निर्माण करवाया था। / Kandariya Mahadev Temple was constructed by King Vidyadhara.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 25 -->
-        <div class="question-card" data-qnum="25" data-correct="B">
-            <div class="question-text">25. मध्य प्रदेश के मालवा अंचल का प्रसिद्ध लोक नाट्य कौन-सा है? / Which is the most popular traditional folk drama of the Malwa region of Madhya Pradesh?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q25" value="A"> A. राई / Rai
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q25" value="B"> B. माच / Maach
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q25" value="C"> C. नौटंकी / Nautanki
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q25" value="D"> D. काठी / Kathi
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: B. माच / Maach</div>
-                <div>'माच' मालवा का प्रमुख लोक नाट्य है और यह मध्य प्रदेश का राजकीय लोक नाट्य भी है। राई बुंदेलखंड का लोक नृत्य है। / Maach is the state folk drama of MP, deeply rooted in Malwa.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 26 -->
-        <div class="question-card" data-qnum="26" data-correct="C">
-            <div class="question-text">26. भारतवर्ष (Bharatvarsha) नाम का सर्वप्रथम स्पष्ट भौगोलिक व ऐतिहासिक उल्लेख किस प्राचीन अभिलेख में मिलता है? / In which ancient inscription is the name 'Bharatvarsha' first explicitly mentioned in a geographical context?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q26" value="A"> A. जूनागढ़ अभिलेख (रुद्रदामन) / Junagadh Inscription
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q26" value="B"> B. ऐहोल अभिलेख (पुलकेशिन द्वितीय) / Aihole Inscription
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q26" value="C"> C. हाथीगुम्फा अभिलेख (खारवेल) / Hathigumpha Inscription of Kharavela
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q26" value="D"> D. प्रयाग प्रशस्ति (समुद्रगुप्त) / Prayaga Prashasti
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: C. हाथीगुम्फा अभिलेख (खारवेल)</div>
-                <div>कलिंग राजा खारवेल के हाथीगुम्फा अभिलेख में प्राकृत भाषा में 'भरतवस' (भारतवर्ष) शब्द का सर्वप्रथम भौगोलिक उल्लेख मिलता है। / The earliest epigraphic mention of Bharatvarsha occurs in the Hathigumpha inscription.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 27 -->
-        <div class="question-card" data-qnum="27" data-correct="A">
-            <div class="question-text">27. बुंदेला राजवंश के किस प्रतापी राजा ने 'ओरछा' (Orchha) को बुंदेलखंड की राजधानी बनाया था? / Which prominent king of the Bundela dynasty established 'Orchha' as the capital of Bundelkhand?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q27" value="A"> A. राजा रुद्रप्रताप देव / Raja Rudra Pratap Dev
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q27" value="B"> B. राजा छत्रसाल / Raja Chhatrasal
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q27" value="C"> C. वीरसिंह देव बुंदेला / Veer Singh Dev Bundela
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q27" value="D"> D. मधुकर शाह / Madhukar Shah
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: A. राजा रुद्रप्रताप देव</div>
-                <div>राजा रुद्रप्रताप देव ने 1531 ई. में ओरछा शहर की स्थापना की और इसे अपनी राजधानी बनाया। / Raja Rudra Pratap Dev founded Orchha and declared it his capital in 1531.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 28 -->
-        <div class="question-card" data-qnum="28" data-correct="D">
-            <div class="question-text">28. 'चटकोरा नृत्य' (Chatkora Dance) मध्य प्रदेश की किस जनजाति का प्रमुख पारंपरिक नृत्य है? / 'Chatkora Dance' is a major traditional folk dance of which tribe in Madhya Pradesh?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q28" value="A"> A. भील / Bhil
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q28" value="B"> B. गोंड / Gond
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q28" value="C"> C. बैगा / Baiga
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q28" value="D"> D. कोरकू / Korku
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: D. कोरकू / Korku</div>
-                <div>चटकोरा नृत्य कोरकू जनजाति द्वारा किया जाने वाला एक अत्यंत लोकप्रिय लोकनृत्य है। / Chatkora is an exclusive folk dance ritual of the Korku tribe.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 29 -->
-        <div class="question-card" data-qnum="29" data-correct="B">
-            <div class="question-text">29. महाकवि कालिदास द्वारा रचित 'मालविकाग्निमित्रम्' (Malavikagnimitram) नाटक के नायक अग्निमित्र शुंग का संबंध मध्य प्रदेश के किस प्राचीन स्थान से था? / Agnimitra Shunga, the hero of Kalidasa's play 'Malavikagnimitram', governed which ancient location in MP?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q29" value="A"> A. उज्जैनी / Ujjaini
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q29" value="B"> B. विदिशा (भिलसा) / Vidisha (Bhilsa)
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q29" value="C"> C. महेशमती / Mahishmati
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q29" value="D"> D. त्रिपुरी / Tripuri
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: B. विदिशा (भिलसा)</div>
-                <div>अग्निमित्र शुंग, शुंग राजवंश के संस्थापक पुष्यमित्र शुंग का पुत्र था और वह विदिशा का वाइसरॉय (राज्यपाल) था। / Agnimitra served as the viceroy of Vidisha under the Shunga dynasty.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 30 -->
-        <div class="question-card" data-qnum="30" data-correct="C">
-            <div class="question-text">30. प्रसिद्ध स्वतंत्रता सेनानी 'तात्या तोपे' को मध्य प्रदेश के किस स्थान पर फाँसी दी गई थी? / At which place in Madhya Pradesh was the legendary freedom fighter 'Tatya Tope' hanged by the British?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q30" value="A"> A. ग्वालियर / Gwalior
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q30" value="B"> B. झाँसी / Jhansi
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q30" value="C"> C. शिवपुरी / Shivpuri
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q30" value="D"> D. गुणा / Guna
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: C. शिवपुरी / Shivpuri</div>
-                <div>तात्या तोपे को 18 अप्रैल 1859 को शिवपुरी के जंगलों में पकड़कर फाँसी दे दी गई थी। उनकी समाधि भी शिवपुरी में स्थित है। / Tatya Tope was hanged at Shivpuri on April 18, 1859.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 31 -->
-        <div class="question-card" data-qnum="31" data-correct="A">
-            <div class="question-text">31. 'आरण्यक' (Aranyakas) ग्रंथों का मुख्य प्रतिपाद्य विषय क्या है? / What is the primary focal theme of the 'Aranyaka' texts?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q31" value="A"> A. वन में किए जाने वाले दार्शनिक और रहस्यमयी चिंतन / Philosophical and mystical thinking in forests
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q31" value="B"> B. युद्ध नीतियाँ और अस्त्र-शस्त्र का वर्णन / War strategies and weaponry
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q31" value="C"> C. केवल संगीत और गायन पद्धतियाँ / Music and vocal patterns only
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q31" value="D"> D. करों का लेखा-जोखा / Auditing and taxation accounts
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: A. वन में किए जाने वाले दार्शनिक चिंतन</div>
-                <div>आरण्यक का अर्थ है 'वन में लिखा जाने वाला'। यह वेदों का वह भाग है जो कर्मकांड और उपनिषदों के ज्ञानमार्ग के बीच की कड़ी है। / Aranyakas contain forest-based mystic teachings.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 32 -->
-        <div class="question-card" data-qnum="32" data-correct="D">
-            <div class="question-text">32. ग्वालियर के 'सिंधिया राजवंश' (Scindia Dynasty) के संस्थापक कौन थे? / Who was the founder of the 'Scindia Dynasty' of Gwalior?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q32" value="A"> A. महादजी सिंधिया / Mahadji Scindia
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q32" value="B"> B. जीवाजीराव सिंधिया / Jiwajirao Scindia
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q32" value="C"> C. दौलतराव सिंधिया / Daulatrao Scindia
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q32" value="D"> D. राणोजी सिंधिया / Ranoji Scindia
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: D. राणोजी सिंधिया / Ranoji Scindia</div>
-                <div>राणोजी सिंधिया ने 1731 के आसपास मध्य प्रदेश में सिंधिया वंश की नींव रखी थी। प्रारंभ में इनकी राजधानी उज्जैन थी। / Ranoji Scindia founded the Scindia line of Maratha commanders.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 33 -->
-        <div class="question-card" data-qnum="33" data-correct="B">
-            <div class="question-text">33. मध्य प्रदेश के इतिहास में 'चरण पादुका नरसंहार' (Charan Paduka Massacre) किस वर्ष हुआ था, जिसे 'मध्य प्रदेश का जलियावाला बाग' कहा जाता है? / In which year did the 'Charan Paduka Massacre' (Jallianwala Bagh of MP) take place?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q33" value="A"> A. 1920
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q33" value="B"> B. 1931
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q33" value="C"> C. 1942
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q33" value="D"> D. 1919
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: B. 1931</div>
-                <div>14 जनवरी 1931 (मकर संक्रांति के दिन) को छतरपुर जिले में उर्मिल नदी के तट पर शांतिपूर्ण सभा कर रहे लोगों पर ब्रिटिश कर्नल फिशर ने गोलियां चलवाई थीं। / The Charan Paduka firing incident took place on Jan 14, 1931.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 34 -->
-        <div class="question-card" data-qnum="34" data-correct="C">
-            <div class="question-text">34. निम्नलिखित में से कौन-सी जनजाति मध्य प्रदेश में मुख्य रूप से 'भगोरिया हाट' (Bhagoria Haat) उत्सव मनाती है? / Which tribe of Madhya Pradesh primarily celebrates the famous 'Bhagoria Haat' festival?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q34" value="A"> A. गोंड / Gond
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q34" value="B"> B. बैगा / Baiga
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q34" value="C"> C. भील / Bhil
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q34" value="D"> D. सहरिया / Saharia
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: C. भील / Bhil</div>
-                <div>भगोरिया हाट उत्सव भील जनजाति का एक प्रसिद्ध सांस्कृतिक और होली के समय मनाया जाने वाला मेला/उत्सव है, जो झाबुआ-अलीराजपुर क्षेत्र में लोकप्रिय है। / Bhagoria Haat is a landmark festival of the Bhil tribe.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 35 -->
-        <div class="question-card" data-qnum="35" data-correct="A">
-            <div class="question-text">35. जैन धर्म के प्रथम तीर्थंकर 'ऋषभदेव' (Adinath) का उल्लेख किस प्राचीन वैदिक ग्रंथ में मिलता है? / The first Tirthankara of Jainism, 'Rishabhadeva', is mentioned in which ancient Vedic text?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q35" value="A"> A. ऋग्वेद / Rigveda
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q35" value="B"> B. अथर्ववेद / Atharvaveda
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q35" value="C"> C. शतपथ ब्राह्मण / Shatapatha Brahmana
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q35" value="D"> D. सामवेद / Samaveda
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: A. ऋग्वेद / Rigveda</div>
-                <div>ऋग्वेद में जैन धर्म के तीर्थंकरों ऋषभदेव और अरिष्टनेमि का स्पष्ट उल्लेख प्राप्त होता है। / Rigveda explicitly mentions the Jain Tirthankara Rishabhadeva.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 36 -->
-        <div class="question-card" data-qnum="36" data-correct="D">
-            <div class="question-text">36. मांडू (धार) में स्थित 'जहाज महल' (Jahaz Mahal) का निर्माण किस सुल्तान ने करवाया था? / Which Sultan ordered the construction of the famous 'Jahaz Mahal' in Mandu?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q36" value="A"> A. होशंग शाह / Hoshang Shah
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q36" value="B"> B. बाज बहादुर / Baz Bahadur
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q36" value="C"> C. अलाउद्दीन खिलजी / Alauddin Khilji
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q36" value="D"> D. गयासुद्दीन खिलजी / Ghiyas-ud-din Khilji
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: D. गयासुद्दीन खिलजी / Ghiyas-ud-din Khilji</div>
-                <div>मांडू के जहाज महल का निर्माण मालवा के खिलजी सुल्तान गयासुद्दीन खिलजी ने 15वीं शताब्दी में करवाया था। यह दो तालाबों (कपूर और मुंज) के बीच निर्मित है। / Jahaz Mahal was constructed under Ghiyas-ud-din Khilji.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 37 -->
-        <div class="question-card" data-qnum="37" data-correct="B">
-            <div class="question-text">37. भरथरी (Bhartahari) लोक गायन शैली मध्य प्रदेश के किस अंचल में विशेष रूप से प्रचलित है? / The 'Bhartahari' folk singing style is predominantly active in which region of MP?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q37" value="A"> A. बुंदेलखंड / Bundelkhand
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q37" value="B"> B. मालवा / Malwa
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q37" value="C"> C. बघेलखंड / Baghelkhand
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q37" value="D"> D. महाकौशल / Mahakoshal
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: B. मालवा / Malwa</div>
-                <div>भरथरी नाथ संप्रदाय के लोगों द्वारा मालवा क्षेत्र में गाया जाता है, जिसमें राजा भरथरी और रानी पिंगला की कथा होती है। चिंकारा वादक इसमें मुख्य भूमिका निभाता है। / Bhartahari singing is unique to the Malwa cultural region.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 38 -->
-        <div class="question-card" data-qnum="38" data-correct="A">
-            <div class="question-text">38. सांची के स्तूप (Sanchi Stupa) की खोज सर्वप्रथम 1818 में किसने की थी? / Who first discovered/recorded the ruins of Sanchi Stupa in the year 1818?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q38" value="A"> A. जनरल टेलर / General Taylor
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q38" value="B"> B. अलेक्जेंडर कनिंघम / Alexander Cunningham
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q38" value="C"> C. जॉन मार्शल / John Marshall
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q38" value="D"> D. जेम्स प्रिंसेप / James Prinsep
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: A. जनरल टेलर / General Taylor</div>
-                <div>1818 में जनरल टेलर ने सांची के स्तूपों की खोज की थी। बाद में सर जॉन मार्शल ने यहाँ पुरातत्व संग्रहालय की स्थापना कराई। / General Taylor discovered Sanchi Stupa artifacts in 1818.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 39 -->
-        <div class="question-card" data-qnum="39" data-correct="C">
-            <div class="question-text">39. हिंदू विवाह पद्धतियों में 'गांधर्व विवाह' (Gandharva Vivaha) का क्या अर्थ होता है? / In ancient Hindu marriage traditions, what does 'Gandharva Vivaha' mean?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q39" value="A"> A. माता-पिता द्वारा तय विवाह / Arranged marriage by parents
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q39" value="B"> B. अपहरण करके किया गया विवाह / Marriage by abduction
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q39" value="C"> C. प्रेम विवाह / Love marriage based on mutual consent
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q39" value="D"> D. मूल्य चुकाकर खरीदा गया विवाह / Purchase marriage
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: C. प्रेम विवाह / Love marriage</div>
-                <div>प्राचीन स्मृतियों में 8 प्रकार के विवाह बताए गए हैं। गांधर्व विवाह आधुनिक प्रेम विवाह (Love Marriage) का ही रूप माना जाता है। / Gandharva Vivaha corresponds to a mutual love or consent marriage.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 40 -->
-        <div class="question-card" data-qnum="40" data-correct="B">
-            <div class="question-text">40. इंदौर की प्रसिद्ध होळकर शासिका 'पुण्यश्लोक देवी अहिल्याबाई' के संदर्भ में कौन-सा कथन असत्य है? / Which statement is FALSE regarding the legendary Holkar ruler Devi Ahilyabai of Indore?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q40" value="A"> A. उन्होंने अपनी राजधानी इंदौर से महेश्वर स्थानांतरित की थी। / Shifted capital from Indore to Mahishmati/Maheshwar.
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q40" value="B"> B. वे मल्हारराव होळकर की सगी पुत्री (Real Daughter) थीं। / She was the real biological daughter of Malhar Rao Holkar.
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q40" value="C"> C. उन्होंने काशी विश्वनाथ मंदिर का पुनर्निर्माण करवाया था। / Rebuilt the Kashi Vishwanath Temple.
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q40" value="D"> D. उनके सेनापति का नाम तुकोजीराव होळकर था। / Her commander-in-chief was Tukoji Rao Holkar.
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: B. वे मल्हारराव होळकर की सगी पुत्री थीं।</div>
-                <div>अहिल्याबाई होळकर मल्हारराव होळकर की बहू (पुत्र खांडेराव की पत्नी) थीं, न कि सगी बेटी। बाकी सभी कथन पूर्णतः सत्य हैं। / Ahilyabai was the daughter-in-law of Malhar Rao Holkar.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 41 -->
-        <div class="question-card" data-qnum="41" data-correct="C">
-            <div class="question-text">41. 'सत्यमेव जयते' (Satyameva Jayate) वाक्य किस उपनिषद से लिया गया है? / From which Upanishad is the national motto slogan 'Satyameva Jayate' extracted?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q41" value="A"> A. कठोपनिषद / Kathopanishad
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q41" value="B"> B. बृहदारण्यक उपनिषद / Brihadaranyaka Upanishad
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q41" value="C"> C. मुण्डकोपनिषद / Mundakopanishad
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q41" value="D"> D. तैत्तिरीय उपनिषद / Taittiriya Upanishad
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: C. मुण्डकोपनिषद / Mundakopanishad</div>
-                <div>भारत का राष्ट्रीय आदर्श वाक्य 'सत्यमेव जयते' मुण्डकोपनिषद से उद्धृत है। / Satyameva Jayate is taken directly from the Mundaka Upanishad.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 42 -->
-        <div class="question-card" data-qnum="42" data-correct="A">
-            <div class="question-text">42. बुंदेलखंड के इतिहास में 'कड़क बिजली' (Kadak Bijli) किसका नाम था? / In the military history of Bundelkhand, what was 'Kadak Bijli'?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q42" value="A"> A. राजा छत्रसाल की प्रसिद्ध तोप / Famous cannon of Raja Chhatrasal
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q42" value="B"> B. रानी लक्ष्मीबाई की प्रिय घोड़ी / Favorite horse of Rani Lakshmibai
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q42" value="C"> C. एक प्रसिद्ध लोक नृत्य शैली / A notable folk dance style
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q42" value="D"> D. एक बुंदेली महिला क्रांतिकारी / A female revolutionary agent
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: A. राजा छत्रसाल की प्रसिद्ध तोप</div>
-                <div>कड़क बिजली महाराजा छत्रसाल की सेना की एक अत्यंत शक्तिशाली और प्रसिद्ध तोप का नाम था। / Kadak Bijli was a famous historical cannon belonging to Raja Chhatrasal.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 43 -->
-        <div class="question-card" data-qnum="43" data-correct="D">
-            <div class="question-text">43. मध्य प्रदेश की 'बैगा जनजाति' (Baiga Tribe) द्वारा की जाने वाली झूम कृषि (Shift Cultivation) को स्थानीय भाषा में क्या कहा जाता है? / What is the traditional shifting cultivation done by the Baiga tribe locally called?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q43" value="A"> A. चिमाता / Chimata
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q43" value="B"> B. दझिया / Dahiya
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q43" value="C"> C. झूमिंग / Jhuming
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q43" value="D"> D. बेवार या पेंडू / Bewar or Pendu
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: D. बेवार या पेंडू / Bewar or Pendu</div>
-                <div>बैगा जनजाति हल चलाना पाप मानती है क्योंकि वे धरती को माता मानते हैं, इसलिए वे झूम या कुदाली आधारित कृषि करते हैं जिसे 'बेवार' कहा जाता है। / Baiga's specific slash-and-burn farming method is called Bewar.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 44 -->
-        <div class="question-card" data-qnum="44" data-correct="A">
-            <div class="question-text">44. 'कादंबरी' और 'हर्षचरित' के रचयिता बाणभट्ट मध्य प्रदेश के किस शासक/क्षेत्र के समकालीन थे और उनका जन्म स्थान कहाँ माना जाता है? / Banabhatta, writer of 'Kadambari', was associated with which river region or court?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q44" value="A"> A. सम्राट हर्षवर्धन के दरबारी - सोन नदी घाटी (MP) / Emperor Harshavardhana's court - Son River valley
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q44" value="B"> B. राजा भोज के दरबारी - धार / King Bhoj's court - Dhar
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q44" value="C"> C. चंद्रगुप्त विक्रमादित्य के दरबारी - उज्जैन / Chandragupta II's court - Ujjain
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q44" value="D"> D. यशोधर्मन के दरबारी - मंदसौर / Yashodharman's court - Mandsaur
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: A. सम्राट हर्षवर्धन के दरबारी - सोन नदी घाटी</div>
-                <div>बाणभट्ट सम्राट हर्षवर्धन के राजकवि थे। उनका प्रारंभिक जीवन मध्य प्रदेश की सोन नदी के किनारे बीता था। / Banabhatta lived around the Son river basin and served Harshavardhana.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 45 -->
-        <div class="question-card" data-qnum="45" data-correct="C">
-            <div class="question-text">45. खजुराहो के मंदिरों (Khajuraho Temples) को यूनेस्को (UNESCO) की विश्व धरोहर सूची में किस वर्ष शामिल किया गया था? / In which year were the Khajuraho group of monuments added to the UNESCO World Heritage site list?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q45" value="A"> A. 1989
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q45" value="B"> B. 2003
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q45" value="C"> C. 1986
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q45" value="D"> D. 1995
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: C. 1986</div>
-                <div>खजुराहो के मंदिरों को 1986 में यूनेस्को सूची में शामिल किया गया था। यह मध्य प्रदेश का पहला स्थल था जिसे यह गौरव प्राप्त हुआ। (सांची - 1989, भीमबेटका - 2003) / Khajuraho was inducted into UNESCO in 1986.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 46 -->
-        <div class="question-card" data-qnum="46" data-correct="B">
-            <div class="question-text">46. ऋग्वेद के किस मंडल में प्रसिद्ध 'पुरुष सूक्त' (Purusha Sukta) का वर्णन है जिसमें पहली बार चतुर्वर्ण व्यवस्था का उल्लेख मिलता है? / In which Mandala of Rigveda is the famous 'Purusha Sukta' located, mentioning the four varnas?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q46" value="A"> A. तीसरे मंडल में / 3rd Mandala
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q46" value="B"> B. दसवें मंडल में / 10th Mandala
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q46" value="C"> C. नवें मंडल में / 9th Mandala
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q46" value="D"> D. सातवें मंडल में / 7th Mandala
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: B. दसवें मंडल में / 10th Mandala</div>
-                <div>ऋग्वेद के 10वें मंडल के पुरुष सूक्त में ब्राह्मण, क्षत्रिय, वैश्य और शूद्र की उत्पत्ति एक विराट पुरुष से बताई गई है। / Purusha Sukta is positioned inside the 10th Mandala.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 47 -->
-        <div class="question-card" data-qnum="47" data-correct="A">
-            <div class="question-text">47. मध्य प्रदेश के रीवा जिले में 1947 में हुआ 'त्रिभुवन तिवारी और भैरव प्रसाद' का बलिदान किस ऐतिहासिक कांड से संबंधित है? / The sacrifice of Tribhuvan Tiwari and Bhairav Prasad in 1947 is linked with which historical event in MP?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q47" value="A"> A. जबरिया लेवी वसूली विरोधी आंदोलन (कृषक आंदोलन) / Rewa Jabariya Levy Protest
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q47" value="B"> B. सोहावल का नरसंहार / Sohawal Massacre
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q47" value="C"> C. पंजाब मेल हत्याकांड / Punjab Mail Episode
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q47" value="D"> D. जंगल सत्याग्रह / Jungle Satyagraha
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: A. जबरिया लेवी वसूली विरोधी आंदोलन</div>
-                <div>रीवा राज्य में जबरन अनाज कर (लेवी) वसूली के खिलाफ आंदोलन करते हुए त्रिभुवन तिवारी और भैरव प्रसाद त्रिपाठी शहीद हुए थे। / They were martyred during the forceful grain levy protests.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 48 -->
-        <div class="question-card" data-qnum="48" data-correct="D">
-            <div class="question-text">48. मध्य प्रदेश के किस प्रसिद्ध कवि को 'एक भारतीय आत्मा' (An Indian Soul) के उपनाम से जाना जाता है? / Which famous poet of Madhya Pradesh is recognized by the moniker 'An Indian Soul'?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q48" value="A"> A. गजानन माधव 'मुक्तिबोध' / Gajanan Madhav Muktibodh
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q48" value="B"> B. सुभद्रा कुमारी चौहान / Subhadra Kumari Chauhan
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q48" value="C"> C. हरिशंकर परसाई / Harishankar Parsai
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q48" value="D"> D. माखनलाल चतुर्वेदी / Makhanlal Chaturvedi
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: D. माखनलाल चतुर्वेदी</div>
-                <div>पंडित माखनलाल चतुर्वेदी को 'एक भारतीय आत्मा' कहा जाता है। उनकी प्रसिद्ध रचना 'पुष्प की अभिलाषा' बिलासपुर जेल में लिखी गई थी। / Makhanlal Chaturvedi is highly famous as An Indian Soul.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 49 -->
-        <div class="question-card" data-qnum="49" data-correct="C">
-            <div class="question-text">49. रामायण काल के अनुसार मध्य प्रदेश के घने जंगलों का क्षेत्र किस नाम से जाना जाता था, जहाँ भगवान राम ने निर्वासन बिताया था? / According to the Ramayana era, the dense forest region of MP where Rama spent his exile was known as?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q49" value="A"> A. महाकांतार / Mahakantara
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q49" value="B"> B. रेवोत्तर / Revottara
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q49" value="C"> C. दंडकारण्य / Dandakaranya
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q49" value="D"> D. दशार्ण / Dasharna
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: C. दंडकारण्य / Dandakaranya</div>
-                <div>रामायण काल में मध्य प्रदेश और छत्तीसगढ़ के दक्षिणी घने वन क्षेत्रों को दंडकारण्य कहा जाता था। महाकांतार गुप्त काल के संदर्भ में मिलता है। / The ancient epic forest belt is referred to as Dandakaranya.</div>
-            </div>
-        </div>
-    
-        <!-- QUESTION 50 -->
-        <div class="question-card" data-qnum="50" data-correct="A">
-            <div class="question-text">50. 'भरहुत स्तूप' (Bharhut Stupa) मध्य प्रदेश के किस जिले में स्थित है और इसकी खोज किसने की थी? / In which district of MP is the 'Bharhut Stupa' located, and who discovered it?</div>
-            <div class="options-container">
-                <label class="option-label" data-id="A">
-                    <input type="radio" name="q50" value="A"> A. सतना - अलेक्जेंडर कनिंघम / Satna - Alexander Cunningham
-                </label>
-                <label class="option-label" data-id="B">
-                    <input type="radio" name="q50" value="B"> B. रीवा - जॉन मार्शल / Rewa - John Marshall
-                </label>
-                <label class="option-label" data-id="C">
-                    <input type="radio" name="q50" value="C"> C. रायसेन - जेम्स प्रिंसेप / Raisen - James Prinsep
-                </label>
-                <label class="option-label" data-id="D">
-                    <input type="radio" name="q50" value="D"> D. विदिशा - जनरल टेलर / Vidisha - General Taylor
-                </label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">सही उत्तर: A. सतना - अलेक्जेंडर कनिंघम</div>
-                <div>सतना जिले में स्थित भरहुत स्तूप मौर्यकालीन/शुंगकालीन कला का अद्भुत उदाहरण है, जिसकी खोज 1873 में सर अलेक्जेंडर कनिंघम ने की थी। / The Bharhut Stupa remnants in Satna were discovered by Alexander Cunningham.</div>
-            </div>
-        </div>
-    
-        <div class="bottom-buttons">
-            <button class="submit-btn" id="submit-btn" onclick="submitTest()">✔️ Submit Test</button>
-        </div>
-    </main>
+    </div>
 
-    <script>
-        "use strict";
-        let remainingSeconds = 120 * 60;
-        let timerInterval = null;
-        let testSubmitted = false;
+    <!-- QUESTION 2 -->
+    <div class="question-card" data-qnum="2" data-correct="A">
+        <div class="question-text">2. मध्य प्रदेश की निम्नलिखित में से किस जनजाति के मुखिया को 'कबीले का राजा' या 'खुंटिया पटेल' से संबोधित किया जाता है? / Which tribe of Madhya Pradesh is addressed as 'King of Clan' or 'Khuntia Patel'?</div>
+        <div class="options-container">
+            <label class="option-label" data-id="A"><input type="radio" name="q2" value="A"> A. सहरिया / Saharia</label>
+            <label class="option-label" data-id="B"><input type="radio" name="q2" value="B"> B. बैगा / Baiga</label>
+            <label class="option-label" data-id="C"><input type="radio" name="q2" value="C"> C. भारिया / Bharia</label>
+            <label class="option-label" data-id="D"><input type="radio" name="q2" value="D"> D. भील / Bhil</label>
+        </div>
+        <div class="explanation-box">
+            <div class="correct-answer-text">सही उत्तर: A. सहरिया / Saharia</div>
+            सहरिया जनजाति के मुखिया को 'खुंटिया पटेल' कहा जाता है। यह मध्य प्रदेश की एक विशेष रूप से कमजोर जनजाति (PVTG) है। / The head of the Saharia tribe is called Khuntia Patel.
+        </div>
+    </div>
 
-        function updateTimerDisplay() {
-            const timer = document.getElementById("timer");
-            const minutes = Math.floor(remainingSeconds / 60);
-            const seconds = remainingSeconds % 60;
-            timer.textContent = String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2, "0");
-            if (remainingSeconds <= 600) { timer.classList.add("warning"); }
+    <!-- बाकी के 48 प्रश्न इसी प्रकार नीचे पेस्ट करें -->
+
+    <div class="bottom-buttons">
+        <button class="submit-btn" id="submit-btn" onclick="submitTest()">✔️ Submit Test</button>
+    </div>
+</main>
+
+<script>
+    let remainingSeconds = 120 * 60;
+    let timerInterval = null;
+    let testSubmitted = false;
+
+    function goBack() {
+        if (window.history.length > 1) {
+            window.history.back();
+        } else {
+            window.location.href = "index.html";
         }
+    }
 
-        function startTimer() {
-            updateTimerDisplay();
-            timerInterval = setInterval(function() {
-                if (testSubmitted) { clearInterval(timerInterval); return; }
-                remainingSeconds--;
-                if (remainingSeconds <= 0) {
-                    remainingSeconds = 0;
-                    updateTimerDisplay();
-                    clearInterval(timerInterval);
-                    document.getElementById("timer").textContent = "समय समाप्त";
-                    document.getElementById("timer").classList.add("finished");
-                    alert("समय समाप्त हो गया है। आपका टेस्ट सबमिट किया जा रहा है।");
-                    submitTest(true);
-                    return;
-                }
+    function updateTimerDisplay() {
+        const timer = document.getElementById("timer");
+        const minutes = Math.floor(remainingSeconds / 60);
+        const seconds = remainingSeconds % 60;
+        timer.textContent = String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2, "0");
+        if (remainingSeconds <= 300) timer.classList.add("warning");
+    }
+
+    function startTimer() {
+        updateTimerDisplay();
+        timerInterval = setInterval(function() {
+            if (testSubmitted) { clearInterval(timerInterval); return; }
+            remainingSeconds--;
+            if (remainingSeconds <= 0) {
+                remainingSeconds = 0;
                 updateTimerDisplay();
-            }, 1000);
-        }
-
-        function submitTest(autoSubmit = false) {
-            if (testSubmitted) return;
-            const cards = document.querySelectorAll("#quiz-area .question-card");
-            let score = 0;
-            const total = cards.length;
-            
-            cards.forEach(function(card) {
-                const qNum = card.dataset.qnum;
-                const correct = card.dataset.correct;
-                const selected = card.querySelector('input[name="q' + qNum + '"]:checked');
-                const correctLabel = card.querySelector('.option-label[data-id="' + correct + '"]');
-                
-                if (correctLabel) { correctLabel.classList.add("correct-option"); }
-                
-                if (selected) {
-                    if (selected.value === correct) {
-                        score++;
-                    } else {
-                        const wrongLabel = card.querySelector('.option-label[data-id="' + selected.value + '"]');
-                        if (wrongLabel) { wrongLabel.classList.add("wrong-option"); }
-                    }
-                }
-                
-                const explanation = card.querySelector(".explanation-box");
-                if (explanation) { explanation.style.display = "block"; }
-                
-                card.querySelectorAll('input[type="radio"]').forEach(function(input) {
-                    input.disabled = true;
-                });
-            });
-            
-            testSubmitted = true;
-            clearInterval(timerInterval);
-            const percentage = total ? Math.round((score / total) * 100) : 0;
-            const marks = score * 2;
-            const board = document.getElementById("score-board");
-            
-            board.innerHTML = (autoSubmit ? "⏰ समय समाप्त! " : "🏆 परिणाम कार्ड: ") + 
-                              "<br>कुल सही प्रश्न: " + score + " / " + total + 
-                              "<br>प्राप्त अंक: " + marks + " / " + (total * 2) + " (" + percentage + "%)";
-            board.style.display = "block";
-            
-            document.getElementById("submit-btn").disabled = true;
-            document.getElementById("submit-btn").textContent = "Test Submitted Successfully";
-            document.getElementById("timer").classList.add("finished");
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        }
-
-        function downloadPDF() {
-            if (typeof html2pdf !== "function") {
-                alert("PDF लाइब्रेरी लोड नहीं हो सकी। कृपया इंटरनेट जांचें।");
+                clearInterval(timerInterval);
+                document.getElementById("timer").textContent = "00:00";
+                document.getElementById("timer").classList.add("finished");
+                alert("समय समाप्त हो गया है। आपका टेस्ट स्वतः सबमिट किया जा रहा है।");
+                submitTest(true);
                 return;
             }
-            const element = document.getElementById("quiz-area");
-            const options = {
-                margin: 10,
-                filename: "MPPSC_2027_Unit1_Test.pdf",
-                image: { type: "jpeg", quality: 0.98 },
-                html2canvas: { scale: 2, useCORS: true },
-                jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
-            };
-            html2pdf().set(options).from(element).save();
-        }
+            updateTimerDisplay();
+        }, 1000);
+    }
 
-        startTimer();
-    </script>
-</body>
-</html>
+    function submitTest(autoSubmit = false) {
+        if (testSubmitted) return;
+        const cards = document.querySelectorAll(".question-card");
+        let score = 0;
+        const total = cards.length;
+
+        cards.forEach(function(card) {
+            const qNum = card.dataset.qnum;
+            const correct = card.dataset.correct;
+const selected = card.querySelector('input[name="q' + qNum + '"]:checked');
+const correctLabel = card.querySelector('.option-label[data-id="' + correct + '"]');
+if (correctLabel) correctLabel.classList.add("correct-option");
+if (selected) {
+if (selected.value === correct) {
+score++;
+} else {
+const wrongLabel = card.querySelector('.option-label[data-id="' + selected.value + '"]');
+if (wrongLabel) wrongLabel.classList.add("wrong-option");
+}
+}
+const explanation = card.querySelector(".explanation-box");
+if (explanation) explanation.style.display = "block";
+card.querySelectorAll('input[type="radio"]').forEach(input => input.disabled = true);
+});
+testSubmitted = true;
+clearInterval(timerInterval);
+const percentage = total ? Math.round((score / total) * 100) : 0;
+const board = document.getElementById("score-board");
+board.textContent = (autoSubmit ? "⏰ समय समाप्त! " : "🏆 आपका स्कोर: ") + score + " / " + total + " (" + percentage + "%)";
+board.style.display = "block";
+document.getElementById("submit-btn").disabled = true;
+document.getElementById("submit-btn").textContent = "Test Submitted";
+document.getElementById("timer").classList.add("finished");
+window.scrollTo({ top: 0, behavior: "smooth" });
+}
+function downloadPDF() {
+if (typeof html2pdf !== "function") {
+alert("PDF लाइब्रेरी लोड नहीं हो सकी।");
+return;
+}
+const element = document.getElementById("quiz-area");
+const options = {
+margin: 10,
+filename: "MPPSC_Unit1_Test.pdf",
+image: { type: "jpeg", quality: 0.98 },
+html2canvas: { scale: 2, useCORS: true },
+jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
+};
+html2pdf().set(options).from(element).save();
+}
+startTimer();
