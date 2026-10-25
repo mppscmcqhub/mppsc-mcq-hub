@@ -4,578 +4,421 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MPPSC MCQ Hub V14 - Test</title>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-
+<title>MPPSC Unit 1 Test 1 | MPPSC MCQ Hub</title>
 <style>
-* {
-  box-sizing: border-box;
-  font-family: "Segoe UI", Arial, sans-serif;
-}
-
-body {
-  margin: 0;
-  background: #f0f2f5;
-  color: #222;
-}
-
-.header {
-  background: #15549a;
-  color: white;
-  padding: 10px 18px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 5px #0003;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.site-logo {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  border-radius: 50%;
-  background: white;
-  border: 2px solid white;
-}
-
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.timer {
-  background: #b71c1c;
-  color: white;
-  font-size: 19px;
-  font-weight: bold;
-  padding: 10px 14px;
-  border-radius: 5px;
-  min-width: 105px;
-  text-align: center;
-}
-
-.timer.warning {
-  background: #ff9800;
-  color: #111;
-}
-
-.timer.finished {
-  background: #333;
-  color: white;
-}
-
-button {
-  border: none;
-  border-radius: 5px;
-  padding: 11px 16px;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-button:hover {
-  opacity: .9;
-}
-
-.back-btn {
-  background: #087bff;
-  color: white;
-}
-
-.pdf-btn {
-  background: #ffc107;
-  color: black;
-}
-
-.submit-btn {
-  background: #28a745;
-  color: white;
-}
-
-.container {
-  padding: 18px 22px;
-}
-
-.score-board {
-  display: none;
-  background: #d1ecf1;
-  border: 1px solid #bee5eb;
-  color: #0c5460;
-  padding: 18px;
-  border-radius: 5px;
-  margin-bottom: 20px;
-  text-align: center;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.question-card {
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 1px 4px #0001;
-}
-
-.question-text {
-  font-weight: 600;
-  line-height: 1.7;
-  margin-bottom: 15px;
-}
-
-.options-container {
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-}
-
-.option-label {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 11px;
-  border: 1px solid #d5d5d5;
-  border-radius: 4px;
-  cursor: pointer;
-  line-height: 1.5;
-}
-
-.option-label:hover {
-  background: #f4f7fb;
-}
-
-.option-label input {
-  width: 17px;
-  height: 17px;
-  flex-shrink: 0;
-}
-
-.correct-option {
-  background: #c3e6cb !important;
-  border-color: #8fd19e !important;
-  font-weight: bold;
-}
-
-.wrong-option {
-  background: #f5c6cb !important;
-  border-color: #e7a0a7 !important;
-}
-
-.explanation-box {
-  display: none;
-  background: #e2f0d9;
-  border-left: 5px solid #385723;
-  padding: 14px;
-  margin-top: 14px;
-  line-height: 1.8;
-}
-
-.correct-answer-text {
-  color: #385723;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.bottom-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  padding: 15px 0 30px;
-}
-
-@media(max-width: 600px) {
-  .header {
-    padding: 10px;
-  }
-
-  .brand {
-    font-size: 16px;
-  }
-
-  .header-right {
-    width: 100%;
-  }
-
-  .header-right button {
-    flex: 1;
-  }
-
-  .container {
-    padding: 10px;
-  }
-
-  .question-card {
-    padding: 14px;
-  }
-
-  .timer {
-    font-size: 16px;
-  }
-}
-
-@media print {
-  .header-right,
-  .bottom-buttons {
-    display: none !important;
-  }
-
-  .question-card {
-    break-inside: avoid;
-  }
-}
+*{box-sizing:border-box}
+body{margin:0;background:#eef2f7;color:#172033;font-family:Arial,"Noto Sans Devanagari",sans-serif}
+header{background:#102747;color:#fff;text-align:center;padding:14px 10px;border-bottom:4px solid #e53935}
+.brand{display:flex;align-items:center;justify-content:center;gap:12px}
+.brand img{width:50px;height:50px;object-fit:contain;background:#fff;border-radius:5px}
+header h1{font-size:23px;margin:0}
+header p{margin:6px 0 0;font-size:14px}
+main{width:100%;max-width:1200px;margin:auto;padding:10px}
+.toolbar{background:#fff;border-radius:8px;padding:12px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:12px}
+#timer{font-size:20px;font-weight:bold;color:#c62828}
+button{border:0;border-radius:6px;padding:11px 14px;color:#fff;font-weight:bold;font-size:15px;cursor:pointer}
+.back{background:#455a64}.print{background:#546e7a}.submit{background:#16803c}
+.question{background:#fff;border:1px solid #d9e0e8;border-radius:8px;padding:14px;margin-bottom:12px}
+.qtitle{font-weight:bold;line-height:1.65;margin:0 0 12px}
+.qnumber{color:#c62828}
+.options{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.option{display:flex;gap:8px;align-items:flex-start;border:1px solid #d5dce5;border-radius:6px;padding:10px;line-height:1.55;cursor:pointer}
+.option input{margin-top:5px;flex-shrink:0}
+.option.correct{background:#d8f5df;border-color:#16803c;color:#145c2c}
+.option.wrong{background:#ffe0e0;border-color:#c62828;color:#982020}
+.explanation{display:none;background:#f1f7ff;border-left:4px solid #2471bd;padding:11px;margin-top:12px;line-height:1.7}
+#result{display:none;background:#fff;padding:17px;border:2px solid #16803c;border-radius:8px;margin:15px 0}
+#result h2{color:#145c2c;margin-top:0}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}
+.stat{background:#f0f4f8;border-radius:6px;text-align:center;padding:12px}
+.stat strong{display:block;font-size:23px}
+footer{text-align:center;padding:18px;color:#526071}
+button:disabled{opacity:.6;cursor:not-allowed}
+@media(max-width:650px){.options{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}header h1{font-size:19px}main{padding:7px}}
+@media print{body{background:#fff}.toolbar,footer,.submit,.back,.print{display:none!important}.question{break-inside:avoid}.explanation{display:block!important}}
 </style>
 </head>
-
 <body>
-
-<header class="header">
-  <div class="brand">
-    <img
-      src="../../../mppsc-logo.jpg"
-      alt="MPPSC Logo"
-      class="site-logo"
-      onerror="this.style.display='none'"
-    >
-    <span>MPPSC MCQ Hub V14</span>
-  </div>
-
-  <div class="header-right">
-    <div class="timer" id="timer">60:00</div>
-
-    <button class="back-btn" onclick="goBack()">
-      ⬅ Back
-    </button>
-
-    <button class="pdf-btn" onclick="downloadPDF()">
-      📥 PDF
-    </button>
-  </div>
+<header>
+<div class="brand">
+<img src="../../../mppsc-logo.jpg" alt="MPPSC Logo" onerror="this.style.display='none'">
+<div><h1>MPPSC MCQ HUB</h1><p>Unit 1 • Test 1 | MPPSC Prelims 2027 Practice</p></div>
+</div>
 </header>
 
-<main class="container" id="quiz-area">
+<main>
+<div class="toolbar">
+<div><strong>कुल प्रश्न / Total Questions: 50</strong><br>प्रत्येक प्रश्न 1 अंक • Negative marking नहीं</div>
+<div id="timer">समय / Time: 60:00</div>
+<div style="display:flex;gap:7px;flex-wrap:wrap">
+<button class="back" onclick="history.back()">← Back</button>
+<button class="print" onclick="window.print()">PDF / Print</button>
+<button class="submit" id="submitBtn" onclick="submitTest(false)">Submit Test</button>
+</div>
+</div>
 
-  <div class="score-board" id="score-board"></div>
-
-  <!-- QUESTION 1 -->
-  <div class="question-card" data-qnum="1" data-correct="D">
-    <div class="question-text">
-      1. प्राचीन भारतीय परंपरा में चार युगों के पूर्ण चक्र को क्या कहते हैं?
-      / What is the complete cycle of the four Yugas called?
-    </div>
-
-    <div class="options-container">
-      <label class="option-label" data-id="A">
-        <input type="radio" name="q1" value="A">
-        A. ब्रह्मा का दिन / Day of Brahma
-      </label>
-
-      <label class="option-label" data-id="B">
-        <input type="radio" name="q1" value="B">
-        B. मन्वन्तर / Manvantara
-      </label>
-
-      <label class="option-label" data-id="C">
-        <input type="radio" name="q1" value="C">
-        C. कल्प / Kalpa
-      </label>
-
-      <label class="option-label" data-id="D">
-        <input type="radio" name="q1" value="D">
-        D. महायुग / Mahayuga
-      </label>
-    </div>
-
-    <div class="explanation-box">
-      <div class="correct-answer-text">
-        सही उत्तर: D. महायुग / Mahayuga
-      </div>
-      चारों युगों के एक पूर्ण चक्र को महायुग कहा जाता है।
-      / A complete cycle of the four Yugas is called a Mahayuga.
-    </div>
-  </div>
-
-  <!-- QUESTION 2 -->
-  <div class="question-card" data-qnum="2" data-correct="D">
-    <div class="question-text">
-      2. ऋग्वेद में 'ऋत' का मूल अर्थ क्या है?
-      / What is the core meaning of 'Rta' in the Rigveda?
-    </div>
-
-    <div class="options-container">
-      <label class="option-label" data-id="A">
-        <input type="radio" name="q2" value="A">
-        A. युद्ध में विजय / Victory in war
-      </label>
-
-      <label class="option-label" data-id="B">
-        <input type="radio" name="q2" value="B">
-        B. कर व्यवस्था / Tax system
-      </label>
-
-      <label class="option-label" data-id="C">
-        <input type="radio" name="q2" value="C">
-        C. केवल यज्ञ / Sacrifice only
-      </label>
-
-      <label class="option-label" data-id="D">
-        <input type="radio" name="q2" value="D">
-        D. ब्रह्मांडीय, नैतिक और प्राकृतिक व्यवस्था
-        / Cosmic, moral and natural order
-      </label>
-    </div>
-
-    <div class="explanation-box">
-      <div class="correct-answer-text">
-        सही उत्तर: D. ब्रह्मांडीय, नैतिक और प्राकृतिक व्यवस्था
-      </div>
-      वैदिक साहित्य में ऋत का संबंध ब्रह्मांडीय और प्राकृतिक व्यवस्था से है।
-      / Rta is associated with cosmic and natural order.
-    </div>
-  </div>
-
-  <!-- QUESTION 3 -->
-  <div class="question-card" data-qnum="3" data-correct="A">
-    <div class="question-text">
-      3. मध्य प्रदेश का राजकीय पशु कौन-सा है?
-      / What is the state animal of Madhya Pradesh?
-    </div>
-
-    <div class="options-container">
-      <label class="option-label" data-id="A">
-        <input type="radio" name="q3" value="A">
-        A. बारहसिंगा / Barasingha
-      </label>
-
-      <label class="option-label" data-id="B">
-        <input type="radio" name="q3" value="B">
-        B. बाघ / Tiger
-      </label>
-
-      <label class="option-label" data-id="C">
-        <input type="radio" name="q3" value="C">
-        C. चीतल / Chital
-      </label>
-
-      <label class="option-label" data-id="D">
-        <input type="radio" name="q3" value="D">
-        D. तेंदुआ / Leopard
-      </label>
-    </div>
-
-    <div class="explanation-box">
-      <div class="correct-answer-text">
-        सही उत्तर: A. बारहसिंगा / Barasingha
-      </div>
-      बारहसिंगा मध्य प्रदेश का राजकीय पशु है।
-      / The Barasingha is the state animal of Madhya Pradesh.
-    </div>
-  </div>
-
-  <!-- अपने वास्तविक प्रश्न इसी प्रारूप में जोड़ें -->
-
-  <div class="bottom-buttons">
-    <button class="back-btn" onclick="goBack()">
-      ⬅ Back
-    </button>
-
-    <button class="submit-btn" id="submit-btn" onclick="submitTest()">
-      ✔️ Submit Test
-    </button>
-  </div>
-
+<div id="questions"></div>
+<section id="result"></section>
+<button class="submit" id="bottomSubmit" onclick="submitTest(false)" style="width:100%;margin:8px 0 20px">Submit Test</button>
 </main>
 
+<footer>MPPSC MCQ Hub • Unit 1 Test 1 • अभ्यास ही सफलता की कुंजी है</footer>
+
 <script>
-"use strict";
-
-let remainingSeconds = 60 * 60;
-let timerInterval = null;
-let testSubmitted = false;
-
-function goBack() {
-  if (window.history.length > 1) {
-    window.history.back();
-  } else {
-    window.location.href = "../../../index.html";
-  }
+const questions = [
+{
+q:"मध्य प्रदेश के प्राचीन इतिहास में कायथा संस्कृति की पहचान मुख्यतः किस पुरातात्त्विक परंपरा से की जाती है? / Kayatha culture in the ancient history of Madhya Pradesh is primarily identified with which archaeological tradition?",
+o:["ताम्रपाषाण संस्कृति / Chalcolithic culture","केवल लौहकालीन नगर संस्कृति / Exclusively an Iron Age urban culture","उत्तर-मध्यकालीन मंदिर संस्कृति / Late medieval temple culture","औपनिवेशिक औद्योगिक संस्कृति / Colonial industrial culture"],
+a:0,e:"कायथा संस्कृति उज्जैन के निकट कायथा स्थल से पहचानी गई ताम्रपाषाण संस्कृति है। इसके अवशेष मध्य भारत के प्रागैतिहासिक और प्रारंभिक कृषि-समाजों के अध्ययन में उपयोगी हैं। / Kayatha is a Chalcolithic culture identified at the site near Ujjain and is important for studying early farming communities in central India."
+},
+{
+q:"नवदाटोली पुरातात्त्विक स्थल किस नदी के निकट स्थित है? / Near which river is the archaeological site of Navdatoli located?",
+o:["नर्मदा / Narmada","चंबल / Chambal","बेतवा / Betwa","सोन / Son"],
+a:0,e:"नवदाटोली महेश्वर के सामने नर्मदा के तटवर्ती क्षेत्र में स्थित एक महत्त्वपूर्ण ताम्रपाषाण स्थल है। / Navdatoli is an important Chalcolithic site in the Narmada region, opposite Maheshwar."
+},
+{
+q:"मध्य प्रदेश की मालवा ताम्रपाषाण संस्कृति को पहचानने में कौन-सा साक्ष्य सबसे अधिक उपयोगी है? / Which evidence is particularly useful in identifying the Malwa Chalcolithic culture?",
+o:["मृद्भांड, आवास-अवशेष और कृषि-संबंधी साक्ष्य / Pottery, habitation remains and evidence related to agriculture","केवल आधुनिक शिलालेख / Modern inscriptions only","केवल मुगलकालीन सिक्के / Mughal coins only","केवल औपनिवेशिक नक्शे / Colonial maps only"],
+a:0,e:"मालवा संस्कृति के अध्ययन में मृद्भांड, घरों के अवशेष, औजार और कृषि-संबंधी प्रमाण महत्त्वपूर्ण हैं। / Pottery, house remains, tools and agricultural evidence are important for studying the Malwa Chalcolithic culture."
+},
+{
+q:"भीमबेटका के शैलाश्रयों का ऐतिहासिक महत्त्व सबसे अधिक किस कारण है? / What is the greatest historical significance of the Bhimbetka rock shelters?",
+o:["लंबे कालखंड में मानव निवास और शैलचित्रों के प्रमाण / Evidence of human occupation over a long period and rock paintings","केवल मध्यकालीन फारसी साहित्य / Medieval Persian literature only","केवल मराठा प्रशासन के अभिलेख / Maratha administrative records only","केवल आधुनिक औद्योगिक अवशेष / Modern industrial remains only"],
+a:0,e:"भीमबेटका में प्रागैतिहासिक मानव गतिविधियों और विभिन्न कालों के शैलचित्रों के प्रमाण मिले हैं। यह मानव जीवन और कला के दीर्घकालिक विकास को समझने में मदद करता है। / Bhimbetka preserves evidence of prehistoric human activity and rock paintings from different periods."
+},
+{
+q:"भीमबेटका को UNESCO विश्व धरोहर सूची में किस वर्ष शामिल किया गया था? / In which year was Bhimbetka added to the UNESCO World Heritage List?",
+o:["1986","1999","2003","2010"],
+a:1,e:"भीमबेटका शैलाश्रयों को 2003 में UNESCO विश्व धरोहर सूची में शामिल किया गया था। / The Rock Shelters of Bhimbetka were inscribed on the UNESCO World Heritage List in 2003."
+},
+{
+q:"साँची के महान स्तूप के मूल निर्माण का संबंध परंपरागत रूप से किस शासक से जोड़ा जाता है? / The original construction of the Great Stupa at Sanchi is traditionally associated with which ruler?",
+o:["अशोक / Ashoka","हर्षवर्धन / Harshavardhana","समुद्रगुप्त / Samudragupta","कनिष्क / Kanishka"],
+a:0,e:"साँची के महान स्तूप का प्रारंभिक निर्माण मौर्य सम्राट अशोक से संबंधित माना जाता है। बाद के कालों में स्तूप का विस्तार और अलंकरण हुआ। / The Great Stupa's original construction is associated with Mauryan emperor Ashoka; it was enlarged and decorated in later periods."
+},
+{
+q:"साँची के स्तूप के तोरणों का प्रमुख कला-ऐतिहासिक महत्त्व क्या है? / What is the principal art-historical significance of the gateways at Sanchi?",
+o:["जातक कथाओं और बौद्ध प्रतीकात्मकता का चित्रण / Depiction of Jataka tales and Buddhist symbolism","केवल फारसी सुलेख / Persian calligraphy only","केवल मुगल दरबार के दृश्य / Mughal court scenes only","केवल आधुनिक युद्धों का चित्रण / Depiction of modern wars only"],
+a:0,e:"साँची के तोरणों पर जातक कथाएँ, बुद्ध के जीवन से जुड़े प्रसंग और प्रतीकात्मक बौद्ध कला दिखाई देती है। / The gateways depict Jataka stories, episodes associated with the Buddha and Buddhist symbolic art."
+},
+{
+q:"साँची के प्रारंभिक बौद्ध कला-चित्रण में बुद्ध को प्रतीकात्मक रूप में दिखाने का उदाहरण कौन-सा है? / Which is an example of symbolic representation of the Buddha in early Buddhist art at Sanchi?",
+o:["खाली सिंहासन या धर्मचक्र / Empty throne or Dharma Chakra","मोर के पंखों वाला मुगल मुकुट / Mughal crown with peacock feathers","यूरोपीय तेलचित्र में राजदरबार / Royal court in a European oil painting","आधुनिक राष्ट्रीय ध्वज / Modern national flag"],
+a:0,e:"प्रारंभिक बौद्ध कला में बुद्ध को कई बार प्रत्यक्ष मानव आकृति के बजाय खाली सिंहासन, पदचिह्न या धर्मचक्र जैसे प्रतीकों से दर्शाया गया। / Early Buddhist art often represented the Buddha through symbols such as an empty throne, footprints or the Dharma Chakra."
+},
+{
+q:"भरहुत स्तूप के अवशेष वर्तमान में किस राज्य के सतना क्षेत्र से संबंधित हैं? / The remains of the Bharhut Stupa are associated with which present-day region of Madhya Pradesh?",
+o:["सतना क्षेत्र / Satna region","झाबुआ क्षेत्र / Jhabua region","बुरहानपुर क्षेत्र / Burhanpur region","मुरैना क्षेत्र / Morena region"],
+a:0,e:"भरहुत का प्राचीन बौद्ध स्तूप वर्तमान मध्य प्रदेश के सतना क्षेत्र में स्थित था। इसकी रेलिंगों और मूर्तिकला से प्रारंभिक बौद्ध कला की जानकारी मिलती है। / The ancient Buddhist stupa of Bharhut was located in the Satna region of present-day Madhya Pradesh."
+},
+{
+q:"विदिशा का प्राचीन नाम ‘भिलसा’ किस प्रकार के ऐतिहासिक अध्ययन में विशेष रूप से दिखाई देता है? / The historical name 'Bhilsa' for Vidisha is particularly relevant to which kind of study?",
+o:["मध्यकालीन और औपनिवेशिक काल के ऐतिहासिक उल्लेख / Medieval and colonial-period historical references","केवल वैदिक संहिताओं के मूल नाम / Original names of Vedic Samhitas only","दक्षिण भारतीय समुद्री साम्राज्यों के अभिलेख / Inscriptions of southern maritime empires","आधुनिक अंतरिक्ष अनुसंधान / Modern space research"],
+a:0,e:"विदिशा को विभिन्न ऐतिहासिक कालों में अलग-अलग नामों से जाना गया। भिलसा नाम मध्यकालीन तथा बाद के ऐतिहासिक स्रोतों में मिलता है। / Vidisha has been known by different names across periods; Bhilsa appears in medieval and later historical sources."
+},
+{
+q:"साँची के निकट स्थित विदिशा का प्राचीन महत्त्व मुख्यतः किन कारणों से बढ़ा? / What mainly contributed to the ancient importance of Vidisha near Sanchi?",
+o:["व्यापारिक मार्गों, राजनीतिक गतिविधियों और धार्मिक संपर्कों से / Trade routes, political activity and religious contacts","केवल समुद्री जहाज निर्माण से / Shipbuilding alone","केवल हिमालयी खनन से / Himalayan mining alone","केवल आधुनिक रेलवे से / Modern railways alone"],
+a:0,e:"विदिशा प्राचीन मार्गों के संगम के निकट थी और व्यापार, राजनीति तथा धार्मिक गतिविधियों के कारण महत्त्वपूर्ण बनी। / Vidisha became important through its position near routes connecting regions and through trade, politics and religious activity."
+},
+{
+q:"मध्य भारत में मौर्यकालीन प्रभाव का अध्ययन करते समय अशोक के अभिलेख किस प्रकार का स्रोत हैं? / What kind of source are Ashokan inscriptions when studying Mauryan influence in central India?",
+o:["प्राथमिक ऐतिहासिक स्रोत / Primary historical sources","केवल आधुनिक लोककथाएँ / Modern folk tales only","उत्तर-मध्यकालीन कल्पित आख्यान / Late medieval fictional narratives","केवल मौखिक वंशावलियाँ / Oral genealogies only"],
+a:0,e:"अशोक के अभिलेख समकालीन राजकीय संदेशों और प्रशासनिक-धार्मिक विचारों के प्राथमिक स्रोत हैं, यद्यपि उनका संदर्भपूर्वक विश्लेषण आवश्यक है। / Ashokan inscriptions are primary sources for royal messages and administrative-religious ideas, though they must be interpreted in context."
+},
+{
+q:"मध्य प्रदेश में स्थित प्राचीन नगरी उज्जयिनी का संबंध किस महाजनपद की राजधानी से था? / Ancient Ujjayini was the capital of which Mahajanapada?",
+o:["अवन्ति / Avanti","वत्स / Vatsa","अंग / Anga","कुरु / Kuru"],
+a:0,e:"उज्जयिनी अवन्ति महाजनपद का प्रमुख राजनीतिक केंद्र और राजधानी थी। अवन्ति प्राचीन भारत के महत्त्वपूर्ण महाजनपदों में शामिल था। / Ujjayini was the principal political centre and capital of Avanti, one of the major Mahajanapadas."
+},
+{
+q:"अवन्ति महाजनपद का उत्तरी और दक्षिणी भाग किन दो प्रमुख केंद्रों से जुड़ा माना जाता है? / Which two major centres are associated with the northern and southern divisions of Avanti?",
+o:["उज्जयिनी और माहिष्मती / Ujjayini and Mahishmati","कौशांबी और तक्षशिला / Kaushambi and Taxila","पाटलिपुत्र और वैशाली / Pataliputra and Vaishali","मथुरा और श्रावस्ती / Mathura and Shravasti"],
+a:0,e:"अवन्ति की उत्तरी शाखा का केंद्र उज्जयिनी और दक्षिणी क्षेत्र का प्रमुख केंद्र माहिष्मती माना जाता है। / Ujjayini is associated with northern Avanti and Mahishmati with its southern region."
+},
+{
+q:"प्राचीन माहिष्मती की पहचान सामान्यतः मध्य प्रदेश की किस नदी-घाटी से की जाती है? / Ancient Mahishmati is generally associated with which river valley in Madhya Pradesh?",
+o:["नर्मदा घाटी / Narmada Valley","सिंधु घाटी / Indus Valley","घग्गर घाटी / Ghaggar Valley","ब्रह्मपुत्र घाटी / Brahmaputra Valley"],
+a:0,e:"माहिष्मती की पहचान परंपरागत रूप से नर्मदा घाटी से की जाती है। इसके सटीक स्थान को लेकर विद्वानों में विभिन्न मत भी रहे हैं। / Mahishmati is traditionally associated with the Narmada Valley, though its precise location has been debated."
+},
+{
+q:"मध्य प्रदेश के इतिहास में ‘दशार्ण’ नाम का संबंध मुख्यतः किस प्राचीन क्षेत्र से जोड़ा जाता है? / The ancient name 'Dasharna' is mainly associated with which region?",
+o:["विदिशा और उसके आसपास का क्षेत्र / Vidisha and its surrounding region","केवल मालाबार तट / Malabar Coast only","कावेरी डेल्टा / Kaveri Delta","कश्मीर घाटी / Kashmir Valley"],
+a:0,e:"दशार्ण प्राचीन साहित्य में उल्लिखित क्षेत्र था, जिसका संबंध विदिशा और मध्य भारत के कुछ भागों से जोड़ा जाता है। / Dasharna is an ancient region mentioned in literature and associated with Vidisha and parts of central India."
+},
+{
+q:"मध्य प्रदेश के पुरातात्त्विक अध्ययन में ताम्रपाषाण बस्तियों से प्राप्त अनाज के अवशेष किस विषय पर प्रकाश डालते हैं? / What do grain remains from Chalcolithic settlements in Madhya Pradesh illuminate?",
+o:["कृषि, आहार और फसल-चयन / Agriculture, diet and crop selection","केवल राजाओं की वंशावली / Royal genealogies only","केवल मंदिरों की ऊँचाई / Temple heights only","केवल सैन्य पदों / Military ranks only"],
+a:0,e:"जले हुए अनाज और अन्य वनस्पति अवशेष प्राचीन फसलों, भोजन और कृषि-व्यवस्थाओं के अध्ययन में सहायक हैं। / Charred grains and other botanical remains help researchers study ancient crops, diets and farming systems."
+},
+{
+q:"मध्य प्रदेश में प्रागैतिहासिक शैलचित्रों की व्याख्या करते समय सबसे बड़ी पद्धतिगत सावधानी क्या है? / What is a key methodological caution when interpreting prehistoric rock paintings in Madhya Pradesh?",
+o:["हर चित्र का अर्थ निश्चित मानने के बजाय संदर्भ और तुलनात्मक प्रमाण देखना / Consider context and comparative evidence rather than assigning a certain meaning to every image","हर चित्र को आधुनिक घटना का चित्रण मानना / Treat every painting as depicting a modern event","रंगों को बिना परीक्षण के एक ही काल का मानना / Assume all pigments belong to one period without testing","स्थल की भौगोलिक स्थिति को अनदेखा करना / Ignore the site's geography"],
+a:0,e:"शैलचित्रों के अर्थ और तिथियाँ हमेशा स्पष्ट नहीं होते। शैली, परतों, सामग्री और तुलनात्मक उदाहरणों से सावधानीपूर्वक निष्कर्ष निकाले जाते हैं। / Meanings and dates of rock paintings are not always certain; style, layers, materials and comparisons must be assessed carefully."
+},
+{
+q:"मध्य प्रदेश के इतिहास में गुप्तकालीन सांस्कृतिक प्रभाव का अध्ययन करने के लिए कौन-सा स्रोत-समूह सबसे उपयोगी होगा? / Which group of sources is useful for studying Gupta-period cultural influence in Madhya Pradesh?",
+o:["अभिलेख, मंदिर/गुफा कला, मूर्तियाँ और सिक्के / Inscriptions, temple and cave art, sculptures and coins","केवल आधुनिक समाचारपत्र / Modern newspapers only","केवल औपनिवेशिक जनगणना / Colonial census only","केवल मौखिक चुनावी भाषण / Oral election speeches only"],
+a:0,e:"गुप्तकालीन इतिहास को समझने में अभिलेख, कला, स्थापत्य और सिक्के मिलकर राजनीतिक तथा सांस्कृतिक संदर्भ प्रदान करते हैं। / Inscriptions, art, architecture and coins together provide political and cultural evidence for the Gupta period."
+},
+{
+q:"मध्य प्रदेश में स्थित एरण का पुरातात्त्विक महत्त्व किस प्रकार के प्रमाणों से बढ़ता है? / What kinds of evidence contribute to the archaeological importance of Eran?",
+o:["अभिलेख, मूर्तिकला और प्राचीन स्थापत्य अवशेष / Inscriptions, sculpture and ancient architectural remains","केवल समुद्री बंदरगाह के अवशेष / Seaport remains only","केवल आधुनिक औद्योगिक मशीनें / Modern industrial machines only","केवल मध्यकालीन यूरोपीय चित्र / Medieval European paintings only"],
+a:0,e:"एरण से विभिन्न कालों के अभिलेख, मूर्तिकला और स्थापत्य अवशेष प्राप्त हुए हैं, जो मध्य भारत के इतिहास के अध्ययन में उपयोगी हैं। / Eran has yielded inscriptions, sculpture and architectural remains from different periods, useful for studying central Indian history."
+},
+{
+q:"मध्य प्रदेश में प्राचीन व्यापार का पुनर्निर्माण करने के लिए सिक्कों के भार और धातु का अध्ययन क्यों किया जाता है? / Why are the weight and metal of coins studied when reconstructing ancient trade in Madhya Pradesh?",
+o:["मुद्रा-प्रणाली, आर्थिक संपर्क और काल-निर्धारण के संकेत पाने के लिए / To infer monetary systems, economic contacts and chronology","केवल राजा की शारीरिक बनावट जानने के लिए / To learn a ruler's physical appearance only","मौसम का सटीक पूर्वानुमान लगाने के लिए / To forecast weather precisely","लोकनृत्य की शैली निर्धारित करने के लिए / To identify a folk dance style"],
+a:0,e:"सिक्कों की धातु, भार, लेख और वितरण से आर्थिक संपर्कों, मुद्रा-प्रचलन और संभावित कालक्रम का पता लगाया जा सकता है। / Coin metal, weight, inscriptions and distribution can reveal economic links, monetary circulation and possible chronology."
+},
+{
+q:"मध्य प्रदेश में शुंगकालीन कला के अध्ययन के लिए साँची और भरहुत के साक्ष्यों को साथ पढ़ने का लाभ क्या है? / What is the benefit of comparing evidence from Sanchi and Bharhut when studying Shunga-period art?",
+o:["क्षेत्रीय समानताओं और स्थानीय कलात्मक भिन्नताओं की तुलना / Comparing regional similarities and local artistic differences","दोनों स्थलों को एक ही नगर मान लेना / Treating both sites as the same town","सभी मूर्तियों को आधुनिक मानना / Treating all sculptures as modern","केवल राजनीतिक सीमाओं का अनुमान लगाना / Estimating political boundaries only"],
+a:0,e:"दोनों स्थलों की रेलिंगों, आकृतियों और कथात्मक दृश्यों की तुलना से प्रारंभिक बौद्ध कला के विकास और क्षेत्रीय शैलीगत अंतर समझे जा सकते हैं। / Comparing railings, figures and narrative panels helps explain the development and regional variations of early Buddhist art."
+},
+{
+q:"मध्य प्रदेश में शैलकृत गुफा और संरचनात्मक मंदिर में मूल अंतर क्या है? / What is the basic difference between a rock-cut cave and a structural temple in Madhya Pradesh?",
+o:["गुफा को प्राकृतिक चट्टान काटकर बनाया जाता है, जबकि संरचनात्मक मंदिर अलग-अलग निर्माण सामग्री से खड़ा किया जाता है / A cave is excavated from rock, while a structural temple is built from assembled materials","दोनों हमेशा लकड़ी से बनते हैं / Both are always made of wood","गुफा केवल आधुनिक काल की होती है / Caves belong only to modern times","संरचनात्मक मंदिर में कोई स्थापत्य योजना नहीं होती / Structural temples have no architectural plan"],
+a:0,e:"शैलकृत स्मारक में चट्टान को काटकर स्थान बनाया जाता है, जबकि संरचनात्मक मंदिर में पत्थर या अन्य सामग्री जोड़कर निर्माण किया जाता है। / Rock-cut monuments are excavated from bedrock, whereas structural temples are assembled from stone or other materials."
+},
+{
+q:"मध्य प्रदेश के पुरातात्त्विक स्थलों पर प्राप्त मानव-अस्थियों का वैज्ञानिक अध्ययन किस जानकारी में मदद कर सकता है? / What can scientific study of human remains from archaeological sites in Madhya Pradesh help reveal?",
+o:["स्वास्थ्य, आहार और कुछ जनसांख्यिकीय विशेषताएँ / Health, diet and some demographic characteristics","व्यक्ति का पूरा नाम निश्चित रूप से / The person's full name with certainty","उसके सभी विचार और विश्वास / All of the person's thoughts and beliefs","हर राजनीतिक घटना की तिथि / The date of every political event"],
+a:0,e:"मानव-अस्थियों से आयु, स्वास्थ्य, आहार और कुछ जनसांख्यिकीय संकेत मिल सकते हैं, लेकिन पहचान और जीवन-वृत्त के निष्कर्षों में सावधानी आवश्यक है। / Human remains can indicate age, health, diet and demographic patterns, but identity and biography require caution."
+},
+{
+q:"मध्य प्रदेश के प्राचीन इतिहास में स्थल-नामों का भाषाई अध्ययन किस प्रश्न का उत्तर खोजने में मदद करता है? / What can linguistic study of place names help investigate in the ancient history of Madhya Pradesh?",
+o:["भाषाई परतों, सांस्कृतिक संपर्कों और नाम-परिवर्तनों के संकेत / Linguistic layers, cultural contacts and changes in names","हर नगर की स्थापना का निश्चित दिन / The exact founding day of every town","हर युद्ध में सैनिकों की संख्या / Troop numbers in every battle","सभी मंदिरों की निर्माण लागत / Construction costs of all temples"],
+a:0,e:"स्थान-नामों में पुरानी भाषाओं, समुदायों और सांस्कृतिक संपर्कों के संकेत हो सकते हैं, पर केवल नाम से निष्कर्ष निश्चित नहीं किया जा सकता। / Place names may preserve linguistic and cultural traces, but names alone cannot establish a conclusion with certainty."
+},
+{
+q:"मध्य प्रदेश के इतिहास के लिए पुरातत्त्व में ‘स्तरक्रम’ (stratigraphy) का उपयोग किसलिए किया जाता है? / What is stratigraphy used for in archaeology in Madhya Pradesh?",
+o:["जमीन की परतों और वस्तुओं के सापेक्ष कालक्रम को समझने के लिए / To understand the relative chronology of layers and objects","केवल स्मारक का वर्तमान रंग पहचानने के लिए / To identify a monument's present colour only","केवल भाषा का उच्चारण तय करने के लिए / To determine pronunciation only","नदी के जल का स्वाद जानने के लिए / To determine river-water taste"],
+a:0,e:"स्तरक्रम में खुदाई की परतों और उनमें मिली वस्तुओं के संबंधों से सापेक्ष कालक्रम बनाया जाता है। / Stratigraphy establishes relative chronology through the sequence of layers and their associated finds."
+},
+{
+q:"मध्य प्रदेश के किसी पुरातात्त्विक स्थल पर विदेशी मूल की वस्तु मिलना किस निष्कर्ष को सबसे अधिक समर्थन दे सकता है? / What conclusion may be supported by finding an object of foreign origin at an archaeological site in Madhya Pradesh?",
+o:["संपर्क या विनिमय की संभावना, जिसकी पुष्टि अन्य साक्ष्यों से करनी होगी / Possible contact or exchange, to be tested against other evidence","उस क्षेत्र पर विदेशी साम्राज्य का निश्चित शासन / Certain proof of foreign imperial rule","स्थानीय संस्कृति का पूर्ण अंत / Complete disappearance of local culture","उस वस्तु का वहीं निर्माण होना निश्चित / Certain proof that the object was made locally"],
+a:0,e:"विदेशी वस्तु व्यापार, उपहार, प्रवास या अन्य संपर्क का संकेत हो सकती है; अकेले उससे राजनीतिक नियंत्रण सिद्ध नहीं होता। / A foreign object may indicate trade, gifting, migration or contact, but alone it does not prove political control."
+},
+{
+q:"मध्य प्रदेश के ऐतिहासिक अध्ययन में ‘स्थानीय और बाहरी स्रोतों’ की तुलना का मुख्य लाभ क्या है? / What is the main benefit of comparing local and external sources in Madhya Pradesh history?",
+o:["घटनाओं के अलग-अलग दृष्टिकोणों और संभावित पक्षपात को पहचानना / Identifying differing perspectives and possible biases","हर बाहरी स्रोत को स्वतः श्रेष्ठ मानना / Automatically treating every external source as superior","स्थानीय स्रोतों को हमेशा असत्य मानना / Always treating local sources as false","सभी मतभेदों को छिपाना / Concealing all disagreements"],
+a:0,e:"विभिन्न स्रोतों में घटनाओं के अलग वर्णन मिल सकते हैं। उनकी तुलना से दृष्टिकोण, उद्देश्य और सीमाएँ समझी जा सकती हैं। / Sources may describe events differently; comparison helps reveal perspective, purpose and limitations."
+},
+{
+q:"मध्य प्रदेश के सांस्कृतिक इतिहास में तीर्थ-स्थलों की भूमिका को समझने के लिए कौन-सा पहलू सबसे व्यापक दृष्टि देता है? / Which aspect gives the broadest understanding of pilgrimage sites in Madhya Pradesh's cultural history?",
+o:["धार्मिक अनुष्ठान, यात्राएँ, स्थानीय अर्थव्यवस्था और समुदायों का संपर्क / Rituals, pilgrimages, local economy and community interaction","केवल मंदिर की ऊँचाई / Temple height alone","केवल वर्तमान टिकट दर / Current ticket price alone","केवल आसपास की सड़क की चौड़ाई / Width of the nearby road only"],
+a:0,e:"तीर्थ-स्थल धार्मिक जीवन के साथ व्यापार, आवागमन, स्थानीय आजीविका और सांस्कृतिक आदान-प्रदान से भी जुड़े हो सकते हैं। / Pilgrimage sites can connect religious life with trade, mobility, livelihoods and cultural exchange."
+},
+{
+q:"मध्य प्रदेश की ऐतिहासिक धरोहर का मूल्यांकन करते समय किसी स्मारक के ‘मूल उपयोग’ और ‘वर्तमान उपयोग’ में अंतर क्यों आवश्यक है? / Why distinguish a monument's original use from its present use when evaluating heritage in Madhya Pradesh?",
+o:["क्योंकि समय के साथ कार्य, अर्थ और समुदायों से संबंध बदल सकते हैं / Because function, meaning and community relationships can change over time","क्योंकि वर्तमान उपयोग ही हमेशा मूल उपयोग होता है / Because present use is always the original use","क्योंकि पुराने स्मारक कभी पुनः उपयोग नहीं होते / Because old monuments are never reused","क्योंकि उपयोग का इतिहास से कोई संबंध नहीं / Because use has no relation to history"],
+a:0,e:"कई स्मारकों का उपयोग अलग-अलग कालों में बदला है। इन परिवर्तनों को समझना उनके इतिहास और संरक्षण के लिए महत्त्वपूर्ण है। / Many monuments have changed function over time; understanding these changes is important for their history and conservation."
+},
+{
+q:"मध्य प्रदेश में प्राचीन शिल्प उत्पादन के प्रमाण के रूप में भट्टियों और अधजली वस्तुओं का क्या महत्त्व है? / What is the significance of kilns and unfinished or over-fired objects as evidence of ancient craft production in Madhya Pradesh?",
+o:["वे उत्पादन-स्थल और निर्माण-प्रक्रिया के संकेत दे सकते हैं / They can indicate production sites and manufacturing processes","वे केवल अंतिम उपभोक्ता के घर को सिद्ध करते हैं / They prove only a consumer's house","वे हमेशा धार्मिक बलि के प्रमाण होते हैं / They always prove religious sacrifice","वे कालक्रम के लिए पूरी तरह अनुपयोगी हैं / They are entirely useless for chronology"],
+a:0,e:"भट्टियाँ, अधजली वस्तुएँ और उत्पादन-अवशेष स्थानीय निर्माण, तकनीक तथा शिल्प गतिविधियों की पहचान में मदद करते हैं। / Kilns, unfinished items and production debris help identify local manufacturing, techniques and craft activity."
+},
+{
+q:"मध्य प्रदेश के इतिहास में किसी शासक की उपाधि को समझते समय कौन-सा दृष्टिकोण सबसे उपयुक्त है? / What is the best approach when interpreting a ruler's title in Madhya Pradesh history?",
+o:["उपाधि को उसके काल, अभिलेख और राजनीतिक संदर्भ में समझना / Interpret it within its period, inscriptional evidence and political context","हर उपाधि को आधुनिक संवैधानिक पद मानना / Treat every title as a modern constitutional office","उपाधि से ही पूरे साम्राज्य की सीमाएँ निश्चित करना / Determine the whole empire's borders from the title alone","सभी उपाधियों को समान अर्थ देना / Assign the same meaning to all titles"],
+a:0,e:"राजकीय उपाधियाँ सत्ता, धार्मिक विचार या राजनीतिक दावे व्यक्त कर सकती हैं; उनका अर्थ संदर्भ के आधार पर समझा जाता है। / Royal titles can express authority, religious ideas or political claims, and must be interpreted contextually."
+},
+{
+q:"मध्य प्रदेश के प्राचीन समाज में कृषि और पशुपालन की भूमिका समझने के लिए कौन-सा संयुक्त साक्ष्य उपयोगी है? / Which combined evidence is useful for understanding agriculture and animal husbandry in ancient Madhya Pradesh?",
+o:["वनस्पति अवशेष, पशु-अस्थियाँ, औजार और आवास / Plant remains, animal bones, tools and habitation evidence","केवल आधुनिक भूमि अभिलेख / Modern land records only","केवल राजदरबार के चित्र / Court paintings only","केवल धार्मिक मंत्र / Religious chants only"],
+a:0,e:"वनस्पति और पशु अवशेष, औजार तथा आवास के प्रमाण मिलकर आजीविका और उत्पादन प्रणालियों की तस्वीर देते हैं। / Plant and animal remains, tools and habitation evidence together illuminate ancient livelihoods and production."
+},
+{
+q:"मध्य प्रदेश के किसी ऐतिहासिक स्थल पर अलग-अलग काल की स्थापत्य शैलियाँ मिलें तो सबसे उचित व्याख्या क्या होगी? / If architectural styles from different periods occur at a historic site in Madhya Pradesh, what is the most appropriate interpretation?",
+o:["स्थल का उपयोग और निर्माण कई चरणों में हुआ हो सकता है / The site may have been used and built in several phases","पूरा स्थल एक ही दिन में बना था / The entire site was built in one day","सभी शैलियाँ आधुनिक नकली हैं / All styles are modern imitations","स्थल का कोई ऐतिहासिक महत्त्व नहीं / The site has no historical significance"],
+a:0,e:"स्थापत्य में शैलीगत अंतर निर्माण, मरम्मत, संरक्षण या नए उपयोग के अलग-अलग चरणों को दर्शा सकते हैं। / Stylistic differences may indicate phases of construction, repair, patronage or reuse."
+},
+{
+q:"मध्य प्रदेश की ऐतिहासिक धरोहरों के संदर्भ में संरक्षण और पुनर्निर्माण में मूल अंतर क्या है? / What is the basic difference between conservation and reconstruction of heritage in Madhya Pradesh?",
+o:["संरक्षण मौजूदा ऐतिहासिक सामग्री को बचाने पर, पुनर्निर्माण खोए हिस्सों को फिर बनाने पर केंद्रित होता है / Conservation protects surviving historic fabric, while reconstruction recreates lost parts","दोनों हमेशा एक ही प्रक्रिया हैं / They are always the same process","संरक्षण में कोई दस्तावेज़ीकरण नहीं होता / Conservation involves no documentation","पुनर्निर्माण में ऐतिहासिक प्रमाण की जरूरत नहीं / Reconstruction requires no historical evidence"],
+a:0,e:"संरक्षण का उद्देश्य मूल सामग्री और ऐतिहासिक प्रमाणों को सुरक्षित रखना है। पुनर्निर्माण में खोए हिस्से दोबारा बनाए जा सकते हैं, जिसके लिए पर्याप्त प्रमाण आवश्यक हैं। / Conservation safeguards original material; reconstruction recreates lost parts and requires adequate evidence."
+},
+{
+q:"मध्य प्रदेश के क्षेत्रीय इतिहास में किसी नदी का नाम बदलने या अलग-अलग नामों से दर्ज होने का अध्ययन किसलिए उपयोगी है? / Why is studying changes or variations in a river's name useful in regional history?",
+o:["भाषाई परंपराओं, पुराने भूगोल और सांस्कृतिक संपर्कों को समझने के लिए / To understand linguistic traditions, historical geography and cultural contacts","नदी के जल की वर्तमान गुणवत्ता निश्चित करने के लिए / To determine present water quality conclusively","हर युद्ध की तिथि तय करने के लिए / To date every battle","केवल वर्तमान जिला सीमा निर्धारित करने के लिए / To determine current district boundaries only"],
+a:0,e:"नामों के रूपांतर पुराने ग्रंथों, स्थानीय भाषाओं और भूगोल की पहचान में मदद कर सकते हैं, लेकिन अन्य स्रोतों से पुष्टि जरूरी है। / Name variants can help identify historical texts, local languages and geography, but require corroboration."
+},
+{
+q:"मध्य प्रदेश की ऐतिहासिक कला का अध्ययन करते समय प्रतिमा की मुद्रा और आयुध का संयुक्त विश्लेषण किसलिए उपयोगी है? / Why analyse a sculpture's posture and attributes together when studying historical art in Madhya Pradesh?",
+o:["देवता या पात्र की पहचान और प्रतिमा की प्रतीकात्मकता समझने के लिए / To identify the deity or figure and understand its symbolism","केवल पत्थर का वजन मापने के लिए / To measure the stone's weight only","निर्माण की सटीक तारीख बिना अन्य प्रमाणों के बताने के लिए / To determine the exact date without other evidence","प्रतिमा के रंग को निश्चित करने के लिए / To determine its colour"],
+a:0,e:"मुद्रा, आयुध, वाहन और अन्य लक्षण प्रतिमा की पहचान में सहायक हैं; तिथि निर्धारित करने के लिए शैली और अन्य प्रमाण भी देखने होते हैं। / Posture, attributes, vehicle and other features help identify an image, while dating also requires stylistic and contextual evidence."
+},
+{
+q:"मध्य प्रदेश के ऐतिहासिक समाज का अध्ययन करने में घरेलू मिट्टी के बर्तनों का महत्त्व क्या है? / What is the importance of everyday pottery for studying historical society in Madhya Pradesh?",
+o:["दैनिक जीवन, भोजन-संग्रह, उत्पादन और व्यापार के संकेत / Clues to daily life, food storage, production and trade","केवल राजाओं की सैन्य विजय / Royal military victories only","केवल धार्मिक दर्शन / Religious philosophy only","केवल आधुनिक औद्योगिक नीति / Modern industrial policy only"],
+a:0,e:"घरेलू बर्तन आम जीवन, भोजन तैयार करने, भंडारण, तकनीक और कभी-कभी विनिमय-संबंधों के बारे में जानकारी देते हैं। / Domestic pottery informs researchers about daily life, food preparation, storage, technology and sometimes exchange."
+},
+{
+q:"मध्य प्रदेश की प्राचीन बस्तियों में धातु के औजारों का अध्ययन किस प्रश्न पर प्रकाश डाल सकता है? / What question can the study of metal tools from ancient settlements in Madhya Pradesh illuminate?",
+o:["तकनीकी ज्ञान, शिल्प और आर्थिक गतिविधियों के स्वरूप / The nature of technical knowledge, crafts and economic activity","केवल शासक की धार्मिक आस्था / Only the ruler's religious belief","हर निवासी का नाम / The name of every inhabitant","सभी लोकगीतों की रचना-तिथि / Composition dates of all folk songs"],
+a:0,e:"औजारों के प्रकार, धातु और निर्माण तकनीक से शिल्प, श्रम और उत्पादन के स्तर का अनुमान लगाया जा सकता है। / Tool types, metals and manufacturing techniques help infer crafts, labour and production."
+},
+{
+q:"मध्य प्रदेश के इतिहास में पुरातात्त्विक प्रमाण और साहित्यिक परंपरा में मतभेद हो तो शोधकर्ता को क्या करना चाहिए? / What should a researcher do if archaeological evidence and literary tradition differ in Madhya Pradesh history?",
+o:["दोनों के काल, उद्देश्य और सीमाओं की जाँच कर तुलनात्मक निष्कर्ष निकालना / Examine their dates, purposes and limitations before drawing a comparative conclusion","साहित्य को हमेशा गलत मानना / Always assume literature is wrong","पुरातत्त्व को बिना परीक्षण के अंतिम मानना / Treat archaeology as final without examination","मतभेद को छिपा देना / Conceal the disagreement"],
+a:0,e:"साहित्य और पुरातत्त्व अलग प्रकार के प्रमाण देते हैं। उनके संदर्भ और सीमाओं की तुलना से अधिक विश्वसनीय ऐतिहासिक व्याख्या बनती है। / Literature and archaeology provide different kinds of evidence; comparing their contexts and limitations leads to stronger interpretations."
+},
+{
+q:"मध्य प्रदेश के ऐतिहासिक भूगोल के अध्ययन में दर्रों और प्राकृतिक मार्गों की भूमिका क्या थी? / What role did passes and natural routes play in the historical geography of Madhya Pradesh?",
+o:["लोगों, सेनाओं और व्यापारिक वस्तुओं की आवाजाही को प्रभावित करना / Influencing the movement of people, armies and traded goods","केवल वर्षा का निर्माण करना / Creating rainfall only","किसी भी बस्ती के विकास को रोकना / Preventing all settlement growth","केवल धार्मिक ग्रंथों की रचना करना / Producing religious texts only"],
+a:0,e:"प्राकृतिक मार्ग आवागमन, व्यापार और सैन्य अभियानों को प्रभावित करते थे तथा कुछ नगरों के सामरिक महत्त्व में योगदान देते थे। / Natural routes influenced mobility, trade and military campaigns, contributing to the strategic importance of some towns."
+},
+{
+q:"मध्य प्रदेश के इतिहास में किसी धार्मिक स्थल पर अलग-अलग समुदायों के चिह्न मिलें तो सबसे सावधान निष्कर्ष क्या होगा? / If signs of different communities occur at a religious site in Madhya Pradesh, what is the most cautious conclusion?",
+o:["स्थल पर अलग-अलग कालों में विविध उपयोग या सांस्कृतिक संपर्क संभव हैं; संदर्भ की जाँच जरूरी है / Different uses or cultural contacts across periods are possible; context must be investigated","सभी समुदाय एक ही समय पर वहाँ थे, यह निश्चित है / All communities were there at the same time, certainly","स्थल का इतिहास बिल्कुल ज्ञात है / The site's history is fully known","एक समुदाय का कोई संबंध नहीं हो सकता / One community could not have any connection"],
+a:0,e:"अलग-अलग प्रमाण पुनः उपयोग, परिवर्तन या सांस्कृतिक संपर्क दिखा सकते हैं; सही व्याख्या के लिए कालक्रम और स्थल-संदर्भ आवश्यक हैं। / Different evidence may indicate reuse, change or cultural contact; chronology and context are essential."
+},
+{
+q:"मध्य प्रदेश की सांस्कृतिक विरासत में पारंपरिक शिल्पकारों की भूमिका का अध्ययन क्यों आवश्यक है? / Why is studying traditional craftspeople important for Madhya Pradesh's cultural heritage?",
+o:["तकनीक, ज्ञान के हस्तांतरण और स्थानीय अर्थव्यवस्था को समझने के लिए / To understand techniques, knowledge transmission and local economies","केवल राजकीय युद्धों की सूची बनाने के लिए / To list royal wars only","सभी कलाओं को एक ही शैली में रखने के लिए / To place all arts in one style","पुरातात्त्विक प्रमाणों को हटाने के लिए / To eliminate archaeological evidence"],
+a:0,e:"शिल्पकारों का ज्ञान सामग्री, तकनीक, प्रशिक्षण और स्थानीय बाजारों से जुड़ा होता है तथा विरासत के जीवित पहलू को समझने में मदद करता है। / Craftspeople's knowledge connects materials, techniques, training and local markets, illuminating the living side of heritage."
+},
+{
+q:"मध्य प्रदेश के इतिहास में पुरानी माप-इकाइयों का अध्ययन किस विषय के लिए उपयोगी हो सकता है? / What can the study of historical measurement units help investigate in Madhya Pradesh?",
+o:["भूमि-अनुदान, कर-व्यवस्था और व्यापारिक लेनदेन / Land grants, taxation and commercial transactions","केवल मंदिरों के धार्मिक प्रतीक / Religious symbols on temples only","केवल लोकनृत्य की गति / Folk-dance tempo only","केवल आधुनिक मौसम विज्ञान / Modern meteorology only"],
+a:0,e:"माप-इकाइयों की पहचान से पुराने अभिलेखों में भूमि, उपज, कर और वस्तुओं की मात्रा को समझने में मदद मिलती है। / Identifying historical units helps interpret land, produce, taxes and quantities recorded in old documents."
+},
+{
+q:"मध्य प्रदेश के ऐतिहासिक अध्ययन में मानचित्रों की तुलना अलग-अलग कालों में क्यों की जाती है? / Why are maps from different periods compared in the historical study of Madhya Pradesh?",
+o:["सीमाओं, मार्गों, बस्तियों और भौगोलिक धारणाओं में परिवर्तन समझने के लिए / To understand changes in boundaries, routes, settlements and geographical perceptions","हर प्राचीन सीमा को आधुनिक सीमा मानने के लिए / To treat every ancient boundary as a modern boundary","केवल रंगों की सुंदरता जाँचने के लिए / To assess colour aesthetics only","सभी ऐतिहासिक बदलावों को नकारने के लिए / To deny historical change"],
+a:0,e:"ऐतिहासिक मानचित्र राजनीतिक सीमाओं और भूगोल की बदलती समझ दिखा सकते हैं; उन्हें अपने समय के संदर्भ में पढ़ना चाहिए। / Historical maps can reveal changing political boundaries and geographical knowledge and must be read in context."
+},
+{
+q:"मध्य प्रदेश के किसी स्मारक पर प्रयुक्त पत्थर का स्रोत पता लगाने से क्या लाभ होता है? / What is the benefit of identifying the source of stone used in a monument in Madhya Pradesh?",
+o:["निर्माण सामग्री के परिवहन, शिल्प और संसाधन-नेटवर्क के संकेत मिलना / Clues about transport of materials, craftsmanship and resource networks","शासक की जन्मतिथि स्वतः मिलना / Automatically discovering the ruler's birth date","हर मूर्ति का धार्मिक अर्थ निश्चित होना / Fixing the religious meaning of every sculpture","स्थल की सभी घटनाओं का पूरा विवरण मिलना / Obtaining a complete account of every event at the site"],
+a:0,e:"पत्थर के स्रोत का अध्ययन खदानों, परिवहन, कारीगरों और निर्माण के लिए उपलब्ध संसाधनों के बारे में जानकारी दे सकता है। / Stone provenance can reveal quarries, transport, craftspeople and the resources available for construction."
+},
+{
+q:"मध्य प्रदेश की सांस्कृतिक परंपराओं में मौसमी गीतों का अध्ययन किस संबंध को समझने में मदद करता है? / What relationship can the study of seasonal songs help explain in Madhya Pradesh's cultural traditions?",
+o:["कृषि चक्र, ऋतु, सामाजिक जीवन और उत्सव / Agricultural cycles, seasons, social life and festivals","केवल राजकीय सैन्य पदक्रम / Royal military hierarchy only","केवल विदेशी मुद्रा दर / Foreign exchange rates only","केवल आधुनिक चुनाव प्रणाली / Modern election systems only"],
+a:0,e:"मौसमी गीत अक्सर खेती, मौसम, श्रम, उत्सव और सामुदायिक जीवन से जुड़े होते हैं। / Seasonal songs are often connected with farming, weather, labour, festivals and community life."
+},
+{
+q:"मध्य प्रदेश के इतिहास के स्रोतों में किसी अभिलेख का अपूर्ण होना किस तरह संभालना चाहिए? / How should a researcher handle an incomplete inscription in Madhya Pradesh history?",
+o:["पठनीय अंश, अक्षर-रूप, संदर्भ और समानांतर अभिलेखों से सावधानीपूर्वक पुनर्निर्माण करना / Reconstruct cautiously using readable portions, letter forms, context and parallel inscriptions","अनुमानित पाठ को निश्चित तथ्य घोषित करना / Declare a guessed reading as certain fact","अभिलेख को हमेशा अनुपयोगी मानना / Always treat it as useless","केवल आधुनिक नाम जोड़ देना / Insert modern names only"],
+a:0,e:"अपूर्ण अभिलेखों का पाठ सावधानी से पुनर्निर्मित किया जाता है और अनिश्चित अंशों को स्पष्ट रूप से चिह्नित करना चाहिए। / Incomplete inscriptions are reconstructed cautiously, and uncertain readings should be clearly identified."
+},
+{
+q:"मध्य प्रदेश के इतिहास में ‘सांस्कृतिक निरंतरता’ का अर्थ सबसे उपयुक्त रूप से क्या है? / What is the most appropriate meaning of 'cultural continuity' in Madhya Pradesh history?",
+o:["कुछ परंपराओं का समय के साथ बने रहना, साथ ही उनमें परिवर्तन भी संभव होना / Some traditions persisting over time while also allowing change","किसी संस्कृति में कभी परिवर्तन न होना / A culture never changing","हर पुरानी प्रथा का आज भी समान रूप में मौजूद होना / Every old practice existing today in exactly the same form","सभी समुदायों का एक जैसा हो जाना / All communities becoming identical"],
+a:0,e:"सांस्कृतिक निरंतरता का अर्थ परंपराओं का कुछ रूपों में बने रहना है; इसका मतलब यह नहीं कि वे अपरिवर्तित रहती हैं। / Cultural continuity means traditions persist in some forms, not that they remain unchanged."
+},
+{
+q:"मध्य प्रदेश की ऐतिहासिक विरासत पर शोध में संरक्षण-स्थिति का नियमित रिकॉर्ड क्यों रखा जाता है? / Why is the conservation condition of heritage in Madhya Pradesh recorded regularly?",
+o:["क्षरण के बदलाव पहचानने और समय पर संरक्षण उपाय तय करने के लिए / To detect deterioration and plan timely conservation measures","स्मारक की प्राचीनता को बिना प्रमाण निश्चित करने के लिए / To date a monument without evidence","सभी पर्यटकों की संख्या स्वतः बढ़ाने के लिए / To automatically increase visitor numbers","ऐतिहासिक संदर्भ को बदलने के लिए / To alter historical context"],
+a:0,e:"नियमित रिकॉर्ड से दरारों, नमी, सतह के नुकसान और अन्य परिवर्तनों की निगरानी की जा सकती है। / Regular records help monitor cracks, moisture, surface damage and other changes."
+},
+{
+q:"मध्य प्रदेश की क्षेत्रीय इतिहास-लेखन में स्थानीय अभिलेखागार और संग्रहालयों का प्रमुख योगदान क्या है? / What is a major contribution of local archives and museums to regional history-writing in Madhya Pradesh?",
+o:["दस्तावेज़, वस्तुएँ और स्थानीय इतिहास-संबंधी प्रमाण उपलब्ध कराना / Providing documents, objects and evidence related to local history","हर ऐतिहासिक विवाद का स्वतः समाधान / Automatically resolving every historical dispute","सभी मौखिक परंपराओं को समाप्त करना / Ending all oral traditions","पुरातत्त्व की आवश्यकता हटाना / Removing the need for archaeology"],
+a:0,e:"स्थानीय अभिलेखागार और संग्रहालय दस्तावेज़, वस्तुएँ और क्षेत्रीय संदर्भ उपलब्ध कराते हैं, जिनकी तुलना अन्य स्रोतों से की जा सकती है। / Local archives and museums provide documents, objects and regional context that can be compared with other sources."
+},
+{
+q:"मध्य प्रदेश के ऐतिहासिक स्थलों का अध्ययन करते समय ‘परतदार इतिहास’ से क्या आशय है? / What does 'layered history' mean when studying historic sites in Madhya Pradesh?",
+o:["एक ही स्थल पर अलग-अलग कालों के निर्माण, उपयोग और परिवर्तन के प्रमाण / Evidence of construction, use and change from different periods at one site","एक ही घटना का बार-बार वर्णन / Repeated narration of one event","केवल मिट्टी की प्राकृतिक परतें, बिना मानव गतिविधि / Natural soil layers without human activity only","सभी अवशेष एक ही काल के होना / All remains belonging to one period"],
+a:0,e:"एक स्थल में अलग-अलग कालों के अवशेष और उपयोग मिल सकते हैं। इन्हें पहचानना उसके ऐतिहासिक विकास को समझने के लिए जरूरी है। / A site may contain remains and uses from different periods; identifying them helps reconstruct its historical development."
+},
+{
+q:"मध्य प्रदेश की सांस्कृतिक विरासत में स्थानीय समुदायों की स्मृति और लिखित इतिहास को साथ पढ़ने का लाभ क्या है? / What is the benefit of studying community memory alongside written history in Madhya Pradesh?",
+o:["अनुभवों और ऐतिहासिक दावों की तुलना करके अधिक व्यापक दृष्टि मिलना / Gaining a broader perspective by comparing experiences and historical claims","लिखित स्रोतों को पूरी तरह त्याग देना / Discarding written sources entirely","मौखिक स्मृति को हमेशा अक्षरशः सत्य मानना / Always accepting oral memory literally","सभी स्थानीय पहचान को एक जैसा मानना / Treating all local identities as identical"],
+a:0,e:"मौखिक स्मृति समुदाय के अनुभव और अर्थ सामने ला सकती है, जबकि लिखित स्रोत अन्य प्रमाण देते हैं। दोनों का तुलनात्मक अध्ययन उपयोगी है। / Oral memory conveys community experience and meaning, while written sources provide other evidence; comparison is valuable."
+},
+{
+q:"मध्य प्रदेश के ऐतिहासिक अध्ययन में किसी वस्तु की ‘प्राप्ति-स्थिति’ (context) क्यों महत्त्वपूर्ण है? / Why is the find context of an artefact important in Madhya Pradesh historical research?",
+o:["उसके उपयोग, काल और अन्य वस्तुओं से संबंध की व्याख्या में मदद के लिए / To interpret its use, date and relationship with other objects","केवल वस्तु का बाजार मूल्य तय करने के लिए / To determine market value only","वस्तु का रंग बदलने के लिए / To change its colour","उसकी सामग्री को बिना परीक्षण निश्चित करने के लिए / To identify its material without testing"],
+a:0,e:"वस्तु कहाँ, किस परत में और किन अन्य अवशेषों के साथ मिली, यह उसकी व्याख्या और कालक्रम के लिए महत्त्वपूर्ण है। / Where, in which layer and alongside which remains an object is found matters for interpretation and chronology."
+},
+{
+q:"मध्य प्रदेश के इतिहास में क्षेत्रीय व्यापार के अध्ययन के लिए कारीगरों के औजारों और तैयार वस्तुओं को साथ देखने का लाभ क्या है? / What is the benefit of studying craft tools alongside finished goods when examining regional trade in Madhya Pradesh?",
+o:["उत्पादन प्रक्रिया और वस्तुओं के वितरण को जोड़कर समझना / Connecting production processes with distribution of goods","केवल शासकों की धार्मिक नीतियाँ तय करना / Determining rulers' religious policies only","हर वस्तु को स्थानीय उत्पादन मान लेना / Assuming every object was locally made","व्यापार मार्गों को अप्रासंगिक मानना / Treating trade routes as irrelevant"],
+a:0,e:"औजार उत्पादन की प्रक्रिया दिखाते हैं और तैयार वस्तुओं का वितरण विनिमय तथा व्यापारिक संपर्कों के संकेत दे सकता है। / Tools reveal production processes, while distribution of finished goods can indicate exchange and trade links."
+},
+{
+q:"मध्य प्रदेश की प्राचीन सांस्कृतिक परंपराओं का अध्ययन करते समय पुरातत्त्व और पर्यावरणीय इतिहास को जोड़ने का लाभ क्या है? / What is the benefit of combining archaeology with environmental history when studying ancient Madhya Pradesh?",
+o:["मानव बस्तियों और प्राकृतिक संसाधनों के संबंध को समझना / Understanding relationships between human settlements and natural resources","सभी सामाजिक घटनाओं को केवल जलवायु से समझना / Explaining all social events solely through climate","राजनीति और संस्कृति को पूरी तरह नकारना / Completely ignoring politics and culture","हर स्थल की तिथि बिना प्रमाण तय करना / Dating every site without evidence"],
+a:0,e:"पर्यावरणीय साक्ष्य से जल, वनस्पति और संसाधनों की भूमिका समझी जा सकती है, लेकिन सामाजिक और राजनीतिक कारकों का भी अध्ययन आवश्यक है। / Environmental evidence clarifies water, vegetation and resources, but social and political factors must also be considered."
+},
+{
+q:"मध्य प्रदेश की ऐतिहासिक विरासत पर आधारित परीक्षा में किसी तथ्य के साथ ‘परंपरागत रूप से माना जाता है’ लिखने का क्या उद्देश्य है? / Why might an exam explanation say a fact is 'traditionally believed' in Madhya Pradesh history?",
+o:["लोकपरंपरा और प्रमाणित ऐतिहासिक निष्कर्ष के बीच अंतर स्पष्ट करना / To distinguish tradition from firmly established historical conclusions","तथ्य को बिना कारण अस्वीकार करना / To reject the fact without reason","सभी पुरातात्त्विक प्रमाणों को निरर्थक बताना / To declare all archaeological evidence meaningless","तिथि को हमेशा गलत सिद्ध करना / To prove the date is always wrong"],
+a:0,e:"ऐतिहासिक परंपराएँ महत्त्वपूर्ण हो सकती हैं, पर उनकी पुष्टि और व्याख्या उपलब्ध अभिलेखीय तथा पुरातात्त्विक साक्ष्यों के साथ की जाती है। / Historical traditions matter, but they should be assessed alongside available textual and archaeological evidence."
 }
+];
 
-function updateTimerDisplay() {
-  const timer = document.getElementById("timer");
+const container=document.getElementById("questions");
+questions.forEach((q,i)=>{
+ const article=document.createElement("article");
+ article.className="question";
+ article.innerHTML=`
+ <p class="qtitle"><span class="qnumber">Q${i+1}.</span> ${q.q}</p>
+ <div class="options">${q.o.map((op,j)=>`
+ <label class="option" id="opt-${i}-${j}">
+ <input type="radio" name="q${i}" value="${j}">
+ <span><b>${"ABCD"[j]}.</b> ${op}</span></label>`).join("")}</div>
+ <div class="explanation" id="exp-${i}">
+ <strong>सही उत्तर / Correct Answer:</strong> ${"ABCD"[q.a]}. ${q.o[q.a]}<br>
+ <strong>व्याख्या / Explanation:</strong> ${q.e}
+ </div>`;
+ container.appendChild(article);
+});
 
-  const minutes = Math.floor(remainingSeconds / 60);
-  const seconds = remainingSeconds % 60;
-
-  timer.textContent =
-    String(minutes).padStart(2, "0") + ":" +
-    String(seconds).padStart(2, "0");
-
-  if (remainingSeconds <= 300) {
-    timer.classList.add("warning");
-  }
+let remaining=3600;
+let submitted=false;
+const timerEl=document.getElementById("timer");
+function tick(){
+ if(submitted)return;
+ timerEl.textContent=`समय / Time: ${String(Math.floor(remaining/60)).padStart(2,"0")}:${String(remaining%60).padStart(2,"0")}`;
+ if(remaining<=0){submitTest(true);return;}
+ remaining--;
 }
+tick();
+const timerInterval=setInterval(tick,1000);
 
-function startTimer() {
-  updateTimerDisplay();
-
-  timerInterval = setInterval(function() {
-    if (testSubmitted) {
-      clearInterval(timerInterval);
-      return;
-    }
-
-    remainingSeconds--;
-
-    if (remainingSeconds <= 0) {
-      remainingSeconds = 0;
-      updateTimerDisplay();
-
-      clearInterval(timerInterval);
-
-      document.getElementById("timer").textContent =
-        "समय समाप्त";
-
-      document.getElementById("timer").classList.add("finished");
-
-      alert("60 मिनट पूरे हो गए। आपका टेस्ट Submit किया जा रहा है।");
-
-      submitTest(true);
-      return;
-    }
-
-    updateTimerDisplay();
-  }, 1000);
-}
-
-function submitTest(autoSubmit = false) {
-  if (testSubmitted) return;
-
-  const cards = document.querySelectorAll(
-    "#quiz-area .question-card"
-  );
-
-  let score = 0;
-  const total = cards.length;
-
-  cards.forEach(function(card) {
-    const qNum = card.dataset.qnum;
-    const correct = card.dataset.correct;
-
-    const selected = card.querySelector(
-      'input[name="q' + qNum + '"]:checked'
-    );
-
-    const correctLabel = card.querySelector(
-      '.option-label[data-id="' + correct + '"]'
-    );
-
-    if (correctLabel) {
-      correctLabel.classList.add("correct-option");
-    }
-
-    if (selected) {
-      if (selected.value === correct) {
-        score++;
-      } else {
-        const wrongLabel = card.querySelector(
-          '.option-label[data-id="' + selected.value + '"]'
-        );
-
-        if (wrongLabel) {
-          wrongLabel.classList.add("wrong-option");
-        }
-      }
-    }
-
-    const explanation = card.querySelector(".explanation-box");
-
-    if (explanation) {
-      explanation.style.display = "block";
-    }
-
-    card.querySelectorAll('input[type="radio"]').forEach(
-      function(input) {
-        input.disabled = true;
-      }
-    );
+function submitTest(auto){
+ if(submitted)return;
+ if(!auto&&!confirm("क्या आप टेस्ट जमा करना चाहते हैं? / Are you sure you want to submit?"))return;
+ submitted=true;
+ clearInterval(timerInterval);
+ let correct=0,wrong=0,unanswered=0;
+ questions.forEach((q,i)=>{
+  const selected=document.querySelector(`input[name="q${i}"]:checked`);
+  if(!selected)unanswered++;
+  else if(Number(selected.value)===q.a)correct++;
+  else wrong++;
+  q.o.forEach((_,j)=>{
+   const label=document.getElementById(`opt-${i}-${j}`);
+   const radio=label.querySelector("input");
+   radio.disabled=true;
+   if(j===q.a)label.classList.add("correct");
+   if(selected&&Number(selected.value)===j&&j!==q.a)label.classList.add("wrong");
   });
-
-  testSubmitted = true;
-  clearInterval(timerInterval);
-
-  const percentage = total
-    ? Math.round((score / total) * 100)
-    : 0;
-
-  const board = document.getElementById("score-board");
-
-  board.textContent =
-    (autoSubmit ? "⏰ समय समाप्त! " : "🏆 आपका स्कोर: ") +
-    score + " / " + total + " (" + percentage + "%)";
-
-  board.style.display = "block";
-
-  document.getElementById("submit-btn").disabled = true;
-  document.getElementById("submit-btn").textContent = "Test Submitted";
-
-  document.getElementById("timer").classList.add("finished");
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
+  document.getElementById("exp-"+i).style.display="block";
+ });
+ const percent=(correct/questions.length*100).toFixed(2);
+ const result=document.getElementById("result");
+ result.style.display="block";
+ result.innerHTML=`
+ <h2>${auto?"समय समाप्त / Time Over":"टेस्ट परिणाम / Test Result"}</h2>
+ <div class="stats">
+ <div class="stat"><strong>${correct}</strong>सही / Correct</div>
+ <div class="stat"><strong>${wrong}</strong>गलत / Wrong</div>
+ <div class="stat"><strong>${unanswered}</strong>छोड़े / Unanswered</div>
+ <div class="stat"><strong>${percent}%</strong>प्रतिशत / Percentage</div>
+ </div>
+ <p><strong>स्कोर / Score:</strong> ${correct} / ${questions.length}</p>
+ <p>हरे रंग में सही उत्तर, लाल रंग में चुना गया गलत उत्तर और प्रत्येक प्रश्न की व्याख्या दिखाई गई है। / Correct answers are green, selected wrong answers are red, and explanations are shown for every question.</p>`;
+ document.getElementById("submitBtn").disabled=true;
+ document.getElementById("bottomSubmit").disabled=true;
+ result.scrollIntoView({behavior:"smooth",block:"start"});
 }
-
-function downloadPDF() {
-  if (typeof html2pdf !== "function") {
-    alert("PDF सुविधा लोड नहीं हुई। इंटरनेट कनेक्शन जाँचें।");
-    return;
-  }
-
-  const element = document.getElementById("quiz-area");
-
-  const options = {
-    margin: 8,
-    filename: "MPPSC_Test_Report.pdf",
-    image: {
-      type: "jpeg",
-      quality: 0.98
-    },
-    html2canvas: {
-      scale: 2,
-      useCORS: true
-    },
-    jsPDF: {
-      unit: "mm",
-      format: "a4",
-      orientation: "portrait"
-    }
-  };
-
-  html2pdf().set(options).from(element).save();
-}
-
-startTimer();
 </script>
-
 </body>
 </html>
