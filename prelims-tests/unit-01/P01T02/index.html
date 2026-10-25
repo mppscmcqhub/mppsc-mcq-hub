@@ -3,315 +3,356 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MPPSC MCQ Hub V14</title>
-    <!-- PDF जनरेशन लाइब्रेरी -->
-    <script src="https://cloudflare.com"></script>
+    <title>MPPSC Prelims 2027 - Unit 1 Mega Test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        * { box-shrink: 0; box-sizing: border-box; font-family: "Segoe UI", Arial, sans-serif; }
+        body { margin: 0; background: #f0f2f5; color: #222; }
+        .header { background: #15549a; color: white; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px #0003; }
+        .brand { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: bold; }
+        .header-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+        .timer { background: #b71c1c; color: white; font-size: 19px; font-weight: bold; padding: 10px 14px; border-radius: 5px; min-width: 105px; text-align: center; }
+        .timer.warning { background: #ff9800; color: #111; }
+        .timer.finished { background: #333; color: white; }
+        button { border: none; border-radius: 5px; padding: 11px 18px; font-size: 15px; font-weight: bold; cursor: pointer; transition: 0.2s; }
+        button:hover { opacity: .9; transform: translateY(-1px); }
+        .back-btn { background: #087bff; color: white; }
+        .pdf-btn { background: #ffc107; color: black; }
+        .submit-btn { background: #28a745; color: white; font-size: 16px; padding: 14px 25px; }
+        .container { padding: 20px 30px; max-width: 1000px; margin: 0 auto; }
+        .score-board { display: none; background: #d1ecf1; border: 2px solid #bee5eb; color: #0c5460; padding: 20px; border-radius: 6px; margin-bottom: 25px; text-align: center; font-size: 22px; font-weight: bold; box-shadow: 0 4px 6px #0001; }
+        .question-card { background: white; border: 1px solid #e1e4e8; border-radius: 6px; padding: 25px; margin-bottom: 25px; box-shadow: 0 2px 8px #0000000c; }
+        .question-text { font-size: 17px; font-weight: 600; line-height: 1.7; margin-bottom: 18px; color: #1a1a1a; }
+        .options-container { display: flex; flex-direction: column; gap: 12px; }
+        .option-label { display: flex; align-items: center; gap: 12px; padding: 13px 16px; border: 1px solid #d5d5d5; border-radius: 5px; cursor: pointer; line-height: 1.5; font-size: 15px; transition: 0.15s; }
+        .option-label:hover { background: #f4f7fb; border-color: #15549a; }
+        .option-label input { width: 18px; height: 17px; flex-shrink: 0; }
+        .correct-option { background: #e2f0d9 !important; border-color: #385723 !important; font-weight: bold; color: #274015; }
+        .wrong-option { background: #fce8e6 !important; border-color: #cc0000 !important; color: #a80000; }
+        .explanation-box { display: none; background: #f8fcf5; border-left: 5px solid #28a745; padding: 16px; margin-top: 18px; line-height: 1.8; border-radius: 0 4px 4px 0; font-size: 14.5px; box-shadow: inset 0 0 4px #00000005; }
+        .correct-answer-text { color: #28a745; font-weight: bold; margin-bottom: 8px; font-size: 16px; }
+        .bottom-buttons { display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap; padding: 20px 0 40px; }
+        @media(max-width: 600px) {
+            .header { padding: 10px; }
+            .brand { font-size: 18px; }
+            .container { padding: 10px; }
+            .question-card { padding: 16px; }
+            .option-label { font-size: 14px; padding: 10px; }
         }
-
-        body {
-            background-color: #f0f2f5;
-            color: #333;
-            padding-bottom: 60px;
+        @media print {
+            .header-right, .bottom-buttons { display: none !important; }
+            .question-card { break-inside: avoid; }
         }
-
-        .header {
-            background-color: #0b4c8c;
-            color: white;
-            padding: 12px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 1.3rem;
-            font-weight: bold;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            width: 100%;
-        }
-
-        .logo-area {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo-area img {
-            height: 38px;
-            width: 38px;
-            margin-right: 12px;
-            border-radius: 50%;
-            object-fit: cover;
-            background-color: white;
-            padding: 2px;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 100%;
-            padding: 20px 30px;
-        }
-
-        .score-board {
-            display: none;
-            background-color: #d1ecf1;
-            border: 1px solid #bee5eb;
-            color: #0c5460;
-            padding: 20px;
-            border-radius: 4px;
-            margin-bottom: 25px;
-            font-size: 1.3rem;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        .question-card {
-            background-color: white;
-            border-radius: 4px;
-            padding: 25px;
-            margin-bottom: 25px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            border: 1px solid #e0e0e0;
-            width: 100%;
-        }
-
-        .question-text {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            line-height: 1.6;
-        }
-
-        .options-container {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-bottom: 15px;
-        }
-
-        .option-label {
-            display: flex;
-            align-items: center;
-            padding: 12px 20px;
-            border: 1px solid #dcdcdc;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: all 0.2s;
-            width: 100%;
-        }
-
-        .option-label:hover {
-            background-color: #f8f9fa;
-        }
-
-        .option-label input[type="radio"] {
-            margin-right: 15px;
-            width: 18px;
-            height: 18px;
-            cursor: pointer;
-        }
-
-        /* सबमिट के बाद बैकग्राउंड रंग */
-        .correct-option {
-            background-color: #c3e6cb !important;
-            border-color: #8fd19e !important;
-            font-weight: bold;
-        }
-
-        .wrong-option {
-            background-color: #f5c6cb !important;
-            border-color: #f5c6cb !important;
-        }
-
-        .explanation-box {
-            display: none; /* शुरुआत में छुपा रहेगा */
-            background-color: #e2f0d9;
-            border-left: 5px solid #385723;
-            padding: 15px 20px;
-            margin-top: 15px;
-            border-radius: 0 4px 4px 0;
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        .correct-answer-text {
-            color: #385723;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .explanation-title {
-            font-weight: bold;
-            color: #555;
-        }
-
-        .btn-container {
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        .action-btn {
-            padding: 14px 40px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin: 0 10px;
-            transition: opacity 0.2s;
-        }
-
-        .submit-btn { background-color: #28a745; color: white; }
-        .pdf-btn { background-color: #ffc107; color: black; display: none; }
-        
-        .action-btn:hover { opacity: 0.9; }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <div class="logo-area">
-            <img src="logo.png" alt="Logo" onerror="this.onerror=null; this.src='https://icons8.com';">
-            <span>MPPSC MCQ Hub V14</span>
-        </div>
-        <button id="top-pdf-btn" class="action-btn pdf-btn" style="padding: 6px 15px; font-size: 0.9rem;" onclick="downloadPDF()">📥 Download PDF</button>
+<header class="header">
+    <div class="brand">
+        <span>MPPSC Prelims 2027: Unit-1 Mega Test</span>
     </div>
+    <div class="header-right">
+        <div class="timer" id="timer">90:00</div>
+        <button class="back-btn" onclick="goBack()"> ⬅ Back </button>
+        <button class="pdf-btn" onclick="downloadPDF()"> 📥 PDF </button>
+    </div>
+</header>
 
-    <div class="container" id="quiz-area">
-        <div id="score-board" class="score-board"></div>
+<main class="container" id="quiz-area">
+    <div class="score-board" id="score-board"></div>
 
-        <!-- प्रश्न 1 (Data-Correct में पूरा टेक्स्ट मैच कराया गया है) -->
-        <div class="question-card" data-correct="D">
-            <div class="question-text">1. प्राचीन भारतीय परंपरा के अनुसार, समय गणना की सबसे बड़ी इकाई कौन सी है, जो चार युगों (कृत, त्रेता, द्वापर, कलि) के चक्र से मिलकर बनती है? / According to ancient Indian tradition, which is the largest unit of time computation composed of a cycle of the four Yugas (Krita, Treta, Dvapara, Kali)?</div>
-            <div class="options-container">
-                <label class="option-label"><input type="radio" name="q1" value="A"> A. ब्रह्मा का दिन (Day of Brahma)</label>
-                <label class="option-label"><input type="radio" name="q1" value="B"> B. मन्वन्तर (Manvantara)</label>
-                <label class="option-label"><input type="radio" name="q1" value="C"> C. कल्प (Kalpa)</label>
-                <label class="option-label"><input type="radio" name="q1" value="D"> D. महायुग (Mahayuga)</label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">Correct Answer: D. महायुग (Mahayuga)</div>
-                <div><span class="explanation-title">Detailed Explanation:</span> चारों युगों के एक पूर्ण चक्र को 'महायुग' कहा जाता है।</div>
-            </div>
+    <!-- QUESTION 1 -->
+    <div class="question-card" data-qnum="1" data-correct="C">
+        <div class="question-text">
+            1. ऋग्वेद के मंडल 10 के सूक्तों के संदर्भ में 'पुरुषसूक्त' निम्नलिखित में से किस दार्शनिक संकल्पना की उत्पत्ति का मूल स्रोत माना जाता है? <br>
+            With reference to the hymns of Mandala 10 of Rigveda, 'Purushasukta' is considered the primary source of origin for which of the following philosophical concepts?
         </div>
-
-        <!-- प्रश्न 2 -->
-        <div class="question-card" data-correct="D">
-            <div class="question-text">2. ऋग्वेद में उल्लिखित 'ऋत' (Rta) की अवधारणा का मूल आध्यात्मिक और भौतिक अर्थ क्या है? / What is the core spiritual and physical meaning of the concept of 'Rta' mentioned in the Rigveda?</div>
-            <div class="options-container">
-                <label class="option-label"><input type="radio" name="q2" value="A"> A. युद्ध में विजय प्राप्त करने का मंत्र</label>
-                <label class="option-label"><input type="radio" name="q2" value="B"> B. राजा द्वारा लगाया जाने वाला एक कर</label>
-                <label class="option-label"><input type="radio" name="q2" value="C"> C. केवल यज्ञों में दी जाने वाली आहुति</label>
-                <label class="option-label"><input type="radio" name="q2" value="D"> D. ब्रह्मांडीय, नैतिक और प्राकृतिक व्यवस्था (Cosmic, Moral and Natural Order)</label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">Correct Answer: D. ब्रह्मांडीय, नैतिक और प्राकृतिक व्यवस्था (Cosmic, Moral and Natural Order)</div>
-                <div><span class="explanation-title">Detailed Explanation:</span> ऋत वैदिक दर्शन की एक अत्यंत महत्वपूर्ण अवधारणा है।</div>
-            </div>
+        <div class="options-container">
+            <label class="option-label" data-id="A"><input type="radio" name="q1" value="A"> A. कर्म का सिद्धांत / Law of Karma</label>
+            <label class="option-label" data-id="B"><input type="radio" name="q1" value="B"> B. पुनर्जन्म की अवधारणा / Concept of Rebirth</label>
+            <label class="option-label" data-id="C"><input type="radio" name="q1" value="C"> C. विराट पुरुष से चतुर्वर्ण व्यवस्था / Quadruple Varna system from Cosmic Being</label>
+            <label class="option-label" data-id="D"><input type="radio" name="q1" value="D"> D. अद्वैत वेदांत की पूर्ण अभिव्यक्ति / Complete expression of Advaita Vedanta</label>
         </div>
-
-        <!-- प्रश्न 3 -->
-        <div class="question-card" data-correct="A">
-            <div class="question-text">3. मध्य प्रदेश का राजकीय पशु कौन सा है? / Which is the state animal of Madhya Pradesh?</div>
-            <div class="options-container">
-                <label class="option-label"><input type="radio" name="q3" value="A"> A. बारहसिंगा (Barasingha)</label>
-                <label class="option-label"><input type="radio" name="q3" value="B"> B. बाघ (Tiger)</label>
-                <label class="option-label"><input type="radio" name="q3" value="C"> C. चीतल (Chital)</label>
-                <label class="option-label"><input type="radio" name="q3" value="D"> D. तेंदुआ (Leopard)</label>
-            </div>
-            <div class="explanation-box">
-                <div class="correct-answer-text">Correct Answer: A. बारहसिंगा (Barasingha)</div>
-                <div><span class="explanation-title">Detailed Explanation:</span> मध्य प्रदेश का राजकीय पशु बारहसिंगा है।</div>
-            </div>
-        </div>
-
-        <!-- ऑटो-जेनरेटेड 4 से 50 प्रश्न -->
-        <div id="dynamic-blank-questions"></div>
-
-        <div class="btn-container">
-            <button id="submit-btn" class="action-btn submit-btn" onclick="submitTest()">✔️ Submit Test</button>
-            <button id="bottom-pdf-btn" class="action-btn pdf-btn" onclick="downloadPDF()">📥 Download PDF Report</button>
+        <div class="explanation-box">
+            <div class="correct-answer-text">सही उत्तर: C</div>
+            ऋग्वेद के 10वें मंडल के पुरुषसूक्त में पहली बार आदिपुरुष (विराट पुरुष) के अंगों से चारों वर्णों (ब्राह्मण, क्षत्रिय, वैश्य, शूद्र) की उत्पत्ति का उल्लेख मिलता है, जो सामाजिक संरचना का दार्शनिक आधार बना। / In the Purushasukta of the 10th Mandala of Rigveda, the origin of the four Varnas from the limbs of the primordial being is mentioned for the first time.
         </div>
     </div>
 
-    <script>
-        // 4 से 50 प्रश्नों का डायनामिक लेआउट लोड करना
-        const blankContainer = document.getElementById('dynamic-blank-questions');
-        for (let i = 4; i <= 50; i++) {
-            blankContainer.innerHTML += `
-                <div class="question-card" data-correct="A">
-                    <div class="question-text">${i}. मध्य प्रदेश सामान्य ज्ञान प्रश्न संख्या ${i} / MP GK Mock Question Number ${i}?</div>
-                    <div class="options-container">
-                        <label class="option-label"><input type="radio" name="q${i}" value="A"> A. विकल्प A (सही उत्तर)</label>
-                        <label class="option-label"><input type="radio" name="q${i}" value="B"> B. विकल्प B</label>
-                        <label class="option-label"><input type="radio" name="q${i}" value="C"> C. विकल्प C</label>
-D. विकल्प D
-Correct Answer: A. विकल्प A
-Detailed Explanation: यह प्रश्न संख्या ${i} की विस्तृत व्याख्या है।
+    <!-- QUESTION 2 -->
+    <div class="question-card" data-qnum="2" data-correct="B">
+        <div class="question-text">
+            2. 'ऋत' (Rta) और 'सत्य' (Satya) के मध्य दार्शनिक अंतर के संबंध में कौन सा कथन सत्य है? <br>
+            Which statement is true regarding the philosophical distinction between 'Rta' and 'Satya'?
+        </div>
+        <div class="options-container">
+            <label class="option-label" data-id="A"><input type="radio" name="q2" value="A"> A. ऋत मानव-निर्मित नैतिक नियम है जबकि सत्य ब्रह्मांडीय भौतिक नियम है। / Rta is a man-made moral law while Satya is a cosmic physical law.</label>
+            <label class="option-label" data-id="B"><input type="radio" name="q2" value="B"> B. ऋत गतिशील वैश्विक व प्राकृतिक व्यवस्था है, जबकि सत्य उसका व्यावहारिक व नैतिक रूप है। / Rta is the dynamic cosmic and natural order, while Satya is its practical and moral manifestation.</label>
+            <label class="option-label" data-id="C"><input type="radio" name="q2" value="C"> C. ऋत का नियम केवल बौद्ध धर्म में मान्य है। / The law of Rta is valid only in Buddhism.</label>
+            <label class="option-label" data-id="D"><input type="radio" name="q2" value="D"> D. उपनिषदों में ऋत को पूरी तरह अस्वीकार कर दिया गया। / Rta was completely rejected in the Upanishads.</label>
+        </div>
+        <div class="explanation-box">
+            <div class="correct-answer-text">सही उत्तर: B</div>
+            वैदिक दर्शन में 'ऋत' ब्रह्मांडीय, प्राकृतिक और नैतिक अंतर्निहित व्यवस्था है (जैसे सूर्य-चंद्र का नियम)। 'सत्य' वचन और कर्म में उसी नियम के प्रति निष्ठा है। वरुण को 'ऋतस्य गोपा' कहा गया है। / In Vedic philosophy, 'Rta' is the cosmic and natural order, while 'Satya' is the alignment of action and speech to that reality.
+        </div>
+    </div>
 
+    <!-- QUESTION 3 -->
+    <div class="question-card" data-qnum="3" data-correct="A">
+        <div class="question-text">
+            3. 'सभा' और 'समिति' के संदर्भ में निम्नलिखित कथनों पर विचार कीजिए तथा कूट का चयन कीजिए:<br>
+            1. 'सभा' वृद्ध या संभ्रांत लोगों की संस्था थी।<br>
+            2. 'समिति' एक केंद्रीय राजनीतिक संस्था थी जिसमें सामान्य जन शामिल होते थे तथा यह राजा का चुनाव करती थी।<br>
+            Consider the following statements about 'Sabha' and 'Samiti' and select the correct code:
+        </div>
+        <div class="options-container">
+            <label class="option-label" data-id="A"><input type="radio" name="q3" value="A"> A. केवल 1 और 2 दोनों सही हैं / Both 1 and 2 are correct</label>
+            <label class="option-label" data-id="B"><input type="radio" name="q3" value="B"> B. केवल 1 सही है / Only 1 is correct</label>
+            <label class="option-label" data-id="C"><input type="radio" name="q3" value="C"> C. केवल 2 सही है / Only 2 is correct</label>
+            <label class="option-label" data-id="D"><input type="radio" name="q3" value="D"> D. न तो 1 और न ही 2 सही है / Neither 1 nor 2 is correct</label>
+        </div>
+        <div class="explanation-box">
+            <div class="correct-answer-text">सही उत्तर: A</div>
+            ऋग्वैदिक काल में प्रजापति की दो पुत्रियों के रूप में वर्णित सभा और समिति लोकतांत्रिक तत्व थे। सभा कुलीन वर्ग की और समिति आम जनता की सभा थी। अथर्ववेद में इन्हें प्रजापति की दो पुत्रियाँ कहा गया है। / In the Rigvedic period, Sabha was the assembly of elders/elites and Samiti was the general assembly involved in electing the chief.
+        </div>
+    </div>
 
-`;
-}
-// टेक्स्ट वैल्यू आधारित 100% सुपर-फिक्स्ड सबमिट फंक्शन
-function submitTest() {
-let score = 0;
-const cards = document.querySelectorAll('.question-card');
-const total = cards.length;
-cards.forEach((card) => {
-const correctLetter = card.getAttribute('data-correct'); // जैसे "D" या "A"
-const labels = card.querySelectorAll('.option-label');
-const selectedInput = card.querySelector('input[type="radio"]:checked');
-// सभी लेबल्स में से सही अक्षर (A, B, C, D) वाले लेबल को ग्रीन मार्क करें
-labels.forEach((label) => {
-const inputInside = label.querySelector('input[type="radio"]');
-if (inputInside && inputInside.value === correctLetter) {
-label.classList.add('correct-option');
-}
-});
-// अगर यूज़र ने कोई ऑप्शन चुना है
-if (selectedInput) {
-const userAns = selectedInput.value;
-if (userAns === correctLetter) {
-score++;
-} else {
-// गलत चुने हुए लेबल को रेड मार्क करें
-if (selectedInput.parentElement) {
-selectedInput.parentElement.classList.add('wrong-option');
-}
-}
-}
-// व्याख्या बॉक्स दिखाएं
-const expBox = card.querySelector('.explanation-box');
-if (expBox) {
-expBox.style.display = 'block';
-}
-// रेडियो बटन्स को पूरी तरह लॉक करें
-const radios = card.querySelectorAll('input[type="radio"]');
-radios.forEach(r => r.disabled = true);
-});
-// स्कोरबोर्ड डिस्प्ले करना
-const scoreBoard = document.getElementById('score-board');
-scoreBoard.innerHTML = 🏆 आपका लाइव स्कोर: ${score} / ${total} (${Math.round((score/total)*100)}%);
-scoreBoard.style.display = 'block';
-document.getElementById('submit-btn').style.display = 'none';
-document.getElementById('top-pdf-btn').style.display = 'block';
-document.getElementById('bottom-pdf-btn').style.display = 'block';
-window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-function downloadPDF() {
-const element = document.getElementById('quiz-area');
-const opt = {
-margin:       10,
-filename:     'MPPSC_Final_Exam_Report.pdf',
-image:        { type: 'jpeg', quality: 0.98 },
-html2canvas:  { scale: 2, useCORS: true },
-jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
-};
-html2pdf().set(opt).from(element).save();
-}
+    <!-- QUESTION 4 -->
+    <div class="question-card" data-qnum="4" data-correct="D">
+        <div class="question-text">
+            4. 'शतानीक' और 'उदयन' का संबंध मध्य प्रदेश के प्राचीन काल के किस महाजनपद से मुख्य रूप से संबंद्ध था? <br>
+            'Shatanika' and 'Udayana' were primarily associated with which ancient Mahajanapada of Madhya Pradesh?
+        </div>
+        <div class="options-container">
+            <label class="option-label" data-id="A"><input type="radio" name="q4" value="A"> A. अवंति महाजनपद / Avanti Mahajanapada</label>
+B. चेदि महाजनपद / Chedi Mahajanapada
+ C. मगध महाजनपद / Magadha Mahajanapada
+ D. वत्स महाजनपद (किंतु अवंति के समकालीन शासक राजा प्रद्योत से घनिष्ठ संघर्ष था) / Vatsa Mahajanapada (with close conflict with Avanti's Pradyota)
+सही उत्तर: D
+यद्यपि शतानीक और उदयन वत्स (कौशाम्बी) के राजा थे, उनका मध्य प्रदेश के अवंति के महाप्रतापी राजा चंड प्रद्योत के साथ तीव्र साम्राज्यवादी संघर्ष और वैवाहिक संबंध (उदयन-वासवदत्ता कथा) का इतिहास जुड़ा हुआ है। / Udayana of Vatsa is deeply tied to MP's history due to his romantic and political relations with Princess Vasavadatta of Avanti.
+
+5. बौद्ध ग्रंथ 'अंगुत्तर निकाय' और जैन ग्रंथ 'भगवती सूत्र' में वर्णित महाजनपदों में से वर्तमान मध्य प्रदेश की भौगोलिक सीमा में कौन-से महाजनपद पूर्णतः या अंशतः अवस्थित थे? 
+
+Out of the Mahajanapadas mentioned in Anguttara Nikaya and Bhagavati Sutra, which ones were completely or partially located in the present geographical limits of Madhya Pradesh?
+
+ A. केवल अवंति / Only Avanti
+ B. अवंति और चेदि दोनों / Both Avanti and Chedi
+ C. अवंति, चेदि और अश्मक / Avanti, Chedi and Asmaka
+ D. केवल चेदि / Only Chedi
+सही उत्तर: B
+16 महाजनपदों में से दो मध्य प्रदेश में थे: 1. अवंति (मालवा क्षेत्र - राजधानी उज्जैनी और माहिष्मती) तथा 2. चेदि (बुंदेलखंड क्षेत्र - राजधानी शुक्तिमती)। / Two of the 16 Mahajanapadas were in MP: Avanti (Malwa) and Chedi (Bundelkhand).
+
+6. "पंचमहायज्ञ" संकल्पना के अंतर्गत 'पितृयज्ञ' को संपन्न करने का मुख्य आध्यात्मिक उद्देश्य क्या है? 
+
+Under the concept of "Pancha Mahayajna", what is the primary spiritual objective of performing 'Pitri Yajna'?
+
+ A. पूर्वजों व अतीत की पीढ़ियों के प्रति कृतज्ञता और तर्पण / Gratitude and libations to ancestors and past generations
+ B. देवताओं को आहुति देकर भौतिक समृद्धि प्राप्त करना / Giving oblations to deities for material wealth
+ C. अतिथियों को भोजन कराना / Offering food to guests
+ D. प्रकृति के पशु-पक्षियों को दाना देना / Feeding animals and birds of nature
+सही उत्तर: A
+पंचमहायज्ञ (ब्रह्म, देव, पितृ, मनुष्य, भूत यज्ञ) में 'पितृयज्ञ' माता-पिता, गुरुओं और पूर्वजों के प्रति तर्पण और श्राद्ध के माध्यम से सामाजिक व आनुवंशिक निरंतरता के प्रति दायित्व बोध कराता है। / Pitri Yajna is performed to pay homage and clear the debt toward one's lineage and ancestors.
+
+7. मोक्ष प्राप्ति के तीन प्रमुख मार्गों का व्यवस्थित वर्गीकरण श्रीमद्भगवद्गीता के किस अध्याय/स्वरूप में विस्तार से वर्णित है? 
+
+In which chapter/structure of the Shrimad Bhagavad Gita is the systematic classification of the three paths to Moksha extensively detailed?
+
+ A. केवल प्रथम छह अध्याय में (ज्ञानमार्ग) / Only first six chapters
+ B. केवल पुरुषोत्तम योग में / Only Purushottama Yoga
+ C. ज्ञान, कर्म और भक्ति योग के रूप में क्रमशः अध्यायों के त्रिकों में / As Jnana, Karma, and Bhakti Yoga in triads of chapters respectively
+ D. गीता में भक्ति मार्ग का कोई उल्लेख नहीं है / There is no mention of Bhakti Marg in Gita
+सही उत्तर: C
+भगवद्गीता के 18 अध्यायों को तीन षटकों (त्रिकों) में बांटा गया है: पहले 6 अध्याय 'कर्म योग', मध्य के 6 अध्याय 'भक्ति योग' और अंतिम 6 अध्याय 'ज्ञान योग' की व्याख्या करते हैं। / The 18 chapters of the Gita are split into three sets of six, handling Karma, Bhakti, and Jnana Yoga as paths to liberation.
+
+8. उत्तर वैदिक कालीन कर संग्रहकर्ता अधिकारी को क्या कहा जाता था, जिसका उल्लेख विभिन्न ब्राह्मण ग्रंथों में मिलता है? 
+
+What was the tax collector official called during the Later Vedic period, as mentioned in various Brahmana texts?
+
+ A. संग्रहीत्री / Sangrahitri
+ B. भागदुघ / Bhagadugha
+ C. अक्षावाप / Akshavapa
+ D. सूत / Suta
+सही उत्तर: B
+उत्तर वैदिक काल के 'रत्नियों' (अधिकारियों) की सूची में 'भागदुघ' राजस्व या राजा का अंश (भाग) वसूलने वाला अधिकारी था, जबकि 'संग्रहीत्री' कोषाध्यक्ष (Treasurer) को कहा जाता था। / In Later Vedic administrative machinery, Bhagadugha collected the king's share of tax, while Sangrahitri managed the treasury.
+
+9. निम्नलिखित में से कौन सा उपनिषद 'गद्य' और 'पद्य' दोनों शैलियों में रचित होने के कारण विशिष्ट माना जाता है? 
+
+Which of the following Upanishads is considered distinct because it is composed in both 'prose' and 'verse' styles?
+
+ A. प्रश्नोपनिषद और यजुर्वेद का ईशोपनिषद / Prashnopanishad and Ishopanished
+ B. केवल मुण्डकोपनिषद / Only Mundakopanishad
+ C. कठोपनिषद / Kathopanishad
+ D. केनोपनिषद (जो पूर्णतः गद्य है) / Kenopanishad
+सही उत्तर: A
+यजुर्वेद से संबंधित कतिपय उपनिषद जैसे 'कृष्ण यजुर्वेद' का तैत्तिरीय गद्य में है, जबकि केन पद्य व गद्य मिश्रित है। बृहदारण्यक गद्यात्मक है। प्रश्नोपनिषद में गद्य और पद्य दोनों का सुंदर समन्वय देखा जा सकता है। / Some major Upanishads like Prashna and Kena contain a mix of prose and verse elements.
+
+10. मध्य प्रदेश की नर्मदा घाटी में स्थित 'हथनोरा' से प्राप्त मानव जीवाश्म (होमो इरेक्टस) की खोज किसने की थी और इसका कालक्रम क्या निर्धारित है? 
+
+Who discovered the human fossil (Homo erectus) from 'Hathnora' in the Narmada Valley of MP, and what is its chronological estimation?
+
+ A. वी. एस. वाकणकर, 1965 / V. S. Wakankar, 1965
+ B. एच. डी. सांकलिया, 1970 / H. D. Sankalia, 1970
+ C. अरुण सोनकिया, 1982 (लगभग 5 से 7 लाख वर्ष पुराना) / Arun Sonakia, 1982 (approx 5-7 lakh years old)
+ D. जी. आर. शर्मा, 1990 / G. R. Sharma, 1990
+सही उत्तर: C
+5 दिसंबर 1982 को भूवैज्ञानिक अरुण सोनकिया ने सीहोर जिले के हथनोरा (नर्मदा घाटी) से जीवाश्म मानव खोपड़ी खोजी, जिसे 'नर्मदा मानव' कहा गया। यह भारत का सबसे प्राचीन मानव जीवाश्म अवशेष है। / Dr. Arun Sonakia discovered the oldest human fossil skull cap in India from Hathnora in 1982.
+
+11. विख्यात पुरातात्विक स्थल 'कायथा' (उज्जैन) के संदर्भ में कौन सा तथ्य असत्य है? 
+
+Which fact is false with reference to the famous archaeological site 'Kayatha' (Ujjain)?
+
+ A. यह मध्य प्रदेश की प्रथम ताम्रपाषाणिक संस्कृति का प्रतिनिधित्व करता है। / It represents the first Chalcolithic culture of MP.
+ B. इसकी खोज प्रसिद्ध इतिहासकार अलेक्जेंडर कनिंघम ने की थी। / It was discovered by the famous historian Alexander Cunningham.
+ C. यह स्थल प्रसिद्ध खगोलविद वराहमिहिर की जन्मस्थली (कपित्थक) माना जाता है। / This site is considered the birthplace of astronomer Varahamihira.
+ D. यहाँ से तांबे के कंगन और कुल्हाड़ियाँ प्राप्त हुई हैं। / Copper bangles and axes have been recovered from here.
+सही उत्तर: B
+कायथा पुरातात्विक स्थल की खोज डॉ. विष्णु श्रीधर वाकणकर (V.S. Wakankar) ने 1964 में की थी, न कि कनिंघम ने। अतः विकल्प B असत्य है। / Kayatha was excavated by Dr. V.S. Wakankar, making option B incorrect.
+
+12. एरण (सागर) से प्राप्त किस गुप्तकालीन अभिलेख में भानुगुप्त के मित्र गोपराज के युद्ध में वीरगति प्राप्त होने पर उसकी पत्नी के सती होने का प्रथम पुरातात्विक प्रमाण मिलता है? 
+
+Which Gupta inscription from Eran (Sagar) contains the first archaeological evidence of Sati when Goparaja's wife immolated herself?
+
+ A. 510 ईस्वी का भानुगुप्त अभिलेख / 510 AD Inscription of Bhanugupta
+ B. 465 ईस्वी का स्कंदगुप्त अभिलेख / 465 AD Inscription of Skandagupta
+ C. समुद्रगुप्त का एरण शिलालेख / Samudragupta's Eran Pillar Inscription
+ D. तोरमाण का वराह अभिलेख / Toramana's Varaha Inscription
+सही उत्तर: A
+510 ई. के एरण अभिलेख से सती प्रथा का प्रथम लिखित पुरातात्विक साक्ष्य मिलता है। इसमें गुप्त राजा भानुगुप्त के अमात्य गोपराज के हूण युद्ध में मारे जाने पर उनकी पत्नी के सती होने का वर्णन है। / The 510 AD Eran inscription of Bhanugupta provides the earliest epigraphical record of Sati system in India.
+
+13. जैन दर्शन के 'स्याद्वाद' (Sydvada) सिद्धांत के सात चरणों (सप्तभंगी नय) का मूल दर्शन किस तत्व मीमांसा पर आधारित है? 
+
+The seven steps of 'Syadvada' (Saptabhangi Naya) in Jain philosophy are based on which metaphysics?
+
+ A. सत्य की निरपेक्षता और अपरिवर्तनशीलता / Absoluteness and immutability of truth
+ B. संसार का पूर्णतः शून्य होना / Universe being completely void
+ C. केवल ईश्वर की सत्ता को स्वीकारना / Acceptance of divine authority only
+ D. ज्ञान की सापेक्षता और बहुआयामी दृष्टिकोण (अनेकांतवाद) / Relativity of knowledge and multifaceted perspective
+सही उत्तर: D
+स्याद्वाद (शायद का सिद्धांत) जैन धर्म का ज्ञानमीमांसीय सिद्धांत है। इसके अनुसार किसी भी वस्तु के अनंत धर्म होते हैं और मानव ज्ञान सापेक्ष व सीमित है। इसे 'सप्तभंगी नय' भी कहा जाता है। / Syadvada asserts that reality is complex and multifaceted, hence human knowledge is relative and conditional.
+
+14. सम्राट अशोक के किस शिलालेख/लघु शिलालेख का संबंध मध्य प्रदेश के 'गुर्जरा' स्थल से है, जिसमें उसका नाम स्पष्ट रूप से 'अशोक' लिखा मिलता है? 
+
+Which inscription/minor rock edict of Emperor Ashoka is associated with the 'Gurjara' site of MP, where his name is explicitly written as 'Ashoka'?
+
+ A. सीहोर का पानगुराड़िया / Panguraria of Sehore
+ B. जबलपुर का रूपनाथ / Rupnath of Jabalpur
+ C. दतिया का गुर्जरा लघु शिलालेख / Gurjara Minor Rock Edict of Datia
+ D. रायसेन का सांची स्तूप अभिलेख / Sanchi Inscription of Raisen
+सही उत्तर: C
+मास्की (कर्नाटक) के अलावा मध्य प्रदेश के दतिया जिले में स्थित 'गुर्जरा' लघु शिलालेख में अशोक का मूल नाम 'देवानांप्रिय प्रियदसि' के साथ स्पष्ट रूप से 'अशोक' अंकित है। / Datia's Gurjara minor rock edict explicitly mentions the name 'Ashoka', instead of just titles.
+
+15. भागवत धर्म का प्रथम विदेशी अभिलेखीय साक्ष्य मध्य प्रदेश के विदिशा (बेसनगर) से प्राप्त गरुड़ स्तंभ है। यह किस यूनानी राजदूत द्वारा स्थापित किया गया था तथा वह किस राजा के दरबार में आया था? 
+
+The first foreign epigraphic evidence of Bhagavatism is the Garuda Pillar at Vidisha. Which Greek ambassador erected it, and whose court did he visit?
+
+ A. हेलियोडोरस, शुंग शासक भागभद्र के दरबार में / Heliodorus, court of Shunga ruler Bhagabhadra
+ B. मेगस्थनीज, चंद्रगुप्त मौर्य के दरबार में / Megasthenes, Chandragupta Maurya
+ C. डायमेकस, बिंदुसार के दरबार में / Deimachus, Bindusara
+ D. पेट्रोक्लीज़, पुष्यमित्र शुंग के दरबार में / Patrocles, Pushyamitra Shunga
+सही उत्तर: A
+तक्षशिला के यवन राजा अंतियालकीड्स का राजदूत हेलियोडोरस विदिशा में शुंग वंश के 5वें शासक काशीपुत्र भागभद्र के दरबार में आया था। उसने भागवत धर्म स्वीकार कर बेसनगर में गरुड़ ध्वज स्थापित किया। / Greek envoy Heliodorus set up the Garuda Pillar at Vidisha dedicated to Vasudeva around 113 BCE.
+
+16. बौद्ध दर्शन में 'प्रतीत्यसमुत्पाद' (Pratītyasamutpāda) का क्या अर्थ है और यह किस आर्य सत्य के अंतर्गत आता है? 
+
+What does 'Pratītyasamutpāda' mean in Buddhist philosophy, and under which Noble Truth does it fall?
+
+ A. आत्मा की अमरता - प्रथम आर्य सत्य / Immortality of soul
+ B. कार्य-कारण का सिद्धांत (एक वस्तु के होने पर दूसरी की उत्पत्ति) - द्वितीय आर्य सत्य / Dependent origination (Cause and effect) - Second Noble Truth
+ C. इच्छाओं का पूर्ण निरोध - तृतीय आर्य सत्य / Complete cessation of desires
+ D. अष्टांगिक मार्ग का व्यावहारिक नियम - चतुर्थ आर्य सत्य / Eightfold path rules
+सही उत्तर: B
+प्रतीत्यसमुत्पाद का अर्थ है- 'ऐसा होने पर वैसा होता है' अर्थात संसार की सभी वस्तुएं किसी न किसी कारण पर निर्भर हैं। यह बुद्ध के दूसरे आर्य सत्य 'दुःख समुदाय' (दुःख का कारण) की व्याख्या करता है। / Pratityasamutpada or dependent origination is the central core of Buddhist philosophy, explaining the cause of suffering.
+
+17. मध्य प्रदेश के धार जिले में स्थित 'बाघ की गुफाओं' (Bagh Caves) की चित्रकला किस काल से संबंधित है और वास्तुकला की दृष्टि से वे किस धर्म से प्रेरित हैं? 
+
+To which period does the painting of 'Bagh Caves' in Dhar belong, and which religion inspires its architecture?
+
+ A. मौर्य काल, जैन धर्म / Maurya Period, Jainism
+ B. चंदेल काल, हिंदू धर्म / Chandel Period, Hinduism
+ C. शुंग काल, आजीविक संप्रदाय / Shunga Period, Ajivika sect
+ D. गुप्त काल, बौद्ध धर्म (महायान संप्रदाय) / Gupta Period, Buddhism (Mahayana sect)
+सही उत्तर: D
+बाघ की गुफाएँ (धार) गुप्तकालीन वास्तुकला व भित्तिचित्रों (Fresco Paintings) का बेजोड़ उदाहरण हैं। ये गुफाएँ पूरी तरह बौद्ध धर्म के महायान संप्रदाय से संबंद्ध हैं। इन्हें अजंता के समकालीन माना जाता है। / Bagh caves are Rock-cut monuments of the Gupta period, entirely Buddhist in nature and showing secular artistic styles.
+
+18. खजुराहो के मंदिरों का निर्माण चंदेल शासकों ने करवाया था। इन मंदिरों के संबंध में विख्यात मतंगेश्वर मंदिर किस देवता को समर्पित है और यह खजुराहो के किस समूह का हिस्सा है? 
+
+The Khajuraho temples were built by Chandel rulers. To which deity is the famous Matangeshwar temple dedicated, and which group does it belong to?
+
+ A. भगवान शिव, पश्चिमी समूह / Lord Shiva, Western Group
+ B. भगवान विष्णु, पूर्वी समूह / Lord Vishnu, Eastern Group
+ C. भगवान सूर्य, दक्षिणी समूह / Lord Surya, Southern Group
+ D. जैन तीर्थंकर, पूर्वी समूह / Jain Tirthankara, Eastern Group
+सही उत्तर: A
+मतंगेश्वर मंदिर खजुराहो के पश्चिमी समूह (Western Group) में स्थित है और शिव पूजा के लिए प्रसिद्ध है। चंदेल राजा धंगदेव के काल में निर्मित इस मंदिर का शिवलिंग अत्यंत विशाल और आज भी जीवंत पूजा स्थल है। / Matangeshwar Temple is dedicated to Lord Shiva and marks the beginning of the prominent Western group architectural activity.
+
+19. 'शंकराचार्य के अद्वैत दर्शन' के अनुसार 'जगत' (World) की सत्ता का स्वरूप क्या माना गया है? 
+
+According to Shankaracharya's Advaita philosophy, what is the nature of existence of the 'world' (Jagat)?
+
+ A. जगत पूर्णतः सत्य और शाश्वत है। / The world is completely real and eternal.
+ B. जगत पूरी तरह असत्य या शश-शृंग (खरगोश के सींग) की भांति शून्य है। / The world is absolutely non-existent like a rabbit's horn.
+ C. यह व्यावहारिक दृष्टि से सत्य किंतु पारमार्थिक दृष्टि से मिथ्या (अनिवर्चनीय) है। / It is empirically real but metaphysically unreal (indescribable).
+ D. जगत और ब्रह्म दोनों भिन्न-भिन्न स्वतंत्र सत्ताएँ हैं। / Jagat and Brahman are separate independent realities.
+सही उत्तर: C
+आदि शंकराचार्य ने सत्ता के तीन स्तर बताए: प्रातिभासिक (सपना), व्यावहारिक (संसार), और पारमार्थिक (ब्रह्म)। उनके अनुसार 'ब्रह्म सत्यं जगन्मिथ्या', अर्थात् संसार पारमार्थिक रूप से भ्रम है, परंतु जीने के लिए व्यावहारिक रूप से सत्य है। / Advaita philosophy defines the world as 'Anirvachaniya' (indescribable), existing empirically but dissolving upon higher realization.
+
+20. परमार वंश के प्रतापी राजा भोज द्वारा रचित 'समरांगण सूत्रधार' (Samarangana Sutradhara) मुख्य रूप से किस विषय पर आधारित एक मानक ग्रंथ है? 
+
+The text 'Samarangana Sutradhara' composed by the famous Paramara King Bhoja is a standard work primarily based on which subject?
+
+ A. आयुर्वेद और चिकित्सा विज्ञान / Ayurveda and Medicine
+ B. वास्तुशास्त्र, दुर्ग-निर्माण और यंत्र विज्ञान / Architecture, Fortification and Mechanics
+ C. व्याकरण और काव्यशास्त्र / Grammar and Poetics
+ D. खगोलशास्त्र और ज्योतिष / Astronomy and Astrology
+सही उत्तर: B
+राजा भोज बहुमुखी प्रतिभा के धनी थे। उनके द्वारा रचित 'समरांगण सूत्रधार' वास्तुकला (Architecture) और यंत्रों (Mechanical devices/flying machines) के निर्माण पर लिखा गया एक अद्भुत मध्यकालीन ग्रंथ है। / 'Samarangana Sutradhara' is an encyclopedic work on classical Indian architecture and mechanical inventions by Raja Bhoj.
+
+21. भारतीय इतिहास में प्रसिद्ध 'दस राजाओं के युद्ध' (Dasrajna War) का उल्लेख ऋग्वेद के किस मंडल में है तथा यह किस नदी के तट पर लड़ा गया था? 
+
+In Indian history, the famous 'War of Ten Kings' (Dasrajna War) is mentioned in which Mandala of Rigveda and on the banks of which river was it fought?
+
+ A. सातवें मंडल, परुष्णी (रावी) नदी / 7th Mandala, Parushni (Ravi) river
+ B. तीसरे मंडल, सुतुद्री (सतलज) नदी / 3rd Mandala, Sutudri river
+ C. नवें मंडल, वितस्ता (झेलम) नदी / 9th Mandala, Vitasta river
+ D. दसवें मंडल, असिकनी (चेनाब) नदी / 10th Mandala, Asikni river
+सही उत्तर: A
+ऋग्वेद के सातवें मंडल में दशराज्ञ युद्ध का वर्णन है। यह भरत जन के राजा सुदास और दस अन्य राजाओं के संघ के बीच परुष्णी (आधुनिक रावी) नदी के तट पर लड़ा गया था, जिसमें सुदास विजयी हुए थे। / The Dasrajna war was fought on the banks of river Parushni, where King Sudas defeated a confederacy of ten tribes.
+
+22. प्राचीन भारतीय विवाह प्रणालियों के अंतर्गत किस विवाह में कन्या के पिता द्वारा वर पक्ष से एक जोड़ी गाय और बैल लेना अनिवार्य शर्त माना जाता था? 
+
+Under ancient Indian marriage systems, in which form of marriage was it a mandatory condition for the bride's father to accept a pair of cow and bull from the groom's side?
+
+ A. ब्रह्म विवाह / Brahma Marriage
+ B. दैव विवाह / Daiva Marriage
+ C. आर्ष विवाह / Arsha Marriage
+ D. प्रजापत्य विवाह / Prajapatya Marriage
+सही उत्तर: C
+स्मृतियों में वर्णित 8 प्रकार के विवाहों में 'आर्ष विवाह' के अंतर्गत वर पक्ष द्वारा कन्या के पिता को यज्ञ कार्य हेतु एक जोड़ी गाय और बैल भेंट किया जाता था। इसे व्यावसायिक मूल्य नहीं बल्कि धार्मिक भेंट माना जाता था। / In Arsha marriage, the groom presented a cow and a bull to the bride's father to fulfill ritualistic duties.
+
+23. बौद्ध संगीतियों के संदर्भ में निम्नलिखित को सुमेलित करते हुए सही कूट का चयन कीजिए:
+
+(i) प्रथम संगीति - मोग्गलिपुत्त तिस्स
+
+(ii) द्वितीय संगीति - साबाकामी (सर्वकामिन)
+
+(iii) तृतीय संगीति - महाकस्सप
+
+(iv) चतुर्थ संगीति - वसुमित्र
+
+Match the Buddhist Councils with their presidents and select the correct code:
+
+ A. (i)-a, (ii)-b, (iii)-c, (iv)-d
+ B. (i)-महाकस्सप, (ii)-साबाकामी, (iii)-मोग्गलिपुत्त तिस्स, (iv)-वसुमित्र
+ C. (i)-साबाकामी, (ii)-महाकस्सप, (iii)-वसुमित्र, (iv)-मोग्गलिपुत्त तिस्स
+ D. सभी संगीतियों के अध्यक्ष केवल बुद्ध स्वयं थे / Buddha himself presided over all councils
+सही उत्तर: B
+प्रथम बौद्ध संगीति (राजगृह) की अध्यक्षता महाकस्सप ने की थी; द्वितीय (वैशाली) की साबाकामी ने; तृतीय (पाटलिपुत्र) की मोग्गलिपुत्त तिस्स ने; तथा चतुर्थ (कश्मीर) की अध्यक्षता वसुमित्र ने की थी। / Correct chronological alignment of Buddhist Council presidents.
+
+24. बिंदुसार के शासनकाल में अवंति राष्ट्र (उज्जैनी) का उपराजा (Viceroy) किसे नियुक्त किया गया था, जिसने बाद में मौर्य साम्राज्य की बागडोर संभाली? 
+
+Who was appointed as the Viceroy of Avanti (Ujjaini) during Bindusara's reign, who later took over the Maurya Empire?
+
+ A. सुसीम / Susima
+ B. कुणाल / Kunala
+ C. दशरथ / Dasharatha
+ D. अशोक / Ashoka
