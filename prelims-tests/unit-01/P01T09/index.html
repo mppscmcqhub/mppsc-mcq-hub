@@ -1,1 +1,424 @@
 
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MPPSC MCQ Hub | Unit 1 Test 4</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;width:100%;font-family:Arial,"Noto Sans Devanagari",sans-serif;color:#172033}
+body{background:#edf1f6}
+header{background:#164f86;color:white;padding:12px 5px;text-align:center}
+.brand{display:flex;align-items:center;justify-content:center;gap:10px}
+.logo{width:46px;height:46px;object-fit:contain;background:white;border-radius:50%;padding:3px}
+h1{font-size:21px;margin:2px}
+header p{margin:5px;font-size:14px}
+main{width:100%;max-width:none;margin:auto;padding:5px}
+.toolbar{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0}
+button{border:0;border-radius:6px;padding:11px 14px;font-size:15px;font-weight:bold;cursor:pointer}
+.back{background:#555;color:white}
+.print{background:#137c55;color:white}
+.submit{background:#b91c1c;color:white}
+button:disabled{opacity:.55;cursor:not-allowed}
+.timer{background:#fff3cd;border:1px solid #e1c66a;border-radius:7px;padding:10px;text-align:center;font-weight:bold}
+.instructions{background:white;padding:10px;border:1px solid #d8e0e9;border-radius:7px;margin:8px 0;line-height:1.6;font-size:14px}
+.question{background:white;border:1px solid #d4dce6;border-radius:7px;margin:8px 0;padding:12px}
+.qtitle{font-weight:bold;line-height:1.65;margin-bottom:10px}
+.option{display:block;border:1px solid #d7dee8;border-radius:6px;padding:9px;margin:6px 0;line-height:1.55;cursor:pointer}
+.option input{accent-color:#164f86;margin-right:7px}
+.option.correct{background:#d8f5df!important;border-color:#218838;color:#145523}
+.option.wrong{background:#ffe0e0!important;border-color:#c62828;color:#8c1515}
+.explanation{display:none;background:#eff7ff;border-left:4px solid #164f86;padding:10px;margin-top:10px;line-height:1.7}
+#result{display:none;background:white;border:2px solid #164f86;border-radius:8px;padding:15px;margin:12px 0;text-align:center}
+#result h2{color:#164f86}
+.score{font-size:28px;font-weight:bold}
+@media print{header,.toolbar,.timer,.instructions,footer{display:none!important}main{padding:0}.question{break-inside:avoid;box-shadow:none}.explanation{display:block!important}}
+</style>
+</head>
+<body>
+<header>
+ <div class="brand">
+  <img class="logo" src="../../../mppsc-logo.jpg" alt="MPPSC Logo" onerror="this.style.display='none'">
+  <div><h1>MPPSC MCQ Hub</h1><p>Unit 1 — Test 4 | MPPSC Prelims 2027</p></div>
+ </div>
+</header>
+<main>
+ <div class="toolbar">
+  <button class="back" onclick="goBack()">← Back</button>
+  <button class="print" onclick="window.print()">PDF / Print</button>
+  <button class="submit" id="submitTop" onclick="submitTest()">Submit Test</button>
+ </div>
+ <div class="timer">⏱ समय / Time Remaining: <span id="time">60:00</span></div>
+ <div class="instructions">
+  <b>निर्देश / Instructions:</b> कुल 50 प्रश्न। प्रत्येक प्रश्न के लिए एक विकल्प चुनें।
+  Submit करने के बाद स्कोर, सही उत्तर, गलत उत्तर और सभी प्रश्नों की व्याख्या दिखाई देगी।
+  <br>50 questions. Select one option per question. Answers and explanations appear after submission.
+ </div>
+ <div id="quiz"></div>
+ <div id="result"></div>
+ <div class="toolbar">
+  <button class="submit" id="submitBottom" onclick="submitTest()">Submit Test</button>
+  <button class="print" onclick="window.print()">PDF / Print</button>
+ </div>
+</main>
+<footer style="text-align:center;padding:12px;color:#526174;font-size:13px">mppscportal.in | MPPSC Prelims Practice</footer>
+
+<script>
+const questions = [
+{
+q:"विदिशा के निकट बेसनगर से प्राप्त हेलियोडोरस स्तंभ किस धार्मिक परंपरा के इतिहास के लिए महत्त्वपूर्ण है? / The Heliodorus pillar found at Besnagar near Vidisha is important for the history of which religious tradition?",
+o:["भागवत/वासुदेव उपासना / Bhagavata-Vasudeva worship","शैव सिद्धांत का चोल विस्तार / Chola expansion of Shaivism","जैन संघ की स्थापना / Foundation of the Jain Sangha","महायान बौद्ध परिषद / Mahayana Buddhist council"],
+a:0,e:"हेलियोडोरस स्तंभ दूसरी शताब्दी ईसा पूर्व का महत्त्वपूर्ण अभिलेखीय प्रमाण है। हेलियोडोरस स्वयं को वासुदेव का भागवत भक्त बताता है। यह प्राचीन भारत में भागवत परंपरा और विदेशी राजदूतों के धार्मिक संपर्क का साक्ष्य है। / The second-century BCE pillar records Heliodorus identifying himself as a Bhagavata devotee of Vasudeva, providing evidence for early Bhagavata worship and cross-cultural religious contact."
+},
+{
+q:"गुजर्रा अभिलेख का विशेष ऐतिहासिक महत्त्व क्या है? / What is the special historical significance of the Gujarra inscription?",
+o:["इसमें अशोक का नाम स्पष्ट रूप से मिलता है / It explicitly mentions Ashoka by name","यह राजा भोज की सभी रचनाओं की सूची देता है / It lists all works by Raja Bhoja","यह चंदेलों की राजधानी बताता है / It identifies the Chandela capital","यह गुप्त साम्राज्य के पतन का वर्णन करता है / It describes the fall of the Gupta Empire"],
+a:0,e:"दतिया क्षेत्र के गुजर्रा अभिलेख का महत्त्व इस कारण है कि इसमें अशोक का नाम मिलता है, जिससे अशोक के शिलालेखों की पहचान में सहायता मिलती है। / The Gujarra inscription in the Datia region is notable for explicitly naming Ashoka, helping identify the ruler associated with Ashokan inscriptions."
+},
+{
+q:"रूपनाथ का अशोक अभिलेख मध्य प्रदेश के वर्तमान किस जिले से संबंधित है? / The Ashokan inscription at Rupnath is associated with which present-day district of Madhya Pradesh?",
+o:["कटनी / Katni","धार / Dhar","अलीराजपुर / Alirajpur","श्योपुर / Sheopur"],
+a:0,e:"रूपनाथ का लघु शिलालेख वर्तमान कटनी जिले के क्षेत्र से संबंधित है और अशोक के धम्म संबंधी संदेशों के अध्ययन में उपयोगी है। / The Rupnath Minor Rock Edict is in the present-day Katni region and is useful for studying Ashoka's dhamma-related proclamations."
+},
+{
+q:"एरण के प्रसिद्ध वराह प्रतिमा और मंदिर अवशेष मुख्यतः किस धार्मिक परंपरा से संबंधित हैं? / The famous Varaha image and temple remains at Eran chiefly belong to which religious tradition?",
+o:["वैष्णव परंपरा / Vaishnava tradition","जैन श्वेतांबर परंपरा / Shvetambara Jain tradition","शाक्त तांत्रिक परंपरा בלבד / Shakta Tantric tradition only","सूफी परंपरा / Sufi tradition"],
+a:0,e:"एरण में विष्णु के वराह अवतार की विशाल प्रतिमा गुप्तकालीन वैष्णव कला का महत्त्वपूर्ण उदाहरण है। / Eran's monumental Varaha image is an important example of Gupta-period Vaishnava art."
+},
+{
+q:"एरण अभिलेख में उल्लिखित गोपराज का स्मारक किस ऐतिहासिक विषय के अध्ययन में विशेष रूप से उपयोगी है? / The memorial associated with Goparaja in the Eran inscription is especially useful for studying which historical subject?",
+o:["प्राचीन भारत में सती प्रथा के अभिलेखीय प्रमाण / Epigraphic evidence for sati in ancient India","मुगल मनसबदारी / Mughal mansabdari","मराठा चauth व्यवस्था / Maratha chauth system","दिल्ली सल्तनत की इक्ता व्यवस्था / Iqta system of the Delhi Sultanate"],
+a:0,e:"एरण का लगभग 510 ईस्वी का अभिलेख गोपराज की पत्नी के सती होने का उल्लेख करता है। इसे प्राचीन भारत में सती से संबंधित प्रमुख अभिलेखीय प्रमाणों में गिना जाता है। / The Eran inscription of about 510 CE records the sati of Goparaja's wife and is a significant epigraphic reference for the practice."
+},
+{
+q:"मध्य भारत के इतिहास में 'दशपुर' नाम किस वर्तमान शहर से संबंधित है? / The historical name 'Dashapura' corresponds to which present-day city?",
+o:["मंदसौर / Mandsaur","जबलपुर / Jabalpur","सतना / Satna","बुरहानपुर / Burhanpur"],
+a:0,e:"दशपुर प्राचीन नाम है जिसे वर्तमान मंदसौर से पहचाना जाता है। यहाँ के अभिलेख मालवा के राजनीतिक और शिल्पी इतिहास के अध्ययन में महत्त्वपूर्ण हैं। / Dashapura is identified with modern Mandsaur; its inscriptions are important for the political and artisan history of Malwa."
+},
+{
+q:"मंदसौर के रेशम-बुनकरों के प्रसिद्ध अभिलेख का संबंध किस गुप्तकालीन शासक के समय से जोड़ा जाता है? / The famous Mandsaur inscription of silk-weavers is associated with the reign of which Gupta ruler?",
+o:["कुमारगुप्त प्रथम / Kumaragupta I","समुद्रगुप्त / Samudragupta","स्कंदगुप्त / Skandagupta","चंद्रगुप्त मौर्य / Chandragupta Maurya"],
+a:0,e:"मंदसौर के रेशम-बुनकरों के अभिलेख कुमारगुप्त प्रथम के समय से संबंधित माने जाते हैं और शिल्पी संघों, सूर्य मंदिर तथा आर्थिक जीवन की जानकारी देते हैं। / The Mandsaur silk-weavers' inscriptions are associated with Kumaragupta I and illuminate guilds, a Sun temple and economic life."
+},
+{
+q:"गुप्तकालीन दशपुर अभिलेख में रेशम-बुनकरों का संघ किस धार्मिक स्मारक के निर्माण/मरम्मत से जुड़ा है? / The silk-weavers' guild in the Gupta-period Dashapura inscription is linked to which religious monument?",
+o:["सूर्य मंदिर / Sun temple","महाकालेश्वर मंदिर / Mahakaleshwar Temple","साँची का महान स्तूप / Great Stupa at Sanchi","ओंकारेश्वर मंदिर / Omkareshwar Temple"],
+a:0,e:"दशपुर अभिलेख सूर्य मंदिर के निर्माण और बाद में उसकी मरम्मत से रेशम-बुनकरों के संघ को जोड़ता है। / The Dashapura inscription links the silk-weavers' guild to the construction and later repair of a Sun temple."
+},
+{
+q:"प्राचीन अवंति महाजनपद के दो प्रमुख केंद्रों का सही युग्म कौन-सा है? / Which pair correctly identifies two major centres of ancient Avanti?",
+o:["उज्जयिनी और महिष्मती / Ujjayini and Mahishmati","तक्षशिला और पुष्कलावती / Taxila and Pushkalavati","कौशांबी और श्रावस्ती / Kaushambi and Shravasti","राजगृह और चंपा / Rajagriha and Champa"],
+a:0,e:"अवंति के उत्तरी भाग का केंद्र उज्जयिनी और दक्षिणी भाग का केंद्र महिष्मती माना जाता है। महिष्मती की सटीक पहचान पर विद्वानों में मतभेद रहे हैं, पर इसे सामान्यतः नर्मदा घाटी से जोड़ा जाता है। / Ujjayini is associated with northern Avanti and Mahishmati with its southern part; Mahishmati is generally linked to the Narmada valley, though its exact identification has been debated."
+},
+{
+q:"मालवा में परमारों के उदय से पहले इस क्षेत्र की राजनीतिक पृष्ठभूमि में कौन-सा राजवंश विशेष महत्त्व रखता है? / Which dynasty is especially important in the political background of Malwa before the rise of the Paramaras?",
+o:["राष्ट्रकूट / Rashtrakuta","चोल / Chola","पाल / Pala","अहोम / Ahom"],
+a:0,e:"परमारों के उदय से पहले मालवा पर राष्ट्रकूट प्रभाव और फिर प्रतिहार-राष्ट्रकूट शक्ति-संघर्ष की पृष्ठभूमि रही। / Before the Paramaras rose, Malwa experienced Rashtrakuta influence and the wider Pratihara-Rashtrakuta contest."
+},
+{
+q:"परमार राजा भोज की विद्वत्ता का प्रमाण मानी जाने वाली 'समरांगण सूत्रधार' मुख्यतः किस विषय से संबंधित है? / The text Samarangana Sutradhara, associated with Raja Bhoja's scholarship, primarily concerns what?",
+o:["वास्तुकला और स्थापत्य / Architecture and building science","बौद्ध विनय नियम / Buddhist monastic discipline","फारसी इतिहासलेखन / Persian historiography","केवल युद्ध-काव्य / War poetry alone"],
+a:0,e:"समरांगण सूत्रधार को परंपरागत रूप से राजा भोज से जोड़ा जाता है और यह वास्तुकला, भवन-निर्माण तथा संबंधित तकनीकी विषयों पर ग्रंथ है। / Samarangana Sutradhara is traditionally attributed to Bhoja and deals with architecture, construction and related technical subjects."
+},
+{
+q:"राजा भोज से संबंधित 'सरस्वतीकंठाभरण' किस क्षेत्र की रचना के रूप में प्रसिद्ध है? / Raja Bhoja's Sarasvatikanthabharana is known as a work in which field?",
+o:["काव्यशास्त्र/व्याकरण-संबंधी विद्या / Poetics and language studies","ज्योतिषीय पंचांग मात्र / Calendrical astrology alone","बौद्ध तर्कशास्त्र / Buddhist logic","फारसी सूफी काव्य / Persian Sufi poetry"],
+a:0,e:"सरस्वतीकंठाभरण को भोज से संबद्ध संस्कृत विद्या-परंपरा का ग्रंथ माना जाता है, जो काव्य और भाषा-संबंधी अध्ययन से जुड़ा है। / Sarasvatikanthabharana is associated with Bhoja's Sanskrit scholarly tradition and studies of poetics and language."
+},
+{
+q:"चंदेल स्थापत्य की पहचान के लिए खजुराहो के अतिरिक्त किस विशेषता को याद रखना सबसे उपयोगी है? / Besides Khajuraho, which feature is useful for recognising Chandela architecture?",
+o:["मंदिरों की विकसित नागर शैली और समृद्ध मूर्तिकला / Developed Nagara temple style and rich sculpture","विशाल लकड़ी के पगोडा / Large wooden pagodas","केवल गुफा-विहार / Cave monasteries only","गोथिक मेहराब / Gothic arches"],
+a:0,e:"चंदेल मंदिर स्थापत्य नागर शैली, ऊँचे चबूतरों, शिखरों और समृद्ध मूर्तिकला के लिए प्रसिद्ध है। / Chandela temple architecture is known for Nagara-style forms, raised platforms, shikharas and elaborate sculpture."
+},
+{
+q:"मध्य प्रदेश में कलचुरी इतिहास के अध्ययन में त्रिपुरी के अतिरिक्त कौन-सा क्षेत्र कलचुरी शाखाओं से जुड़ा है? / Besides Tripuri, which region is associated with a Kalachuri branch in the history of MP?",
+o:["रत्नपुर क्षेत्र / Ratanpur region","कांची क्षेत्र / Kanchi region","मदुरै क्षेत्र / Madurai region","कामरूप क्षेत्र / Kamarupa region"],
+a:0,e:"कलचुरियों की अलग-अलग शाखाएँ थीं। त्रिपुरी की शाखा मध्य भारत में प्रमुख थी, जबकि रत्नपुर शाखा वर्तमान छत्तीसगढ़ क्षेत्र से जुड़ी थी। / The Kalachuris had several branches: Tripuri was prominent in central India, while the Ratanpur branch was associated with present-day Chhattisgarh."
+},
+{
+q:"ग्वालियर के संगीत इतिहास में तानसेन के अतिरिक्त किस शासक का संगीत संरक्षण विशेष रूप से उल्लेखनीय है? / Besides Tansen, which ruler is notable in the musical history of Gwalior?",
+o:["मान सिंह तोमर / Man Singh Tomar","अशोक / Ashoka","रुद्रदामन / Rudradaman","कनिष्क / Kanishka"],
+a:0,e:"मान सिंह तोमर के शासनकाल में ग्वालियर संगीत और कला का महत्त्वपूर्ण केंद्र बना। ध्रुपद परंपरा के विकास में ग्वालियर का ऐतिहासिक स्थान है। / Gwalior became an important centre of music and art under Man Singh Tomar; it holds a significant place in the history of dhrupad."
+},
+{
+q:"ध्रुपद संगीत की ऐतिहासिक परंपरा से मध्य प्रदेश का कौन-सा शहर विशेष रूप से जुड़ा है? / Which MP city is particularly associated with the historical tradition of dhrupad music?",
+o:["ग्वालियर / Gwalior","सतना / Satna","सीधी / Sidhi","बैतूल / Betul"],
+a:0,e:"ग्वालियर की दरबारी संगीत परंपरा और मान सिंह तोमर के संरक्षण को ध्रुपद के इतिहास में महत्त्वपूर्ण माना जाता है। / Gwalior's courtly musical tradition and the patronage of Man Singh Tomar are important in the history of dhrupad."
+},
+{
+q:"मध्य प्रदेश के किस सांस्कृतिक क्षेत्र में 'राई' नृत्य और आल्हा-ऊदल की लोकगाथा विशेष रूप से प्रसिद्ध हैं? / In which cultural region of MP are Rai dance and the Alha-Udal ballad especially prominent?",
+o:["बुंदेलखंड / Bundelkhand","निमाड़ / Nimar","मालवा / Malwa","बघेलखंड का दक्षिणी वन क्षेत्र / Southern forest zone of Baghelkhand"],
+a:0,e:"राई नृत्य और आल्हा-ऊदल की वीरगाथा बुंदेलखंड की लोक-सांस्कृतिक पहचान के महत्त्वपूर्ण हिस्से हैं। / Rai dance and the Alha-Udal heroic ballad are important parts of Bundelkhand's folk-cultural identity."
+},
+{
+q:"मध्य प्रदेश की 'माच' परंपरा किससे संबंधित है? / The 'Maach' tradition of Madhya Pradesh is associated with what?",
+o:["मालवा का लोकनाट्य / Folk theatre of Malwa","गोंडों की धातु-कला / Gond metal craft","बुंदेली चित्रकला / Bundeli painting","बौद्ध भिक्षुओं का अनुष्ठान / Buddhist monastic ritual"],
+a:0,e:"माच मालवा का पारंपरिक लोकनाट्य है, जिसमें गायन, संवाद, संगीत और नाटकीय प्रस्तुति का मेल मिलता है। / Maach is a traditional folk theatre of Malwa combining singing, dialogue, music and dramatic performance."
+},
+{
+q:"'आल्हा' गायन परंपरा की प्रमुख विशेषता क्या है? / What is a key feature of the Alha singing tradition?",
+o:["वीरगाथात्मक मौखिक गायन / Oral heroic ballad singing","केवल वैदिक मंत्रपाठ / Vedic chanting only","दरबारी फारसी गजल / Courtly Persian ghazal","केवल विवाह के मंगलगीत / Wedding songs only"],
+a:0,e:"आल्हा बुंदेलखंड से जुड़ी वीरगाथा परंपरा है, जिसे मौखिक रूप से गाया जाता है और जिसमें युद्ध तथा वीरता की कथाएँ प्रमुख हैं। / Alha is a Bundelkhand-associated heroic oral tradition centred on tales of warfare and valour."
+},
+{
+q:"मध्य प्रदेश की 'मंडना' कला मुख्यतः किस प्रकार की लोककला है? / Mandana in Madhya Pradesh is primarily what kind of folk art?",
+o:["दीवारों और फर्श पर सजावटी चित्रांकन / Decorative painting on walls and floors","धातु पर नक्काशी / Metal engraving","पत्थर पर शिलालेख / Stone inscription carving","रेशम पर ब्लॉक प्रिंट / Block printing on silk"],
+a:0,e:"मंडना मध्य भारत और राजस्थान के कुछ क्षेत्रों में प्रचलित पारंपरिक सजावटी चित्रकला है, जिसे दीवारों और फर्श पर बनाया जाता है। / Mandana is a traditional decorative art in parts of central India and Rajasthan, applied to walls and floors."
+},
+{
+q:"मध्य प्रदेश की भील चित्रकला में कौन-सी दृश्य शैली प्रायः पहचानी जाती है? / Which visual style is often recognised in Bhil painting?",
+o:["बिंदुओं और रंगों से आकृतियों का निर्माण / Building forms with dots and colours","केवल काले-सफेद ज्यामितीय जाल / Only black-and-white geometric grids","केवल ताड़पत्र पर लघुचित्र / Miniatures only on palm leaf","चीनी मिट्टी पर नीली चमक / Blue glaze on porcelain"],
+a:0,e:"भील चित्रकला में बिंदुओं, रंगों और लयात्मक पैटर्नों से प्रकृति, जीव-जंतुओं और दैनिक जीवन को चित्रित किया जाता है। / Bhil painting often uses dots, colour and rhythmic patterns to depict nature, animals and everyday life."
+},
+{
+q:"पिथोरा चित्रकला मुख्यतः किस सांस्कृतिक परंपरा से जुड़ी है? / Pithora painting is primarily associated with which cultural tradition?",
+o:["पश्चिमी भारत के भील-राठवा आदिवासी समुदाय / Bhil-Rathwa tribal communities of western India","ग्वालियर का दरबारी संगीत / Gwalior court music","बुंदेलखंड की जैन पांडुलिपियाँ / Jain manuscripts of Bundelkhand","मुगल लघुचित्र परंपरा / Mughal miniature tradition"],
+a:0,e:"पिथोरा अनुष्ठानिक भित्ति चित्रकला है, जो राठवा और कुछ भील समुदायों में प्रचलित है, विशेषकर पश्चिमी मध्य प्रदेश से लगे क्षेत्रों में। / Pithora is ritual wall painting practised among Rathwa and some Bhil communities, including areas adjoining western Madhya Pradesh."
+},
+{
+q:"मध्य प्रदेश में कोरकू जनजाति का प्रमुख भौगोलिक संबंध किस क्षेत्र से है? / The Korku tribe is chiefly associated with which region of Madhya Pradesh?",
+o:["सतपुड़ा क्षेत्र, विशेषकर बैतूल-खंडवा के आसपास / Satpura region, especially around Betul and Khandwa","चंबल के उत्तरी मैदान / Northern Chambal plains","केवल रीवा पठार / Rewa plateau only","बुंदेलखंड का पूर्वी भाग / Eastern Bundelkhand"],
+a:0,e:"कोरकू समुदाय सतपुड़ा के वनाच्छादित क्षेत्रों में, विशेषकर बैतूल, खंडवा और आसपास के इलाकों में पाया जाता है। / Korku communities are found in forested Satpura areas, particularly around Betul, Khandwa and adjoining districts."
+},
+{
+q:"भारिया, बैगा और सहरिया को एक साथ किस प्रशासनिक/जनजातीय वर्ग में रखा जाता है? / Under which tribal classification are Bharia, Baiga and Sahariya grouped together?",
+o:["विशेष रूप से कमजोर जनजातीय समूह (PVTGs) / Particularly Vulnerable Tribal Groups","अनुसूचित भाषाई समूह / Scheduled linguistic groups","केवल घुमंतू जनजातियाँ / Nomadic tribes only","सीमावर्ती जनजातियाँ / Border tribes"],
+a:0,e:"भारिया, बैगा और सहरिया मध्य प्रदेश में मान्य तीन विशेष रूप से कमजोर जनजातीय समूह (PVTGs) हैं। / Bharia, Baiga and Sahariya are the three recognised PVTGs in Madhya Pradesh."
+},
+{
+q:"मध्य प्रदेश के आदिवासी इतिहास में टंट्या भील को किस रूप में याद किया जाता है? / How is Tantya Bhil remembered in the tribal history of Madhya Pradesh?",
+o:["औपनिवेशिक शासन के विरुद्ध संघर्ष करने वाले जननायक / A folk hero who resisted colonial rule","गुप्तकालीन संस्कृत नाटककार / Gupta-era Sanskrit playwright","होलकर दरबार के वास्तुकार / Architect at the Holkar court","बौद्ध संघ के संस्थापक / Founder of a Buddhist sangha"],
+a:0,e:"टंट्या भील औपनिवेशिक सत्ता के विरुद्ध संघर्ष और गरीबों की सहायता से जुड़ी लोकस्मृति में आदिवासी जननायक के रूप में प्रतिष्ठित हैं। / Tantya Bhil is remembered in tribal folk memory as a hero who resisted colonial authority and helped the poor."
+},
+{
+q:"भीमा नायक का नाम मध्य प्रदेश के किस ऐतिहासिक आंदोलन/क्षेत्र के संदर्भ में महत्त्वपूर्ण है? / In which historical movement or region is Bhima Nayak significant?",
+o:["निमाड़ क्षेत्र का 1857 के विद्रोह और आदिवासी प्रतिरोध से जुड़ा इतिहास / Nimar's 1857 uprising and tribal resistance","साँची में बौद्ध स्तूप निर्माण / Construction of Buddhist stupas at Sanchi","गुप्तकालीन साहित्यिक आंदोलन / Gupta literary movement","परमारों की राजधानी का विस्तार / Expansion of the Paramara capital"],
+a:0,e:"भीमा नायक को निमाड़ क्षेत्र में ब्रिटिश शासन के विरुद्ध आदिवासी प्रतिरोध और 1857 के व्यापक विद्रोह की पृष्ठभूमि में याद किया जाता है। / Bhima Nayak is remembered in connection with tribal resistance to British rule in Nimar and the wider 1857 uprising."
+},
+{
+q:"मध्य प्रदेश के स्वतंत्रता आंदोलन में जंगल सत्याग्रहों का मूल मुद्दा मुख्यतः क्या था? / What was the principal issue behind forest satyagrahas in the freedom movement in MP?",
+o:["वन कानूनों और स्थानीय लोगों के पारंपरिक अधिकारों का प्रश्न / Forest laws and customary rights of local people","केवल अलग प्रांत की भाषा नीति / Language policy for a separate province only","रेलवे किराए में वृद्धि / Railway fare increases","केवल विश्वविद्यालय प्रवेश / University admissions only"],
+a:0,e:"वन सत्याग्रहों में औपनिवेशिक वन कानूनों के विरुद्ध स्थानीय समुदायों के उपयोग, चराई और अन्य पारंपरिक अधिकारों का प्रश्न प्रमुख था। / Forest satyagrahas challenged colonial forest laws and defended local communities' customary access, grazing and use rights."
+},
+{
+q:"मध्य प्रदेश के राष्ट्रीय आंदोलन में माखनलाल चतुर्वेदी का योगदान किस क्षेत्र में सबसे अधिक महत्त्वपूर्ण था? / In which field was Makhanlal Chaturvedi's contribution to the national movement especially significant?",
+o:["राष्ट्रवादी पत्रकारिता और साहित्य / Nationalist journalism and literature","औपनिवेशिक सेना का नेतृत्व / Command of colonial troops","पुरातात्त्विक उत्खनन / Archaeological excavation","रियासती राजस्व प्रशासन / Princely revenue administration"],
+a:0,e:"माखनलाल चतुर्वेदी कवि, पत्रकार और स्वतंत्रता आंदोलन के समर्थक थे। उनकी पत्रकारिता और लेखन ने राष्ट्रवादी चेतना को प्रोत्साहित किया। / Makhanlal Chaturvedi was a poet, journalist and supporter of the freedom movement; his writing helped foster nationalist consciousness."
+},
+{
+q:"सुभद्रा कुमारी चौहान का मध्य प्रदेश के किस शहर से साहित्यिक और सामाजिक संबंध विशेष रूप से जुड़ा रहा? / Which city in Madhya Pradesh was particularly important in Subhadra Kumari Chauhan's literary and social life?",
+o:["जबलपुर / Jabalpur","उज्जैन / Ujjain","रतलाम / Ratlam","मुरैना / Morena"],
+a:0,e:"सुभद्रा कुमारी चौहान का जबलपुर से गहरा संबंध रहा। वे स्वतंत्रता आंदोलन में सक्रिय थीं और उनकी कविता 'झाँसी की रानी' व्यापक रूप से प्रसिद्ध है। / Subhadra Kumari Chauhan was closely associated with Jabalpur, participated in the freedom movement and wrote the famous poem 'Jhansi Ki Rani'."
+},
+{
+q:"मध्य प्रदेश की साहित्यिक परंपरा में शरद जोशी मुख्यतः किस विधा के लिए प्रसिद्ध हैं? / Sharad Joshi is chiefly known for which literary genre?",
+o:["व्यंग्य और हास्य-लेखन / Satire and humorous writing","प्राचीन वैदिक भाष्य / Ancient Vedic commentary","शिल्पशास्त्र / Treatises on sculpture","लोकदेवताओं की मूर्तिकला / Folk-deity sculpture"],
+a:0,e:"शरद जोशी हिंदी के प्रमुख व्यंग्यकार थे। उनका जन्म उज्जैन में हुआ था और वे सामाजिक जीवन पर तीक्ष्ण व्यंग्य के लिए प्रसिद्ध हैं। / Sharad Joshi was a leading Hindi satirist, born in Ujjain and known for sharp observations on society."
+},
+{
+q:"कालिदास का नाम उज्जैन से जोड़ने का सबसे उचित ऐतिहासिक-सांस्कृतिक आधार क्या है? / What is the most appropriate historical-cultural basis for associating Kalidasa with Ujjain?",
+o:["परंपरा और साहित्यिक-सांस्कृतिक स्मृति में उज्जैन का विशेष स्थान / Ujjain's special place in literary tradition and cultural memory","उनके सभी ग्रंथों में उज्जैन को राजधानी बताना / Every work names Ujjain as the capital","उनका निश्चित जन्म अभिलेख उज्जैन में मिलना / A definitive birth inscription found at Ujjain","उनके द्वारा खजुराहो मंदिर बनवाना / His construction of Khajuraho temples"],
+a:0,e:"कालिदास और उज्जैन का संबंध साहित्यिक परंपरा तथा सांस्कृतिक स्मृति में प्रबल है, लेकिन उनके जीवन के सभी विवरणों को निश्चित ऐतिहासिक तथ्य मानना उचित नहीं। / Kalidasa's association with Ujjain is strong in literary tradition and cultural memory, though all biographical details cannot be treated as certain historical facts."
+},
+{
+q:"मध्य प्रदेश के बौद्ध पुरातत्त्व में साँची के अतिरिक्त भरहुत का विशेष योगदान किस क्षेत्र में है? / Besides Sanchi, Bharhut's special contribution to Buddhist archaeology is in which area?",
+o:["स्तूप की रेलिंगों और कथात्मक मूर्तिकला / Stupa railings and narrative sculpture","मुगलकालीन फारसी पांडुलिपियाँ / Mughal Persian manuscripts","मराठा तोप ढलाई / Maratha cannon casting","गुप्तकालीन जलमहल / Gupta water palaces"],
+a:0,e:"भरहुत की रेलिंगों पर जातक कथाओं और बौद्ध प्रतीकों का अंकन प्रारंभिक बौद्ध कला तथा कथात्मक मूर्तिकला के अध्ययन में महत्त्वपूर्ण है। / Bharhut's railings depict Jataka stories and Buddhist symbols, making them important for early Buddhist and narrative art."
+},
+{
+q:"मध्य प्रदेश में ताम्रपाषाण संस्कृति के अध्ययन के लिए नवदाटोली क्यों महत्त्वपूर्ण है? / Why is Navdatoli important for the study of Chalcolithic culture in MP?",
+o:["यहाँ बस्ती, मृद्भांड और ताम्रपाषाण जीवन के पुरातात्त्विक साक्ष्य मिले हैं / Archaeological evidence of settlement, pottery and Chalcolithic life has been found","यहाँ केवल मध्यकालीन फारसी सिक्के मिले हैं / Only medieval Persian coins were found","यह केवल आधुनिक किले का स्थल है / It is only a modern fort site","यहाँ अशोक का प्रमुख शिलालेख ही एकमात्र साक्ष्य है / Its only evidence is a major Ashokan edict"],
+a:0,e:"नवदाटोली नर्मदा घाटी की ताम्रपाषाण बस्तियों में महत्त्वपूर्ण है। उत्खननों से प्राचीन आवास, मृद्भांड और दैनिक जीवन की जानकारी मिलती है। / Navdatoli is an important Chalcolithic settlement in the Narmada valley; excavations reveal habitation, pottery and everyday life."
+},
+{
+q:"मध्य प्रदेश के प्रागैतिहासिक अध्ययन में आदमगढ़ शैलाश्रय किस प्रकार के साक्ष्यों के लिए जाने जाते हैं? / Adamgarh rock shelters are known for what type of evidence in prehistoric studies?",
+o:["प्रागैतिहासिक शैलचित्र और पाषाणकालीन साक्ष्य / Prehistoric rock paintings and Stone Age evidence","केवल गुप्तकालीन ताम्रपत्र / Gupta copper plates only","मुगल दरबारी चित्र / Mughal court paintings","आधुनिक औद्योगिक अभिलेख / Modern industrial records"],
+a:0,e:"नर्मदापुरम क्षेत्र के आदमगढ़ शैलाश्रय प्रागैतिहासिक शैलचित्रों और पाषाणकालीन गतिविधियों के अध्ययन में महत्त्वपूर्ण हैं। / Adamgarh rock shelters in the Narmadapuram region are important for studying prehistoric paintings and Stone Age activity."
+},
+{
+q:"मध्य प्रदेश की प्राचीन धार्मिक कला में शैव और वैष्णव परंपराओं के सह-अस्तित्व का कौन-सा निष्कर्ष सबसे उचित है? / Which conclusion best describes the coexistence of Shaiva and Vaishnava traditions in ancient MP religious art?",
+o:["अलग-अलग स्थलों और कालों में दोनों परंपराओं के स्मारक मिलते हैं / Monuments of both traditions occur across different sites and periods","केवल वैष्णव परंपरा मौजूद थी / Only Vaishnavism existed","शैव परंपरा केवल आधुनिक काल में आई / Shaivism arrived only in modern times","दोनों परंपराओं का कोई पुरातात्त्विक प्रमाण नहीं / There is no archaeological evidence for either"],
+a:0,e:"मध्य प्रदेश के विभिन्न पुरातात्त्विक स्थलों पर शिव, विष्णु और उनके रूपों से जुड़े स्मारक तथा मूर्तियाँ मिलती हैं। इससे धार्मिक परंपराओं की विविधता और समय के साथ उनके विकास का पता चलता है। / Sculptures and monuments associated with Shiva, Vishnu and their forms occur at many MP sites, reflecting religious diversity and historical development."
+},
+{
+q:"मध्य प्रदेश की सांस्कृतिक विरासत के अध्ययन में अभिलेखों का सबसे महत्त्वपूर्ण उपयोग क्या है? / What is the most important use of inscriptions in studying MP's cultural heritage?",
+o:["शासकों, दान, धार्मिक संस्थानों और सामाजिक-आर्थिक संबंधों के प्रमाण / Evidence about rulers, donations, religious institutions and socioeconomic relations","केवल आधुनिक जनसंख्या की गणना / Counting only modern population","लोकगीतों की धुन का प्रत्यक्ष रिकॉर्ड / Direct recording of folk-song melodies","केवल मौसम के दैनिक आँकड़े / Daily weather data only"],
+a:0,e:"अभिलेख शासकों के नाम, तिथियाँ, दान, प्रशासन, धार्मिक संरक्षण और सामाजिक-आर्थिक संबंधों की जानकारी देते हैं; उन्हें अन्य स्रोतों के साथ पढ़ना चाहिए। / Inscriptions record rulers, dates, donations, administration, religious patronage and social-economic relations, and should be studied alongside other evidence."
+},
+{
+q:"किस प्रकार के प्रश्न में 'स्थल—जिला—ऐतिहासिक महत्त्व' का सही मिलान सबसे उपयोगी होगा? / In which kind of question is matching 'site—district—historical significance' especially useful?",
+o:["मध्य प्रदेश के पुरातात्त्विक और सांस्कृतिक भूगोल की तैयारी / Preparing the archaeological and cultural geography of MP","केवल आधुनिक अर्थशास्त्र / Modern economics only","केवल अंतरराष्ट्रीय संगठनों की सूची / Lists of international organisations only","केवल गणितीय तर्क / Mathematical reasoning only"],
+a:0,e:"MPPSC में स्थल, उनका वर्तमान जिला और ऐतिहासिक विशेषता एक साथ पूछे जा सकते हैं। स्थान और महत्त्व को जोड़कर याद करना तथ्यात्मक त्रुटियाँ कम करता है। / MPPSC questions may combine a site, its current district and its significance; learning them together helps avoid factual mix-ups."
+},
+{
+q:"मध्य प्रदेश के ऐतिहासिक भूगोल में नर्मदा घाटी का महत्त्व किस कारण से बहुआयामी है? / Why is the Narmada valley important in multiple ways in the historical geography of MP?",
+o:["प्रागैतिहासिक साक्ष्य, प्राचीन बस्तियाँ, धार्मिक स्थल और व्यापारिक संपर्क / Prehistoric evidence, ancient settlements, pilgrimage sites and trade links","केवल आधुनिक हवाई अड्डे / Modern airports only","केवल हिमनदीय भू-आकृतियाँ / Glacial landforms only","केवल समुद्री बंदरगाह / Seaports only"],
+a:0,e:"नर्मदा घाटी में प्रागैतिहासिक मानव गतिविधियों, ताम्रपाषाण स्थलों, नदी-आधारित बस्तियों और धार्मिक केंद्रों के साक्ष्य मिलते हैं। / The Narmada valley preserves evidence of prehistoric activity, Chalcolithic sites, riverine settlements and pilgrimage centres."
+},
+{
+q:"मध्य प्रदेश में धार्मिक पर्यटन स्थलों के अध्ययन में अमरकंटक, ओंकारेश्वर और उज्जैन को एक साथ पढ़ने का प्रमुख कारण क्या है? / Why should Amarkantak, Omkareshwar and Ujjain be studied together in religious tourism?",
+o:["तीनों के धार्मिक महत्त्व के साथ अलग-अलग भौगोलिक और ऐतिहासिक पहचान हैं / All have religious importance but distinct geographical and historical identities","तीनों एक ही जिले में स्थित हैं / All are in the same district","तीनों केवल बौद्ध विहार हैं / All are Buddhist monasteries only","तीनों का निर्माण एक ही शासक ने कराया / All were built by the same ruler"],
+a:0,e:"अमरकंटक नर्मदा उद्गम से, ओंकारेश्वर नर्मदा के ज्योतिर्लिंग तीर्थ से और उज्जैन महाकालेश्वर तथा प्राचीन अवंति से जुड़ा है। / Amarkantak is linked to the Narmada's source, Omkareshwar to a Jyotirlinga on the Narmada, and Ujjain to Mahakaleshwar and ancient Avanti."
+},
+{
+q:"मध्य प्रदेश की जनजातीय संस्कृति को समझने के लिए किस स्रोत-समूह का उपयोग सबसे संतुलित होगा? / Which combination of sources gives the most balanced understanding of MP's tribal culture?",
+o:["मौखिक परंपरा, लोककला, भाषा, अनुष्ठान और नृवंशीय अध्ययन / Oral traditions, folk art, language, rituals and ethnographic studies","केवल राजदरबारी अभिलेख / Court inscriptions only","केवल औपनिवेशिक जनगणना / Colonial census alone","केवल आधुनिक सोशल मीडिया / Modern social media alone"],
+a:0,e:"जनजातीय संस्कृति विविध और गतिशील है। मौखिक परंपराएँ, भाषा, कला, अनुष्ठान और समुदाय-आधारित अध्ययन मिलकर अधिक समग्र समझ देते हैं। / Tribal culture is diverse and dynamic; oral traditions, language, art, rituals and community-based studies together provide a fuller understanding."
+},
+{
+q:"मध्य प्रदेश के इतिहास के अध्ययन में किसी लोककथा को ऐतिहासिक तथ्य मानने से पहले क्या करना चाहिए? / What should be done before treating a folk legend as a historical fact in MP history?",
+o:["उसे अभिलेखों, पुरातत्त्व और स्वतंत्र ऐतिहासिक स्रोतों से मिलाकर जाँचना / Check it against inscriptions, archaeology and independent historical sources","लोकप्रिय होने पर बिना जाँच स्वीकार करना / Accept it without checking if widely known","लिखित स्रोतों को पूरी तरह नज़रअंदाज़ करना / Ignore written sources entirely","उसे स्वतः गलत मान लेना / Automatically assume it is false"],
+a:0,e:"लोककथाएँ सांस्कृतिक स्मृति के लिए महत्त्वपूर्ण हैं, लेकिन किसी विशिष्ट घटना की ऐतिहासिक पुष्टि के लिए स्वतंत्र स्रोतों से तुलना आवश्यक है। / Folk legends are valuable cultural memories, but claims about specific events need comparison with independent evidence."
+},
+{
+q:"मध्य प्रदेश की कला और स्थापत्य के संदर्भ में 'संरक्षण' का सबसे उपयुक्त अर्थ क्या है? / What is the most appropriate meaning of 'conservation' in the context of MP's art and architecture?",
+o:["स्मारकों और परंपराओं को क्षति से बचाकर उनके ऐतिहासिक संदर्भ को बनाए रखना / Protecting monuments and traditions from damage while preserving their historical context","पुरानी इमारतों को बिना दस्तावेज़ीकरण पूरी तरह नया बनाना / Rebuilding old structures entirely without documentation","केवल टिकट की कीमत बढ़ाना / Only raising ticket prices","सभी स्थलों को एक जैसा बनाना / Making all sites identical"],
+a:0,e:"संरक्षण का उद्देश्य भौतिक स्मारक और सांस्कृतिक परंपरा दोनों की प्रामाणिकता को यथासंभव बनाए रखना है। / Conservation aims to preserve the authenticity of both physical monuments and cultural traditions as far as possible."
+},
+{
+q:"किस कथन से मध्य प्रदेश की सांस्कृतिक विविधता का सबसे अच्छा वर्णन होता है? / Which statement best describes Madhya Pradesh's cultural diversity?",
+o:["इसमें मालवा, बुंदेलखंड, बघेलखंड, निमाड़ और विभिन्न जनजातीय क्षेत्रों की अलग-अलग परंपराएँ शामिल हैं / It includes distinct traditions of Malwa, Bundelkhand, Baghelkhand, Nimar and varied tribal regions","पूरे राज्य में केवल एक बोली और एक लोकनृत्य है / The entire state has only one dialect and one folk dance","जनजातीय परंपराएँ राज्य की संस्कृति से अलग हैं / Tribal traditions are separate from the state's culture","सांस्कृतिक विविधता केवल आधुनिक शहरों तक सीमित है / Cultural diversity is limited to modern cities"],
+a:0,e:"राज्य की सांस्कृतिक पहचान अनेक क्षेत्रीय बोलियों, लोकनृत्यों, संगीत परंपराओं, शिल्पों और जनजातीय विरासत से निर्मित है। / The state's cultural identity is shaped by regional dialects, folk dances, music traditions, crafts and tribal heritage."
+},
+{
+q:"मध्य प्रदेश के इतिहास और संस्कृति के कठिन प्रश्नों की तैयारी के लिए सबसे प्रभावी तरीका कौन-सा है? / What is the most effective method for preparing difficult questions on MP history and culture?",
+o:["कालक्रम, स्थल, राजवंश, अभिलेख और सांस्कृतिक परंपरा के बीच संबंध बनाना / Connect chronology, sites, dynasties, inscriptions and cultural traditions","केवल नामों की बिना संदर्भ सूची याद करना / Memorise names without context","सभी राजवंशों को एक ही काल का मानना / Treat all dynasties as belonging to one period","केवल विकल्पों के अक्षर याद करना / Memorise only option letters"],
+a:0,e:"कठिन प्रश्न अक्सर दो या अधिक तथ्यों को जोड़ते हैं। कालक्रम, स्थान, स्रोत और सांस्कृतिक संदर्भ को साथ पढ़ने से समझ और स्मरण बेहतर होते हैं। / Difficult questions often combine facts; linking chronology, location, sources and cultural context improves understanding and recall."
+},
+{
+q:"यदि किसी प्रश्न में किसी स्मारक की तिथि, निर्माणकर्ता और धार्मिक परंपरा तीनों पूछे जाएँ, तो सही रणनीति क्या है? / If a question asks for a monument's date, patron and religious tradition, what is the best strategy?",
+o:["तीनों तथ्यों को अलग-अलग प्रमाणित करके फिर उनका मिलान करना / Verify each fact independently and then match them","केवल स्मारक के नाम से शेष तथ्य अनुमानित करना / Infer all other facts from the monument's name","हर मंदिर को एक ही राजवंश से जोड़ना / Attribute every temple to the same dynasty","केवल वर्तमान जिले से तिथि तय करना / Determine the date only from its current district"],
+a:0,e:"निर्माण, संरक्षण, धार्मिक उपयोग और वर्तमान प्रशासनिक स्थान अलग-अलग प्रश्न हैं; उन्हें प्रमाणों के आधार पर अलग करके जोड़ना चाहिए। / Construction, patronage, religious use and present-day location are distinct questions and should be matched using evidence."
+},
+{
+q:"मध्य प्रदेश के इतिहास में अभिलेख, सिक्के और स्थापत्य को एक साथ पढ़ने का लाभ क्या है? / What is the benefit of studying inscriptions, coins and architecture together in MP history?",
+o:["राजनीतिक इतिहास के साथ अर्थव्यवस्था, धर्म और कला की परस्पर पुष्टि होती है / They cross-check political history alongside economy, religion and art","वे हमेशा एक ही जानकारी देते हैं / They always provide identical information","उनसे कालक्रम निर्धारित नहीं किया जा सकता / They cannot help establish chronology","वे केवल आधुनिक काल के लिए उपयोगी हैं / They are useful only for modern history"],
+a:0,e:"अभिलेख शासकों और दान, सिक्के अर्थव्यवस्था और सत्ता-संबंध, जबकि स्थापत्य धार्मिक संरक्षण और कला की जानकारी देते हैं। इन्हें साथ पढ़ना अधिक विश्वसनीय चित्र देता है। / Inscriptions reveal rulers and donations, coins illuminate economy and authority, and architecture shows patronage and art; together they create a stronger historical picture."
+},
+{
+q:"MPPSC Unit 1 में UNESCO स्थलों से संबंधित प्रश्न के लिए कौन-सी जानकारी एक साथ याद रखना सबसे उपयोगी है? / For questions on UNESCO sites in MPPSC Unit 1, which information is most useful to learn together?",
+o:["स्थल का नाम, जिले/क्षेत्र की पहचान, महत्त्व और सूचीबद्ध वर्ष / Site name, district or region, significance and inscription year","केवल टिकट दर / Ticket price only","केवल निकटतम होटल / Nearest hotel only","केवल वर्तमान जनसंख्या / Current population only"],
+a:0,e:"स्थल, उसका स्थान, विशिष्ट महत्त्व और UNESCO सूची में शामिल होने का वर्ष अक्सर साथ पूछे जा सकते हैं। / Site, location, significance and inscription year may be tested together."
+},
+{
+q:"मध्य प्रदेश की सांस्कृतिक विरासत में वस्त्र, चित्रकला और लोकनाट्य को अलग-अलग पढ़ने के बजाय साथ पढ़ने का लाभ क्या है? / What is the benefit of studying textiles, painting and folk theatre together in MP's cultural heritage?",
+o:["क्षेत्रीय पहचान, समुदाय, अर्थव्यवस्था और अनुष्ठान के संबंध स्पष्ट होते हैं / It clarifies links among regional identity, community, economy and ritual","इनका इतिहास से कोई संबंध नहीं / They have no relation to history","सभी कलाएँ एक ही तकनीक से बनती हैं / All art forms use the same technique","इससे भौगोलिक जानकारी अनावश्यक हो जाती है / It makes geography irrelevant"],
+a:0,e:"वस्त्र, चित्रकला और लोकनाट्य स्थानीय सामग्री, समुदाय, धार्मिक विश्वास, बाजार और क्षेत्रीय पहचान से जुड़े होते हैं। / Textiles, painting and folk theatre connect with local materials, communities, beliefs, markets and regional identities."
+},
+{
+q:"ऐतिहासिक स्रोतों में किसी शासक को विद्वान या कला-प्रेमी बताने वाले दावे का मूल्यांकन कैसे करना चाहिए? / How should claims that a ruler was a scholar or patron of art be evaluated?",
+o:["साहित्यिक ग्रंथों, अभिलेखों और संरक्षित स्मारकों सहित कई प्रकार के स्रोतों की तुलना करके / Compare multiple sources, including texts, inscriptions and surviving monuments","केवल बाद की लोकप्रिय कथा से / From later popular legend alone","केवल आधुनिक पर्यटन पुस्तिका से / From a modern tourism brochure alone","बिना किसी स्रोत के / Without any source"],
+a:0,e:"शासक की विद्वत्ता या कला-संरक्षण को समझने के लिए साहित्यिक परंपरा, अभिलेखीय साक्ष्य और भौतिक अवशेषों की परस्पर जाँच उपयोगी है। / Literary traditions, inscriptions and material remains should be cross-checked when assessing a ruler's scholarship or patronage."
+},
+{
+q:"मध्य प्रदेश की ऐतिहासिक धरोहरों के संदर्भ में 'स्थल-आधारित अध्ययन' क्यों उपयोगी है? / Why is site-based study useful for the historical heritage of MP?",
+o:["भूगोल, व्यापार मार्ग, राजनीतिक केंद्र और सांस्कृतिक संपर्क समझने में मदद करता है / It helps explain geography, trade routes, political centres and cultural contacts","यह कालक्रम की आवश्यकता समाप्त कर देता है / It removes the need for chronology","इससे अभिलेख पढ़ना अनावश्यक हो जाता है / It makes inscriptions irrelevant","यह केवल यात्रा योजना में काम आता है / It is useful only for travel planning"],
+a:0,e:"किसी स्थल की भौगोलिक स्थिति उसके राजनीतिक महत्त्व, व्यापार, धार्मिक प्रसार और सांस्कृतिक संपर्कों को समझने में मदद कर सकती है। / A site's location can help explain its political importance, trade, religious spread and cultural contacts."
+},
+{
+q:"मध्य प्रदेश की लोकपरंपराओं के अध्ययन में क्षेत्रीय विविधता को ध्यान में रखना क्यों आवश्यक है? / Why is regional variation essential when studying folk traditions in MP?",
+o:["एक ही परंपरा के रूप, भाषा और अर्थ अलग-अलग समुदायों में बदल सकते हैं / A tradition's form, language and meaning may vary between communities","सभी समुदायों की परंपराएँ बिल्कुल समान हैं / All communities have identical traditions","लोकपरंपराएँ समय के साथ बदलती नहीं / Folk traditions never change over time","क्षेत्रीय पहचान का संस्कृति से संबंध नहीं / Regional identity is unrelated to culture"],
+a:0,e:"लोकपरंपराएँ जीवित और परिवर्तनशील होती हैं; उनके रूप स्थानीय इतिहास, भाषा, समुदाय और अवसर के अनुसार बदल सकते हैं। / Folk traditions are living and evolving; their forms vary with local history, language, community and occasion."
+},
+{
+q:"मध्य प्रदेश के पुरातात्त्विक स्थलों की व्याख्या में 'संदर्भ' का क्या महत्त्व है? / What is the importance of context when interpreting archaeological sites in MP?",
+o:["वस्तु या स्मारक को उसके काल, परत, स्थान और अन्य साक्ष्यों के साथ समझना / Interpret an object or monument with its date, layer, location and related evidence","केवल वस्तु का आकार देखना / Consider only its size","खोज की जगह को नज़रअंदाज़ करना / Ignore where it was found","हर वस्तु को सबसे प्राचीन मानना / Treat every object as the oldest"],
+a:0,e:"पुरातत्त्व में संदर्भ से पता चलता है कि वस्तु किस काल, उपयोग और सांस्कृतिक परिस्थिति से जुड़ी थी। संदर्भ खोने पर निष्कर्ष कमजोर हो जाते हैं। / Archaeological context helps identify an object's period, use and cultural setting; losing context weakens interpretation."
+},
+{
+q:"मध्य प्रदेश के इतिहास की तैयारी में राजवंशों के साथ उनके प्रमुख सांस्कृतिक केंद्र याद रखने का सबसे बड़ा लाभ क्या है? / What is the main benefit of learning dynasties together with their major cultural centres?",
+o:["राजनीतिक शक्ति और कला-संरक्षण के बीच संबंध समझ आता है / It reveals links between political power and cultural patronage","सभी राजवंशों की तिथि समान हो जाती है / It makes all dynasties contemporaneous","स्थानों के नाम याद करने की आवश्यकता खत्म होती है / It removes the need to learn place names","साहित्यिक स्रोत अनुपयोगी हो जाते हैं / It makes literary sources useless"],
+a:0,e:"राजवंशों के केंद्र और उनके स्मारकों को जोड़ने से राजनीतिक इतिहास, कला और क्षेत्रीय पहचान का संयुक्त चित्र बनता है। / Linking dynastic centres with their monuments creates a connected picture of political history, art and regional identity."
+},
+{
+q:"किस कथन में ऐतिहासिक तथ्य और लोकपरंपरा के बीच उचित अंतर किया गया है? / Which statement correctly distinguishes historical evidence from folk tradition?",
+o:["लोकपरंपरा सांस्कृतिक स्मृति बताती है; किसी घटना की पुष्टि के लिए स्वतंत्र प्रमाण भी जाँचना चाहिए / Folk tradition conveys cultural memory; independent evidence should also be checked to verify an event","लोकपरंपरा हमेशा झूठी होती है / Folk tradition is always false","लोकपरंपरा का कोई सांस्कृतिक महत्त्व नहीं / Folk tradition has no cultural value","लोकप्रिय कथा अपने-आप समकालीन अभिलेख बन जाती है / A popular tale automatically becomes a contemporary record"],
+a:0,e:"लोकपरंपरा अतीत की सामुदायिक स्मृति का स्रोत है, पर विशिष्ट ऐतिहासिक दावों को अभिलेख, पुरातत्त्व और अन्य स्रोतों से जाँचना चाहिए। / Folk tradition is a source of collective memory, while specific historical claims require checking against inscriptions, archaeology and other sources."
+}
+];
+
+let submitted=false;
+let remaining=3600;
+let timerId=null;
+
+function renderQuiz(){
+ const root=document.getElementById("quiz");
+ root.innerHTML="";
+ questions.forEach((q,i)=>{
+  const card=document.createElement("section");
+  card.className="question";
+  card.id="qcard"+i;
+  let html=`<div class="qtitle">Q${i+1}. ${q.q}</div>`;
+  q.o.forEach((option,j)=>{
+   html+=`<label class="option" id="opt${i}_${j}">
+    <input type="radio" name="q${i}" value="${j}">
+    <b>${String.fromCharCode(65+j)}.</b> ${option}
+   </label>`;
+  });
+  html+=`<div class="explanation" id="exp${i}">
+   <b>सही उत्तर / Correct Answer:</b> ${String.fromCharCode(65+q.a)}. ${q.o[q.a]}
+   <br><b>व्याख्या / Explanation:</b> ${q.e}
+  </div>`;
+  card.innerHTML=html;
+  root.appendChild(card);
+ });
+}
+
+function submitTest(auto=false){
+ if(submitted)return;
+ submitted=true;
+ clearInterval(timerId);
+ let correct=0,attempted=0;
+ questions.forEach((q,i)=>{
+  const selected=document.querySelector(`input[name="q${i}"]:checked`);
+  if(selected)attempted++;
+  if(selected && Number(selected.value)===q.a)correct++;
+  q.o.forEach((_,j)=>{
+   const label=document.getElementById(`opt${i}_${j}`);
+   const input=label.querySelector("input");
+   input.disabled=true;
+   if(j===q.a)label.classList.add("correct");
+   if(selected && Number(selected.value)===j && j!==q.a)label.classList.add("wrong");
+  });
+  document.getElementById("exp"+i).style.display="block";
+ });
+ const wrong=attempted-correct;
+ const unanswered=questions.length-attempted;
+ const result=document.getElementById("result");
+ result.style.display="block";
+ result.innerHTML=`
+  <h2>${auto?"समय समाप्त / Time Up":"टेस्ट परिणाम / Test Result"}</h2>
+  <div class="score">${correct} / ${questions.length}</div>
+  <p><b>सही उत्तर / Correct:</b> ${correct}</p>
+  <p><b>गलत उत्तर / Wrong:</b> ${wrong}</p>
+  <p><b>अनुत्तरित / Unanswered:</b> ${unanswered}</p>
+  <p><b>प्रतिशत / Percentage:</b> ${(correct/questions.length*100).toFixed(2)}%</p>
+  <p>हरे रंग में सही उत्तर और लाल रंग में गलत चुना गया उत्तर दिखाया गया है। सभी व्याख्याएँ प्रश्नों के नीचे हैं।</p>`;
+ document.getElementById("submitTop").disabled=true;
+ document.getElementById("submitBottom").disabled=true;
+ result.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+function startTimer(){
+ timerId=setInterval(()=>{
+  if(submitted)return;
+  remaining--;
+  const m=Math.floor(remaining/60);
+  const s=remaining%60;
+  document.getElementById("time").textContent=
+   String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+  if(remaining<=0)submitTest(true);
+ },1000);
+}
+
+function goBack(){
+ if(history.length>1)history.back();
+ else location.href="../../../index.html";
+}
+
+renderQuiz();
+startTimer();
+</script>
+</body>
+</html>
