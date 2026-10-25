@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MPPSC MCQ Hub V14</title>
     <!-- PDF जनरेशन लाइब्रेरी -->
-    <script src="https://cloudflare.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
         * {
             box-sizing: border-box;
@@ -227,8 +227,9 @@
     <script>
         // 4 से 50 तक के प्रश्नों का ढांचा तैयार करना
         const blankContainer = document.getElementById('dynamic-blank-questions');
+
         for (let i = 4; i <= 50; i++) {
-            blankContainer.innerHTML += `
+            blankContainer.insertAdjacentHTML('beforeend', `
                 <div class="question-card" data-qnum="${i}" data-correct="A">
                     <div class="question-text">${i}. मध्य प्रदेश सामान्य ज्ञान प्रश्न संख्या ${i} / MP GK Mock Question Number ${i}?</div>
                     <div class="options-container">
@@ -236,67 +237,78 @@
                         <label class="option-label" data-id="B"><input type="radio" name="q${i}" value="B"> B. विकल्प B</label>
                         <label class="option-label" data-id="C"><input type="radio" name="q${i}" value="C"> C. विकल्प C</label>
                         <label class="option-label" data-id="D"><input type="radio" name="q${i}" value="D"> D. विकल्प D</label>
-Correct Answer: A. विकल्प A
-Detailed Explanation: यह प्रश्न संख्या ${i} की विस्तृत व्याख्या है।
+                    </div>
+                    <div class="explanation-box">
+                        <div class="correct-answer-text">Correct Answer: A. विकल्प A</div>
+                        <div><span class="explanation-title">Detailed Explanation:</span> यह प्रश्न संख्या ${i} की विस्तृत व्याख्या है।</div>
+                    </div>
+                </div>
+            `);
+        }
 
+        // टेस्ट सबमिट करके स्कोर और सही/गलत उत्तर दिखाएँ
+        function submitTest() {
+            const submitButton = document.getElementById('submit-btn');
+            if (submitButton.dataset.submitted === 'true') return;
 
-`;
-}
-// पूरी तरह से एरर-प्रूफ सबमिट फंक्शन
-function submitTest() {
-let score = 0;
-const cards = document.querySelectorAll('.question-card');
-const total = cards.length;
-cards.forEach((card) => {
-const qNum = card.getAttribute('data-qnum');
-const correctAns = card.getAttribute('data-correct');
-// रेडियो बटन से सिलेक्टेड वैल्यू निकालें
-const selected = card.querySelector(input[name="q${qNum}"]:checked);
-// सही ऑप्शन वाले लेबल को ग्रीन बैकग्राउंड दें
-const correctLabel = card.querySelector(.option-label[data-id="${correctAns}"]);
-if (correctLabel) {
-correctLabel.classList.add('correct-option');
-}
-if (selected) {
-if (selected.value === correctAns) {
-score++;
-} else {
-// गलत सिलेक्ट किए गए ऑप्शन को रेड बैकग्राउंड दें
-const wrongLabel = card.querySelector(.option-label[data-id="${selected.value}"]);
-if (wrongLabel) {
-wrongLabel.classList.add('wrong-option');
-}
-}
-}
-// एक्सप्लेनेशन बॉक्स को डिस्प्ले करें
-const expBox = card.querySelector('.explanation-box');
-if (expBox) {
-expBox.style.display = 'block';
-}
-// सभी रेडियो बटन्स को डिसेबल करें
-const radios = card.querySelectorAll(input[name="q${qNum}"]);
-radios.forEach(r => r.disabled = true);
-});
-// स्कोरबोर्ड प्रदर्शित करें
-const scoreBoard = document.getElementById('score-board');
-scoreBoard.innerHTML = 🏆 आपका लाइव स्कोर: ${score} / ${total} (${Math.round((score/total)*100)}%);
-scoreBoard.style.display = 'block';
-// बटन्स की विजिबिलिटी बदलें
-document.getElementById('submit-btn').style.display = 'none';
-document.getElementById('top-pdf-btn').style.display = 'block';
-document.getElementById('bottom-pdf-btn').style.display = 'block';
-// स्क्रीन को सबसे ऊपर ले जाएँ ताकि स्कोर साफ़ दिखे
-window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-// PDF डाउनलोड फंक्शन
-function downloadPDF() {
-const element = document.getElementById('quiz-area');
-const opt = {
-margin:       10,
-filename:     'MPPSC_50_Questions_Report.pdf',
-image:        { type: 'jpeg', quality: 0.98 },
-html2canvas:  { scale: 2, useCORS: true },
-jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
-};
-html2pdf().set(opt).from(element).save();
-}
+            let score = 0;
+            const cards = document.querySelectorAll('#quiz-area .question-card');
+            const total = cards.length;
+
+            cards.forEach((card) => {
+                const qNum = card.getAttribute('data-qnum');
+                const correctAns = card.getAttribute('data-correct');
+                const selected = card.querySelector(`input[name="q${qNum}"]:checked`);
+                const correctLabel = card.querySelector(`.option-label[data-id="${correctAns}"]`);
+
+                if (correctLabel) correctLabel.classList.add('correct-option');
+
+                if (selected) {
+                    if (selected.value === correctAns) {
+                        score++;
+                    } else {
+                        const wrongLabel = card.querySelector(`.option-label[data-id="${selected.value}"]`);
+                        if (wrongLabel) wrongLabel.classList.add('wrong-option');
+                    }
+                }
+
+                const explanation = card.querySelector('.explanation-box');
+                if (explanation) explanation.style.display = 'block';
+
+                card.querySelectorAll('input[type="radio"]').forEach(radio => {
+                    radio.disabled = true;
+                });
+            });
+
+            const scoreBoard = document.getElementById('score-board');
+            const percentage = total ? Math.round((score / total) * 100) : 0;
+            scoreBoard.textContent = `🏆 आपका स्कोर: ${score} / ${total} (${percentage}%)`;
+            scoreBoard.style.display = 'block';
+
+            submitButton.dataset.submitted = 'true';
+            submitButton.style.display = 'none';
+            document.getElementById('top-pdf-btn').style.display = 'inline-block';
+            document.getElementById('bottom-pdf-btn').style.display = 'inline-block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // रिजल्ट PDF डाउनलोड करें
+        function downloadPDF() {
+            if (typeof html2pdf !== 'function') {
+                alert('PDF लाइब्रेरी लोड नहीं हुई। इंटरनेट कनेक्शन जाँचकर पेज रीफ्रेश करें।');
+                return;
+            }
+
+            const element = document.getElementById('quiz-area');
+            const opt = {
+                margin: 10,
+                filename: 'MPPSC_50_Questions_Report.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            html2pdf().set(opt).from(element).save();
+        }
+    </script>
+</body>
+</html>
