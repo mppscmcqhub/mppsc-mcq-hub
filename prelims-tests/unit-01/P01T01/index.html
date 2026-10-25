@@ -3,49 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MPPSC Prelims 2026 - Unit 1 Test 1</title>
+<title>MPPSC MCQ Hub - Unit 1 Test 1</title>
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;width:100%;font-family:Arial,"Noto Sans Devanagari",sans-serif;color:#172033}
 body{background:#eef2f7}
 header{background:#164f86;color:white;padding:12px 8px;text-align:center}
 .brand{display:flex;align-items:center;justify-content:center;gap:10px}
+.logo{width:48px;height:48px;object-fit:contain;background:white;border-radius:50%;padding:3px}
 header h1{font-size:21px;margin:3px 0}
 header p{margin:5px 0;font-size:14px}
-main{width:100%;max-width:900px;margin:0 auto;padding:10px}
+main{width:100%;max-width:none;margin:0 auto;padding:6px}
 .toolbar{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0}
 button{border:0;border-radius:6px;padding:11px 14px;font-size:15px;font-weight:bold;cursor:pointer}
 .back{background:#555;color:white}
 .print{background:#137c55;color:white}
 .submit{background:#b91c1c;color:white}
-.timer{background:#fff3cd;border:1px solid #e1c66a;padding:10px;border-radius:7px;font-weight:bold;text-align:center;margin:8px 0;font-size:16px}
-.instructions{background:white;border:1px solid #d9e1eb;border-radius:7px;padding:12px;margin:8px 0;font-size:14px;line-height:1.6}
-.question{background:white;border:1px solid #d5dce5;border-radius:7px;margin:12px 0;padding:15px;box-shadow:0 1px 3px #0000000b}
-.qtitle{font-weight:bold;line-height:1.65;margin-bottom:12px;font-size:16px}
-.option{display:block;padding:10px 12px;margin:8px 0;border:1px solid #d5dce5;border-radius:6px;line-height:1.5;cursor:pointer;background:#fff;transition:background 0.2s}
-.option:hover{background:#f8fafc}
-.option input{margin-right:10px;accent-color:#164f86}
-.option.correct{background:#d8f5df!important;border-color:#218838;color:#145523;font-weight:bold}
+.timer{background:#fff3cd;border:1px solid #e1c66a;padding:10px;border-radius:7px;font-weight:bold;text-align:center;margin:8px 0}
+.instructions{background:white;border:1px solid #d9e1eb;border-radius:7px;padding:10px;margin:8px 0;font-size:14px;line-height:1.6}
+.question{background:white;border:1px solid #d5dce5;border-radius:7px;margin:8px 0;padding:12px;box-shadow:0 1px 3px #0000000b}
+.qtitle{font-weight:bold;line-height:1.65;margin-bottom:10px}
+.option{display:block;padding:9px 10px;margin:6px 0;border:1px solid #d5dce5;border-radius:6px;line-height:1.5;cursor:pointer;background:#fff}
+.option input{margin-right:8px;accent-color:#164f86}
+.option.correct{background:#d8f5df!important;border-color:#218838;color:#145523}
 .option.wrong{background:#ffe0e0!important;border-color:#c62828;color:#8c1515}
-.explanation{display:none;background:#f0f7ff;border-left:4px solid #164f86;padding:12px;margin-top:12px;line-height:1.65;font-size:14px;color:#1e3a8a}
-#result{display:none;background:white;border:2px solid #164f86;border-radius:8px;padding:20px;margin:15px 0;text-align:center}
+.explanation{display:none;background:#f0f7ff;border-left:4px solid #164f86;padding:10px;margin-top:10px;line-height:1.65}
+#result{display:none;background:white;border:2px solid #164f86;border-radius:8px;padding:16px;margin:12px 0;text-align:center}
 #result h2{margin-top:0;color:#164f86}
-#result .score{font-size:32px;font-weight:bold;color:#b91c1c;margin:10px 0}
-footer{text-align:center;padding:20px 5px;color:#526174;font-size:13px;border-top:1px solid #d9e1eb;margin-top:20px}
+#result .score{font-size:25px;font-weight:bold}
+footer{text-align:center;padding:14px 5px;color:#526174;font-size:13px}
+@media(min-width:900px){main{padding:8px}.question{padding:15px}}
 @media print{
 body{background:white}
-header,.toolbar,.timer,.instructions,footer,#submitBtn,#submitBottom{display:none!important}
-main{padding:0;max-width:100%}
-.question{box-shadow:none;break-inside:avoid;border:1px solid #aaa;margin:15px 0}
-.explanation{display:block!important;background:#f9f9f9;border-left:4px solid #555}
+header,.toolbar,.timer,.instructions,footer,#submitBtn{display:none!important}
+main{padding:0}
+.question{box-shadow:none;break-inside:avoid}
+.explanation{display:block!important}
 .option{break-inside:avoid}
 }
 </style>
 </head>
 <body>
-
 <header>
   <div class="brand">
+    <div style="display:none;" id="logoSpace"></div>
     <div>
       <h1>MPPSC MCQ Hub</h1>
       <p>Unit 1 — Test 1 | संकल्पना एवं विचार: प्राचीन भारतीय ज्ञान परंपरा, भारतवर्ष और वेद</p>
@@ -55,28 +56,26 @@ main{padding:0;max-width:100%}
 
 <main>
   <div class="toolbar">
-    <button class="back" onclick="window.history.back()">← Back</button>
+    <button class="back" onclick="goBack()">← Back</button>
     <button class="print" onclick="window.print()">PDF / Print</button>
     <button class="submit" id="submitBtn" onclick="submitTest()">Submit Test</button>
   </div>
 
   <div class="timer">⏱ समय / Time Remaining: <span id="time">60:00</span></div>
-  
   <div class="instructions">
-    <b>निर्देश / Instructions:</b> इस टेस्ट में कुल 50 प्रश्न हैं। सभी प्रश्न अनिवार्य हैं। 'Submit Test' पर क्लिक करने के बाद आपको अपने प्राप्तांक, सही उत्तर और विस्तृत व्याख्या दिखाई देगी। <br>
-    There are 50 questions in this test. All questions are compulsory. Explanations will appear post-submission.
+    <b>निर्देश / Instructions:</b> सभी 50 प्रश्न हल करें। प्रत्येक प्रश्न में एक सही उत्तर चुनें। Submit करने के बाद सही उत्तर हरे, गलत चुना गया उत्तर लाल और प्रत्येक प्रश्न का स्पष्टीकरण दिखाई देगा।
+    <br>Choose one answer per question. Correct answers and explanations appear after submission.
   </div>
 
-  <div id="result"></div>
   <div id="quiz"></div>
-
-  <div class="toolbar" style="margin-top:20px;">
+  <div id="result"></div>
+  
+  <div class="toolbar">
     <button class="submit" id="submitBottom" onclick="submitTest()">Submit Test</button>
     <button class="print" onclick="window.print()">PDF / Print</button>
   </div>
 </main>
-
-<footer>MPPSC Prelims 2026 OMR Engine | Unit 1: History of India</footer>
+<footer>mppscportal.in | MPPSC Prelims Practice Test</footer>
 
 <script>
 const questions = [
@@ -84,7 +83,7 @@ const questions = [
     q: "विष्णु पुराण में वर्णित प्रसिद्ध श्लोक 'उत्तरं यत्समुद्रस्य हिमाद्रेश्चैव दक्षिणम्' में किस भौगोलिक इकाई को परिभाषित किया गया है? / Which geographical entity is defined in the famous shloka 'Uttaram Yatsamudrasya...' from Vishnu Purana?",
     o: ["जम्बूद्वीप / Jambudvipa", "भारतवर्ष / Bharatvarsha", "आर्यावर्त / Aryavarta", "ब्रह्मर्षि देश / Brahmarshi Desha"],
     a: 1,
-    e: "विष्णु पुराण के इस श्लोक के अनुसार समुद्र के उत्तर और हिमालय के दक्षिण में जो भूभाग स्थित है, उसका नाम भारतवर्ष है और वहाँ की संतानें भारती कहलाती हैं। / According to this verse, the land north of the ocean and south of the Himalayas is named Bharatvarsha."
+    e: "विष्णु पुराण के इस श्लोक के अनुसार समुद्र के उत्तर और हिमालय के दक्षिण में जो भूभाग स्थित है, उसका नाम भारतवर्ष है। / According to this verse, the land north of the ocean and south of the Himalayas is named Bharatvarsha."
   },
   {
     q: "अभिलेखीय साक्ष्यों के अनुसार, 'भारतवर्ष' शब्द का सर्वप्रथम लिखित उल्लेख किस प्राचीन अभिलेख में मिलता है? / According to epigraphic evidence, which ancient inscription contains the first written mention of the term 'Bharatvarsha'?",
@@ -108,7 +107,7 @@ const questions = [
     q: "वैदिक ज्ञान परंपरा में 'श्रुति' साहित्य के अंतर्गत निम्नलिखित में से किसे शामिल नहीं किया जाता है? / In the Vedic knowledge tradition, which of the following is NOT included under 'Shruti' literature?",
     o: ["संहिता / Samhita", "ब्राह्मण / Brahmana", "उपनिषद / Upanishad", "वेदांग / Vedanga"],
     a: 3,
-    e: "संहिता, ब्राह्मण, आरण्यक और उपनिषद 'श्रुति' (ईश्वरीय ज्ञान जो सुना गया) हैं, जबकि वेदांग, सूत्र और स्मृतियाँ 'स्मृति' (मानव रचित परंपरा) साहित्य के अंतर्गत आते हैं। / Vedangas belong to Smriti literature. Shruti comprises Samhitas, Brahmanas, Aranyakas, and Upanishads."
+    e: "संहिता, ब्राह्मण, आरण्यक और उपनिषद 'श्रुति' हैं, जबकि वेदांग, सूत्र और स्मृतियाँ 'स्मृति' (मानव रचित परंपरा) साहित्य के अंतर्गत आते हैं। / Vedangas belong to Smriti literature. Shruti comprises Samhitas, Brahmanas, Aranyakas, and Upanishads."
   },
   {
     q: "चारों वेदों में से किस वेद को 'भारतीय संगीत और कला का मूल जनक' माना जाता है? / Which of the four Vedas is considered the 'original source of Indian music and arts'?",
@@ -136,8 +135,8 @@ const questions = [
   },
   {
     q: "यज्ञों के नियम, विधान तथा कर्मकांडों का संकलन गद्य और पद्य दोनों रूपों में किस वेद में मिलता है? / Which Veda contains the compilation of sacrificial formulas and rituals written in both prose and verse?",
-o: ["ऋग्वेद / Rigveda", "सामवेद / Samaveda", "यजुर्वेद / Yajurveda", "अथर्ववेद / Atharvaveda"],
-a: 2,
+    o: ["ऋग्वेद / Rigveda", "सामवेद / Samaveda", "यजुर्वेद / Yajurveda", "अथर्ववेद / Atharvaveda"],
+    a: 2,
 e: "यजुर्वेद एक कर्मकांडीय वेद है। यह दो भागों में बंटा है: शुक्ल यजुर्वेद (केवल पद्य) और कृष्ण यजुर्वेद (गद्य और पद्य दोनों)। / Yajurveda is the Veda of rituals and is unique for containing passages in both prose and verse styles."
 },
 {
@@ -210,7 +209,7 @@ e: "'सत्यमेव जयते' (सत्य की ही विज�
 q: "प्राचीन भारतीय ज्ञान परंपरा में 'वेदांत' शब्द का प्रयोग किसके लिए किया जाता है? / In ancient Indian knowledge systems, for what is the term 'Vedanta' used?",
 o: ["ब्राह्मण ग्रंथों के लिए / Brahmanas", "आरन्यकों के लिए / Aranyakas", "उपनिषदों के लिए / Upanishads", "वेदांगों के लिए / Vedangas"],
 a: 2,
-e: "चूंकि उपनिषद वैदिक साहित्य के अंतिम भाग हैं और ईंधन वेदों का सर्वोच्च दार्शनिक सार है, इसलिए इन्हें 'वेदांत' कहा जाता है। / Upanishads are called Vedanta as they come at the end of the Vedic period and embody its core philosophy."
+e: "चूंकि उपनिषद वैदिक साहित्य के अंतिम भाग हैं और इनमें वेदों का सर्वोच्च दार्शनिक सार है, इसलिए इन्हें 'वेदांत' कहा जाता है। / Upanishads are called Vedanta as they come at the end of the Vedic period and embody its core philosophy."
 },
 {
 q: "वैदिक काल में 'सभा' और 'समिति' को किस प्रजातांत्रिक राजा की 'दो पुत्रियाँ' कहा गया है? / In the Vedic period, 'Sabha' and 'Samiti' were described as the 'two daughters' of which entity?",
@@ -258,7 +257,7 @@ e: "प्राचीन जैन आगम साहित्य में �
 q: "वैदिक सूक्तों के द्रष्टा और रचनाकार ऋषियों में कई महिलाएँ भी शामिल थीं। निम्न में से कौन सी विदुषी महिला ऋग्वेद की मंत्र द्रष्टा नहीं है? / Many women were seers of Vedic hymns. Who among the following was NOT a female seer of the Rigveda?",
 o: ["लोपामुद्रा / Lopamudra", "घोषा / Ghosha", "गार्गी / Gargi", "अपला / Apala"],
 a: 2,
-e: "लोपामुद्रा, घोषा, अपला ऋग्वेद काल की मंत्र द्रष्टा हैं, जबकि गार्गी उत्तर-वैदिक काल की प्रसिद्ध उपनिषद कालीन विदुषी थीं जिन्होंने शास्त्रार्थ किया था। / Gargi belongs to the later Vedic/Upanishadic period, famous for her debate with Yajnavalkya."
+e: "लोपामुद्रा, घोषा, अपला ऋग्वेद काल की मंत्र द्रष्टा हैं, जबकि गार्गी उत्तर-वैदिक काल की प्रसिद्ध विदुषी थीं जिन्होंने याज्ञवल्क्य से शास्त्रार्थ किया था। / Gargi belongs to the later Vedic/Upanishadic period, famous for her debate with Yajnavalkya."
 },
 {
 q: "प्राचीन भारतीय ज्ञान परंपरा में 'श्रीमद्भगवद्गीता' महाभारत के किस पर्व का हिस्सा है? / In the ancient Indian tradition, the 'Bhagavad Gita' is part of which Parva of the Mahabharata?",
@@ -315,7 +314,7 @@ a: 2,
 e: "वैदिक साहित्य में 'यव' का अर्थ जौ (Barley) है, तथा 'व्रीहि' का प्रयोग चावल (Rice) के लिए किया जाता था। / 'Yava' translates to barley in the Vedas, while 'Vrihi' stands for rice."
 },
 {
-q: "वैदिक काल में विनिमय के माध्यम (Medium of Exchange) and गले के एक आभूषण के रूप में प्रयुक्त 'निष्क' क्या था? / What was 'Nishka', used both as an ornament and a medium of exchange in the Vedic period?",
+q: "वैदिक काल में विनिमय के माध्यम (Medium of Exchange) और गले के एक आभूषण के रूप में प्रयुक्त 'निष्क' क्या था? / What was 'Nishka', used both as an ornament and a medium of exchange in the Vedic period?",
 o: ["चाँदी का सिक्का / Silver Coin", "सोने का सिक्का या स्वर्ण आभूषण / Gold coin or ornament", "ताँबे की मुद्रा / Copper currency", "मिट्टी की मुहर / Clay seal"],
 a: 1,
 e: "ऋग्वैदिक काल में निष्क सोने का एक आभूषण होता था जो गले में पहना जाता था, जिसका उपयोग व्यापारिक विनिमय में भी होता था। / Nishka was a gold neckpiece that also functioned as currency or a store of value."
@@ -381,20 +380,21 @@ a: 2,
 e: "महाभारत में श्लोकों की संख्या बढ़ते-बढ़ते एक लाख हो जाने के कारण इसे 'शतसाहस्री संहिता' या महाभारत नाम दिया गया। / Mahabharata is termed Shatasahasri Samhita when its verses reached one lakh."
 }
 ];
-// Function to render the 50 questions dynamically (Immediately Called)
+// Function to render quiz questions dynamically
 function renderQuiz() {
 const quizContainer = document.getElementById('quiz');
 if (!quizContainer) return;
 quizContainer.innerHTML = questions.map((q, qIdx) => <div class="question" id="qbox_${qIdx}"> <div class="qtitle">${qIdx + 1}. ${q.q}</div> ${q.o.map((opt, oIdx) =>
-).join('')} <div class="explanation" id="exp_${qIdx}"><b>उत्तर व्याख्या / Explanation:</b> ${q.e}</div> </div> ).join('');
+).join('')} <div class="explanation" id="exp_${qIdx}">${q.e}</div> </div> ).join('');
 }
-// Function to evaluate test inputs and show grading dashboard
+// Function to handle test submission
 function submitTest() {
 let score = 0;
 questions.forEach((q, qIdx) => {
 const selectedRadio = document.querySelector(input[name="q_${qIdx}"]:checked);
 const expDiv = document.getElementById(exp_${qIdx});
 if (expDiv) expDiv.style.display = 'block';
+// Highlight correct answer
 const correctLabel = document.getElementById(label_${qIdx}_${q.a});
 if (correctLabel) correctLabel.classList.add('correct');
 if (selectedRadio) {
@@ -402,24 +402,28 @@ const chosenAnswer = parseInt(selectedRadio.value);
 if (chosenAnswer === q.a) {
 score++;
 } else {
+// Highlight wrong answer if selected
 const wrongLabel = document.getElementById(label_${qIdx}_${chosenAnswer});
 if (wrongLabel) wrongLabel.classList.add('wrong');
 }
 }
 });
+// Display result summary
 const resultDiv = document.getElementById('result');
 if (resultDiv) {
 resultDiv.style.display = 'block';
-const accuracy = Math.round((score / questions.length) * 100);
-resultDiv.innerHTML = <h2>परीक्षा परिणाम / Test Result Summary</h2> <div class="score">${score} / ${questions.length} अंक (Marks)</div> <p>आपकी सटीकता दर (Accuracy) <b>${accuracy}%</b> रही है। सभी प्रश्नों के सही उत्तर और विस्तृत समीक्षा नीचे चेक करें।</p>;
+resultDiv.innerHTML = <h2>परीक्षा परिणाम / Test Result</h2> <div class="score">${score} / ${questions.length}</div> <p>आपने ${questions.length} में से ${score} प्रश्नों का सही उत्तर दिया है। / You answered ${score} out of ${questions.length} questions correctly.</p>;
 }
+// Disable further inputs after submission
 const inputs = document.querySelectorAll('input[type="radio"]');
 inputs.forEach(input => input.disabled = true);
+// Scroll to top to see score
 window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-// Direct Execution Rule to bypass browser loading blocks
-renderQuiz();
-// Global Timer Countdown Controller Engine
+function goBack() {
+window.history.back();
+}
+// Countdown Timer Logic
 let timeInMinutes = 60;
 let timeInSeconds = timeInMinutes * 60;
 const timerElement = document.getElementById('time');
@@ -433,8 +437,10 @@ timerElement.textContent = ${minutes}:${seconds};
 }
 if (timeInSeconds <= 0) {
 clearInterval(countdown);
-alert('समय समाप्त! आपका टेस्ट सबमिट हो रहा है।');
+alert('समय समाप्त! आपका टेस्ट स्वतः सबमिट हो रहा है। / Time over! Your test is submitting automatically.');
 submitTest();
 }
 timeInSeconds--;
 }, 1000);
+// Initialize Quiz on load immediately
+renderQuiz();
