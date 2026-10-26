@@ -3,25 +3,26 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MPPSC Unit 1 Test 5 | MPPSC Portal</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#f1f4f8;color:#202838;font-family:Arial,"Noto Sans Devanagari",sans-serif;line-height:1.65}
-header{background:#151515;color:white;text-align:center;padding:18px 12px;border-bottom:5px solid #d71920}
-header img{width:62px;height:62px;object-fit:contain;background:white;border-radius:50%;padding:3px}
-header h1{margin:5px;color:#ff4040;font-size:26px}
-.container{max-width:950px;margin:18px auto;padding:0 12px}
-.panel,.question{background:white;border-radius:10px;padding:16px;margin-bottom:15px;box-shadow:0 2px 8px #0000000c}
+html,body{margin:0;width:100%;min-height:100%;font-family:Arial,"Noto Sans Devanagari",sans-serif;color:#202838;background:#f0f3f8;line-height:1.6}
+header{width:100%;background:#151515;color:white;text-align:center;padding:14px 10px;border-bottom:5px solid #d71920}
+header img{width:65px;height:65px;object-fit:contain;background:white;border-radius:50%;padding:3px}
+header h1{margin:5px;color:#ff4141;font-size:27px}
+header p{margin:4px}
+.container{width:100%;max-width:none;margin:0;padding:10px}
+.panel,.question{width:100%;background:white;border-radius:9px;padding:16px;margin:0 0 12px;box-shadow:0 2px 8px #0000000d}
 .stats{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 .stat{background:#edf1f7;padding:8px 12px;border-radius:7px;font-weight:bold}
 #timer{color:#d71920}
 .question h3{font-size:17px;margin:0 0 12px}
-.options{display:grid;gap:8px}
-.option{display:flex;gap:9px;align-items:flex-start;padding:10px;border:1px solid #d5dce8;border-radius:7px;cursor:pointer}
+.options{display:grid;grid-template-columns:1fr;gap:8px}
+.option{display:flex;gap:9px;align-items:flex-start;width:100%;padding:10px;border:1px solid #d5dce8;border-radius:7px;cursor:pointer}
 .option:hover{background:#f5f7fc}
 .option input{margin-top:6px;flex-shrink:0}
-.option.correct{background:#d9f7df;border-color:#17843b;color:#125c2b}
+.option.correct{background:#d9f7df;border-color:#16843b;color:#105b28}
 .option.wrong{background:#ffe0e0;border-color:#d71920;color:#981717}
 .explanation{display:none;background:#eff5ff;border-left:4px solid #2865bd;padding:12px;margin-top:12px;border-radius:5px}
 button{border:0;border-radius:7px;padding:12px 18px;font-size:16px;font-weight:bold;cursor:pointer}
@@ -33,12 +34,19 @@ button:disabled{opacity:.6;cursor:not-allowed}
 #scoreText{font-size:23px;font-weight:bold;color:#167238}
 textarea{width:100%;padding:12px;border:1px solid #bbb;border-radius:7px;font:inherit}
 footer{text-align:center;padding:18px;color:#555}
-@media(max-width:600px){header h1{font-size:22px}.question{padding:13px}.question h3{font-size:16px}}
+@media(max-width:600px){
+ header h1{font-size:22px}
+ .container{padding:6px}
+ .panel,.question{padding:12px}
+ .question h3{font-size:16px}
+ .stat{font-size:13px}
+}
 </style>
 </head>
 <body>
+
 <header>
-<img src="../../mppsc-logo.jpg" alt="MPPSC Logo" onerror="this.style.display='none'">
+<img src="../../../mppsc-logo.jpg" alt="MPPSC Logo" onerror="this.style.display='none'">
 <h1>MPPSC PORTAL</h1>
 <p>MPPSC Prelims 2027 | मध्य प्रदेश सामान्य अध्ययन</p>
 <p><b>UNIT 1 — TEST 5 | 50 HARD MCQs</b></p>
@@ -52,7 +60,7 @@ footer{text-align:center;padding:18px;color:#555}
 <div class="stat">प्रत्येक सही उत्तर: 1 अंक</div>
 <div class="stat">शेष समय / Left: <span id="timer">60:00</span></div>
 </div>
-<p><b>निर्देश / Instructions:</b> प्रत्येक प्रश्न में एक सही विकल्प चुनें। Submit करने के बाद स्कोर और उत्तरों की व्याख्या दिखाई देगी।</p>
+<p><b>निर्देश / Instructions:</b> प्रत्येक प्रश्न में एक सही विकल्प चुनें। Submit करने के बाद स्कोर, सही उत्तर और व्याख्या दिखाई देगी।</p>
 </section>
 
 <div id="questions"></div>
@@ -74,259 +82,269 @@ footer{text-align:center;padding:18px;color:#555}
 </section>
 </main>
 
-<footer>MPPSC Portal | Practice Test 5</footer>
+<footer>MPPSC Portal | Unit 1 Test 5 | Practice Test</footer>
 
 <script>
 const questions = [
 {
-q:"1. प्राचीन भारत में दशार्ण जनपद का प्रमुख संबंध मध्य प्रदेश के किस क्षेत्र से माना जाता है? / The ancient Dasharna region is mainly associated with which area of Madhya Pradesh?",
+q:"प्राचीन दशार्ण जनपद का प्रमुख संबंध मध्य प्रदेश के किस क्षेत्र से था? / The ancient Dasharna region was mainly associated with which area?",
 o:["विदिशा क्षेत्र / Vidisha region","बस्तर क्षेत्र / Bastar region","कच्छ क्षेत्र / Kutch region","कावेरी घाटी / Kaveri valley"],
-a:0,e:"दशार्ण का संबंध विदिशा और उसके आसपास के क्षेत्र से माना जाता है। प्राचीन साहित्य में इस क्षेत्र का उल्लेख मिलता है।"
+a:0,e:"दशार्ण का संबंध विदिशा और आसपास के क्षेत्र से माना जाता है। प्राचीन साहित्य में इस क्षेत्र का उल्लेख मिलता है।"
 },
 {
-q:"2. बेसनगर के हेलियोडोरस स्तंभ का ऐतिहासिक महत्व किस तथ्य से जुड़ा है? / The historical importance of the Heliodorus Pillar at Besnagar is associated with which fact?",
-o:["प्रारंभिक भागवत परंपरा का अभिलेखीय साक्ष्य / Epigraphic evidence of an early Bhagavata tradition","मौर्य नौसेना का विवरण / Account of the Mauryan navy","दिल्ली सल्तनत की विजय / Conquest by the Delhi Sultanate","गुप्तकालीन भूमि कर सूची / Gupta land-tax register"],
-a:0,e:"यह स्तंभ इंडो-ग्रीक राजदूत हेलियोडोरस और वासुदेव की उपासना से संबंधित है। यह प्रारंभिक वैष्णव या भागवत परंपरा का महत्वपूर्ण अभिलेखीय साक्ष्य है।"
+q:"बेसनगर के हेलियोडोरस स्तंभ का ऐतिहासिक महत्व क्या है? / What is the historical importance of the Heliodorus Pillar at Besnagar?",
+o:["प्रारंभिक भागवत परंपरा का साक्ष्य / Evidence of early Bhagavata tradition","मौर्य नौसेना का विवरण / Account of Mauryan navy","दिल्ली सल्तनत की विजय / Delhi Sultanate conquest","गुप्तकालीन कर सूची / Gupta tax register"],
+a:0,e:"हेलियोडोरस स्तंभ वासुदेव की उपासना और प्रारंभिक भागवत परंपरा का महत्वपूर्ण अभिलेखीय साक्ष्य है।"
 },
 {
-q:"3. मध्य प्रदेश के किस स्थल से ताम्रपाषाणकालीन मालवा संस्कृति के महत्वपूर्ण साक्ष्य मिले हैं? / Which site has yielded important evidence of the Chalcolithic Malwa culture?",
-o:["नागदा / Nagda","धौलावीरा / Dholavira","लोथल / Lothal","राखीगढ़ी / Rakhigarhi"],
-a:0,e:"नागदा मध्य प्रदेश का एक महत्वपूर्ण पुरातात्त्विक स्थल है। मालवा क्षेत्र में अनेक ताम्रपाषाणकालीन बस्तियों से मिट्टी के बर्तन और अन्य पुरावशेष मिले हैं।"
-},
-{
-q:"4. प्राचीन स्थल कायथा किस आधुनिक शहर के निकट स्थित है? / The ancient site of Kayatha is located near which modern city?",
+q:"कायथा पुरातात्त्विक स्थल किस आधुनिक शहर के निकट है? / Kayatha archaeological site is near which modern city?",
 o:["उज्जैन / Ujjain","रीवा / Rewa","ग्वालियर / Gwalior","सतना / Satna"],
 a:0,e:"कायथा उज्जैन के निकट स्थित है। इस स्थल के नाम पर प्रारंभिक ताम्रपाषाणकालीन संस्कृति को कायथा संस्कृति कहा जाता है।"
 },
 {
-q:"5. गुप्तकालीन प्रशासन में 'उपरिक' पद सामान्यतः किससे संबंधित था? / In Gupta administration, the title 'Uparika' was generally associated with which role?",
-o:["प्रांत का राज्यपाल / Provincial governor","ग्राम का कृषक / Village cultivator","शाही अस्तबल का सेवक / Royal stable attendant","बंदरगाह का व्यापारी / Port merchant"],
-a:0,e:"गुप्त प्रशासन में उपरिक प्रांतीय प्रशासन से जुड़ा अधिकारी था। प्रशासनिक पदों के अर्थ काल और अभिलेख के संदर्भ के अनुसार समझे जाने चाहिए।"
+q:"नागदा पुरातात्त्विक स्थल मध्य प्रदेश के किस सांस्कृतिक क्षेत्र से जुड़ा है? / Nagda archaeological site is associated with which cultural region?",
+o:["मालवा / Malwa","बघेलखंड / Baghelkhand","बुंदेलखंड / Bundelkhand","निमाड़ / Nimar"],
+a:0,e:"नागदा मालवा क्षेत्र का महत्वपूर्ण पुरातात्त्विक स्थल है। मालवा में ताम्रपाषाणकालीन बस्तियों से मिट्टी के बर्तन और अन्य अवशेष मिले हैं।"
 },
 {
-q:"6. मध्य प्रदेश के प्राचीन इतिहास में विदिशा का महत्व मुख्यतः किस कारण रहा? / Why was Vidisha important in ancient Madhya Pradesh?",
-o:["व्यापार, राजनीतिक संपर्क और धार्मिक स्मारक / Trade, political contacts and religious monuments","समुद्री जहाज निर्माण / Maritime shipbuilding","हिमालयी दर्रों पर नियंत्रण / Control of Himalayan passes","अरब सागर का प्रमुख बंदरगाह / Major Arabian Sea port"],
-a:0,e:"विदिशा प्राचीन व्यापार मार्गों और राजनीतिक संपर्कों के निकट थी। आसपास के बेसनगर और साँची जैसे स्थल इसके ऐतिहासिक महत्व को बढ़ाते हैं।"
+q:"गुप्तकालीन प्रशासन में 'उपरिक' पद सामान्यतः किससे जुड़ा था? / The Gupta administrative title 'Uparika' was generally associated with which role?",
+o:["प्रांतीय अधिकारी / Provincial governor","ग्राम कृषक / Village cultivator","शाही अस्तबल का सेवक / Royal stable attendant","बंदरगाह व्यापारी / Port merchant"],
+a:0,e:"उपरिक गुप्तकालीन प्रशासन में प्रांतीय स्तर का अधिकारी था। प्राचीन प्रशासनिक पदों की व्याख्या अभिलेखीय संदर्भ के अनुसार की जाती है।"
 },
 {
-q:"7. गुप्तकालीन उदयगिरि शिलागुफाओं का संरक्षण किस प्रकार के अध्ययन में विशेष उपयोगी है? / The Gupta-period Udayagiri caves are particularly useful for studying which subject?",
-o:["धार्मिक प्रतिमा-विज्ञान और राजकीय संरक्षण / Religious iconography and royal patronage","मध्यकालीन समुद्री व्यापार / Medieval maritime trade","औपनिवेशिक रेलवे / Colonial railways","आधुनिक औद्योगिक श्रम / Modern industrial labour"],
+q:"प्राचीन विदिशा का महत्व मुख्यतः किस कारण था? / Why was ancient Vidisha important?",
+o:["व्यापार, राजनीतिक संपर्क और धार्मिक स्मारक / Trade, political contacts and religious monuments","समुद्री जहाज निर्माण / Shipbuilding","हिमालयी दर्रों पर नियंत्रण / Himalayan passes","समुद्री बंदरगाह / Seaport"],
+a:0,e:"विदिशा प्राचीन व्यापार मार्गों और राजनीतिक संपर्कों के निकट थी। आसपास के बेसनगर और साँची जैसे स्थल इसके महत्व को दर्शाते हैं।"
+},
+{
+q:"उदयगिरि की गुफाएँ किस काल की धार्मिक कला के अध्ययन में महत्वपूर्ण हैं? / Udayagiri caves are important for studying religious art of which period?",
+o:["गुप्त काल / Gupta period","सल्तनत काल / Sultanate period","मराठा काल / Maratha period","औपनिवेशिक काल / Colonial period"],
 a:0,e:"उदयगिरि की गुफाएँ गुप्तकालीन धार्मिक कला और शाही संरक्षण की जानकारी देती हैं। यहाँ की वराह प्रतिमा विशेष रूप से प्रसिद्ध है।"
 },
 {
-q:"8. मध्य प्रदेश के इतिहास में चंदेल शासकों का प्रमुख स्थापत्य योगदान किस स्थल पर दिखाई देता है? / At which site is the major architectural contribution of the Chandela rulers visible?",
-o:["खजुराहो / Khajuraho","मांडू / Mandu","असीरगढ़ / Asirgarh","महेश्वर / Maheshwar"],
-a:0,e:"खजुराहो के मंदिर चंदेल शासकों के संरक्षण में निर्मित हुए। इनकी नागर शैली, शिखर और मूर्तिकला विशेष महत्व रखते हैं।"
+q:"खजुराहो के मंदिरों का निर्माण मुख्यतः किस राजवंश के संरक्षण में हुआ? / The Khajuraho temples were mainly built under which dynasty?",
+o:["चंदेल / Chandela","परमार / Paramara","कलचुरी / Kalachuri","तोमर / Tomara"],
+a:0,e:"खजुराहो के मंदिर मुख्यतः चंदेल शासकों के संरक्षण में बने। ये उत्तर भारतीय नागर स्थापत्य और मूर्तिकला के उत्कृष्ट उदाहरण हैं।"
 },
 {
-q:"9. परमार शासकों की सत्ता का प्रमुख केंद्र कौन-सा ऐतिहासिक क्षेत्र था? / Which historical region was the principal centre of Paramara power?",
+q:"परमार राजवंश का प्रमुख ऐतिहासिक केंद्र कौन-सा था? / What was the principal historical centre of the Paramara dynasty?",
 o:["मालवा / Malwa","कश्मीर / Kashmir","कोंकण / Konkan","कांची / Kanchi"],
-a:0,e:"परमार राजवंश का प्रमुख केंद्र मालवा था। राजा भोज इस वंश के सबसे प्रसिद्ध शासकों में गिने जाते हैं।"
+a:0,e:"परमार शासकों की सत्ता का प्रमुख केंद्र मालवा था। राजा भोज इस वंश के प्रसिद्ध शासकों में गिने जाते हैं।"
 },
 {
-q:"10. मध्यकालीन मालवा सल्तनत की राजधानी मांडू किस भौगोलिक स्थिति के कारण सामरिक दृष्टि से महत्वपूर्ण थी? / Why was Mandu strategically important?",
-o:["ऊँचे पठारी किनारे और प्राकृतिक सुरक्षा / Elevated plateau edges and natural defence","समुद्र के बीच द्वीप / Island in the sea","हिमालय के ऊँचे दर्रे / High Himalayan passes","विशाल डेल्टा / Extensive delta"],
-a:0,e:"मांडू विंध्य क्षेत्र के ऊँचे पठार पर स्थित है। इसकी प्राकृतिक ढाल और किलेबंदी ने इसे सामरिक रूप से महत्वपूर्ण बनाया।"
+q:"मांडू की सामरिक स्थिति की प्रमुख विशेषता क्या थी? / What was the main strategic advantage of Mandu?",
+o:["ऊँचा पठार और प्राकृतिक सुरक्षा / Elevated plateau and natural defence","समुद्री द्वीप / Sea island","हिमालयी दर्रा / Himalayan pass","विशाल नदी डेल्टा / Large river delta"],
+a:0,e:"मांडू विंध्य क्षेत्र के ऊँचे पठार पर स्थित है। प्राकृतिक ढाल और किलेबंदी ने इसे सामरिक महत्व दिया।"
 },
 {
-q:"11. मध्य प्रदेश में बुंदेला स्थापत्य का एक महत्वपूर्ण केंद्र कौन-सा है? / Which is an important centre of Bundela architecture in Madhya Pradesh?",
-o:["दतिया / Datia","अमरकंटक / Amarkantak","मुलताई / Multai","कूनो / Kuno"],
-a:0,e:"दतिया में बुंदेला कालीन महल और स्थापत्य के महत्वपूर्ण उदाहरण मिलते हैं। ओरछा भी बुंदेला स्थापत्य का प्रमुख केंद्र है।"
+q:"बुंदेला स्थापत्य का प्रमुख केंद्र कौन-सा है? / Which is a major centre of Bundela architecture?",
+o:["ओरछा / Orchha","अमरकंटक / Amarkantak","मुलताई / Multai","कूनो / Kuno"],
+a:0,e:"ओरछा बुंदेला शासकों का प्रमुख केंद्र था। यहाँ महल, मंदिर और छतरियाँ बुंदेला स्थापत्य की विशेषताएँ दर्शाते हैं।"
 },
 {
-q:"12. ग्वालियर दुर्ग के ऐतिहासिक महत्व का एक प्रमुख कारण क्या है? / What is one major reason for the historical importance of Gwalior Fort?",
-o:["विभिन्न राजवंशों के शासन और स्थापत्य के साक्ष्य / Evidence of multiple dynasties and architectural traditions","यह भारत का सबसे बड़ा समुद्री बंदरगाह था / It was India's largest seaport","यह सिंधु सभ्यता की राजधानी था / It was the capital of the Indus civilization","यह चोल साम्राज्य का मुख्यालय था / It was the Chola headquarters"],
+q:"ग्वालियर दुर्ग का ऐतिहासिक महत्व किस कारण है? / Why is Gwalior Fort historically important?",
+o:["अनेक राजवंशों के स्थापत्य और शासन के साक्ष्य / Evidence of multiple dynasties and architectural traditions","प्राचीन समुद्री बंदरगाह / Ancient seaport","सिंधु सभ्यता की राजधानी / Indus civilization capital","चोल साम्राज्य का मुख्यालय / Chola headquarters"],
 a:0,e:"ग्वालियर दुर्ग पर विभिन्न कालों में अलग-अलग शासकों का नियंत्रण रहा। इसके भीतर मंदिर, महल और अन्य ऐतिहासिक संरचनाएँ हैं।"
 },
 {
-q:"13. रानी दुर्गावती के संघर्ष के समय मुगल सम्राट कौन था? / Who was the Mughal emperor during Rani Durgavati's final struggle?",
+q:"रानी दुर्गावती के अंतिम संघर्ष के समय मुगल सम्राट कौन था? / Who was the Mughal emperor during Rani Durgavati's final struggle?",
 o:["अकबर / Akbar","बाबर / Babur","जहाँगीर / Jahangir","औरंगजेब / Aurangzeb"],
-a:0,e:"रानी दुर्गावती ने 1564 में अकबर के शासनकाल के दौरान मुगल सेना का सामना किया। उनके विरुद्ध अभियान का नेतृत्व आसफ खाँ ने किया।"
+a:0,e:"रानी दुर्गावती ने 1564 में अकबर के शासनकाल के दौरान मुगल सेना का सामना किया। अभियान का नेतृत्व आसफ खाँ ने किया।"
 },
 {
-q:"14. 1857 के विद्रोह में मध्य भारत के सैनिक और राजनीतिक घटनाक्रम का महत्वपूर्ण केंद्र कौन-सा था? / Which place was an important centre of military and political events during the 1857 uprising in Central India?",
-o:["ग्वालियर / Gwalior","कोच्चि / Kochi","शिलांग / Shillong","पुडुचेरी / Puducherry"],
-a:0,e:"1857 के विद्रोह के दौरान ग्वालियर और उसके आसपास के क्षेत्र में महत्वपूर्ण सैन्य घटनाएँ हुईं। रानी लक्ष्मीबाई का अंतिम संघर्ष भी ग्वालियर क्षेत्र से जुड़ा है।"
-},
-{
-q:"15. तात्या टोपे का संबंध किस ऐतिहासिक घटना से है? / Tatya Tope is associated with which historical event?",
-o:["1857 का विद्रोह / Revolt of 1857","दांडी मार्च / Dandi March","भारत छोड़ो आंदोलन का आरंभ / Launch of Quit India Movement","चंपारण सत्याग्रह / Champaran Satyagraha"],
+q:"तात्या टोपे किस ऐतिहासिक घटना के प्रमुख नेता थे? / Tatya Tope was a major leader in which historical event?",
+o:["1857 का विद्रोह / Revolt of 1857","दांडी मार्च / Dandi March","चंपारण सत्याग्रह / Champaran Satyagraha","भारत छोड़ो आंदोलन / Quit India Movement"],
 a:0,e:"तात्या टोपे 1857 के विद्रोह के प्रमुख सैन्य नेताओं में थे। उन्होंने मध्य भारत सहित कई क्षेत्रों में ब्रिटिश सेना के विरुद्ध अभियान चलाए।"
 },
 {
-q:"16. मध्य प्रदेश के स्वतंत्रता आंदोलन में भील आदिवासी प्रतिरोध का एक महत्वपूर्ण पहलू क्या था? / What was an important feature of Bhil tribal resistance in the freedom struggle?",
-o:["स्थानीय नेतृत्व और औपनिवेशिक सत्ता का विरोध / Local leadership and resistance to colonial authority","समुद्री व्यापार का विस्तार / Expansion of maritime trade","मुगल साम्राज्य की स्थापना / Establishment of the Mughal Empire","यूरोपीय उपनिवेशों का प्रशासन / Administration of European colonies"],
-a:0,e:"भील और अन्य आदिवासी समुदायों ने विभिन्न कालों में औपनिवेशिक नीतियों और स्थानीय शोषण के विरुद्ध प्रतिरोध किया। इनके आंदोलन क्षेत्रीय परिस्थितियों के अनुसार अलग-अलग थे।"
+q:"1857 के विद्रोह में मध्य भारत का कौन-सा शहर महत्वपूर्ण केंद्र बना? / Which city became an important centre during the 1857 uprising in Central India?",
+o:["ग्वालियर / Gwalior","कोच्चि / Kochi","शिलांग / Shillong","पुडुचेरी / Puducherry"],
+a:0,e:"1857 के विद्रोह के दौरान ग्वालियर और आसपास के क्षेत्रों में महत्वपूर्ण सैन्य घटनाएँ हुईं। रानी लक्ष्मीबाई का अंतिम संघर्ष भी इसी क्षेत्र से जुड़ा है।"
 },
 {
-q:"17. मध्य प्रदेश में चंदेरी ऐतिहासिक रूप से किसके लिए प्रसिद्ध है? / Chanderi is historically famous for what?",
-o:["किला, ऐतिहासिक नगर और वस्त्र परंपरा / Fort, historic town and textile tradition","समुद्री नमक उत्पादन / Marine salt production","हिमनद / Glaciers","चाय बागान / Tea plantations"],
+q:"टंट्या भील को मुख्यतः किस रूप में याद किया जाता है? / Tantya Bhil is mainly remembered as what?",
+o:["आदिवासी स्वतंत्रता सेनानी / Tribal freedom fighter","परमार राजा / Paramara king","मुगल सेनापति / Mughal commander","ब्रिटिश अधिकारी / British official"],
+a:0,e:"टंट्या भील औपनिवेशिक शासन के विरुद्ध संघर्ष करने वाले आदिवासी नायक थे। लोकस्मृति में वे प्रतिरोध के प्रतीक हैं।"
+},
+{
+q:"भीमा नायक का संबंध किस ऐतिहासिक संघर्ष से था? / Bhima Nayak was associated with which historical struggle?",
+o:["1857 का विद्रोह और आदिवासी प्रतिरोध / Revolt of 1857 and tribal resistance","दांडी मार्च / Dandi March","स्वदेशी आंदोलन का बंगाल चरण / Bengal Swadeshi movement","चंपारण सत्याग्रह / Champaran Satyagraha"],
+a:0,e:"भीमा नायक निमाड़ क्षेत्र के आदिवासी स्वतंत्रता सेनानी थे। उन्होंने 1857 के दौर में ब्रिटिश सत्ता के विरुद्ध संघर्ष किया।"
+},
+{
+q:"चंदेरी नगर किसके लिए विशेष रूप से प्रसिद्ध है? / Chanderi is especially famous for what?",
+o:["किला और पारंपरिक वस्त्र / Fort and traditional textiles","समुद्री नमक / Sea salt","हिमनद / Glaciers","चाय बागान / Tea plantations"],
 a:0,e:"चंदेरी अपने ऐतिहासिक किले, मध्यकालीन स्मारकों और प्रसिद्ध चंदेरी वस्त्रों के लिए जानी जाती है।"
 },
 {
-q:"18. मालवा क्षेत्र की पारंपरिक लोकनाट्य शैली 'माच' में किसका महत्वपूर्ण स्थान है? / What is important in the Malwa folk theatre form 'Maach'?",
-o:["गायन, संवाद और नाटकीय प्रस्तुति / Singing, dialogue and dramatic performance","केवल मूक अभिनय / Silent acting only","केवल कठपुतली संचालन / Puppet operation only","केवल शास्त्रीय वाद्य-संगीत / Classical instrumental music only"],
-a:0,e:"माच मालवा की लोकनाट्य परंपरा है। इसमें संगीत, संवाद और अभिनय का संयोजन होता है।"
+q:"चंदेरी साड़ियों की पारंपरिक विशेषता क्या है? / What is a traditional feature of Chanderi sarees?",
+o:["हल्की बुनाई और महीन बनावट / Lightweight weave and fine texture","मोटी ऊनी बुनाई / Thick woollen weave","चमड़े पर छपाई / Leather printing","धातु की जाली / Metal mesh"],
+a:0,e:"चंदेरी वस्त्र हल्की बनावट, महीन बुनाई और पारंपरिक डिजाइनों के लिए प्रसिद्ध हैं। इनमें रेशम और सूती धागों का उपयोग होता है।"
 },
 {
-q:"19. मध्य प्रदेश में चंदेरी साड़ियों की पारंपरिक विशेषता क्या है? / What is a traditional feature of Chanderi sarees?",
-o:["हल्का कपड़ा और पारदर्शी बनावट / Lightweight fabric and sheer texture","केवल मोटी ऊनी बुनाई / Thick woollen weave only","चमड़े पर छपाई / Printing on leather","धातु की जाली / Metal mesh"],
-a:0,e:"चंदेरी वस्त्र अपनी हल्की बनावट, महीन बुनाई और पारंपरिक डिजाइनों के लिए प्रसिद्ध हैं। रेशम और सूती धागों का उपयोग अलग-अलग प्रकारों में होता है।"
+q:"मालवा की लोकनाट्य शैली 'माच' की प्रमुख विशेषता क्या है? / What is a key feature of the Malwa folk theatre form 'Maach'?",
+o:["गायन, संवाद और नाटकीय प्रस्तुति / Singing, dialogue and dramatic performance","केवल मूक अभिनय / Silent acting only","केवल कठपुतली संचालन / Puppet show only","केवल वाद्य संगीत / Instrumental music only"],
+a:0,e:"माच मालवा की लोकनाट्य परंपरा है जिसमें संगीत, संवाद और अभिनय का संयोजन होता है।"
 },
 {
-q:"20. मध्य प्रदेश की भीली चित्रकला में सामान्यतः किसका प्रभाव दिखाई देता है? / What is commonly reflected in Bhil painting?",
-o:["प्रकृति, समुदाय और पारंपरिक जीवन / Nature, community and traditional life","केवल यूरोपीय राजदरबार / European royal courts only","औद्योगिक मशीनें / Industrial machines","समुद्री युद्ध / Naval warfare"],
-a:0,e:"भीली चित्रकला में प्रकृति, लोकविश्वास और सामुदायिक जीवन के विषय मिलते हैं। क्षेत्र और कलाकार के अनुसार शैली में अंतर हो सकता है।"
+q:"भीली चित्रकला में सामान्यतः किन विषयों का चित्रण मिलता है? / Which themes commonly appear in Bhil painting?",
+o:["प्रकृति और सामुदायिक जीवन / Nature and community life","केवल यूरोपीय दरबार / European courts only","औद्योगिक मशीनें / Industrial machines","समुद्री युद्ध / Naval battles"],
+a:0,e:"भीली चित्रकला में प्रकृति, लोकविश्वास और सामुदायिक जीवन प्रमुख विषय हैं। शैली कलाकार और क्षेत्र के अनुसार बदल सकती है।"
 },
 {
-q:"21. मध्य प्रदेश के किस क्षेत्र में धुआँधार जलप्रपात स्थित है? / In which area of Madhya Pradesh is Dhuandhar Falls located?",
-o:["भेड़ाघाट, जबलपुर के निकट / Bhedaghat near Jabalpur","पचमढ़ी के दक्षिण में / South of Pachmarhi","मांडू के पास / Near Mandu","चंदेरी के निकट / Near Chanderi"],
-a:0,e:"धुआँधार जलप्रपात जबलपुर के निकट भेड़ाघाट में नर्मदा नदी पर स्थित है। नदी यहाँ संकरे मार्ग से गिरती है और जलकणों की धुंध बनती है।"
+q:"धुआँधार जलप्रपात किस स्थान के निकट स्थित है? / Near which place is Dhuandhar Falls located?",
+o:["भेड़ाघाट / Bhedaghat","मांडू / Mandu","चंदेरी / Chanderi","पन्ना नगर / Panna town"],
+a:0,e:"धुआँधार जलप्रपात जबलपुर के निकट भेड़ाघाट में नर्मदा नदी पर स्थित है। यहाँ नदी संकरे मार्ग से गिरती है।"
 },
 {
-q:"22. संगमरमर की चट्टानों के लिए प्रसिद्ध भेड़ाघाट किस नदी से संबंधित है? / Bhedaghat, famous for marble rocks, is associated with which river?",
-o:["नर्मदा / Narmada","चंबल / Chambal","ताप्ती / Tapti","सिंध / Sindh"],
-a:0,e:"भेड़ाघाट में नर्मदा नदी संगमरमर की चट्टानों के बीच बहती है। यह भूवैज्ञानिक और पर्यटन दोनों दृष्टियों से प्रसिद्ध है।"
+q:"भेड़ाघाट की संगमरमर की चट्टानें किस नदी के किनारे हैं? / The marble rocks at Bhedaghat lie along which river?",
+o:["नर्मदा / Narmada","चंबल / Chambal","ताप्ती / Tapti","बेतवा / Betwa"],
+a:0,e:"भेड़ाघाट में नर्मदा नदी संगमरमर की चट्टानों के बीच बहती है। यह क्षेत्र भूवैज्ञानिक और पर्यटन दोनों दृष्टियों से प्रसिद्ध है।"
 },
 {
-q:"23. मध्य प्रदेश की सर्वोच्च चोटी धूपगढ़ किस पर्वतीय क्षेत्र में स्थित है? / Dhupgarh, the highest peak of Madhya Pradesh, lies in which hill region?",
+q:"धूपगढ़ किस पर्वत श्रेणी की सर्वोच्च चोटी है? / Dhupgarh is the highest peak of which mountain range?",
 o:["सतपुड़ा / Satpura","विंध्य / Vindhya","अरावली / Aravalli","पश्चिमी घाट / Western Ghats"],
-a:0,e:"धूपगढ़ पचमढ़ी के निकट सतपुड़ा पर्वत श्रेणी में स्थित है। इसे मध्य प्रदेश की सर्वोच्च चोटी माना जाता है।"
+a:0,e:"धूपगढ़ पचमढ़ी के निकट सतपुड़ा पर्वत श्रेणी में स्थित है और मध्य प्रदेश की सर्वोच्च चोटी मानी जाती है।"
 },
 {
-q:"24. पचमढ़ी का पठारी क्षेत्र मुख्यतः किस पर्वत श्रेणी से संबंधित है? / The plateau region of Pachmarhi is mainly associated with which mountain range?",
+q:"पचमढ़ी किस पर्वतीय क्षेत्र में स्थित है? / Pachmarhi is located in which mountain region?",
 o:["सतपुड़ा / Satpura","अरावली / Aravalli","पूर्वी घाट / Eastern Ghats","काराकोरम / Karakoram"],
-a:0,e:"पचमढ़ी सतपुड़ा पर्वत क्षेत्र में स्थित है। इसकी ऊँचाई, वन और घाटियाँ इसे विशिष्ट भौगोलिक क्षेत्र बनाती हैं।"
+a:0,e:"पचमढ़ी सतपुड़ा पर्वत क्षेत्र में स्थित है। इसके वन, ऊँचाई और घाटियाँ इसे विशिष्ट भौगोलिक क्षेत्र बनाते हैं।"
 },
 {
-q:"25. मध्य प्रदेश के उत्तर-पश्चिमी भाग में कौन-सी नदी प्रणाली प्रमुख है? / Which river system is prominent in north-western Madhya Pradesh?",
+q:"मध्य प्रदेश के उत्तर-पश्चिम में कौन-सी नदी प्रणाली प्रमुख है? / Which river system is prominent in north-western Madhya Pradesh?",
 o:["चंबल प्रणाली / Chambal system","कावेरी प्रणाली / Kaveri system","ब्रह्मपुत्र प्रणाली / Brahmaputra system","पेरियार प्रणाली / Periyar system"],
 a:0,e:"चंबल और उसकी सहायक नदियाँ मध्य प्रदेश के उत्तर-पश्चिमी भाग के जल-निकास में महत्वपूर्ण हैं।"
 },
 {
-q:"26. बेतवा नदी अंततः किस बड़ी नदी में मिलती है? / Into which major river does the Betwa eventually flow?",
+q:"बेतवा नदी अंततः किस नदी में मिलती है? / Into which river does the Betwa eventually flow?",
 o:["यमुना / Yamuna","नर्मदा / Narmada","गोदावरी / Godavari","ताप्ती / Tapti"],
-a:0,e:"बेतवा नदी मध्य प्रदेश और उत्तर प्रदेश से होकर बहती है तथा उत्तर प्रदेश में यमुना नदी में मिलती है।"
+a:0,e:"बेतवा मध्य प्रदेश और उत्तर प्रदेश से बहती हुई उत्तर प्रदेश में यमुना नदी में मिलती है।"
 },
 {
-q:"27. केन नदी किस प्रमुख नदी की सहायक नदी है? / The Ken is a tributary of which major river?",
+q:"केन नदी किस बड़ी नदी की सहायक नदी है? / The Ken River is a tributary of which major river?",
 o:["यमुना / Yamuna","गोदावरी / Godavari","कृष्णा / Krishna","नर्मदा / Narmada"],
-a:0,e:"केन नदी मध्य प्रदेश और उत्तर प्रदेश के क्षेत्रों से होकर बहती है और यमुना में मिलती है। पन्ना क्षेत्र इसकी घाटी के लिए जाना जाता है।"
+a:0,e:"केन नदी मध्य प्रदेश और उत्तर प्रदेश से होकर बहती है और यमुना में मिलती है। पन्ना क्षेत्र इसकी घाटी के लिए जाना जाता है।"
 },
 {
-q:"28. सोन नदी का उद्गम किस क्षेत्र में है? / In which region does the Son River originate?",
-o:["अमरकंटक क्षेत्र / Amarkantak region","मांडू / Mandu","मुलताई / Multai","भेड़ाघाट / Bhedaghat"],
-a:0,e:"सोन नदी का उद्गम अमरकंटक क्षेत्र के निकट होता है। यह मुख्यतः उत्तर-पूर्व की ओर बहकर गंगा नदी प्रणाली में मिलती है।"
+q:"सोन नदी का उद्गम किस क्षेत्र के निकट है? / Near which region does the Son River originate?",
+o:["अमरकंटक / Amarkantak","मांडू / Mandu","मुलताई / Multai","भेड़ाघाट / Bhedaghat"],
+a:0,e:"सोन नदी का उद्गम अमरकंटक क्षेत्र के निकट होता है। यह उत्तर-पूर्व की ओर बहकर गंगा नदी प्रणाली में मिलती है।"
 },
 {
-q:"29. मध्य प्रदेश के पूर्वी भाग में स्थित मैकल क्षेत्र किस पर्वतीय व्यवस्था से जुड़ा है? / The Maikal region in eastern Madhya Pradesh is associated with which mountain system?",
-o:["सतपुड़ा का पूर्वी विस्तार / Eastern extension of the Satpura system","अरावली का पश्चिमी विस्तार / Western extension of Aravalli","हिमालय का शिवालिक भाग / Shivalik Himalaya","नीलगिरि पर्वत / Nilgiri Hills"],
-a:0,e:"मैकल पर्वतीय क्षेत्र सतपुड़ा व्यवस्था के पूर्वी हिस्से से संबंधित है। अमरकंटक इसी व्यापक क्षेत्र में स्थित है।"
+q:"मैकल पर्वतीय क्षेत्र किस पर्वत व्यवस्था से संबंधित है? / The Maikal region is associated with which mountain system?",
+o:["सतपुड़ा का पूर्वी विस्तार / Eastern extension of Satpura","अरावली का पश्चिमी विस्तार / Western extension of Aravalli","शिवालिक / Shivalik","नीलगिरि / Nilgiri"],
+a:0,e:"मैकल क्षेत्र सतपुड़ा व्यवस्था के पूर्वी हिस्से से जुड़ा है। अमरकंटक इसी व्यापक क्षेत्र में स्थित है।"
 },
 {
-q:"30. मध्य प्रदेश के दक्षिणी भाग में ताप्ती नदी की घाटी किस दिशा में निकास का उदाहरण है? / The Tapti valley in southern Madhya Pradesh is an example of drainage towards which direction?",
+q:"ताप्ती नदी किस दिशा में बहकर समुद्र में गिरती है? / In which direction does the Tapti flow before reaching the sea?",
 o:["पश्चिम / West","पूर्व / East","उत्तर / North","उत्तर-पूर्व / North-east"],
-a:0,e:"ताप्ती नदी पश्चिम की ओर बहकर अरब सागर में गिरती है। नर्मदा की तरह इसकी घाटी भी पश्चिमाभिमुख नदी निकास का उदाहरण है।"
+a:0,e:"ताप्ती नदी पश्चिम की ओर बहकर अरब सागर में गिरती है। नर्मदा भी पश्चिमाभिमुख नदी का उदाहरण है।"
 },
 {
-q:"31. काली मिट्टी की जलधारण क्षमता सामान्यतः कैसी होती है? / How is the water-retention capacity of black soil generally described?",
-o:["अपेक्षाकृत अधिक / Relatively high","हमेशा बहुत कम / Always very low","केवल हिमांक पर प्रभावी / Effective only at freezing temperatures","रेतीली मिट्टी के समान / Same as sandy soil"],
-a:0,e:"काली मिट्टी में चिकनी मिट्टी के कण अधिक होने के कारण इसकी जलधारण क्षमता सामान्यतः अच्छी होती है। सूखने पर इसमें दरारें भी पड़ सकती हैं।"
+q:"काली मिट्टी की जलधारण क्षमता सामान्यतः कैसी होती है? / How is the water-retention capacity of black soil generally described?",
+o:["अपेक्षाकृत अधिक / Relatively high","हमेशा बहुत कम / Always very low","केवल ठंड में प्रभावी / Effective only in cold","रेतीली मिट्टी के समान / Same as sandy soil"],
+a:0,e:"काली मिट्टी में चिकनी मिट्टी के कण अधिक होने से इसकी जलधारण क्षमता अच्छी होती है। सूखने पर इसमें दरारें पड़ सकती हैं।"
 },
 {
-q:"32. मध्य प्रदेश के कृषि क्षेत्र में सोयाबीन के साथ कौन-सी फसल प्रणाली सामान्य रूप से देखी जाती है? / Which cropping pattern is commonly seen with soybean in Madhya Pradesh?",
+q:"मध्य प्रदेश में सामान्य सोयाबीन-आधारित फसल चक्र कौन-सा है? / Which is a common soybean-based cropping pattern in Madhya Pradesh?",
 o:["सोयाबीन-गेहूँ / Soybean-wheat","चाय-कॉफी / Tea-coffee","नारियल-रबर / Coconut-rubber","जूट-चाय / Jute-tea"],
-a:0,e:"मालवा और आसपास के क्षेत्रों में सोयाबीन के बाद रबी मौसम में गेहूँ की खेती आम है। यह मानसून और सिंचाई की उपलब्धता से प्रभावित होती है।"
+a:0,e:"मालवा और आसपास के क्षेत्रों में सोयाबीन के बाद रबी मौसम में गेहूँ की खेती आम है।"
 },
 {
-q:"33. मध्य प्रदेश में तेंदूपत्ता मुख्यतः किस आर्थिक गतिविधि से संबंधित है? / Tendu leaves are mainly associated with which economic activity in Madhya Pradesh?",
-o:["बीड़ी उद्योग के लिए पत्तों का संग्रह / Collection of leaves for the bidi industry","रेशम उत्पादन / Silk production","कागज के लिए बाँस की लुगदी / Bamboo pulp for paper","चाय प्रसंस्करण / Tea processing"],
-a:0,e:"तेंदूपत्ता बीड़ी निर्माण में उपयोग होता है। इसका संग्रह कई वन-आश्रित समुदायों के लिए मौसमी आजीविका का स्रोत है।"
+q:"तेंदूपत्ता मुख्यतः किस उद्योग में उपयोग होता है? / Tendu leaves are mainly used in which industry?",
+o:["बीड़ी उद्योग / Bidi industry","रेशम उद्योग / Silk industry","चाय उद्योग / Tea industry","सीमेंट उद्योग / Cement industry"],
+a:0,e:"तेंदूपत्ता बीड़ी निर्माण में उपयोग होता है। इसका संग्रह कई वन-आश्रित समुदायों की मौसमी आजीविका का स्रोत है।"
 },
 {
-q:"34. मध्य प्रदेश के वन संसाधनों में सागौन विशेष रूप से किस प्रकार का वृक्ष है? / Teak is what type of tree among Madhya Pradesh's forest resources?",
+q:"सागौन किस प्रकार का वृक्ष है? / What type of tree is teak?",
 o:["पर्णपाती कठोर लकड़ी का वृक्ष / Deciduous hardwood tree","शंकुधारी वृक्ष / Conifer","जलीय पौधा / Aquatic plant","घास की प्रजाति / Grass species"],
-a:0,e:"सागौन एक पर्णपाती कठोर लकड़ी वाला वृक्ष है। मध्य प्रदेश के अनेक उष्णकटिबंधीय पर्णपाती वनों में यह पाया जाता है।"
+a:0,e:"सागौन पर्णपाती कठोर लकड़ी वाला वृक्ष है। यह मध्य प्रदेश के अनेक उष्णकटिबंधीय पर्णपाती वनों में पाया जाता है।"
 },
 {
-q:"35. सतपुड़ा क्षेत्र के वन्यजीव संरक्षण में कौन-सा संरक्षित क्षेत्र महत्वपूर्ण है? / Which protected area is important for wildlife conservation in the Satpura region?",
-o:["सतपुड़ा राष्ट्रीय उद्यान / Satpura National Park","केवल रणथंभौर / Ranthambore only","केवल गिर / Gir only","केवल काजीरंगा / Kaziranga only"],
-a:0,e:"सतपुड़ा राष्ट्रीय उद्यान नर्मदापुरम क्षेत्र में स्थित है। आसपास का संरक्षित वन क्षेत्र जैव विविधता और वन्यजीव संरक्षण के लिए महत्वपूर्ण है।"
+q:"सतपुड़ा राष्ट्रीय उद्यान किस उद्देश्य के लिए महत्वपूर्ण है? / Why is Satpura National Park important?",
+o:["वन्यजीव और जैव विविधता संरक्षण / Wildlife and biodiversity conservation","केवल खनन / Mining only","शहरी विस्तार / Urban expansion","औद्योगिक भूमि निर्माण / Industrial land development"],
+a:0,e:"सतपुड़ा राष्ट्रीय उद्यान नर्मदापुरम क्षेत्र में स्थित है। यह वन्यजीवों और प्राकृतिक आवासों के संरक्षण में महत्वपूर्ण है।"
 },
 {
-q:"36. राष्ट्रीय चंबल अभयारण्य किस प्रकार के संरक्षण के लिए विशेष रूप से जाना जाता है? / The National Chambal Sanctuary is especially known for conserving which wildlife?",
-o:["घड़ियाल और नदीय जीव-जंतु / Gharial and riverine wildlife","हिम तेंदुआ / Snow leopard","एशियाई सिंह / Asiatic lion","समुद्री कछुआ / Marine turtle"],
-a:0,e:"राष्ट्रीय चंबल अभयारण्य चंबल नदी के पारिस्थितिकी तंत्र में घड़ियाल, गंगा डॉल्फिन और अन्य नदीय जीवों के संरक्षण के लिए प्रसिद्ध है।"
+q:"राष्ट्रीय चंबल अभयारण्य किस जीव के संरक्षण के लिए प्रसिद्ध है? / The National Chambal Sanctuary is famous for conserving which animal?",
+o:["घड़ियाल / Gharial","हिम तेंदुआ / Snow leopard","एशियाई सिंह / Asiatic lion","समुद्री कछुआ / Marine turtle"],
+a:0,e:"राष्ट्रीय चंबल अभयारण्य घड़ियाल, गंगा डॉल्फिन और अन्य नदीय जीवों के संरक्षण के लिए प्रसिद्ध है।"
 },
 {
-q:"37. मध्य प्रदेश में राष्ट्रीय उद्यानों के संरक्षण का प्रमुख उद्देश्य क्या है? / What is a principal purpose of national parks in Madhya Pradesh?",
-o:["प्राकृतिक आवास और जैव विविधता का संरक्षण / Conservation of natural habitats and biodiversity","केवल खनन बढ़ाना / Increasing mining only","शहरी विस्तार / Urban expansion","वन भूमि को औद्योगिक भूमि में बदलना / Converting forests into industrial land"],
-a:0,e:"राष्ट्रीय उद्यान वन्यजीवों, प्राकृतिक आवासों और पारिस्थितिक प्रक्रियाओं की रक्षा के लिए बनाए जाते हैं।"
+q:"राष्ट्रीय उद्यानों का प्रमुख उद्देश्य क्या है? / What is the main purpose of national parks?",
+o:["प्राकृतिक आवास और जैव विविधता का संरक्षण / Conservation of habitats and biodiversity","केवल खनन बढ़ाना / Increasing mining only","शहरी विस्तार / Urban expansion","वनों को औद्योगिक भूमि बनाना / Converting forests to industrial land"],
+a:0,e:"राष्ट्रीय उद्यान प्राकृतिक आवासों, वन्यजीवों और पारिस्थितिक प्रक्रियाओं की रक्षा के लिए बनाए जाते हैं।"
 },
 {
-q:"38. मध्य प्रदेश में गोंड जनजाति का सांस्कृतिक इतिहास विशेष रूप से किससे जुड़ा है? / The cultural history of the Gond community in Madhya Pradesh is especially associated with what?",
-o:["मध्य भारत के वन, कृषि और क्षेत्रीय राज्य / Forests, agriculture and regional kingdoms of Central India","केवल समुद्री व्यापार / Maritime trade only","केवल हिमालयी पशुपालन / Himalayan pastoralism only","भूमध्यसागरीय उपनिवेश / Mediterranean colonies"],
-a:0,e:"गोंड समुदाय का मध्य भारत में लंबा ऐतिहासिक और सांस्कृतिक संबंध है। गढ़ा-कटंगा सहित कुछ गोंड राज्यों ने क्षेत्रीय इतिहास में महत्वपूर्ण भूमिका निभाई।"
+q:"गढ़ा-कटंगा राज्य का संबंध किस राजवंश से था? / The Garha-Katanga kingdom was associated with which dynasty?",
+o:["गोंड / Gond","चंदेल / Chandela","परमार / Paramara","तोमर / Tomara"],
+a:0,e:"गढ़ा-कटंगा गोंड शासकों का प्रमुख राज्य था। संग्राम शाह और रानी दुर्गावती इसके इतिहास की महत्वपूर्ण हस्तियाँ हैं।"
 },
 {
-q:"39. सहरिया जनजाति मध्य प्रदेश के किस क्षेत्र में विशेष रूप से पाई जाती है? / The Sahariya community is especially found in which region of Madhya Pradesh?",
-o:["श्योपुर और शिवपुरी क्षेत्र / Sheopur and Shivpuri region","मालवा के बड़े शहर / Major cities of Malwa","नर्मदा डेल्टा / Narmada delta","बघेलखंड का केवल दक्षिणी भाग / Only southern Baghelkhand"],
+q:"सहरिया जनजाति मध्य प्रदेश के किस क्षेत्र में विशेष रूप से पाई जाती है? / The Sahariya community is especially found in which region?",
+o:["श्योपुर-शिवपुरी / Sheopur-Shivpuri","मालवा के बड़े शहर / Major Malwa cities","नर्मदा डेल्टा / Narmada delta","केवल पूर्वी सतपुड़ा / Eastern Satpura only"],
 a:0,e:"सहरिया समुदाय की आबादी विशेष रूप से उत्तर-पश्चिमी मध्य प्रदेश के श्योपुर और शिवपुरी सहित कुछ जिलों में पाई जाती है।"
 },
 {
-q:"40. मध्य प्रदेश में आदिवासी मेलों और उत्सवों का अध्ययन किस विषय को समझने में सहायक है? / The study of tribal fairs and festivals in Madhya Pradesh helps explain which subject?",
-o:["स्थानीय सामाजिक-सांस्कृतिक परंपराएँ / Local socio-cultural traditions","केवल आधुनिक शेयर बाजार / Modern stock markets only","समुद्री नौवहन / Maritime navigation","हिमनदी विज्ञान / Glaciology"],
-a:0,e:"स्थानीय मेले और उत्सव समुदायों की पहचान, कृषि चक्र, धार्मिक मान्यताओं और सामाजिक संबंधों की जानकारी देते हैं।"
+q:"कोरकू जनजाति की उल्लेखनीय आबादी किस क्षेत्र में मिलती है? / A notable Korku population is found in which region?",
+o:["बैतूल-खंडवा का सतपुड़ा क्षेत्र / Satpura region of Betul-Khandwa","चंबल के बीहड़ / Chambal ravines","ग्वालियर का शहरी क्षेत्र / Urban Gwalior","मालवा का पश्चिमी छोर / Western Malwa"],
+a:0,e:"कोरकू जनजाति का महत्वपूर्ण निवास सतपुड़ा क्षेत्र, विशेषकर बैतूल और खंडवा के आसपास है।"
 },
 {
-q:"41. मध्य प्रदेश की राजधानी भोपाल किस बड़ी झील के लिए प्रसिद्ध है? / Bhopal is famous for which major lake?",
-o:["ऊपरी झील / Upper Lake","डल झील / Dal Lake","चिलिका झील / Chilika Lake","लोकटक झील / Loktak Lake"],
-a:0,e:"भोपाल की ऊपरी झील, जिसे बड़ा तालाब भी कहा जाता है, शहर का प्रमुख जलाशय और ऐतिहासिक जल-संसाधन है।"
+q:"आदिवासी मेले और उत्सव किसका अध्ययन करने में सहायक हैं? / Tribal fairs and festivals help in studying what?",
+o:["सामाजिक-सांस्कृतिक परंपराएँ / Socio-cultural traditions","केवल शेयर बाजार / Stock markets only","समुद्री नौवहन / Maritime navigation","हिमनद विज्ञान / Glaciology"],
+a:0,e:"मेले और उत्सव स्थानीय समुदायों की पहचान, कृषि चक्र, धार्मिक मान्यताओं और सामाजिक संबंधों की जानकारी देते हैं।"
 },
 {
-q:"42. मध्य प्रदेश में भोजपुर का प्रसिद्ध विशाल शिव मंदिर किस जिले में स्थित है? / The famous monumental Shiva temple at Bhojpur is located in which district?",
+q:"भोपाल की प्रसिद्ध ऊपरी झील को और किस नाम से जाना जाता है? / By what other name is Bhopal's Upper Lake known?",
+o:["बड़ा तालाब / Bada Talab","डल झील / Dal Lake","चिलिका / Chilika","लोकटक / Loktak"],
+a:0,e:"भोपाल की ऊपरी झील को बड़ा तालाब भी कहा जाता है। यह शहर का प्रमुख जलाशय और ऐतिहासिक जल-संसाधन है।"
+},
+{
+q:"भोजपुर का प्रसिद्ध विशाल शिव मंदिर किस जिले में है? / The monumental Shiva temple at Bhojpur is in which district?",
 o:["रायसेन / Raisen","मुरैना / Morena","रतलाम / Ratlam","सतना / Satna"],
-a:0,e:"भोजपुर का अधूरा लेकिन विशाल शिव मंदिर रायसेन जिले में स्थित है। इसे परमार शासक राजा भोज से परंपरागत रूप से जोड़ा जाता है।"
+a:0,e:"भोजपुर का विशाल अधूरा शिव मंदिर रायसेन जिले में है। इसे परंपरागत रूप से परमार शासक राजा भोज से जोड़ा जाता है।"
 },
 {
-q:"43. भोजपुर मंदिर का प्रमुख धार्मिक समर्पण किस देवता को है? / To which deity is the Bhojpur temple primarily dedicated?",
+q:"भोजपुर मंदिर किस देवता को समर्पित है? / The Bhojpur temple is dedicated to which deity?",
 o:["शिव / Shiva","सूर्य / Surya","विष्णु / Vishnu","ब्रह्मा / Brahma"],
-a:0,e:"भोजपुर का मंदिर भगवान शिव को समर्पित है। यहाँ विशाल शिवलिंग इसकी सबसे उल्लेखनीय विशेषताओं में से एक है।"
+a:0,e:"भोजपुर मंदिर भगवान शिव को समर्पित है। यहाँ का विशाल शिवलिंग इसकी प्रमुख विशेषता है।"
 },
 {
-q:"44. मध्य प्रदेश में भीमबेटका और साँची दोनों का वैश्विक महत्व किस संस्था की विश्व धरोहर सूची से जुड़ा है? / The global heritage status of both Bhimbetka and Sanchi is associated with the World Heritage List of which organization?",
-o:["यूनेस्को / UNESCO","विश्व व्यापार संगठन / WTO","अंतरराष्ट्रीय मुद्रा कोष / IMF","विश्व बैंक / World Bank"],
-a:0,e:"साँची और भीमबेटका दोनों यूनेस्को विश्व धरोहर स्थलों में शामिल हैं। इनके महत्व के कारण अलग-अलग हैं—साँची बौद्ध स्मारकों के लिए और भीमबेटका प्रागैतिहासिक शैलाश्रयों के लिए।"
+q:"साँची और भीमबेटका दोनों किस अंतरराष्ट्रीय सूची में शामिल हैं? / Sanchi and Bhimbetka are both included in which international list?",
+o:["यूनेस्को विश्व धरोहर सूची / UNESCO World Heritage List","विश्व व्यापार संगठन / WTO","अंतरराष्ट्रीय मुद्रा कोष / IMF","विश्व बैंक परियोजना सूची / World Bank project list"],
+a:0,e:"साँची और भीमबेटका दोनों यूनेस्को विश्व धरोहर स्थल हैं। साँची बौद्ध स्मारकों और भीमबेटका प्रागैतिहासिक शैलाश्रयों के लिए प्रसिद्ध है।"
 },
 {
-q:"45. मध्य प्रदेश का कौन-सा शहर ऐतिहासिक रूप से महाकालेश्वर ज्योतिर्लिंग के कारण प्रसिद्ध है? / Which city of Madhya Pradesh is famous for the Mahakaleshwar Jyotirlinga?",
+q:"महाकालेश्वर ज्योतिर्लिंग किस शहर में स्थित है? / In which city is the Mahakaleshwar Jyotirlinga located?",
 o:["उज्जैन / Ujjain","सागर / Sagar","देवास / Dewas","छिंदवाड़ा / Chhindwara"],
-a:0,e:"उज्जैन का महाकालेश्वर मंदिर भगवान शिव के बारह ज्योतिर्लिंगों में से एक है। उज्जैन का प्राचीन धार्मिक और खगोलीय महत्व भी है।"
+a:0,e:"उज्जैन का महाकालेश्वर मंदिर भगवान शिव के बारह ज्योतिर्लिंगों में से एक है।"
 },
 {
-q:"46. उज्जैन में आयोजित सिंहस्थ का संबंध किस धार्मिक आयोजन से है? / Simhastha held at Ujjain is associated with which religious gathering?",
+q:"उज्जैन का सिंहस्थ किस आयोजन से संबंधित है? / Simhastha at Ujjain is associated with which event?",
 o:["कुंभ मेला / Kumbh Mela","रथ यात्रा / Rath Yatra","ओणम / Onam","लोसार / Losar"],
-a:0,e:"उज्जैन का सिंहस्थ कुंभ मेला एक प्रमुख धार्मिक आयोजन है। इसका आयोजन परंपरागत ज्योतिषीय और धार्मिक गणनाओं के अनुसार होता है।"
+a:0,e:"उज्जैन का सिंहस्थ कुंभ मेला एक प्रमुख धार्मिक आयोजन है। इसका आयोजन परंपरागत धार्मिक और ज्योतिषीय गणनाओं के अनुसार होता है।"
 },
 {
-q:"47. मध्य प्रदेश उच्च न्यायालय की मुख्य पीठ कहाँ स्थित है? / Where is the principal seat of the Madhya Pradesh High Court?",
+q:"मध्य प्रदेश उच्च न्यायालय की मुख्य पीठ कहाँ है? / Where is the principal seat of the Madhya Pradesh High Court?",
 o:["जबलपुर / Jabalpur","भोपाल / Bhopal","इंदौर / Indore","ग्वालियर / Gwalior"],
 a:0,e:"मध्य प्रदेश उच्च न्यायालय की मुख्य पीठ जबलपुर में है। इंदौर और ग्वालियर में इसकी खंडपीठें हैं।"
 },
 {
-q:"48. मध्य प्रदेश का राज्य गठन किस तारीख को हुआ था? / On which date was the state of Madhya Pradesh formed?",
+q:"मध्य प्रदेश राज्य का गठन कब हुआ था? / When was Madhya Pradesh formed as a state?",
 o:["1 नवंबर 1956 / 1 November 1956","15 अगस्त 1947 / 15 August 1947","26 जनवरी 1950 / 26 January 1950","1 मई 1960 / 1 May 1960"],
-a:0,e:"राज्य पुनर्गठन के परिणामस्वरूप 1 नवंबर 1956 को मध्य प्रदेश का गठन हुआ। बाद में 1 नवंबर 2000 को छत्तीसगढ़ अलग राज्य बना।"
+a:0,e:"राज्य पुनर्गठन के परिणामस्वरूप 1 नवंबर 1956 को मध्य प्रदेश का गठन हुआ।"
 },
 {
-q:"49. छत्तीसगढ़ मध्य प्रदेश से अलग होकर राज्य कब बना? / When did Chhattisgarh become a separate state from Madhya Pradesh?",
+q:"छत्तीसगढ़ मध्य प्रदेश से अलग होकर कब बना? / When did Chhattisgarh become a separate state from Madhya Pradesh?",
 o:["1 नवंबर 2000 / 1 November 2000","1 नवंबर 1956 / 1 November 1956","15 अगस्त 1972 / 15 August 1972","26 जनवरी 2001 / 26 January 2001"],
-a:0,e:"छत्तीसगढ़ 1 नवंबर 2000 को मध्य प्रदेश से अलग होकर नया राज्य बना। इस विभाजन से मध्य प्रदेश का वर्तमान भौगोलिक स्वरूप निर्धारित हुआ।"
+a:0,e:"छत्तीसगढ़ 1 नवंबर 2000 को मध्य प्रदेश से अलग होकर नया राज्य बना।"
 },
 {
-q:"50. मध्य प्रदेश की भौगोलिक स्थिति को भारत के संदर्भ में किस रूप में वर्णित करना सबसे उपयुक्त है? / Which description best characterizes Madhya Pradesh's geographical position in India?",
-o:["मध्य भारत में स्थित स्थलरुद्ध राज्य / A landlocked state in Central India","अरब सागर के तट पर स्थित राज्य / A state on the Arabian Sea coast","भारत का द्वीपीय राज्य / An island state of India","हिमालय की उत्तरी ढाल पर स्थित राज्य / A state on the northern Himalayan slopes"],
-a:0,e:"मध्य प्रदेश मध्य भारत में स्थित स्थलरुद्ध राज्य है। इसकी सीमाएँ कई राज्यों से मिलती हैं, लेकिन इसकी अपनी समुद्री तटरेखा नहीं है।"
+q:"मध्य प्रदेश की भौगोलिक स्थिति का सही वर्णन कौन-सा है? / Which description correctly describes Madhya Pradesh's geographical position?",
+o:["मध्य भारत का स्थलरुद्ध राज्य / Landlocked state in Central India","अरब सागर के तट पर राज्य / State on the Arabian Sea coast","द्वीपीय राज्य / Island state","हिमालयी उत्तरी ढाल का राज्य / State on northern Himalayan slopes"],
+a:0,e:"मध्य प्रदेश मध्य भारत में स्थित स्थलरुद्ध राज्य है। इसकी कोई समुद्री तटरेखा नहीं है और इसकी सीमाएँ कई राज्यों से मिलती हैं।"
 }
 ];
 
@@ -337,7 +355,7 @@ questions.forEach((item,i)=>{
   card.className="question";
 
   const heading=document.createElement("h3");
-  heading.textContent=(i+1)+". "+item.q.replace(/^\d+\.\s*/,"");
+  heading.textContent=(i+1)+". "+item.q;
   card.appendChild(heading);
 
   const options=document.createElement("div");
@@ -353,11 +371,11 @@ questions.forEach((item,i)=>{
     radio.name="q"+i;
     radio.value=j;
 
-    const text=document.createElement("span");
-    text.textContent=String.fromCharCode(65+j)+". "+option;
+    const span=document.createElement("span");
+    span.textContent=String.fromCharCode(65+j)+". "+option;
 
     label.appendChild(radio);
-    label.appendChild(text);
+    label.appendChild(span);
     options.appendChild(label);
   });
 
@@ -367,7 +385,6 @@ questions.forEach((item,i)=>{
   exp.className="explanation";
   exp.id="exp"+i;
   card.appendChild(exp);
-
   container.appendChild(card);
 });
 
@@ -378,10 +395,11 @@ let timerInterval;
 function updateTimer(){
   if(finished)return;
 
-  const m=Math.floor(remaining/60);
-  const s=remaining%60;
+  const minutes=Math.floor(remaining/60);
+  const seconds=remaining%60;
+
   document.getElementById("timer").textContent=
-    String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+    String(minutes).padStart(2,"0")+":"+String(seconds).padStart(2,"0");
 
   if(remaining<=0){
     submitTest(true);
@@ -389,6 +407,7 @@ function updateTimer(){
   }
   remaining--;
 }
+
 updateTimer();
 timerInterval=setInterval(updateTimer,1000);
 
@@ -402,6 +421,7 @@ function submitTest(autoSubmitted){
 
   questions.forEach((item,i)=>{
     const selected=document.querySelector('input[name="q'+i+'"]:checked');
+
     if(selected)attempted++;
     if(selected && Number(selected.value)===item.a)score++;
 
@@ -422,20 +442,19 @@ function submitTest(autoSubmitted){
       " | व्याख्या / Explanation: "+item.e;
   });
 
-  const unanswered=questions.length-attempted;
   document.getElementById("result").style.display="block";
   document.getElementById("scoreText").textContent=
     "आपका स्कोर / Your Score: "+score+" / "+questions.length;
 
   document.getElementById("details").textContent=
     "Attempted: "+attempted+
-    " | Unanswered: "+unanswered+
+    " | Unanswered: "+(questions.length-attempted)+
     " | Incorrect: "+(attempted-score)+
     " | Percentage: "+(score/questions.length*100).toFixed(2)+"%";
 
   document.getElementById("feedback").textContent=autoSubmitted
     ?"समय समाप्त होने पर टेस्ट अपने आप जमा हुआ। / Test submitted automatically when time expired."
-    :"टेस्ट जमा हो गया। / Test submitted successfully.";
+    :"टेस्ट सफलतापूर्वक जमा हुआ। / Test submitted successfully.";
 
   document.getElementById("submitBtn").disabled=true;
   document.getElementById("result").scrollIntoView({behavior:"smooth"});
