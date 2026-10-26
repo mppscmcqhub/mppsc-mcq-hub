@@ -3,527 +3,479 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MPPSC MCQ Hub - Unit 1 Test 4</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MPPSC Unit 1 Test 4 | MPPSC Prelims 2027</title>
 <style>
 *{box-sizing:border-box}
-html,body{margin:0;padding:0;width:100%;font-family:Arial,"Noto Sans Devanagari",sans-serif;background:#f0f2f5;color:#222}
-header{width:100%;background:#185795;color:white;padding:10px 12px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:9px;font-weight:bold;font-size:20px}
-.logo{width:38px;height:38px;object-fit:contain;background:white;border-radius:50%}
-.actions{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
-button{border:0;border-radius:5px;padding:10px 12px;font-weight:bold;cursor:pointer}
-.timer{background:#c71919;color:white;padding:10px;border-radius:5px;min-width:75px;text-align:center}
-.back{background:#087cf0;color:white}
-.pdf{background:#ffc107;color:#111}
-.submit{background:#209d49;color:white;font-size:17px}
-button:disabled{opacity:.65}
-main{width:100%;margin:0;padding:10px}
-.panel,.question,.result{width:100%;background:white;border:1px solid #ddd;border-radius:6px;padding:14px;margin:0 0 12px}
-.panel h2{margin:0 0 8px}
-.panel p{line-height:1.6}
-.question h3{font-size:17px;line-height:1.7;margin:0 0 12px;overflow-wrap:anywhere}
-.option{display:block;width:100%;padding:10px;margin:7px 0;border:1px solid #ddd;border-radius:5px;cursor:pointer;line-height:1.7;overflow-wrap:anywhere}
-.option:hover{background:#f3f7ff}
-.option input{margin-right:8px}
-.correct{background:#d8f5df!important;border-color:#249544!important}
-.wrong{background:#ffe0e0!important;border-color:#d22!important}
-.explanation{display:none;margin-top:10px;padding:12px;background:#eef5ff;border-left:4px solid #185795;line-height:1.8;white-space:pre-line}
-.bottom{text-align:center;padding:12px 0 24px}
-.bottom button{margin:4px}
-.result{display:none;line-height:1.8}
-@media(max-width:520px){
- header{padding:9px}
- .brand{font-size:16px}
- .logo{width:32px;height:32px}
- .actions{width:100%}
- main{padding:5px}
- .panel,.question,.result{padding:11px}
- .question h3{font-size:16px}
-}
-@media print{
- header,.bottom{display:none!important}
- body{background:white}
- main{padding:0}
- .explanation{display:block!important}
- .question{break-inside:avoid}
-}
+body{margin:0;background:#f1f4f9;color:#172033;font-family:Arial,"Noto Sans Devanagari",sans-serif;line-height:1.6}
+header{background:#151515;color:white;text-align:center;padding:16px 10px;border-bottom:5px solid #d92323}
+header img{width:65px;height:65px;object-fit:contain;background:white;border-radius:50%;padding:3px}
+header h1{color:#ff4545;margin:6px 0;font-size:25px}
+header p{margin:3px}
+.container{max-width:950px;margin:18px auto;padding:0 12px}
+.panel,.question{background:white;border-radius:10px;padding:17px;margin-bottom:15px;box-shadow:0 2px 9px #0000000d}
+.stats{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center}
+.stat{background:#f1f4f9;padding:9px 13px;border-radius:7px;font-weight:bold}
+#timer{color:#c52222}
+.question h3{margin:0 0 12px;font-size:17px}
+.options{display:grid;gap:8px}
+.option{display:flex;gap:9px;align-items:flex-start;padding:10px;border:1px solid #d9dee8;border-radius:7px;cursor:pointer}
+.option:hover{background:#f4f7ff}
+.option input{margin-top:6px;flex-shrink:0}
+.option.correct{background:#d9f7df;border-color:#168438;color:#105b28}
+.option.wrong{background:#ffe0e0;border-color:#d52222;color:#9c1515}
+.explanation{display:none;margin-top:12px;background:#f0f6ff;padding:12px;border-left:4px solid #2864bd;border-radius:5px}
+#result{display:none}
+button{border:0;border-radius:7px;padding:12px 18px;font-size:16px;font-weight:bold;cursor:pointer}
+#submitBtn{background:#17813b;color:white}
+#resetBtn{background:#252525;color:white}
+.buttons{display:flex;flex-wrap:wrap;gap:10px;margin:15px 0}
+#scoreText{font-size:23px;font-weight:bold;color:#146c2e}
+textarea{width:100%;padding:12px;border:1px solid #bbb;border-radius:7px;font:inherit}
+footer{text-align:center;padding:18px;color:#555}
+@media(max-width:600px){header h1{font-size:21px}.question{padding:13px}.question h3{font-size:16px}.stat{font-size:14px}}
 </style>
 </head>
 <body>
 
 <header>
- <div class="brand">
-  <img class="logo" src="../../../mppsc-logo.jpg" alt="MPPSC Logo" onerror="this.style.display='none'">
-  <span>MPPSC MCQ Hub</span>
- </div>
- <div class="actions">
-  <span class="timer" id="timer">60:00</span>
-  <button class="back" onclick="goBack()">← Back</button>
-  <button class="pdf" onclick="window.print()">PDF / Print</button>
- </div>
+  <img src="../../mppsc-logo.jpg" alt="MPPSC Logo"
+       onerror="this.style.display='none'">
+  <h1>MPPSC PORTAL</h1>
+  <p>MPPSC Prelims 2027 | मध्य प्रदेश सामान्य अध्ययन</p>
+  <p><b>UNIT 1 — TEST 4 | 50 HARD MCQs</b></p>
 </header>
 
-<main>
- <section class="panel">
-  <h2>Unit 1 — Test 4</h2>
-  <p>MPPSC Prelims 2027 | मध्य प्रदेश का इतिहास, संस्कृति एवं साहित्य / MP History, Culture & Literature</p>
-  <p><b>50 प्रश्न | 60 मिनट | कठिन अभ्यास टेस्ट</b></p>
-  <p>प्रत्येक प्रश्न में एक सही विकल्प चुनें। अंत में Submit Test दबाएँ।</p>
- </section>
+<main class="container">
+  <section class="panel">
+    <div class="stats">
+      <div class="stat">कुल प्रश्न / Total: 50</div>
+      <div class="stat">समय / Time: 60 मिनट</div>
+      <div class="stat">प्रत्येक सही उत्तर: 1 अंक</div>
+      <div class="stat">शेष समय / Left: <span id="timer">60:00</span></div>
+    </div>
+    <p>निर्देश / Instructions: सभी प्रश्नों के उत्तर चुनें। Submit Test के बाद स्कोर, सही उत्तर और व्याख्याएँ दिखाई देंगी।</p>
+  </section>
 
- <div id="questions"></div>
- <section id="result" class="result"></section>
- <div class="bottom">
-  <button class="back" onclick="goBack()">← Back</button>
-  <button class="submit" id="submitBtn" onclick="submitTest()">✓ Submit Test</button>
- </div>
+  <div id="questions"></div>
+
+  <section class="panel">
+    <h3>Student Comment / विद्यार्थी टिप्पणी</h3>
+    <textarea id="comment" rows="3" placeholder="अपनी टिप्पणी यहाँ लिखें..."></textarea>
+    <div class="buttons">
+      <button id="submitBtn" onclick="submitTest(false)">Submit Test / टेस्ट जमा करें</button>
+      <button id="resetBtn" onclick="location.reload()">Restart Test / दोबारा शुरू करें</button>
+    </div>
+  </section>
+
+  <section class="panel" id="result">
+    <h2>Test Result / परीक्षा परिणाम</h2>
+    <div id="scoreText"></div>
+    <p id="details"></p>
+    <p id="feedback"></p>
+  </section>
 </main>
+
+<footer>MPPSC Portal | Practice Test | मेहनत ही सफलता की कुंजी है</footer>
 
 <script>
 const questions = [
 {
-q:"मध्य प्रदेश के किस स्थल से गुप्तकालीन मंदिर स्थापत्य के प्रारंभिक विकसित उदाहरणों में से एक प्राप्त होता है? / Which MP site is known for an early developed example of Gupta temple architecture?",
-o:["सांची / Sanchi","उदयगिरि / Udayagiri","तिगवा / Tigawa","मांडू / Mandu"],
-a:2,e:"कटनी जिले के निकट तिगवा का कंकाली देवी मंदिर गुप्तकालीन मंदिर स्थापत्य का महत्वपूर्ण उदाहरण है। / The Kankali Devi temple at Tigawa is an important example of Gupta-period temple architecture."
+q:"प्राचीन अवंति महाजनपद की उत्तरी राजधानी कौन-सी थी? / What was the northern capital of the ancient Avanti Mahajanapada?",
+o:["उज्जयिनी / Ujjayini","महिष्मती / Mahishmati","विदिशा / Vidisha","त्रिपुरी / Tripuri"],
+a:0,e:"अवंति महाजनपद के दो प्रमुख भाग माने जाते हैं। उत्तरी भाग की राजधानी उज्जयिनी और दक्षिणी भाग की राजधानी महिष्मती थी।"
 },
 {
-q:"उदयगिरि की गुफाएँ विशेष रूप से किस गुप्त शासक के काल से संबंधित हैं? / The Udayagiri caves are especially associated with the reign of which Gupta ruler?",
-o:["समुद्रगुप्त / Samudragupta","चंद्रगुप्त द्वितीय / Chandragupta II","स्कंदगुप्त / Skandagupta","कुमारगुप्त प्रथम / Kumaragupta I"],
-a:1,e:"विदिशा के निकट उदयगिरि की गुफाएँ चंद्रगुप्त द्वितीय के काल से संबंधित महत्वपूर्ण धार्मिक एवं अभिलेखीय स्थल हैं। / The Udayagiri caves near Vidisha are important religious and epigraphic sites associated with Chandragupta II."
+q:"महिष्मती की पहचान सामान्यतः मध्य प्रदेश के किस क्षेत्र से की जाती है? / Mahishmati is generally associated with which region of Madhya Pradesh?",
+o:["आधुनिक महेश्वर क्षेत्र / Modern Maheshwar region","रीवा क्षेत्र / Rewa region","मुरैना क्षेत्र / Morena region","बुंदेलखंड का उत्तरी भाग / Northern Bundelkhand"],
+a:0,e:"महिष्मती को सामान्यतः नर्मदा तट के महेश्वर-मंडलेश्वर क्षेत्र से जोड़ा जाता है। प्राचीन स्थलों की सटीक पहचान पर कुछ विद्वत् चर्चा भी मिलती है।"
 },
 {
-q:"सांची स्तूप के मूल निर्माण का श्रेय परंपरागत रूप से किसे दिया जाता है? / Who is traditionally credited with commissioning the original Great Stupa at Sanchi?",
-o:["अशोक / Ashoka","कनिष्क / Kanishka","हर्षवर्धन / Harshavardhana","समुद्रगुप्त / Samudragupta"],
-a:0,e:"सम्राट अशोक ने तीसरी शताब्दी ईसा पूर्व में सांची में मूल स्तूप बनवाया था। बाद के कालों में इसका विस्तार और अलंकरण हुआ। / Ashoka commissioned the original stupa in the third century BCE; later periods saw its enlargement and embellishment."
+q:"साँची का महान स्तूप मूलतः किस शासक के समय बनवाया गया माना जाता है? / The Great Stupa at Sanchi was originally commissioned under which ruler?",
+o:["समुद्रगुप्त / Samudragupta","अशोक / Ashoka","हर्षवर्धन / Harshavardhana","कनिष्क / Kanishka"],
+a:1,e:"साँची के मूल स्तूप का निर्माण मौर्य सम्राट अशोक के समय हुआ माना जाता है। बाद में शुंग तथा अन्य कालों में इसका विस्तार और अलंकरण हुआ।"
 },
 {
-q:"भीमबेटका शैलाश्रयों की सबसे महत्वपूर्ण विशेषता क्या है? / What is the most important feature of the Bhimbetka rock shelters?",
-o:["मुगलकालीन मकबरे / Mughal tombs","चोलकालीन मंदिर / Chola temples","प्रागैतिहासिक शैलचित्र / Prehistoric rock paintings","सल्तनतकालीन मदरसे / Sultanate madrasas"],
-a:2,e:"भीमबेटका में विभिन्न प्रागैतिहासिक कालों के शैलाश्रय और चित्र मिलते हैं। यह UNESCO विश्व धरोहर स्थल है। / Bhimbetka preserves rock shelters and paintings from prehistoric periods and is a UNESCO World Heritage Site."
+q:"उदयगिरि की गुफाएँ मुख्यतः किस काल की कला के लिए प्रसिद्ध हैं? / The Udayagiri caves are particularly known for art from which period?",
+o:["मौर्य काल / Mauryan period","गुप्त काल / Gupta period","सल्तनत काल / Sultanate period","मराठा काल / Maratha period"],
+a:1,e:"विदिशा के निकट उदयगिरि गुफाएँ गुप्तकालीन शिल्प और धार्मिक कला के महत्वपूर्ण उदाहरण हैं। यहाँ प्रसिद्ध वराह प्रतिमा भी है।"
 },
 {
-q:"खजुराहो के मंदिरों का निर्माण मुख्यतः किस राजवंश ने कराया? / Which dynasty primarily built the temples of Khajuraho?",
-o:["परमार / Paramara","चंदेल / Chandela","कलचुरी / Kalachuri","प्रतिहार / Pratihara"],
-a:1,e:"चंदेल शासकों ने लगभग दसवीं से ग्यारहवीं शताब्दी के बीच खजुराहो के प्रमुख मंदिरों का निर्माण कराया। / Chandela rulers built the major temples of Khajuraho mainly between the tenth and eleventh centuries."
+q:"एरण का प्राचीन स्थल वर्तमान में किस जिले में स्थित है? / The ancient site of Eran is located in which present-day district?",
+o:["सागर / Sagar","धार / Dhar","बालाघाट / Balaghat","श्योपुर / Sheopur"],
+a:0,e:"एरण वर्तमान सागर जिले में स्थित एक महत्वपूर्ण पुरातात्त्विक स्थल है। यहाँ से गुप्तकालीन अभिलेख और स्मारक मिले हैं।"
 },
 {
-q:"खजुराहो के मंदिर स्थापत्य की प्रमुख शैली कौन-सी है? / Which architectural style characterises the Khajuraho temples?",
-o:["द्रविड़ / Dravida","वेसर / Vesara","नागर / Nagara","इंडो-इस्लामिक / Indo-Islamic"],
-a:2,e:"खजुराहो के मंदिर उत्तर भारतीय नागर शैली के उत्कृष्ट उदाहरण हैं। / The Khajuraho temples are outstanding examples of the North Indian Nagara style."
+q:"हेलियोडोरस स्तंभ कहाँ स्थित है? / Where is the Heliodorus Pillar located?",
+o:["भरहुत / Bharhut","बेसनगर, विदिशा के निकट / Besnagar near Vidisha","मांडू / Mandu","अमरकंटक / Amarkantak"],
+a:1,e:"हेलियोडोरस स्तंभ बेसनगर में विदिशा के निकट स्थित है। यह इंडो-ग्रीक राजदूत हेलियोडोरस और भागवत परंपरा से जुड़ा महत्वपूर्ण साक्ष्य है।"
 },
 {
-q:"मांडू का जहाज महल मुख्यतः किस प्रकार की वास्तुकला से संबंधित है? / The Jahaz Mahal at Mandu is primarily associated with which architectural tradition?",
-o:["मालवा की मध्यकालीन इस्लामी वास्तुकला / Medieval Islamic architecture of Malwa","मौर्य स्तंभ वास्तुकला / Mauryan pillar architecture","गुप्तकालीन गुफा वास्तुकला / Gupta cave architecture","द्रविड़ मंदिर वास्तुकला / Dravidian temple architecture"],
-a:0,e:"मांडू का जहाज महल मालवा सल्तनत की स्थापत्य परंपरा का प्रसिद्ध उदाहरण है। / Jahaz Mahal is a renowned example of the architectural tradition of the Malwa Sultanate."
+q:"खजुराहो के मंदिरों का निर्माण मुख्यतः किस राजवंश से संबंधित है? / The Khajuraho temples are mainly associated with which dynasty?",
+o:["परमार / Paramara","चंदेल / Chandela","कलचुरी / Kalachuri","तोमर / Tomara"],
+a:1,e:"खजुराहो के मंदिरों का निर्माण मुख्यतः चंदेल शासकों के शासनकाल में लगभग 10वीं से 11वीं शताब्दी के बीच हुआ।"
 },
 {
-q:"परमार शासक राजा भोज की राजधानी मुख्यतः किस स्थान से जुड़ी है? / Raja Bhoja's capital is principally associated with which place?",
-o:["ग्वालियर / Gwalior","धार / Dhar","भोपाल / Bhopal","उज्जैन / Ujjain"],
-a:1,e:"परमार राजा भोज का प्रमुख राजनीतिक और सांस्कृतिक केंद्र धार था। भोजपुर में स्थित विशाल शिव मंदिर भी उनसे संबंधित है। / Dhar was a major political and cultural centre of Raja Bhoja; the unfinished Shiva temple at Bhojpur is also associated with him."
+q:"राजा भोज का प्रमुख संबंध किस राजवंश से था? / Raja Bhoja belonged to which dynasty?",
+o:["परमार / Paramara","चंदेल / Chandela","गुर्जर-प्रतिहार / Gurjara-Pratihara","गोंड / Gond"],
+a:0,e:"राजा भोज मालवा के प्रसिद्ध परमार शासक थे। वे साहित्य, स्थापत्य, दर्शन और विद्या के संरक्षण के लिए प्रसिद्ध हैं।"
 },
 {
-q:"भोजपुर का प्रसिद्ध विशाल शिव मंदिर किस शासक से संबंधित माना जाता है? / The famous monumental Shiva temple at Bhojpur is associated with which ruler?",
-o:["राजा भोज / Raja Bhoja","यशोवर्मन / Yashovarman","बाज बहादुर / Baz Bahadur","रानी दुर्गावती / Rani Durgavati"],
-a:0,e:"भोजपुर का शिव मंदिर परमार शासक राजा भोज से संबंधित है। इसका विशाल शिवलिंग इसकी विशेष पहचान है। / The Bhojpur Shiva temple is associated with Paramara ruler Raja Bhoja and is renowned for its massive lingam."
+q:"त्रिपुरी के कलचुरियों की प्रमुख राजधानी किस स्थान पर थी? / Which place was a major capital of the Kalachuris of Tripuri?",
+o:["उज्जैन / Ujjain","त्रिपुरी, जबलपुर के निकट / Tripuri near Jabalpur","मंदसौर / Mandsaur","ओरछा / Orchha"],
+a:1,e:"त्रिपुरी को सामान्यतः वर्तमान जबलपुर के निकट तेवर क्षेत्र से जोड़ा जाता है। यह कलचुरी सत्ता का महत्वपूर्ण केंद्र था।"
 },
 {
-q:"त्रिपुरी किस राजवंश की प्रमुख राजधानी रही? / Tripuri was a major capital of which dynasty?",
-o:["चंदेल / Chandela","परमार / Paramara","कलचुरी / Kalachuri","बुंदेला / Bundela"],
-a:2,e:"जबलपुर के निकट स्थित त्रिपुरी कलचुरियों की एक प्रमुख राजधानी थी। / Tripuri, near Jabalpur, was an important capital of the Kalachuris."
+q:"नवदाटोली पुरातात्त्विक स्थल किस नदी के तट पर स्थित है? / Navdatoli archaeological site lies on the bank of which river?",
+o:["बेतवा / Betwa","नर्मदा / Narmada","चंबल / Chambal","सोन / Son"],
+a:1,e:"नवदाटोली मध्य प्रदेश में नर्मदा नदी के तट पर महेश्वर के सामने स्थित एक महत्वपूर्ण ताम्रपाषाणकालीन स्थल है।"
 },
 {
-q:"गोंडवाना की रानी दुर्गावती का संघर्ष किस मुगल सेनापति से हुआ था? / Which Mughal commander fought against Rani Durgavati?",
-o:["मान सिंह / Man Singh","आसफ खान / Asaf Khan","बैरम खान / Bairam Khan","टोडरमल / Todar Mal"],
-a:1,e:"1564 में गढ़ा-कटंगा की रानी दुर्गावती का संघर्ष मुगल सेनापति आसफ खान से हुआ। / In 1564, Rani Durgavati of Garha-Katanga fought the Mughal commander Asaf Khan."
+q:"कायथा संस्कृति का संबंध मुख्यतः किस पुरातात्त्विक काल से है? / The Kayatha culture is mainly associated with which archaeological period?",
+o:["ताम्रपाषाण काल / Chalcolithic period","उत्तर मध्यकाल / Late medieval period","मुगल काल / Mughal period","औपनिवेशिक काल / Colonial period"],
+a:0,e:"कायथा संस्कृति मालवा क्षेत्र की प्रारंभिक ताम्रपाषाणकालीन संस्कृति है। इसका नाम उज्जैन के निकट कायथा स्थल से पड़ा।"
 },
 {
-q:"गढ़ा-कटंगा राज्य का संबंध मुख्यतः किस समुदाय के शासकों से था? / The kingdom of Garha-Katanga was primarily associated with rulers of which community?",
-o:["गोंड / Gond","भील / Bhil","कोरकू / Korku","बैगा / Baiga"],
-a:0,e:"गढ़ा-कटंगा मध्य भारत का एक प्रमुख गोंड राज्य था। रानी दुर्गावती इसके इतिहास की प्रसिद्ध शासिका थीं। / Garha-Katanga was a major Gond kingdom in central India, famously ruled by Rani Durgavati."
+q:"भीमबेटका किस कारण विश्व धरोहर स्थल के रूप में प्रसिद्ध है? / Why is Bhimbetka famous as a World Heritage Site?",
+o:["बौद्ध विश्वविद्यालय / Buddhist university","प्रागैतिहासिक शैलाश्रय और चित्रकला / Prehistoric rock shelters and paintings","मध्यकालीन बंदरगाह / Medieval port","मुगल उद्यान / Mughal gardens"],
+a:1,e:"भीमबेटका के शैलाश्रयों में प्रागैतिहासिक मानव जीवन और कला के साक्ष्य मिलते हैं। यह यूनेस्को विश्व धरोहर स्थल है।"
 },
 {
-q:"बुंदेला स्थापत्य और ऐतिहासिक परंपरा से मध्य प्रदेश का कौन-सा नगर विशेष रूप से जुड़ा है? / Which MP town is especially associated with Bundela architecture and history?",
-o:["मुरैना / Morena","ओरछा / Orchha","खंडवा / Khandwa","नीमच / Neemuch"],
-a:1,e:"ओरछा बुंदेला शासकों की राजधानी रही और यहाँ महल, मंदिर तथा छतरियाँ प्रसिद्ध हैं। / Orchha was a Bundela capital, renowned for its palaces, temples and cenotaphs."
+q:"भरहुत स्तूप के अवशेष वर्तमान में किस जिले से संबंधित हैं? / Bharhut Stupa remains are associated with which present-day district?",
+o:["सतना / Satna","इंदौर / Indore","बड़वानी / Barwani","गुना / Guna"],
+a:0,e:"भरहुत के बौद्ध स्तूप के अवशेष वर्तमान सतना जिले के भरहुत क्षेत्र से संबंधित हैं। इसकी रेलिंग और मूर्तियाँ महत्वपूर्ण हैं।"
 },
 {
-q:"रानी कमलापति का ऐतिहासिक संबंध किस क्षेत्र से है? / Rani Kamlapati is historically associated with which region?",
-o:["मांडू / Mandu","चंदेरी / Chanderi","भोपाल / Bhopal","महेश्वर / Maheshwar"],
-a:2,e:"रानी कमलापति का संबंध भोपाल के इतिहास और गोंड शासकीय परंपरा से जोड़ा जाता है। / Rani Kamlapati is associated with the history of Bhopal and Gond ruling traditions."
+q:"बाघ की गुफाएँ किस जिले में स्थित हैं? / The Bagh caves are located in which district?",
+o:["धार / Dhar","सीधी / Sidhi","शिवपुरी / Shivpuri","कटनी / Katni"],
+a:0,e:"बाघ की गुफाएँ धार जिले में स्थित बौद्ध शैलकृत गुफाएँ हैं। ये भित्तिचित्रों और विहार वास्तुकला के लिए जानी जाती हैं।"
 },
 {
-q:"अहिल्याबाई होलकर ने अपनी राजधानी महेश्वर कब स्थानांतरित की थी, इसका सबसे उपयुक्त उत्तर कौन-सा है? / Which statement best describes Ahilyabai Holkar's capital at Maheshwar?",
-o:["उन्होंने महेश्वर को अपने शासन का प्रमुख केंद्र बनाया / She made Maheshwar her principal seat of rule","उन्होंने राजधानी दिल्ली स्थानांतरित की / She moved the capital to Delhi","उन्होंने राजधानी ग्वालियर स्थानांतरित की / She moved the capital to Gwalior","उन्होंने राजधानी जबलपुर स्थानांतरित की / She moved the capital to Jabalpur"],
-a:0,e:"अहिल्याबाई होलकर ने महेश्वर को अपने शासन और सांस्कृतिक संरक्षण का प्रमुख केंद्र बनाया। / Ahilyabai Holkar made Maheshwar a major centre of administration and cultural patronage."
+q:"मंदसौर अभिलेख में किस शासक के समय रेशम बुनकरों के सूर्य मंदिर निर्माण का उल्लेख प्रसिद्ध है? / The Mandsaur inscription is famous for recording silk weavers building a Sun temple under which ruler?",
+o:["कुमारगुप्त प्रथम / Kumaragupta I","यशोधर्मन / Yashodharman","अशोक / Ashoka","बिंदुसार / Bindusara"],
+a:0,e:"मंदसौर के रेशम बुनकरों के अभिलेख का संबंध कुमारगुप्त प्रथम के समय से जोड़ा जाता है। इसमें सूर्य मंदिर और बुनकर समुदाय का उल्लेख है।"
 },
 {
-q:"महेश्वर किस नदी के तट पर स्थित है? / Maheshwar is situated on the bank of which river?",
-o:["ताप्ती / Tapti","चंबल / Chambal","बेतवा / Betwa","नर्मदा / Narmada"],
-a:3,e:"महेश्वर नर्मदा नदी के उत्तरी तट पर स्थित एक ऐतिहासिक नगर है। / Maheshwar is a historic town on the northern bank of the Narmada."
+q:"मालवा में हूण शासक मिहिरकुल की शक्ति को चुनौती देने वाले यशोधर्मन का प्रमुख अभिलेख कहाँ मिला? / Where was the major inscription of Yashodharman, who challenged Mihirakula, found?",
+o:["सोंडनी, मंदसौर के निकट / Sondani near Mandsaur","साँची / Sanchi","पन्ना / Panna","असीरगढ़ / Asirgarh"],
+a:0,e:"यशोधर्मन के सोंडनी स्तंभ अभिलेख मंदसौर के निकट मिले हैं। ये उसकी सैन्य उपलब्धियों और हूण शासक मिहिरकुल पर विजय से संबंधित हैं।"
 },
 {
-q:"मध्य प्रदेश में चंदेरी किस उत्पाद के लिए विशेष रूप से प्रसिद्ध है? / Chanderi in Madhya Pradesh is particularly famous for which product?",
-o:["कालीन / Carpets","रेशमी एवं सूती साड़ियाँ / Silk and cotton sarees","पीतल के बर्तन / Brass utensils","चमड़े के जूते / Leather footwear"],
-a:1,e:"चंदेरी अपनी हल्की, महीन और पारंपरिक रेशमी-सूती साड़ियों के लिए प्रसिद्ध है। / Chanderi is famous for its lightweight traditional silk-cotton sarees."
+q:"मांडू का जहाज महल किस प्रकार की स्थापत्य विशेषता के लिए प्रसिद्ध है? / The Jahaz Mahal at Mandu is famous for which architectural feature?",
+o:["दो जलाशयों के बीच जहाज जैसी आकृति / Ship-like form between two water bodies","भूमिगत गुफा / Underground cave","विशाल बौद्ध स्तूप / Massive Buddhist stupa","एकाश्म स्तंभ / Monolithic pillar"],
+a:0,e:"मांडू का जहाज महल दो जलाशयों के बीच स्थित है और इसकी लंबी संरचना पानी में तैरते जहाज जैसी दिखाई देती है।"
 },
 {
-q:"बाघ गुफाएँ किस कला परंपरा के लिए प्रसिद्ध हैं? / The Bagh caves are famous for which artistic tradition?",
-o:["मुगल लघुचित्र / Mughal miniatures","कांगड़ा चित्रकला / Kangra painting","प्राचीन भित्तिचित्र / Ancient murals","राजस्थानी हवेली चित्र / Rajasthani haveli painting"],
-a:2,e:"धार जिले की बाघ गुफाएँ प्राचीन बौद्ध गुफाओं और भित्तिचित्रों के लिए प्रसिद्ध हैं। / The Bagh caves in Dhar district are known for ancient Buddhist caves and murals."
+q:"ओरछा नगर का प्रमुख ऐतिहासिक संबंध किस राजवंश से है? / Orchha is historically associated mainly with which dynasty?",
+o:["बुंदेला / Bundela","परमार / Paramara","मौर्य / Maurya","सातवाहन / Satavahana"],
+a:0,e:"ओरछा बुंदेला शासकों का प्रमुख केंद्र था। यहाँ के महल, मंदिर और छतरियाँ बुंदेला स्थापत्य की विशेषता दर्शाते हैं।"
 },
 {
-q:"मध्य प्रदेश के किस स्थल पर शैलाश्रय और प्राचीन चित्रकला के साथ प्रागैतिहासिक मानव जीवन के प्रमाण मिलते हैं? / Which MP site provides evidence of prehistoric human life through shelters and paintings?",
-o:["भीमबेटका / Bhimbetka","मांडू / Mandu","ओरछा / Orchha","असीरगढ़ / Asirgarh"],
-a:0,e:"भीमबेटका के शैलाश्रय प्रागैतिहासिक जीवन, कला और मानव गतिविधियों के अध्ययन में महत्वपूर्ण हैं। / Bhimbetka is crucial for studying prehistoric life, art and human activity."
-},
-{
-q:"सांची के तोरणों पर उत्कीर्ण कला में बौद्ध कथाओं का चित्रण प्रायः किस रूप में मिलता है? / How are Buddhist stories commonly represented on the gateways at Sanchi?",
-o:["केवल फारसी सुलेख / Persian calligraphy only","केवल राजकीय मुहरें / Royal seals only","केवल युद्ध के नक्शे / Military maps only","जातक कथाएँ और प्रतीकात्मक बौद्ध दृश्य / Jataka tales and symbolic Buddhist scenes"],
-a:3,e:"सांची के तोरणों पर जातक कथाएँ, बुद्ध के जीवन से जुड़े प्रसंग और प्रतीकात्मक दृश्य उकेरे गए हैं। / Sanchi gateways depict Jataka tales, episodes related to the Buddha and symbolic scenes."
-},
-{
-q:"मध्य प्रदेश के किस नगर का संबंध प्रसिद्ध संगीतज्ञ तानसेन की स्मृति से है? / Which MP city is associated with the memory of the musician Tansen?",
-o:["सागर / Sagar","ग्वालियर / Gwalior","रीवा / Rewa","रतलाम / Ratlam"],
-a:1,e:"तानसेन का नाम ग्वालियर की संगीत परंपरा से गहराई से जुड़ा है। उनका मकबरा भी ग्वालियर में स्थित है। / Tansen is closely associated with Gwalior's musical tradition, and his tomb is located there."
-},
-{
-q:"तानसेन समारोह का आयोजन किस शहर में किया जाता है? / In which city is the Tansen music festival held?",
-o:["इंदौर / Indore","उज्जैन / Ujjain","ग्वालियर / Gwalior","भोपाल / Bhopal"],
-a:2,e:"तानसेन समारोह ग्वालियर में आयोजित होने वाला प्रसिद्ध शास्त्रीय संगीत समारोह है। / The Tansen Samaroh is a renowned classical music festival held in Gwalior."
-},
-{
-q:"कालिदास समारोह किस शहर से प्रमुख रूप से जुड़ा है? / The Kalidas Samaroh is primarily associated with which city?",
-o:["उज्जैन / Ujjain","जबलपुर / Jabalpur","सतना / Satna","छिंदवाड़ा / Chhindwara"],
-a:0,e:"उज्जैन में आयोजित कालिदास समारोह संस्कृत साहित्य और भारतीय शास्त्रीय कलाओं को समर्पित है। / The Kalidas Samaroh in Ujjain celebrates Sanskrit literature and classical Indian arts."
-},
-{
-q:"मध्य प्रदेश की कौन-सी जनजाति मुख्यतः बैतूल और आसपास के सतपुड़ा क्षेत्रों से जुड़ी है? / Which tribe is particularly associated with Betul and adjoining Satpura areas?",
-o:["टोडा / Toda","नागा / Naga","लेपचा / Lepcha","कोरकू / Korku"],
-a:3,e:"कोरकू जनजाति मध्य प्रदेश के सतपुड़ा क्षेत्र, विशेषकर बैतूल और आसपास के इलाकों में पाई जाती है। / The Korku community is found in the Satpura region, especially around Betul."
-},
-{
-q:"भील जनजाति के संदर्भ में कौन-सा कथन सही है? / Which statement about the Bhil tribe is correct?",
-o:["यह केवल हिमालय में निवास करती है / It lives only in the Himalayas","यह पश्चिमी और मध्य भारत की प्रमुख जनजातियों में है / It is a major tribe of western and central India","यह केवल तटीय ओडिशा में पाई जाती है / It is found only in coastal Odisha","यह केवल अंडमान में पाई जाती है / It is found only in the Andamans"],
-a:1,e:"भील समुदाय मध्य प्रदेश सहित पश्चिमी और मध्य भारत के अनेक क्षेत्रों में पाया जाता है। / The Bhil community is found across several parts of western and central India, including Madhya Pradesh."
-},
-{
-q:"बैगा जनजाति का पारंपरिक जीवन किससे विशेष रूप से जुड़ा रहा है? / Traditional Baiga life has been especially associated with:",
-o:["समुद्री व्यापार / Maritime trade","रेगिस्तानी ऊँट पालन / Desert camel herding","वन-आधारित आजीविका और पारंपरिक ज्ञान / Forest-based livelihoods and traditional knowledge","समुद्री मत्स्य पालन / Marine fishing"],
-a:2,e:"बैगा समुदाय की पारंपरिक आजीविका, वन संसाधनों और स्थानीय पारिस्थितिकी संबंधी ज्ञान का विशेष महत्व रहा है। / Forest resources and ecological knowledge have been important in traditional Baiga life."
-},
-{
-q:"मध्य प्रदेश में सहरिया जनजाति मुख्यतः किन क्षेत्रों से जुड़ी है? / The Sahariya tribe is mainly associated with which areas of MP?",
-o:["शिवपुरी और श्योपुर क्षेत्र / Shivpuri and Sheopur region","केवल महेश्वर / Maheshwar only","केवल बालाघाट शहर / Balaghat city only","केवल सिंगरौली नगर / Singrauli town only"],
-a:0,e:"सहरिया समुदाय विशेष रूप से श्योपुर, शिवपुरी और आसपास के क्षेत्रों में पाया जाता है। / Sahariya communities are especially found in Sheopur, Shivpuri and nearby areas."
-},
-{
-q:"मध्य प्रदेश की विशेष रूप से कमजोर जनजातीय समूहों (PVTGs) में कौन-सा समूह शामिल है? / Which group is classified as a PVTG in Madhya Pradesh?",
-o:["गुर्जर / Gurjar","बैगा / Baiga","जाट / Jat","मराठा / Maratha"],
-a:1,e:"बैगा, भारिया और सहरिया मध्य प्रदेश में विशेष रूप से कमजोर जनजातीय समूहों में शामिल हैं। / Baiga, Bharia and Sahariya are among the PVTGs in Madhya Pradesh."
-},
-{
-q:"भारिया जनजाति का विशेष संबंध मध्य प्रदेश के किस क्षेत्र से है? / The Bharia tribe is especially associated with which region of MP?",
-o:["मालवा का पश्चिमी मैदान / Western Malwa plain","बुंदेलखंड का उत्तरी मैदान / Northern Bundelkhand plain","पातालकोट क्षेत्र / Patalkot region","नर्मदा डेल्टा / Narmada delta"],
-a:2,e:"भारिया जनजाति का प्रमुख संबंध छिंदवाड़ा जिले के पातालकोट क्षेत्र से है। / The Bharia tribe is especially associated with the Patalkot region of Chhindwara district."
-},
-{
-q:"भगोरिया उत्सव मुख्यतः किन जनजातीय समुदायों से जुड़ा है? / The Bhagoria festival is mainly associated with which tribal communities?",
-o:["भील और भिलाला / Bhil and Bhilala","टोडा और कोटा / Toda and Kota","लेपचा और भूटिया / Lepcha and Bhutia","नागा और खासी / Naga and Khasi"],
-a:0,e:"भगोरिया उत्सव पश्चिमी मध्य प्रदेश में विशेष रूप से भील और भिलाला समुदायों के बीच लोकप्रिय है। / Bhagoria is particularly associated with Bhil and Bhilala communities in western MP."
-},
-{
-q:"मध्य प्रदेश का कौन-सा लोकनृत्य मुख्यतः गोंड समुदाय से जुड़ा है? / Which folk dance is especially associated with the Gond community in MP?",
-o:["गरबा / Garba","बिहू / Bihu","लावणी / Lavani","कर्मा / Karma"],
-a:3,e:"कर्मा नृत्य मध्य भारत की कई जनजातियों में प्रचलित है और गोंड समुदाय से भी जुड़ा है। / Karma is practised by several central Indian tribal communities, including the Gond."
-},
-{
-q:"मटकी नृत्य मुख्यतः मध्य प्रदेश के किस सांस्कृतिक क्षेत्र से जुड़ा है? / Matki dance is mainly associated with which cultural region of MP?",
-o:["बघेलखंड / Baghelkhand","मालवा / Malwa","निमाड़ का दक्षिणी छोर בלבד / Only the southern tip of Nimar","चंबल का बीहड़ / Chambal ravines"],
-a:1,e:"मटकी मालवा क्षेत्र का लोकप्रिय लोकनृत्य है, जिसे विशेष रूप से महिलाओं द्वारा प्रस्तुत किया जाता है। / Matki is a popular folk dance of Malwa, often performed by women."
-},
-{
-q:"राई लोकनृत्य मध्य प्रदेश के किस क्षेत्र से प्रमुख रूप से जुड़ा है? / Rai folk dance is especially associated with which region of MP?",
-o:["बुंदेलखंड / Bundelkhand","मालवा / Malwa","निमाड़ / Nimar","महाकौशल का पूर्वी भाग / Eastern Mahakoshal"],
-a:0,e:"राई नृत्य बुंदेलखंड की प्रमुख लोकनृत्य परंपराओं में से एक है। / Rai is one of the major folk dance traditions of Bundelkhand."
-},
-{
-q:"मध्य प्रदेश के निमाड़ क्षेत्र की प्रमुख नदी-संबंधी सांस्कृतिक पहचान किस नदी से जुड़ी है? / The cultural identity of the Nimar region is strongly associated with which river?",
-o:["ब्रह्मपुत्र / Brahmaputra","गोदावरी / Godavari","नर्मदा / Narmada","महानदी / Mahanadi"],
-a:2,e:"नर्मदा नदी निमाड़ के भूगोल, तीर्थों, कृषि और सांस्कृतिक जीवन में महत्वपूर्ण स्थान रखती है। / The Narmada is central to Nimar's geography, pilgrimage, agriculture and culture."
-},
-{
-q:"मध्य प्रदेश के लोक साहित्य में आल्हा गायन किस परंपरा से जुड़ा है? / Alha singing is associated with which folk tradition?",
-o:["केवल वैदिक मंत्र / Vedic chants only","केवल फारसी दरबारी गीत / Persian court songs only","केवल बौद्ध पालि पाठ / Buddhist Pali recitation only","वीरगाथात्मक लोकगायन / Heroic ballad tradition"],
-a:3,e:"आल्हा बुंदेलखंड और आसपास के क्षेत्रों की वीरगाथात्मक लोकगायन परंपरा है। / Alha is a heroic ballad tradition of Bundelkhand and adjoining regions."
-},
-{
-q:"मध्य प्रदेश के प्रसिद्ध साहित्यकार माखनलाल चतुर्वेदी का जन्मस्थान कौन-सा है? / Where was the noted writer Makhanlal Chaturvedi born?",
-o:["बाबई / Babai","महेश्वर / Maheshwar","मांडू / Mandu","चंदेरी / Chanderi"],
-a:0,e:"माखनलाल चतुर्वेदी का जन्म बाबई, वर्तमान माखननगर क्षेत्र, में हुआ था। वे कवि, लेखक और स्वतंत्रता आंदोलन से जुड़े पत्रकार थे। / Makhanlal Chaturvedi was born in Babai, now in the Makhan Nagar area, and was a poet, writer and nationalist journalist."
-},
-{
-q:"माखनलाल चतुर्वेदी की प्रसिद्ध कविता कौन-सी है? / Which is a famous poem by Makhanlal Chaturvedi?",
-o:["मधुशाला / Madhushala","पुष्प की अभिलाषा / Pushp Ki Abhilasha","कामायनी / Kamayani","साकेत / Saket"],
-a:1,e:"‘पुष्प की अभिलाषा’ माखनलाल चतुर्वेदी की प्रसिद्ध देशभक्तिपूर्ण कविता है। / Pushp Ki Abhilasha is a famous patriotic poem by Makhanlal Chaturvedi."
-},
-{
-q:"हरिशंकर परसाई मुख्यतः किस साहित्यिक विधा के लिए प्रसिद्ध हैं? / Harishankar Parsai is primarily known for which literary form?",
-o:["महाकाव्य / Epic poetry","रीतिकालीन श्रृंगार काव्य / Courtly romantic poetry","हिंदी व्यंग्य / Hindi satire","वैदिक भाष्य / Vedic commentary"],
-a:2,e:"हरिशंकर परसाई आधुनिक हिंदी साहित्य के प्रमुख व्यंग्यकार थे। / Harishankar Parsai was a leading modern Hindi satirist."
-},
-{
-q:"गजानन माधव मुक्तिबोध का साहित्यिक संबंध मुख्यतः किस भाषा से है? / Gajanan Madhav Muktibodh is primarily associated with which language's literature?",
-o:["तमिल / Tamil","बंगाली / Bengali","मराठी בלבד / Marathi only","हिंदी / Hindi"],
-a:3,e:"मुक्तिबोध आधुनिक हिंदी कविता और आलोचना के अत्यंत प्रभावशाली साहित्यकार थे। / Muktibodh was an influential figure in modern Hindi poetry and criticism."
-},
-{
-q:"कालीदास की रचना ‘मेघदूत’ किस साहित्यिक विधा का प्रसिद्ध उदाहरण है? / Kalidasa's Meghaduta is a famous example of which literary form?",
-o:["संदेश काव्य / Messenger poem","नाटक / Drama","राजकीय अभिलेख / Royal inscription","व्याकरण ग्रंथ / Grammar treatise"],
-a:0,e:"मेघदूत संस्कृत का प्रसिद्ध संदेश काव्य है। कालिदास का उज्जैन से पारंपरिक सांस्कृतिक संबंध भी माना जाता है। / Meghaduta is a celebrated Sanskrit messenger poem; Kalidasa is traditionally associated with Ujjain."
-},
-{
-q:"उज्जैन का प्राचीन नाम ‘अवन्तिका’ किस महाजनपद की राजधानी से संबंधित था? / The ancient name Avantika was associated with the capital of which Mahajanapada?",
-o:["वत्स / Vatsa","अवन्ति / Avanti","कुरु / Kuru","अंग / Anga"],
-a:1,e:"उज्जैन अवन्ति महाजनपद का प्रमुख केंद्र था, जो प्राचीन भारत के महत्वपूर्ण राजनीतिक और व्यापारिक क्षेत्रों में शामिल था। / Ujjain was a major centre of the Avanti Mahajanapada."
-},
-{
-q:"मध्य प्रदेश के किस नगर का प्राचीन नाम विदिशा के निकट व्यापारिक केंद्र बेसनगर से जुड़ा है? / Besnagar, an ancient trading centre, is associated with which modern region?",
-o:["ग्वालियर / Gwalior","रीवा / Rewa","विदिशा / Vidisha","बुरहानपुर / Burhanpur"],
-a:2,e:"बेसनगर विदिशा के निकट स्थित प्राचीन स्थल है, जो हेलियोडोरस स्तंभ के लिए प्रसिद्ध है। / Besnagar near Vidisha is famous for the Heliodorus pillar."
-},
-{
-q:"हेलियोडोरस स्तंभ किस प्राचीन स्थल पर स्थित है? / At which ancient site is the Heliodorus pillar located?",
-o:["सांची / Sanchi","भरहुत / Bharhut","एरण / Eran","बेसनगर / Besnagar"],
-a:3,e:"बेसनगर में स्थित हेलियोडोरस स्तंभ प्राचीन भारत में वैष्णव परंपरा और भारत-यूनानी संपर्क के अध्ययन का महत्वपूर्ण स्रोत है। / The pillar at Besnagar is an important source for studying Vaishnavism and Indo-Greek contacts."
-},
-{
-q:"भरहुत स्तूप के अवशेष वर्तमान मध्य प्रदेश के किस जिले से संबंधित हैं? / The remains of Bharhut Stupa are associated with which present-day district of MP?",
-o:["सतना / Satna","इंदौर / Indore","देवास / Dewas","मंदसौर / Mandsaur"],
-a:0,e:"भरहुत के बौद्ध स्तूप के अवशेष सतना जिले के भरहुत क्षेत्र से संबंधित हैं। / Bharhut's Buddhist stupa remains are associated with the Bharhut area of Satna district."
-},
-{
-q:"एरण के अभिलेखों का अध्ययन किस कारण महत्वपूर्ण है? / Why are the Eran inscriptions important for historical study?",
-o:["केवल मुगल व्यापार / Mughal trade only","प्राचीन राजनीतिक इतिहास और अभिलेखीय साक्ष्य / Ancient political history and epigraphic evidence","केवल आधुनिक उद्योग / Modern industries only","केवल औपनिवेशिक रेल / Colonial railways only"],
-a:1,e:"सागर क्षेत्र के एरण से प्राप्त अभिलेख गुप्तकालीन राजनीतिक इतिहास और प्राचीन धार्मिक-सामाजिक परंपराओं के अध्ययन में महत्वपूर्ण हैं। / Eran inscriptions are important for Gupta-period political history and ancient religious and social traditions."
-},
-{
-q:"ग्वालियर किले के भीतर स्थित तेली का मंदिर किस स्थापत्य विशेषता के लिए प्रसिद्ध है? / The Teli ka Mandir inside Gwalior Fort is known for which architectural feature?",
-o:["केवल द्रविड़ गोपुरम / Dravidian gopuram only","मुगल गुंबद / Mughal dome","नागर और द्रविड़ विशेषताओं का मिश्रित प्रभाव / A blend of Nagara and Dravida features","औपनिवेशिक गोथिक शैली / Colonial Gothic style"],
-a:2,e:"तेली का मंदिर अपनी विशिष्ट ऊँची संरचना और नागर-द्रविड़ स्थापत्य तत्वों के मिश्रण के लिए प्रसिद्ध है। / Teli ka Mandir is noted for its distinctive tall form and combination of Nagara and Dravida elements."
-},
-{
-q:"मध्य प्रदेश का कौन-सा UNESCO विश्व धरोहर स्थल बौद्ध मठों और स्तूपों के लिए प्रसिद्ध है? / Which UNESCO World Heritage Site in MP is famous for Buddhist monasteries and stupas?",
-o:["सांची / Sanchi","मांडू / Mandu","ओरछा / Orchha","चंदेरी / Chanderi"],
-a:0,e:"सांची के बौद्ध स्मारक स्तूपों, विहारों और अन्य धार्मिक संरचनाओं के लिए प्रसिद्ध UNESCO विश्व धरोहर स्थल हैं। / The Buddhist Monuments at Sanchi are a UNESCO World Heritage Site."
-},
-{
-q:"खजुराहो के स्मारक समूह को UNESCO विश्व धरोहर सूची में किस वर्ष शामिल किया गया? / In which year were the Khajuraho Group of Monuments inscribed on the UNESCO World Heritage List?",
-o:["1972","1986","1993","2003"],
-a:1,e:"खजुराहो स्मारक समूह को 1986 में UNESCO विश्व धरोहर सूची में शामिल किया गया। / The Khajuraho Group of Monuments was inscribed in 1986."
-},
-{
-q:"भीमबेटका को UNESCO विश्व धरोहर सूची में किस वर्ष शामिल किया गया? / In which year was Bhimbetka inscribed on the UNESCO World Heritage List?",
-o:["1986","1993","2003","2010"],
-a:2,e:"भीमबेटका शैलाश्रयों को 2003 में UNESCO विश्व धरोहर सूची में शामिल किया गया। / The Rock Shelters of Bhimbetka were inscribed in 2003."
-},
-{
-q:"चंदेल शासकों के संरक्षण में विकसित खजुराहो कला की एक प्रमुख विशेषता क्या है? / What is a major feature of Khajuraho art developed under Chandela patronage?",
-o:["केवल लकड़ी की इमारतें / Wooden buildings only","केवल बिना मूर्तियों वाले स्तूप / Stupas without sculptures only","केवल फारसी सुलेख / Persian calligraphy only","विस्तृत मूर्तिकला और मंदिरों का समृद्ध अलंकरण / Elaborate sculpture and richly decorated temples"],
-a:3,e:"खजुराहो की मंदिर कला में देव प्रतिमाओं, मानवीय आकृतियों और सजावटी मूर्तिकला का अत्यंत समृद्ध प्रयोग मिलता है। / Khajuraho's temples feature rich sculptural decoration and elaborate figures."
+q:"ग्वालियर के तेली का मंदिर किस किले में स्थित है? / The Teli ka Mandir is located in which fort?",
+o:["मांडू दुर्ग / Mandu Fort","ग्वालियर दुर्ग / Gwalior Fort","असीरगढ़ दुर्ग / Asirgarh Fort","रायसेन दुर्ग / Raisen Fort"],
+a:1,e:"तेली का मंदिर ग्वालियर दुर्ग के भीतर स्थित है। इसकी स्थापत्य शैली में उत्तर भारतीय नागर और कुछ द्रविड़ विशेषताओं का मिश्रण दिखाई देता है।"
 },
 {
 q:"रानी दुर्गावती किस राज्य की शासिका थीं? / Rani Durgavati ruled which kingdom?",
-o:["गढ़ा-कटंगा / Garha-Katanga","मालवा सल्तनत / Malwa Sultanate","मुगल साम्राज्य / Mughal Empire","विजयनगर / Vijayanagara"],
-a:0,e:"रानी दुर्गावती ने गोंड राज्य गढ़ा-कटंगा का शासन संभाला और 1564 में मुगल सेना का प्रतिरोध किया। / Rani Durgavati ruled the Gond kingdom of Garha-Katanga and resisted Mughal forces in 1564."
+o:["गढ़ा-कटंगा / Garha-Katanga","मालवा सल्तनत / Malwa Sultanate","अवंति / Avanti","ओरछा / Orchha"],
+a:0,e:"रानी दुर्गावती गोंडवाना के गढ़ा-कटंगा राज्य की शासिका थीं। उन्होंने 1564 में मुगल सेनापति आसफ खाँ के विरुद्ध संघर्ष किया।"
 },
 {
-q:"मध्य प्रदेश के स्वतंत्रता आंदोलन में चंद्रशेखर आजाद का जन्मस्थान कौन-सा है? / What was the birthplace of Chandrashekhar Azad in present-day Madhya Pradesh?",
-o:["ओरछा / Orchha","भाबरा, वर्तमान चंद्रशेखर आजाद नगर / Bhabhra, now Chandrashekhar Azad Nagar","धार / Dhar","जबलपुर / Jabalpur"],
-a:1,e:"चंद्रशेखर आजाद का जन्म भाबरा में हुआ था, जिसे अब चंद्रशेखर आजाद नगर कहा जाता है। / Chandrashekhar Azad was born in Bhabhra, now known as Chandrashekhar Azad Nagar."
+q:"संग्राम शाह किस राजवंश से संबंधित थे? / Sangram Shah belonged to which dynasty?",
+o:["गोंड / Gond","चंदेल / Chandela","परमार / Paramara","तोमर / Tomara"],
+a:0,e:"संग्राम शाह गढ़ा-कटंगा के प्रसिद्ध गोंड शासक थे। उनके शासनकाल में राज्य की शक्ति और किलों का विस्तार हुआ।"
 },
 {
-q:"टंट्या भील किस कारण मध्य प्रदेश के इतिहास में विशेष रूप से याद किए जाते हैं? / Why is Tantya Bhil especially remembered in MP history?",
-o:["मुगल दरबार के चित्रकार / Mughal court painter","परमार राजा / Paramara king","औपनिवेशिक शासन के विरुद्ध जनजातीय प्रतिरोध / Tribal resistance against colonial rule","गुप्तकालीन कवि / Gupta-era poet"],
-a:2,e:"टंट्या भील को औपनिवेशिक शासन के विरुद्ध संघर्ष करने वाले प्रमुख जनजातीय नायक के रूप में याद किया जाता है। / Tantya Bhil is remembered as a prominent tribal figure who resisted colonial rule."
+q:"अहिल्याबाई होल्कर ने अपनी राजधानी कहाँ स्थापित की थी? / Where did Ahilyabai Holkar establish her capital?",
+o:["महेश्वर / Maheshwar","भोपाल / Bhopal","सागर / Sagar","रीवा / Rewa"],
+a:0,e:"अहिल्याबाई होल्कर ने महेश्वर को अपनी राजधानी बनाया। वे प्रशासन, धर्मस्थलों के संरक्षण और जनकल्याणकारी कार्यों के लिए प्रसिद्ध हैं।"
 },
 {
-q:"शंकर शाह और रघुनाथ शाह का संबंध किस ऐतिहासिक प्रसंग से है? / Shankar Shah and Raghunath Shah are associated with which historical episode?",
-o:["1857 के विद्रोह और अंग्रेजों के विरुद्ध प्रतिरोध / The 1857 uprising and resistance to the British","खिलजी के दक्षिण अभियान / Khalji's southern campaign","अकबर के राजस्व सुधार / Akbar's revenue reforms","चोल समुद्री विजय / Chola naval conquests"],
-a:0,e:"शंकर शाह और रघुनाथ शाह जबलपुर क्षेत्र से जुड़े गोंड शासक-वंश के व्यक्तित्व थे, जिन्हें 1857 के विद्रोह में अंग्रेजों के विरुद्ध प्रतिरोध के लिए याद किया जाता है। / They are remembered for resistance to the British during the 1857 uprising."
+q:"चंद्रशेखर आजाद का जन्म वर्तमान मध्य प्रदेश के किस स्थान पर हुआ था? / Where was Chandrashekhar Azad born in present-day Madhya Pradesh?",
+o:["भाबरा, अलीराजपुर क्षेत्र / Bhabra in the Alirajpur region","जबलपुर / Jabalpur","ग्वालियर / Gwalior","सागर / Sagar"],
+a:0,e:"चंद्रशेखर आजाद का जन्म 23 जुलाई 1906 को भाबरा में हुआ था, जो अब मध्य प्रदेश के अलीराजपुर जिले में है।"
 },
 {
-q:"मध्य प्रदेश के किस क्षेत्र में चंदेरी का ऐतिहासिक दुर्ग और वस्त्र परंपरा दोनों विशेष रूप से प्रसिद्ध हैं? / Which historic town is known for both its fort and textile tradition?",
-o:["पचमढ़ी / Pachmarhi","अमरकंटक / Amarkantak","सांची / Sanchi","चंदेरी / Chanderi"],
-a:3,e:"चंदेरी अपने ऐतिहासिक दुर्ग, मध्यकालीन स्मारकों और प्रसिद्ध साड़ी-बुनाई परंपरा के लिए जानी जाती है। / Chanderi is known for its fort, medieval monuments and renowned weaving tradition."
+q:"1939 का त्रिपुरी कांग्रेस अधिवेशन वर्तमान मध्य प्रदेश के किस शहर के निकट आयोजित हुआ था? / The 1939 Tripuri Congress session was held near which present-day city?",
+o:["जबलपुर / Jabalpur","भोपाल / Bhopal","इंदौर / Indore","उज्जैन / Ujjain"],
+a:0,e:"त्रिपुरी अधिवेशन 1939 में जबलपुर के निकट आयोजित हुआ था। इसमें सुभाषचंद्र बोस और कांग्रेस नेतृत्व के बीच मतभेद प्रमुख रहे।"
 },
 {
-q:"अमरकंटक का सांस्कृतिक और धार्मिक महत्व मुख्यतः किस कारण है? / What is the main source of Amarkantak's religious and cultural importance?",
-o:["यह चंबल नदी का डेल्टा है / It is the delta of the Chambal","यह नर्मदा नदी के उद्गम से जुड़ा है / It is associated with the source of the Narmada","यह ताप्ती नदी का मुहाना है / It is the mouth of the Tapti","यह समुद्री बंदरगाह है / It is a seaport"],
-a:1,e:"अमरकंटक मैकल पर्वतीय क्षेत्र में स्थित है और नर्मदा नदी के उद्गम स्थल के रूप में प्रसिद्ध है। / Amarkantak lies in the Maikal hills and is famous as the source of the Narmada."
+q:"भगोरिया उत्सव मुख्यतः किन जनजातीय समुदायों से संबंधित है? / Bhagoria festival is mainly associated with which tribal communities?",
+o:["भील और भिलाला / Bhil and Bhilala","बैगा और कोरकू / Baiga and Korku","सहरिया और कोल / Sahariya and Kol","गोंड और अगरिया בלבד / Gond and Agariya only"],
+a:0,e:"भगोरिया उत्सव पश्चिमी मध्य प्रदेश के भील और भिलाला समुदायों में विशेष रूप से प्रसिद्ध है और होली के आसपास मनाया जाता है।"
 },
 {
-q:"मध्य प्रदेश के किस नगर में विक्रम विश्वविद्यालय स्थित है? / In which city is Vikram University located?",
-o:["उज्जैन / Ujjain","रीवा / Rewa","छतरपुर / Chhatarpur","मुरैना / Morena"],
-a:0,e:"विक्रम विश्वविद्यालय उज्जैन में स्थित है, जो ऐतिहासिक और सांस्कृतिक रूप से भी महत्वपूर्ण नगर है। / Vikram University is located in Ujjain, a city of major historical and cultural importance."
+q:"मध्य प्रदेश की पारंपरिक लोकनाट्य शैली ‘माच’ मुख्यतः किस क्षेत्र से जुड़ी है? / The folk theatre form 'Maach' is mainly associated with which region?",
+o:["मालवा / Malwa","बघेलखंड / Baghelkhand","महाकौशल / Mahakoshal","निमाड़ בלבד / Nimar only"],
+a:0,e:"माच मालवा क्षेत्र की प्रमुख लोकनाट्य परंपरा है। इसमें गायन, संवाद, संगीत और नाटकीय प्रस्तुति का समावेश होता है।"
 },
 {
-q:"मध्य प्रदेश के लोक एवं जनजातीय कला संग्रहालय ‘भारत भवन’ कहाँ स्थित है? / Where is Bharat Bhavan, a major centre for visual and performing arts, located?",
-o:["ग्वालियर / Gwalior","जबलपुर / Jabalpur","भोपाल / Bhopal","सागर / Sagar"],
-a:2,e:"भारत भवन भोपाल में स्थित बहु-कला केंद्र है, जहाँ दृश्य कला, साहित्य और प्रदर्शन कलाओं से संबंधित गतिविधियाँ होती हैं। / Bharat Bhavan in Bhopal is a multidisciplinary centre for visual arts, literature and performance."
+q:"राई लोकनृत्य का प्रमुख संबंध मध्य प्रदेश के किस क्षेत्र से है? / Rai folk dance is primarily associated with which region of Madhya Pradesh?",
+o:["बुंदेलखंड / Bundelkhand","मालवा / Malwa","निमाड़ / Nimar","बघेलखंड בלבד / Baghelkhand only"],
+a:0,e:"राई नृत्य बुंदेलखंड की प्रसिद्ध लोकनृत्य शैली है। इसकी प्रस्तुति में लय, घूमरदार गतियाँ और लोकसंगीत महत्वपूर्ण हैं।"
 },
 {
-q:"मध्य प्रदेश के प्रसिद्ध शिल्प ‘गोंड चित्रकला’ की एक विशेषता क्या है? / What is a characteristic of Gond painting?",
-o:["केवल संगमरमर की नक्काशी / Marble carving only","केवल धातु ढलाई / Metal casting only","केवल फारसी ज्यामितीय लेखन / Persian geometric writing only","रेखाओं, बिंदुओं और प्रकृति-आधारित आकृतियों का प्रयोग / Use of lines, dots and nature-inspired forms"],
-a:3,e:"गोंड चित्रकला में प्रकृति, जीव-जंतुओं और लोकविश्वासों से प्रेरित आकृतियाँ तथा रेखा-बिंदु आधारित सज्जा प्रमुख होती है। / Gond art often uses nature-inspired motifs, animals and decorative patterns of lines and dots."
+q:"बाघ प्रिंटिंग परंपरा किस जिले से विशेष रूप से संबंधित है? / Bagh printing is especially associated with which district?",
+o:["धार / Dhar","मंडला / Mandla","भिंड / Bhind","सिंगरौली / Singrauli"],
+a:0,e:"बाघ प्रिंट धार जिले के बाघ क्षेत्र की पारंपरिक ब्लॉक-प्रिंटिंग कला है। इसमें प्राकृतिक रंगों और लकड़ी के ब्लॉकों का उपयोग होता है।"
 },
 {
-q:"मध्य प्रदेश के किस नगर का संबंध प्रसिद्ध शास्त्रीय संगीत परंपरा और तानसेन की समाधि से है? / Which MP city is associated with the classical music tradition and Tansen's tomb?",
-o:["ग्वालियर / Gwalior","भोपाल / Bhopal","सतना / Satna","बैतूल / Betul"],
-a:0,e:"ग्वालियर हिंदुस्तानी शास्त्रीय संगीत की प्रमुख परंपराओं में से एक का केंद्र रहा है और तानसेन की समाधि यहीं है। / Gwalior is a major centre of Hindustani classical music and houses Tansen's tomb."
+q:"गोंड चित्रकला में सामान्यतः किस विशेषता पर जोर दिया जाता है? / Which feature is commonly emphasized in Gond painting?",
+o:["बिंदुओं और रेखाओं से भरी आकृतियाँ / Forms filled with dots and lines","केवल संगमरमर जड़ाई / Marble inlay only","धातु की नक्काशी / Metal engraving","काँच की मोज़ेक कला / Glass mosaic"],
+a:0,e:"गोंड चित्रकला में प्रकृति, जीव-जंतु और लोकविश्वास प्रमुख विषय हैं। आकृतियों को बिंदुओं, रेखाओं और पैटर्न से सजाया जाता है।"
 },
 {
-q:"मध्य प्रदेश के इतिहास में धार का विशेष महत्व किस कारण है? / Why is Dhar historically important in Madhya Pradesh?",
-o:["यह चोल साम्राज्य की राजधानी थी / It was the capital of the Chola Empire","यह परमार राजवंश और राजा भोज से जुड़ा था / It was associated with the Paramaras and Raja Bhoja","यह मौर्य साम्राज्य का समुद्री बंदरगाह था / It was a Mauryan seaport","यह अहोम साम्राज्य का केंद्र था / It was a centre of the Ahom kingdom"],
-a:1,e:"धार परमार शासकों का महत्वपूर्ण केंद्र था और राजा भोज की सांस्कृतिक-राजनीतिक परंपरा से जुड़ा है। / Dhar was an important Paramara centre associated with Raja Bhoja's political and cultural legacy."
+q:"संजा कला का संबंध मुख्यतः किससे है? / Sanja art is mainly associated with what?",
+o:["दीवारों पर गोबर से बनाए जाने वाले पारंपरिक चित्र / Traditional wall designs made with cow dung","पत्थर की मूर्ति ढलाई / Stone statue casting","रेशम बुनाई / Silk weaving","धातु के सिक्के बनाना / Coin minting"],
+a:0,e:"संजा मध्य प्रदेश के कुछ क्षेत्रों में विशेषकर श्राद्ध पक्ष में दीवारों पर गोबर और सजावटी सामग्री से आकृतियाँ बनाने की परंपरा है।"
 },
 {
-q:"मध्य प्रदेश की ऐतिहासिक धरोहरों के संदर्भ में सही युग्म चुनिए। / Choose the correctly matched pair of historical heritage sites.",
-o:["सांची — मुगल मकबरे / Sanchi — Mughal tombs","मांडू — हड़प्पाई नगर / Mandu — Harappan city","भीमबेटका — प्रागैतिहासिक शैलचित्र / Bhimbetka — Prehistoric rock paintings","खजुराहो — चोल बंदरगाह / Khajuraho — Chola port"],
-a:2,e:"भीमबेटका प्रागैतिहासिक शैलाश्रयों और चित्रों के लिए प्रसिद्ध है। अन्य विकल्प स्थलों के ऐतिहासिक स्वरूप से मेल नहीं खाते। / Bhimbetka is known for prehistoric rock shelters and paintings; the other pairs are mismatched."
+q:"टंट्या भील किस रूप में प्रसिद्ध हैं? / Tantya Bhil is remembered primarily as what?",
+o:["आदिवासी स्वतंत्रता सेनानी / Tribal freedom fighter","परमार राजा / Paramara king","मुगल सेनापति / Mughal commander","ब्रिटिश प्रशासक / British administrator"],
+a:0,e:"टंट्या भील औपनिवेशिक शासन के विरुद्ध संघर्ष करने वाले प्रसिद्ध आदिवासी नायक थे। लोकस्मृति में उन्हें प्रतिरोध और साहस के प्रतीक के रूप में याद किया जाता है।"
+},
+{
+q:"भीमा नायक का संबंध किस ऐतिहासिक संघर्ष से था? / Bhima Nayak was associated with which historical struggle?",
+o:["1857 के विद्रोह और आदिवासी प्रतिरोध / Revolt of 1857 and tribal resistance","असहयोग आंदोलन בלבד / Non-Cooperation Movement only","स्वदेशी आंदोलन का बंगाल चरण / Bengal phase of Swadeshi","चंपारण सत्याग्रह / Champaran Satyagraha"],
+a:0,e:"भीमा नायक निमाड़ क्षेत्र के आदिवासी स्वतंत्रता सेनानी थे। उन्होंने 1857 के विद्रोह के दौर में ब्रिटिश सत्ता के विरुद्ध संघर्ष किया।"
+},
+{
+q:"नर्मदा नदी का उद्गम कहाँ है? / Where does the Narmada River originate?",
+o:["अमरकंटक / Amarkantak","मुलताई / Multai","जनापाव / Janapav","पचमढ़ी / Pachmarhi"],
+a:0,e:"नर्मदा नदी का उद्गम मैकल पर्वत क्षेत्र में अमरकंटक से होता है। यह पश्चिम की ओर बहकर अरब सागर में गिरती है।"
+},
+{
+q:"ताप्ती नदी का उद्गम मध्य प्रदेश के किस स्थान के निकट है? / Near which place in Madhya Pradesh does the Tapti River originate?",
+o:["मुलताई / Multai","अमरकंटक / Amarkantak","महू / Mhow","शिवपुरी / Shivpuri"],
+a:0,e:"ताप्ती नदी का उद्गम बैतूल जिले के मुलताई के निकट सतपुड़ा क्षेत्र में होता है। यह पश्चिम की ओर बहती है।"
+},
+{
+q:"नर्मदा घाटी का भू-आकृतिक स्वरूप मुख्यतः किससे संबंधित है? / The geomorphology of the Narmada valley is mainly associated with what?",
+o:["भ्रंश घाटी / Rift valley","हिमानी घाटी / Glacial valley","डेल्टा मैदान / Delta plain","कार्स्ट गुफा क्षेत्र / Karst cave region"],
+a:0,e:"नर्मदा घाटी एक प्रमुख भ्रंश घाटी है। नदी विंध्य और सतपुड़ा पर्वतीय क्षेत्रों के बीच पश्चिम दिशा में बहती है।"
+},
+{
+q:"मध्य प्रदेश के मालवा पठार में सामान्यतः किस प्रकार की मिट्टी प्रमुख है? / Which soil type is common in the Malwa Plateau?",
+o:["काली मिट्टी / Black soil","लैटेराइट मिट्टी / Laterite soil","टुंड्रा मिट्टी / Tundra soil","पीट मिट्टी / Peat soil"],
+a:0,e:"मालवा पठार के विस्तृत भागों में बेसाल्टिक चट्टानों के अपक्षय से विकसित काली मिट्टी मिलती है, जो कपास और सोयाबीन के लिए उपयोगी है।"
+},
+{
+q:"चंबल क्षेत्र की बीहड़ भूमि के निर्माण में प्रमुख प्रक्रिया कौन-सी है? / Which process is chiefly responsible for the ravines of the Chambal region?",
+o:["अवसादी अपरदन और गली अपरदन / Fluvial and gully erosion","हिमानी निक्षेप / Glacial deposition","ज्वालामुखीय उद्गार / Volcanic eruption","समुद्री लहरों का अपरदन / Marine wave erosion"],
+a:0,e:"चंबल क्षेत्र में तीव्र बहते पानी से गली अपरदन होता है। इससे गहरी, शाखित बीहड़ संरचनाएँ विकसित होती हैं।"
+},
+{
+q:"पन्ना क्षेत्र ऐतिहासिक रूप से किस खनिज के लिए प्रसिद्ध है? / The Panna region is historically famous for which mineral?",
+o:["हीरा / Diamond","तांबा / Copper","लौह अयस्क / Iron ore","अभ्रक / Mica"],
+a:0,e:"पन्ना क्षेत्र हीरे के भंडार और खनन के लिए प्रसिद्ध है। यह मध्य प्रदेश की खनिज संपदा का विशिष्ट भाग है।"
+},
+{
+q:"गांधी सागर बाँध किस नदी पर बना है? / Gandhi Sagar Dam is built on which river?",
+o:["चंबल / Chambal","बेतवा / Betwa","तवा / Tawa","सोन / Son"],
+a:0,e:"गांधी सागर बाँध चंबल नदी पर मंदसौर क्षेत्र के निकट स्थित है और चंबल घाटी परियोजना का महत्वपूर्ण हिस्सा है।"
+},
+{
+q:"तवा बाँध किस नदी पर स्थित है? / Tawa Dam is located on which river?",
+o:["तवा / Tawa","कालीसिंध / Kalisindh","क्षिप्रा / Shipra","केन / Ken"],
+a:0,e:"तवा बाँध तवा नदी पर नर्मदापुरम क्षेत्र में स्थित है। तवा नदी आगे चलकर नर्मदा में मिलती है।"
+},
+{
+q:"कूनो राष्ट्रीय उद्यान किस जिले में स्थित है? / Kuno National Park is located in which district?",
+o:["श्योपुर / Sheopur","उमरिया / Umaria","मंडला / Mandla","सिवनी / Seoni"],
+a:0,e:"कूनो राष्ट्रीय उद्यान श्योपुर जिले में स्थित है। यह भारत में चीता पुनर्स्थापन कार्यक्रम के प्रमुख स्थलों में से एक है।"
+},
+{
+q:"कान्हा राष्ट्रीय उद्यान विशेष रूप से किस संरक्षण के लिए प्रसिद्ध है? / Kanha National Park is especially known for conserving which animal?",
+o:["हार्ड-ग्राउंड बारहसिंगा / Hard-ground barasingha","एशियाई सिंह / Asiatic lion","एक सींग वाला गैंडा / One-horned rhinoceros","जंगली ऊँट / Wild camel"],
+a:0,e:"कान्हा में हार्ड-ग्राउंड बारहसिंगा के संरक्षण को विशेष सफलता मिली है। यह बाघ संरक्षण के लिए भी प्रसिद्ध है।"
+},
+{
+q:"बैगा जनजाति का पारंपरिक निवास मध्य प्रदेश के किस व्यापक क्षेत्र से विशेष रूप से जुड़ा है? / The Baiga community is especially associated with which broad region of Madhya Pradesh?",
+o:["मंडला-डिंडोरी क्षेत्र / Mandla-Dindori region","मालवा का पश्चिमी भाग / Western Malwa","चंबल का उत्तरी भाग / Northern Chambal","बुंदेलखंड का मध्य भाग / Central Bundelkhand"],
+a:0,e:"बैगा समुदाय की बड़ी आबादी मंडला, डिंडोरी और आसपास के वन क्षेत्रों से जुड़ी है। उनकी पारंपरिक आजीविका और सांस्कृतिक प्रथाएँ वन पर्यावरण से संबंधित रही हैं।"
+},
+{
+q:"कोरकू जनजाति की उल्लेखनीय आबादी मध्य प्रदेश के किस क्षेत्र में मिलती है? / A notable Korku population is found in which region of Madhya Pradesh?",
+o:["सतपुड़ा क्षेत्र, विशेषकर बैतूल-खंडवा / Satpura region, especially Betul-Khandwa","चंबल का बीहड़ क्षेत्र / Chambal ravines","ग्वालियर का शहरी क्षेत्र / Urban Gwalior","बघेलखंड का पूर्वी छोर / Eastern Baghelkhand"],
+a:0,e:"कोरकू जनजाति का महत्वपूर्ण निवास सतपुड़ा क्षेत्र, विशेषकर बैतूल और खंडवा के आसपास है।"
+},
+{
+q:"मध्य प्रदेश में सोयाबीन की खेती के विस्तार के लिए कौन-सा क्षेत्र विशेष रूप से जाना जाता है? / Which region is especially known for soybean cultivation in Madhya Pradesh?",
+o:["मालवा / Malwa","बघेलखंड का पठारी पूर्वी भाग / Eastern Baghelkhand plateau","चंबल की बीहड़ भूमि / Chambal ravines","पचमढ़ी का उच्च पर्वतीय भाग / High hills of Pachmarhi"],
+a:0,e:"मालवा की काली मिट्टी और मानसूनी परिस्थितियाँ सोयाबीन उत्पादन के लिए अनुकूल हैं। राज्य देश के प्रमुख सोयाबीन उत्पादक क्षेत्रों में शामिल है।"
+},
+{
+q:"ओंकारेश्वर ज्योतिर्लिंग किस नदी के तट पर स्थित है? / Omkareshwar Jyotirlinga is situated on the bank of which river?",
+o:["नर्मदा / Narmada","चंबल / Chambal","ताप्ती / Tapti","बेतवा / Betwa"],
+a:0,e:"ओंकारेश्वर नर्मदा नदी के एक द्वीप क्षेत्र में स्थित प्रमुख तीर्थ है और बारह ज्योतिर्लिंगों में गिना जाता है।"
+},
+{
+q:"सोनागिरि जैन तीर्थ किस जिले में स्थित है? / Sonagiri Jain pilgrimage site is located in which district?",
+o:["दतिया / Datia","सतना / Satna","रतलाम / Ratlam","बैतूल / Betul"],
+a:0,e:"सोनागिरि दतिया जिले का प्रसिद्ध जैन तीर्थ है। यहाँ पहाड़ी पर अनेक जैन मंदिर स्थित हैं।"
+},
+{
+q:"बावनगजा जैन तीर्थ किस जिले से संबंधित है? / Bawangaja Jain pilgrimage site is associated with which district?",
+o:["बड़वानी / Barwani","छतरपुर / Chhatarpur","कटनी / Katni","मुरैना / Morena"],
+a:0,e:"बावनगजा बड़वानी जिले में स्थित प्रसिद्ध जैन तीर्थ है। यह विशाल आदिनाथ प्रतिमा के लिए जाना जाता है।"
+},
+{
+q:"मितावली का चौसठ योगिनी मंदिर किस जिले में स्थित है? / The Chausath Yogini Temple at Mitawali is in which district?",
+o:["मुरैना / Morena","मंदसौर / Mandsaur","सिवनी / Seoni","हरदा / Harda"],
+a:0,e:"मितावली का गोलाकार चौसठ योगिनी मंदिर मुरैना जिले में स्थित है। इसकी स्थापत्य योजना प्राचीन मंदिर वास्तुकला का उल्लेखनीय उदाहरण है।"
+},
+{
+q:"खजुराहो के मंदिर किस प्रकार की स्थापत्य शैली का प्रमुख उदाहरण हैं? / The Khajuraho temples are major examples of which architectural style?",
+o:["नागर शैली / Nagara style","द्रविड़ शैली / Dravida style","वेसर शैली का शुद्ध दक्षिणी रूप / Pure southern Vesara form","इंडो-सरैसेनिक / Indo-Saracenic"],
+a:0,e:"खजुराहो के मंदिर उत्तर भारतीय नागर शैली के उत्कृष्ट उदाहरण हैं। इनके शिखर, मंडप और मूर्तिकला विशेष रूप से उल्लेखनीय हैं।"
+},
+{
+q:"भीमबेटका के शैलचित्र मुख्यतः किस प्रकार के साक्ष्य प्रदान करते हैं? / The Bhimbetka rock paintings primarily provide evidence of what?",
+o:["प्रागैतिहासिक जीवन और सांस्कृतिक गतिविधियाँ / Prehistoric life and cultural activities","केवल गुप्तकालीन कर व्यवस्था / Gupta taxation only","मुगल दरबारी संगीत / Mughal court music","औपनिवेशिक रेल व्यवस्था / Colonial railway system"],
+a:0,e:"भीमबेटका की चित्रकला शिकार, नृत्य, पशुओं और सामुदायिक जीवन जैसी गतिविधियों के साक्ष्य देती है। सभी चित्र एक ही काल के नहीं हैं।"
+},
+{
+q:"मध्य प्रदेश की जीवनरेखा कहे जाने वाली नर्मदा नदी किस दिशा में बहती है? / In which direction does the Narmada, often called the lifeline of Madhya Pradesh, flow?",
+o:["मुख्यतः पश्चिम की ओर / Mainly westward","मुख्यतः पूर्व की ओर / Mainly eastward","उत्तर की ओर / Northward","दक्षिण की ओर / Southward"],
+a:0,e:"नर्मदा नदी मध्य भारत से पश्चिम की ओर बहती हुई गुजरात के रास्ते अरब सागर में गिरती है।"
+},
+{
+q:"मध्य प्रदेश का राज्य पशु कौन-सा है? / What is the state animal of Madhya Pradesh?",
+o:["बारहसिंगा / Barasingha","बाघ / Tiger","नीलगाय / Nilgai","काला हिरण / Blackbuck"],
+a:0,e:"मध्य प्रदेश का राज्य पशु बारहसिंगा है। बाघ राज्य का राज्य पशु नहीं, बल्कि राष्ट्रीय स्तर पर महत्वपूर्ण संरक्षित वन्यजीव है।"
+},
+{
+q:"मध्य प्रदेश का राज्य पक्षी कौन-सा है? / What is the state bird of Madhya Pradesh?",
+o:["दूधराज / Asian paradise flycatcher","मोर / Peacock","सारस / Sarus crane","तोता / Parrot"],
+a:0,e:"मध्य प्रदेश का राज्य पक्षी दूधराज है, जिसे अंग्रेज़ी में Asian paradise flycatcher कहा जाता है।"
+},
+{
+q:"मध्य प्रदेश का राज्य वृक्ष कौन-सा है? / What is the state tree of Madhya Pradesh?",
+o:["बरगद / Banyan","सागौन / Teak","नीम / Neem","पीपल / Peepal"],
+a:0,e:"बरगद मध्य प्रदेश का राज्य वृक्ष है। इसके विस्तृत फैलाव और शाखाओं से निकलने वाली जड़ों के कारण यह विशेष पहचान रखता है।"
+},
+{
+q:"मध्य प्रदेश में हीरा उत्पादन के लिए प्रसिद्ध पन्ना क्षेत्र किस भौगोलिक भाग में आता है? / The diamond-producing Panna region belongs to which broad physiographic region?",
+o:["बुंदेलखंड क्षेत्र / Bundelkhand region","मालवा पठार / Malwa Plateau","निमाड़ मैदान / Nimar plain","सतपुड़ा का दक्षिणी भाग / Southern Satpura"],
+a:0,e:"पन्ना मध्य प्रदेश के बुंदेलखंड क्षेत्र से संबंधित है और हीरे की खदानों के लिए प्रसिद्ध है।"
+},
+{
+q:"मध्य प्रदेश की विधानसभा की सीटों की कुल संख्या कितनी है? / What is the total number of seats in the Madhya Pradesh Legislative Assembly?",
+o:["230","200","250","250 से अधिक / More than 250"],
+a:0,e:"मध्य प्रदेश विधानसभा में कुल 230 निर्वाचित सीटें हैं। चुनाव और संवैधानिक संरचना से जुड़े प्रश्नों में वर्तमान आधिकारिक आँकड़े देखना उपयोगी है।"
 }
 ];
 
-const root=document.getElementById("questions");
-let submitted=false;
-let remaining=3600;
-let timerInterval;
+const container = document.getElementById("questions");
 
-questions.forEach((q,i)=>{
- const card=document.createElement("section");
- card.className="question";
+questions.forEach((item,i)=>{
+  const card=document.createElement("section");
+  card.className="question";
+  card.id="q"+i;
 
- const title=document.createElement("h3");
- title.textContent=(i+1)+". "+q.q;
- card.appendChild(title);
+  const heading=document.createElement("h3");
+  heading.textContent=(i+1)+". "+item.q;
+  card.appendChild(heading);
 
- q.o.forEach((opt,j)=>{
-  const label=document.createElement("label");
-  label.className="option";
+  const options=document.createElement("div");
+  options.className="options";
 
-  const input=document.createElement("input");
-  input.type="radio";
-  input.name="q"+i;
-  input.value=j;
+  item.o.forEach((option,j)=>{
+    const label=document.createElement("label");
+    label.className="option";
+    label.id="q"+i+"o"+j;
 
-  const text=document.createElement("span");
-  text.textContent=String.fromCharCode(65+j)+". "+opt;
+    const radio=document.createElement("input");
+    radio.type="radio";
+    radio.name="q"+i;
+    radio.value=j;
 
-  label.appendChild(input);
-  label.appendChild(text);
-  card.appendChild(label);
- });
+    const span=document.createElement("span");
+    span.textContent=String.fromCharCode(65+j)+". "+option;
 
- const exp=document.createElement("div");
- exp.className="explanation";
- exp.textContent="सही उत्तर / Correct Answer: "+
-   String.fromCharCode(65+q.a)+". "+q.o[q.a]+
-   "\nव्याख्या / Explanation: "+q.e;
-
- card.appendChild(exp);
- root.appendChild(card);
-});
-
-function submitTest(){
- if(submitted)return;
-
- if(remaining>0){
-  const unanswered=questions.filter((q,i)=>
-   !root.children[i].querySelector("input:checked")
-  ).length;
-
-  if(unanswered && !confirm(
-   unanswered+" प्रश्न बाकी हैं। क्या टेस्ट जमा करना चाहते हैं?"
-  ))return;
- }
-
- submitted=true;
- clearInterval(timerInterval);
-
- let score=0,attempted=0;
-
- questions.forEach((q,i)=>{
-  const card=root.children[i];
-  const selected=card.querySelector("input:checked");
-
-  if(selected){
-   attempted++;
-   if(Number(selected.value)===q.a)score++;
-  }
-
-  card.querySelectorAll(".option").forEach(label=>{
-   const input=label.querySelector("input");
-   input.disabled=true;
-
-   if(Number(input.value)===q.a)label.classList.add("correct");
-
-   if(selected && input===selected &&
-      Number(selected.value)!==q.a){
-    label.classList.add("wrong");
-   }
+    label.appendChild(radio);
+    label.appendChild(span);
+    options.appendChild(label);
   });
 
-  card.querySelector(".explanation").style.display="block";
- });
+  card.appendChild(options);
 
- const result=document.getElementById("result");
- result.style.display="block";
- result.replaceChildren();
+  const explanation=document.createElement("div");
+  explanation.className="explanation";
+  explanation.id="exp"+i;
+  card.appendChild(explanation);
 
- const heading=document.createElement("h2");
- heading.textContent="टेस्ट परिणाम / Test Result";
- result.appendChild(heading);
+  container.appendChild(card);
+});
 
- [
-  "कुल प्रश्न / Total Questions: "+questions.length,
-  "हल किए / Attempted: "+attempted,
-  "सही उत्तर / Correct: "+score,
-  "गलत उत्तर / Incorrect: "+(attempted-score),
-  "अनुत्तरित / Unanswered: "+(questions.length-attempted),
-  "स्कोर / Your Score: "+score+" / "+questions.length,
-  "प्रतिशत / Percentage: "+(score/questions.length*100).toFixed(2)+"%"
- ].forEach(line=>{
-  const p=document.createElement("p");
-  p.textContent=line;
-  result.appendChild(p);
- });
-
- document.getElementById("submitBtn").disabled=true;
- document.getElementById("submitBtn").textContent="✓ Test Submitted";
- result.scrollIntoView({behavior:"smooth"});
-}
+let remaining=60*60;
+let finished=false;
 
 function updateTimer(){
- document.getElementById("timer").textContent=
-  String(Math.floor(remaining/60)).padStart(2,"0")+":"+
-  String(remaining%60).padStart(2,"0");
+  if(finished)return;
+  const min=Math.floor(remaining/60);
+  const sec=remaining%60;
+  document.getElementById("timer").textContent=
+    String(min).padStart(2,"0")+":"+String(sec).padStart(2,"0");
+
+  if(remaining<=0){
+    submitTest(true);
+    return;
+  }
+  remaining--;
 }
+updateTimer();
+const timerInterval=setInterval(updateTimer,1000);
 
-timerInterval=setInterval(()=>{
- if(submitted)return;
- remaining--;
- updateTimer();
+function submitTest(autoSubmitted){
+  if(finished)return;
+  finished=true;
+  clearInterval(timerInterval);
 
- if(remaining<=0){
-  remaining=0;
-  updateTimer();
-  submitTest();
- }
-},1000);
+  let score=0,attempted=0;
 
-function goBack(){
- if(history.length>1)history.back();
- else location.href="../../../index.html";
+  questions.forEach((item,i)=>{
+    const chosen=document.querySelector('input[name="q'+i+'"]:checked');
+    const explanation=document.getElementById("exp"+i);
+
+    document.querySelectorAll('input[name="q'+i+'"]').forEach(input=>{
+      input.disabled=true;
+    });
+
+    if(chosen)attempted++;
+    if(chosen && Number(chosen.value)===item.a)score++;
+
+    document.getElementById("q"+i+"o"+item.a).classList.add("correct");
+
+    if(chosen && Number(chosen.value)!==item.a){
+      document.getElementById("q"+i+"o"+chosen.value).classList.add("wrong");
+    }
+
+    explanation.style.display="block";
+    explanation.innerHTML=
+      "<b>सही उत्तर / Correct Answer:</b> "+
+      String.fromCharCode(65+item.a)+". "+item.o[item.a]+
+      "<br><b>व्याख्या / Explanation:</b> "+item.e;
+  });
+
+  const unanswered=questions.length-attempted;
+  document.getElementById("result").style.display="block";
+  document.getElementById("scoreText").textContent=
+    "आपका स्कोर / Your Score: "+score+" / "+questions.length;
+
+  document.getElementById("details").textContent=
+    "Attempted: "+attempted+" | Unanswered: "+unanswered+
+    " | Incorrect: "+(attempted-score)+
+    " | Percentage: "+((score/questions.length)*100).toFixed(2)+"%";
+
+  document.getElementById("feedback").textContent=
+    autoSubmitted
+    ? "समय समाप्त होने पर टेस्ट अपने आप जमा हुआ। / Test submitted automatically when time expired."
+    : "टेस्ट सफलतापूर्वक जमा हुआ। / Test submitted successfully.";
+
+  document.getElementById("submitBtn").disabled=true;
+  document.getElementById("result").scrollIntoView({behavior:"smooth"});
 }
 </script>
 </body>
