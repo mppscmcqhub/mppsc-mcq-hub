@@ -2,481 +2,81 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>P10T01 | MPPSC Paid Prelims</title>
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MPPSC PORTAL | Unit 10 Test 1</title>
 <style>
-*{box-sizing:border-box}
-
-body{
-  margin:0;
-  font-family:Arial,"Noto Sans Devanagari",sans-serif;
-  background:#f1f5f9;
-  color:#172033;
-}
-
-header{
-  background:#1769aa;
-  color:white;
-  padding:14px 18px;
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-.logo{
-  width:48px;
-  height:48px;
-  border-radius:50%;
-  background:white;
-  color:#1769aa;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:bold;
-  font-size:13px;
-  text-align:center;
-}
-
-.header-title{
-  font-size:20px;
-  font-weight:bold;
-}
-
-.container{
-  max-width:950px;
-  margin:auto;
-  padding:20px 15px 40px;
-}
-
-.back{
-  display:inline-block;
-  color:#1769aa;
-  text-decoration:none;
-  font-weight:bold;
-  margin-bottom:15px;
-}
-
-.hero{
-  background:white;
-  border-radius:14px;
-  padding:22px;
-  box-shadow:0 3px 12px rgba(0,0,0,.08);
-  margin-bottom:18px;
-}
-
-.hero h1{
-  margin:0 0 8px;
-  color:#1769aa;
-  font-size:25px;
-}
-
-.hero p{
-  margin:5px 0;
-}
-
-.badge{
-  display:inline-block;
-  background:#e53935;
-  color:white;
-  padding:6px 12px;
-  border-radius:20px;
-  font-size:13px;
-  font-weight:bold;
-  margin-top:8px;
-}
-
-.question{
-  background:white;
-  border-radius:14px;
-  padding:20px;
-  margin-bottom:16px;
-  box-shadow:0 3px 10px rgba(0,0,0,.07);
-}
-
-.qno{
-  color:#1769aa;
-  font-size:18px;
-  font-weight:bold;
-  margin-bottom:10px;
-}
-
-.hindi{
-  font-size:17px;
-  font-weight:bold;
-  line-height:1.6;
-}
-
-.english{
-  color:#555;
-  font-size:15px;
-  margin:7px 0 14px;
-  line-height:1.5;
-}
-
-.option{
-  display:block;
-  padding:11px 12px;
-  margin:8px 0;
-  border:1px solid #d5dce5;
-  border-radius:9px;
-  cursor:pointer;
-  background:#fafafa;
-}
-
-.option:hover{
-  background:#eef6ff;
-}
-
-.option input{
-  margin-right:9px;
-}
-
-.explanation{
-  display:none;
-  margin-top:15px;
-  padding:14px;
-  background:#eef8ff;
-  border-left:5px solid #1769aa;
-  border-radius:8px;
-}
-
-.explanation strong{
-  color:#1769aa;
-}
-
-.submit-wrap{
-  text-align:center;
-  margin-top:22px;
-}
-
-button{
-  border:0;
-  background:#1769aa;
-  color:white;
-  padding:13px 30px;
-  border-radius:8px;
-  font-size:17px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-button:hover{
-  background:#0d548b;
-}
-
-#result{
-  display:none;
-  background:white;
-  margin-top:20px;
-  padding:22px;
-  border-radius:14px;
-  text-align:center;
-  box-shadow:0 3px 12px rgba(0,0,0,.08);
-}
-
-.score{
-  font-size:27px;
-  color:#1769aa;
-  font-weight:bold;
-}
-
-.footer{
-  text-align:center;
-  color:#777;
-  margin-top:30px;
-  font-size:13px;
-}
+*{box-sizing:border-box}html,body{margin:0;padding:0;font-family:Arial,"Noto Sans Devanagari",sans-serif;color:#172033;background:#eef3f9}
+header{background:#111;color:#fff;text-align:center;padding:15px 10px;border-bottom:3px solid #e53935}
+header h1{margin:0 0 5px;color:#ff3434;font-size:clamp(22px,3vw,30px)}
+header p{margin:4px 0;font-size:14px}
+.instructions{background:#fff;margin:8px 6px;padding:12px;border:1px solid #d7e0ed;border-radius:7px;font-size:14px;line-height:1.5}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;background:#fff;margin:8px 6px;padding:10px;border-radius:9px;box-shadow:0 2px 8px #16274412}
+#progress{font-weight:bold;color:#1450a3}
+.buttons{display:flex;gap:7px;flex-wrap:wrap}
+button{border:0;border-radius:7px;padding:10px 14px;font-weight:bold;cursor:pointer}
+.back{background:#e7edf8;color:#17365f}.pdf{background:#168455;color:white}.submit{background:#1450a3;color:white}
+#questions{padding:0 6px}
+.question{background:#fff;border:1px solid #d7e0ed;border-radius:8px;margin:8px 0;padding:12px;width:100%}
+.question h3{font-size:16px;line-height:1.5;margin:0 0 5px}
+.enq{font-size:15px;line-height:1.45;margin:0 0 10px;color:#243b60}
+.option{display:flex;align-items:flex-start;gap:8px;padding:9px 10px;border:1px solid #d7e0ed;border-radius:7px;margin:6px 0;cursor:pointer;line-height:1.45}
+.option input{margin-top:5px;flex-shrink:0}
+.option.correct{background:#e8f7ed;border-color:#279b5a}
+.option.wrong{background:#fdeaea;border-color:#d83232}
+.explanation{display:none;background:#f2f6fc;padding:10px;border-radius:7px;margin-top:8px;font-size:14px;line-height:1.55}
+.result{display:none;background:#fff;border:2px solid #1450a3;padding:16px;margin:10px 6px;border-radius:8px}
+@media print{body{background:#fff}.topbar,.buttons,.result{display:none!important}.question{break-inside:avoid;border:1px solid #999}.explanation{display:block!important}header{background:#111!important;color:white!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
 </style>
 </head>
-
 <body>
-
 <header>
-  <div class="logo">MP<br>PSC</div>
-  <div class="header-title">MPPSC MCQ Hub V14</div>
+<h1>MPPSC PORTAL</h1>
+<p>MPPSC Prelims 2026 | Unit-10 | Test-1</p>
+<p>समय: 60 मिनट | कुल प्रश्न: 50</p>
 </header>
-
-<div class="container">
-
-<a class="back" href="../index.html">← Back to Unit 10</a>
-
-<div class="hero">
-  <h1>Paid Course MPPSC 2027</h1>
-  <p><strong>Unit 10:</strong> म.प्र. की जनजातियाँ: विरासत व लोक संस्कृति</p>
-  <p><strong>Test 01</strong> | <strong>Code: P10T01</strong></p>
-  <span class="badge">PAID PRELIMS TEST</span>
+<div class="instructions"><b>English Instructions:</b> Select one option for each question. Click “Submit Test” to view your score and correct answers. Use “PDF / Print” to save or print the test.<br><b>हिंदी निर्देश:</b> प्रत्येक प्रश्न के लिए एक विकल्प चुनें। स्कोर और सही उत्तर देखने के लिए “Submit Test” दबाएँ। टेस्ट को PDF में सेव करने के लिए “PDF / Print” चुनें।</div>
+<div class="topbar">
+<div id="progress">Attempted / हल किए: 0 / 50</div>
+<div class="buttons">
+<button class="back" onclick="history.back()">← Back</button>
+<button class="pdf" onclick="window.print()">PDF / Print</button>
+<button class="submit" onclick="submitTest()">Submit Test</button>
 </div>
-
-
-<!-- Q1 -->
-<div class="question">
-  <div class="qno">Q1. प्रश्न 1</div>
-
-  <div class="hindi">
-    मध्यप्रदेश की सबसे बड़ी जनजातियों में से एक कौन-सी है?
-  </div>
-
-  <div class="english">
-    Which of the following is one of the largest tribal communities of Madhya Pradesh?
-  </div>
-
-  <label class="option">
-    <input type="radio" name="q1" value="A">
-    A. भील / Bhil
-  </label>
-
-  <label class="option">
-    <input type="radio" name="q1" value="B">
-    B. टोडा / Toda
-  </label>
-
-  <label class="option">
-    <input type="radio" name="q1" value="C">
-    C. नागा / Naga
-  </label>
-
-  <label class="option">
-    <input type="radio" name="q1" value="D">
-    D. गारो / Garo
-  </label>
-
-  <div class="explanation" id="exp1">
-    <strong>Correct Answer: A</strong><br><br>
-    <b>हिंदी:</b> भील मध्यप्रदेश की प्रमुख और बड़ी जनजातीय समुदायों में से एक है। इसका प्रमुख सांस्कृतिक प्रभाव पश्चिमी मध्यप्रदेश में देखा जाता है।<br><br>
-    <b>English:</b> The Bhil is one of the major and large tribal communities of Madhya Pradesh, with a significant cultural presence in western Madhya Pradesh.
-  </div>
 </div>
-
-
-<!-- Q2 -->
-<div class="question">
-  <div class="qno">Q2. प्रश्न 2</div>
-
-  <div class="hindi">
-    मध्यप्रदेश की गोंड जनजाति मुख्य रूप से किस क्षेत्र से संबंधित मानी जाती है?
-  </div>
-
-  <div class="english">
-    The Gond tribe of Madhya Pradesh is mainly associated with which region?
-  </div>
-
-  <label class="option">
-    <input type="radio" name="q2" value="A">
-    A. पूर्वी एवं दक्षिण-पूर्वी मध्यप्रदेश / Eastern and south-eastern Madhya Pradesh
-  </label>
-
-  <label class="option">
-    <input type="radio" name="q2" value="B">
-    B. केवल पश्चिमी राजस्थान / Only western Rajasthan
-  </label>
-
-  <label class="option">
-    <input type="radio" name="q2" value="C">
-    C. केवल उत्तर भारत / Only northern India
-  </label>
-
-  <label class="option">
-    <input type="radio" name="q2" value="D">
-    D. केवल तटीय क्षेत्र / Only coastal areas
-  </label>
-
-  <div class="explanation" id="exp2">
-    <strong>Correct Answer: A</strong><br><br>
-    <b>हिंदी:</b> मध्यप्रदेश में गोंड जनजाति की महत्वपूर्ण आबादी पूर्वी एवं दक्षिण-पूर्वी क्षेत्रों में पाई जाती है।<br><br>
-    <b>English:</b> In Madhya Pradesh, a significant population of the Gond tribe is found in the eastern and south-eastern regions.
-  </div>
-</div>
-
-
-<!-- Q3 -->
-<div class="question">
-  <div class="qno">Q3. प्रश्न 3</div>
-
-  <div class="hindi">
-    भगोरिया उत्सव मुख्य रूप से मध्यप्रदेश की किस जनजातीय संस्कृति से जुड़ा है?
-  </div>
-
-  <div class="english">
-    The Bhagoria festival is mainly associated with which tribal culture of Madhya Pradesh?
-  </div>
-
-  <label class="option">
-    <input type="radio" name="q3" value="A">
-    A. भील / Bhil
-  </label>
-
-  <label class="option">
-    <input type="radio" name="q3" value="B">
-    B. टोडा / Toda
-  </label>
-
-  <label class="option">
-    <input type="radio" name="q3" value="C">
-    C. संथाल / Santhal
-  </label>
-
-  <label class="option">
-    <input type="radio" name="q3" value="D">
-    D. बोडो / Bodo
-  </label>
-
-  <div class="explanation" id="exp3">
-    <strong>Correct Answer: A</strong><br><br>
-    <b>हिंदी:</b> भगोरिया मध्यप्रदेश के पश्चिमी क्षेत्र में विशेष रूप से भील तथा संबंधित जनजातीय समुदायों की लोक संस्कृति से जुड़ा प्रमुख उत्सव है।<br><br>
-    <b>English:</b> Bhagoria is a major festival associated particularly with the folk culture of Bhil and related tribal communities in western Madhya Pradesh.
-  </div>
-</div>
-
-
-<!-- Q4 -->
-<div class="question">
-  <div class="qno">Q4. प्रश्न 4</div>
-
-  <div class="hindi">
-    गोंड चित्रकला किस राज्य की प्रमुख जनजातीय कला परंपराओं में से एक है?
-  </div>
-
-  <div class="english">
-    Gond painting is one of the major tribal art traditions of which Indian state?
-  </div>
-
-  <label class="option">
-    <input type="radio" name="q4" value="A">
-    A. मध्यप्रदेश / Madhya Pradesh
-  </label>
-
-  <label class="option">
-    <input type="radio" name="q4" value="B">
-    B. पंजाब / Punjab
-  </label>
-
-  <label class="option">
-    <input type="radio" name="q4" value="C">
-    C. केरल / Kerala
-  </label>
-
-  <label class="option">
-    <input type="radio" name="q4" value="D">
-    D. गोवा / Goa
-  </label>
-
-  <div class="explanation" id="exp4">
-    <strong>Correct Answer: A</strong><br><br>
-    <b>हिंदी:</b> गोंड चित्रकला मध्यप्रदेश की प्रसिद्ध जनजातीय कला परंपरा है। इसमें प्रकृति, पशु-पक्षी और लोक जीवन से जुड़े विषयों का चित्रण मिलता है।<br><br>
-    <b>English:</b> Gond painting is a well-known tribal art tradition of Madhya Pradesh, often depicting nature, animals, birds and elements of folk life.
-  </div>
-</div>
-
-
-<!-- Q5 -->
-<div class="question">
-  <div class="qno">Q5. प्रश्न 5</div>
-
-  <div class="hindi">
-    सहरिया जनजाति मध्यप्रदेश के किस क्षेत्र में विशेष रूप से पाई जाती है?
-  </div>
-
-  <div class="english">
-    The Sahariya tribe is particularly found in which region of Madhya Pradesh?
-  </div>
-
-  <label class="option">
-    <input type="radio" name="q5" value="A">
-    A. उत्तर-पश्चिमी मध्यप्रदेश / North-western Madhya Pradesh
-  </label>
-
-  <label class="option">
-    <input type="radio" name="q5" value="B">
-    B. केवल नर्मदा घाटी का दक्षिणी तट / Only southern bank of Narmada Valley
-  </label>
-
-  <label class="option">
-    <input type="radio" name="q5" value="C">
-    C. केवल मालवा का मध्य भाग / Only central Malwa
-  </label>
-
-  <label class="option">
-    <input type="radio" name="q5" value="D">
-    D. केवल बुंदेलखंड का दक्षिणी भाग / Only southern Bundelkhand
-  </label>
-
-  <div class="explanation" id="exp5">
-    <strong>Correct Answer: A</strong><br><br>
-    <b>हिंदी:</b> सहरिया जनजाति मध्यप्रदेश के उत्तर-पश्चिमी भाग, विशेषकर श्योपुर तथा आसपास के क्षेत्रों में पाई जाती है।<br><br>
-    <b>English:</b> The Sahariya tribe is found in the north-western part of Madhya Pradesh, particularly in and around the Sheopur region.
-  </div>
-</div>
-
-
-<div class="submit-wrap">
-  <button onclick="submitTest()">Submit Test</button>
-</div>
-
-<div id="result">
-  <div class="score" id="scoreText"></div>
-  <p id="message"></p>
-</div>
-
-<div class="footer">
-  MPPSC MCQ Hub V14 • Paid Prelims • P10T01
-</div>
-
-</div>
-
+<div id="questions"></div>
+<div class="result" id="result" aria-live="polite"></div>
+<div class="topbar"><div class="buttons"><button class="back" onclick="history.back()">← Back</button><button class="pdf" onclick="window.print()">PDF / Print</button><button class="submit" onclick="submitTest()">Submit Test</button></div></div>
 <script>
-
-function submitTest(){
-
-  const answers = {
-    q1:"A",
-    q2:"A",
-    q3:"A",
-    q4:"A",
-    q5:"A"
-  };
-
-  let score = 0;
-
-  for(let i=1;i<=5;i++){
-
-    const selected = document.querySelector(
-      'input[name="q'+i+'"]:checked'
-    );
-
-    document.getElementById("exp"+i).style.display="block";
-
-    if(selected && selected.value === answers["q"+i]){
-      score++;
-    }
-  }
-
-  document.getElementById("result").style.display="block";
-
-  document.getElementById("scoreText").innerHTML =
-    "Your Score: " + score + " / 5";
-
-  let msg="";
-
-  if(score===5){
-    msg="Excellent! सभी उत्तर सही हैं।";
-  }
-  else if(score>=3){
-    msg="Good! गलत प्रश्नों की explanation दोबारा पढ़ें।";
-  }
-  else{
-    msg="अधिक अभ्यास करें और explanations को ध्यान से पढ़ें।";
-  }
-
-  document.getElementById("message").innerHTML=msg;
-
-  window.scrollTo({
-    top:document.body.scrollHeight,
-    behavior:"smooth"
-  });
+const qs = [{"hi": "मध्य प्रदेश में विशेष रूप से कमजोर जनजातीय समूह (PVTG) के रूप में सामान्यतः किन समुदायों का उल्लेख किया जाता है?", "en": "Which communities are commonly identified as Particularly Vulnerable Tribal Groups (PVTGs) in Madhya Pradesh?", "options": ["बैगा, भारिया और सहरिया", "गोंड, भील और कोरकू", "कोल, भीलाला और पनिका", "भील, गोंड और कोरवा"], "answer": 0, "explanationHi": "मध्य प्रदेश में बैगा, भारिया और सहरिया PVTG के रूप में पहचाने जाते हैं।", "explanationEn": "Baiga, Bharia and Sahariya are identified as PVTGs in Madhya Pradesh."}, {"hi": "बैगा समुदाय का प्रमुख पारंपरिक निवास क्षेत्र किससे जुड़ा है?", "en": "The traditional habitat of the Baiga community is mainly associated with which region?", "options": ["मालवा का पश्चिमी मैदान", "मैकाल-सतपुड़ा का वन क्षेत्र, विशेषकर डिंडोरी-मंडला अंचल", "चंबल का मैदानी क्षेत्र", "केवल बुंदेलखंड का उत्तरी भाग"], "answer": 1, "explanationHi": "बैगा समुदाय का महत्वपूर्ण निवास क्षेत्र डिंडोरी, मंडला और आसपास के मैकाल अंचल में है।", "explanationEn": "Dindori, Mandla and the surrounding Maikal region are important Baiga areas."}, {"hi": "भारिया जनजाति का प्रमुख संबंध मध्य प्रदेश के किस क्षेत्र से है?", "en": "The Bharia tribe is especially associated with which region of Madhya Pradesh?", "options": ["ग्वालियर का शहरी क्षेत्र", "केवल उज्जैन का पठार", "पातालकोट और छिंदवाड़ा क्षेत्र", "चंबल घाटी"], "answer": 2, "explanationHi": "भारिया समुदाय का प्रमुख निवास क्षेत्र छिंदवाड़ा जिले का पातालकोट क्षेत्र है।", "explanationEn": "The Bharia community is especially associated with the Patalkot area of Chhindwara district."}, {"hi": "सहरिया जनजाति की उल्लेखनीय आबादी मध्य प्रदेश के किस क्षेत्र में पाई जाती है?", "en": "A significant Sahariya population is found in which part of Madhya Pradesh?", "options": ["नर्मदा डेल्टा", "केवल इंदौर नगर", "केवल बालाघाट का दक्षिणी भाग", "श्योपुर और आसपास का उत्तर-पश्चिमी क्षेत्र"], "answer": 3, "explanationHi": "सहरिया समुदाय की उल्लेखनीय आबादी श्योपुर और आसपास के उत्तर-पश्चिमी क्षेत्रों में है।", "explanationEn": "A significant Sahariya population lives in Sheopur and nearby north-western areas."}, {"hi": "जनजातियों के भौगोलिक वितरण को समझने के लिए सबसे उपयुक्त तरीका कौन-सा है?", "en": "Which is the most suitable way to understand the geographical distribution of tribes?", "options": ["जनगणना आँकड़ों, क्षेत्रीय अध्ययनों और समुदाय-विशिष्ट स्रोतों की तुलना", "केवल राजधानी की आबादी देखना", "एक गाँव के आधार पर पूरे राज्य का निष्कर्ष निकालना", "केवल पर्यटन पुस्तिका पर निर्भर रहना"], "answer": 0, "explanationHi": "विभिन्न विश्वसनीय स्रोतों का मिलान क्षेत्रीय विविधता की बेहतर समझ देता है।", "explanationEn": "Comparing reliable data and regional studies gives a more accurate picture of distribution."}, {"hi": "मध्य प्रदेश में गोंड समुदाय का ऐतिहासिक-सांस्कृतिक प्रसार मुख्यतः किन अंचलों से जुड़ा है?", "en": "The historical and cultural spread of the Gond community is mainly associated with which regions?", "options": ["केवल चंबल का मैदान", "महाकौशल, मंडला, डिंडोरी और आसपास के मध्य-पूर्वी क्षेत्र", "केवल मालवा का पश्चिमी हिस्सा", "केवल भोपाल शहर"], "answer": 1, "explanationHi": "गोंड समुदाय का ऐतिहासिक संबंध महाकौशल और मध्य-पूर्वी वनांचलों सहित कई क्षेत्रों से है।", "explanationEn": "The Gond community has historical ties to Mahakoshal and several central-eastern forest regions."}, {"hi": "कोरकू समुदाय का प्रमुख क्षेत्र किस भौगोलिक अंचल से जुड़ा है?", "en": "The Korku community is mainly associated with which geographical region?", "options": ["बुंदेलखंड का शुष्क उत्तरी भाग", "केवल ग्वालियर नगर", "सतपुड़ा अंचल, विशेषकर बैतूल-खंडवा के आसपास", "मालवा का पश्चिमी शहरी क्षेत्र"], "answer": 2, "explanationHi": "कोरकू समुदाय सतपुड़ा क्षेत्र, विशेषकर बैतूल और आसपास के जिलों से जुड़ा है।", "explanationEn": "The Korku community is associated with the Satpura region, particularly around Betul."}, {"hi": "किस कथन में जनजातीय भूगोल का सही दृष्टिकोण व्यक्त होता है?", "en": "Which statement reflects a sound approach to tribal geography?", "options": ["हर जनजाति केवल एक जिले में रहती है", "जनजातीय सीमाएँ हमेशा प्रशासनिक सीमाओं जैसी होती हैं", "सभी जनजातियों की आजीविका एक जैसी है", "समुदायों का फैलाव ऐतिहासिक, पर्यावरणीय और सामाजिक कारणों से विविध होता है"], "answer": 3, "explanationHi": "जनजातीय वितरण को इतिहास, पर्यावरण, आजीविका और सामाजिक बदलावों के संदर्भ में देखना चाहिए।", "explanationEn": "Tribal distribution should be understood through historical, environmental and social factors."}, {"hi": "बैगा समुदाय से पारंपरिक रूप से जुड़ा 'बेवर' किससे संबंधित है?", "en": "The traditional term 'bewar' associated with the Baiga community refers to what?", "options": ["स्थानांतरित/झूम प्रकार की खेती", "धातु पर नक्काशी", "नदी में मछली पकड़ने का जाल", "कपड़ा रंगने की तकनीक"], "answer": 0, "explanationHi": "बेवर शब्द पारंपरिक स्थानांतरित खेती के लिए प्रयुक्त होता रहा है।", "explanationEn": "Bewar has been used for a traditional form of shifting cultivation."}, {"hi": "जनजातीय क्षेत्रों में किसी योजना की आवश्यकता तय करते समय किस बात को प्राथमिकता देनी चाहिए?", "en": "What should be prioritized when identifying needs for a scheme in tribal areas?", "options": ["सभी क्षेत्रों में एक ही समाधान लागू करना", "स्थानीय जरूरतों, समुदाय की राय और क्षेत्रीय परिस्थितियों का आकलन", "केवल प्रचार सामग्री तैयार करना", "केवल जिला मुख्यालय के आँकड़े देखना"], "answer": 1, "explanationHi": "स्थानीय जरूरतों और समुदाय की भागीदारी के आधार पर योजना बनाना अधिक प्रभावी होता है।", "explanationEn": "Planning around local needs and community participation is more effective."}, {"hi": "टंट्या भील को सामान्यतः किस रूप में याद किया जाता है?", "en": "Tantya Bhil is generally remembered as what?", "options": ["मालवा के परमार शासक", "ग्वालियर रियासत के संस्थापक", "जनजातीय स्वतंत्रता-संग्राम सेनानी और जननायक", "आधुनिक हिंदी के कवि"], "answer": 2, "explanationHi": "टंट्या भील को औपनिवेशिक शासन के विरुद्ध संघर्ष करने वाले जननायक के रूप में याद किया जाता है।", "explanationEn": "Tantya Bhil is remembered as a folk hero who resisted colonial rule."}, {"hi": "भीमा नायक का नाम किस ऐतिहासिक संदर्भ में प्रमुखता से आता है?", "en": "In which historical context is Bhima Nayak's name prominent?", "options": ["दिल्ली सल्तनत की स्थापना", "चंदेल स्थापत्य", "स्वतंत्र भारत की पहली पंचवर्षीय योजना", "1857 के विद्रोह और ब्रिटिश-विरोधी जनजातीय प्रतिरोध"], "answer": 3, "explanationHi": "भीमा नायक निमाड़ क्षेत्र में 1857 के विद्रोह और ब्रिटिश-विरोधी प्रतिरोध से जुड़े रहे।", "explanationEn": "Bhima Nayak was associated with the 1857 uprising and anti-British resistance in the Nimar region."}, {"hi": "रानी दुर्गावती किस राज्य/राजनीतिक सत्ता से जुड़ी प्रसिद्ध शासिका थीं?", "en": "Rani Durgavati was a renowned ruler associated with which polity?", "options": ["गढ़-मंडला का गोंड राज्य", "होलकर राज्य", "भोपाल रियासत", "रीवा की बघेल सत्ता"], "answer": 0, "explanationHi": "रानी दुर्गावती गढ़-मंडला के गोंड राज्य की प्रसिद्ध शासिका थीं।", "explanationEn": "Rani Durgavati was a renowned ruler of the Gond kingdom of Garha-Mandla."}, {"hi": "रानी दुर्गावती का मुगल सेना से संघर्ष किस वर्ष हुआ था?", "en": "In which year did Rani Durgavati fight the Mughal forces?", "options": ["1526", "1564", "1605", "1707"], "answer": 1, "explanationHi": "रानी दुर्गावती ने 1564 में मुगल सेना का सामना किया और वीरगति प्राप्त की।", "explanationEn": "Rani Durgavati fought Mughal forces in 1564 and died in the conflict."}, {"hi": "टंट्या भील की स्मृति विशेष रूप से किस क्षेत्र की लोक-स्मृति में महत्वपूर्ण है?", "en": "Tantya Bhil's memory is especially important in the folk memory of which region?", "options": ["बुंदेलखंड का पूर्वी भाग בלבד", "केवल बघेलखंड", "निमाड़ और पश्चिमी मध्य प्रदेश", "केवल चंबल का उत्तरी भाग"], "answer": 2, "explanationHi": "टंट्या भील की स्मृति निमाड़ और पश्चिमी मध्य प्रदेश के अनेक क्षेत्रों में महत्वपूर्ण है।", "explanationEn": "Tantya Bhil is an important figure in the folk memory of Nimar and western Madhya Pradesh."}, {"hi": "जनजातीय स्वतंत्रता सेनानियों के इतिहास का अध्ययन करते समय सबसे संतुलित तरीका कौन-सा है?", "en": "What is the most balanced method for studying tribal freedom fighters?", "options": ["केवल किंवदंतियों को प्रमाण मानना", "स्थानीय स्मृति को पूरी तरह नकारना", "केवल औपनिवेशिक अधिकारियों की राय मानना", "अभिलेखों, स्थानीय परंपराओं और इतिहासकारों के अध्ययन का तुलनात्मक उपयोग"], "answer": 3, "explanationHi": "विभिन्न स्रोतों का आलोचनात्मक मिलान ऐतिहासिक समझ को मजबूत करता है।", "explanationEn": "Critically comparing archival, local and scholarly sources strengthens historical understanding."}, {"hi": "1857 के विद्रोह में जनजातीय नेतृत्व का अध्ययन क्यों महत्वपूर्ण है?", "en": "Why is the study of tribal leadership in the 1857 uprising important?", "options": ["यह स्थानीय प्रतिरोध और स्वतंत्रता-संघर्ष के विविध आयाम दिखाता है", "यह सिद्ध करता है कि सभी क्षेत्रों में एक जैसी घटनाएँ हुईं", "इसका स्थानीय समाज से कोई संबंध नहीं", "यह केवल दरबारी इतिहास है"], "answer": 0, "explanationHi": "जनजातीय नेतृत्व स्थानीय प्रतिरोध, औपनिवेशिक नीतियों और क्षेत्रीय इतिहास को समझने में मदद करता है।", "explanationEn": "Tribal leadership helps explain local resistance, colonial policies and regional history."}, {"hi": "टंट्या भील और भीमा नायक के योगदान का सही अध्ययन किस पर केंद्रित होना चाहिए?", "en": "A sound study of Tantya Bhil and Bhima Nayak should focus on what?", "options": ["केवल उनके नामों की वर्तनी", "उनके संघर्ष, क्षेत्रीय संदर्भ और उपलब्ध ऐतिहासिक साक्ष्य", "केवल आधुनिक फिल्मों के चित्रण", "बिना स्रोत के हर लोकप्रिय दावे को स्वीकार करना"], "answer": 1, "explanationHi": "जीवन, संघर्ष, क्षेत्रीय संदर्भ और स्रोतों का आलोचनात्मक अध्ययन आवश्यक है।", "explanationEn": "Their struggles, regional context and available evidence should be studied critically."}, {"hi": "जनजातीय लोकगीतों का एक महत्वपूर्ण सांस्कृतिक कार्य क्या हो सकता है?", "en": "What is one important cultural role of tribal folk songs?", "options": ["केवल सरकारी नियम सुनाना", "केवल लिखित कानून बदलना", "सामुदायिक स्मृति, अनुभव और रीति-रिवाजों को आगे पहुँचाना", "सभी स्थानीय भाषाओं को समाप्त करना"], "answer": 2, "explanationHi": "लोकगीत पीढ़ियों के बीच स्मृति, अनुभव और सांस्कृतिक मूल्यों को आगे पहुँचा सकते हैं।", "explanationEn": "Folk songs can transmit community memory, experience and cultural values across generations."}, {"hi": "भगोरिया उत्सव मुख्यतः मध्य प्रदेश के किस क्षेत्र से जुड़ा है?", "en": "Bhagoria festival is mainly associated with which region of Madhya Pradesh?", "options": ["केवल रीवा शहर", "केवल बुंदेलखंड", "केवल ग्वालियर का किला क्षेत्र", "पश्चिमी मध्य प्रदेश, विशेषकर झाबुआ-अलीराजपुर क्षेत्र"], "answer": 3, "explanationHi": "भगोरिया पश्चिमी मध्य प्रदेश, विशेषकर झाबुआ-अलीराजपुर क्षेत्र में प्रसिद्ध है।", "explanationEn": "Bhagoria is well known in western Madhya Pradesh, especially Jhabua-Alirajpur."}, {"hi": "गोंड चित्रकला की पहचानी जाने वाली विशेषता कौन-सी है?", "en": "Which is a recognized feature of Gond painting?", "options": ["रेखाओं, बिंदुओं और पैटर्न से आकृतियों को सजाना", "केवल संगमरमर की जड़ाई", "केवल फारसी सुलेख", "केवल धातु ढलाई"], "answer": 0, "explanationHi": "गोंड चित्रकला में आकृतियों के भीतर रेखा, बिंदु और दोहराए जाने वाले पैटर्न का उपयोग मिलता है।", "explanationEn": "Gond painting often uses lines, dots and repeated patterns within figures."}, {"hi": "भील चित्रकला की कई शैलियों में बिंदुओं का उपयोग किसलिए किया जाता है?", "en": "In several Bhil painting styles, dots are used for what purpose?", "options": ["केवल अक्षर लिखने के लिए", "रंगीन सतहों और आकृतियों में पैटर्न बनाने के लिए", "पत्थर काटने के लिए", "कपड़ा बुनने के लिए"], "answer": 1, "explanationHi": "बिंदु और रंगीन पैटर्न भील कला की कई शैलियों में दिखते हैं।", "explanationEn": "Dots and colourful patterns appear in several Bhil art styles."}, {"hi": "लोकनृत्य के अध्ययन में कौन-सी सावधानी आवश्यक है?", "en": "What caution is necessary when studying folk dances?", "options": ["हर नृत्य को बिना प्रमाण सभी जनजातियों का बताना", "मंचीय रूप को ही मूल परंपरा मानना", "समुदाय, अवसर, क्षेत्र और अनुष्ठानिक संदर्भ की जाँच करना", "नर्तकों के अपने विवरण को अनदेखा करना"], "answer": 2, "explanationHi": "लोकनृत्यों को उनके स्थानीय और सामाजिक संदर्भ में समझना चाहिए।", "explanationEn": "Folk dances should be understood in their local and social context."}, {"hi": "जनजातीय बोलियों के संरक्षण के लिए सबसे उपयोगी संयोजन कौन-सा है?", "en": "Which combination is most useful for preserving tribal languages and dialects?", "options": ["बोली का घर और विद्यालय में प्रयोग रोकना", "सभी बोलियों को एक नाम से बदल देना", "केवल एक वार्षिक भाषण", "मौखिक कथाओं का रिकॉर्ड, शब्द-संग्रह और पीढ़ियों के बीच प्रयोग"], "answer": 3, "explanationHi": "दस्तावेजीकरण के साथ दैनिक उपयोग और पीढ़ीगत हस्तांतरण भाषा-संरक्षण में सहायक हैं।", "explanationEn": "Documentation, everyday use and intergenerational transmission help preserve languages."}, {"hi": "जनजातीय संस्कृति को 'एक जैसी' मानना क्यों गलत है?", "en": "Why is it incorrect to treat tribal culture as uniform?", "options": ["क्योंकि समुदायों में भाषा, इतिहास, रीति और क्षेत्र के अनुसार विविधता होती है", "क्योंकि संस्कृति का अध्ययन संभव नहीं", "क्योंकि सभी समुदाय एक ही जगह रहते हैं", "क्योंकि सभी परंपराएँ लिखित हैं"], "answer": 0, "explanationHi": "जनजातीय समुदायों में आंतरिक और क्षेत्रीय विविधता होती है।", "explanationEn": "Tribal communities show internal and regional diversity."}, {"hi": "लोककथा को ऐतिहासिक स्रोत की तरह पढ़ते समय क्या करना चाहिए?", "en": "What should be done when reading a folktale as a historical source?", "options": ["कथा के हर अंश को अक्षरशः प्रमाणित तथ्य मानना", "कथा, प्रतीक और ऐतिहासिक स्मृति में अंतर कर अन्य स्रोतों से तुलना करना", "उसके सामाजिक संदर्भ को हटाना", "केवल पात्रों की संख्या गिनना"], "answer": 1, "explanationHi": "लोककथाओं में प्रतीक, कल्पना और स्मृति मिल सकते हैं; स्वतंत्र पुष्टि उपयोगी है।", "explanationEn": "Folktales may combine symbolism, imagination and memory; corroboration is useful."}, {"hi": "जनजातीय त्योहारों का दस्तावेजीकरण करते समय कौन-सा सिद्धांत जरूरी है?", "en": "Which principle is essential when documenting tribal festivals?", "options": ["स्थानीय लोगों की अनुमति की जरूरत नहीं", "अनुष्ठानों को केवल मनोरंजन बना देना", "समुदाय की सहमति, सही संदर्भ और सम्मानजनक प्रस्तुति", "हर समुदाय के लिए एक ही विवरण लिखना"], "answer": 2, "explanationHi": "समुदाय की सहमति और सांस्कृतिक गरिमा का सम्मान जरूरी है।", "explanationEn": "Community consent and cultural dignity must be respected."}, {"hi": "लोकसाहित्य में कहावतों और पहेलियों का अध्ययन किस बात की जानकारी दे सकता है?", "en": "What can the study of proverbs and riddles in folklore reveal?", "options": ["केवल आधुनिक चुनाव परिणाम", "केवल भवन निर्माण की तकनीक", "कोई सांस्कृतिक जानकारी नहीं", "भाषा, जीवन-अनुभव और स्थानीय सामाजिक मूल्यों"], "answer": 3, "explanationHi": "कहावतें और पहेलियाँ भाषा, अनुभव और सामाजिक मूल्यों को व्यक्त कर सकती हैं।", "explanationEn": "Proverbs and riddles can express language, experience and social values."}, {"hi": "जनजातीय हस्तशिल्प के संरक्षण में किस उपाय का विशेष महत्व है?", "en": "Which measure is particularly important in preserving tribal handicrafts?", "options": ["कलाकारों को उचित पारिश्रमिक, प्रशिक्षण और बाजार तक पहुँच देना", "कलाकारों के नाम हटाना", "सभी डिजाइनों की बिना अनुमति नकल करना", "स्थानीय सामग्री का प्रयोग रोकना"], "answer": 0, "explanationHi": "उचित पारिश्रमिक और बाजार-संपर्क कलाकारों की आजीविका और शिल्प को समर्थन देते हैं।", "explanationEn": "Fair payment and market access support artisans and craft traditions."}, {"hi": "किसे अमूर्त सांस्कृतिक विरासत का उदाहरण माना जा सकता है?", "en": "Which can be considered an example of intangible cultural heritage?", "options": ["केवल पत्थर का किला", "लोकगीत, नृत्य, मौखिक परंपराएँ और पारंपरिक कौशल", "केवल सड़क", "केवल खनिज भंडार"], "answer": 1, "explanationHi": "जीवित परंपराएँ, प्रदर्शन कलाएँ और पारंपरिक कौशल अमूर्त विरासत के उदाहरण हैं।", "explanationEn": "Living traditions, performing arts and traditional skills are examples of intangible heritage."}, {"hi": "जनजातीय कला में स्थानीय पर्यावरण का प्रभाव किस रूप में दिख सकता है?", "en": "How can the local environment influence tribal art?", "options": ["किसी भी रूप में नहीं", "केवल विदेशी व्यापार में", "उपलब्ध सामग्री, रंग, रूपांकन और उपयोगी वस्तुओं के चयन में", "केवल आधुनिक भवनों में"], "answer": 2, "explanationHi": "स्थानीय संसाधन और जीवनशैली कला की सामग्री और रूपांकन को प्रभावित कर सकते हैं।", "explanationEn": "Local resources and lifestyles can influence materials and motifs."}, {"hi": "जनजातीय संस्कृति के संरक्षण का सबसे उपयुक्त अर्थ क्या है?", "en": "What is the most appropriate meaning of preserving tribal culture?", "options": ["हर बदलाव को रोक देना", "परंपराओं को केवल संग्रहालय में बंद करना", "स्थानीय भाषाओं को हटाना", "समुदाय की भागीदारी से जीवित परंपराओं और ज्ञान को आगे बढ़ाना"], "answer": 3, "explanationHi": "संरक्षण में समुदाय की भूमिका और परंपराओं का जीवंत हस्तांतरण महत्वपूर्ण है।", "explanationEn": "Preservation involves community participation and living transmission of traditions."}, {"hi": "मध्य प्रदेश में जनजातीय कल्याण योजनाओं का मूल्यांकन किस आधार पर होना चाहिए?", "en": "How should tribal welfare schemes in Madhya Pradesh be evaluated?", "options": ["बजट, पहुँच, क्रियान्वयन, समुदाय की भागीदारी और परिणाम", "केवल विज्ञापन की संख्या", "केवल योजना के नाम", "केवल उद्घाटन समारोह"], "answer": 0, "explanationHi": "योजना के वास्तविक लाभ, पहुँच और परिणाम उसके मूल्यांकन के प्रमुख आधार हैं।", "explanationEn": "Actual benefits, reach, implementation and outcomes are key evaluation criteria."}, {"hi": "जनजातीय क्षेत्रों में आजीविका सुधार की योजना बनाते समय कौन-सा दृष्टिकोण बेहतर है?", "en": "Which approach is better when planning livelihood improvement in tribal areas?", "options": ["सभी परिवारों के लिए एक ही व्यवसाय तय करना", "स्थानीय संसाधन, कौशल, बाजार और समुदाय की प्राथमिकताओं को साथ देखना", "स्थानीय कौशल की अनदेखी करना", "केवल बाहरी ठेकेदारों को लाभ देना"], "answer": 1, "explanationHi": "स्थानीय कौशल और जरूरतों के अनुरूप आजीविका उपाय अधिक टिकाऊ हो सकते हैं।", "explanationEn": "Livelihood measures aligned with local skills and needs can be more sustainable."}, {"hi": "वनाधिकार से जुड़े विषयों में ग्राम सभा की भूमिका क्यों महत्वपूर्ण है?", "en": "Why is the role of the Gram Sabha important in forest-rights matters?", "options": ["क्योंकि ग्राम सभा सभी राष्ट्रीय कानूनों को बदल सकती है", "क्योंकि इससे किसी दस्तावेज की जरूरत नहीं रहती", "कानून के अंतर्गत निर्धारित प्रक्रियाओं में स्थानीय दावों और समुदाय की भागीदारी के कारण", "क्योंकि इसका कोई कानूनी संदर्भ नहीं"], "answer": 2, "explanationHi": "वनाधिकार कानून के अंतर्गत ग्राम सभा की महत्वपूर्ण निर्धारित भूमिकाएँ हैं; प्रक्रिया कानून के अनुसार होती है।", "explanationEn": "The Forest Rights Act assigns important roles to Gram Sabhas, subject to statutory procedures."}, {"hi": "जनजातीय विद्यार्थियों की शिक्षा में मातृभाषा-आधारित शुरुआती शिक्षा का संभावित लाभ क्या है?", "en": "What is a potential benefit of mother-tongue-based early education for tribal students?", "options": ["अन्य भाषाएँ सीखना असंभव हो जाता है", "स्थानीय ज्ञान को हटाना आसान होता है", "शिक्षक की जरूरत समाप्त हो जाती है", "बच्चों के अनुभव और विद्यालयी सीख के बीच सेतु बनता है"], "answer": 3, "explanationHi": "परिचित भाषा शुरुआती समझ और सहभागिता में मदद कर सकती है, साथ ही बहुभाषिकता भी महत्वपूर्ण है।", "explanationEn": "A familiar language can support early understanding and participation while multilingual learning remains important."}, {"hi": "जनजातीय क्षेत्रों में स्वास्थ्य और पोषण कार्यक्रमों को प्रभावी बनाने के लिए क्या जरूरी है?", "en": "What is necessary to make health and nutrition programmes effective in tribal areas?", "options": ["स्थानीय परिस्थितियों, पहुँच, पोषण जरूरतों और समुदाय की भागीदारी का ध्यान", "स्थानीय भाषा का प्रयोग न करना", "सभी क्षेत्रों में समान बाधाएँ मानना", "केवल पोस्टर लगाना"], "answer": 0, "explanationHi": "स्थानीय भाषा, भौगोलिक पहुँच और समुदाय की भागीदारी सेवा-प्रभावशीलता बढ़ा सकती है।", "explanationEn": "Local language, geographical access and community participation can improve service delivery."}, {"hi": "PVTG समुदायों के विकास कार्यक्रमों में विशेष ध्यान क्यों दिया जाता है?", "en": "Why do development programmes give special attention to PVTG communities?", "options": ["क्योंकि सभी PVTG समुदाय शहरों में रहते हैं", "ऐतिहासिक व सामाजिक वंचना और विशिष्ट जरूरतों के कारण लक्षित सहायता आवश्यक हो सकती है", "क्योंकि उनकी संस्कृति बदलनी चाहिए", "क्योंकि उनके लिए कोई योजना नहीं बन सकती"], "answer": 1, "explanationHi": "PVTG समुदायों की विशिष्ट परिस्थितियों और विकास संबंधी जरूरतों को ध्यान में रखकर लक्षित सहायता दी जाती है।", "explanationEn": "Targeted support may be needed to address the distinct circumstances and development needs of PVTGs."}, {"hi": "जनजातीय विरासत-स्थलों के संरक्षण में सबसे उपयुक्त नीति कौन-सी है?", "en": "Which policy is most appropriate for conserving tribal heritage sites?", "options": ["बिना अध्ययन निर्माण कार्य करना", "स्थल का इतिहास हटाना", "स्थानीय समुदाय की भागीदारी, संरक्षण विशेषज्ञता और टिकाऊ प्रबंधन", "स्थानीय लोगों की पहुँच हमेशा रोकना"], "answer": 2, "explanationHi": "समुदाय की भागीदारी और विशेषज्ञ संरक्षण विरासत-स्थलों के टिकाऊ प्रबंधन में मदद करते हैं।", "explanationEn": "Community participation and expert conservation support sustainable heritage management."}, {"hi": "जनजातीय ज्ञान के दस्तावेजीकरण से पहले क्या सुनिश्चित करना चाहिए?", "en": "What should be ensured before documenting tribal knowledge?", "options": ["हर जानकारी को स्वतः सार्वजनिक मानना", "ज्ञानधारकों का श्रेय हटाना", "बिना अनुमति व्यावसायिक उपयोग करना", "जहाँ आवश्यक हो, सूचित सहमति और उपयोग की शर्तें स्पष्ट करना"], "answer": 3, "explanationHi": "सहमति, श्रेय और उपयोग की शर्तें सांस्कृतिक ज्ञान के जिम्मेदार दस्तावेजीकरण का हिस्सा हैं।", "explanationEn": "Consent, attribution and clear usage terms are part of responsible documentation."}, {"hi": "किस प्रकार का साक्ष्य किसी सरकारी योजना की सफलता का आकलन बेहतर बनाता है?", "en": "Which evidence better helps assess the success of a government scheme?", "options": ["लाभार्थियों तक पहुँच, सेवा की गुणवत्ता और मापने योग्य परिणाम", "केवल भाषण", "केवल योजना का लोगो", "केवल एक अप्रमाणित दावा"], "answer": 0, "explanationHi": "लाभार्थियों की पहुँच और परिणाम योजना की वास्तविक प्रभावशीलता समझने में मदद करते हैं।", "explanationEn": "Beneficiary reach and measurable outcomes help assess actual effectiveness."}, {"hi": "जनजातीय संस्कृति पर पर्यटन का प्रभाव आंकते समय कौन-सी बात जरूरी है?", "en": "What is important when assessing tourism's impact on tribal culture?", "options": ["सभी अनुष्ठानों को प्रदर्शन में बदल देना", "आर्थिक लाभ के साथ सहमति, गरिमा और सांस्कृतिक संदर्भ देखना", "समुदाय की राय को हटाना", "सांस्कृतिक अधिकारों को अप्रासंगिक मानना"], "answer": 1, "explanationHi": "पर्यटन में आर्थिक लाभ के साथ समुदाय की सहमति और सांस्कृतिक गरिमा भी जरूरी है।", "explanationEn": "Tourism should consider consent and cultural dignity alongside economic benefits."}, {"hi": "मध्य प्रदेश की जनजातीय विरासत पर परीक्षा-उत्तर लिखते समय सबसे संतुलित दृष्टिकोण कौन-सा है?", "en": "Which is the most balanced approach when writing an exam answer on tribal heritage of Madhya Pradesh?", "options": ["केवल गौरवगान करना", "सभी समुदायों को एक जैसा बताना", "तथ्य, क्षेत्रीय विविधता, ऐतिहासिक संदर्भ और वर्तमान चुनौतियों का संतुलित उल्लेख", "स्रोतों की आवश्यकता न मानना"], "answer": 2, "explanationHi": "संतुलित उत्तर में प्रमाण, विविधता, ऐतिहासिक योगदान और समकालीन संदर्भ शामिल होते हैं।", "explanationEn": "A balanced answer includes evidence, diversity, historical contributions and contemporary context."}, {"hi": "टंट्या भील जैसे लोकनायकों की स्मृति आज भी क्यों महत्वपूर्ण है?", "en": "Why does the memory of folk heroes such as Tantya Bhil remain important?", "options": ["केवल इसलिए कि उनके नाम पर स्थान हो सकते हैं", "क्योंकि लोकस्मृति का इतिहास से कोई संबंध नहीं", "क्योंकि सभी कथाएँ समान रूप से प्रमाणित हैं", "यह स्थानीय प्रतिरोध, पहचान और ऐतिहासिक स्मृति को समझने में मदद करती है"], "answer": 3, "explanationHi": "लोकनायकों की स्मृति स्थानीय पहचान और प्रतिरोध के इतिहास को समझने में मदद करती है, साथ ही स्रोतों की जाँच भी जरूरी है।", "explanationEn": "Their memory helps explain local identity and resistance, while sources still require critical examination."}, {"hi": "किस विकल्प में जनजातीय भाषाओं के संरक्षण की समग्र रणनीति है?", "en": "Which option presents a comprehensive strategy for preserving tribal languages?", "options": ["शिक्षा, मौखिक अभिलेखन, साहित्य, समुदाय-आधारित उपयोग और पीढ़ीगत हस्तांतरण", "केवल एक शब्दकोश छापना", "बोली के उपयोग पर रोक लगाना", "स्थानीय कथाओं को हटाना"], "answer": 0, "explanationHi": "भाषा का जीवित उपयोग, शिक्षा और दस्तावेजीकरण मिलकर संरक्षण को मजबूत करते हैं।", "explanationEn": "Living use, education and documentation together strengthen language preservation."}, {"hi": "रानी दुर्गावती के इतिहास को पढ़ते समय कौन-सी पद्धति उचित है?", "en": "Which method is appropriate when studying the history of Rani Durgavati?", "options": ["केवल आधुनिक पोस्टर देखना", "ऐतिहासिक स्रोतों और बाद की सांस्कृतिक स्मृति का आलोचनात्मक तुलनात्मक अध्ययन", "केवल काल्पनिक संवाद पढ़ना", "लोकस्मृति को बिना तुलना अंतिम प्रमाण मानना"], "answer": 1, "explanationHi": "ऐतिहासिक स्रोतों और लोकस्मृति को अलग पहचानते हुए तुलना करना उचित है।", "explanationEn": "It is useful to compare historical sources and later cultural memory critically."}, {"hi": "जनजातीय समुदायों के पारंपरिक ज्ञान और आधुनिक विज्ञान के बीच संवाद कैसा होना चाहिए?", "en": "How should dialogue between traditional tribal knowledge and modern science proceed?", "options": ["हर पारंपरिक दावा स्वतः वैज्ञानिक घोषित करके", "पारंपरिक ज्ञान को पहले से निरर्थक मानकर", "सम्मान, सहमति और जहाँ जरूरी हो, प्रमाण-आधारित जाँच के साथ", "ज्ञानधारकों को चर्चा से बाहर रखकर"], "answer": 2, "explanationHi": "सम्मानजनक संवाद में ज्ञानधारकों की भागीदारी और दावों की उचित जाँच दोनों महत्वपूर्ण हैं।", "explanationEn": "Respectful dialogue requires knowledge-holder participation and appropriate evaluation of claims."}, {"hi": "जनजातीय कल्याण और विरासत संरक्षण के बीच संबंध को सबसे अच्छी तरह कौन-सा कथन व्यक्त करता है?", "en": "Which statement best expresses the relationship between tribal welfare and heritage conservation?", "options": ["दोनों का एक-दूसरे से कोई संबंध नहीं", "विरासत संरक्षण केवल इमारतों के लिए है", "कल्याण के लिए स्थानीय पहचान हटाना जरूरी है", "कल्याण, भाषा-संस्कृति, आजीविका और समुदाय की भागीदारी को समन्वित किया जा सकता है"], "answer": 3, "explanationHi": "समावेशी विकास में आजीविका, सेवाएँ और समुदाय की सांस्कृतिक पहचान का सम्मान साथ चल सकते हैं।", "explanationEn": "Inclusive development can combine livelihoods and services with respect for cultural identity."}, {"hi": "किसी जनजातीय उत्सव की उत्पत्ति पर विरोधी दावे मिलें तो क्या करना चाहिए?", "en": "What should be done when sources disagree about the origin of a tribal festival?", "options": ["स्रोतों की गुणवत्ता जाँचना और अनिश्चितता स्पष्ट करना", "सबसे लोकप्रिय दावा चुन लेना", "विरोधी साक्ष्य मिटा देना", "बिना जाँच तारीख तय कर देना"], "answer": 0, "explanationHi": "स्रोत-आलोचना और अनिश्चितता स्पष्ट करना विश्वसनीय अध्ययन का हिस्सा है।", "explanationEn": "Source criticism and clearly stating uncertainty are part of reliable study."}, {"hi": "जनजातीय विकास योजनाओं में समुदाय की सार्थक भागीदारी का अर्थ क्या है?", "en": "What does meaningful community participation in tribal development schemes mean?", "options": ["केवल उपस्थिति दर्ज करना", "निर्णय, क्रियान्वयन और समीक्षा में वास्तविक भूमिका देना", "योजना पूरी होने के बाद सूचना देना", "समुदाय की राय को नज़रअंदाज़ करना"], "answer": 1, "explanationHi": "सार्थक भागीदारी में योजना के निर्णय से लेकर समीक्षा तक समुदाय की भूमिका होती है।", "explanationEn": "Meaningful participation includes a role in decisions, implementation and review."}];
+const letters=["A","B","C","D"];
+function render(){
+ document.getElementById("questions").innerHTML=qs.map((q,i)=>`
+ <article class="question" id="q${i}">
+ <h3>प्रश्न ${i+1}. ${q.hi}</h3>
+ <p class="enq">Q${i+1}. ${q.en}</p>
+ <div>${q.options.map((op,j)=>`<label class="option" id="q${i}o${j}"><input type="radio" name="q${i}" value="${j}" onchange="updateProgress()"><span><b>${letters[j]}.</b> ${op}</span></label>`).join("")}</div>
+ <div class="explanation" id="exp${i}"></div></article>`).join("");
 }
-
+function updateProgress(){
+ let n=qs.reduce((s,q,i)=>s+(document.querySelector(`input[name="q${i}"]:checked`)?1:0),0);
+ document.getElementById("progress").textContent=`Attempted / हल किए: ${n} / ${qs.length}`;
+}
+function submitTest(){
+ let attempted=0,score=0;
+ qs.forEach((q,i)=>{
+  const chosen=document.querySelector(`input[name="q${i}"]:checked`);
+  if(chosen){attempted++;if(Number(chosen.value)===q.answer)score++;}
+  q.options.forEach((_,j)=>document.getElementById(`q${i}o${j}`).classList.remove("correct","wrong"));
+  if(chosen && Number(chosen.value)!==q.answer)document.getElementById(`q${i}o${Number(chosen.value)}`).classList.add("wrong");
+  document.getElementById(`q${i}o${q.answer}`).classList.add("correct");
+  document.getElementById(`exp${i}`).style.display="block";
+  document.getElementById(`exp${i}`).innerHTML=`<b>सही उत्तर / Correct Answer: ${letters[q.answer]}. ${q.options[q.answer]}</b><br>${q.explanationHi}<br>${q.explanationEn}`;
+ });
+ const r=document.getElementById("result");r.style.display="block";
+ r.innerHTML=`<h2>परिणाम / Result</h2><p><b>स्कोर / Score:</b> ${score} / ${qs.length}</p><p><b>प्रयास किए / Attempted:</b> ${attempted} / ${qs.length}</p><p><b>गलत या छोड़े गए / Incorrect or skipped:</b> ${qs.length-score}</p><p>गलत चुना गया विकल्प लाल और सही उत्तर हरे रंग में दिखेगा। / Wrong selections appear red and correct answers green.</p>`;
+ r.scrollIntoView({behavior:"smooth",block:"start"});
+}
+render();
 </script>
-
 </body>
 </html>
