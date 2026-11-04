@@ -1,6 +1,6 @@
 import os
 
-# Create the generated directory if it doesn't exist
+# निर्देशिका सुनिश्चित करें
 os.makedirs("generated", exist_ok=True)
 
 html_content = """<!DOCTYPE html>
@@ -15,7 +15,6 @@ html,body{margin:0;padding:0;width:100%;font-family:Arial,"Noto Sans Devanagari"
 body{background:#edf1f6}
 header{background:#164f86;color:white;padding:12px 5px;text-align:center}
 .brand{display:flex;align-items:center;justify-content:center;gap:10px}
-.logo{width:46px;height:46px;object-fit:contain;background:white;border-radius:50%;padding:3px}
 h1{font-size:21px;margin:2px}
 header p{margin:5px;font-size:14px}
 main{width:100%;max-width:none;margin:auto;padding:5px}
@@ -28,7 +27,7 @@ button:disabled{opacity:.55;cursor:not-allowed}
 .timer{background:#fff3cd;border:1px solid #e1c66a;border-radius:7px;padding:10px;text-align:center;font-weight:bold}
 .instructions{background:white;padding:10px;border:1px solid #d8e0e9;border-radius:7px;margin:8px 0;line-height:1.6;font-size:14px}
 .question{background:white;border:1px solid #d4dce6;border-radius:7px;margin:8px 0;padding:12px}
-.qtitle{font-weight:bold;line-height:1.65;margin-bottom:10px}
+.qtitle{font-weight:bold;line-height:1.65;margin-bottom:10px;white-space: pre-line;}
 .option{display:block;border:1px solid #d7dee8;border-radius:6px;padding:9px;margin:6px 0;line-height:1.55;cursor:pointer}
 .option input{accent-color:#164f86;margin-right:7px}
 .option.correct{background:#d8f5df!important;border-color:#218838;color:#145523}
@@ -44,7 +43,7 @@ button:disabled{opacity:.55;cursor:not-allowed}
 <div style="text-align:center;background:#fff;padding:8px 4px;font-size:20px;font-weight:bold;color:#d71920">https://mppscportal.in</div>
 <header style="background:#111;color:white;border-bottom:4px solid #d71920">
  <div class="brand">
-  <div style="width:46px;height:46px;background:white;border-radius:50%;display:inline-block;line-height:46px;color:#111;font-weight:bold;font-size:18px">MP</div>
+  <div style="width:46px;height:46px;background:white;border-radius:50%;display:inline-block;line-height:46px;color:#111;font-weight:bold;font-size:18px;text-align:center;">MP</div>
   <div><h1 style="color:#ff4040">MPPSC PORTAL</h1><p>MPPSC Prelims 2026 | मध्य प्रदेश की जनजातियाँ, विरासत व लोक संस्कृति</p><p><b>UNIT 10 — TEST 1 | 50 MCQs (Very Hard Level)</b></p></div>
  </div>
 </header>
@@ -71,14 +70,14 @@ button:disabled{opacity:.55;cursor:not-allowed}
 <script>
 const questions = [
   {
-    "q": "Q1. मध्य प्रदेश की जनजातियों के संदर्भ में निम्नलिखित कथनों पर विचार कीजिए:\\n1. वर्ष 2003 में केंद्र सरकार ने अनुच्छेद 342(2) के तहत कीर, मीणा और पारदी जनजातियों को मध्य प्रदेश की अनुसूचित जनजाति (ST) सूची से बाहर कर दिया था।\\n2. वर्तमान में वर्ष 2011 की जनगणना के अनुसार मध्य प्रदेश में कुल 43 अनुसूचित जनजातियाँ अधिसूचित हैं।\\nउपरोक्त में से कौन-सा/से कथन सत्य है/हैं?",
+    "q": "Q1. मध्य प्रदेश की जनजातियों के संदर्भ में निम्नलिखित कथनों पर विचार कीजिए:\\n1. वर्ष 2003 में केंद्र सरकार ने अनुच्छेद 342(2) के तहत कीर, मीणा और पारदी जनजातियों को मध्य प्रदेश की अनुसूचित जनजाति (ST) सूची से बाहर कर दिया था।\\n2. वर्तमान में वर्ष 2011 की जनगणना के अनुसार मध्य प्रदेश में कुल 43 अनुसूचित जनजातियाँ अधिसूचित हैं।\\n\\nउपरोक्त में से कौन-सा/से कथन सत्य है/हैं?",
     "o": ["केवल 1", "केवल 2", "1 और 2 दोनों", "न तो 1 और न ही 2"],
     "a": 2,
     "e": "वर्ष 2003 के संशोधन अधिनियम द्वारा कीर, मीणा और पारदी को सूची से हटाया गया था (पारदी को केवल कुछ क्षेत्रों को छोड़कर)। कुल 43 जनजातियाँ वर्तमान में अधिसूचित हैं।"
   },
   {
     "q": "Q2. भारिया जनजाति के पारंपरिक सामाजिक संगठन में 'रंगबंग' क्या है?",
-    "o": ["एक प्रकार का विवाह उत्सव", "पारंपरिक युवागृह (Youth House)", "स्थानांतरित कृषि का एक रूप", "मृत्यु संस्कार के समय गाया जाने वाला गीत"],
+    "o": ["एक प्रकार का विवाह उत्सव", "पारंपरिक युवागृह (Youth House)", "स्थानांतरित कृषि का एक रूप", "मृतৃত্ব संस्कार के समय गाया जाने वाला गीत"],
     "a": 1,
     "e": "भारिया जनजाति में पारंपरिक युवागृह या घोटुल जैसी संस्था को स्थानीय रूप से 'रंगबंग' के नाम से जाना जाता है।"
   },
@@ -113,13 +112,13 @@ const questions = [
     "e": "ब्रिटिश सरकार ने वनों के व्यावसायिक दोहन और बेवर कृषि से होने वाले नुकसान को रोकने के लिए 1878 के वन अधिनियम के आस-पास कड़े नियम व बंदोबस्त लागू किए थे।"
   },
   {
-    "q": "Q8. सूची-I (जनजातीय व्यक्तित्व) को सूची-II (संबंधित विद्रोह/क्षेत्र) से सुमेलित कीजिए:\\n(a) खाज्या नायक - (2) अंबापानी का युद्ध (1858)\\n(b) भीमा नायक - (3) निमाड़ विद्रोह (1857)\\n(c) गुंजन सिंह कोरकू - (1) घोड़ाडोंगरी सत्याग्रह (1930)\\n(d) टंट्या भील - (4) मालवा-निमाड़ गुरिल्ला युद्ध\\nसही कूट का चयन कीजिए:",
+    "q": "Q8. सूची-I (जनजातीय व्यक्तित्व) को सूची-II (संबंधित विद्रोह/क्षेत्र) से सुमेलित कीजिए:\\n(a) खाज्या नायक - (2) अंबापानी का युद्ध (1858)\\n(b) भीमा नायक - (3) निमाड़ विद्रोह (1857)\\n(c) गुंजन सिंह कोरकू - (1) घोड़ाडोंगरी सत्याग्रह (1930)\\n(d) टंट्या भील - (4) मालवा-निमाड़ गुरिल्ला युद्ध\\n\\nसही कूट का चयन कीजिए:",
     "o": ["a-2, b-3, c-1, d-4", "a-3, b-2, c-4, d-1", "a-2, b-4, c-1, d-3", "a-1, b-2, c-3, d-4"],
     "a": 0,
     "e": "खाज्या नायक अंबापानी युद्ध, भीमा नायक निमाड़ विद्रोह के मुख्य नायक, गुंजन सिंह घोड़ाडोंगरी (1930) तथा टंट्या भील गुरिल्ला संघर्ष से जुड़े थे।"
   },
   {
-    "q": "Q9. मध्य प्रदेश के किस जिले में 'आदिवासी अनुसंधान एवं संचार केंद्र' (Tribal Research and Communication Center) स्थित है?",
+    "q": "Q9. मध्य प्रदेश के किस जिले में 'आवासी अनुसंधान एवं संचार केंद्र' (Tribal Research and Communication Center) स्थित है?",
     "o": ["अलीराजपुर", "झाबुआ", "डिंडोरी", "छिंदवाड़ा"],
     "a": 1,
     "e": "झाबुआ जिले में आदिवासी अनुसंधान एवं संचार केंद्र की स्थापना की गई है जो जनजातीय लोक संचार माध्यमों पर शोध करता है।"
@@ -155,7 +154,7 @@ const questions = [
     "e": "प्रसिद्ध मानवविज्ञानी वेरियर एल्विन ने मध्य भारत की बैगा जनजाति पर गहन शोध कर 'The Baiga' (1939) पुस्तक लिखी थी।"
   },
   {
-"q": "Q15. कोरकू जनजाति में प्रचलित 'सिटोली' प्रथा का संबंध निम्नलिखित में से किस संस्कार से है?",
+    "q": "Q15. कोरकू जनजाति में प्रचलित 'सिटोली' प्रथा का संबंध निम्नलिखित में से किस संस्कार से है?",
 "o": ["जन्म संस्कार", "विवाह संस्कार", "गृह प्रवेश संस्कार", "मृत्यु संस्कार"],
 "a": 3,
 "e": "कोरकू जनजाति में 'सिटोली' या 'सिडोली' एक अत्यंत महत्वपूर्ण मृत्यु संस्कार है, जिसमें मृतक की याद में लकड़ी का स्तंभ (गाथा) गाड़ा जाता है।"
@@ -252,7 +251,7 @@ const questions = [
 },
 {
 "q": "Q31. भील जनजाति की उपजाति 'पटालिया' मुख्य रूप से मध्य प्रदेश के किस भौगोलिक क्षेत्र में पाई जाती है?",
-"o": ["झाबुआ और धार जिले", "शहडोलและ सीधी जिले", "ग्वालियर और शिवपुरी जिले", "छिंदवाड़ा और सिवनी जिले"],
+"o": ["झाबुआ और धार जिले", "शहडोल और सीधी जिले", "ग्वालियर और शिवपुरी जिले", "छिंदवाड़ा और सिवनी जिले"],
 "a": 0,
 "e": "पटालिया भीलों की एक उपजाति है जो मुख्य रूप से झाबुआ, धार और गुजरात से सटे सीमावर्ती जिलों में निवास करती है।"
 },
@@ -288,7 +287,7 @@ const questions = [
 },
 {
 "q": "Q37. मध्य प्रदेश के 'बादल भोई जनजातीय संग्रहालय' की स्थापना किस वर्ष की गई थी तथा यह कहाँ स्थित है?",
-"o": ["1954, छिंदवाड़ा", "1965, Bhopal", "1972, झाबुआ", "1980, मंडला"],
+"o": ["1954, छिंदवाड़ा", "1965, भोपाल", "1972, झाबुआ", "1980, मंडला"],
 "a": 0,
 "e": "इस राजकीय जनजातीय संग्रहालय की स्थापना 20 अप्रैल 1954 को छिंदवाड़ा में हुई थी। वर्ष 1997 में इसका नाम बदलकर महान क्रांतिकारी 'बादल भोई' के नाम पर रखा गया।"
 },
@@ -330,12 +329,12 @@ const questions = [
 },
 {
 "q": "Q44. 'माचा' या 'माच' लोकनाट्य के संदर्भ में कौन-सा कथन सत्य है?",
-"o": ["यह बुंदेलखंड अंचल का मुख्य लोकनाट्य है।", "इसके मंच को खुला रखा जाता है और इसमें ढोलक तथा सारंगी का प्रयोग प्रमुखता से होता है।", "यह केवल पुरुषों द्वारा ही दिन के समय अभिनीत किया जाता है।", "इसके प्रणेता गुरु गोपाल जी माने जाते हैं।"],
+"o": ["यह बुंदेलखंड अंचल का मुख्य लोकनाट्य है。", "इसके मंच को खुला रखा जाता है और इसमें ढोलक तथा सारंगी का प्रयोग प्रमुखता से होता है。", "यह केवल पुरुषों द्वारा ही दिन के समय अभिनीत किया जाता है。", "इसके प्रणेता गुरु गोपाल जी माने जाते हैं।"],
 "a": 1,
 "e": "माच मालवा का राज्य लोकनाट्य है। इसके खुले ऊंचे मंच पर ढोलक और सारंगी की धुनों पर लोकगाथाएं अभिनीत की जाती हैं।"
 },
 {
-"q": "Q45. मध्य प्रदेश की 'हल्बा' जनजाति का मुख्य संकेंद्रण किस जिले में पाया जाता है?",
+"q": "Q45. मध्य प्रदेश की 'हल्बा' जनजाति का मुख्य संकेंद्रीयण किस जिले में पाया जाता है?",
 "o": ["शिवपुरी", "झाबुआ", "बालाघाट", "नीमच"],
 "a": 2,
 "e": "हल्बा जनजाति मुख्य रूप से छत्तीसगढ़ की सीमा से लगे मध्य प्रदेश के बालाघाट और डिंडोरी जिलों के कुछ क्षेत्रों में केंद्रित है।"
@@ -372,7 +371,7 @@ const questions = [
 }
 ];
 let userAnswers = new Array(questions.length).fill(null);
-let timeRemaining = 3600; // 60 minutes
+let timeRemaining = 3600;
 let timerInterval;
 function initQuiz() {
 const quizContainer = document.getElementById('quiz');
@@ -382,7 +381,7 @@ html += <div class="question" id="qbox_${qIndex}"> <div class="qtitle">${q.q}</d
 q.o.forEach((opt, oIndex) => {
 html += <label class="option" id="optlabel_${qIndex}_${oIndex}"> <input type="radio" name="q_${qIndex}" value="${oIndex}" onclick="selectOption(${qIndex}, ${oIndex})"> ${String.fromCharCode(65 + oIndex)}) ${opt} </label>;
 });
-html += <div class="explanation" id="exp_${qIndex}"><b>व्याख्या:</b> ${q.e}</div> </div>;
+html += <div class="explanation" id="exp_${qIndex}"></div> </div>;
 });
 quizContainer.innerHTML = html;
 startTimer();
@@ -414,34 +413,27 @@ let unattemptedCount = 0;
 questions.forEach((q, qIndex) => {
 const uAns = userAnswers[qIndex];
 const cAns = q.a;
-// Show all explanations
-document.getElementById(exp_${qIndex}).style.display = 'block';
+const expBox = document.getElementById(exp_${qIndex});
+expBox.innerHTML = <b>व्याख्या:</b> ${q.e};
+expBox.style.display = 'block';
 if (uAns === null) {
 unattemptedCount++;
-// Highlight correct answer even if not attempted
 document.getElementById(optlabel_${qIndex}_${cAns}).classList.add('correct');
 } else if (parseInt(uAns) === cAns) {
 correctCount++;
-score += 2; // 2 marks each
+score += 2;
 document.getElementById(optlabel_${qIndex}_${cAns}).classList.add('correct');
 } else {
 wrongCount++;
 document.getElementById(optlabel_${qIndex}_${uAns}).classList.add('wrong');
 document.getElementById(optlabel_${qIndex}_${cAns}).classList.add('correct');
 }
-// Disable all radio buttons
 const radios = document.getElementsByName(q_${qIndex});
 radios.forEach(r => r.disabled = true);
 });
 const resultDiv = document.getElementById('result');
 resultDiv.style.display = 'block';
-resultDiv.innerHTML = <h2>परीक्षा परिणाम / Test Result</h2> <div class="score">प्राप्तांक: ${score} / 100</div> <p style="font-size:16px; margin:10px 0;"> <b>सही उत्तर (Correct):</b> <span style="color:green">${correctCount}</span> |  <b>गलत उत्तर (Wrong):</b> <span style="color:red">${wrongCount}</span> |  <b>अनुत्तरित (Unattempted):</b> ${unattemptedCount} </p> <p style="color:#555; font-size:13px;">नीचे सभी प्रश्नों के सही उत्तर और विस्तृत व्याख्या (Explanation) लाइव कर दी गई है।</p>;
+resultDiv.innerHTML = <h2>परीक्षा परिणाम / Test Result</h2> <div class="score">प्राप्तांक: ${score} / 100</div> <p style="font-size:16px; margin:10px 0;"> <b>सही उत्तर (Correct):</b> <span style="color:green">${correctCount}</span> |  <b>गलत उत्तर (Wrong):</b> <span style="color:red">${wrongCount}</span> |  <b>अनुत्तरित (Unattempted):</b> ${unattemptedCount} </p>;
 window.scrollTo({top: 0, behavior: 'smooth'});
 }
 window.onload = initQuiz;
-
-
-
-"""
-with open("generated/mppsc_unit10_test1.html", "w", encoding="utf-8") as file:
-file.write(html_content)
