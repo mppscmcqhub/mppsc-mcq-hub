@@ -3,320 +3,143 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MPPSC MCQ Hub - Unit 1 Test 5</title>
-
+<title>MPPSC MCQ Hub | Unit 1 Test 2</title>
 <style>
 *{box-sizing:border-box}
-html,body{
-  margin:0;
-  padding:0;
-  width:100%;
-  min-height:100%;
-  font-family:Arial,"Noto Sans Devanagari",sans-serif;
-  color:#222;
-  background:#f0f2f5;
-}
-header{
-  width:100%;
-  background:#185795;
-  color:white;
-  padding:10px 12px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  flex-wrap:wrap;
-}
-.brand{
-  font-weight:bold;
-  font-size:20px;
-  display:flex;
-  align-items:center;
-  gap:9px;
-}
-.actions{
-  display:flex;
-  align-items:center;
-  gap:7px;
-  flex-wrap:wrap;
-}
-button{
-  border:0;
-  border-radius:5px;
-  padding:10px 12px;
-  font-weight:bold;
-  cursor:pointer;
-}
-.timer{
-  background:#c71919;
-  color:white;
-  min-width:75px;
-  text-align:center;
-  padding:10px;
-  border-radius:5px;
-}
-.back{background:#087cf0;color:white}
-.pdf{background:#ffc107;color:#111}
-.submit{background:#209d49;color:white;font-size:17px}
-main{
-  width:100%;
-  padding:10px;
-}
-.panel,.question,.result{
-  width:100%;
-  background:white;
-  border:1px solid #ddd;
-  border-radius:6px;
-  padding:14px;
-  margin:0 0 12px;
-}
-.question h3{
-  font-size:17px;
-  line-height:1.7;
-  margin:0 0 12px;
-}
-.option{
-  display:block;
-  width:100%;
-  padding:10px;
-  margin:7px 0;
-  border:1px solid #ddd;
-  border-radius:5px;
-  cursor:pointer;
-  line-height:1.7;
-}
-.option:hover{background:#f3f7ff}
-.option input{
-  margin-right:9px;
-  vertical-align:middle;
-}
-.explanation{
-  display:none;
-  margin-top:10px;
-  padding:12px;
-  background:#eef5ff;
-  border-left:4px solid #185795;
-  line-height:1.8;
-  white-space:pre-line;
-}
-.bottom{
-  width:100%;
-  text-align:center;
-  padding:12px 0 24px;
-}
-.bottom button{margin:4px}
+html,body{margin:0;padding:0;width:100%;font-family:Arial,"Noto Sans Devanagari",sans-serif;color:#172033}
+body{background:#edf1f6}
+header{background:#164f86;color:white;padding:12px 5px;text-align:center}
+.brand{display:flex;align-items:center;justify-content:center;gap:10px}
+.logo{width:46px;height:46px;object-fit:contain;background:white;border-radius:50%;padding:3px}
+h1{font-size:21px;margin:2px}
+header p{margin:5px;font-size:14px}
+main{width:100%;max-width:none;margin:auto;padding:5px}
+.toolbar{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0}
+button{border:0;border-radius:6px;padding:11px 14px;font-size:15px;font-weight:bold;cursor:pointer}
+.back{background:#555;color:white}
+.print{background:#137c55;color:white}
+.submit{background:#b91c1c;color:white}
+button:disabled{opacity:.55;cursor:not-allowed}
+.timer{background:#fff3cd;border:1px solid #e1c66a;border-radius:7px;padding:10px;text-align:center;font-weight:bold}
+.instructions{background:white;padding:10px;border:1px solid #d8e0e9;border-radius:7px;margin:8px 0;line-height:1.6;font-size:14px}
+.question{background:white;border:1px solid #d4dce6;border-radius:7px;margin:8px 0;padding:12px}
+.qtitle{font-weight:bold;line-height:1.65;margin-bottom:10px}
+.option{display:block;border:1px solid #d7dee8;border-radius:6px;padding:9px;margin:6px 0;line-height:1.55;cursor:pointer}
+.option input{accent-color:#164f86;margin-right:7px}
+.option.correct{background:#d8f5df!important;border-color:#218838;color:#145523}
+.option.wrong{background:#ffe0e0!important;border-color:#c62828;color:#8c1515}
+.explanation{display:none;background:#eff7ff;border-left:4px solid #164f86;padding:10px;margin-top:10px;line-height:1.7}
+#result{display:none;background:white;border:2px solid #164f86;border-radius:8px;padding:15px;margin:12px 0;text-align:center}
+#result h2{color:#164f86}
+.score{font-size:28px;font-weight:bold}
+@media print{header,.toolbar,.timer,.instructions,footer{display:none!important}main{padding:0}.question{break-inside:avoid;box-shadow:none}.explanation{display:block!important}}
 </style>
 </head>
-
 <body>
-
 <header>
-  <div class="brand">
-    <span>MPPSC MCQ Hub</span>
-  </div>
-  <div class="actions">
-    <span class="timer" id="timer">60:00</span>
-    <button class="back" onclick="javascript:history.back()">← Back</button>
-    <button class="pdf" onclick="window.print()">PDF / Print</button>
-  </div>
+ <div class="brand">
+  <img class="logo" src="../../../mppsc-logo.jpg" alt="MPPSC Logo" onerror="this.style.display='none'">
+  <div><h1>MPPSC MCQ Hub</h1><p>Unit 1 — Test 2 | MPPSC Prelims 2026</p><p><b>Hard Level | 50 MCQs</b></p></div>
+ </div>
 </header>
-
 <main>
-  <section class="panel">
-    <h2>Unit 1 — Test 5</h2>
-    <p>MPPSC Prelims Practice Test | मध्यप्रदेश की जनजातियाँ एवं संस्कृति | 50 Questions</p>
-  </section>
-
-  <div id="questions"></div>
-
-  <div class="bottom">
-    <button class="submit" id="submitBtn" onclick="submitTest()">✓ Submit Test</button>
-  </div>
+ <div class="toolbar">
+  <button class="back" onclick="goBack()">← Back</button>
+  <button class="print" onclick="window.print()">PDF / Print</button>
+  <button class="submit" id="submitTop" onclick="submitTest()">Submit Test</button>
+ </div>
+ <div class="timer">⏱ समय / Time Remaining: <span id="time">60:00</span></div>
+ <div class="instructions">
+  <b>निर्देश / Instructions:</b> कुल 50 प्रश्न। प्रत्येक प्रश्न के लिए एक विकल्प चुनें।
+  Submit करने के बाद स्कोर, सही उत्तर, गलत उत्तर और सभी प्रश्नों की व्याख्या दिखाई देगी।
+  <br>50 questions. Select one option per question. Correct answers are distributed across A, B, C and D.
+ </div>
+ <div id="quiz"></div>
+ <div id="result"></div>
+ <div class="toolbar">
+  <button class="submit" id="submitBottom" onclick="submitTest()">Submit Test</button>
+  <button class="print" onclick="window.print()">PDF / Print</button>
+ </div>
 </main>
-
+<footer style="text-align:center;padding:12px;color:#526174;font-size:13px">mppscportal.in | MPPSC Prelims Practice</footer>
 <script>
-const questions = [
-{
-question:"26. मध्यप्रदेश के मालवा अंचल में प्रचलित लोक चित्रकला 'मंडाना' (Mandana) मुख्य रूप से किस त्योहार पर घर के आंगनों और चौखटों पर बनाई जाती है? / 'Mandana' traditional wall and floor painting of Malwa is majorly drawn on which festival?",
-options:["A. होली / Holi","B. दीपावली / Diwali","C. रक्षाबंधन / Rakshabandhan","D. गणगौर / Gangaur"],
-answer:"B",
-explanation:"मंडाना मालवा और निमाड़ का एक प्रसिद्ध भूमि अलंकरण शिल्प है जो दीपावली और लक्ष्मी पूजा के अवसर पर घर की देहरी पर लक्ष्मी जी के स्वागत हेतु गेरू और खड़िया से बनाया जाता है। / Mandana is a ritualistic floor art form extensively drawn during Diwali festivities."
-},
-{
-question:"27. बघेलखंड अंचल में लोक संस्कृति के तहत गाया जाने वाला प्रसिद्ध 'बिरहा गायन' (Birha Singing) मुख्य रूप से किस शैली या रस से ओत-प्रोत होता है? / The famous 'Birha Singing' of the Baghelkhand cultural region is majorly characterized by which theme?",
-options:["A. वीर रस और युद्ध / Heroic and war themes","B. शृंगार और विरह वेदना / Romance and pangs of separation","C. केवल हास्य और मनोरंजन / Pure comedy and entertainment","D. भक्ति रस / Devotional singing"],
-answer:"B",
-explanation:"बिरहा बघेलखंड का एक अत्यंत भावुक लोक गीत है, जो सुनसान रास्तों या खेतों में काम करते समय ऊंचे स्वरों में गाया जाता है। इसमें नायक-नायिका के मिलन और विरह की गाथा होती है। / Birha singing is a soulful melancholic folk ballad style distinct to eastern MP."
-},
-{
-question:"28. भील जनजाति की उपजातियों में से किसे पारंपरिक रूप से 'भीलों का पुरोहित' या धार्मिक अनुष्ठान संपन्न कराने वाला पूज्य व्यक्ति माना जाता है? / Among the sub-tribes of Bhils, who is traditionally regarded as the priest or ritual head?",
-options:["A. भिलाला / Bhilala","B. पटल्या / Patalya","C. मदवी (या बोडो) / Madvi","D. बरेला / Barela"],
-answer:"C",
-explanation:"भीलों की उपजातियों में भिलाला सबसे उच्च वर्ग माना जाता है, जबकि धार्मिक क्रियाकलापों और पूजा-पाठ को संपन्न कराने वाले व्यक्ति को मदवी या भगत कहा जाता है। / Madvi or Bhagat acts as the designated spiritual medium and priest in Bhil rituals."
-},
-{
-question:"29. बुंदेलखंड अंचल का वह प्रसिद्ध पारंपरिक लोक संगीत कौन सा है जो मुख्य रूप से चैत्र मास में बुंदेली महिलाओं द्वारा देवी माता की स्तुति में गाया जाता है? / Which is the famous traditional folk singing of Bundelkhand performed by women in Chaitra month praising the Goddess?",
-options:["A. फाग गीत / Phag Songs","B. जगदेव का पुआरा / Jagdev Ka Puara","C. भोला गीत / Bhola Geet","D. लावणी गायन / Lavani Singing"],
-answer:"B",
-explanation:"'जगदेव का पुआरा' बुंदेलखंड का एक पारंपरिक भजन रूप है, जिसमें चैत्र और क्वार के नवरात्रों में देवियों के चरित्र और चमत्कारों का गायन महिलाओं द्वारा किया जाता है। / Jagdev Ka Puara is a devotional call-and-response folk hymn style popular in Bundelkhand."
-},
-{
-question:"30. मध्यप्रदेश की किस जनजाति में 'गोला प्रथा' या 'गोल-गधेड़ो' विवाह उत्सव (Gol-Gadhedo) अत्यंत लोकप्रिय है, जहाँ युवक-युवतियां अपना जीवनसाथी चुनते हैं? / In which tribe of MP is the 'Gol-Gadhedo' marriage custom and festival highly popular?",
-options:["A. गोंड जनजाति / Gond Tribe","B. कोरकू जनजाति / Korku Tribe","C. भील जनजाति / Bhil Tribe","D. भारिया जनजाति / Bharia Tribe"],
-answer:"C",
-explanation:"गोल-गधेड़ो उत्सव भगोरिया हाट के दौरान आयोजित होता है। इसमें एक खंभे पर गुड़ बांधा जाता है और भील युवक युवतियों के घेरे को तोड़कर उसे उतारने का प्रयास करते हैं, जो सफल होता है वह विवाह की इच्छा जता सकता है। / Gol-Gadhedo is an ancient ritualistic matchmaking game unique to the Bhil tribe."
-},
-{
-question:"31. निमाड़ अंचल में नागपंचमी के अवसर पर गाया जाने वाला वह कौन सा लोक संगीत है जिसमें नाग देवता के पौराणिक आख्यानों का वर्णन मिलता है? / Which folk music is sung on Nag Panchami in the Nimar region describing the mythological legends of the Nag deity?",
-options:["A. काठी गायन / Kathi Singing","B. नागपंथी या गर्बा गीत / Nagpanthi Songs","C. कलगी तुर्रा / Kalgi Turra","D. मसान्या गायन / Masanya Singing"],
-answer:"B",
-explanation:"निमाड़ में नागपंचमी पर रात के समय मंडलियों द्वारा डफ़ और मंजीरे की थाप पर नाग देवता के भजन और लोक कथाएं गाई जाती हैं जिन्हें नागपंथी भजन कहते हैं। / Nagpanthi songs are specialized devotional hymns performed during monsoon in Nimar."
-},
-{
-question:"32. बैगा जनजाति द्वारा किए जाने वाले प्रसिद्ध 'परघौनी नृत्य' में बारातियों के मनोरंजन के लिए किस जानवर का कृत्रिम ढांचा या मुखौटा बनाया जाता है? / In the 'Parghoni Dance' of the Baiga tribe, the artificial structure of which animal is made to entertain guests?",
-options:["A. घोड़ा / Horse","B. शेर / Lion","C. हाथी / Elephant","D. भालू / Bear"],
-answer:"C",
-explanation:"परघौनी नृत्य में पुआल और कपड़ों से एक नकली 'हाती' (हाथी) बनाया जाता है, जिसके अंदर दो पुरुष कलाकार घुसकर बारात के सामने नाचते हैं और हास्य विनोद करते हैं। / An structural dummy elephant is the main attraction created in the Parghoni wedding dance."
-},
-{
-question:"33. बुंदेलखंड अंचल में दीवारों पर बनाया जाने वाला वह पारंपरिक भित्ति चित्र कौन सा है जो कुंवारी कन्याओं द्वारा भाई दूज के अवसर पर बनाया जाता है? / Which traditional wall painting of Bundelkhand is made by unmarried girls on the occasion of Bhai Dooj?",
-options:["A. नौराता / Naurata","B. मोर्ते (मुरते) / Morte (Murte)","C. सुरैती / Suraiti","D. कोहबर / Kohbar"],
-answer:"B",
-explanation:"बुंदेलखंड में दीपावली के ठीक बाद भाई दूज पर घर के मुख्य द्वार पर दोनों तरफ हल्दी और गेरू से 'मोर्ते' या मुरते के चित्र बनाए जाते हैं, जो भाई की लंबी आयु की कामना के प्रतीक हैं। / Morte represents highly stylized geometric human forms drawn during Bhai Dooj in Bundelkhand."
-},
-{
-question:"34. मध्यप्रदेश की 'सहरिया' (Sahariya) जनजाति के पुरुषों द्वारा विवाह के शुभ अवसरों पर किया जाने वाला प्रसिद्ध पारंपरिक स्वांग रूप कौन सा है? / Which is the famous traditional comic drama/dance performed by Sahariya men during wedding festivities?",
-options:["A. माच / Maach","B. दुलदुल घोड़ी / Duldul Ghori","C. खम्ब स्वांग / Khamb Swang","D. गम्मत / Gammat"],
-answer:"B",
-explanation:"दुलदुल घोड़ी सहरिया जनजाति का प्रसिद्ध लोक नृत्य/स्वांग है। इसमें नर्तक अपनी कमर में बांस और कागज से बनी घोड़ी का ढांचा बांधकर नकली शादी और युद्ध का अभिनय करता है। / Duldul Ghori is a widely celebrated puppet-like horse dance native to the Sahariya culture."
-},
-{
-question:"35. मालवा अंचल के प्रसिद्ध पारंपरिक लोकगीत 'भरथरी गायन' (Bhartrihari Singing) का मुख्य विषय राजा भरथरी और रानी पिंगला के किस प्रसंग पर आधारित है? / The core theme of Malwa's famous 'Bhartrihari Singing' is based on which aspect of King Bhartrihari's life?",
-options:["A. उनकी सैन्य विजय / His military victories","B. उनका भव्य राज्याभिषेक / His grand coronation","C. उनका वैराग्य और गृहत्याग / His renunciation and detachment","D. उनके प्रेम प्रसंग / His romantic affairs"],
-answer:"C",
-explanation:"भरथरी गायन नाथ पंथ के योगियों द्वारा चिकारा और सारंगी पर गाया जाता है। इसमें राजा भरथरी द्वारा राजपाठ छोड़कर सन्यासी बनने और रानी पिंगला के वियोग की अमर कथा होती है। / Bhartrihari singing concentrates on internal spiritual transformation and total renunciation."
-},
-{
-question:"36. गोंड जनजाति द्वारा वर्षा ऋतु के आगमन पर अच्छी फसल की कामना हेतु कौन सा पारंपरिक लोक पर्व मनाया जाता है जिसमें मेघ देवता की पूजा होती है? / Which traditional folk festival is celebrated by the Gond tribe to pray for good crops during the arrival of monsoons?",
-options:["A. मड़ई उत्सव / Madai Festival","B. बिदरी पूजा / Bidri Puja","C. हरदिली पर्व / Hardili Festival","D. नवाखानी / Nawakhani"],
-answer:"B",
-explanation:"बिदरी पूजा गोंड और बैगा जनजातियों का एक अत्यंत पवित्र कृषि उत्सव है जो बोनी (बीज बोने) के समय मानसून की शुरुआत में खेतों को कीड़ों से बचाने के लिए किया जाता है। / Bidri Puja is an esoteric ritual marking the official commencement of agricultural activities."
-},
-{
-question:"37. बुंदेलखंड अंचल की अहीर (यादव) जाति द्वारा दीपावली से कार्तिक पूर्णिमा तक लाठियों के साथ किया जाने वाला तीव्र लोक नृत्य कौन सा है? / Which intense stick folk dance is performed by the Ahir community of Bundelkhand from Diwali to Kartik Purnima?",
-options:["A. राई नृत्य / Rai Dance","B. बरेदी (यादव नृत्य) / Baredi (Yadav Dance)","C. कानड़ा नृत्य / Kanada Dance","D. सैला नृत्य / Saila Dance"],
-answer:"B",
-explanation:"बरेदी नृत्य ग्वालों द्वारा मोर के पंख कमर में बांधकर, रंग-बिरंगे परिधान पहनकर, हाथों में लाठियां लेकर ढोलक की थाप पर किया जाता है। यह पौरुष और शौर्य का प्रतीक है। / Baredi is a spectacular post-Diwali stick dance showcasing rhythm and pastoral pride."
-},
-{
-question:"38. मध्यप्रदेश की किस जनजाति को भारत सरकार द्वारा विशेष पिछड़ी जनजाति (PVTG) का दर्जा प्राप्त नहीं है, परंतु वह अत्यधिक पिछड़ी हुई है? / Which tribe of MP is NOT officially classified as a Particularly Vulnerable Tribal Group (PVTG) by India?",
-options:["A. बैगा जनजाति / Baiga Tribe","B. भारिया जनजाति / Bharia Tribe","C. सहरिया जनजाति / Sahariya Tribe","D. भील जनजाति / Bhil Tribe"],
-answer:"D",
-explanation:"मध्यप्रदेश में केवल तीन जनजातियों को PVTG का दर्जा प्राप्त है- बैगा, भारिया और सहरिया। भील मध्यप्रदेश की सबसे बड़ी जनजाति है, लेकिन यह PVTG में शामिल नहीं है। / While Baiga, Bharia, and Sahariya are recognized as PVTGs, Bhils are categorized under standard STs."
-},
-{
-question:"39. निमाड़ अंचल का वह कौन सा पारंपरिक लोकगीत शैली है जो मुख्य रूप से पुरुषों द्वारा किसी व्यक्ति की मृत्यु के शोक के समय वैराग्य जगाने के लिए गाया जाता है? / Which traditional folk song style of Nimar is sung by men during funerals to evoke spiritual detachment?",
-options:["A. कलगी तुर्रा / Kalgi Turra","B. मसान्या (काया खोजी) / Masanya (Kaya Khoji)","C. गरबा गीत / Garba Songs","D. फाग गायन / Phag Singing"],
-answer:"B",
-explanation:"मसान्या (या काया खोजी) निमाड़ का मृत्यु गीत है। इसमें कबीर के पदों के माध्यम से शरीर की नश्वरता और आत्मा की अमरता का गंभीर वर्णन खड़ताल पर गाया जाता है। / Masanya is an ancient philosophical funeral song custom exclusive to the Nimar valley."
-},
-{
-question:"40. बघेलखंड अंचल में प्रचलित लोक नाट्य 'गम्मत' (Gammat) मुख्य रूप से किस वाद्ययंत्र के प्रयोग और हास्य संवादों के लिए प्रसिद्ध है? / The folk drama 'Gammat' prevalent in Baghelkhand is majorly famous for the use of which musical instrument?",
-options:["A. केवल शहनाई / Shehnai only","B. ढोलक और झांझ / Dholak and Jhanj","C. नगाड़ा / Nagada","D. इकतारा / Iktara"],
-answer:"B",
-explanation:"गम्मत मालवा और बघेलखंड दोनों क्षेत्रों में सामाजिक विसंगतियों पर चोट करने वाला एक तीखा हास्य नाटक है, जिसमें ढोलक और मंजीरे की संगति में कलाकार संवाद बोलते हैं। / Gammat relies heavily on sharp satirical dialogues blended with rhythmic dholak patterns."
-},
-{
-question:"41. बैगा जनजाति के पुरुषों द्वारा शरद ऋतु में एक गांव से दूसरे गांव जाकर लाठियों के साथ किया जाने वाला पारंपरिक शौर्य नृत्य कौन सा है? / Which traditional valor dance is performed by Baiga men with sticks moving from one village to another during winter?",
-options:["A. कर्मा नृत्य / Karma Dance","B. सैला (या दसर नृत्य) / Saila (or Dasar Dance)","C. परघौनी नृत्य / Parghoni Dance","D. बिलमा नृत्य / Bilma Dance"],
-answer:"B",
-explanation:"सैला नृत्य बैगा और गोंड पुरुषों द्वारा किया जाने वाला एक डंडा नृत्य (Stick Dance) है। इसमें वे एक-दूसरे की लाठियों पर चोट करते हुए गोल घेरे में नाचते हैं और भाईचारे का संदेश देते हैं। / Saila is a highly coordinated and vigorous tribal stick dance celebrated post-harvest."
-},
-{
-question:"42. बुंदेलखंड के प्रसिद्ध 'कानड़ा नृत्य' (Kanada Dance) का संबंध पारंपरिक रूप से समाज के किस विशिष्ट समुदाय या जाति से माना जाता है? / The famous 'Kanada Dance' of Bundelkhand is traditionally associated with which specific community?",
-options:["A. अहीर जाति / Ahir Community","B. धोबी समाज / Dhobi (Washermen) Community","C. कुम्हार जाति / Kumhar Community","D. गोंड जनजाति / Gond Tribe"],
-answer:"B",
-explanation:"कानड़ा नृत्य बुंदेलखंड के रजक (धोबी) समाज का एक पारंपरिक मांगलिक नृत्य है, जो जन्म, विवाह और त्योहारों के अवसर पर भगवान गजानन की स्तुति में किया जाता है। / Kanada dance is an exclusive ceremonial performance passed down within the Rajak community."
-},
-{
-question:"43. भील जनजाति के प्रसिद्ध लोक देवता 'बाबा देव' (Baba Dev) का मुख्य पवित्र स्थान कहाँ होता है जहाँ मिट्टी के घोड़े अर्पित किए जाते हैं? / The primary sacred shrine of the Bhil deity 'Baba Dev' features the custom of offering clay horses at which spot?",
-options:["A. घर के मुख्य द्वार पर / Main entrance of the house","B. गांव की सीमा पर स्थित पवित्र पेड़ के नीचे / Under a sacred tree at the village boundary","C. नदी के बीच में / In the middle of the river","D. राजा के महल में / In the king's palace"],
-answer:"B",
-explanation:"भील अपने लोक देवता बाबा देव और भीलट देव की पूजा गांव की सीमा पर पत्थरों और मिट्टी के मन्नत वाले घोड़े (मैल) चढ़ाकर करते हैं ताकि गांव बीमारियों से सुरक्षित रहे। / Baba Dev shrines are located on outskirts where terracotta horses are offered to secure protection."
-},
-{
-question:"44. मालवा अंचल में नवरात्रि के त्योहार के अवसर पर महिलाओं द्वारा मिट्टी के छिद्रित घड़े में दीपक रखकर किया जाने वाला नृत्य कौन सा है? / Which dance is performed by women in Malwa holding a perforated clay pot containing a lamp during Navratri?",
-options:["A. मटकी नृत्य / Matki Dance","B. गरबा (या गरबी) / Garba (or Garbi)","C. माच नाट्य / Maach Drama","D. आड़ा-खड़ा नृत्य / Aada-Khada Dance"],
-answer:"B",
-explanation:"मालवा में गुजरात की सीमा से लगे क्षेत्रों में नवरात्रि में महिलाएँ गोल घेरे में 'गरबा' या छिद्रित मटके (दीप-गर्भ) को बीच में रखकर नृत्य करती हैं, जिसे स्थानीय भाषा में गरबी भी कहा जाता है। / Perforated earthen pots with glowing lamps form the sacred centerpiece of Malwa's Navratri dances."
-},
-{
-question:"45. गोंड जनजाति का वह कौन सा प्रसिद्ध विवाह गीत या लोकगीत है जो केवल शृंगार और प्रेम प्रसंगों पर आधारित होता है और संवाद शैली में गाया जाता है? / Which famous folk song of the Gond tribe is based exclusively on romance and sung in a dialogue format?",
-options:["A. कर्मा गीत / Karma Songs","B. ददरिया / Dadariya","C. मसान्या / Masanya","D. फाग गीत / Phag Songs"],
-answer:"B",
-explanation:"ददरिया गोंड संस्कृति का 'प्रेम का संदेश' है। इसे खेत में काम करते समय युवक और युवतियां काव्यात्मक सवाल-जवाब के रूप में गाते हैं। इसे अक्सर कर्मा नृत्य के साथ भी गाया जाता है। / Dadariya represents a structural romantic duet format widely popular within tribal settings."
-},
-{
-question:"46. बुंदेलखंड अंचल में प्रचलित लोक चित्रकला 'मोरैला' (Moraila) मुख्य रूप से दीवार पर किस पक्षी के सुंदर चित्रों को उकेरने की कला है? / The folk painting form 'Moraila' prevalent in Bundelkhand is primarily the art of drawing which bird on walls?",
-options:["A. तोता / Parrot","B. मोर / Peacock","C. हंस / Swan","D. कोयल / Cuckoo"],
-answer:"B",
-explanation:"मोरैला का तात्पर्य 'मोर के चित्र' से है। बुंदेलखंड में मांगलिक अवसरों पर घर के मुख्य कमरों की दीवारों पर गेरू और चूने से मोर के जोड़े के भव्य भित्ति चित्र बनाए जाते हैं। / Moraila is a traditional design template dedicated specifically to depicting artistic peacock structures."
-},
-{
-question:"47. कोरकू जनजाति द्वारा नागपंचमी के ठीक अगले दिन अपने मवेशियों और पशुओं की सुरक्षा के लिए कौन सा पारंपरिक त्योहार मनाया जाता है? / Which traditional festival is celebrated by the Korku tribe the day after Nag Panchami for the safety of cattle?",
-options:["A. पोला पर्व / Pola Festival","B. जिरोती (या डोडबली) / Jiroti","C. नवाखानी / Nawakhani","D. भगोरिया / Bhagoria"],
-answer:"B",
-explanation:"जिरोती कोरकू और निमाड़ अंचल का एक प्रमुख लोक पर्व है, जिसमें नागपंचमी के बाद घर के द्वारों पर जिरोती माता का भित्ति चित्र बनाया जाता है और बैलों की पूजा होती है। / Jiroti is a highly detailed post-monsoon family welfare festival dedicated to domestic cattle health."
-},
-{
-question:"48. बघेलखंड अंचल में बच्चों के जन्म के छठे दिन रात्रि में प्रसूता महिला के कमरे की दीवार पर गेरू से कौन सा पवित्र चित्र बनाया जाता है? / Which sacred wall painting is drawn using geru on the sixth day of childbirth in the Baghelkhand region?",
-options:["A. कोhबर / Kohbar","B. छटी चित्र / Chhati Chitra","C. तिलंगा चित्र / Tilanga Chitra","D. नगाड़ा चित्र / Nagada Chitra"],
-answer:"B",
-explanation:"शिशु के जन्म के छठे दिन 'छठी माता' की पूजा होती है, जहाँ दीवार पर गेरू से देवी की आकृति बनाई जाती है और बच्चे की लंबी आयु व सुरक्षा की मन्नत मांगी जाती है। / Chhati Chitra is a specialized obstetric ritual art created during neonatal protections."
-},
-{
-question:"49. निमाड़ अंचल का वह कौन सा पारंपरिक लोक वाद्ययंत्र है जो मिट्टी के घड़े के मुँह पर चमड़ा मढ़कर बनाया जाता है और निर्गुणी भजनों में बजता है? / Which traditional musical instrument of Nimar is made by stretching leather over the mouth of a clay pot?",
-options:["A. चिकारा / Chikara","B. सिंगा (धोंसा) / Singa","C. खंजरी / Khanjari","D. घड़ा या मटका वाद्य / Earthen Pot Drum (Singा)"],
-answer:"D",
-explanation:"निमाड़ में मिट्टी के बड़े घड़े (मटके) के मुँह पर चमड़े की पतली परत चढ़ाकर एक विशेष थाप वाद्य बनाया जाता है, जिसे खड़ताल के साथ निर्गुणी कबीर भजनों में बजाया जाता है। / Earthen pot drums are unique innovations providing deep bass rhythm to spiritual folk music."
-},
-{
-question:"50. बैगा जनजाति में प्रचलित 'उधारिया विवाह' (Udhariya Marriage) का मुख्य स्वरूप निम्नलिखित में से किस प्रकार का माना जाता है? / What is the primary characteristic of the 'Udhariya Marriage' custom prevalent in the Baiga tribe?",
-options:["A. घर जमाई बनकर रहना / Resident son-in-law format","B. वधू का अपहरण करना / Abduction of the bride","C. आपसी सहमति से घर से भागकर विवाह करना / Elopement with mutual consent","D. क्रय विवाह / Purchase marriage"],
-answer:"C",
-explanation:"उधारिया विवाह बैगा समाज का एक मान्य प्रकार है, जिसमें यदि माता-पिता विवाह के भारी खर्च या सामाजिक बंधनों के खिलाफ हों, तो युवक-युवती आपसी सहमति से भागकर किसी अन्य गांव में विवाह कर लेते हैं। / Udhariya involves mutual elopement as a viable social alternative to evade high wedding expenditures."
+const questions = [{"q": "भीमबेटका के शैलाश्रयों का वैश्विक महत्त्व मुख्यतः किस कारण है? / What is the main global significance of the Bhimbetka rock shelters?", "o": ["केवल मौर्यकालीन स्तूपों के लिए / Only Mauryan stupas", "गुप्तकालीन ताम्रपत्रों के लिए / Gupta copper plates", "मध्यपाषाण से ऐतिहासिक काल तक के शैलचित्रों और सांस्कृतिक साक्ष्यों के लिए / Rock art and cultural evidence spanning prehistoric periods", "मध्यकालीन फारसी पांडुलिपियों के लिए / Medieval Persian manuscripts"], "a": 2, "e": "भीमबेटका में प्रागैतिहासिक मानव जीवन और शैलचित्रों के अनेक चरणों के साक्ष्य मिलते हैं।"}, {"q": "उदयगिरि की गुफाएँ किस काल की शाही वैष्णव-शैव कला के अध्ययन में विशेष महत्त्व रखती हैं? / Udayagiri caves are especially important for studying royal Vaishnava-Shaiva art of which period?", "o": ["गुप्त काल / Gupta period", "शुंग काल / Shunga period", "दिल्ली सल्तनत / Delhi Sultanate", "मराठा काल / Maratha period"], "a": 0, "e": "उदयगिरि की गुफाएँ गुप्तकालीन धार्मिक कला और राजकीय संरक्षण का प्रमुख साक्ष्य हैं।"}, {"q": "साँची के महान स्तूप के मूल निर्माण का श्रेय सामान्यतः किस शासक को दिया जाता है? / The original construction of the Great Stupa at Sanchi is generally credited to which ruler?", "o": ["समुद्रगुप्त / Samudragupta", "हर्षवर्धन / Harshavardhana", "यशोधर्मन / Yashodharman", "अशोक / Ashoka"], "a": 3, "e": "साँची के मूल स्तूप का निर्माण अशोक के समय हुआ; बाद में इसका विस्तार और अलंकरण हुआ।"}, {"q": "भरहुत स्तूप के रेलिंग-अभिलेख और मूर्तिकला किस धर्म की प्रारंभिक कला के अध्ययन में उपयोगी हैं? / Bharhut railing inscriptions and sculpture are useful for studying early art of which religion?", "o": ["जैन धर्म / Jainism", "बौद्ध धर्म / Buddhism", "इस्लाम / Islam", "सिख धर्म / Sikhism"], "a": 1, "e": "भरहुत बौद्ध स्तूप की रेलिंग, जातक दृश्य और अभिलेख प्रारंभिक बौद्ध कला के महत्त्वपूर्ण स्रोत हैं।"}, {"q": "नवदाटोली पुरातात्त्विक स्थल किस नदी के किनारे स्थित है? / Navdatoli archaeological site lies on the bank of which river?", "o": ["चंबल / Chambal", "सोन / Son", "नर्मदा / Narmada", "बेतवा / Betwa"], "a": 2, "e": "नवदाटोली महेश्वर के सामने नर्मदा के दूसरे तट पर स्थित एक महत्त्वपूर्ण ताम्रपाषाण स्थल है।"}, {"q": "कायथा संस्कृति का नाम मध्य प्रदेश के किस क्षेत्र/स्थल से जुड़ा है? / The Kayatha culture is named after a site in which region of Madhya Pradesh?", "o": ["उज्जैन क्षेत्र / Ujjain region", "ग्वालियर क्षेत्र / Gwalior region", "बुंदेलखंड / Bundelkhand", "रीवा क्षेत्र / Rewa region"], "a": 0, "e": "कायथा, उज्जैन के निकट स्थित ताम्रपाषाण संस्कृति का नामकरण-स्थल है।"}, {"q": "प्राचीन उज्जयिनी की आर्थिक-राजनीतिक स्थिति के लिए कौन-सा भौगोलिक कारण विशेष उपयोगी था? / Which geographical factor particularly supported ancient Ujjayini's economic and political position?", "o": ["हिमालयी दर्रे पर नियंत्रण / Control of Himalayan passes", "गंगा डेल्टा में स्थिति / Location in the Ganga delta", "केवल समुद्री बंदरगाह होना / Being a seaport", "उत्तर-दक्षिण और पश्चिमी व्यापार मार्गों से जुड़ाव / Links to north-south and western trade routes"], "a": 3, "e": "उज्जयिनी मालवा के प्रमुख केंद्र के रूप में अनेक स्थल-मार्गों और व्यापारिक संपर्कों से जुड़ी थी।"}, {"q": "अवन्ति महाजनपद की उत्तरी राजधानी के रूप में सामान्यतः किस नगर का उल्लेख मिलता है? / Which city is commonly mentioned as the northern capital of Avanti?", "o": ["विदिशा / Vidisha", "उज्जयिनी / Ujjayini", "त्रिपुरी / Tripuri", "महिष्मती / Mahishmati"], "a": 1, "e": "अवन्ति के दो प्रमुख केंद्र उज्जयिनी और महिष्मती माने जाते हैं; उज्जयिनी उत्तरी केंद्र थी।"}, {"q": "महिष्मती की ऐतिहासिक पहचान किस आधुनिक क्षेत्र से सबसे अधिक जुड़ती है? / Mahishmati's historical identification is most closely associated with which modern area?", "o": ["शिवपुरी / Shivpuri", "मुरैना / Morena", "महेश्वर / Maheshwar", "सतना / Satna"], "a": 2, "e": "महिष्मती की पहचान सामान्यतः नर्मदा तट के महेश्वर क्षेत्र से की जाती है, हालांकि प्राचीन स्थान-निर्धारण पर विमर्श मिलता है।"}, {"q": "सांची के तोरणों पर जातक कथाओं के चित्रण का प्रमुख अध्ययन-मूल्य क्या है? / What is the main research value of Jataka depictions on Sanchi gateways?", "o": ["बौद्ध आख्यान, प्रतीक और सामाजिक जीवन की जानकारी / Evidence for Buddhist narratives, symbols and social life", "आधुनिक चुनाव व्यवस्था / Modern electoral system", "मुगल सैन्य संगठन / Mughal military organization", "औपनिवेशिक भूमि-राजस्व / Colonial land revenue"], "a": 0, "e": "तोरणों के दृश्य बौद्ध कथाओं, प्रतीकात्मक निरूपण और तत्कालीन जीवन के अध्ययन में सहायक हैं।"}, {"q": "परमार शासक भोज की राजधानी मुख्यतः किस नगर से संबंधित मानी जाती है? / Raja Bhoja's capital is chiefly associated with which city?", "o": ["जबलपुर / Jabalpur", "चंदेरी / Chanderi", "ओरछा / Orchha", "धार / Dhar"], "a": 3, "e": "परमार भोज का प्रमुख सत्ता-केंद्र धार था; भोजपुर भी उनके निर्माण-कार्य से जुड़ा है।"}, {"q": "भोजपुर का विशाल शिवलिंग किस स्थापत्य-सांस्कृतिक परंपरा का उदाहरण है? / The monumental Shiva lingam at Bhojpur exemplifies which architectural-cultural tradition?", "o": ["औपनिवेशिक गोथिक शैली / Colonial Gothic style", "परमारकालीन शैव स्थापत्य / Paramara-period Shaiva architecture", "मुगल मकबरा स्थापत्य / Mughal tomb architecture", "बौद्ध विहार स्थापत्य / Buddhist monastery architecture"], "a": 1, "e": "भोजपुर का अधूरा विशाल शिव मंदिर परमार काल और शैव उपासना से संबंधित है।"}, {"q": "खजुराहो के मंदिरों का निर्माण मुख्यतः किस राजवंश के संरक्षण में हुआ? / The temples of Khajuraho were mainly built under which dynasty?", "o": ["परमार / Paramara", "तोमर / Tomara", "चंदेल / Chandela", "गोंड / Gond"], "a": 2, "e": "खजुराहो के प्रमुख मंदिर चंदेल शासकों के संरक्षण में लगभग 10वीं–11वीं शताब्दी में बने।"}, {"q": "ग्वालियर दुर्ग में मानमंदिर महल का निर्माण किस तोमर शासक से संबंधित है? / Man Mandir Palace at Gwalior Fort is associated with which Tomar ruler?", "o": ["मानसिंह तोमर / Man Singh Tomar", "वीर सिंह देव / Vir Singh Deo", "दलपत शाह / Dalpat Shah", "बाज बहादुर / Baz Bahadur"], "a": 0, "e": "मानसिंह तोमर ने ग्वालियर दुर्ग में मानमंदिर महल का निर्माण कराया।"}, {"q": "मांडू की स्थापत्य विरासत में जहाज महल का नाम किस दृश्य प्रभाव से जुड़ा है? / The name Jahaz Mahal at Mandu refers to what visual effect?", "o": ["चट्टान के भीतर भूमिगत होना / Being underground in a rock", "घोड़े की आकृति होना / Being shaped like a horse", "सात गुंबदों की कतार होना / Having seven aligned domes", "दो जलाशयों के बीच जहाज जैसा दिखना / Its ship-like appearance between two water bodies"], "a": 3, "e": "जहाज महल जलाशयों के बीच स्थित होने के कारण पानी पर तैरते जहाज जैसा दिखाई देता है।"}, {"q": "बाज बहादुर और रूपमती की ऐतिहासिक-सांस्कृतिक स्मृति मुख्यतः किस स्थल से जुड़ी है? / The historical-cultural memory of Baz Bahadur and Roopmati is mainly linked to which place?", "o": ["ओरछा / Orchha", "मांडू / Mandu", "चंदेरी / Chanderi", "असीरगढ़ / Asirgarh"], "a": 1, "e": "मालवा के मांडू में बाज बहादुर और रूपमती से जुड़े महल तथा लोक-स्मृतियाँ प्रसिद्ध हैं।"}, {"q": "बुंदेला स्थापत्य और राजकीय इतिहास के लिए ओरछा किस नदी के किनारे स्थित है? / Orchha, important for Bundela architecture and history, lies on which river?", "o": ["कालीसिंध / Kalisindh", "वैनगंगा / Wainganga", "बेतवा / Betwa", "ताप्ती / Tapti"], "a": 2, "e": "ओरछा बेतवा नदी के किनारे स्थित बुंदेला राजवंश का प्रमुख ऐतिहासिक केंद्र है।"}, {"q": "रानी दुर्गावती किस राज्य/राजवंश की शासिका के रूप में प्रसिद्ध हैं? / Rani Durgavati is renowned as a ruler of which kingdom/dynasty?", "o": ["गढ़ा-कटंगा के गोंड राज्य / Gond kingdom of Garha-Katanga", "परमार राज्य / Paramara kingdom", "चंदेल राज्य / Chandela kingdom", "मालवा सल्तनत / Malwa Sultanate"], "a": 0, "e": "रानी दुर्गावती ने गढ़ा-कटंगा के गोंड राज्य का शासन किया और मुगल विस्तार का प्रतिरोध किया।"}, {"q": "गढ़ा-कटंगा राज्य की राजधानी के रूप में किस स्थान का उल्लेख प्रायः मिलता है? / Which place is often cited as a capital of the Garha-Katanga kingdom?", "o": ["उज्जैन / Ujjain", "विदिशा / Vidisha", "धार / Dhar", "गढ़ा / Garha"], "a": 3, "e": "गढ़ा, वर्तमान जबलपुर क्षेत्र के निकट, गोंड राज्य के प्रमुख सत्ता-केंद्रों में था।"}, {"q": "चंदेरी का मध्यकालीन महत्त्व किस कारणों के संयोजन से समझना सबसे उचित है? / Which combination best explains Chanderi's medieval importance?", "o": ["चाय बागान और रेल कारखाना / Tea estates and railway works", "दुर्ग, व्यापार मार्ग और वस्त्र-बुनाई / Fort, trade routes and textile weaving", "केवल बौद्ध विश्वविद्यालय / Buddhist university alone", "समुद्री बेड़ा और बंदरगाह / Navy and seaport"], "a": 1, "e": "चंदेरी दुर्ग, रणनीतिक मार्गों और प्रसिद्ध वस्त्र-बुनाई परंपरा के कारण महत्त्वपूर्ण रहा।"}, {"q": "मध्य प्रदेश में 1857 के विद्रोह के दौरान शंकर शाह और रघुनाथ शाह किस क्षेत्र से जुड़े थे? / During the 1857 revolt, Shankar Shah and Raghunath Shah were associated with which area?", "o": ["नीमच / Neemuch", "इंदौर / Indore", "जबलपुर / Jabalpur", "मंदसौर / Mandsaur"], "a": 2, "e": "गोंड शासक वंश से जुड़े शंकर शाह और रघुनाथ शाह को जबलपुर में अंग्रेजों ने दंडित किया था।"}, {"q": "1857 के विद्रोह में तात्या टोपे का मध्य भारत में अभियान किस विशेषता के लिए उल्लेखनीय है? / Tatya Tope's campaign in Central India during 1857 is notable for what?", "o": ["तेज गतिशीलता और बदलते मोर्चों पर गुरिल्ला शैली / Mobility and guerrilla-style operations across changing fronts", "अंग्रेजों के साथ संधि द्वारा विद्रोह समाप्त करना / Ending the revolt by treaty with the British", "केवल नौसैनिक युद्ध / Naval warfare only", "दक्षिण भारत में स्थायी शासन / Permanent rule in South India"], "a": 0, "e": "तात्या टोपे ने मध्य भारत में लगातार स्थान बदलते हुए अंग्रेजी सेनाओं से संघर्ष किया।"}, {"q": "नीमच का 1857 के विद्रोह के इतिहास में महत्त्व मुख्यतः क्या था? / What was Neemuch's main significance in the history of the 1857 revolt?", "o": ["यहाँ 1942 में आजाद हिंद सरकार बनी / Azad Hind Government was formed here in 1942", "यह विद्रोह का अंतिम समुद्री अड्डा था / It was the final naval base of the revolt", "यहाँ कांग्रेस का पहला अधिवेशन हुआ / The first Congress session was held here", "यहाँ की सैन्य छावनी में विद्रोह हुआ / Revolt occurred in its military cantonment"], "a": 3, "e": "नीमच की छावनी 1857 में विद्रोह की प्रमुख घटनाओं से जुड़ी थी।"}, {"q": "मध्य भारत में भीमा नायक का प्रतिरोध मुख्यतः किस समुदाय और क्षेत्र से जुड़ा था? / Bhima Nayak's resistance in Central India was mainly associated with which community and region?", "o": ["सहरिया समुदाय और बघेलखंड / Sahariya community and Baghelkhand", "भील समुदाय और निमाड़ क्षेत्र / Bhil community and Nimar region", "बैगा समुदाय और बुंदेलखंड / Baiga community and Bundelkhand", "कोरकू समुदाय और चंबल / Korku community and Chambal"], "a": 1, "e": "भीमा नायक भील प्रतिरोध के प्रमुख व्यक्तित्वों में गिने जाते हैं और उनका संघर्ष निमाड़ क्षेत्र से जुड़ा था।"}, {"q": "टंट्या भील की लोकप्रिय स्मृति में 'मामा' संबोधन किस बात को दर्शाता है? / What does the popular address 'Mama' in Tantya Bhil's memory reflect?", "o": ["औपनिवेशिक प्रशासनिक पद / A colonial administrative office", "ब्रिटिश सेना की उपाधि / A British military title", "जनसमुदाय में अपनत्व और लोकनायक की छवि / Affection and his image as a people's hero", "राजदरबार का वंशानुगत पद / A hereditary court office"], "a": 2, "e": "टंट्या भील लोकस्मृति में जननायक के रूप में प्रतिष्ठित हैं; 'टंट्या मामा' संबोधन अपनत्व व्यक्त करता है।"}, {"q": "भगत आंदोलन और जनजातीय सुधार गतिविधियों के अध्ययन में गोविंद गुरु का संबंध मुख्यतः किस क्षेत्र से जोड़ा जाता है? / Govind Guru is chiefly associated with which region in studies of tribal reform movements?", "o": ["वागड़-राजस्थान/मध्य भारत का सीमावर्ती क्षेत्र / Vagad and the Rajasthan–Central India border region", "बुंदेलखंड का पठार / Bundelkhand plateau", "महाकौशल का पूर्वी भाग / Eastern Mahakoshal", "ग्वालियर का शहरी क्षेत्र / Urban Gwalior"], "a": 0, "e": "गोविंद गुरु का आंदोलन मुख्यतः वागड़ और भील समुदायों के बीच सक्रिय था; यह वर्तमान मध्य प्रदेश के सीधे भीतर तक सीमित नहीं था।"}, {"q": "मध्य प्रदेश के जंगल सत्याग्रहों को समझने के लिए कौन-सा औपनिवेशिक कानून-संबंधी संदर्भ सबसे उपयोगी है? / Which colonial legal context is most useful for understanding forest satyagrahas in MP?", "o": ["समुद्री सीमा शुल्क / Maritime customs duties", "रेलवे टिकट नियम / Railway ticket rules", "शहरी भवन कर / Urban building tax", "वन कानूनों द्वारा स्थानीय उपयोग और अधिकारों पर नियंत्रण / Forest laws restricting customary use and rights"], "a": 3, "e": "वन कानूनों और आरक्षित वनों पर नियंत्रण ने स्थानीय समुदायों के पारंपरिक अधिकारों को प्रभावित किया।"}, {"q": "माखनलाल चतुर्वेदी की कविता 'पुष्प की अभिलाषा' का केंद्रीय भाव किससे सबसे अधिक जुड़ता है? / The central idea of Makhanlal Chaturvedi's 'Pushp ki Abhilasha' is most closely related to what?", "o": ["प्रकृति-विज्ञान का वर्णन / Description of natural science", "राष्ट्रसेवा और बलिदान / National service and sacrifice", "दरबारी प्रेम / Courtly romance", "औद्योगिक विकास / Industrial development"], "a": 1, "e": "कविता में पुष्प की इच्छा मातृभूमि के लिए बलिदान और राष्ट्रसेवा की भावना व्यक्त करती है।"}, {"q": "सुभद्रा कुमारी चौहान की 'झाँसी की रानी' कविता का ऐतिहासिक-साहित्यिक महत्त्व क्या है? / What is the historical-literary significance of Subhadra Kumari Chauhan's 'Jhansi ki Rani'?", "o": ["गुप्तकालीन व्यापार सूची / Gupta trade catalogue", "मुगल चित्रकला की तकनीक / Mughal painting technique", "1857 की वीरांगना की स्मृति को जनभाषा में लोकप्रिय बनाना / Popularising the memory of the 1857 heroine in accessible verse", "मौर्य प्रशासन का विवरण / Description of Mauryan administration"], "a": 2, "e": "इस कविता ने रानी लक्ष्मीबाई की वीरता की स्मृति को व्यापक जनमानस में लोकप्रिय बनाया।"}, {"q": "मध्य प्रदेश की 'माच' लोकनाट्य परंपरा का प्रमुख क्षेत्र कौन-सा है? / Which region is chiefly associated with the Maach folk-theatre tradition?", "o": ["मालवा / Malwa", "चंबल / Chambal", "महाकौशल / Mahakoshal", "बघेलखंड / Baghelkhand"], "a": 0, "e": "माच मालवा क्षेत्र की प्रसिद्ध लोकनाट्य परंपरा है, जिसमें गायन और संवाद महत्त्वपूर्ण होते हैं।"}, {"q": "गोंड चित्रकला में रेखाओं और बिंदुओं का बार-बार उपयोग सामान्यतः किस प्रभाव के लिए होता है? / In Gond painting, repeated lines and dots are commonly used for what effect?", "o": ["धातु पर नक्काशी करना / Engraving metal", "परिप्रेक्ष्य में भवन बनाना / Drawing buildings in perspective", "केवल ज्यामितीय नक्शे बनाना / Making only geometric maps", "आकृतियों में गति, बनावट और जीवंतता दिखाना / Showing movement, texture and vitality"], "a": 3, "e": "गोंड कला में बिंदु, रेखाएँ और पैटर्न आकृतियों को लय, बनावट और जीवंतता देते हैं।"}, {"q": "बैगा समुदाय की पारंपरिक 'बेवर' कृषि किस प्रकार की खेती है? / The traditional Baiga practice called bewar is what type of cultivation?", "o": ["सीढ़ीदार बागवानी / Terrace horticulture", "स्थानांतरित/झूम प्रकार की खेती / Shifting cultivation", "केवल ग्रीनहाउस खेती / Greenhouse farming only", "समुद्री मत्स्य पालन / Marine fishing"], "a": 1, "e": "बेवर पारंपरिक रूप से वन क्षेत्र में स्थानांतरित खेती का एक रूप है; इसके स्वरूप में स्थानीय विविधता रही है।"}, {"q": "सहरिया जनजाति का प्रमुख पारंपरिक निवास-क्षेत्र मध्य प्रदेश में किस अंचल से जुड़ा है? / Which region of MP is strongly associated with the traditional habitat of the Sahariya tribe?", "o": ["पचमढ़ी का उच्च पठार मात्र / Pachmarhi highland alone", "महेश्वर–खरगोन का नर्मदा तट / Narmada bank near Maheshwar–Khargone", "श्योपुर–शिवपुरी और आसपास का उत्तर-पश्चिमी अंचल / Sheopur–Shivpuri and adjoining northwestern region", "सिंगरौली का कोयला क्षेत्र / Singrauli coal belt"], "a": 2, "e": "सहरिया समुदाय मध्य प्रदेश के उत्तर-पश्चिमी भाग, विशेषकर श्योपुर और शिवपुरी क्षेत्र से जुड़ा है।"}, {"q": "कोरकू जनजाति का सांस्कृतिक-भौगोलिक संबंध किस पर्वतीय क्षेत्र से विशेष रूप से है? / The Korku tribe has a particularly strong cultural-geographical association with which upland region?", "o": ["सतपुड़ा / Satpura", "पूर्वी घाट / Eastern Ghats", "अरावली / Aravalli", "विंध्य के पश्चिमी रेगिस्तानी भाग / Western Vindhyan desert"], "a": 0, "e": "कोरकू समुदाय का प्रमुख निवास सतपुड़ा के वनाच्छादित क्षेत्रों, विशेषकर मध्य प्रदेश के दक्षिणी भागों में है।"}, {"q": "मध्य प्रदेश की भील संस्कृति में भगोरिया हाट किस अंचल से विशेष रूप से जुड़ा है? / Bhagoria haat in Bhil culture is especially associated with which region?", "o": ["दमोह–सागर / Damoh–Sagar", "रीवा–सीधी / Rewa–Sidhi", "भिंड–मुरैना / Bhind–Morena", "झाबुआ–अलीराजपुर / Jhabua–Alirajpur"], "a": 3, "e": "भगोरिया हाट झाबुआ और अलीराजपुर सहित पश्चिमी आदिवासी अंचल की प्रसिद्ध परंपरा है।"}, {"q": "मध्य प्रदेश के किस लोकनृत्य में वीरता और युद्ध-कौशल से जुड़ी प्रस्तुति विशेष रूप से दिखाई देती है? / Which folk dance of MP notably features martial vigour and warrior-like presentation?", "o": ["गौर / Gaur", "आहिराई / Ahirai", "मटकी / Matki", "कर्मा / Karma"], "a": 1, "e": "आहिराई को बुंदेलखंड के कुछ क्षेत्रों में वीरता/युद्ध-कौशल से जुड़ी नृत्य-परंपरा के रूप में वर्णित किया जाता है।"}, {"q": "मध्य प्रदेश की 'गम्मत' परंपरा मुख्यतः किस प्रकार की अभिव्यक्ति है? / The Gammat tradition in MP is primarily what kind of expression?", "o": ["शास्त्रीय मंदिर वास्तु / Classical temple architecture", "धातु मुद्रा निर्माण / Metal coin minting", "लोक-मनोरंजन और व्यंग्यप्रधान नाट्य/प्रदर्शन / Folk entertainment and satirical performance", "वैदिक यज्ञ-विधि / Vedic ritual procedure"], "a": 2, "e": "गम्मत लोक-प्रदर्शन की ऐसी परंपरा है जिसमें मनोरंजन और व्यंग्य का स्थान होता है।"}, {"q": "मध्य प्रदेश के किस क्षेत्र की चंदेरी साड़ी अपनी हल्की बनावट और जरी-बॉर्डर के लिए प्रसिद्ध है? / Chanderi sarees are known for their light texture and zari borders in which region?", "o": ["अशोकनगर जिला / Ashoknagar district", "बालाघाट जिला / Balaghat district", "सीधी जिला / Sidhi district", "बड़वानी जिला / Barwani district"], "a": 0, "e": "चंदेरी नगर वर्तमान अशोकनगर जिले में है और अपनी विशिष्ट बुनाई के लिए प्रसिद्ध है।"}, {"q": "बाघ गुफाओं के भित्तिचित्र किस कला-माध्यम और धार्मिक-सांस्कृतिक प्रभाव से संबंधित हैं? / The Bagh cave murals are associated with which medium and religious-cultural influence?", "o": ["काष्ठ-नक्काशी; सिख गुरुद्वारा परंपरा / Wood carving; Sikh gurdwara tradition", "काँच-मोज़ेक; औपनिवेशिक चर्च / Glass mosaic; colonial church", "धातु-ढलाई; इस्लामी मकबरा परंपरा / Metal casting; Islamic tomb tradition", "भित्तिचित्र; बौद्ध मठीय परंपरा / Murals; Buddhist monastic tradition"], "a": 3, "e": "बाघ गुफाएँ बौद्ध विहार परिसर और प्राचीन भारतीय भित्तिचित्र कला के लिए प्रसिद्ध हैं।"}, {"q": "अमरकंटक का धार्मिक और भौगोलिक महत्त्व किस संयोजन से सबसे सही व्यक्त होता है? / Which combination best expresses Amarkantak's religious and geographical importance?", "o": ["चंबल का डेल्टा और समुद्री बंदरगाह / Chambal delta and seaport", "नर्मदा उद्गम और पवित्र तीर्थ / Source of the Narmada and sacred pilgrimage site", "ताप्ती का मुहाना / Mouth of the Tapti", "बेतवा का हिमनदीय स्रोत / Glacial source of the Betwa"], "a": 1, "e": "अमरकंटक नर्मदा के उद्गम-क्षेत्र और प्रमुख तीर्थस्थल के रूप में प्रसिद्ध है।"}, {"q": "ओंकारेश्वर ज्योतिर्लिंग किस नदी के द्वीपीय/तटीय भू-दृश्य से जुड़ा है? / Omkareshwar Jyotirlinga is associated with the island/river landscape of which river?", "o": ["सोन / Son", "केन / Ken", "नर्मदा / Narmada", "चंबल / Chambal"], "a": 2, "e": "ओंकारेश्वर नर्मदा नदी पर स्थित प्रमुख शैव तीर्थ है।"}, {"q": "महाकालेश्वर ज्योतिर्लिंग मध्य प्रदेश के किस नगर में स्थित है? / Mahakaleshwar Jyotirlinga is located in which city of MP?", "o": ["उज्जैन / Ujjain", "भोपाल / Bhopal", "विदिशा / Vidisha", "इंदौर / Indore"], "a": 0, "e": "महाकालेश्वर मंदिर उज्जैन में स्थित है और शैव तीर्थ परंपरा का प्रमुख केंद्र है।"}, {"q": "मध्य प्रदेश में विश्व धरोहर स्थल 'खजुराहो समूह के स्मारक' किस जिले में स्थित हैं? / In which district are the UNESCO-listed Khajuraho Group of Monuments located?", "o": ["टीकमगढ़ / Tikamgarh", "दमोह / Damoh", "पन्ना / Panna", "छतरपुर / Chhatarpur"], "a": 3, "e": "खजुराहो के मंदिर वर्तमान छतरपुर जिले में स्थित हैं।"}, {"q": "साँची का विश्व धरोहर दर्जा मुख्यतः किस विरासत को मान्यता देता है? / Sanchi's World Heritage status chiefly recognises which heritage?", "o": ["औपनिवेशिक छावनी / Colonial cantonment", "बौद्ध स्मारक और स्तूप परिसर / Buddhist monuments and stupa complex", "आधुनिक औद्योगिक परिसर / Modern industrial complex", "मध्यकालीन इस्लामी महल / Medieval Islamic palace"], "a": 1, "e": "साँची का स्मारक समूह बौद्ध स्थापत्य और कला का असाधारण उदाहरण है।"}, {"q": "भीमबेटका और साँची को साथ पढ़ने से इतिहास के किस व्यापक परिवर्तन को समझने में मदद मिलती है? / Studying Bhimbetka and Sanchi together helps understand which broad historical transition?", "o": ["समुद्री व्यापार से यूरोपीय उपनिवेश तक / Maritime trade to European colonisation", "केवल मुगल से औपनिवेशिक शासन तक / Only Mughal to colonial rule", "प्रागैतिहासिक शैलकला से ऐतिहासिक बौद्ध स्मारक परंपरा तक / From prehistoric rock art to historic Buddhist monument traditions", "औद्योगिक क्रांति से डिजिटल युग तक / Industrial Revolution to digital age"], "a": 2, "e": "दोनों स्थल अलग-अलग कालखंडों और सांस्कृतिक रूपों के साक्ष्य हैं, इसलिए दीर्घकालीन सांस्कृतिक इतिहास समझने में सहायक हैं।"}, {"q": "किस स्रोत से किसी राजवंश की उपाधियों, दान और प्रशासनिक पदों के बारे में प्रत्यक्ष जानकारी मिलने की संभावना अधिक होती है? / Which source is most likely to provide direct evidence about a dynasty's titles, grants and administrative offices?", "o": ["अभिलेख / Inscriptions", "मौखिक अफवाह / Oral rumour", "केवल लोकगीत / Folk songs alone", "आधुनिक पर्यटन पुस्तिका / Modern tourism brochure"], "a": 0, "e": "अभिलेख तिथि, उपाधि, दान, प्रशासकीय पद और राजकीय दावों के प्राथमिक स्रोत हो सकते हैं; उनकी आलोचनात्मक जाँच आवश्यक है।"}, {"q": "प्राचीन सिक्कों पर मिले प्रतीक और धातु-संरचना से कौन-सी जानकारी मिल सकती है? / What information can symbols and metal composition on ancient coins provide?", "o": ["आधुनिक जनगणना का पूरा विवरण / Complete modern census data", "केवल वर्षा का सटीक दैनिक आँकड़ा / Exact daily rainfall data only", "लोकगीतों की धुन / Melody of folk songs", "राजसत्ता, अर्थव्यवस्था और व्यापारिक संपर्कों के संकेत / Clues about authority, economy and trade links"], "a": 3, "e": "सिक्कों के प्रतीक, धातु, भार और वितरण से राजनीतिक तथा आर्थिक इतिहास के संकेत मिलते हैं।"}, {"q": "यदि किसी स्थल पर अलग-अलग कालों की परतें मिलें, तो पुरातत्त्वविद् के लिए सबसे उपयुक्त तरीका क्या है? / If layers from different periods are found at a site, what is the best archaeological approach?", "o": ["केवल स्थानीय किंवदंती से तिथि तय करना / Dating solely from local legend", "स्तरक्रम, वस्तुओं और वैज्ञानिक तिथिकरण का संयुक्त विश्लेषण / Combined analysis of stratigraphy, artefacts and scientific dating", "सबसे ऊपर की वस्तु को सबसे प्राचीन मानना / Treating the topmost object as oldest", "सभी वस्तुओं को एक ही काल का मानना / Assigning all objects to one period"], "a": 1, "e": "स्तरक्रम और स्वतंत्र तिथिकरण विधियाँ अलग-अलग सांस्कृतिक चरणों को पहचानने में मदद करती हैं।"}, {"q": "किसी ऐतिहासिक दावे की पुष्टि के लिए सबसे विश्वसनीय तरीका कौन-सा है? / What is the most reliable way to verify a historical claim?", "o": ["एक वायरल संदेश पर भरोसा / Trusting a viral message", "केवल लोकप्रिय कथा स्वीकारना / Accepting only a popular legend", "विभिन्न स्वतंत्र प्राथमिक स्रोतों और पुरातात्त्विक साक्ष्यों का मिलान / Cross-checking independent primary sources and archaeological evidence", "साक्ष्य के बिना अनुमान लगाना / Guessing without evidence"], "a": 2, "e": "स्रोतों का पारस्परिक मिलान, संदर्भ और आलोचनात्मक मूल्यांकन ऐतिहासिक दावों की पुष्टि में सबसे उपयोगी हैं।"}, {"q": "मध्य प्रदेश की ऐतिहासिक-सांस्कृतिक विविधता को समझने के लिए कौन-सा दृष्टिकोण सबसे संतुलित है? / Which approach is most balanced for understanding MP's historical-cultural diversity?", "o": ["पुरातत्त्व, अभिलेख, साहित्य, लोकपरंपरा और भौगोलिक संदर्भ साथ पढ़ना / Studying archaeology, inscriptions, literature, oral traditions and geography together", "केवल राजाओं की सूची याद करना / Memorising only lists of rulers", "केवल आधुनिक जिलों के नाम पढ़ना / Studying only modern district names", "सभी क्षेत्रों की संस्कृति को समान मानना / Treating all regions' cultures as identical"], "a": 0, "e": "बहु-स्रोत दृष्टिकोण क्षेत्रीय विविधता और समय के साथ हुए परिवर्तनों को बेहतर समझाता है।"}];
+let submitted=false;
+let remaining=3600;
+let timerId=null;
+
+function renderQuiz(){
+ const root=document.getElementById("quiz");
+ root.innerHTML="";
+ questions.forEach((q,i)=>{
+  const card=document.createElement("section");
+  card.className="question";
+  card.id="qcard"+i;
+  let html=`<div class="qtitle">Q${i+1}. ${q.q}</div>`;
+  q.o.forEach((option,j)=>{
+   html+=`<label class="option" id="opt${i}_${j}">
+    <input type="radio" name="q${i}" value="${j}">
+    <b>${String.fromCharCode(65+j)}.</b> ${option}
+   </label>`;
+  });
+  html+=`<div class="explanation" id="exp${i}">
+   <b>सही उत्तर / Correct Answer:</b> ${String.fromCharCode(65+q.a)}. ${q.o[q.a]}
+   <br><b>व्याख्या / Explanation:</b> ${q.e}
+  </div>`;
+  card.innerHTML=html;
+  root.appendChild(card);
+ });
 }
-];
-function loadQuestions() {
-const container = document.getElementById('questions');
-questions.forEach((q, index) => {
-const qDiv = document.createElement('div');
-qDiv.className = 'question';
-let optionsHtml = '';
-q.options.forEach(opt => {
-optionsHtml += `
-`;
-});
-qDiv.innerHTML = <h3>${q.question}</h3> ${optionsHtml} <div class="explanation" id="exp${index}"><strong>उत्तर: ${q.answer}</strong><br>${q.explanation}</div>;
-container.appendChild(qDiv);
-});
+
+function submitTest(auto=false){
+ if(submitted)return;
+ submitted=true;
+ clearInterval(timerId);
+ let correct=0,attempted=0;
+ questions.forEach((q,i)=>{
+  const selected=document.querySelector(`input[name="q${i}"]:checked`);
+  if(selected)attempted++;
+  if(selected && Number(selected.value)===q.a)correct++;
+  q.o.forEach((_,j)=>{
+   const label=document.getElementById(`opt${i}_${j}`);
+   const input=label.querySelector("input");
+   input.disabled=true;
+   if(j===q.a)label.classList.add("correct");
+   if(selected && Number(selected.value)===j && j!==q.a)label.classList.add("wrong");
+  });
+  document.getElementById("exp"+i).style.display="block";
+ });
+ const wrong=attempted-correct;
+ const unanswered=questions.length-attempted;
+ const result=document.getElementById("result");
+ result.style.display="block";
+ result.innerHTML=`
+  <h2>${auto?"समय समाप्त / Time Up":"टेस्ट परिणाम / Test Result"}</h2>
+  <div class="score">${correct} / ${questions.length}</div>
+  <p><b>सही उत्तर / Correct:</b> ${correct}</p>
+  <p><b>गलत उत्तर / Wrong:</b> ${wrong}</p>
+  <p><b>अनुत्तरित / Unanswered:</b> ${unanswered}</p>
+  <p><b>प्रतिशत / Percentage:</b> ${(correct/questions.length*100).toFixed(2)}%</p>
+  <p>हरे रंग में सही उत्तर और लाल रंग में गलत चुना गया उत्तर दिखाया गया है। सभी व्याख्याएँ प्रश्नों के नीचे हैं।</p>`;
+ document.getElementById("submitTop").disabled=true;
+ document.getElementById("submitBottom").disabled=true;
+ result.scrollIntoView({behavior:"smooth",block:"start"});
 }
-function submitTest() {
-questions.forEach((q, index) => {
-const exp = document.getElementById(exp${index});
-exp.style.display = 'block';
-const radios = document.getElementsByName(q${index});
-radios.forEach(radio => {
-const parent = radio.parentElement;
-if (radio.value === q.answer) {
-parent.style.background = '#d8f5df';
-parent.style.borderColor = '#249544';
-} else if (radio.checked) {
-parent.style.background = '#ffe0e0';
-parent.style.borderColor = '#d22';
+function startTimer(){
+ timerId=setInterval(()=>{
+  if(submitted)return;
+  remaining--;
+  const m=Math.floor(remaining/60),s=remaining%60;
+  document.getElementById("time").textContent=String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+  if(remaining<=0)submitTest(true);
+ },1000);
 }
-});
-});
-document.getElementById('submitBtn').disabled = true;
+function goBack(){
+ if(history.length>1)history.back();
+ else location.href="../../../index.html";
 }
-window.onload = loadQuestions;
+renderQuiz();
+startTimer();
+</script>
+</body>
+</html>
