@@ -1,482 +1,145 @@
-
 <!DOCTYPE html>
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MPPSC Unit 1 Test 4 | MPPSC Prelims 2027</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MPPSC MCQ Hub | Unit 1 Test 4</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#f1f4f9;color:#172033;font-family:Arial,"Noto Sans Devanagari",sans-serif;line-height:1.6}
-header{background:#151515;color:white;text-align:center;padding:16px 10px;border-bottom:5px solid #d92323}
-header img{width:65px;height:65px;object-fit:contain;background:white;border-radius:50%;padding:3px}
-header h1{color:#ff4545;margin:6px 0;font-size:25px}
-header p{margin:3px}
-.container{max-width:950px;margin:18px auto;padding:0 12px}
-.panel,.question{background:white;border-radius:10px;padding:17px;margin-bottom:15px;box-shadow:0 2px 9px #0000000d}
-.stats{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center}
-.stat{background:#f1f4f9;padding:9px 13px;border-radius:7px;font-weight:bold}
-#timer{color:#c52222}
-.question h3{margin:0 0 12px;font-size:17px}
-.options{display:grid;gap:8px}
-.option{display:flex;gap:9px;align-items:flex-start;padding:10px;border:1px solid #d9dee8;border-radius:7px;cursor:pointer}
-.option:hover{background:#f4f7ff}
-.option input{margin-top:6px;flex-shrink:0}
-.option.correct{background:#d9f7df;border-color:#168438;color:#105b28}
-.option.wrong{background:#ffe0e0;border-color:#d52222;color:#9c1515}
-.explanation{display:none;margin-top:12px;background:#f0f6ff;padding:12px;border-left:4px solid #2864bd;border-radius:5px}
-#result{display:none}
-button{border:0;border-radius:7px;padding:12px 18px;font-size:16px;font-weight:bold;cursor:pointer}
-#submitBtn{background:#17813b;color:white}
-#resetBtn{background:#252525;color:white}
-.buttons{display:flex;flex-wrap:wrap;gap:10px;margin:15px 0}
-#scoreText{font-size:23px;font-weight:bold;color:#146c2e}
-textarea{width:100%;padding:12px;border:1px solid #bbb;border-radius:7px;font:inherit}
-footer{text-align:center;padding:18px;color:#555}
-@media(max-width:600px){header h1{font-size:21px}.question{padding:13px}.question h3{font-size:16px}.stat{font-size:14px}}
+html,body{margin:0;padding:0;width:100%;font-family:Arial,"Noto Sans Devanagari",sans-serif;color:#172033}
+body{background:#edf1f6}
+header{background:#164f86;color:white;padding:12px 5px;text-align:center}
+.brand{display:flex;align-items:center;justify-content:center;gap:10px}
+.logo{width:46px;height:46px;object-fit:contain;background:white;border-radius:50%;padding:3px}
+h1{font-size:21px;margin:2px}
+header p{margin:5px;font-size:14px}
+main{width:100%;max-width:none;margin:auto;padding:5px}
+.toolbar{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0}
+button{border:0;border-radius:6px;padding:11px 14px;font-size:15px;font-weight:bold;cursor:pointer}
+.back{background:#555;color:white}
+.print{background:#137c55;color:white}
+.submit{background:#b91c1c;color:white}
+button:disabled{opacity:.55;cursor:not-allowed}
+.timer{background:#fff3cd;border:1px solid #e1c66a;border-radius:7px;padding:10px;text-align:center;font-weight:bold}
+.instructions{background:white;padding:10px;border:1px solid #d8e0e9;border-radius:7px;margin:8px 0;line-height:1.6;font-size:14px}
+.question{background:white;border:1px solid #d4dce6;border-radius:7px;margin:8px 0;padding:12px}
+.qtitle{font-weight:bold;line-height:1.65;margin-bottom:10px}
+.option{display:block;border:1px solid #d7dee8;border-radius:6px;padding:9px;margin:6px 0;line-height:1.55;cursor:pointer}
+.option input{accent-color:#164f86;margin-right:7px}
+.option.correct{background:#d8f5df!important;border-color:#218838;color:#145523}
+.option.wrong{background:#ffe0e0!important;border-color:#c62828;color:#8c1515}
+.explanation{display:none;background:#eff7ff;border-left:4px solid #164f86;padding:10px;margin-top:10px;line-height:1.7}
+#result{display:none;background:white;border:2px solid #164f86;border-radius:8px;padding:15px;margin:12px 0;text-align:center}
+#result h2{color:#164f86}
+.score{font-size:28px;font-weight:bold}
+@media print{header,.toolbar,.timer,.instructions,footer{display:none!important}main{padding:0}.question{break-inside:avoid;box-shadow:none}.explanation{display:block!important}}
 </style>
 </head>
 <body>
-
-<header>
-  <img src="../../mppsc-logo.jpg" alt="MPPSC Logo"
-       onerror="this.style.display='none'">
-  <h1>MPPSC PORTAL</h1>
-  <p>MPPSC Prelims 2027 | मध्य प्रदेश सामान्य अध्ययन</p>
-  <p><b>UNIT 1 — TEST 4 | 50 HARD MCQs</b></p>
+<header style="background:#111;color:white;border-bottom:4px solid #d71920">
+ <div class="brand">
+  <img class="logo" src="../../../mppsc-logo.jpg" alt="MPPSC Logo" onerror="this.style.display='none'">
+  <div><h1 style="color:#ff4040">MPPSC PORTAL</h1><p>MPPSC Prelims 2026 | मध्य प्रदेश सामान्य अध्ययन</p><p><b>UNIT 1 — TEST 3 | 50 HARD MCQs</b></p><p><b>Hard Level | 50 MCQs</b></p></div>
+ </div>
 </header>
-
-<main class="container">
-  <section class="panel">
-    <div class="stats">
-      <div class="stat">कुल प्रश्न / Total: 50</div>
-      <div class="stat">समय / Time: 60 मिनट</div>
-      <div class="stat">प्रत्येक सही उत्तर: 1 अंक</div>
-      <div class="stat">शेष समय / Left: <span id="timer">60:00</span></div>
-    </div>
-    <p>निर्देश / Instructions: सभी प्रश्नों के उत्तर चुनें। Submit Test के बाद स्कोर, सही उत्तर और व्याख्याएँ दिखाई देंगी।</p>
-  </section>
-
-  <div id="questions"></div>
-
-  <section class="panel">
-    <h3>Student Comment / विद्यार्थी टिप्पणी</h3>
-    <textarea id="comment" rows="3" placeholder="अपनी टिप्पणी यहाँ लिखें..."></textarea>
-    <div class="buttons">
-      <button id="submitBtn" onclick="submitTest(false)">Submit Test / टेस्ट जमा करें</button>
-      <button id="resetBtn" onclick="location.reload()">Restart Test / दोबारा शुरू करें</button>
-    </div>
-  </section>
-
-  <section class="panel" id="result">
-    <h2>Test Result / परीक्षा परिणाम</h2>
-    <div id="scoreText"></div>
-    <p id="details"></p>
-    <p id="feedback"></p>
-  </section>
+<main>
+ <div class="toolbar">
+  <button class="back" onclick="goBack()">← Back</button>
+  <button class="print" onclick="window.print()">PDF / Print</button>
+  <button class="submit" id="submitTop" onclick="submitTest()">Submit Test</button>
+ </div>
+ <div class="timer">⏱ समय / Time Remaining: <span id="time">60:00</span></div>
+ <div class="instructions">
+  <b>निर्देश / Instructions:</b> कुल 50 प्रश्न। प्रत्येक प्रश्न के लिए एक विकल्प चुनें।
+  Submit करने के बाद स्कोर, सही उत्तर, गलत उत्तर और सभी प्रश्नों की व्याख्या दिखाई देगी।
+  <br>50 questions. Select one option per question. Correct answers are distributed across A, B, C and D.
+ </div>
+ <div id="quiz"></div>
+ <div id="result"></div>
+ <div class="toolbar">
+  <button class="submit" id="submitBottom" onclick="submitTest()">Submit Test</button>
+  <button class="print" onclick="window.print()">PDF / Print</button>
+ </div>
 </main>
-
-<footer>MPPSC Portal | Practice Test | मेहनत ही सफलता की कुंजी है</footer>
-
+<footer style="text-align:center;padding:12px;color:#526174;font-size:13px">mppscportal.in | MPPSC Prelims Practice</footer>
 <script>
-const questions = [
-{
-q:"प्राचीन अवंति महाजनपद की उत्तरी राजधानी कौन-सी थी? / What was the northern capital of the ancient Avanti Mahajanapada?",
-o:["उज्जयिनी / Ujjayini","महिष्मती / Mahishmati","विदिशा / Vidisha","त्रिपुरी / Tripuri"],
-a:0,e:"अवंति महाजनपद के दो प्रमुख भाग माने जाते हैं। उत्तरी भाग की राजधानी उज्जयिनी और दक्षिणी भाग की राजधानी महिष्मती थी।"
-},
-{
-q:"महिष्मती की पहचान सामान्यतः मध्य प्रदेश के किस क्षेत्र से की जाती है? / Mahishmati is generally associated with which region of Madhya Pradesh?",
-o:["आधुनिक महेश्वर क्षेत्र / Modern Maheshwar region","रीवा क्षेत्र / Rewa region","मुरैना क्षेत्र / Morena region","बुंदेलखंड का उत्तरी भाग / Northern Bundelkhand"],
-a:0,e:"महिष्मती को सामान्यतः नर्मदा तट के महेश्वर-मंडलेश्वर क्षेत्र से जोड़ा जाता है। प्राचीन स्थलों की सटीक पहचान पर कुछ विद्वत् चर्चा भी मिलती है।"
-},
-{
-q:"साँची का महान स्तूप मूलतः किस शासक के समय बनवाया गया माना जाता है? / The Great Stupa at Sanchi was originally commissioned under which ruler?",
-o:["समुद्रगुप्त / Samudragupta","अशोक / Ashoka","हर्षवर्धन / Harshavardhana","कनिष्क / Kanishka"],
-a:1,e:"साँची के मूल स्तूप का निर्माण मौर्य सम्राट अशोक के समय हुआ माना जाता है। बाद में शुंग तथा अन्य कालों में इसका विस्तार और अलंकरण हुआ।"
-},
-{
-q:"उदयगिरि की गुफाएँ मुख्यतः किस काल की कला के लिए प्रसिद्ध हैं? / The Udayagiri caves are particularly known for art from which period?",
-o:["मौर्य काल / Mauryan period","गुप्त काल / Gupta period","सल्तनत काल / Sultanate period","मराठा काल / Maratha period"],
-a:1,e:"विदिशा के निकट उदयगिरि गुफाएँ गुप्तकालीन शिल्प और धार्मिक कला के महत्वपूर्ण उदाहरण हैं। यहाँ प्रसिद्ध वराह प्रतिमा भी है।"
-},
-{
-q:"एरण का प्राचीन स्थल वर्तमान में किस जिले में स्थित है? / The ancient site of Eran is located in which present-day district?",
-o:["सागर / Sagar","धार / Dhar","बालाघाट / Balaghat","श्योपुर / Sheopur"],
-a:0,e:"एरण वर्तमान सागर जिले में स्थित एक महत्वपूर्ण पुरातात्त्विक स्थल है। यहाँ से गुप्तकालीन अभिलेख और स्मारक मिले हैं।"
-},
-{
-q:"हेलियोडोरस स्तंभ कहाँ स्थित है? / Where is the Heliodorus Pillar located?",
-o:["भरहुत / Bharhut","बेसनगर, विदिशा के निकट / Besnagar near Vidisha","मांडू / Mandu","अमरकंटक / Amarkantak"],
-a:1,e:"हेलियोडोरस स्तंभ बेसनगर में विदिशा के निकट स्थित है। यह इंडो-ग्रीक राजदूत हेलियोडोरस और भागवत परंपरा से जुड़ा महत्वपूर्ण साक्ष्य है।"
-},
-{
-q:"खजुराहो के मंदिरों का निर्माण मुख्यतः किस राजवंश से संबंधित है? / The Khajuraho temples are mainly associated with which dynasty?",
-o:["परमार / Paramara","चंदेल / Chandela","कलचुरी / Kalachuri","तोमर / Tomara"],
-a:1,e:"खजुराहो के मंदिरों का निर्माण मुख्यतः चंदेल शासकों के शासनकाल में लगभग 10वीं से 11वीं शताब्दी के बीच हुआ।"
-},
-{
-q:"राजा भोज का प्रमुख संबंध किस राजवंश से था? / Raja Bhoja belonged to which dynasty?",
-o:["परमार / Paramara","चंदेल / Chandela","गुर्जर-प्रतिहार / Gurjara-Pratihara","गोंड / Gond"],
-a:0,e:"राजा भोज मालवा के प्रसिद्ध परमार शासक थे। वे साहित्य, स्थापत्य, दर्शन और विद्या के संरक्षण के लिए प्रसिद्ध हैं।"
-},
-{
-q:"त्रिपुरी के कलचुरियों की प्रमुख राजधानी किस स्थान पर थी? / Which place was a major capital of the Kalachuris of Tripuri?",
-o:["उज्जैन / Ujjain","त्रिपुरी, जबलपुर के निकट / Tripuri near Jabalpur","मंदसौर / Mandsaur","ओरछा / Orchha"],
-a:1,e:"त्रिपुरी को सामान्यतः वर्तमान जबलपुर के निकट तेवर क्षेत्र से जोड़ा जाता है। यह कलचुरी सत्ता का महत्वपूर्ण केंद्र था।"
-},
-{
-q:"नवदाटोली पुरातात्त्विक स्थल किस नदी के तट पर स्थित है? / Navdatoli archaeological site lies on the bank of which river?",
-o:["बेतवा / Betwa","नर्मदा / Narmada","चंबल / Chambal","सोन / Son"],
-a:1,e:"नवदाटोली मध्य प्रदेश में नर्मदा नदी के तट पर महेश्वर के सामने स्थित एक महत्वपूर्ण ताम्रपाषाणकालीन स्थल है।"
-},
-{
-q:"कायथा संस्कृति का संबंध मुख्यतः किस पुरातात्त्विक काल से है? / The Kayatha culture is mainly associated with which archaeological period?",
-o:["ताम्रपाषाण काल / Chalcolithic period","उत्तर मध्यकाल / Late medieval period","मुगल काल / Mughal period","औपनिवेशिक काल / Colonial period"],
-a:0,e:"कायथा संस्कृति मालवा क्षेत्र की प्रारंभिक ताम्रपाषाणकालीन संस्कृति है। इसका नाम उज्जैन के निकट कायथा स्थल से पड़ा।"
-},
-{
-q:"भीमबेटका किस कारण विश्व धरोहर स्थल के रूप में प्रसिद्ध है? / Why is Bhimbetka famous as a World Heritage Site?",
-o:["बौद्ध विश्वविद्यालय / Buddhist university","प्रागैतिहासिक शैलाश्रय और चित्रकला / Prehistoric rock shelters and paintings","मध्यकालीन बंदरगाह / Medieval port","मुगल उद्यान / Mughal gardens"],
-a:1,e:"भीमबेटका के शैलाश्रयों में प्रागैतिहासिक मानव जीवन और कला के साक्ष्य मिलते हैं। यह यूनेस्को विश्व धरोहर स्थल है।"
-},
-{
-q:"भरहुत स्तूप के अवशेष वर्तमान में किस जिले से संबंधित हैं? / Bharhut Stupa remains are associated with which present-day district?",
-o:["सतना / Satna","इंदौर / Indore","बड़वानी / Barwani","गुना / Guna"],
-a:0,e:"भरहुत के बौद्ध स्तूप के अवशेष वर्तमान सतना जिले के भरहुत क्षेत्र से संबंधित हैं। इसकी रेलिंग और मूर्तियाँ महत्वपूर्ण हैं।"
-},
-{
-q:"बाघ की गुफाएँ किस जिले में स्थित हैं? / The Bagh caves are located in which district?",
-o:["धार / Dhar","सीधी / Sidhi","शिवपुरी / Shivpuri","कटनी / Katni"],
-a:0,e:"बाघ की गुफाएँ धार जिले में स्थित बौद्ध शैलकृत गुफाएँ हैं। ये भित्तिचित्रों और विहार वास्तुकला के लिए जानी जाती हैं।"
-},
-{
-q:"मंदसौर अभिलेख में किस शासक के समय रेशम बुनकरों के सूर्य मंदिर निर्माण का उल्लेख प्रसिद्ध है? / The Mandsaur inscription is famous for recording silk weavers building a Sun temple under which ruler?",
-o:["कुमारगुप्त प्रथम / Kumaragupta I","यशोधर्मन / Yashodharman","अशोक / Ashoka","बिंदुसार / Bindusara"],
-a:0,e:"मंदसौर के रेशम बुनकरों के अभिलेख का संबंध कुमारगुप्त प्रथम के समय से जोड़ा जाता है। इसमें सूर्य मंदिर और बुनकर समुदाय का उल्लेख है।"
-},
-{
-q:"मालवा में हूण शासक मिहिरकुल की शक्ति को चुनौती देने वाले यशोधर्मन का प्रमुख अभिलेख कहाँ मिला? / Where was the major inscription of Yashodharman, who challenged Mihirakula, found?",
-o:["सोंडनी, मंदसौर के निकट / Sondani near Mandsaur","साँची / Sanchi","पन्ना / Panna","असीरगढ़ / Asirgarh"],
-a:0,e:"यशोधर्मन के सोंडनी स्तंभ अभिलेख मंदसौर के निकट मिले हैं। ये उसकी सैन्य उपलब्धियों और हूण शासक मिहिरकुल पर विजय से संबंधित हैं।"
-},
-{
-q:"मांडू का जहाज महल किस प्रकार की स्थापत्य विशेषता के लिए प्रसिद्ध है? / The Jahaz Mahal at Mandu is famous for which architectural feature?",
-o:["दो जलाशयों के बीच जहाज जैसी आकृति / Ship-like form between two water bodies","भूमिगत गुफा / Underground cave","विशाल बौद्ध स्तूप / Massive Buddhist stupa","एकाश्म स्तंभ / Monolithic pillar"],
-a:0,e:"मांडू का जहाज महल दो जलाशयों के बीच स्थित है और इसकी लंबी संरचना पानी में तैरते जहाज जैसी दिखाई देती है।"
-},
-{
-q:"ओरछा नगर का प्रमुख ऐतिहासिक संबंध किस राजवंश से है? / Orchha is historically associated mainly with which dynasty?",
-o:["बुंदेला / Bundela","परमार / Paramara","मौर्य / Maurya","सातवाहन / Satavahana"],
-a:0,e:"ओरछा बुंदेला शासकों का प्रमुख केंद्र था। यहाँ के महल, मंदिर और छतरियाँ बुंदेला स्थापत्य की विशेषता दर्शाते हैं।"
-},
-{
-q:"ग्वालियर के तेली का मंदिर किस किले में स्थित है? / The Teli ka Mandir is located in which fort?",
-o:["मांडू दुर्ग / Mandu Fort","ग्वालियर दुर्ग / Gwalior Fort","असीरगढ़ दुर्ग / Asirgarh Fort","रायसेन दुर्ग / Raisen Fort"],
-a:1,e:"तेली का मंदिर ग्वालियर दुर्ग के भीतर स्थित है। इसकी स्थापत्य शैली में उत्तर भारतीय नागर और कुछ द्रविड़ विशेषताओं का मिश्रण दिखाई देता है।"
-},
-{
-q:"रानी दुर्गावती किस राज्य की शासिका थीं? / Rani Durgavati ruled which kingdom?",
-o:["गढ़ा-कटंगा / Garha-Katanga","मालवा सल्तनत / Malwa Sultanate","अवंति / Avanti","ओरछा / Orchha"],
-a:0,e:"रानी दुर्गावती गोंडवाना के गढ़ा-कटंगा राज्य की शासिका थीं। उन्होंने 1564 में मुगल सेनापति आसफ खाँ के विरुद्ध संघर्ष किया।"
-},
-{
-q:"संग्राम शाह किस राजवंश से संबंधित थे? / Sangram Shah belonged to which dynasty?",
-o:["गोंड / Gond","चंदेल / Chandela","परमार / Paramara","तोमर / Tomara"],
-a:0,e:"संग्राम शाह गढ़ा-कटंगा के प्रसिद्ध गोंड शासक थे। उनके शासनकाल में राज्य की शक्ति और किलों का विस्तार हुआ।"
-},
-{
-q:"अहिल्याबाई होल्कर ने अपनी राजधानी कहाँ स्थापित की थी? / Where did Ahilyabai Holkar establish her capital?",
-o:["महेश्वर / Maheshwar","भोपाल / Bhopal","सागर / Sagar","रीवा / Rewa"],
-a:0,e:"अहिल्याबाई होल्कर ने महेश्वर को अपनी राजधानी बनाया। वे प्रशासन, धर्मस्थलों के संरक्षण और जनकल्याणकारी कार्यों के लिए प्रसिद्ध हैं।"
-},
-{
-q:"चंद्रशेखर आजाद का जन्म वर्तमान मध्य प्रदेश के किस स्थान पर हुआ था? / Where was Chandrashekhar Azad born in present-day Madhya Pradesh?",
-o:["भाबरा, अलीराजपुर क्षेत्र / Bhabra in the Alirajpur region","जबलपुर / Jabalpur","ग्वालियर / Gwalior","सागर / Sagar"],
-a:0,e:"चंद्रशेखर आजाद का जन्म 23 जुलाई 1906 को भाबरा में हुआ था, जो अब मध्य प्रदेश के अलीराजपुर जिले में है।"
-},
-{
-q:"1939 का त्रिपुरी कांग्रेस अधिवेशन वर्तमान मध्य प्रदेश के किस शहर के निकट आयोजित हुआ था? / The 1939 Tripuri Congress session was held near which present-day city?",
-o:["जबलपुर / Jabalpur","भोपाल / Bhopal","इंदौर / Indore","उज्जैन / Ujjain"],
-a:0,e:"त्रिपुरी अधिवेशन 1939 में जबलपुर के निकट आयोजित हुआ था। इसमें सुभाषचंद्र बोस और कांग्रेस नेतृत्व के बीच मतभेद प्रमुख रहे।"
-},
-{
-q:"भगोरिया उत्सव मुख्यतः किन जनजातीय समुदायों से संबंधित है? / Bhagoria festival is mainly associated with which tribal communities?",
-o:["भील और भिलाला / Bhil and Bhilala","बैगा और कोरकू / Baiga and Korku","सहरिया और कोल / Sahariya and Kol","गोंड और अगरिया בלבד / Gond and Agariya only"],
-a:0,e:"भगोरिया उत्सव पश्चिमी मध्य प्रदेश के भील और भिलाला समुदायों में विशेष रूप से प्रसिद्ध है और होली के आसपास मनाया जाता है।"
-},
-{
-q:"मध्य प्रदेश की पारंपरिक लोकनाट्य शैली ‘माच’ मुख्यतः किस क्षेत्र से जुड़ी है? / The folk theatre form 'Maach' is mainly associated with which region?",
-o:["मालवा / Malwa","बघेलखंड / Baghelkhand","महाकौशल / Mahakoshal","निमाड़ בלבד / Nimar only"],
-a:0,e:"माच मालवा क्षेत्र की प्रमुख लोकनाट्य परंपरा है। इसमें गायन, संवाद, संगीत और नाटकीय प्रस्तुति का समावेश होता है।"
-},
-{
-q:"राई लोकनृत्य का प्रमुख संबंध मध्य प्रदेश के किस क्षेत्र से है? / Rai folk dance is primarily associated with which region of Madhya Pradesh?",
-o:["बुंदेलखंड / Bundelkhand","मालवा / Malwa","निमाड़ / Nimar","बघेलखंड בלבד / Baghelkhand only"],
-a:0,e:"राई नृत्य बुंदेलखंड की प्रसिद्ध लोकनृत्य शैली है। इसकी प्रस्तुति में लय, घूमरदार गतियाँ और लोकसंगीत महत्वपूर्ण हैं।"
-},
-{
-q:"बाघ प्रिंटिंग परंपरा किस जिले से विशेष रूप से संबंधित है? / Bagh printing is especially associated with which district?",
-o:["धार / Dhar","मंडला / Mandla","भिंड / Bhind","सिंगरौली / Singrauli"],
-a:0,e:"बाघ प्रिंट धार जिले के बाघ क्षेत्र की पारंपरिक ब्लॉक-प्रिंटिंग कला है। इसमें प्राकृतिक रंगों और लकड़ी के ब्लॉकों का उपयोग होता है।"
-},
-{
-q:"गोंड चित्रकला में सामान्यतः किस विशेषता पर जोर दिया जाता है? / Which feature is commonly emphasized in Gond painting?",
-o:["बिंदुओं और रेखाओं से भरी आकृतियाँ / Forms filled with dots and lines","केवल संगमरमर जड़ाई / Marble inlay only","धातु की नक्काशी / Metal engraving","काँच की मोज़ेक कला / Glass mosaic"],
-a:0,e:"गोंड चित्रकला में प्रकृति, जीव-जंतु और लोकविश्वास प्रमुख विषय हैं। आकृतियों को बिंदुओं, रेखाओं और पैटर्न से सजाया जाता है।"
-},
-{
-q:"संजा कला का संबंध मुख्यतः किससे है? / Sanja art is mainly associated with what?",
-o:["दीवारों पर गोबर से बनाए जाने वाले पारंपरिक चित्र / Traditional wall designs made with cow dung","पत्थर की मूर्ति ढलाई / Stone statue casting","रेशम बुनाई / Silk weaving","धातु के सिक्के बनाना / Coin minting"],
-a:0,e:"संजा मध्य प्रदेश के कुछ क्षेत्रों में विशेषकर श्राद्ध पक्ष में दीवारों पर गोबर और सजावटी सामग्री से आकृतियाँ बनाने की परंपरा है।"
-},
-{
-q:"टंट्या भील किस रूप में प्रसिद्ध हैं? / Tantya Bhil is remembered primarily as what?",
-o:["आदिवासी स्वतंत्रता सेनानी / Tribal freedom fighter","परमार राजा / Paramara king","मुगल सेनापति / Mughal commander","ब्रिटिश प्रशासक / British administrator"],
-a:0,e:"टंट्या भील औपनिवेशिक शासन के विरुद्ध संघर्ष करने वाले प्रसिद्ध आदिवासी नायक थे। लोकस्मृति में उन्हें प्रतिरोध और साहस के प्रतीक के रूप में याद किया जाता है।"
-},
-{
-q:"भीमा नायक का संबंध किस ऐतिहासिक संघर्ष से था? / Bhima Nayak was associated with which historical struggle?",
-o:["1857 के विद्रोह और आदिवासी प्रतिरोध / Revolt of 1857 and tribal resistance","असहयोग आंदोलन בלבד / Non-Cooperation Movement only","स्वदेशी आंदोलन का बंगाल चरण / Bengal phase of Swadeshi","चंपारण सत्याग्रह / Champaran Satyagraha"],
-a:0,e:"भीमा नायक निमाड़ क्षेत्र के आदिवासी स्वतंत्रता सेनानी थे। उन्होंने 1857 के विद्रोह के दौर में ब्रिटिश सत्ता के विरुद्ध संघर्ष किया।"
-},
-{
-q:"नर्मदा नदी का उद्गम कहाँ है? / Where does the Narmada River originate?",
-o:["अमरकंटक / Amarkantak","मुलताई / Multai","जनापाव / Janapav","पचमढ़ी / Pachmarhi"],
-a:0,e:"नर्मदा नदी का उद्गम मैकल पर्वत क्षेत्र में अमरकंटक से होता है। यह पश्चिम की ओर बहकर अरब सागर में गिरती है।"
-},
-{
-q:"ताप्ती नदी का उद्गम मध्य प्रदेश के किस स्थान के निकट है? / Near which place in Madhya Pradesh does the Tapti River originate?",
-o:["मुलताई / Multai","अमरकंटक / Amarkantak","महू / Mhow","शिवपुरी / Shivpuri"],
-a:0,e:"ताप्ती नदी का उद्गम बैतूल जिले के मुलताई के निकट सतपुड़ा क्षेत्र में होता है। यह पश्चिम की ओर बहती है।"
-},
-{
-q:"नर्मदा घाटी का भू-आकृतिक स्वरूप मुख्यतः किससे संबंधित है? / The geomorphology of the Narmada valley is mainly associated with what?",
-o:["भ्रंश घाटी / Rift valley","हिमानी घाटी / Glacial valley","डेल्टा मैदान / Delta plain","कार्स्ट गुफा क्षेत्र / Karst cave region"],
-a:0,e:"नर्मदा घाटी एक प्रमुख भ्रंश घाटी है। नदी विंध्य और सतपुड़ा पर्वतीय क्षेत्रों के बीच पश्चिम दिशा में बहती है।"
-},
-{
-q:"मध्य प्रदेश के मालवा पठार में सामान्यतः किस प्रकार की मिट्टी प्रमुख है? / Which soil type is common in the Malwa Plateau?",
-o:["काली मिट्टी / Black soil","लैटेराइट मिट्टी / Laterite soil","टुंड्रा मिट्टी / Tundra soil","पीट मिट्टी / Peat soil"],
-a:0,e:"मालवा पठार के विस्तृत भागों में बेसाल्टिक चट्टानों के अपक्षय से विकसित काली मिट्टी मिलती है, जो कपास और सोयाबीन के लिए उपयोगी है।"
-},
-{
-q:"चंबल क्षेत्र की बीहड़ भूमि के निर्माण में प्रमुख प्रक्रिया कौन-सी है? / Which process is chiefly responsible for the ravines of the Chambal region?",
-o:["अवसादी अपरदन और गली अपरदन / Fluvial and gully erosion","हिमानी निक्षेप / Glacial deposition","ज्वालामुखीय उद्गार / Volcanic eruption","समुद्री लहरों का अपरदन / Marine wave erosion"],
-a:0,e:"चंबल क्षेत्र में तीव्र बहते पानी से गली अपरदन होता है। इससे गहरी, शाखित बीहड़ संरचनाएँ विकसित होती हैं।"
-},
-{
-q:"पन्ना क्षेत्र ऐतिहासिक रूप से किस खनिज के लिए प्रसिद्ध है? / The Panna region is historically famous for which mineral?",
-o:["हीरा / Diamond","तांबा / Copper","लौह अयस्क / Iron ore","अभ्रक / Mica"],
-a:0,e:"पन्ना क्षेत्र हीरे के भंडार और खनन के लिए प्रसिद्ध है। यह मध्य प्रदेश की खनिज संपदा का विशिष्ट भाग है।"
-},
-{
-q:"गांधी सागर बाँध किस नदी पर बना है? / Gandhi Sagar Dam is built on which river?",
-o:["चंबल / Chambal","बेतवा / Betwa","तवा / Tawa","सोन / Son"],
-a:0,e:"गांधी सागर बाँध चंबल नदी पर मंदसौर क्षेत्र के निकट स्थित है और चंबल घाटी परियोजना का महत्वपूर्ण हिस्सा है।"
-},
-{
-q:"तवा बाँध किस नदी पर स्थित है? / Tawa Dam is located on which river?",
-o:["तवा / Tawa","कालीसिंध / Kalisindh","क्षिप्रा / Shipra","केन / Ken"],
-a:0,e:"तवा बाँध तवा नदी पर नर्मदापुरम क्षेत्र में स्थित है। तवा नदी आगे चलकर नर्मदा में मिलती है।"
-},
-{
-q:"कूनो राष्ट्रीय उद्यान किस जिले में स्थित है? / Kuno National Park is located in which district?",
-o:["श्योपुर / Sheopur","उमरिया / Umaria","मंडला / Mandla","सिवनी / Seoni"],
-a:0,e:"कूनो राष्ट्रीय उद्यान श्योपुर जिले में स्थित है। यह भारत में चीता पुनर्स्थापन कार्यक्रम के प्रमुख स्थलों में से एक है।"
-},
-{
-q:"कान्हा राष्ट्रीय उद्यान विशेष रूप से किस संरक्षण के लिए प्रसिद्ध है? / Kanha National Park is especially known for conserving which animal?",
-o:["हार्ड-ग्राउंड बारहसिंगा / Hard-ground barasingha","एशियाई सिंह / Asiatic lion","एक सींग वाला गैंडा / One-horned rhinoceros","जंगली ऊँट / Wild camel"],
-a:0,e:"कान्हा में हार्ड-ग्राउंड बारहसिंगा के संरक्षण को विशेष सफलता मिली है। यह बाघ संरक्षण के लिए भी प्रसिद्ध है।"
-},
-{
-q:"बैगा जनजाति का पारंपरिक निवास मध्य प्रदेश के किस व्यापक क्षेत्र से विशेष रूप से जुड़ा है? / The Baiga community is especially associated with which broad region of Madhya Pradesh?",
-o:["मंडला-डिंडोरी क्षेत्र / Mandla-Dindori region","मालवा का पश्चिमी भाग / Western Malwa","चंबल का उत्तरी भाग / Northern Chambal","बुंदेलखंड का मध्य भाग / Central Bundelkhand"],
-a:0,e:"बैगा समुदाय की बड़ी आबादी मंडला, डिंडोरी और आसपास के वन क्षेत्रों से जुड़ी है। उनकी पारंपरिक आजीविका और सांस्कृतिक प्रथाएँ वन पर्यावरण से संबंधित रही हैं।"
-},
-{
-q:"कोरकू जनजाति की उल्लेखनीय आबादी मध्य प्रदेश के किस क्षेत्र में मिलती है? / A notable Korku population is found in which region of Madhya Pradesh?",
-o:["सतपुड़ा क्षेत्र, विशेषकर बैतूल-खंडवा / Satpura region, especially Betul-Khandwa","चंबल का बीहड़ क्षेत्र / Chambal ravines","ग्वालियर का शहरी क्षेत्र / Urban Gwalior","बघेलखंड का पूर्वी छोर / Eastern Baghelkhand"],
-a:0,e:"कोरकू जनजाति का महत्वपूर्ण निवास सतपुड़ा क्षेत्र, विशेषकर बैतूल और खंडवा के आसपास है।"
-},
-{
-q:"मध्य प्रदेश में सोयाबीन की खेती के विस्तार के लिए कौन-सा क्षेत्र विशेष रूप से जाना जाता है? / Which region is especially known for soybean cultivation in Madhya Pradesh?",
-o:["मालवा / Malwa","बघेलखंड का पठारी पूर्वी भाग / Eastern Baghelkhand plateau","चंबल की बीहड़ भूमि / Chambal ravines","पचमढ़ी का उच्च पर्वतीय भाग / High hills of Pachmarhi"],
-a:0,e:"मालवा की काली मिट्टी और मानसूनी परिस्थितियाँ सोयाबीन उत्पादन के लिए अनुकूल हैं। राज्य देश के प्रमुख सोयाबीन उत्पादक क्षेत्रों में शामिल है।"
-},
-{
-q:"ओंकारेश्वर ज्योतिर्लिंग किस नदी के तट पर स्थित है? / Omkareshwar Jyotirlinga is situated on the bank of which river?",
-o:["नर्मदा / Narmada","चंबल / Chambal","ताप्ती / Tapti","बेतवा / Betwa"],
-a:0,e:"ओंकारेश्वर नर्मदा नदी के एक द्वीप क्षेत्र में स्थित प्रमुख तीर्थ है और बारह ज्योतिर्लिंगों में गिना जाता है।"
-},
-{
-q:"सोनागिरि जैन तीर्थ किस जिले में स्थित है? / Sonagiri Jain pilgrimage site is located in which district?",
-o:["दतिया / Datia","सतना / Satna","रतलाम / Ratlam","बैतूल / Betul"],
-a:0,e:"सोनागिरि दतिया जिले का प्रसिद्ध जैन तीर्थ है। यहाँ पहाड़ी पर अनेक जैन मंदिर स्थित हैं।"
-},
-{
-q:"बावनगजा जैन तीर्थ किस जिले से संबंधित है? / Bawangaja Jain pilgrimage site is associated with which district?",
-o:["बड़वानी / Barwani","छतरपुर / Chhatarpur","कटनी / Katni","मुरैना / Morena"],
-a:0,e:"बावनगजा बड़वानी जिले में स्थित प्रसिद्ध जैन तीर्थ है। यह विशाल आदिनाथ प्रतिमा के लिए जाना जाता है।"
-},
-{
-q:"मितावली का चौसठ योगिनी मंदिर किस जिले में स्थित है? / The Chausath Yogini Temple at Mitawali is in which district?",
-o:["मुरैना / Morena","मंदसौर / Mandsaur","सिवनी / Seoni","हरदा / Harda"],
-a:0,e:"मितावली का गोलाकार चौसठ योगिनी मंदिर मुरैना जिले में स्थित है। इसकी स्थापत्य योजना प्राचीन मंदिर वास्तुकला का उल्लेखनीय उदाहरण है।"
-},
-{
-q:"खजुराहो के मंदिर किस प्रकार की स्थापत्य शैली का प्रमुख उदाहरण हैं? / The Khajuraho temples are major examples of which architectural style?",
-o:["नागर शैली / Nagara style","द्रविड़ शैली / Dravida style","वेसर शैली का शुद्ध दक्षिणी रूप / Pure southern Vesara form","इंडो-सरैसेनिक / Indo-Saracenic"],
-a:0,e:"खजुराहो के मंदिर उत्तर भारतीय नागर शैली के उत्कृष्ट उदाहरण हैं। इनके शिखर, मंडप और मूर्तिकला विशेष रूप से उल्लेखनीय हैं।"
-},
-{
-q:"भीमबेटका के शैलचित्र मुख्यतः किस प्रकार के साक्ष्य प्रदान करते हैं? / The Bhimbetka rock paintings primarily provide evidence of what?",
-o:["प्रागैतिहासिक जीवन और सांस्कृतिक गतिविधियाँ / Prehistoric life and cultural activities","केवल गुप्तकालीन कर व्यवस्था / Gupta taxation only","मुगल दरबारी संगीत / Mughal court music","औपनिवेशिक रेल व्यवस्था / Colonial railway system"],
-a:0,e:"भीमबेटका की चित्रकला शिकार, नृत्य, पशुओं और सामुदायिक जीवन जैसी गतिविधियों के साक्ष्य देती है। सभी चित्र एक ही काल के नहीं हैं।"
-},
-{
-q:"मध्य प्रदेश की जीवनरेखा कहे जाने वाली नर्मदा नदी किस दिशा में बहती है? / In which direction does the Narmada, often called the lifeline of Madhya Pradesh, flow?",
-o:["मुख्यतः पश्चिम की ओर / Mainly westward","मुख्यतः पूर्व की ओर / Mainly eastward","उत्तर की ओर / Northward","दक्षिण की ओर / Southward"],
-a:0,e:"नर्मदा नदी मध्य भारत से पश्चिम की ओर बहती हुई गुजरात के रास्ते अरब सागर में गिरती है।"
-},
-{
-q:"मध्य प्रदेश का राज्य पशु कौन-सा है? / What is the state animal of Madhya Pradesh?",
-o:["बारहसिंगा / Barasingha","बाघ / Tiger","नीलगाय / Nilgai","काला हिरण / Blackbuck"],
-a:0,e:"मध्य प्रदेश का राज्य पशु बारहसिंगा है। बाघ राज्य का राज्य पशु नहीं, बल्कि राष्ट्रीय स्तर पर महत्वपूर्ण संरक्षित वन्यजीव है।"
-},
-{
-q:"मध्य प्रदेश का राज्य पक्षी कौन-सा है? / What is the state bird of Madhya Pradesh?",
-o:["दूधराज / Asian paradise flycatcher","मोर / Peacock","सारस / Sarus crane","तोता / Parrot"],
-a:0,e:"मध्य प्रदेश का राज्य पक्षी दूधराज है, जिसे अंग्रेज़ी में Asian paradise flycatcher कहा जाता है।"
-},
-{
-q:"मध्य प्रदेश का राज्य वृक्ष कौन-सा है? / What is the state tree of Madhya Pradesh?",
-o:["बरगद / Banyan","सागौन / Teak","नीम / Neem","पीपल / Peepal"],
-a:0,e:"बरगद मध्य प्रदेश का राज्य वृक्ष है। इसके विस्तृत फैलाव और शाखाओं से निकलने वाली जड़ों के कारण यह विशेष पहचान रखता है।"
-},
-{
-q:"मध्य प्रदेश में हीरा उत्पादन के लिए प्रसिद्ध पन्ना क्षेत्र किस भौगोलिक भाग में आता है? / The diamond-producing Panna region belongs to which broad physiographic region?",
-o:["बुंदेलखंड क्षेत्र / Bundelkhand region","मालवा पठार / Malwa Plateau","निमाड़ मैदान / Nimar plain","सतपुड़ा का दक्षिणी भाग / Southern Satpura"],
-a:0,e:"पन्ना मध्य प्रदेश के बुंदेलखंड क्षेत्र से संबंधित है और हीरे की खदानों के लिए प्रसिद्ध है।"
-},
-{
-q:"मध्य प्रदेश की विधानसभा की सीटों की कुल संख्या कितनी है? / What is the total number of seats in the Madhya Pradesh Legislative Assembly?",
-o:["230","200","250","250 से अधिक / More than 250"],
-a:0,e:"मध्य प्रदेश विधानसभा में कुल 230 निर्वाचित सीटें हैं। चुनाव और संवैधानिक संरचना से जुड़े प्रश्नों में वर्तमान आधिकारिक आँकड़े देखना उपयोगी है।"
-}
-];
+const questions = [{"q": "भीमबेटका के शैलाश्रयों के अध्ययन में चित्रों के अतिरिक्त कौन-सा प्रमाण मानव-जीवन के कालक्रम को समझने में सहायक है? / Besides paintings, what evidence helps establish the chronology of life at Bhimbetka?", "o": ["केवल आधुनिक लोकगीत / Modern folk songs alone", "स्तरित पुरातात्त्विक जमाव और औजार / Stratified deposits and tools", "मुगलकालीन फरमान / Mughal farmans", "औपनिवेशिक जनगणना / Colonial census"], "a": 1, "e": "स्तरित जमाव, पत्थर के औजार और अन्य पुरातात्त्विक सामग्री विभिन्न मानव-आवास चरणों को समझने में मदद करते हैं।"}, {"q": "नर्मदा घाटी में आदिम मानव के अध्ययन के लिए जीवाश्म और पुरापाषाण औजारों को साथ पढ़ने का मुख्य लाभ क्या है? / What is the main benefit of studying fossils alongside Palaeolithic tools in the Narmada valley?", "o": ["लिखित कानून मिल जाते हैं / Written laws are recovered", "राजवंशों की वंशावली निश्चित हो जाती है / They conclusively establish dynastic genealogies", "सभी औजार एक ही काल के सिद्ध होते हैं / All tools are proved to be from one period", "मानव-पर्यावरण और कालक्रम के बारे में संयुक्त संकेत मिलते हैं / They provide combined clues about human-environment relations and chronology"], "a": 3, "e": "जीवाश्म और औजार अलग प्रकार के साक्ष्य हैं; उनका संदर्भ सहित अध्ययन पर्यावरण और मानव गतिविधियों को समझने में मदद करता है।"}, {"q": "कायथा संस्कृति को मध्य भारत के पुरातत्त्व में मुख्यतः किस चरण से जोड़ा जाता है? / The Kayatha culture is mainly associated with which archaeological phase in central India?", "o": ["ताम्रपाषाण / Chalcolithic", "औपनिवेशिक / Colonial", "आधुनिक औद्योगिक / Modern industrial", "उत्तर-मध्यकालीन / Late medieval"], "a": 0, "e": "कायथा, उज्जैन क्षेत्र के निकट, मध्य भारत की ताम्रपाषाण संस्कृति के अध्ययन का प्रमुख स्थल है।"}, {"q": "नवदाटोली में प्राप्त ताम्रपाषाण सामग्री से किस प्रकार की अर्थव्यवस्था के संकेतों का अध्ययन किया जा सकता है? / What aspects of economy can be studied from Chalcolithic material at Navdatoli?", "o": ["केवल समुद्री साम्राज्य / Maritime empire only", "मुद्रण उद्योग / Printing industry", "कृषि, पशुपालन, शिल्प और स्थानीय विनिमय / Farming, herding, crafts and local exchange", "रेलवे नेटवर्क / Railway network"], "a": 2, "e": "आवास, औजार, मृद्भांड और जैव-अवशेष जैसे साक्ष्य आजीविका और विनिमय के बारे में संकेत देते हैं।"}, {"q": "मालवा की ताम्रपाषाण संस्कृतियों में मृद्भांडों की शैली की तुलना क्यों उपयोगी है? / Why is comparing pottery styles useful for Malwa's Chalcolithic cultures?", "o": ["लिखित संविधान पुनर्निर्मित करने में / To reconstruct a written constitution", "सांस्कृतिक संपर्क और कालगत भिन्नता पहचानने में / To identify cultural interaction and chronological differences", "राजाओं के नाम सीधे पढ़ने में / To read kings' names directly", "वर्षा की सटीक मात्रा निकालने में / To calculate exact rainfall"], "a": 1, "e": "मृद्भांडों की बनावट, तकनीक और सजावट से सांस्कृतिक संबंधों तथा कालक्रम के बारे में संकेत मिलते हैं।"}, {"q": "प्राचीन अवंति की उत्तरी और दक्षिणी शाखाओं की चर्चा में उज्जयिनी का महत्त्व किससे जुड़ता है? / In discussions of northern and southern Avanti, what explains Ujjayini's importance?", "o": ["यह चोलों का समुद्री बंदरगाह था / It was a Chola seaport", "यह दिल्ली सल्तनत की पहली राजधानी थी / It was the first capital of the Delhi Sultanate", "यह अशोक का जन्मस्थान था / It was Ashoka's birthplace", "यह अवंति का प्रमुख राजनीतिक और व्यापारिक केंद्र था / It was a major political and commercial centre of Avanti"], "a": 3, "e": "उज्जयिनी प्राचीन अवंति का प्रमुख केंद्र थी और व्यापारिक मार्गों के कारण भी महत्त्वपूर्ण रही।"}, {"q": "प्राचीन भारत के महाजनपद काल में अवंति की स्थिति को समझने के लिए कौन-सा पहलू सबसे अधिक उपयोगी है? / Which factor is most useful for understanding Avanti during the Mahajanapada period?", "o": ["मालवा और नर्मदा क्षेत्र में उसकी भौगोलिक स्थिति तथा मार्ग-संपर्क / Its location in Malwa-Narmada and route connections", "केवल आधुनिक राज्य की सीमा / Modern state boundaries alone", "औपनिवेशिक रेल समय-सारणी / Colonial railway timetable", "समुद्री द्वीपों पर नियंत्रण / Control over oceanic islands"], "a": 0, "e": "अवंति की स्थिति उत्तर-दक्षिण संपर्क और मालवा के संसाधन-क्षेत्रों से जुड़ी थी।"}, {"q": "उज्जैन के प्राचीन व्यापारिक महत्त्व का आकलन करते समय सिक्कों के साथ कौन-सा साक्ष्य विशेष उपयोगी होगा? / Alongside coins, what evidence is especially useful for assessing ancient Ujjain's trade?", "o": ["समकालीन सोशल मीडिया / Contemporary social media", "केवल आधुनिक सड़क संकेत / Modern road signs", "आयातित वस्तुएँ, मृद्भांड और व्यापारिक मार्गों के संकेत / Imported objects, pottery and evidence of trade routes", "मध्यकालीन चित्रकला ही / Medieval paintings only"], "a": 2, "e": "सिक्के, वस्तुएँ और पुरातात्त्विक संदर्भ मिलकर व्यापारिक संपर्कों का बेहतर चित्र देते हैं।"}, {"q": "मालवा क्षेत्र में आहत सिक्कों का अध्ययन किस प्रश्न के उत्तर में सहायक हो सकता है? / What question can the study of punch-marked coins in Malwa help answer?", "o": ["रेलवे का निर्माण-वर्ष / Railway construction year", "प्रारंभिक विनिमय, मुद्रा-प्रचलन और आर्थिक संपर्क / Early exchange, currency circulation and economic links", "औपनिवेशिक वन कानून / Colonial forest laws", "आधुनिक मतदान व्यवहार / Modern voting behaviour"], "a": 1, "e": "आहत सिक्के प्रारंभिक मुद्रा-प्रणालियों और आर्थिक गतिविधियों के अध्ययन में महत्त्वपूर्ण हैं।"}, {"q": "सांची के स्तूप-विकास का अध्ययन करते समय मूल ईंट-निर्माण और बाद के पत्थर के आवरण में अंतर क्यों महत्त्वपूर्ण है? / Why does distinguishing the original brick core from later stone casing matter at Sanchi?", "o": ["यह सिद्ध करता है कि स्मारक एक ही दिन बना / It proves the monument was built in one day", "यह सभी दानदाताओं के नाम बताता है / It reveals every donor's name", "इससे जलवायु का सटीक तापमान मिलता है / It gives exact climate temperatures", "यह निर्माण के विभिन्न चरणों को पहचानने में मदद करता है / It helps identify different construction phases"], "a": 3, "e": "सांची के स्मारकों में विभिन्न चरणों के निर्माण और विस्तार को समझना उनके ऐतिहासिक विकास के लिए आवश्यक है।"}, {"q": "सांची के तोरणों पर जातक कथाओं का चित्रण किस प्रकार के ऐतिहासिक अध्ययन को संभव बनाता है? / What kind of historical study is enabled by Jataka scenes on Sanchi gateways?", "o": ["बौद्ध कथाओं, प्रतीकों और दृश्य-संस्कृति का अध्ययन / Study of Buddhist narratives, symbols and visual culture", "यूरोपीय पुनर्जागरण / European Renaissance", "केवल मध्यकालीन कर व्यवस्था / Medieval taxation only", "आधुनिक औद्योगिक उत्पादन / Modern industrial production"], "a": 0, "e": "तोरणों की कथात्मक कला बौद्ध परंपराओं और प्रारंभिक भारतीय दृश्य-संस्कृति की जानकारी देती है।"}, {"q": "सांची के अभिलेखों में दानदाताओं के उल्लेख से किस सामाजिक पहलू पर रोशनी पड़ती है? / What social aspect is illuminated by donor records at Sanchi?", "o": ["आधुनिक पंचायत चुनाव / Modern village elections", "औद्योगिक मजदूरी दर / Industrial wage rates", "धार्मिक संस्थानों के संरक्षण में विभिन्न सामाजिक समूहों की भागीदारी / Participation of varied social groups in supporting religious institutions", "केवल सम्राट की निजी आय / The emperor's private income alone"], "a": 2, "e": "दान-अभिलेखों में भिक्षु, भिक्षुणी, गृहस्थ और अन्य दानदाताओं की भागीदारी के संकेत मिलते हैं।"}, {"q": "भरहुत की रेलिंग और मूर्तिकला का तुलनात्मक अध्ययन किस बात को समझने में मदद करता है? / What can comparative study of Bharhut railings and sculpture help explain?", "o": ["मुगलकालीन चित्रकला की तकनीक / Mughal painting techniques", "प्रारंभिक बौद्ध कला के प्रतीकात्मक और कथात्मक रूप / Symbolic and narrative forms of early Buddhist art", "औपनिवेशिक बंदरगाह शुल्क / Colonial port duties", "आधुनिक संसद की संरचना / Modern parliament structure"], "a": 1, "e": "भरहुत की कला प्रारंभिक बौद्ध प्रतीकवाद और कथाओं के दृश्य निरूपण का महत्त्वपूर्ण स्रोत है।"}, {"q": "किसी प्राचीन अभिलेख में राजा की प्रशंसा को ऐतिहासिक तथ्य के रूप में पढ़ते समय कौन-सी सावधानी आवश्यक है? / What caution is needed when reading royal praise in an ancient inscription as historical fact?", "o": ["केवल आधुनिक कथा से तुलना करना / Compare only with modern fiction", "हर अतिशयोक्ति को शाब्दिक सत्य मानना / Treat every exaggeration literally", "अभिलेख को बिना पढ़े स्वीकारना / Accept it without reading", "प्रशस्ति की अलंकारिक भाषा को स्वतंत्र साक्ष्यों से मिलाना / Compare eulogistic language with independent evidence"], "a": 3, "e": "प्रशस्तियों में राजकीय वैधता के लिए अतिशयोक्ति हो सकती है; इसलिए अन्य साक्ष्यों से तुलना जरूरी है।"}, {"q": "गुप्तकालीन स्वर्ण मुद्राएँ राजनीतिक प्रतीकवाद के अध्ययन में किस कारण उपयोगी हैं? / Why are Gupta gold coins useful for studying political symbolism?", "o": ["उन पर शासक की उपाधियाँ, प्रतिमाएँ और अनुष्ठानिक संकेत मिल सकते हैं / They may show titles, ruler images and ritual motifs", "वे केवल अनाज की कीमत लिखती हैं / They record only grain prices", "उनमें कोई चित्र नहीं होता / They contain no imagery", "वे हमेशा प्रशासनिक नक्शे देते हैं / They always provide administrative maps"], "a": 0, "e": "गुप्त मुद्राओं की छवियाँ और लेख शासकीय आदर्श, उपाधियों और सत्ता-प्रदर्शन को समझने में मदद करते हैं।"}, {"q": "प्राचीन मध्य भारत में भूमि-अनुदान ताम्रपत्रों का उपयोग करते समय किस बात की जाँच जरूरी है? / What should be checked when using land-grant copper plates from ancient central India?", "o": ["केवल ताम्रपत्र का वजन / Weight of the plate alone", "आधुनिक जिले का नाम ही / Modern district name alone", "तिथि, दान-प्राप्तकर्ता, भूमि-सीमा और कर-अधिकार / Date, recipient, land boundaries and fiscal rights", "केवल लिपि का रंग / Colour of the script alone"], "a": 2, "e": "भूमि-अनुदान अभिलेखों से प्रशासन, कराधिकार और भूमि-संबंधों की जानकारी मिल सकती है, पर विवरण का संदर्भ जरूरी है।"}, {"q": "परमार शासक भोज की विद्वत्ता की परंपरा का मूल्यांकन करने में कौन-सा तरीका अधिक विश्वसनीय है? / What is a more reliable method for assessing the tradition of Paramara ruler Bhoja's scholarship?", "o": ["किसी स्रोत की तिथि न देखना / Ignore source dates", "ग्रंथ-परंपरा, अभिलेखीय साक्ष्य और बाद की किंवदंतियों को अलग-अलग परखना / Assess texts, inscriptions and later legends separately", "सभी लोकप्रिय कथाओं को समकालीन प्रमाण मानना / Treat every popular story as contemporary evidence", "केवल एक आधुनिक लेख पर निर्भर रहना / Rely on one modern article only"], "a": 1, "e": "भोज से जुड़ी विद्वत्ता की परंपरा को समझने में समकालीन साक्ष्य और बाद की स्मृतियों में अंतर करना आवश्यक है।"}, {"q": "धार के भोजशाला परिसर के इतिहास पर प्रश्नों में सबसे उचित अकादमिक दृष्टिकोण कौन-सा है? / What is the most appropriate academic approach to questions about the history of the Bhojshala complex at Dhar?", "o": ["साक्ष्य देखे बिना अंतिम निष्कर्ष / Final conclusion without examining evidence", "आधुनिक राजनीतिक नारे को स्रोत मानना / Treat modern political slogans as sources", "केवल एक पक्ष की मौखिक दलील / Oral claim from one side alone", "अभिलेख, स्थापत्य, पुरातत्त्व और विभिन्न कालों के दस्तावेजों की आलोचनात्मक तुलना / Critical comparison of inscriptions, architecture, archaeology and documents from different periods"], "a": 3, "e": "विरासत स्थलों के जटिल इतिहास को समझने के लिए बहु-विषयी और स्रोत-आधारित अध्ययन आवश्यक है।"}, {"q": "मालवा सल्तनत के इतिहास के पुनर्निर्माण में सिक्के और स्थापत्य साथ पढ़ने का लाभ क्या है? / What is the benefit of studying coins and architecture together for the Malwa Sultanate?", "o": ["राजसत्ता, आर्थिक संपर्क और सांस्कृतिक संरक्षण के अलग-अलग पहलू मिलते हैं / They reveal different aspects of rule, economic links and patronage", "दोनों से केवल मौसम का पता चलता है / Both reveal only weather", "वे लिखित स्रोतों को पूरी तरह अनावश्यक बनाते हैं / They make written sources wholly unnecessary", "वे सभी तिथियाँ स्वतः निश्चित कर देते हैं / They automatically fix all dates"], "a": 0, "e": "विभिन्न स्रोत अलग प्रश्नों के उत्तर देते हैं और साथ मिलकर ऐतिहासिक व्याख्या को मजबूत करते हैं।"}, {"q": "मध्यकालीन ग्वालियर के किले की राजनीतिक भूमिका का आकलन करते समय कौन-सा कारक सबसे निर्णायक है? / Which factor is most decisive when assessing the political role of Gwalior Fort in the medieval period?", "o": ["केवल धार्मिक मेले / Religious fairs alone", "समुद्र से निकटता / Proximity to the sea", "उसकी दुर्गम स्थिति, मार्गों पर निगरानी और शासकों के बीच नियंत्रण की प्रतिस्पर्धा / Its defensible position, route control and contest among rulers", "धान की खेती का एकाधिकार / Monopoly over rice farming"], "a": 2, "e": "ग्वालियर दुर्ग की सामरिक स्थिति ने विभिन्न राजवंशों के लिए उसे महत्त्वपूर्ण बनाया।"}, {"q": "चंदेलकालीन मंदिरों में जल-संरचनाओं और तालाबों का अध्ययन किस व्यापक विषय से जुड़ता है? / The study of water structures and tanks around Chandela temples relates to which broader theme?", "o": ["आधुनिक परमाणु ऊर्जा / Modern nuclear energy", "धार्मिक स्थापत्य, जल-प्रबंधन और बस्ती-व्यवस्था / Religious architecture, water management and settlement planning", "मुगल डाक व्यवस्था / Mughal postal system", "केवल समुद्री व्यापार / Maritime trade only"], "a": 1, "e": "मंदिर-परिसर, तालाब और जल-संरचनाएँ धार्मिक जीवन तथा स्थानीय संसाधन-प्रबंधन के संबंध दिखाती हैं।"}, {"q": "बुंदेलखंड के दुर्गों का इतिहास लिखते समय मौखिक परंपरा का उपयोग कैसे करना चाहिए? / How should oral tradition be used when writing the history of Bundelkhand forts?", "o": ["उसे बिना जाँच समकालीन सरकारी अभिलेख मानना / Treat it as a contemporary official record without checking", "उसे हमेशा पूरी तरह अस्वीकारना / Always reject it entirely", "केवल उससे निर्माण की सटीक तारीख निकालना / Derive the exact construction date from it alone", "उसे स्थानीय स्मृति का स्रोत मानकर अभिलेखीय और पुरातात्त्विक साक्ष्यों से मिलाना / Treat it as local memory and compare with epigraphic and archaeological evidence"], "a": 3, "e": "मौखिक परंपराएँ स्मृति और पहचान समझाती हैं, लेकिन तिथि और घटना की पुष्टि के लिए अन्य स्रोत भी जरूरी हैं।"}, {"q": "मराठा काल में मालवा के प्रशासनिक इतिहास को समझने के लिए कौन-सा स्रोत-समूह सबसे उपयुक्त है? / Which source set is most suitable for studying Malwa's administration in the Maratha period?", "o": ["दफ्तरी पत्र, राजस्व अभिलेख, सनदें और समकालीन वृत्तांत / Administrative correspondence, revenue records, grants and contemporary accounts", "केवल आधुनिक पर्यटक पुस्तिका / Modern tourist brochure only", "केवल प्रागैतिहासिक औजार / Prehistoric tools only", "केवल जातक कथाएँ / Jataka tales only"], "a": 0, "e": "दफ्तरी और राजस्व दस्तावेज प्रशासनिक संरचना, अधिकार और आर्थिक व्यवस्था के अध्ययन में सहायक हैं।"}, {"q": "अहिल्याबाई होलकर के सार्वजनिक निर्माण कार्यों का ऐतिहासिक मूल्यांकन किस संतुलन से होना चाहिए? / How should Ahilyabai Holkar's public works be assessed historically?", "o": ["केवल आज की इमारतों की संख्या से / By counting present-day buildings alone", "उनके शासनकाल को बिना स्रोत देखे मानकर / Without examining sources", "स्थानीय अभिलेख, निर्माण परंपरा, संरक्षण और व्यापक राजनीतिक संदर्भ को साथ रखकर / By considering local records, building traditions, conservation and wider political context", "केवल प्रशंसात्मक लोककथा से / Through praise legends alone"], "a": 2, "e": "निर्माण कार्यों को अभिलेखीय, स्थापत्य और राजनीतिक संदर्भ में रखकर देखना अधिक विश्वसनीय है।"}, {"q": "महेश्वर का ऐतिहासिक महत्त्व केवल राजकीय राजधानी होने से आगे किससे जुड़ता है? / Beyond being a political capital, what contributes to Maheshwar's historical importance?", "o": ["समुद्री नौसैनिक अड्डा / Naval base", "नर्मदा तट, धार्मिक परंपराएँ, वस्त्र-शिल्प और क्षेत्रीय संपर्क / Narmada setting, religious traditions, textile craft and regional connections", "हिमालयी व्यापार-द्वार / Himalayan trade gateway", "सिंधु घाटी की राजधानी / Indus Valley capital"], "a": 1, "e": "महेश्वर की पहचान नर्मदा तट, ऐतिहासिक संरक्षण और वस्त्र-शिल्प जैसी परंपराओं से भी जुड़ी है।"}, {"q": "रानी दुर्गावती के शासन और प्रतिरोध का अध्ययन करते समय कौन-सा प्रश्न ऐतिहासिक रूप से अधिक उपयुक्त है? / Which question is historically more appropriate when studying Rani Durgavati's rule and resistance?", "o": ["क्या एक ही स्रोत सभी प्रश्नों का उत्तर देता है? / Does one source answer everything?", "क्या सभी बाद की किंवदंतियाँ शाब्दिक रूप से सही हैं? / Are all later legends literally true?", "क्या आधुनिक सीमाएँ तब भी वही थीं? / Were modern borders identical then?", "गोंड राज्य की राजनीतिक संरचना, क्षेत्रीय संबंध और मुगल विस्तार के संदर्भ क्या थे? / What were the Gond state's political structures, regional relations and context of Mughal expansion?"], "a": 3, "e": "राजनीतिक संदर्भ और विभिन्न स्रोतों का तुलनात्मक अध्ययन व्यक्तित्व-केंद्रित कथन से अधिक स्पष्टता देता है।"}, {"q": "गोंड शासन की जल-संरचनाओं और तालाबों का अध्ययन किस प्रकार की प्रशासनिक क्षमता का संकेत दे सकता है? / What kind of administrative capacity may be indicated by studying water structures and tanks under Gond rule?", "o": ["संसाधन प्रबंधन, श्रम-संगठन और स्थानीय बसावट / Resource management, labour organisation and local settlement", "मुद्रण तकनीक / Printing technology", "विदेशी उपनिवेश / Overseas colonies", "केवल समुद्री कानून / Maritime law only"], "a": 0, "e": "जल-संरचनाएँ संसाधन प्रबंधन और सामुदायिक श्रम के संगठन के बारे में संकेत दे सकती हैं।"}, {"q": "मध्य भारत में औपनिवेशिक वन नीतियों के प्रभाव का अध्ययन किस समूह पर विशेष ध्यान देने की माँग करता है? / Which group deserves particular attention when studying the effects of colonial forest policies in central India?", "o": ["केवल समुद्री व्यापारी / Maritime merchants only", "केवल दरबारी कवि / Court poets only", "वन-आश्रित और आदिवासी समुदाय / Forest-dependent and tribal communities", "केवल विदेशी पर्यटक / Foreign tourists only"], "a": 2, "e": "वन कानूनों ने आजीविका, आवागमन और परंपरागत अधिकारों को प्रभावित किया, खासकर वन-आश्रित समुदायों को।"}, {"q": "औपनिवेशिक काल में मध्य भारत के भील आंदोलनों को समझने के लिए कौन-सा दृष्टिकोण सबसे बेहतर है? / Which approach is best for understanding Bhil movements in colonial central India?", "o": ["केवल शासकीय रिपोर्ट को निष्पक्ष मान लेना / Assuming official reports are neutral", "राजस्व, वन-नियंत्रण, स्थानीय नेतृत्व और औपनिवेशिक अभिलेखों का संयुक्त अध्ययन / Joint study of revenue, forest control, local leadership and colonial records", "उन्हें केवल अपराध की घटनाएँ मानना / Treating them only as criminal incidents", "सभी क्षेत्रीय भिन्नताओं को नज़रअंदाज़ करना / Ignoring all regional differences"], "a": 1, "e": "आंदोलनों को उनके सामाजिक-आर्थिक संदर्भ और स्रोतों के पक्षपात सहित पढ़ना चाहिए।"}, {"q": "टंट्या भील की ऐतिहासिक स्मृति का अध्ययन किस विषय को जोड़ता है? / The study of Tantya Bhil's historical memory connects which themes?", "o": ["समुद्री साम्राज्य / Maritime empire", "आधुनिक अंतरिक्ष कार्यक्रम / Modern space programme", "केवल गुप्तकालीन कला / Gupta art only", "औपनिवेशिक शासन, आदिवासी प्रतिरोध और लोकस्मृति / Colonial rule, tribal resistance and popular memory"], "a": 3, "e": "टंट्या भील की स्मृति औपनिवेशिक सत्ता के विरुद्ध प्रतिरोध और आदिवासी पहचान से जुड़ी है।"}, {"q": "मध्य भारत के किसान आंदोलनों के अध्ययन में लगान-दर के अतिरिक्त कौन-सा कारक महत्त्वपूर्ण है? / Besides rent levels, what factor is important in studying peasant movements in central India?", "o": ["भूमि-अधिकार, बेदखली, ऋण और स्थानीय सत्ता-संबंध / Land rights, eviction, debt and local power relations", "केवल मंदिरों की ऊँचाई / Temple height alone", "केवल भाषा की लिपि / Script alone", "केवल आधुनिक चुनाव-चिह्न / Modern election symbols only"], "a": 0, "e": "किसान आंदोलनों के कारणों में राजस्व के साथ भूमि-अधिकार, ऋण और सत्ता-संबंध भी शामिल हो सकते हैं।"}, {"q": "मध्य प्रदेश में राष्ट्रीय आंदोलन के इतिहास में समाचार-पत्रों की भूमिका का आकलन करते समय कौन-सी सीमा याद रखनी चाहिए? / What limitation should be remembered when assessing newspapers in MP's nationalist movement?", "o": ["केवल शीर्षक पर्याप्त होते हैं / Headlines alone are sufficient", "हर समाचार-पत्र सभी जनता की राय दर्शाता है / Every paper represents all public opinion", "सेंसरशिप, प्रसार-सीमा और संपादकीय दृष्टिकोण सामग्री को प्रभावित कर सकते हैं / Censorship, circulation limits and editorial stance can shape content", "समाचार-पत्रों में कोई पक्षपात नहीं होता / Newspapers have no bias"], "a": 2, "e": "समाचार-पत्र उपयोगी स्रोत हैं, पर उनके पाठक-वर्ग, सेंसरशिप और संपादकीय दृष्टिकोण को ध्यान में रखना चाहिए।"}, {"q": "स्वदेशी आंदोलन के दौरान स्थानीय कुटीर उद्योगों के प्रोत्साहन का राजनीतिक अर्थ क्या था? / What was the political meaning of promoting local cottage industries during Swadeshi?", "o": ["राजस्व अभिलेख समाप्त करना / Ending revenue records", "औपनिवेशिक आर्थिक निर्भरता को चुनौती और स्वावलंबन का संदेश / Challenging colonial economic dependence and promoting self-reliance", "रियासतों का विलय रोकना ही / Only preventing princely-state accession", "विदेशी वस्तुओं पर निर्भरता बढ़ाना / Increasing dependence on foreign goods"], "a": 1, "e": "स्वदेशी ने आर्थिक बहिष्कार और स्थानीय उत्पादन को राष्ट्रीय राजनीतिक प्रतिरोध से जोड़ा।"}, {"q": "किसी स्वतंत्रता सेनानी की जीवनी में स्मृति-लेख और सरकारी अभिलेख परस्पर विरोधी हों तो उचित कदम क्या है? / If memoirs and official records conflict in a freedom fighter's biography, what is appropriate?", "o": ["एक स्रोत को बिना कारण सर्वोच्च मानना / Automatically privilege one source", "विरोध को छिपाना / Hide the conflict", "केवल लोकप्रिय संस्करण चुनना / Choose the popular version only", "लेखन-काल, उद्देश्य और स्वतंत्र पुष्टियों की तुलना करना / Compare date, purpose and independent corroboration"], "a": 3, "e": "स्रोतों के उद्देश्य और संदर्भ का मूल्यांकन कर परस्पर पुष्टियों की तलाश करना इतिहासलेखन का मूल तरीका है।"}, {"q": "मध्य प्रदेश के गठन के इतिहास में 1956 का राज्य पुनर्गठन किस व्यापक प्रक्रिया का हिस्सा था? / The 1956 reorganisation that shaped Madhya Pradesh was part of which broader process?", "o": ["स्वतंत्र भारत में राज्यों की सीमाओं का पुनर्गठन / Reorganisation of state boundaries in independent India", "सिंधु सभ्यता का शहरीकरण / Urbanisation of the Indus civilisation", "मौर्य साम्राज्य का विस्तार / Expansion of the Mauryan Empire", "दिल्ली सल्तनत का उदय / Rise of the Delhi Sultanate"], "a": 0, "e": "1956 का पुनर्गठन स्वतंत्र भारत में राज्यों के पुनर्संयोजन की व्यापक प्रक्रिया का हिस्सा था।"}, {"q": "मध्य प्रदेश के गठन के बाद छत्तीसगढ़ के पृथक राज्य बनने की घटना किस वर्ष हुई? / In which year did Chhattisgarh become a separate state from Madhya Pradesh?", "o": ["1995", "2005", "2000", "1987"], "a": 2, "e": "छत्तीसगढ़ 1 नवंबर 2000 को मध्य प्रदेश से अलग राज्य बना।"}, {"q": "राज्य गठन के इतिहास में प्रशासनिक सीमा बदलने और सांस्कृतिक क्षेत्र बदलने में क्या अंतर है? / What is the difference between an administrative boundary change and a cultural-region change?", "o": ["दोनों हमेशा एक ही दिन बदलते हैं / Both always change on the same day", "प्रशासनिक सीमा कानून से बदल सकती है, जबकि सांस्कृतिक क्षेत्र सामाजिक संपर्कों से धीरे-धीरे विकसित होते हैं / Administrative borders can change by law, while cultural regions evolve through social interaction", "सांस्कृतिक क्षेत्र केवल सरकारी आदेश से बनते हैं / Cultural regions arise only by government order", "प्रशासनिक सीमा का कोई कानूनी अर्थ नहीं / Administrative borders have no legal meaning"], "a": 1, "e": "राजनीतिक सीमाएँ और सांस्कृतिक क्षेत्र एक-दूसरे से संबंधित हो सकते हैं, पर वे समान अवधारणाएँ नहीं हैं।"}, {"q": "मध्य प्रदेश के क्षेत्रीय इतिहास में बुंदेली, बघेली, मालवी और निमाड़ी बोलियों का अध्ययन किसलिए महत्त्वपूर्ण है? / Why is studying Bundeli, Bagheli, Malvi and Nimari important in regional history?", "o": ["जलाशयों की गहराई मापने के लिए / To measure reservoir depth", "केवल राजस्व कर तय करने के लिए / Only to set revenue taxes", "प्राचीन सिक्कों का वजन जानने के लिए / To determine ancient coin weights", "क्षेत्रीय पहचान, मौखिक साहित्य और सांस्कृतिक संपर्क समझने के लिए / To understand regional identity, oral literature and cultural contact"], "a": 3, "e": "बोलियाँ लोकसाहित्य, पहचान और पड़ोसी क्षेत्रों के साथ संपर्क का महत्त्वपूर्ण स्रोत हैं।"}, {"q": "किसी लोकगाथा में ऐतिहासिक व्यक्ति का उल्लेख मिले तो उसकी पुष्टि के लिए सबसे उचित तरीका क्या है? / If a historical figure appears in a folk ballad, what is the best way to verify it?", "o": ["गाथा के विभिन्न संस्करणों को अभिलेखों और समकालीन विवरणों से मिलाना / Compare versions with inscriptions and contemporary accounts", "सभी मौखिक स्रोतों को अस्वीकारना / Reject all oral sources", "केवल धुन के आधार पर तारीख तय करना / Date it from the melody alone", "गाथा को स्वतः प्रत्यक्षदर्शी प्रमाण मानना / Automatically treat it as eyewitness evidence"], "a": 0, "e": "लोकगाथा ऐतिहासिक स्मृति का स्रोत है; उसकी घटनाओं की पुष्टि स्वतंत्र साक्ष्यों से की जानी चाहिए।"}, {"q": "मध्य प्रदेश की जनजातीय संग्रहालय परंपरा का शैक्षिक महत्त्व किसमें है? / What is the educational value of tribal museum traditions in MP?", "o": ["समुदायों को एक समान दिखाना / Making all communities appear identical", "वस्तुओं का स्रोत छिपाना / Hiding object provenance", "वस्तुओं, जीवन-पद्धतियों और समुदायों की अपनी व्याख्याओं को संदर्भ सहित प्रस्तुत करना / Presenting objects, lifeways and community interpretations in context", "जीवित परंपराओं को अप्रासंगिक मानना / Treating living traditions as irrelevant"], "a": 2, "e": "संग्रहालयों में संदर्भ और समुदायों की आवाज़ शामिल करने से विविधता का अधिक जिम्मेदार प्रस्तुतीकरण होता है।"}, {"q": "किसी ऐतिहासिक स्थल पर मिले शिलालेख के पुनः उपयोग (spolia) का संकेत क्या हो सकता है? / What may indicate the reuse of an inscription as spolia at a historic site?", "o": ["आसपास आधुनिक सड़क होना / A modern road nearby", "लेखित पत्थर का बाद की दीवार या संरचना में उलटी/असंगत स्थिति में लगा होना / An inscribed stone set upside down or incongruously in a later structure", "अभिलेख का स्पष्ट मूल स्थान पर होना ही / Only its clear original placement", "स्थल पर पेड़ होना / Presence of a tree"], "a": 1, "e": "पुनः प्रयुक्त पत्थर अपनी मूल संरचना से हटकर बाद के निर्माण में लगा मिल सकता है; संदर्भ की जाँच जरूरी है।"}, {"q": "पुरातात्त्विक स्थल की खुदाई में परतों का क्रम उलट-पुलट हो जाए तो कौन-सी समस्या पैदा होती है? / What problem arises if stratigraphic layers at an archaeological site are disturbed?", "o": ["सभी वस्तुएँ एक ही काल की सिद्ध होती हैं / All objects are proved contemporary", "लिपि पढ़ना आसान हो जाता है / Scripts become easier to read", "हर वस्तु की तारीख स्वतः निश्चित हो जाती है / Every object's date becomes certain automatically", "वस्तुओं और परतों के बीच कालक्रम-संबंध कमजोर या अस्पष्ट हो जाता है / Chronological relationships between objects and layers become weaker or unclear"], "a": 3, "e": "स्तरक्रम पुरातत्त्व में संदर्भ का प्रमुख आधार है; व्यवधान होने पर काल निर्धारण अधिक कठिन हो सकता है।"}, {"q": "रेडियोकार्बन तिथि-निर्धारण किस प्रकार के नमूनों पर सामान्यतः लागू होता है? / Radiocarbon dating is generally applied to what kind of samples?", "o": ["कार्बनयुक्त जैविक अवशेष / Carbon-bearing organic remains", "लोहे की तलवार पर सीधे / Directly to an iron sword", "ग्रेनाइट की दीवार पर / To a granite wall", "मिट्टी के रंग पर / To soil colour"], "a": 0, "e": "रेडियोकार्बन विधि जैविक पदार्थ में कार्बन-14 के क्षय पर आधारित है; नमूने और संदर्भ का चयन महत्त्वपूर्ण है।"}, {"q": "प्राचीन स्थल की तिथि तय करने में सिक्के की सबसे बड़ी सीमा क्या है? / What is a major limitation of using a coin to date an archaeological site?", "o": ["सिक्के केवल आधुनिक काल में बनते हैं / Coins are made only in modern times", "सिक्के कभी तिथि संकेत नहीं देते / Coins never provide chronological clues", "सिक्का पुराने जमाव में बाद में भी पहुँच सकता है, इसलिए संदर्भ जरूरी है / A coin may enter an older deposit later, so context matters", "सिक्के हमेशा निर्माण-वर्ष लिखते हैं / Coins always state construction year"], "a": 2, "e": "सिक्के उपयोगी काल-सूचक हो सकते हैं, लेकिन उनका जमाव-संदर्भ और पुनः उपयोग ध्यान में रखना पड़ता है।"}, {"q": "प्राचीन नगर के स्थान की पहचान में नदी-मार्गों का अध्ययन क्यों उपयोगी है? / Why is studying river routes useful for identifying ancient urban locations?", "o": ["केवल मंदिरों की ऊँचाई नापने में / To measure temple height only", "जल, कृषि, परिवहन और विनिमय की संभावनाओं को समझने में / To understand water, agriculture, transport and exchange possibilities", "लिपियों का रंग तय करने में / To determine script colour", "राजवंशों के नाम सीधे जानने में / To learn dynastic names directly"], "a": 1, "e": "नदी-मार्ग बसावट, संसाधन और संपर्क को प्रभावित करते हैं, हालांकि अकेले वे किसी नगर की पहचान सिद्ध नहीं करते।"}, {"q": "किस विकल्प में पुरातात्त्विक और साहित्यिक स्रोतों के उपयोग का सही सिद्धांत है? / Which option states a sound principle for using archaeological and literary sources?", "o": ["साहित्य को हमेशा पुरातत्त्व से श्रेष्ठ मानना / Always privilege literature over archaeology", "पुरातत्त्व से हर विचार स्वतः सिद्ध मानना / Assume archaeology proves every idea automatically", "असहमति वाले स्रोत हटाना / Remove conflicting sources", "दोनों को उनके संदर्भ, तिथि और सीमाओं के साथ परस्पर जाँचना / Cross-check both in light of context, date and limitations"], "a": 3, "e": "स्रोतों का आलोचनात्मक मिलान इतिहास की विश्वसनीय व्याख्या का आधार है।"}, {"q": "यदि दो अभिलेख एक ही शासक के लिए अलग उपाधियाँ देते हैं, तो सबसे उचित निष्कर्ष क्या होगा? / If two inscriptions use different titles for the same ruler, what is the most appropriate conclusion?", "o": ["काल, क्षेत्र, उद्देश्य और लेखन-परंपरा की तुलना करनी चाहिए / Compare date, region, purpose and epigraphic convention", "दो अलग शासक होना निश्चित है / They must be two different rulers", "एक अभिलेख अवश्य नकली है / One inscription must be fake", "उपाधियाँ इतिहास में महत्त्वहीन हैं / Titles are irrelevant to history"], "a": 0, "e": "उपाधियों में भिन्नता संदर्भगत हो सकती है; निष्कर्ष से पहले दोनों लेखों की परिस्थितियाँ जाँचना चाहिए।"}, {"q": "मध्य प्रदेश की सांस्कृतिक विरासत के संरक्षण में स्थानीय समुदायों की भागीदारी क्यों महत्त्वपूर्ण है? / Why is local community participation important in heritage conservation in MP?", "o": ["इससे हर विवाद स्वतः समाप्त हो जाता है / It automatically ends every dispute", "यह केवल पर्यटन विज्ञापन के लिए है / It is only for tourism advertising", "यह जीवित परंपराओं, उपयोग और स्थानीय ज्ञान को संरक्षण निर्णयों से जोड़ती है / It connects living traditions, use and local knowledge to conservation decisions", "इससे वैज्ञानिक सर्वेक्षण अनावश्यक हो जाता है / It makes scientific surveys unnecessary"], "a": 2, "e": "स्थानीय भागीदारी संरक्षण को अधिक संदर्भ-संवेदनशील बनाती है, हालांकि तकनीकी अध्ययन और कानूनी प्रक्रिया भी जरूरी हैं।"}, {"q": "किसी ऐतिहासिक इमारत के संरक्षण में 'न्यूनतम हस्तक्षेप' का सिद्धांत क्या सुझाता है? / What does the principle of minimal intervention suggest in conserving a historic building?", "o": ["पूरी पुरानी इमारत हटाकर नई बनाना / Replace the entire old building with a new one", "संरचना बचाने के लिए आवश्यक और प्रमाण-आधारित बदलाव ही करना / Make only necessary, evidence-based changes to protect the structure", "हर सतह को नया रंग देना / Repaint every surface", "मूल सामग्री का रिकॉर्ड न रखना / Avoid recording original materials"], "a": 1, "e": "न्यूनतम हस्तक्षेप मूल सामग्री और ऐतिहासिक प्रमाण को यथासंभव सुरक्षित रखने पर बल देता है।"}, {"q": "मध्य प्रदेश के इतिहास के प्रश्न में किसी स्थल का नाम दो अलग स्थानों के लिए प्रयुक्त हो तो क्या करना चाहिए? / If a place-name in MP history refers to two different locations, what should be done?", "o": ["नाम की समानता को पर्याप्त प्रमाण मानना / Treat similar names as sufficient proof", "पहले मिले स्थान को सही मान लेना / Accept the first location found", "भूगोल को अनदेखा करना / Ignore geography", "काल, नदी/भूगोल, स्रोत और वैकल्पिक नामों से पहचान की पुष्टि करना / Confirm identity using period, geography, sources and variant names"], "a": 3, "e": "स्थान-नामों में समानता या बदलाव हो सकते हैं; पहचान के लिए कई स्वतंत्र संकेतों की जरूरत होती है।"}];
+let submitted=false;
+let remaining=3600;
+let timerId=null;
 
-const container = document.getElementById("questions");
-
-questions.forEach((item,i)=>{
+function renderQuiz(){
+ const root=document.getElementById("quiz");
+ root.innerHTML="";
+ questions.forEach((q,i)=>{
   const card=document.createElement("section");
   card.className="question";
-  card.id="q"+i;
-
-  const heading=document.createElement("h3");
-  heading.textContent=(i+1)+". "+item.q;
-  card.appendChild(heading);
-
-  const options=document.createElement("div");
-  options.className="options";
-
-  item.o.forEach((option,j)=>{
-    const label=document.createElement("label");
-    label.className="option";
-    label.id="q"+i+"o"+j;
-
-    const radio=document.createElement("input");
-    radio.type="radio";
-    radio.name="q"+i;
-    radio.value=j;
-
-    const span=document.createElement("span");
-    span.textContent=String.fromCharCode(65+j)+". "+option;
-
-    label.appendChild(radio);
-    label.appendChild(span);
-    options.appendChild(label);
+  card.id="qcard"+i;
+  let html=`<div class="qtitle">Q${i+1}. ${q.q}</div>`;
+  q.o.forEach((option,j)=>{
+   html+=`<label class="option" id="opt${i}_${j}">
+    <input type="radio" name="q${i}" value="${j}">
+    <b>${String.fromCharCode(65+j)}.</b> ${option}
+   </label>`;
   });
+  html+=`<div class="explanation" id="exp${i}">
+   <b>सही उत्तर / Correct Answer:</b> ${String.fromCharCode(65+q.a)}. ${q.o[q.a]}
+   <br><b>व्याख्या / Explanation:</b> ${q.e}
+  </div>`;
+  card.innerHTML=html;
+  root.appendChild(card);
+ });
+}
 
-  card.appendChild(options);
-
-  const explanation=document.createElement("div");
-  explanation.className="explanation";
-  explanation.id="exp"+i;
-  card.appendChild(explanation);
-
-  container.appendChild(card);
-});
-
-let remaining=60*60;
-let finished=false;
-
-function updateTimer(){
-  if(finished)return;
-  const min=Math.floor(remaining/60);
-  const sec=remaining%60;
-  document.getElementById("timer").textContent=
-    String(min).padStart(2,"0")+":"+String(sec).padStart(2,"0");
-
-  if(remaining<=0){
-    submitTest(true);
-    return;
-  }
+function submitTest(auto=false){
+ if(submitted)return;
+ submitted=true;
+ clearInterval(timerId);
+ let correct=0,attempted=0;
+ questions.forEach((q,i)=>{
+  const selected=document.querySelector(`input[name="q${i}"]:checked`);
+  if(selected)attempted++;
+  if(selected && Number(selected.value)===q.a)correct++;
+  q.o.forEach((_,j)=>{
+   const label=document.getElementById(`opt${i}_${j}`);
+   const input=label.querySelector("input");
+   input.disabled=true;
+   if(j===q.a)label.classList.add("correct");
+   if(selected && Number(selected.value)===j && j!==q.a)label.classList.add("wrong");
+  });
+  document.getElementById("exp"+i).style.display="block";
+ });
+ const wrong=attempted-correct;
+ const unanswered=questions.length-attempted;
+ const result=document.getElementById("result");
+ result.style.display="block";
+ result.innerHTML=`
+  <h2>${auto?"समय समाप्त / Time Up":"टेस्ट परिणाम / Test Result"}</h2>
+  <div class="score">${correct} / ${questions.length}</div>
+  <p><b>सही उत्तर / Correct:</b> ${correct}</p>
+  <p><b>गलत उत्तर / Wrong:</b> ${wrong}</p>
+  <p><b>अनुत्तरित / Unanswered:</b> ${unanswered}</p>
+  <p><b>प्रतिशत / Percentage:</b> ${(correct/questions.length*100).toFixed(2)}%</p>
+  <p>हरे रंग में सही उत्तर और लाल रंग में गलत चुना गया उत्तर दिखाया गया है। सभी व्याख्याएँ प्रश्नों के नीचे हैं।</p>`;
+ document.getElementById("submitTop").disabled=true;
+ document.getElementById("submitBottom").disabled=true;
+ result.scrollIntoView({behavior:"smooth",block:"start"});
+}
+function startTimer(){
+ timerId=setInterval(()=>{
+  if(submitted)return;
   remaining--;
+  const m=Math.floor(remaining/60),s=remaining%60;
+  document.getElementById("time").textContent=String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+  if(remaining<=0)submitTest(true);
+ },1000);
 }
-updateTimer();
-const timerInterval=setInterval(updateTimer,1000);
-
-function submitTest(autoSubmitted){
-  if(finished)return;
-  finished=true;
-  clearInterval(timerInterval);
-
-  let score=0,attempted=0;
-
-  questions.forEach((item,i)=>{
-    const chosen=document.querySelector('input[name="q'+i+'"]:checked');
-    const explanation=document.getElementById("exp"+i);
-
-    document.querySelectorAll('input[name="q'+i+'"]').forEach(input=>{
-      input.disabled=true;
-    });
-
-    if(chosen)attempted++;
-    if(chosen && Number(chosen.value)===item.a)score++;
-
-    document.getElementById("q"+i+"o"+item.a).classList.add("correct");
-
-    if(chosen && Number(chosen.value)!==item.a){
-      document.getElementById("q"+i+"o"+chosen.value).classList.add("wrong");
-    }
-
-    explanation.style.display="block";
-    explanation.innerHTML=
-      "<b>सही उत्तर / Correct Answer:</b> "+
-      String.fromCharCode(65+item.a)+". "+item.o[item.a]+
-      "<br><b>व्याख्या / Explanation:</b> "+item.e;
-  });
-
-  const unanswered=questions.length-attempted;
-  document.getElementById("result").style.display="block";
-  document.getElementById("scoreText").textContent=
-    "आपका स्कोर / Your Score: "+score+" / "+questions.length;
-
-  document.getElementById("details").textContent=
-    "Attempted: "+attempted+" | Unanswered: "+unanswered+
-    " | Incorrect: "+(attempted-score)+
-    " | Percentage: "+((score/questions.length)*100).toFixed(2)+"%";
-
-  document.getElementById("feedback").textContent=
-    autoSubmitted
-    ? "समय समाप्त होने पर टेस्ट अपने आप जमा हुआ। / Test submitted automatically when time expired."
-    : "टेस्ट सफलतापूर्वक जमा हुआ। / Test submitted successfully.";
-
-  document.getElementById("submitBtn").disabled=true;
-  document.getElementById("result").scrollIntoView({behavior:"smooth"});
+function goBack(){
+ if(history.length>1)history.back();
+ else location.href="../../../index.html";
 }
+renderQuiz();
+startTimer();
 </script>
 </body>
 </html>
